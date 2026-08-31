@@ -17,5 +17,7 @@ jobs:
         run: php site/tests/core-smoke.php
       - name: Domain behavior
         run: php site/tests/domain-test.php
+      - name: WordPress integration contract
+        run: php site/tests/integration-contract-test.php
       - name: Installer syntax and missing-secret contract
         run: bash ops/tests/install-wordpress-test.sh
