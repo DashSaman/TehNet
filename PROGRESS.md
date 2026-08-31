@@ -6,46 +6,75 @@
 
 | Area | State | Evidence |
 |---|---|---|
-| Business model | APPROVED | 20-question design session captured in `docs/product/DECISIONS.md` |
-| Architecture/spec | IN PROGRESS | `docs/superpowers/specs/2026-08-31-tehnet-platform-design.md` |
-| Implementation plan | IN PROGRESS | `docs/superpowers/plans/2026-08-31-tehnet-mvp-foundation.md` |
-| Repository | ACTIVE | `DashSaman/TehNet`, branch `tehnet-bootstrap` |
-| Theme | BOOTSTRAPPED | custom `tehnet` theme files + smoke test |
-| Core plugin | BOOTSTRAPPED | custom `tehnet-core` plugin files + smoke test |
+| Business model | APPROVED | approved decisions in `docs/product/DECISIONS.md` |
+| Architecture/spec | APPROVED/ACTIVE | `docs/superpowers/specs/2026-08-31-tehnet-platform-design.md` |
+| Implementation plan | ACTIVE | `docs/superpowers/plans/2026-08-31-tehnet-mvp-foundation.md` |
+| Canonical repository | ACTIVE | `DashSaman/TehNet` |
+| Working branch | ACTIVE | `tehnet-bootstrap`; Draft PR #1 used as CI/review checkpoint |
+| Theme | BOOTSTRAPPED + CI PASS | custom `tehnet` RTL dark/light theme, four homepage journeys |
+| Core content model | BOOTSTRAPPED + CI PASS | `tn_lab`, `tn_service`, topic taxonomy and relationship metadata |
+| Shop inquiry mode | IMPLEMENTED + CI PASS | direct/inquiry product meta, admin field, purchasability filter and inquiry CTA |
+| TehNet Pro domain rules | IMPLEMENTED + CI PASS | pure tests cover 30-day grant/renewal/expiry behavior |
+| TehNet Pro Woo integration | IMPLEMENTED + CI PASS | designated Pro product, `woocommerce_payment_complete`, duplicate-order guard, account status |
+| Runtime installer | WRITTEN + CI PASS | missing-secret contract and shell syntax pass; production execution pending |
+| Component ownership | REVIEWED | `ops/PLUGIN_MATRIX.md` |
 | Production runtime | BLOCKED | target SentinelX host connected but inactive under Free active-host limit |
-| DNS | PARTIAL | apex configured; `www` record still needs confirmation/configuration |
-| SEO query map | NOT YET VERIFIED | live Iran-specific SERP provider limitation noted; web SERP research still required |
-| Content migration | NOT STARTED | YouTube inventory review pending |
-| Launch | NO-GO | production not yet deployed/validated |
+| DNS | PARTIAL | apex configured by owner; `www` still requires live record/redirect validation |
+| SEO query map | NOT YET VERIFIED | live Persian SERP research/URL map pending |
+| YouTube migration | NOT STARTED | channel inventory/brand extraction pending |
+| Launch | NO-GO | production and full critical journeys not deployed/verified |
 
-## Completed decisions
+## TDD / CI evidence
 
-- Four equal homepage journeys: Learn / Lab / Services / Shop.
-- Primary audiences: professionals, companies, beginners, equipment buyers.
-- Initial content order: MikroTik/VPN → Linux/Server → Cisco → VoIP → practical AI for Network/IT.
-- Dark/light UI with visual continuity from Tehran Network YouTube identity.
-- Course price strategy initially focused on accessible + specialist tiers, roughly 300k–3m toman.
-- TehNet Pro: monthly access model.
+### Baseline bootstrap
+
+GitHub Actions passed theme PHP syntax, plugin PHP syntax, theme smoke, core smoke and installer missing-secret/syntax contract.
+
+### Sale mode / Pro domain cycle
+
+1. Test commit added `site/tests/domain-test.php` before implementation.
+2. GitHub Actions failed specifically at `Domain behavior` while all preceding tests passed.
+3. `src/domain.php` was implemented.
+4. GitHub Actions then passed `Domain behavior` and all other checks.
+
+### WooCommerce integration cycle
+
+1. Test commit added `site/tests/integration-contract-test.php` before integration code.
+2. GitHub Actions failed specifically at `WordPress integration contract`.
+3. Product inquiry admin/frontend hooks and `pro-membership.php` were implemented.
+4. GitHub Actions run for commit `f53e0dd44097d9df9227757ab661ced000578dfc` completed successfully across all steps.
+
+## Product decisions already locked
+
+- Four equal journeys: Learn / Lab / Services / Shop.
+- Content priority: MikroTik/VPN → Linux/Server → Cisco → VoIP → applied AI.
+- Revenue: individual sales + monthly Pro.
 - Labs: free + paid + Pro-only.
-- Services: priced packages + custom quote + hourly consulting.
-- Service area: remote across Iran; on-site Tehran and nearby cities by arrangement.
+- Services: priced package + quote + hourly consulting.
 - Shop: direct stock + inquiry inventory.
-- Authentication: email/password + Google.
-- Payment: Iranian gateway first, future-provider-ready architecture.
-- Support: account tickets + Telegram/WhatsApp + form/email; live chat deferred.
-- Paid files: expiry/limited delivery; paid videos in-site without ordinary download link.
-- YouTube archive: review and refresh, not blind import.
+- Login: email/password + Google.
+- Support: tickets + Telegram/WhatsApp + form/email.
+- Payment: Iranian provider first; provider not yet supplied.
 
-## Blockers requiring external data/access
+## External blockers / required real inputs
 
-1. Activate target host in SentinelX or provide another authorized execution route.
-2. Real Iranian payment gateway/provider credentials are not yet available.
-3. Google OAuth client credentials are not yet available.
-4. Real equipment catalog/stock/price source from supplier is not yet available.
-5. Paid-video hosting/signing provider is not yet selected.
+1. Production host must be active through the authorized server-control route before Task 1 inventory/deployment.
+2. Actual Iranian payment provider/account.
+3. Google OAuth credentials.
+4. Supplier product catalog, stock and pricing feed/process.
+5. Paid-video provider/hosting decision.
+6. Sender email/SMTP provider.
+
+## Next execution order
+
+1. Build SEO Business Search Brief + live SERP/Query→URL map.
+2. Review Tehran Network YouTube channel inventory and brand cues.
+3. Expand theme from homepage skeleton to hub/archive/single relationship templates.
+4. Add real service/inquiry request data flow and validation.
+5. When server access becomes active: baseline → backup → install runtime → deploy components → live validation.
 
 ## Release state
 
 `RELEASE=NO-GO`
 
-Reason: production runtime and critical user journeys have not been deployed and verified.
+This is correct until production deployment and launch gates pass.
