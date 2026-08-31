@@ -1,36 +1,49 @@
-# TehNet Agent Handoff
+# TehNet Handoff
 
-## Purpose
+**Updated:** 2026-08-31
 
-This file is the continuation memory for future agents working on TehNet.
+## Canonical source
 
-## Current owner state
+Repository: `DashSaman/TehNet`  
+Active branch: `tehnet-bootstrap`  
+Draft PR: #1 (CI/review checkpoint, not a launch claim)
 
-The orchestrator has completed discovery and locked the product direction.
+`DashSaman/-SEO` is an external SEO operating-system reference only. TehNet-specific work stays here.
 
-## Current architecture
+## Current verified state
 
-TehNet is not only a website. It is a business platform:
+- Product strategy and 20-question decisions captured.
+- Spec and execution plan exist in `docs/superpowers/`.
+- Custom RTL dark/light `tehnet` theme exists with four equal homepage journeys.
+- `tehnet-core` contains Lab/Service content types and content relationship metadata.
+- WooCommerce product sale mode supports `direct` and `inquiry`; inquiry products become non-purchasable and show price/availability CTA.
+- TehNet Pro is implemented as a configured WooCommerce product granting 30 days of user access on `woocommerce_payment_complete`, extending active expiry and guarding against duplicate grant for the same order.
+- CI verifies PHP syntax, theme/core smoke, pure domain rules, integration contract and installer missing-secret behavior.
+- Latest verified integration commit: `f53e0dd44097d9df9227757ab661ced000578dfc`, CI success.
+- Component ownership is recorded in `ops/PLUGIN_MATRIX.md`.
 
-- Academy: tutorials and paid courses
-- Lab: configs, scripts, diagrams and premium files
-- Services: remote and local network services
-- Shop: networking equipment and configuration services
+## Production blocker
 
-## Server target
+Target origin: `91.107.138.246`.
 
-91.107.138.246
+SentinelX host `host_pvworker_138246_20260831` is connected/healthy but inactive because the Free plan allows one active host while five are connected. Do not disconnect unrelated hosts without explicit user instruction. Production has therefore NOT been inventoried or mutated by this branch.
 
-Before changes:
-- inspect existing services
-- create backups
-- avoid destructive actions
+## DNS context
 
-## Required references
+Owner-provided Cloudflare screenshot showed apex `tehnet.ir` proxied A → `91.107.138.246`; Cloudflare recommended adding a `www` record. Canonical policy is `https://tehnet.ir`, with `www` permanently redirected after it resolves.
 
-- SEO framework: DashSaman/-SEO
-- Product decisions: PROGRESS.md
+## Next work safe without production access
 
-## Agent behavior
+1. `seo/BUSINESS_SEARCH_BRIEF.md`, `SERP_MAP.md`, `QUERY_URL_MAP.md`.
+2. YouTube `KEEP|REFRESH|DROP` inventory and brand/visual evidence.
+3. Service/inquiry request model and UI.
+4. Theme hub/single templates and relationship components.
+5. Content inventory/draft map.
 
-Continue from current state. Do not restart planning. Verify, implement, test, document.
+## Next work once server becomes active
+
+Run Task 1 exactly: read-only inventory → GREENFIELD/COEXIST classification → backup/checksum. Only then execute runtime installer and Nginx deployment. Detect the real PHP-FPM socket; never replace an existing vhost/service blindly.
+
+## Release
+
+`NO-GO` until production + critical journeys + SEO/backup validation pass.

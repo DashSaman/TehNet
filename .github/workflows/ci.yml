@@ -1,0 +1,23 @@
+name: TehNet CI
+on:
+  push:
+  pull_request:
+jobs:
+  php-and-shell:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: PHP syntax — theme
+        run: find site/wp-content/themes/tehnet -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: PHP syntax — core plugin
+        run: find site/wp-content/plugins/tehnet-core -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: Theme smoke
+        run: php site/tests/theme-smoke.php
+      - name: Core smoke
+        run: php site/tests/core-smoke.php
+      - name: Domain behavior
+        run: php site/tests/domain-test.php
+      - name: WordPress integration contract
+        run: php site/tests/integration-contract-test.php
+      - name: Installer syntax and missing-secret contract
+        run: bash ops/tests/install-wordpress-test.sh

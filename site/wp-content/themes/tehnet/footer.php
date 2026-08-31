@@ -1,0 +1,1 @@
+</main><footer class="tn-footer"><div class="tn-shell tn-footer__grid"><div><strong>TehNet</strong><p>آموزش، لَب، خدمات و تجهیزات شبکه.</p></div><nav aria-label="منوی فوتر"><?php wp_nav_menu(['theme_location'=>'footer','container'=>false,'fallback_cb'=>false,'items_wrap'=>'<ul>%3$s</ul>']); ?></nav></div></footer><?php wp_footer(); ?></body></html>

@@ -1,0 +1,1 @@
+(()=>{const r=document.documentElement,k='tehnet-theme',s=localStorage.getItem(k),p=s||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');r.dataset.theme=p;document.addEventListener('click',e=>{const b=e.target.closest('[data-theme-toggle]');if(!b)return;const n=r.dataset.theme==='dark'?'light':'dark';r.dataset.theme=n;localStorage.setItem(k,n);});})();

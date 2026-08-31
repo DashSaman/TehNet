@@ -1,0 +1,4 @@
+<?php
+if(!defined('ABSPATH'))exit;
+function tehnet_register_content_types():void{register_post_type('tn_lab',['labels'=>['name'=>__('Labها','tehnet-core'),'singular_name'=>__('Lab','tehnet-core')],'public'=>true,'show_in_rest'=>true,'has_archive'=>'labs','rewrite'=>['slug'=>'labs'],'supports'=>['title','editor','excerpt','thumbnail','author','revisions'],'menu_icon'=>'dashicons-editor-code']);register_post_type('tn_service',['labels'=>['name'=>__('خدمات','tehnet-core'),'singular_name'=>__('خدمت','tehnet-core')],'public'=>true,'show_in_rest'=>true,'has_archive'=>'services','rewrite'=>['slug'=>'services'],'supports'=>['title','editor','excerpt','thumbnail','revisions'],'menu_icon'=>'dashicons-admin-tools']);register_taxonomy('tn_topic',['post','tn_lab','tn_service'],['labels'=>['name'=>__('موضوعات TehNet','tehnet-core')],'public'=>true,'show_in_rest'=>true,'hierarchical'=>true,'rewrite'=>['slug'=>'topic']]);}
+add_action('init','tehnet_register_content_types');
