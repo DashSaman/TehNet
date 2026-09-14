@@ -14,18 +14,26 @@ Status legend: `LOCKED`, `NEXT`, `BACKLOG`, `BLOCKED`, `DONE`.
 - DONE — Gutenberg/custom blocks preferred over Elementor.
 
 ## Foundation
-- NEXT — Document live TehNet WordPress/Docker baseline in `ops/`.
-- NEXT — Define backup/recovery checklist before site implementation.
-- NEXT — Create feature-branch workflow and deployment validation checklist.
-- NEXT — Create detailed implementation plans from the approved master spec.
+- DONE — Document live TehNet WordPress/Docker baseline in `ops/`.
+- DONE — Define backup/recovery checklist before site implementation.
+- DONE — Create feature-branch workflow and deployment validation checklist.
+- DONE — Create foundation implementation plan from the approved master spec.
+- NEXT — Create WordPress bootstrap/activation implementation plan.
 
 ## Theme / admin
-- BACKLOG — TehNet RTL theme foundation.
-- BACKLOG — Blue/turquoise/white design tokens.
+- DONE — TehNet RTL theme foundation.
+- DONE — Blue/turquoise/white design tokens.
 - BACKLOG — Tehran visual motifs with restrained use.
-- BACKLOG — Central settings page for phone/address/social/logo/CTA.
-- BACKLOG — Custom Gutenberg block set.
+- DONE — Central settings page for phone/address/social/CTA foundation.
+- BACKLOG — Add centrally managed logo/media identity controls.
+- NEXT — Custom Gutenberg block set and editable homepage foundation.
 - BACKLOG — Preview optional professionalized logo variants before any logo replacement.
+
+## Deployment safety
+- DONE — Real pre-change production backup created and validated.
+- DONE — Theme/plugin deployed without changing `127.0.0.1:18082`.
+- DONE — Unrelated container/image/port topology verified unchanged during deploy.
+- NEXT — Finalize WordPress installation and activate foundation without topology changes.
 
 ## SEO / content
 - BACKLOG — TehNet query universe and SERP intent map.

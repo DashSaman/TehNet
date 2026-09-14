@@ -1,7 +1,7 @@
 # TehNet Execution Progress
 
 ## Current phase
-Product architecture locked; implementation planning and production-baseline documentation are next.
+Foundation implemented and safely deployed as files; WordPress installation/activation and page build are the next implementation phase.
 
 ## Product decisions locked
 - Brand: TehNet / تهران نتورک
@@ -23,27 +23,36 @@ Product architecture locked; implementation planning and production-baseline doc
 - SEO source of truth: DashSaman/-SEO
 
 ## Completed
-- Product discovery and business model clarified.
-- Platform approach selected over Elementor-heavy architecture.
-- Admin-manageability principle locked.
-- SEO/content topic-hub approach locked.
-- Local/remote service scope locked.
-- Commerce, account and support direction locked.
-- Master design saved to `docs/superpowers/specs/2026-09-14-tehnet-platform-design.md`.
-- `AGENTS.md`, `ROADMAP.md` and `TASKS.md` created for multi-agent continuity.
-- Production TehNet containers were observed: WordPress, MariaDB and Redis are already running; WordPress still points publicly to its installer and the site is not configured yet.
+- Product discovery, business model and master design approved.
+- Multi-agent contract, roadmap and task backlog created.
+- Production TehNet Docker/Nginx baseline documented without exposing secrets.
+- Timestamped production backup created and archive integrity validated.
+- Isolated worktree/feature branch workflow established.
+- Foundation implementation plan created.
+- Lightweight Persian RTL TehNet theme implemented with blue/turquoise/white design tokens.
+- TehNet Core plugin implemented with editable phone/address/social/CTA settings.
+- Public REST-enabled `tn_service` and `tn_lab` content models implemented.
+- Theme and plugin files deployed into the existing `tehnet-wordpress` volume.
+- Deployment verified `127.0.0.1:18082` unchanged and unrelated container/image/port topology unchanged during deployment.
+- All foundation Bash contracts and PHP lint checks pass.
+
+## Current production state
+- TehNet containers remain running on the original Docker topology.
+- `tehnet-db` remains healthy.
+- Public `https://tehnet.ir/` still redirects to `/wp-admin/install.php`; WordPress setup has not yet been finalized.
+- Theme/plugin files are present but not yet activated because WordPress installation is incomplete.
+- A separate `tunnelpannel-e2e` container appeared on the host during this work from another workflow; TehNet work did not create or modify it.
 
 ## Current work
-- Owner review of the written master specification.
-- Production baseline/backup documentation.
-- TehNet-specific SEO query architecture planning.
-- Task-sized implementation plan preparation after spec review.
+- Complete and integrate the verified foundation branch.
+- Prepare the next task-sized plan for WordPress bootstrap/activation and editable page foundation.
+- Prepare TehNet-specific SEO/query architecture before mass content creation.
 
 ## Next execution order
-1. Owner reviews the master design in the repository.
-2. Record production baseline and backup/recovery evidence under `ops/`.
-3. Produce implementation plan(s) from the approved specification.
-4. Build TehNet theme/plugin foundation.
+1. Integrate the verified `feature/tehnet-foundation` branch after owner choice.
+2. Safely finalize WordPress installation without changing host ports.
+3. Activate `tehnet` theme and `tehnet-core` plugin.
+4. Build editable Gutenberg homepage/header/footer foundations.
 5. Establish SEO/content architecture before mass page creation.
 6. Implement Services, Shop, Account and Support in controlled phases.
 7. Pass launch quality gates and begin measurement/iteration.
