@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "layout": {
+      "contentSize": "760px",
+      "wideSize": "1180px"
+    },
+    "color": {
+      "palette": [
+        {"slug": "tehnet-blue", "name": "TehNet Blue", "color": "#0b4f8a"},
+        {"slug": "tehnet-turquoise", "name": "TehNet Turquoise", "color": "#16c7c4"},
+        {"slug": "tehnet-white", "name": "White", "color": "#ffffff"},
+        {"slug": "tehnet-ink", "name": "Ink", "color": "#102231"},
+        {"slug": "tehnet-surface", "name": "Surface", "color": "#f5f9fc"}
+      ]
+    },
+    "typography": {
+      "fluid": true,
+      "fontSizes": [
+        {"slug": "small", "size": "0.9rem", "name": "Small"},
+        {"slug": "medium", "size": "1rem", "name": "Medium"},
+        {"slug": "large", "size": "1.5rem", "name": "Large"},
+        {"slug": "x-large", "size": "2.4rem", "name": "XL"}
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "#ffffff",
+      "text": "#102231"
+    },
+    "typography": {
+      "lineHeight": "1.8"
+    },
+    "elements": {
+      "link": {
+        "color": {"text": "#0b4f8a"}
+      },
+      "button": {
+        "border": {"radius": "999px"},
+        "color": {
+          "background": "#0b4f8a",
+          "text": "#ffffff"
+        },
+        "typography": {"fontWeight": "700"}
+      }
+    },
+    "blocks": {
+      "core/group": {
+        "spacing": {
+          "padding": {"top": "24px", "right": "24px", "bottom": "24px", "left": "24px"}
+        }
+      }
+    }
+  }
+}
