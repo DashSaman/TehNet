@@ -37,3 +37,12 @@ The evidence-based SEO operating system in `DashSaman/-SEO` is treated as an ext
 - `PROGRESS.md` — verified work completed and remaining
 
 See `PROGRESS.md` and `HANDOFF.md` for the live project state.
+
+## Project control
+
+- Product/architecture spec: `docs/superpowers/specs/2026-09-14-tehnet-platform-design.md`
+- Agent contract: `AGENTS.md`
+- Roadmap: `ROADMAP.md`
+- Task backlog: `TASKS.md`
+- Current status: `PROGRESS.md`
+- Continuation state: `HANDOFF.md`
