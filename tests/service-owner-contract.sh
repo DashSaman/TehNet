@@ -30,3 +30,24 @@ grep -q 'سراسر ایران' "$ROOT/content/pages/service-remote-support.html
 grep -q 'از راه دور' "$ROOT/content/pages/service-remote-support.html"
 
 echo 'SERVICE_OWNER_CONTENT_CONTRACT=PASSED'
+
+SEED="$ROOT/ops/wp-seed-foundation.sh"
+HUB="$ROOT/content/pages/services.html"
+for spec in \
+  "network-tehran|خدمات شبکه تهران|SERVICE_NETWORK_TEHRAN_ID" \
+  "network-support-tehran|پشتیبانی شبکه تهران|SERVICE_NETWORK_SUPPORT_TEHRAN_ID" \
+  "network-setup-tehran|راه‌اندازی شبکه شرکت در تهران|SERVICE_NETWORK_SETUP_TEHRAN_ID" \
+  "mikrotik-tehran|خدمات MikroTik تهران|SERVICE_MIKROTIK_TEHRAN_ID" \
+  "remote-support|پشتیبانی شبکه از راه دور|SERVICE_REMOTE_SUPPORT_ID"; do
+  IFS='|' read -r slug title var <<< "$spec"
+  grep -q "ensure_page $slug '$title'" "$SEED" || { echo "FAIL: seed missing $slug"; exit 1; }
+  grep -q "$var=" "$SEED" || { echo "FAIL: seed ID missing for $slug"; exit 1; }
+done
+[[ "$(grep -c 'post_parent="\$SERVICES_ID"' "$SEED")" -ge 5 ]] || { echo 'FAIL: five service pages must be children of Services'; exit 1; }
+for url in /services/network-tehran/ /services/network-support-tehran/ /services/network-setup-tehran/ /services/mikrotik-tehran/ /services/remote-support/; do
+  grep -qF "href=\"$url\"" "$HUB" || { echo "FAIL: services hub missing $url"; exit 1; }
+done
+grep -qF '[tehnet_phone]' "$HUB" || { echo 'FAIL: services hub needs central phone'; exit 1; }
+grep -qF '[tehnet_address]' "$HUB" || { echo 'FAIL: services hub needs central address'; exit 1; }
+
+echo 'SERVICE_OWNER_HIERARCHY_CONTRACT=PASSED'
