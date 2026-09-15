@@ -1,7 +1,7 @@
 # TehNet Agent Handoff
 
 ## Current state
-Foundation, WordPress bootstrap and Phase 2 SEO/content architecture are implemented and verified in production. The site intentionally remains non-indexable.
+Foundation, WordPress bootstrap, SEO architecture, YouTube mapping and the first MikroTik Learn hub are implemented and verified in production. The site intentionally remains non-indexable.
 
 ## Read first
 1. `AGENTS.md`
@@ -12,7 +12,10 @@ Foundation, WordPress bootstrap and Phase 2 SEO/content architecture are impleme
 6. `seo/SERP_INTENT_MAP_FA.md`
 7. `seo/INFORMATION_ARCHITECTURE_FA.md`
 8. `seo/TECHNICAL_SEO_BASELINE.md`
-9. `TASKS.md`
+9. `seo/YOUTUBE_INVENTORY_FA.md`
+10. `seo/YOUTUBE_CONTENT_MAP_FA.md`
+11. `docs/superpowers/plans/2026-09-15-tehnet-youtube-content-mapping.md`
+12. `TASKS.md`
 
 ## Verified production
 - Domain: `https://tehnet.ir`
@@ -21,8 +24,10 @@ Foundation, WordPress bootstrap and Phase 2 SEO/content architecture are impleme
 - Main top-level routes return HTTP 200, one H1 each, correct canonicals and `noindex,nofollow`.
 - `blog_public=0`; do not enable indexing yet.
 - `/wp-sitemap.xml` currently returns 404 while non-public.
-- Fresh recovery point: `/root/tehnet-backups/20260915-011313`.
+- Fresh recovery point: `/root/tehnet-backups/20260915-012653`.
 - Non-TehNet runtime fingerprint remained unchanged across SEO deployment.
+- `/learn/mikrotik/` is live and returned HTTP 200 with exactly one H1, correct canonical and `noindex,nofollow`.
+- Current public YouTube inventory contains 33 mapped videos; no thin per-video site pages were created.
 
 ## SEO architecture locked
 - `/learn/`, `/lab/`, `/services/`, `/shop/` are separate journeys.
@@ -38,7 +43,7 @@ Foundation, WordPress bootstrap and Phase 2 SEO/content architecture are impleme
 - Current `robots.txt` only disallows `/wp-admin/`; actual prelaunch index blocking is the rendered meta robots plus `blog_public=0`.
 
 ## Exact next task
-After merging this branch into `main`, create a new isolated branch for **YouTube + content mapping**. Inventory `https://www.youtube.com/@tehran.network021`, map existing videos to approved query/owner URLs, and create only content owners that have distinct intent and enough original Persian value. Keep all production indexing disabled.
+After merging this branch into `main`, create a new isolated branch/plan for **Services owner pages**. Implement the already-approved commercial owners for Tehran networking/MikroTik and nationwide Remote Support with truthful service-area claims, strong editable Gutenberg content, and no fake district/city pages. Keep all production indexing disabled.
 
 ## Safety
 Do not change port `18082`, Nginx routing, Docker project topology or unrelated services. Before each production content/code deployment, capture a fresh TehNet backup and compare the non-TehNet runtime fingerprint before/after.
