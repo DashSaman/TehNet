@@ -20,7 +20,7 @@ final class TehNet_Core_Content_Types {
             'show_in_rest' => true,
             'menu_icon' => 'dashicons-hammer',
             'supports' => ['title', 'editor', 'excerpt', 'thumbnail', 'revisions'],
-            'has_archive' => true,
+            'has_archive' => false,
             'rewrite' => ['slug' => 'services', 'with_front' => false],
         ]);
 
@@ -35,7 +35,7 @@ final class TehNet_Core_Content_Types {
             'show_in_rest' => true,
             'menu_icon' => 'dashicons-editor-code',
             'supports' => ['title', 'editor', 'excerpt', 'thumbnail', 'revisions'],
-            'has_archive' => true,
+            'has_archive' => false,
             'rewrite' => ['slug' => 'lab', 'with_front' => false],
         ]);
     }
