@@ -36,13 +36,13 @@ Status legend: `LOCKED`, `NEXT`, `BACKLOG`, `BLOCKED`, `DONE`.
 - DONE — Finalize WordPress installation and activate foundation without topology changes.
 
 ## SEO / content
-- NEXT — TehNet query universe and SERP intent map.
-- NEXT — Topic hub architecture.
-- NEXT — URL/taxonomy plan.
-- BACKLOG — Technical SEO baseline and launch gates.
+- DONE — TehNet query universe and dated SERP intent map.
+- DONE — Topic hub architecture.
+- DONE — URL/taxonomy/owner-URL plan.
+- DONE — Technical SEO baseline, route/H1/canonical/noindex regression gates.
 - BACKLOG — Search Console and conversion measurement.
-- BACKLOG — YouTube inventory and video→page mapping.
-- BACKLOG — Internal linking map Learn/Lab/Services/Shop.
+- NEXT — YouTube inventory and video→owner-URL mapping.
+- DONE — Internal linking map Learn/Lab/Services/Shop.
 - BACKLOG — LocalBusiness/NAP implementation with centralized settings.
 
 ## Services

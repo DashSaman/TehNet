@@ -1,71 +1,56 @@
 # TehNet Execution Progress
 
 ## Current phase
-WordPress bootstrap and editable Gutenberg foundation are verified in production; SEO/content architecture is next.
+Phase 2 SEO/content architecture is implemented and live-verified while production remains intentionally noindex. Next phase is YouTube/content mapping and building the first approved Learn/Services content owners.
 
 ## Product decisions locked
-- Brand: TehNet / تهران نتورک
-- Domain: https://tehnet.ir
+- Brand/domain: TehNet / تهران نتورک / `https://tehnet.ir`
 - Primary market/language: Iran / Persian
-- On-site service area: Tehran
-- Remote Support: nationwide Iran
-- Current public address: تهران، آیت‌الله کاشانی، شاهین جنوبی
-- Current public phone: 021-91018746
-- Model: Learn + Lab + Services + Shop
+- On-site services: Tehran; Remote Support: nationwide Iran
+- Current address: تهران، آیت‌الله کاشانی، شاهین جنوبی
+- Current phone: 021-91018746
+- Product model: Learn + Lab + Services + Shop
 - Stack: WordPress + WooCommerce with custom TehNet theme and TehNet Core plugin
-- Editing model: Gutenberg/custom blocks; routine changes managed from WordPress admin
-- Education: free in phase 1; paid courses may come later
-- Physical products: inquiry/manual quote because of price volatility
+- Editing: Gutenberg/custom blocks; routine changes from WordPress admin
+- Education: free in phase 1
+- Physical products: inquiry/manual quote initially
 - Digital products: download-only and licensed
-- Support: website tickets + two-way Telegram target
-- Rial payment provider: not selected yet
-- Crypto integration target: NoPayments, pending current provider verification
-- SEO source of truth: DashSaman/-SEO
+- Support target: website tickets + two-way Telegram
+- Rial gateway: intentionally undecided
+- Crypto target: NoPayments after official integration verification
+- SEO evidence framework: `DashSaman/-SEO`
 
-## Completed
-- Product discovery, business model and master design approved.
-- Multi-agent contract, roadmap and task backlog created.
-- Production TehNet Docker/Nginx baseline documented without exposing secrets.
-- Timestamped production backup created and archive integrity validated.
-- Isolated worktree/feature branch workflow established.
-- Foundation implementation plan created.
-- Lightweight Persian RTL TehNet theme implemented with blue/turquoise/white design tokens.
-- TehNet Core plugin implemented with editable phone/address/social/CTA settings.
-- Public REST-enabled `tn_service` and `tn_lab` content models implemented.
-- Theme and plugin files deployed into the existing `tehnet-wordpress` volume.
-- Deployment verified `127.0.0.1:18082` unchanged and unrelated container/image/port topology unchanged during deployment.
-- All foundation Bash contracts and PHP lint checks pass.
-- WordPress finalized at `https://tehnet.ir` with locale `fa_IR`; installer redirect removed.
-- TehNet theme and `tehnet-core` activated without changing `127.0.0.1:18082`.
-- Editable Gutenberg homepage/top-level pages and primary menu seeded idempotently.
-- Site intentionally remains `noindex,nofollow` with `robots.txt` disallow until launch gates pass.
-- Fresh pre-bootstrap recovery point: `/root/tehnet-backups/20260915-000906`.
+## Completed and verified
+- Product discovery, architecture spec, agent contract, roadmap and backlog.
+- Safe production baseline, backup/recovery policy and isolated branch/worktree workflow.
+- Persian RTL TehNet theme and `tehnet-core` settings/content-model foundation.
+- WordPress installed/configured at `tehnet.ir`, locale `fa_IR`, editable Gutenberg pages/menu seeded.
+- TehNet remains bound only to `127.0.0.1:18082`; unrelated services are protected by fingerprint checks.
+- Persian query universe and dated SERP intent map created without fabricated Iran Volume/KD.
+- Stable information architecture and internal-linking rules defined for Learn/Lab/Services/Shop.
+- `/services/` and `/lab/` archive collisions removed while preserving single-item rewrites.
+- Normal pages and homepage templates now enforce a single-H1 model.
+- Existing top-level pages reseeded idempotently; WP-CLI Persian menu lookup regression fixed with tested CSV parser.
+- Live routes `/`, `/learn/`, `/lab/`, `/services/`, `/shop/`, `/about/`, `/contact/` each returned HTTP 200 with exactly one H1 and correct canonical.
+- `blog_public=0` and rendered `noindex,nofollow` remain active; indexing was not enabled.
+- Core sitemap currently returns 404 while non-public; current `robots.txt` only protects `/wp-admin/`, which is documented rather than guessed.
+- Fresh SEO-phase recovery point: `/root/tehnet-backups/20260915-011313`.
+- Non-TehNet runtime fingerprint matched exactly before/after SEO deployment.
 
 ## Current production state
-- `https://tehnet.ir/` returns HTTP 200 and no longer redirects to the installer.
-- TehNet binding remains `127.0.0.1:18082`; DB and Redis topology are unchanged.
-- Active theme: `tehnet`; active core plugin: `tehnet-core`.
-- Locale is `fa_IR`; homepage is a static editable Gutenberg page.
-- Seeded routes `/learn/`, `/lab/`, `/services/`, `/shop/`, `/about/`, `/contact/` all returned HTTP 200 during verification.
-- Search indexing is deliberately disabled until SEO/content launch readiness.
-- Bootstrap credential values are stored only in root-only `/root/tehnet-secrets/wp-admin-bootstrap.env` (mode 0600), never in Git.
-
-## Current work
-- Integrate the verified WordPress bootstrap branch.
-- Start Phase 2: Persian query universe, SERP intent map, topic hubs and URL/taxonomy architecture.
-- Inventory YouTube content after the SEO hub model is frozen.
+- Active theme: `tehnet`; active plugin: `tehnet-core`.
+- Static editable homepage and primary navigation are live.
+- Canonical host is `https://tehnet.ir`.
+- Search indexing remains deliberately disabled until launch gates pass.
+- No secret values are stored in Git.
 
 ## Next execution order
-1. Integrate verified `feature/wp-bootstrap` into `main`.
-2. Build TehNet Persian query universe and validate live SERP intent.
-3. Freeze topic hubs, URL/taxonomy and internal-link architecture.
-4. Implement technical SEO baseline while the site remains noindex.
-5. Inventory/map YouTube content into approved hubs.
-6. Implement Services, Shop, Account and Support in controlled phases.
-7. Pass launch quality gates before enabling indexing.
+1. Merge verified `feature/seo-architecture` into `main` and retest.
+2. Inventory the TehNet YouTube channel and map videos to approved owner URLs.
+3. Build first high-value Learn owners, led by MikroTik, with original Persian value beyond transcript reuse.
+4. Build Tehran/network/MikroTik service owner pages from the approved SERP intent model.
+5. Implement Shop/catalog, account/support and payment phases in separate tested branches.
+6. Complete launch technical/content/measurement gates before enabling indexing.
 
 ## Rules for all agents
-- Read `AGENTS.md` and `HANDOFF.md` first.
-- Do not overwrite verified work or locked product decisions silently.
-- Test before marking complete.
-- Keep deployment evidence in `ops/` and TehNet SEO evidence in `seo/`.
+Read `AGENTS.md` and `HANDOFF.md` first, preserve locked decisions and verified work, use evidence before SEO claims, keep indexing disabled until an explicit launch gate, and never change unrelated project ports/containers during TehNet work.

@@ -42,24 +42,24 @@
 
 **Interfaces:** Consumes business scope, current SERP observations and `DashSaman/-SEO`; produces dated query decisions consumed by architecture/content work.
 
-- [ ] Write the contract first; require evidence date, Ahrefs-IR limitation, intent, page type, business value, owner URL/decision and no fabricated volume/KD.
-- [ ] Run it and verify RED because SEO evidence files do not exist.
-- [ ] Populate research docs from current Persian SERPs for learning, services and shop clusters.
-- [ ] Classify targets as `GO`, `NOT-YET`, `GO-LONG-TERM`, `LOW-PRIORITY`, or `NO-GO`.
-- [ ] Run contract to GREEN and commit.
+- [x] Write the contract first; require evidence date, Ahrefs-IR limitation, intent, page type, business value, owner URL/decision and no fabricated volume/KD.
+- [x] Run it and verify RED because SEO evidence files do not exist.
+- [x] Populate research docs from current Persian SERPs for learning, services and shop clusters.
+- [x] Classify targets as `GO`, `NOT-YET`, `GO-LONG-TERM`, `LOW-PRIORITY`, or `NO-GO`.
+- [x] Run contract to GREEN and commit.
 ### Task 2: Information Architecture and Internal Linking
 
 **Files:** Create `seo/INFORMATION_ARCHITECTURE_FA.md`, `seo/INTERNAL_LINKING_FA.md`.
 
 **Interfaces:** Consumes Task 1 intent decisions; produces canonical owner URLs and linking rules used by future page creation.
 
-- [ ] Define stable top-level journeys: `/learn/`, `/lab/`, `/services/`, `/shop/`.
-- [ ] Define Learn hubs only where current SERP/business fit supports them; include MikroTik, networking fundamentals and later-stage Linux/monitoring boundaries.
-- [ ] Define service owner pages for real commercial intents without district/city doorway duplication.
-- [ ] Define Shop category/product intent; keep final WooCommerce category rewrite implementation separate until WooCommerce phase.
-- [ ] Document query→owner-URL rules, canonical consolidation and when a new page is forbidden due to cannibalization.
-- [ ] Define contextual links: Learn → Lab for assets, Learn → Services for implementation help, Services → relevant Learn proof/resources, Shop → guides/services, Lab → parent tutorial.
-- [ ] Re-run architecture contract and commit.
+- [x] Define stable top-level journeys: `/learn/`, `/lab/`, `/services/`, `/shop/`.
+- [x] Define Learn hubs only where current SERP/business fit supports them; include MikroTik, networking fundamentals and later-stage Linux/monitoring boundaries.
+- [x] Define service owner pages for real commercial intents without district/city doorway duplication.
+- [x] Define Shop category/product intent; keep final WooCommerce category rewrite implementation separate until WooCommerce phase.
+- [x] Document query→owner-URL rules, canonical consolidation and when a new page is forbidden due to cannibalization.
+- [x] Define contextual links: Learn → Lab for assets, Learn → Services for implementation help, Services → relevant Learn proof/resources, Shop → guides/services, Lab → parent tutorial.
+- [x] Re-run architecture contract and commit.
 
 ### Task 3: Technical SEO Blocker Regression Tests
 
@@ -67,30 +67,36 @@
 
 **Interfaces:** Consumes current production evidence; produces conflict-free `/services/` and `/lab/`, single-H1 page templates and preserved noindex state.
 
-- [ ] Write failing tests proving `tn_service` and `tn_lab` must not own archives that collide with pages.
-- [ ] Require dedicated `page.php` and `front-page.php` template behavior.
-- [ ] Require normal starter page bodies to avoid a second H1; homepage may own its editorial H1.
-- [ ] Verify RED against current code.
-- [ ] Set CPT `has_archive` false while preserving single rewrites under `/services/{slug}/` and `/lab/{slug}/`.
-- [ ] Add page/front-page templates and correct starter heading hierarchy.
-- [ ] Run test/PHP lint to GREEN and commit.
+- [x] Write failing tests proving `tn_service` and `tn_lab` must not own archives that collide with pages.
+- [x] Require dedicated `page.php` and `front-page.php` template behavior.
+- [x] Require normal starter page bodies to avoid a second H1; homepage may own its editorial H1.
+- [x] Verify RED against current code.
+- [x] Set CPT `has_archive` false while preserving single rewrites under `/services/{slug}/` and `/lab/{slug}/`.
+- [x] Add page/front-page templates and correct starter heading hierarchy.
+- [x] Run test/PHP lint to GREEN and commit.
 ### Task 4: Safe Production Retest and Coordination
 
 **Files:** Create `seo/TECHNICAL_SEO_BASELINE.md`; modify `PROGRESS.md`, `HANDOFF.md`, `TASKS.md`; mark this plan complete.
 
 **Interfaces:** Consumes Tasks 1–3; produces verified production evidence and exact continuation state.
 
-- [ ] Capture pre-change TehNet port/container fingerprint and fresh TehNet backup before deploying code fixes.
-- [ ] Deploy only TehNet theme/core files using the existing safe deploy script; flush WordPress rewrite rules without container restarts.
-- [ ] Re-seed only the existing editable top-level pages idempotently.
-- [ ] Verify `/services/` and `/lab/` render the intended pages, all primary routes return 200, canonicals are correct where applicable, and each checked route has exactly one H1.
-- [ ] Verify `blog_public=0` and homepage `noindex` remain in place; do not enable indexing.
-- [ ] Document current core-sitemap behavior while noindex; do not treat sitemap availability as a launch PASS yet.
-- [ ] Run the complete repository test suite, shell syntax checks and PHP lint.
-- [ ] Update coordination files and commit verified facts only.
+- [x] Capture pre-change TehNet port/container fingerprint and fresh TehNet backup before deploying code fixes.
+- [x] Deploy only TehNet theme/core files using the existing safe deploy script; flush WordPress rewrite rules without container restarts.
+- [x] Re-seed only the existing editable top-level pages idempotently.
+- [x] Verify `/services/` and `/lab/` render the intended pages, all primary routes return 200, canonicals are correct where applicable, and each checked route has exactly one H1.
+- [x] Verify `blog_public=0` and homepage `noindex` remain in place; do not enable indexing.
+- [x] Document current core-sitemap behavior while noindex; do not treat sitemap availability as a launch PASS yet.
+- [x] Run the complete repository test suite, shell syntax checks and PHP lint.
+- [x] Update coordination files and commit verified facts only.
 
 ## Launch Boundary
 This plan does **not** enable search indexing, mass-create tutorial pages, install an SEO plugin, publish fake location pages, configure WooCommerce SEO URLs, or claim keyword volumes unavailable for Iran. Those actions require their own evidence and implementation phases.
 
 ## Self-Review Gate
 Before execution completion, verify every prioritized cluster has a truthful business path and an owner page type; every URL has one intent owner; every live technical claim has a command/retest; and every limitation is recorded rather than guessed.
+
+## Completion evidence
+- Production retest completed 2026-09-15 with indexing still disabled.
+- Live primary routes returned 200 with one H1 and correct canonical.
+- Non-TehNet runtime fingerprint matched before/after.
+- Full repository contracts, shell syntax and PHP lint passed before branch completion.
