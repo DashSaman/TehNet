@@ -13,4 +13,13 @@ UNIQUE="$(grep -Eo 'youtube\.com/watch\?v=[A-Za-z0-9_-]{11}' "$INV" | sort -u | 
 [[ "$TOTAL" -ge 33 ]] || { echo "FAIL: expected at least 33 videos, got $TOTAL"; exit 1; }
 [[ "$TOTAL" == "$UNIQUE" ]] || { echo 'FAIL: duplicate video IDs in inventory'; exit 1; }
 
-echo 'YOUTUBE_INVENTORY_CONTRACT=PASSED'
+[[ -f "$MAP" ]] || { echo 'FAIL: YouTube content map missing'; exit 1; }
+for token in 'Cluster' 'Disposition' 'Owner URL'; do grep -q "$token" "$MAP" || { echo "FAIL: mapping missing $token"; exit 1; }; done
+for d in OWNER NOT-YET YOUTUBE-ONLY DEPRECATED; do grep -q "$d" "$MAP" || { echo "FAIL: mapping missing disposition $d"; exit 1; }; done
+INV_IDS="$(mktemp)"; MAP_IDS="$(mktemp)"; trap 'rm -f "$INV_IDS" "$MAP_IDS"' EXIT
+grep -Eo 'youtube\.com/watch\?v=[A-Za-z0-9_-]{11}' "$INV" | sed 's/.*v=//' | sort > "$INV_IDS"
+grep -E '^\| `[A-Za-z0-9_-]{11}` \|' "$MAP" | sed -E 's/^\| `([A-Za-z0-9_-]{11})` \|.*/\1/' | sort > "$MAP_IDS"
+cmp -s "$INV_IDS" "$MAP_IDS" || { echo 'FAIL: inventory IDs and mapping IDs differ'; diff -u "$INV_IDS" "$MAP_IDS" || true; exit 1; }
+[[ "$(wc -l < "$MAP_IDS" | tr -d ' ')" == "$UNIQUE" ]] || { echo 'FAIL: each video must map exactly once'; exit 1; }
+
+echo 'YOUTUBE_CONTENT_CONTRACT=PASSED'
