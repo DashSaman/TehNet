@@ -25,6 +25,8 @@ grep -q 'post list.*--post_type=page.*--name=' "$SEED"
 grep -q 'show_on_front' "$SEED"
 grep -q 'page_on_front' "$SEED"
 grep -q 'menu location assign' "$SEED"
+grep -q 'menu list' "$SEED" || { echo 'FAIL: seed must discover existing menus via menu list'; exit 1; }
+! grep -q 'menu get' "$SEED" || { echo 'FAIL: current WP-CLI has no menu get subcommand'; exit 1; }
 grep -q "add_shortcode('tehnet_phone'" "$SETTINGS"
 grep -q "add_shortcode('tehnet_address'" "$SETTINGS"
 
