@@ -18,7 +18,7 @@ Status legend: `LOCKED`, `NEXT`, `BACKLOG`, `BLOCKED`, `DONE`.
 - DONE — Define backup/recovery checklist before site implementation.
 - DONE — Create feature-branch workflow and deployment validation checklist.
 - DONE — Create foundation implementation plan from the approved master spec.
-- NEXT — Create WordPress bootstrap/activation implementation plan.
+- DONE — Create and execute WordPress bootstrap/activation implementation plan.
 
 ## Theme / admin
 - DONE — TehNet RTL theme foundation.
@@ -26,19 +26,19 @@ Status legend: `LOCKED`, `NEXT`, `BACKLOG`, `BLOCKED`, `DONE`.
 - BACKLOG — Tehran visual motifs with restrained use.
 - DONE — Central settings page for phone/address/social/CTA foundation.
 - BACKLOG — Add centrally managed logo/media identity controls.
-- NEXT — Custom Gutenberg block set and editable homepage foundation.
+- DONE — Reusable Gutenberg patterns and editable homepage/top-level page foundation.
 - BACKLOG — Preview optional professionalized logo variants before any logo replacement.
 
 ## Deployment safety
 - DONE — Real pre-change production backup created and validated.
 - DONE — Theme/plugin deployed without changing `127.0.0.1:18082`.
 - DONE — Unrelated container/image/port topology verified unchanged during deploy.
-- NEXT — Finalize WordPress installation and activate foundation without topology changes.
+- DONE — Finalize WordPress installation and activate foundation without topology changes.
 
 ## SEO / content
-- BACKLOG — TehNet query universe and SERP intent map.
-- BACKLOG — Topic hub architecture.
-- BACKLOG — URL/taxonomy plan.
+- NEXT — TehNet query universe and SERP intent map.
+- NEXT — Topic hub architecture.
+- NEXT — URL/taxonomy plan.
 - BACKLOG — Technical SEO baseline and launch gates.
 - BACKLOG — Search Console and conversion measurement.
 - BACKLOG — YouTube inventory and video→page mapping.

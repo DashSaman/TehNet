@@ -1,7 +1,7 @@
 # TehNet Execution Progress
 
 ## Current phase
-Foundation implemented and safely deployed as files; WordPress installation/activation and page build are the next implementation phase.
+WordPress bootstrap and editable Gutenberg foundation are verified in production; SEO/content architecture is next.
 
 ## Product decisions locked
 - Brand: TehNet / تهران نتورک
@@ -35,27 +35,34 @@ Foundation implemented and safely deployed as files; WordPress installation/acti
 - Theme and plugin files deployed into the existing `tehnet-wordpress` volume.
 - Deployment verified `127.0.0.1:18082` unchanged and unrelated container/image/port topology unchanged during deployment.
 - All foundation Bash contracts and PHP lint checks pass.
+- WordPress finalized at `https://tehnet.ir` with locale `fa_IR`; installer redirect removed.
+- TehNet theme and `tehnet-core` activated without changing `127.0.0.1:18082`.
+- Editable Gutenberg homepage/top-level pages and primary menu seeded idempotently.
+- Site intentionally remains `noindex,nofollow` with `robots.txt` disallow until launch gates pass.
+- Fresh pre-bootstrap recovery point: `/root/tehnet-backups/20260915-000906`.
 
 ## Current production state
-- TehNet containers remain running on the original Docker topology.
-- `tehnet-db` remains healthy.
-- Public `https://tehnet.ir/` still redirects to `/wp-admin/install.php`; WordPress setup has not yet been finalized.
-- Theme/plugin files are present but not yet activated because WordPress installation is incomplete.
-- A separate `tunnelpannel-e2e` container appeared on the host during this work from another workflow; TehNet work did not create or modify it.
+- `https://tehnet.ir/` returns HTTP 200 and no longer redirects to the installer.
+- TehNet binding remains `127.0.0.1:18082`; DB and Redis topology are unchanged.
+- Active theme: `tehnet`; active core plugin: `tehnet-core`.
+- Locale is `fa_IR`; homepage is a static editable Gutenberg page.
+- Seeded routes `/learn/`, `/lab/`, `/services/`, `/shop/`, `/about/`, `/contact/` all returned HTTP 200 during verification.
+- Search indexing is deliberately disabled until SEO/content launch readiness.
+- Bootstrap credential values are stored only in root-only `/root/tehnet-secrets/wp-admin-bootstrap.env` (mode 0600), never in Git.
 
 ## Current work
-- Complete and integrate the verified foundation branch.
-- Prepare the next task-sized plan for WordPress bootstrap/activation and editable page foundation.
-- Prepare TehNet-specific SEO/query architecture before mass content creation.
+- Integrate the verified WordPress bootstrap branch.
+- Start Phase 2: Persian query universe, SERP intent map, topic hubs and URL/taxonomy architecture.
+- Inventory YouTube content after the SEO hub model is frozen.
 
 ## Next execution order
-1. Integrate the verified `feature/tehnet-foundation` branch after owner choice.
-2. Safely finalize WordPress installation without changing host ports.
-3. Activate `tehnet` theme and `tehnet-core` plugin.
-4. Build editable Gutenberg homepage/header/footer foundations.
-5. Establish SEO/content architecture before mass page creation.
+1. Integrate verified `feature/wp-bootstrap` into `main`.
+2. Build TehNet Persian query universe and validate live SERP intent.
+3. Freeze topic hubs, URL/taxonomy and internal-link architecture.
+4. Implement technical SEO baseline while the site remains noindex.
+5. Inventory/map YouTube content into approved hubs.
 6. Implement Services, Shop, Account and Support in controlled phases.
-7. Pass launch quality gates and begin measurement/iteration.
+7. Pass launch quality gates before enabling indexing.
 
 ## Rules for all agents
 - Read `AGENTS.md` and `HANDOFF.md` first.

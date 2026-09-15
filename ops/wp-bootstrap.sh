@@ -88,13 +88,20 @@ if ! wp_cli language core is-installed fa_IR >/dev/null 2>&1; then
   fi
 fi
 if wp_cli language core is-installed fa_IR >/dev/null 2>&1; then
-  wp_cli language core activate fa_IR >/dev/null
+  CURRENT_LANG="$(wp_cli option get WPLANG 2>/dev/null | tr -d '\r' || true)"
+  if [[ "$CURRENT_LANG" != "fa_IR" ]]; then
+    wp_cli site switch-language fa_IR >/dev/null
+  fi
 fi
 
-wp_cli rewrite structure '/%postname%/' --hard >/dev/null
-wp_cli theme activate tehnet >/dev/null
-wp_cli plugin activate tehnet-core >/dev/null
-wp_cli rewrite flush --hard >/dev/null
+wp_cli rewrite structure '/%postname%/' >/dev/null
+if ! wp_cli theme is-active tehnet >/dev/null 2>&1; then
+  wp_cli theme activate tehnet >/dev/null
+fi
+if ! wp_cli plugin is-active tehnet-core >/dev/null 2>&1; then
+  wp_cli plugin activate tehnet-core >/dev/null
+fi
+wp_cli rewrite flush >/dev/null
 
 wp_cli core is-installed >/dev/null
 wp_cli theme is-active tehnet >/dev/null

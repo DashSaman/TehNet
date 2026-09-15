@@ -13,6 +13,16 @@ grep -q 'https://tehnet.ir' "$BOOT"
 grep -q 'Asia/Tehran' "$BOOT"
 grep -q 'tehnet-core' "$BOOT"
 grep -q 'theme activate tehnet' "$BOOT"
+grep -q 'site switch-language fa_IR' "$BOOT"
+grep -q 'CURRENT_LANG=' "$BOOT"
+grep -q 'if ! wp_cli theme is-active tehnet' "$BOOT"
+grep -q 'if ! wp_cli plugin is-active tehnet-core' "$BOOT"
+if grep -q 'language core activate' "$BOOT"; then
+  echo 'FAIL: deprecated language activation command present'; exit 1
+fi
+if grep -q -- '--hard' "$BOOT"; then
+  echo 'FAIL: unnecessary hard rewrite flush present'; exit 1
+fi
 
 if grep -nE 'docker compose (down|up|restart)|docker restart|systemctl restart nginx|nginx -s' "$BOOT" >/dev/null; then
   echo 'FAIL: bootstrap may mutate runtime topology'; exit 1
