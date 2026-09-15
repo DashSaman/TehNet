@@ -10,6 +10,8 @@ final class TehNet_Core_Settings {
     public function register(): void {
         add_action('admin_menu', [$this, 'add_menu']);
         add_action('admin_init', [$this, 'register_settings']);
+        add_shortcode('tehnet_phone', [$this, 'shortcode_phone']);
+        add_shortcode('tehnet_address', [$this, 'shortcode_address']);
     }
 
     public function add_menu(): void {
@@ -81,6 +83,14 @@ final class TehNet_Core_Settings {
             esc_attr($key),
             esc_attr($value)
         );
+    }
+
+    public function shortcode_phone(): string {
+        return esc_html((string) get_option('tehnet_phone', '021-91018746'));
+    }
+
+    public function shortcode_address(): string {
+        return esc_html((string) get_option('tehnet_address', 'تهران، آیت‌الله کاشانی، شاهین جنوبی'));
     }
 
     public function render_page(): void {

@@ -6,6 +6,8 @@
 
 defined('ABSPATH') || exit;
 
+require_once get_template_directory() . '/inc/block-patterns.php';
+
 function tehnet_theme_setup(): void {
     load_theme_textdomain('tehnet', get_template_directory() . '/languages');
     add_theme_support('title-tag');
