@@ -55,6 +55,8 @@ ensure_page(){
 }
 HOME_ID="$(ensure_page home 'خانه' "$ROOT/content/pages/home.html")"
 LEARN_ID="$(ensure_page learn 'آموزش' "$ROOT/content/pages/learn.html")"
+MIKROTIK_ID="$(ensure_page mikrotik 'آموزش میکروتیک' "$ROOT/content/pages/learn-mikrotik.html")"
+wp_cli post update "$MIKROTIK_ID" --post_parent="$LEARN_ID" >/dev/null
 LAB_ID="$(ensure_page lab 'Lab' "$ROOT/content/pages/lab.html")"
 SERVICES_ID="$(ensure_page services 'خدمات' "$ROOT/content/pages/services.html")"
 SHOP_ID="$(ensure_page shop 'فروشگاه' "$ROOT/content/pages/shop.html")"

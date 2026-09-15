@@ -1,7 +1,7 @@
 # TehNet Execution Progress
 
 ## Current phase
-Phase 2 SEO/content architecture is implemented and live-verified while production remains intentionally noindex. Next phase is YouTube/content mapping and building the first approved Learn/Services content owners.
+YouTube/content mapping and the first Learn owner `/learn/mikrotik/` are implemented and live-verified while production remains intentionally noindex. Next phase is building the approved Tehran/Remote service owner pages.
 
 ## Product decisions locked
 - Brand/domain: TehNet / تهران نتورک / `https://tehnet.ir`
@@ -36,6 +36,12 @@ Phase 2 SEO/content architecture is implemented and live-verified while producti
 - Core sitemap currently returns 404 while non-public; current `robots.txt` only protects `/wp-admin/`, which is documented rather than guessed.
 - Fresh SEO-phase recovery point: `/root/tehnet-backups/20260915-011313`.
 - Non-TehNet runtime fingerprint matched exactly before/after SEO deployment.
+- Public YouTube inventory captured with 33 current videos and stable video IDs; every video is mapped exactly once to `OWNER`, `NOT-YET`, `YOUTUBE-ONLY` or `DEPRECATED`.
+- Off-topic iPhone items remain YouTube-only; the explicitly old Cloudflare 1101 video is marked deprecated instead of receiving an SEO page.
+- First substantial Learn owner `/learn/mikrotik/` is live, editable in Gutenberg, and includes original learning-path guidance plus verified TehNet videos.
+- `/learn/mikrotik/` returned HTTP 200, exactly one H1, canonical `https://tehnet.ir/learn/mikrotik/`, and `noindex,nofollow`.
+- Fresh content-phase recovery point: `/root/tehnet-backups/20260915-012653`.
+- Non-TehNet runtime fingerprint remained exactly unchanged during the content seed.
 
 ## Current production state
 - Active theme: `tehnet`; active plugin: `tehnet-core`.
@@ -45,10 +51,10 @@ Phase 2 SEO/content architecture is implemented and live-verified while producti
 - No secret values are stored in Git.
 
 ## Next execution order
-1. Merge verified `feature/seo-architecture` into `main` and retest.
-2. Inventory the TehNet YouTube channel and map videos to approved owner URLs.
-3. Build first high-value Learn owners, led by MikroTik, with original Persian value beyond transcript reuse.
-4. Build Tehran/network/MikroTik service owner pages from the approved SERP intent model.
+1. Merge verified `feature/content-mapping` into `main` and retest.
+2. Build the approved Tehran/Remote service owner pages from the current SERP intent map.
+3. Add LocalBusiness/NAP output from centralized settings where technically appropriate.
+4. Continue MTCNA/VPN/Linux content only through separate intent-backed plans; do not mass-create video pages.
 5. Implement Shop/catalog, account/support and payment phases in separate tested branches.
 6. Complete launch technical/content/measurement gates before enabling indexing.
 
