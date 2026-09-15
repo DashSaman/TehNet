@@ -24,4 +24,9 @@ if grep -Eiq 'Iran (Volume|KD):[[:space:]]*[0-9]|حجم جستجوی ایران[
   echo 'FAIL: fabricated Iran keyword metrics detected'; exit 1
 fi
 
+for f in "$IA" "$LINKS"; do [[ -f "$f" ]] || { echo "FAIL: missing ${f#$ROOT/}"; exit 1; }; done
+for route in '/learn/' '/lab/' '/services/' '/shop/'; do grep -q "$route" "$IA" || { echo "FAIL: IA missing $route"; exit 1; }; done
+grep -q 'Cannibalization' "$IA" || { echo 'FAIL: IA missing Cannibalization rule'; exit 1; }
+for edge in 'Learn → Lab' 'Learn → Services' 'Services → Learn' 'Shop →' 'Lab →'; do grep -q "$edge" "$LINKS" || { echo "FAIL: linking map missing $edge"; exit 1; }; done
+
 echo 'SEO_ARCHITECTURE_RESEARCH_CONTRACT=PASSED'
