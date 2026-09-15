@@ -65,7 +65,9 @@ wp_cli option update show_on_front page >/dev/null
 wp_cli option update page_on_front "$HOME_ID" >/dev/null
 
 MENU_NAME='منوی اصلی'
-if ! MENU_ID="$(wp_cli menu get "$MENU_NAME" --field=term_id 2>/dev/null)"; then
+MENU_ID="$(wp_cli menu list --fields=term_id,name --format=csv \
+  | awk -v name="$MENU_NAME" -f "$ROOT/ops/lib/wp-menu-id.awk")"
+if [[ -z "$MENU_ID" ]]; then
   MENU_ID="$(wp_cli menu create "$MENU_NAME" --porcelain)"
 fi
 

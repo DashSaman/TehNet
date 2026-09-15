@@ -3,6 +3,7 @@ set -Eeuo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PATTERNS="$ROOT/site/themes/tehnet/inc/block-patterns.php"
 SEED="$ROOT/ops/wp-seed-foundation.sh"
+MENU_PARSER="$ROOT/ops/lib/wp-menu-id.awk"
 HOME="$ROOT/content/pages/home.html"
 SETTINGS="$ROOT/site/plugins/tehnet-core/includes/class-settings.php"
 
@@ -25,6 +26,10 @@ grep -q 'post list.*--post_type=page.*--name=' "$SEED"
 grep -q 'show_on_front' "$SEED"
 grep -q 'page_on_front' "$SEED"
 grep -q 'menu location assign' "$SEED"
+grep -q 'menu list' "$SEED" || { echo 'FAIL: seed must discover existing menus via menu list'; exit 1; }
+! grep -q 'menu get' "$SEED" || { echo 'FAIL: current WP-CLI has no menu get subcommand'; exit 1; }
+[[ -f "$MENU_PARSER" ]] || { echo 'FAIL: quoted CSV menu parser missing'; exit 1; }
+[[ "$(printf 'term_id,name\n2,"منوی اصلی"\n' | awk -v name='منوی اصلی' -f "$MENU_PARSER")" == '2' ]] || { echo 'FAIL: quoted Persian menu name is not parsed'; exit 1; }
 grep -q "add_shortcode('tehnet_phone'" "$SETTINGS"
 grep -q "add_shortcode('tehnet_address'" "$SETTINGS"
 

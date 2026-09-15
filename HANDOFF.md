@@ -1,49 +1,50 @@
 # TehNet Agent Handoff
 
-## Purpose
-Continuation memory for any agent working on TehNet.
-
 ## Current state
-Product architecture, safe production foundation, WordPress bootstrap and editable Gutenberg page foundation are complete and verified.
+Foundation, WordPress bootstrap and Phase 2 SEO/content architecture are implemented and verified in production. The site intentionally remains non-indexable.
 
-Read first:
+## Read first
 1. `AGENTS.md`
 2. `PROGRESS.md`
 3. `docs/superpowers/specs/2026-09-14-tehnet-platform-design.md`
-4. `docs/superpowers/plans/2026-09-14-tehnet-foundation.md`
-5. `docs/superpowers/plans/2026-09-15-tehnet-wordpress-bootstrap.md`
-6. `ROADMAP.md`
-7. `TASKS.md`
+4. `docs/superpowers/plans/2026-09-15-tehnet-seo-architecture.md`
+5. `seo/QUERY_UNIVERSE_FA.md`
+6. `seo/SERP_INTENT_MAP_FA.md`
+7. `seo/INFORMATION_ARCHITECTURE_FA.md`
+8. `seo/TECHNICAL_SEO_BASELINE.md`
+9. `TASKS.md`
 
-## Locked architecture
-TehNet is a Persian networking platform with Learn + Lab + Services + Shop. Core stack is WordPress + WooCommerce. The custom theme is presentation-only; `tehnet-core` owns business settings/domain logic. Gutenberg/custom blocks are preferred over Elementor.
+## Verified production
+- Domain: `https://tehnet.ir`
+- TehNet host binding: `127.0.0.1:18082`
+- Active theme/plugin: `tehnet` / `tehnet-core`
+- Main top-level routes return HTTP 200, one H1 each, correct canonicals and `noindex,nofollow`.
+- `blog_public=0`; do not enable indexing yet.
+- `/wp-sitemap.xml` currently returns 404 while non-public.
+- Fresh recovery point: `/root/tehnet-backups/20260915-011313`.
+- Non-TehNet runtime fingerprint remained unchanged across SEO deployment.
 
-## Verified foundation
-- Production baseline: `ops/PRODUCTION_BASELINE.md`
-- Backup/recovery: `ops/BACKUP_RECOVERY.md`
-- Existing TehNet binding remains `127.0.0.1:18082`.
-- Theme implemented under `site/themes/tehnet/`.
-- Core plugin implemented under `site/plugins/tehnet-core/`.
-- Theme/plugin files were copied into the existing WordPress volume without changing Docker/Nginx topology.
-- Contract tests and PHP lint passed.
+## SEO architecture locked
+- `/learn/`, `/lab/`, `/services/`, `/shop/` are separate journeys.
+- First-priority Learn owner: `/learn/mikrotik/`.
+- Service owners include `/services/network-tehran/`, `/services/network-support-tehran/`, `/services/network-setup-tehran/`, `/services/mikrotik-tehran/`, `/services/remote-support/`.
+- Shop intent belongs to category/product pages, not tutorials.
+- No auto-generated thin pages per YouTube video and no fake district/city doorway pages.
 
-## Production state
-- `https://tehnet.ir/` is installed and returns HTTP 200.
-- Theme `tehnet` and plugin `tehnet-core` are active.
-- Binding remains `127.0.0.1:18082`; no TehNet execution changed unrelated container topology.
-- Locale: `fa_IR`; static homepage and primary menu are configured.
-- Top-level editable pages are seeded: home, learn, lab, services, shop, about, contact.
-- Site is intentionally blocked from indexing (`blog_public=0`, meta noindex/nofollow, robots disallow) until SEO launch gates are passed.
-- Evidence: `ops/WORDPRESS_BOOTSTRAP_EVIDENCE.md`.
-- Fresh recovery point: `/root/tehnet-backups/20260915-000906`.
-- Bootstrap credentials remain only in `/root/tehnet-secrets/wp-admin-bootstrap.env` mode 0600; do not copy values into Git or handoff files.
+## Important implementation facts
+- `tn_service` and `tn_lab` archives are disabled to avoid collisions with `/services/` and `/lab/` pages; single rewrites remain nested beneath those slugs.
+- `page.php` owns the H1 for normal pages; `front-page.php` leaves the editorial homepage H1 to page content.
+- WP-CLI used here has no `wp menu get`; Persian menu discovery uses the tested `ops/lib/wp-menu-id.awk` parser.
+- Current `robots.txt` only disallows `/wp-admin/`; actual prelaunch index blocking is the rendered meta robots plus `blog_public=0`.
 
 ## Exact next task
-Integrate `feature/wp-bootstrap`, then create a separate isolated branch/plan for Phase 2 SEO/content architecture. Build the Persian query universe from live SERP evidence before freezing topic hubs or mass-creating pages. Keep indexing disabled and do not change host port `18082`, Nginx routing, or unrelated project containers.
+After merging this branch into `main`, create a new isolated branch for **YouTube + content mapping**. Inventory `https://www.youtube.com/@tehran.network021`, map existing videos to approved query/owner URLs, and create only content owners that have distinct intent and enough original Persian value. Keep all production indexing disabled.
 
-## Important unresolved choices
-- Owner should later rotate/confirm the bootstrap WordPress admin email/password from the WordPress account; this is not a launch blocker while access is controlled.
-- Rial payment gateway remains intentionally undecided.
-- NoPayments integration must be verified against current official provider behavior before coding.
-- Current YouTube logo remains the production identity until the owner approves a redesigned preview.
+## Safety
+Do not change port `18082`, Nginx routing, Docker project topology or unrelated services. Before each production content/code deployment, capture a fresh TehNet backup and compare the non-TehNet runtime fingerprint before/after.
 
+## Still unresolved
+- Rial gateway provider.
+- NoPayments official API/webhook implementation details.
+- Final optional logo redesign (must be previewed before replacement).
+- Search Console connection/measurement and final launch-indexing approval.
