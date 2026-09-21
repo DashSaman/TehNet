@@ -67,7 +67,7 @@
 - [x] Run every repository contract, shell syntax check and PHP lint.
 - [x] Update coordination files with verified production facts and fresh backup path.
 - [x] Close plan checkboxes and commit.
-- [ ] Merge to `main`, rerun the full suite on `main`, push, and clean up the worktree/branch.
+- [x] Merge to `main`, rerun the full suite on `main`, push, and clean up the worktree/branch.
 
 ## Completion Boundary
 This plan does not create district-level pages, quote/ticket workflows, WooCommerce products, Google Business Profile changes, or LocalBusiness JSON-LD. Structured data is deferred until complete identity/address fields and a dedicated validation plan are available.
