@@ -10,6 +10,31 @@ final class TehNet_Core_Commerce {
         add_filter('woocommerce_loop_add_to_cart_link', [$this, 'filter_loop_cta'], 20, 3);
         add_action('woocommerce_single_product_summary', [$this, 'render_inquiry_form'], 31);
         add_action('woocommerce_before_single_product', [$this, 'render_result_notice'], 5);
+        add_action('wp_head', [$this, 'render_archive_canonical'], 8);
+    }
+
+    public function render_archive_canonical(): void {
+        $url = '';
+        if (function_exists('is_shop') && is_shop() && function_exists('wc_get_page_permalink')) {
+            $url = (string) wc_get_page_permalink('shop');
+        } elseif (function_exists('is_product_category') && is_product_category()) {
+            $term = get_queried_object();
+            if ($term instanceof WP_Term) {
+                $term_link = get_term_link($term);
+                if (! is_wp_error($term_link)) {
+                    $url = (string) $term_link;
+                }
+            }
+        }
+
+        if ($url === '') {
+            return;
+        }
+        $paged = max(1, (int) get_query_var('paged'));
+        if ($paged > 1) {
+            $url = (string) get_pagenum_link($paged);
+        }
+        printf('<link rel="canonical" href="%s" />' . "\n", esc_url($url));
     }
 
     public static function is_physical_inquiry_product($product): bool {

@@ -11,6 +11,10 @@ fail(){ echo "FAIL: $*"; exit 1; }
 for hook in woocommerce_is_purchasable woocommerce_get_price_html woocommerce_loop_add_to_cart_link woocommerce_single_product_summary; do
   grep -q "$hook" "$COMMERCE" || fail "missing commerce hook: $hook"
 done
+grep -q "add_action('wp_head'" "$COMMERCE" || fail 'commerce archive canonical hook missing'
+grep -q 'is_shop' "$COMMERCE" || fail 'shop canonical branch missing'
+grep -q 'is_product_category' "$COMMERCE" || fail 'product category canonical branch missing'
+grep -q 'rel=\"canonical\"' "$COMMERCE" || fail 'canonical markup missing'
 for hook in admin_post_tehnet_product_inquiry admin_post_nopriv_tehnet_product_inquiry; do
   grep -q "$hook" "$INQUIRIES" || fail "missing inquiry handler: $hook"
 done
