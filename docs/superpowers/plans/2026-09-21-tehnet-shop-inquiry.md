@@ -1,5 +1,30 @@
 # TehNet Shop / Physical Inquiry Implementation Plan
 
+## خلاصه فارسی
+
+**هدف:** نصب WooCommerce به‌عنوان هسته کاتالوگ TehNet، حفظ `/shop/` به‌عنوان مسیر تجاری، ساخت Owner دسته روترهای MikroTik و تبدیل همه محصولات فیزیکی به حالت «استعلام قیمت» بدون فعال‌کردن پرداخت، checkout، قیمت ساختگی یا indexing.
+
+**معماری:** WooCommerce مالک داده و نمایش محصول/دسته است و `tehnet-core` سیاست تجاری TehNet را اعمال می‌کند. محصول فیزیکی قابل خرید مستقیم نیست، قیمت آن «استعلام قیمت روز» نمایش داده می‌شود و فرم امن استعلام یک رکورد خصوصی `tn_inquiry` در مدیریت WordPress ایجاد می‌کند. هیچ محصول، قیمت، موجودی یا امتیاز جعلی در production seed نمی‌شود.
+
+**محدودیت‌های اصلی:**
+- CTA محصول فیزیکی: `استعلام قیمت`
+- Owner دسته: `/shop/mikrotik-routers/`
+- base دسته `shop` و base محصول `/product/` برای جلوگیری از collision
+- Cart / Checkout / Payment در این فاز فعال نمی‌شوند
+- `blog_public=0` و `noindex,nofollow` حفظ می‌شوند
+- پورت `127.0.0.1:18082` و سرویس‌های غیر TehNet تغییر نمی‌کنند
+- فرم استعلام برای مهمان امن است، IP خام ذخیره نمی‌شود و duplicate پنج‌دقیقه‌ای با hash کنترل می‌شود
+
+**مراحل:**
+1. Bootstrap امن و idempotent برای WooCommerce و URLهای Shop
+2. سیاست Inquiry، validation و ذخیره خصوصی در Admin
+3. UI فارسی/RTL و contract محتوای فروشگاه
+4. Backup، deploy، smoke test production، cleanup، evidence و merge/push
+
+> جزئیات فنی اجرایی در بخش English زیر آمده و همان منبع اجرای دقیق taskهاست.
+
+## English implementation details
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Install WooCommerce as TehNet's catalog foundation, preserve `/shop/` as the commerce journey, publish the approved MikroTik-router category owner, and make every physical product inquiry-only with secure guest inquiry capture in WordPress admin—without enabling payment, checkout, stale prices, or indexing.
