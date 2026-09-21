@@ -39,4 +39,4 @@ Publish the already-approved `/learn/mikrotik/mtcna/` owner as one substantial P
 - [x] Record production evidence and recovery path.
 - [x] Update PROGRESS/HANDOFF/TASKS and content maps with verified status only.
 - [x] Run full suite, shell/PHP lint, live gate and secret scan.
-- [ ] Merge to `main`, rerun tests/live gate, push, close plan, remove worktree/branch.
+- [x] Merge to `main`, rerun tests/live gate, push, close plan, remove worktree/branch.
