@@ -47,7 +47,7 @@ Status legend: `LOCKED`, `NEXT`, `BACKLOG`, `BLOCKED`, `DONE`.
 - DONE — LocalBusiness/NAP implementation with centralized settings.
 - DONE — MTCNA owner `/learn/mikrotik/mtcna/` built and live-verified.
 - DEFERRED — Generic VPN/Linux hubs pending stronger independent SERP intent; do not create thin/generic pages.
-- NEXT — WooCommerce catalog structure and physical-product inquiry mode.
+- DONE — WooCommerce catalog + physical inquiry foundation / کاتالوگ ووکامرس و استعلام محصول فیزیکی.
 
 ## Services
 - DONE — Tehran service taxonomy/pages using approved owner URLs.
@@ -56,13 +56,13 @@ Status legend: `LOCKED`, `NEXT`, `BACKLOG`, `BLOCKED`, `DONE`.
 - BACKLOG — Service history in user dashboard.
 
 ## Commerce
-- BACKLOG — WooCommerce catalog structure.
-- BACKLOG — Physical-product inquiry mode.
-- BACKLOG — Manual quote/invoice lifecycle.
+- DONE — WooCommerce catalog structure / ساختار کاتالوگ WooCommerce.
+- DONE — Physical-product inquiry mode / حالت استعلام قیمت محصول فیزیکی.
+- NEXT — Manual quote/invoice lifecycle / چرخه دستی پیش‌فاکتور و فاکتور.
 - BACKLOG — Digital download entitlement flow.
 - BACKLOG — License domain model and activation/revoke/audit flow.
 - BLOCKED — Rial gateway selection (owner has intentionally not selected one yet).
-- NEXT — Verify current NoPayments official integration requirements before coding crypto payments.
+- DEFERRED — Verify NoPayments official integration only in the later payment-adapter phase / بررسی NoPayments در فاز پرداخت.
 
 ## Account / support
 - BACKLOG — Full user dashboard.

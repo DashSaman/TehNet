@@ -96,7 +96,7 @@
 - Consumes: existing `tehnet-wordpress` container, existing `/shop/` page and the production guard pattern used by `ops/wp-seed-foundation.sh`.
 - Produces: active WooCommerce plugin, existing Shop page assigned as Woo shop, `product_cat` owner `mikrotik-routers`, category base `shop`, product base `/product/`, IRR currency, and zero assigned cart/checkout/account pages.
 
-- [ ] **Step 1: Write the failing bootstrap contract**
+- [x] **Step 1: Write the failing bootstrap contract**
 
 ```bash
 #!/usr/bin/env bash
@@ -123,13 +123,13 @@ grep -q '/shop/mikrotik-routers/' "$SHOP" || fail 'Shop does not link category o
 echo COMMERCE_BOOTSTRAP_CONTRACT=PASSED
 ```
 
-- [ ] **Step 2: Run the contract and verify RED**
+- [x] **Step 2: Run the contract and verify RED**
 
 Run: `bash tests/commerce-bootstrap-contract.sh`
 
 Expected: `FAIL: commerce bootstrap missing`
 
-- [ ] **Step 3: Implement the guarded idempotent bootstrap**
+- [x] **Step 3: Implement the guarded idempotent bootstrap**
 
 `ops/wp-commerce-bootstrap.sh` must follow the established TehNet pattern:
 
@@ -181,11 +181,11 @@ wp_cli rewrite flush >/dev/null
 
 Finish by comparing the non-TehNet fingerprint and re-checking port `18082`.
 
-- [ ] **Step 4: Replace Shop copy with truthful phase-1 commerce copy**
+- [x] **Step 4: Replace Shop copy with truthful phase-1 commerce copy**
 
 `content/pages/shop.html` must state that physical equipment uses daily inquiry, does not display a pretend live price, and link to `/shop/mikrotik-routers/`. Do not claim stock or shipping time. Keep the page Gutenberg-editable and do not add an editorial `<h1>`.
 
-- [ ] **Step 5: Run Task 1 verification**
+- [x] **Step 5: Run Task 1 verification**
 
 Run:
 
@@ -198,7 +198,7 @@ git diff --check
 
 Expected: all pass.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add tests/commerce-bootstrap-contract.sh ops/wp-commerce-bootstrap.sh content/pages/shop.html
@@ -220,7 +220,7 @@ git commit -m 'feat: add guarded WooCommerce catalog bootstrap'
 - Consumes: WooCommerce `WC_Product` behavior when available.
 - Produces: `TehNet_Core_Commerce::is_physical_inquiry_product($product): bool`, public inquiry form hooks, `TehNet_Core_Inquiries::normalize_mobile(string): string`, `TehNet_Core_Inquiries::normalize_quantity(mixed): int`, `TehNet_Core_Inquiries::process_request(array, int): int|WP_Error`, private `tn_inquiry` records.
 
-- [ ] **Step 1: Write executable RED logic tests**
+- [x] **Step 1: Write executable RED logic tests**
 
 `tests/product-inquiry-logic.php`:
 
@@ -253,7 +253,7 @@ foreach (['0', '-1', '1.5', '100', 'abc'] as $bad) {
 echo "PRODUCT_INQUIRY_LOGIC=PASSED\n";
 ```
 
-- [ ] **Step 2: Write the RED structural/security contract**
+- [x] **Step 2: Write the RED structural/security contract**
 
 `tests/commerce-inquiry-contract.sh` must require:
 
@@ -275,7 +275,7 @@ grep -q "'public' => false" "$INQUIRIES"
 
 It must also require both classes to be loaded/registered from `tehnet-core.php`, and reject any newly added payment-gateway or checkout hook.
 
-- [ ] **Step 3: Run both tests and verify RED**
+- [x] **Step 3: Run both tests and verify RED**
 
 Run:
 
@@ -286,7 +286,7 @@ bash tests/commerce-inquiry-contract.sh
 
 Expected: fail because the classes do not yet exist.
 
-- [ ] **Step 4: Implement `TehNet_Core_Commerce`**
+- [x] **Step 4: Implement `TehNet_Core_Commerce`**
 
 The class registers Woo hooks only; it must not fatal when WooCommerce is absent.
 
@@ -318,7 +318,7 @@ For inquiry-only products:
 - The form posts to `admin-post.php` action `tehnet_product_inquiry`.
 - Success/error notices come only from fixed result codes, never raw query text.
 
-- [ ] **Step 5: Implement `TehNet_Core_Inquiries`**
+- [x] **Step 5: Implement `TehNet_Core_Inquiries`**
 
 Register private admin records:
 
@@ -363,7 +363,7 @@ Expose `process_request(array $request, int $user_id = 0): int|WP_Error` for the
 
 Add read-only admin columns for product, customer, mobile, quantity, status and date. Do not implement quote/invoice actions in this phase.
 
-- [ ] **Step 6: Wire TehNet Core without a hard Woo load dependency**
+- [x] **Step 6: Wire TehNet Core without a hard Woo load dependency**
 
 In `tehnet-core.php`:
 
@@ -384,7 +384,7 @@ function tehnet_core_boot(): void {
 
 Bump plugin header and `TEHNET_CORE_VERSION` from `0.1.0` to `0.2.0`.
 
-- [ ] **Step 7: Run Task 2 verification**
+- [x] **Step 7: Run Task 2 verification**
 
 Run:
 
@@ -398,7 +398,7 @@ git diff --check
 
 Expected: all pass.
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 ```bash
 git add site/plugins/tehnet-core tests/product-inquiry-logic.php tests/commerce-inquiry-contract.sh
@@ -418,7 +418,7 @@ git commit -m 'feat: add physical product inquiry workflow'
 - Consumes: form classes/IDs emitted by Task 2 and category owner created by Task 1.
 - Produces: usable RTL inquiry form and truthful Shop/category navigation with no fabricated product claims.
 
-- [ ] **Step 1: Write RED content/UI contract**
+- [x] **Step 1: Write RED content/UI contract**
 
 Require:
 
@@ -431,13 +431,13 @@ grep -q '.tn-inquiry-price' "$STYLE"
 grep -q '.tn-inquiry-honeypot' "$STYLE"
 ```
 
-- [ ] **Step 2: Run and verify RED**
+- [x] **Step 2: Run and verify RED**
 
 Run: `bash tests/shop-commerce-content-contract.sh`
 
 Expected: fail on missing inquiry CSS.
 
-- [ ] **Step 3: Add minimal RTL-safe presentation**
+- [x] **Step 3: Add minimal RTL-safe presentation**
 
 Style only TehNet-owned form elements; do not globally restyle WooCommerce internals. Include:
 
@@ -452,7 +452,7 @@ Style only TehNet-owned form elements; do not globally restyle WooCommerce inter
 
 Preserve keyboard accessibility; do not use `display:none` on the honeypot field.
 
-- [ ] **Step 4: Run Task 3 verification and commit**
+- [x] **Step 4: Run Task 3 verification and commit**
 
 Run:
 
@@ -471,6 +471,11 @@ git commit -m 'style: add physical inquiry shop experience'
 
 ---
 
+
+### Production ruling / تصمیم production
+- **FA:** اولین live gate نشان داد WooCommerce برای Shop و product-category archive canonical تولید نمی‌کند. این رفتار به‌عنوان regression ثبت شد؛ تست ابتدا RED و سپس با canonical اختصاصی `tehnet-core` GREEN شد.
+- **EN:** The first live gate showed that WooCommerce/WordPress emitted no canonical for Shop/product-category archives. This was captured as a RED regression contract and fixed in `tehnet-core`; both live archive routes then passed.
+
 ### Task 4: Safe Production Install, Smoke Test, Evidence and Integration
 
 **Files:**
@@ -485,7 +490,7 @@ git commit -m 'style: add physical inquiry shop experience'
 - Consumes: Tasks 1–3 and the existing guarded TehNet deployment scripts.
 - Produces: WooCommerce active in production, category owner live, inquiry backend proven with a temporary hidden fixture, no real/fake catalog items left behind, and a recoverable documented production state.
 
-- [ ] **Step 1: Write the production smoke script before deployment**
+- [x] **Step 1: Write the production smoke script before deployment**
 
 `ops/commerce-live-smoke.php` runs under WP-CLI and must use `try/finally` cleanup. It creates a random temporary simple physical WooCommerce product with `catalog_visibility=hidden`, no price and a unique `TEHNET-SMOKE-*` SKU, sets it published only for the duration of the smoke, then:
 
@@ -520,7 +525,7 @@ Assertions:
 
 The script prints `COMMERCE_LIVE_SMOKE=PASSED` only after cleanup succeeds.
 
-- [ ] **Step 2: Run final branch gate before production mutation**
+- [x] **Step 2: Run final branch gate before production mutation**
 
 Run:
 
@@ -534,7 +539,7 @@ git diff --check
 
 Expected: all pass.
 
-- [ ] **Step 3: Capture fresh recovery point and environment compatibility facts**
+- [x] **Step 3: Capture fresh recovery point and environment compatibility facts**
 
 Create `/root/tehnet-backups/<UTC timestamp>/` containing:
 - compressed MariaDB dump;
@@ -556,7 +561,7 @@ wp_cli core version
 
 Abort rather than force-install if the current WooCommerce package declares incompatible requirements.
 
-- [ ] **Step 4: Deploy TehNet code, then bootstrap WooCommerce**
+- [x] **Step 4: Deploy TehNet code, then bootstrap WooCommerce**
 
 Run in this order:
 
@@ -568,7 +573,7 @@ bash ops/wp-seed-foundation.sh
 
 No container or Nginx restart is allowed.
 
-- [ ] **Step 5: Run live route/config gates**
+- [x] **Step 5: Run live route/config gates**
 
 Verify public and direct origin:
 
@@ -589,7 +594,7 @@ Also verify:
 - `nginx -t` passes.
 - category term exists and no real/fake product was seeded by the bootstrap.
 
-- [ ] **Step 6: Run temporary production inquiry smoke and prove cleanup**
+- [x] **Step 6: Run temporary production inquiry smoke and prove cleanup**
 
 Run `ops/commerce-live-smoke.php` with the same secure WP-CLI wrapper used elsewhere.
 
@@ -597,11 +602,11 @@ Expected: `COMMERCE_LIVE_SMOKE=PASSED`.
 
 Afterwards verify there is no product with SKU prefix `TEHNET-SMOKE-` and no inquiry with customer name `TehNet Smoke`.
 
-- [ ] **Step 7: Verify runtime isolation**
+- [x] **Step 7: Verify runtime isolation**
 
 Capture `unrelated-after.txt` with the exact same container/image/port command and compare byte-for-byte with `unrelated-before.txt`. Re-check TehNet port. Expected: unchanged.
 
-- [ ] **Step 8: Record evidence and coordination files**
+- [x] **Step 8: Record evidence and coordination files**
 
 `ops/SHOP_INQUIRY_EVIDENCE_2026-09-21.md` must record:
 - backup path;
@@ -615,7 +620,7 @@ Capture `unrelated-after.txt` with the exact same container/image/port command a
 
 Update `PROGRESS.md`, `HANDOFF.md`, and `TASKS.md` from verified facts only. Mark WooCommerce catalog structure + physical inquiry DONE. Keep manual quote/invoice, digital entitlement, licensing and payments as separate future phases.
 
-- [ ] **Step 9: Final branch verification**
+- [x] **Step 9: Final branch verification**
 
 Run the entire test/lint suite again, repeat the two live route gates, run a secret-value diff scan against the branch base, and confirm the branch is clean after the evidence commit.
 

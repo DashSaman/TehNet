@@ -1,7 +1,9 @@
 # TehNet Agent Handoff
 
 ## Current state
-Foundation, WordPress bootstrap, SEO architecture, YouTube mapping, MikroTik + MTCNA Learn owners, the five approved Services owner pages, and centralized LocalBusiness/NAP schema are implemented and verified in production. The site intentionally remains non-indexable.
+**FA:** Foundation، WordPress، SEO، Learn/Services، LocalBusiness و اکنون WooCommerce catalog + physical inquiry در production پیاده‌سازی و تأیید شده‌اند؛ سایت عمداً non-indexable باقی مانده است.
+
+**EN:** Foundation, WordPress, SEO, Learn/Services, LocalBusiness, and now the WooCommerce catalog + physical inquiry flow are implemented and verified in production. The site intentionally remains non-indexable.
 
 ## Read first
 1. `AGENTS.md`
@@ -38,6 +40,10 @@ Foundation, WordPress bootstrap, SEO architecture, YouTube mapping, MikroTik + M
 - MTCNA recovery point: `/root/tehnet-backups/20260921-011812`; non-TehNet runtime topology remained unchanged.
 - `/learn/mikrotik/mtcna/` is live-verified with all mapped MTCNA/GNS3 videos; recovery point `/root/tehnet-backups/20260921-011812`.
 - Current SERP evidence does not justify generic `/learn/vpn/` or `/learn/linux/` hubs yet; keep them NOT-YET until a dedicated intent-backed plan exists.
+- **FA:** WooCommerce `11.1.1` فعال است؛ Shop page ID `9`، currency=`IRR`، Cart/Checkout/My Account=`0` و `bacs/cheque/cod=no`.
+- **EN:** WooCommerce `11.1.1` is active; Shop page ID is `9`, currency is `IRR`, Cart/Checkout/My Account are `0`, and `bacs/cheque/cod=no`.
+- **FA/EN:** `/shop/` + `/shop/mikrotik-routers/` passed public/origin route, H1, canonical and noindex gates; inquiry smoke and cleanup passed.
+- **FA/EN:** Shop recovery point / نقطه بازیابی: `/root/tehnet-backups/20260921-021149`; no real/fake product remains and non-TehNet topology is unchanged.
 
 ## SEO architecture locked
 - `/learn/`, `/lab/`, `/services/`, `/shop/` are separate journeys.
@@ -53,7 +59,9 @@ Foundation, WordPress bootstrap, SEO architecture, YouTube mapping, MikroTik + M
 - Current `robots.txt` only disallows `/wp-admin/`; actual prelaunch index blocking is the rendered meta robots plus `blog_public=0`.
 
 ## Exact next task
-Create a new isolated branch/plan for **Shop/catalog + physical-product inquiry foundations**. Preserve the existing Learn/Services ownership model, keep product-intent content inside Shop, avoid enabling checkout/payment until catalog/inquiry behavior is verified, and keep `blog_public=0` plus rendered `noindex,nofollow` until the explicit launch gate.
+**FA:** برای **Manual Quote/Invoice lifecycle** یک branch/plan ایزوله جدید بساز؛ inquiryهای موجود را به وضعیت‌های قابل‌پیگیری و پیش‌فاکتور/فاکتور دستی وصل کن، بدون فعال‌کردن payment یا indexing.
+
+**EN:** Create a new isolated branch/plan for the **manual Quote/Invoice lifecycle**; connect existing inquiries to trackable quote/invoice states without enabling payment or indexing.
 
 ## Safety
 Do not change port `18082`, Nginx routing, Docker project topology or unrelated services. Before each production content/code deployment, capture a fresh TehNet backup and compare the non-TehNet runtime fingerprint before/after.

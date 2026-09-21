@@ -1,7 +1,8 @@
 # TehNet Execution Progress
 
-## Current phase
-The approved MTCNA owner is implemented and live-verified while production remains intentionally noindex. Generic VPN/Linux hubs remain deferred by current SERP evidence; next phase is Shop/catalog and physical-product inquiry foundations.
+## Current phase / فاز فعلی
+- **FA:** زیرساخت WooCommerce، کاتالوگ Shop و جریان استعلام محصولات فیزیکی در production پیاده‌سازی و live-verified شده‌اند؛ سایت همچنان عمداً noindex است. فاز بعدی پیشنهادی، چرخه دستی Quote/Invoice برای همین inquiryهاست.
+- **EN:** WooCommerce catalog foundations and the physical-product inquiry flow are implemented and live-verified in production while the site intentionally remains noindex. The next proposed phase is the manual Quote/Invoice lifecycle for these inquiries.
 
 ## Product decisions locked
 - Brand/domain: TehNet / تهران نتورک / `https://tehnet.ir`
@@ -54,16 +55,21 @@ The approved MTCNA owner is implemented and live-verified while production remai
 - `/learn/mikrotik/mtcna/` is live and verified at origin/public with one H1, correct canonical, noindex/nofollow, all eight mapped MTCNA/GNS3 videos and required internal links.
 - MTCNA recovery point: `/root/tehnet-backups/20260921-011812`; non-TehNet topology remained unchanged.
 - Fresh SERP review supports the MTCNA owner but not generic VPN/Linux hubs yet; those remain NOT-YET rather than creating thin/cannibalizing pages.
+- **FA:** WooCommerce `11.1.1` فعال است؛ `/shop/` و `/shop/mikrotik-routers/` در Public/Origin با HTTP 200، یک H1، canonical صحیح و `noindex,nofollow` تأیید شدند.
+- **EN:** WooCommerce `11.1.1` is active; `/shop/` and `/shop/mikrotik-routers/` were verified at public edge and origin with HTTP 200, one H1, exact canonical and `noindex,nofollow`.
+- **FA:** Cart/Checkout/My Account و تمام gatewayهای داخلی غیرفعال‌اند؛ smoke استعلام PASS شد و بعد از cleanup تعداد product و inquiry موقت صفر است.
+- **EN:** Cart/Checkout/My Account and all built-in gateways are disabled; the inquiry smoke passed and cleanup left zero temporary products/inquiries.
+- **FA/EN:** Shop recovery point / نقطه بازیابی فروشگاه: `/root/tehnet-backups/20260921-021149`; non-TehNet runtime topology remained unchanged.
 
 ## Current production state
-- Active theme: `tehnet`; active plugin: `tehnet-core`.
+- Active theme: `tehnet`; active plugins: `tehnet-core` + WooCommerce `11.1.1`.
 - Static editable homepage and primary navigation are live.
 - Canonical host is `https://tehnet.ir`.
 - Search indexing remains deliberately disabled until launch gates pass.
 - No secret values are stored in Git.
 
 ## Next execution order
-1. Implement Shop/catalog and physical-product inquiry flows.
+1. Design and implement the manual Quote/Invoice lifecycle for physical inquiries / طراحی و پیاده‌سازی چرخه دستی پیش‌فاکتور و فاکتور.
 2. Implement account/support/ticket flows and Telegram bridge in separate tested branches.
 3. Implement digital delivery/licensing and payment adapters only after provider requirements are verified.
 4. Revisit VPN/Linux owner hubs only with independent intent evidence and substantial content.
