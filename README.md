@@ -1,19 +1,49 @@
-# TehNet
+# TehNet | تهران نتورک
 
-TehNet (`tehnet.ir`) is a Persian networking platform combining four equal business journeys:
+## فارسی
 
-- **Learn** — free tutorials and paid courses
-- **Lab** — scripts, configs, diagrams and hands-on labs
-- **Services** — remote/on-site networking services and consulting
-- **Shop** — networking equipment with direct purchase and inquiry flows
+TehNet (`tehnet.ir`) پلتفرم تخصصی شبکه با چهار مسیر اصلی کسب‌وکار است:
 
-## Status
+- **Learn / آموزش** — آموزش‌های رایگان و دوره‌ها
+- **Lab / لاب** — اسکریپت، کانفیگ، دیاگرام و سناریوهای عملی
+- **Services / خدمات** — خدمات شبکه حضوری تهران و پشتیبانی ریموت سراسر ایران
+- **Shop / فروشگاه** — تجهیزات شبکه، محصولات دیجیتال و جریان استعلام/خرید
 
-This repository is the canonical source of truth for all TehNet product, implementation, operations, SEO and deployment work.
+### وضعیت پروژه
 
-Development starts on feature branches and is merged to `main` only after verification.
+این مخزن منبع اصلی و رسمی TehNet برای محصول، پیاده‌سازی، عملیات، SEO و استقرار است. توسعه روی feature branch انجام می‌شود و فقط بعد از تست و تأیید به `main` ادغام می‌شود.
 
-## Production target
+### محیط Production
+
+- دامنه: `tehnet.ir`
+- سرور Origin: `91.107.138.246`
+- CDN/DNS: Cloudflare
+- میزبان canonical: `https://tehnet.ir`
+- `www.tehnet.ir` باید به دامنه اصلی redirect دائمی شود.
+
+### ساختار مخزن
+
+- `docs/` — طراحی، معماری و implementation planها
+- `ops/` — نصب، deploy، backup، recovery و شواهد production
+- `site/` — قالب و پلاگین‌های اختصاصی WordPress
+- `seo/` — تحقیق و معماری SEO مخصوص TehNet
+- `content/` — محتوای سایت و mapping ویدیوها
+- `HANDOFF.md` / `PROGRESS.md` / `TASKS.md` — وضعیت جاری، ادامه کار و backlog
+
+## English
+
+TehNet (`tehnet.ir`) is a Persian networking platform with four core business journeys:
+
+- **Learn** — free tutorials and courses
+- **Lab** — scripts, configs, diagrams and hands-on scenarios
+- **Services** — on-site networking services in Tehran and nationwide remote support
+- **Shop** — networking equipment, digital products, and inquiry/purchase flows
+
+### Project status
+
+This repository is the canonical source of truth for TehNet product, implementation, operations, SEO and deployment work. Development happens on feature branches and is merged to `main` only after verification.
+
+### Production target
 
 - Domain: `tehnet.ir`
 - Origin server: `91.107.138.246`
@@ -21,28 +51,13 @@ Development starts on feature branches and is merged to `main` only after verifi
 - Canonical host: `https://tehnet.ir`
 - `www.tehnet.ir` must permanently redirect to the apex host.
 
-## SEO reference
+### Repository map
 
-The evidence-based SEO operating system in `DashSaman/-SEO` is treated as an external reference. TehNet-specific query maps, audits, decisions and evidence live in this repository.
-
-## Repository map
-
-- `docs/` — product/design/architecture/implementation specs
+- `docs/` — product/design/architecture/implementation plans
 - `ops/` — installation, deployment, backup, recovery and production evidence
-- `site/` — custom WordPress theme/plugins and tests
-- `seo/` — TehNet-specific SEO research, query maps and launch gates
-- `content/` — content inventory and YouTube migration records
-- `AGENTS.md` — execution contract for AI/engineering agents
-- `HANDOFF.md` — current continuation state
-- `PROGRESS.md` — verified work completed and remaining
+- `site/` — custom WordPress theme/plugins
+- `seo/` — TehNet-specific SEO research and architecture
+- `content/` — site content and video mapping
+- `HANDOFF.md` / `PROGRESS.md` / `TASKS.md` — continuation state, verified progress and backlog
 
-See `PROGRESS.md` and `HANDOFF.md` for the live project state.
-
-## Project control
-
-- Product/architecture spec: `docs/superpowers/specs/2026-09-14-tehnet-platform-design.md`
-- Agent contract: `AGENTS.md`
-- Roadmap: `ROADMAP.md`
-- Task backlog: `TASKS.md`
-- Current status: `PROGRESS.md`
-- Continuation state: `HANDOFF.md`
+See `PROGRESS.md` and `HANDOFF.md` for the current implementation state.
