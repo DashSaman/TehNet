@@ -75,3 +75,6 @@
 - `COMMERCE_LIVE_SMOKE=PASSED`; cleanup left `0` smoke products and `0` smoke inquiries.
 - `blog_public=0`, binding `127.0.0.1:18082` and valid Nginx configuration were preserved.
 - The non-TehNet runtime fingerprint matched byte-for-byte before and after deployment; no container or Nginx restart was performed.
+## Integration / ادغام
+- **FA:** feature branch در merge commit `a386e1060b02fde20523e3647847d549ef5e80a2` وارد `main` شد؛ merged main دوباره تست و live-verified شد و worktree/feature branch محلی و remote پاک شدند.
+- **EN:** The feature branch was merged into `main` in merge commit `a386e1060b02fde20523e3647847d549ef5e80a2`; merged main was re-tested/live-verified and the local/remote feature branch plus worktree were cleaned up.

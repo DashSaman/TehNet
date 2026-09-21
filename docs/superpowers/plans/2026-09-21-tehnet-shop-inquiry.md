@@ -624,6 +624,6 @@ Update `PROGRESS.md`, `HANDOFF.md`, and `TASKS.md` from verified facts only. Mar
 
 Run the entire test/lint suite again, repeat the two live route gates, run a secret-value diff scan against the branch base, and confirm the branch is clean after the evidence commit.
 
-- [ ] **Step 10: Integration**
+- [x] **Step 10: Integration**
 
 After explicit integration authorization, merge the feature branch to `main`, rerun the repository suite and live Shop/category gates from `main`, push `main`, confirm local/remote SHAs match, remove the worktree/feature branch, and mark this final checkbox complete.
