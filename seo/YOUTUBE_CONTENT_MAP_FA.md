@@ -41,7 +41,7 @@
 
 ## نتیجه اجرایی
 - اولین Owner قابل انتشار: `/learn/mikrotik/`؛ چند ویدیوی MikroTik/VPN به‌عنوان شواهد و محتوای مکمل داخل همین هاب استفاده می‌شوند.
-- مسیر `/learn/mikrotik/mtcna/` در معماری مصوب است اما ساخت صفحه کامل دوره در plan جدا انجام می‌شود؛ فعلاً فقط mapping حفظ می‌شود.
+- مسیر `/learn/mikrotik/mtcna/` اکنون به‌عنوان Owner کامل MTCNA منتشر و live-verified شده و همه قسمت‌های دوره/GNS3 را در یک مسیر واحد نگه می‌دارد.
 - `/learn/vpn/`، `/learn/linux/`، `/learn/monitoring/` و `/learn/cloudflare/` همگی `NOT-YET` هستند و نباید صرفاً از روی تعداد ویدیو ساخته شوند.
 - سه ویدیوی iPhone/registry/antenna عمداً `YOUTUBE-ONLY` مانده‌اند تا topical focus سایت شبکه رقیق نشود.
 - ویدیوی Cloudflare 1101 که در عنوان خودش «قدیمی» است `DEPRECATED` است و برای آن صفحه SEO مستقل ساخته نمی‌شود.

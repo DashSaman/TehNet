@@ -1,7 +1,7 @@
 # TehNet Execution Progress
 
 ## Current phase
-Centralized LocalBusiness/NAP output is implemented and live-verified while production remains intentionally noindex. Next phase is intent-backed MTCNA/VPN/Linux content expansion, followed by commerce/account/support foundations.
+The approved MTCNA owner is implemented and live-verified while production remains intentionally noindex. Generic VPN/Linux hubs remain deferred by current SERP evidence; next phase is Shop/catalog and physical-product inquiry foundations.
 
 ## Product decisions locked
 - Brand/domain: TehNet / تهران نتورک / `https://tehnet.ir`
@@ -51,6 +51,9 @@ Centralized LocalBusiness/NAP output is implemented and live-verified while prod
 - Centralized LocalBusiness JSON-LD is live on homepage, About, Contact, Services hub and all five service owners, with truthful NAP/service-area values and no fabricated ratings/hours/geo.
 - LocalBusiness JSON is intentionally absent from `/learn/mikrotik/`; `BLOG_PUBLIC=0` and rendered `noindex,nofollow` remain active.
 - LocalBusiness recovery point: `/root/tehnet-backups/20260921-011103`; non-TehNet topology remained unchanged.
+- `/learn/mikrotik/mtcna/` is live and verified at origin/public with one H1, correct canonical, noindex/nofollow, all eight mapped MTCNA/GNS3 videos and required internal links.
+- MTCNA recovery point: `/root/tehnet-backups/20260921-011812`; non-TehNet topology remained unchanged.
+- Fresh SERP review supports the MTCNA owner but not generic VPN/Linux hubs yet; those remain NOT-YET rather than creating thin/cannibalizing pages.
 
 ## Current production state
 - Active theme: `tehnet`; active plugin: `tehnet-core`.
@@ -60,10 +63,10 @@ Centralized LocalBusiness/NAP output is implemented and live-verified while prod
 - No secret values are stored in Git.
 
 ## Next execution order
-1. Continue MTCNA/VPN/Linux content only through separate intent-backed plans; do not mass-create video pages.
-2. Implement Shop/catalog and physical-product inquiry flows.
-3. Implement account/support/ticket flows and Telegram bridge in separate tested branches.
-4. Implement digital delivery/licensing and payment adapters only after provider requirements are verified.
+1. Implement Shop/catalog and physical-product inquiry flows.
+2. Implement account/support/ticket flows and Telegram bridge in separate tested branches.
+3. Implement digital delivery/licensing and payment adapters only after provider requirements are verified.
+4. Revisit VPN/Linux owner hubs only with independent intent evidence and substantial content.
 5. Complete launch technical/content/measurement gates before enabling indexing.
 
 ## Rules for all agents
