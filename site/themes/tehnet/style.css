@@ -122,3 +122,31 @@ img { max-width: 100%; height: auto; }
   .tn-site-nav ul { gap: 12px; }
   .tn-main { padding-block: 28px 48px; }
 }
+
+/* TehNet physical-product inquiry UI */
+.tn-inquiry-form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  max-width: 720px;
+}
+
+.tn-inquiry-form label {
+  display: grid;
+  gap: .4rem;
+  font-weight: 700;
+}
+
+.tn-inquiry-form input,
+.tn-inquiry-form textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: .65rem .8rem;
+  border: 1px solid var(--tn-border);
+  border-radius: 10px;
+  font: inherit;
+}
+
+.tn-inquiry-form textarea { min-height: 120px; resize: vertical; }
+.tn-inquiry-price { font-weight: 800; color: var(--tn-blue-dark); }
+.tn-inquiry-honeypot { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
