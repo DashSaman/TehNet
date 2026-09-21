@@ -55,4 +55,4 @@ References:
 - [x] Record live evidence and recovery path in `ops/`.
 - [x] Update `PROGRESS.md`, `HANDOFF.md`, `TASKS.md` with verified facts only.
 - [x] Run all contracts, shell syntax/PHP lint, live JSON parse and secret-value diff scan.
-- [ ] Commit, merge to `main`, rerun suite/live gate, push and clean up the worktree/branch.
+- [x] Commit, merge to `main`, rerun suite/live gate, push and clean up the worktree/branch.
