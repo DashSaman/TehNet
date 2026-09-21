@@ -6,7 +6,7 @@ PAGE="$ROOT/site/themes/tehnet/page.php"
 FRONT="$ROOT/site/themes/tehnet/front-page.php"
 
 [[ $(grep -c "'has_archive' => false" "$CPT") -eq 2 ]] || { echo 'FAIL: service/lab archives must be disabled'; exit 1; }
-grep -q "'rewrite' => \['slug' => 'services'" "$CPT" || { echo 'FAIL: services single rewrite missing'; exit 1; }
+! grep -q "'rewrite' => \['slug' => 'services'" "$CPT" || { echo 'FAIL: tn_service rewrite collides with /services/* page owners'; exit 1; }
 grep -q "'rewrite' => \['slug' => 'lab'" "$CPT" || { echo 'FAIL: lab single rewrite missing'; exit 1; }
 
 [[ -f "$PAGE" ]] || { echo 'FAIL: page.php missing'; exit 1; }

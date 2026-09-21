@@ -51,3 +51,9 @@ grep -qF '[tehnet_phone]' "$HUB" || { echo 'FAIL: services hub needs central pho
 grep -qF '[tehnet_address]' "$HUB" || { echo 'FAIL: services hub needs central address'; exit 1; }
 
 echo 'SERVICE_OWNER_HIERARCHY_CONTRACT=PASSED'
+
+CONTENT_TYPES="$ROOT/site/plugins/tehnet-core/includes/class-content-types.php"
+SERVICE_BLOCK="$(sed -n "/register_post_type('tn_service'/,/register_post_type('tn_lab'/p" "$CONTENT_TYPES")"
+grep -q "'rewrite' => false" <<< "$SERVICE_BLOCK" || { echo 'FAIL: tn_service rewrite must not capture /services/* page owner URLs'; exit 1; }
+
+echo 'SERVICE_OWNER_REWRITE_CONTRACT=PASSED'
