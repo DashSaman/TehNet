@@ -1,7 +1,7 @@
 # TehNet Agent Handoff
 
 ## Current state
-Foundation, WordPress bootstrap, SEO architecture, YouTube mapping, the first MikroTik Learn hub, the five approved Services owner pages, and centralized LocalBusiness/NAP schema are implemented and verified in production. The site intentionally remains non-indexable.
+Foundation, WordPress bootstrap, SEO architecture, YouTube mapping, MikroTik + MTCNA Learn owners, the five approved Services owner pages, and centralized LocalBusiness/NAP schema are implemented and verified in production. The site intentionally remains non-indexable.
 
 ## Read first
 1. `AGENTS.md`
@@ -34,6 +34,10 @@ Foundation, WordPress bootstrap, SEO architecture, YouTube mapping, the first Mi
 - Services-phase recovery points: `/root/tehnet-backups/20260921-005938` and `/root/tehnet-backups/20260921-010347`.
 - Centralized LocalBusiness JSON-LD is live and validated on identity/service pages; recovery point `/root/tehnet-backups/20260921-011103`.
 - LocalBusiness output uses current `areaServed`, E.164-style phone normalization, stable `@id`, PostalAddress and known YouTube `sameAs`; no unverified rating/hours/geo/postal code is emitted.
+- `/learn/mikrotik/mtcna/` is live and verified at both origin and public edge with HTTP 200, one H1, correct canonical, `noindex,nofollow`, all eight mapped MTCNA/GNS3 videos and required internal links.
+- MTCNA recovery point: `/root/tehnet-backups/20260921-011812`; non-TehNet runtime topology remained unchanged.
+- `/learn/mikrotik/mtcna/` is live-verified with all mapped MTCNA/GNS3 videos; recovery point `/root/tehnet-backups/20260921-011812`.
+- Current SERP evidence does not justify generic `/learn/vpn/` or `/learn/linux/` hubs yet; keep them NOT-YET until a dedicated intent-backed plan exists.
 
 ## SEO architecture locked
 - `/learn/`, `/lab/`, `/services/`, `/shop/` are separate journeys.
@@ -49,7 +53,7 @@ Foundation, WordPress bootstrap, SEO architecture, YouTube mapping, the first Mi
 - Current `robots.txt` only disallows `/wp-admin/`; actual prelaunch index blocking is the rendered meta robots plus `blog_public=0`.
 
 ## Exact next task
-Create a new isolated branch/plan for **intent-backed MTCNA/VPN/Linux content expansion**. Start from the existing query/SERP maps and YouTube mapping, assign one coherent owner URL per intent, avoid thin per-video pages/cannibalization, and keep `blog_public=0` plus rendered `noindex,nofollow` until the explicit launch gate.
+Create a new isolated branch/plan for **Shop/catalog + physical-product inquiry foundations**. Preserve the existing Learn/Services ownership model, keep product-intent content inside Shop, avoid enabling checkout/payment until catalog/inquiry behavior is verified, and keep `blog_public=0` plus rendered `noindex,nofollow` until the explicit launch gate.
 
 ## Safety
 Do not change port `18082`, Nginx routing, Docker project topology or unrelated services. Before each production content/code deployment, capture a fresh TehNet backup and compare the non-TehNet runtime fingerprint before/after.

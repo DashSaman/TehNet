@@ -45,7 +45,9 @@ Status legend: `LOCKED`, `NEXT`, `BACKLOG`, `BLOCKED`, `DONE`.
 - DONE — Internal linking map Learn/Lab/Services/Shop.
 - DONE — First substantial Learn owner `/learn/mikrotik/` built and live-verified.
 - DONE — LocalBusiness/NAP implementation with centralized settings.
-- NEXT — Expand MTCNA/VPN/Linux content only through intent-backed owner-page plans.
+- DONE — MTCNA owner `/learn/mikrotik/mtcna/` built and live-verified.
+- DEFERRED — Generic VPN/Linux hubs pending stronger independent SERP intent; do not create thin/generic pages.
+- NEXT — WooCommerce catalog structure and physical-product inquiry mode.
 
 ## Services
 - DONE — Tehran service taxonomy/pages using approved owner URLs.

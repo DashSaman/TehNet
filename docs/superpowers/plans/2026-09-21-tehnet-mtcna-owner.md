@@ -20,23 +20,23 @@ Publish the already-approved `/learn/mikrotik/mtcna/` owner as one substantial P
 - Update the MikroTik hub so its MTCNA section links to the published owner.
 
 ### Task 1 — RED content/hierarchy contract
-- [ ] Add a failing MTCNA owner contract requiring source file, no editorial H1, all mapped video IDs, required sections/internal links and seed hierarchy.
-- [ ] Confirm RED.
+- [x] Add a failing MTCNA owner contract requiring source file, no editorial H1, all mapped video IDs, required sections/internal links and seed hierarchy.
+- [x] Confirm RED.
 
 ### Task 2 — Owner content and idempotent seed
-- [ ] Write original Persian MTCNA path content with prerequisites, RouterOS practice flow, ordered episodes, GNS3 lab, checkpoints and next steps.
-- [ ] Replace the MikroTik hub's future-tense MTCNA note with a link to the published owner.
-- [ ] Extend seed script idempotently and set MTCNA parent to the MikroTik page.
-- [ ] Run MTCNA/Gutenberg/full contracts plus shell syntax; commit.
+- [x] Write original Persian MTCNA path content with prerequisites, RouterOS practice flow, ordered episodes, GNS3 lab, checkpoints and next steps.
+- [x] Replace the MikroTik hub's future-tense MTCNA note with a link to the published owner.
+- [x] Extend seed script idempotently and set MTCNA parent to the MikroTik page.
+- [x] Run MTCNA/Gutenberg/full contracts plus shell syntax; commit.
 
 ### Task 3 — Production gate
-- [ ] Create fresh DB/wp-content recovery point and non-TehNet runtime fingerprint.
-- [ ] Run only idempotent content seed + rewrite flush; no container/Nginx restart.
-- [ ] Verify public and origin `/learn/mikrotik/mtcna/` return 200, exactly one H1, correct canonical, `noindex,nofollow`, all mapped video IDs and internal links.
-- [ ] Verify MikroTik hub links the owner, `blog_public=0`, bind `127.0.0.1:18082`, and unrelated runtime unchanged.
+- [x] Create fresh DB/wp-content recovery point and non-TehNet runtime fingerprint.
+- [x] Run only idempotent content seed + rewrite flush; no container/Nginx restart.
+- [x] Verify public and origin `/learn/mikrotik/mtcna/` return 200, exactly one H1, correct canonical, `noindex,nofollow`, all mapped video IDs and internal links.
+- [x] Verify MikroTik hub links the owner, `blog_public=0`, bind `127.0.0.1:18082`, and unrelated runtime unchanged.
 
 ### Task 4 — Evidence/integration
-- [ ] Record production evidence and recovery path.
-- [ ] Update PROGRESS/HANDOFF/TASKS and content maps with verified status only.
-- [ ] Run full suite, shell/PHP lint, live gate and secret scan.
+- [x] Record production evidence and recovery path.
+- [x] Update PROGRESS/HANDOFF/TASKS and content maps with verified status only.
+- [x] Run full suite, shell/PHP lint, live gate and secret scan.
 - [ ] Merge to `main`, rerun tests/live gate, push, close plan, remove worktree/branch.
