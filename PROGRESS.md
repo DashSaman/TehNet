@@ -1,7 +1,7 @@
 # TehNet Execution Progress
 
 ## Current phase
-YouTube/content mapping and the first Learn owner `/learn/mikrotik/` are implemented and live-verified while production remains intentionally noindex. Next phase is building the approved Tehran/Remote service owner pages.
+The approved Tehran/Remote service owner pages are implemented and live-verified while production remains intentionally noindex. Next phase is centralized LocalBusiness/NAP output and validation, followed by the remaining commerce/account/support phases.
 
 ## Product decisions locked
 - Brand/domain: TehNet / تهران نتورک / `https://tehnet.ir`
@@ -42,6 +42,12 @@ YouTube/content mapping and the first Learn owner `/learn/mikrotik/` are impleme
 - `/learn/mikrotik/` returned HTTP 200, exactly one H1, canonical `https://tehnet.ir/learn/mikrotik/`, and `noindex,nofollow`.
 - Fresh content-phase recovery point: `/root/tehnet-backups/20260915-012653`.
 - Non-TehNet runtime fingerprint remained exactly unchanged during the content seed.
+- Five approved service owners are live: `/services/network-tehran/`, `/services/network-support-tehran/`, `/services/network-setup-tehran/`, `/services/mikrotik-tehran/`, `/services/remote-support/`.
+- All five service owners returned HTTP 200 at origin and through Cloudflare with exactly one H1, correct canonical and `noindex,nofollow`.
+- `/services/` now links to all five owner pages and remains editable in Gutenberg.
+- A production 404 caused by the legacy `tn_service` rewrite collision was reproduced, covered by regression tests and fixed by disabling that unused pretty rewrite.
+- Fresh recovery points: `/root/tehnet-backups/20260921-005938` and `/root/tehnet-backups/20260921-010347`.
+- Non-TehNet runtime topology remained unchanged throughout the Services deployment.
 
 ## Current production state
 - Active theme: `tehnet`; active plugin: `tehnet-core`.
@@ -51,11 +57,11 @@ YouTube/content mapping and the first Learn owner `/learn/mikrotik/` are impleme
 - No secret values are stored in Git.
 
 ## Next execution order
-1. Merge verified `feature/content-mapping` into `main` and retest.
-2. Build the approved Tehran/Remote service owner pages from the current SERP intent map.
-3. Add LocalBusiness/NAP output from centralized settings where technically appropriate.
-4. Continue MTCNA/VPN/Linux content only through separate intent-backed plans; do not mass-create video pages.
-5. Implement Shop/catalog, account/support and payment phases in separate tested branches.
+1. Add and validate LocalBusiness/NAP output from centralized settings in a separate tested branch.
+2. Continue MTCNA/VPN/Linux content only through separate intent-backed plans; do not mass-create video pages.
+3. Implement Shop/catalog and physical-product inquiry flows.
+4. Implement account/support/ticket flows and Telegram bridge in separate tested branches.
+5. Implement digital delivery/licensing and payment adapters only after provider requirements are verified.
 6. Complete launch technical/content/measurement gates before enabling indexing.
 
 ## Rules for all agents

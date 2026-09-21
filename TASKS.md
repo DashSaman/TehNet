@@ -44,11 +44,11 @@ Status legend: `LOCKED`, `NEXT`, `BACKLOG`, `BLOCKED`, `DONE`.
 - DONE — YouTube inventory and video→owner-URL mapping (33 current public videos).
 - DONE — Internal linking map Learn/Lab/Services/Shop.
 - DONE — First substantial Learn owner `/learn/mikrotik/` built and live-verified.
-- BACKLOG — LocalBusiness/NAP implementation with centralized settings.
+- NEXT — LocalBusiness/NAP implementation with centralized settings.
 
 ## Services
-- NEXT — Tehran service taxonomy/pages using approved owner URLs.
-- NEXT — Nationwide Remote Support owner page/flow foundation.
+- DONE — Tehran service taxonomy/pages using approved owner URLs.
+- DONE — Nationwide Remote Support owner page/flow foundation.
 - BACKLOG — Quote/request workflow.
 - BACKLOG — Service history in user dashboard.
 

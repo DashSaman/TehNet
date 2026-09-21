@@ -1,7 +1,7 @@
 # TehNet Agent Handoff
 
 ## Current state
-Foundation, WordPress bootstrap, SEO architecture, YouTube mapping and the first MikroTik Learn hub are implemented and verified in production. The site intentionally remains non-indexable.
+Foundation, WordPress bootstrap, SEO architecture, YouTube mapping, the first MikroTik Learn hub, and the five approved Services owner pages are implemented and verified in production. The site intentionally remains non-indexable.
 
 ## Read first
 1. `AGENTS.md`
@@ -28,6 +28,10 @@ Foundation, WordPress bootstrap, SEO architecture, YouTube mapping and the first
 - Non-TehNet runtime fingerprint remained unchanged across SEO deployment.
 - `/learn/mikrotik/` is live and returned HTTP 200 with exactly one H1, correct canonical and `noindex,nofollow`.
 - Current public YouTube inventory contains 33 mapped videos; no thin per-video site pages were created.
+- Five Services owner URLs are live and verified: `/services/network-tehran/`, `/services/network-support-tehran/`, `/services/network-setup-tehran/`, `/services/mikrotik-tehran/`, `/services/remote-support/`.
+- Each service owner returns HTTP 200 at origin and through Cloudflare, exactly one H1, correct canonical and `noindex,nofollow`.
+- The legacy `tn_service` rewrite was disabled because it captured `/services/<slug>/` before hierarchical Pages; production currently has zero `tn_service` posts.
+- Services-phase recovery points: `/root/tehnet-backups/20260921-005938` and `/root/tehnet-backups/20260921-010347`.
 
 ## SEO architecture locked
 - `/learn/`, `/lab/`, `/services/`, `/shop/` are separate journeys.
@@ -43,7 +47,7 @@ Foundation, WordPress bootstrap, SEO architecture, YouTube mapping and the first
 - Current `robots.txt` only disallows `/wp-admin/`; actual prelaunch index blocking is the rendered meta robots plus `blog_public=0`.
 
 ## Exact next task
-After merging this branch into `main`, create a new isolated branch/plan for **Services owner pages**. Implement the already-approved commercial owners for Tehran networking/MikroTik and nationwide Remote Support with truthful service-area claims, strong editable Gutenberg content, and no fake district/city pages. Keep all production indexing disabled.
+Create a new isolated branch/plan for **centralized LocalBusiness/NAP output**. Use the existing TehNet settings as the source of truth, emit only truthful/complete identity and service-area fields, add validation/regression tests, and keep `blog_public=0` plus rendered `noindex,nofollow` until the explicit launch gate.
 
 ## Safety
 Do not change port `18082`, Nginx routing, Docker project topology or unrelated services. Before each production content/code deployment, capture a fresh TehNet backup and compare the non-TehNet runtime fingerprint before/after.

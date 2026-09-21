@@ -33,10 +33,10 @@
 
 **Interfaces:** Consumes `seo/SERP_INTENT_MAP_FA.md` and `seo/INFORMATION_ARCHITECTURE_FA.md`; produces substantial Gutenberg bodies for the approved owner URLs.
 
-- [ ] Write the failing contract first: require all five page bodies, no editorial H1, truthful Tehran/remote language, central phone shortcode, contact CTA, and distinct intent-specific sections.
-- [ ] Run it and confirm RED.
-- [ ] Write original Persian service copy for each owner. Use specific scope/process/troubleshooting language but no invented claims or prices.
-- [ ] Re-run contract to GREEN and commit.
+- [x] Write the failing contract first: require all five page bodies, no editorial H1, truthful Tehran/remote language, central phone shortcode, contact CTA, and distinct intent-specific sections.
+- [x] Run it and confirm RED.
+- [x] Write original Persian service copy for each owner. Use specific scope/process/troubleshooting language but no invented claims or prices.
+- [x] Re-run contract to GREEN and commit.
 
 ### Task 2: Idempotent Hierarchical Seeding and Services Hub
 
@@ -44,29 +44,29 @@
 
 **Interfaces:** Consumes the existing `SERVICES_ID`; produces five child pages under the real Services page and discoverable links from the hub.
 
-- [ ] Extend contract first to require stable IDs and `post_parent="$SERVICES_ID"` for all five pages plus hub links to all approved URLs.
-- [ ] Verify RED.
-- [ ] Seed/update each page idempotently and assign `SERVICES_ID` as parent; do not add all service pages to the primary navigation.
-- [ ] Update `/services/` body with concise cards/links and centrally managed phone/address details.
-- [ ] Run service contract, Gutenberg contract and shell syntax to GREEN; commit.
+- [x] Extend contract first to require stable IDs and `post_parent="$SERVICES_ID"` for all five pages plus hub links to all approved URLs.
+- [x] Verify RED.
+- [x] Seed/update each page idempotently and assign `SERVICES_ID` as parent; do not add all service pages to the primary navigation.
+- [x] Update `/services/` body with concise cards/links and centrally managed phone/address details.
+- [x] Run service contract, Gutenberg contract and shell syntax to GREEN; commit.
 
 ### Task 3: Safe Production Deployment and Live SEO Checks
 
 **Files:** No new runtime topology; update evidence/coordination only after checks.
 
-- [ ] Create a fresh TehNet DB/wp-content recovery point and capture non-TehNet runtime fingerprint.
-- [ ] Run only the idempotent content seed and WordPress rewrite flush; no container/Nginx restarts.
-- [ ] Verify all five service URLs return 200, exactly one H1, correct canonical and `noindex,nofollow`.
-- [ ] Verify `/services/` links to all five owners and still returns one H1.
-- [ ] Verify `blog_public=0`, TehNet bind `127.0.0.1:18082`, and non-TehNet fingerprint unchanged.
+- [x] Create a fresh TehNet DB/wp-content recovery point and capture non-TehNet runtime fingerprint.
+- [x] Run only the idempotent content seed and WordPress rewrite flush; no container/Nginx restarts.
+- [x] Verify all five service URLs return 200, exactly one H1, correct canonical and `noindex,nofollow`.
+- [x] Verify `/services/` links to all five owners and still returns one H1.
+- [x] Verify `blog_public=0`, TehNet bind `127.0.0.1:18082`, and non-TehNet fingerprint unchanged.
 
 ### Task 4: Coordination and Integration Readiness
 
 **Files:** Modify `PROGRESS.md`, `HANDOFF.md`, `TASKS.md`; close this plan with evidence.
 
-- [ ] Run every repository contract, shell syntax check and PHP lint.
-- [ ] Update coordination files with verified production facts and fresh backup path.
-- [ ] Close plan checkboxes and commit.
+- [x] Run every repository contract, shell syntax check and PHP lint.
+- [x] Update coordination files with verified production facts and fresh backup path.
+- [x] Close plan checkboxes and commit.
 - [ ] Merge to `main`, rerun the full suite on `main`, push, and clean up the worktree/branch.
 
 ## Completion Boundary
