@@ -7,6 +7,28 @@ final class TehNet_Core_Settings {
     private const GROUP = 'tehnet_settings';
     private const PAGE = 'tehnet-settings';
 
+    public static function defaults(): array {
+        return [
+            'tehnet_business_name' => 'تهران نتورک | TehNet',
+            'tehnet_phone' => '021-91018746',
+            'tehnet_address' => 'تهران، آیت‌الله کاشانی، شاهین جنوبی',
+            'tehnet_address_locality' => 'تهران',
+            'tehnet_address_region' => 'تهران',
+            'tehnet_address_country' => 'IR',
+            'tehnet_onsite_area' => 'تهران',
+            'tehnet_remote_area' => 'ایران',
+            'tehnet_primary_cta' => 'درخواست مشاوره شبکه',
+            'tehnet_youtube_url' => 'https://www.youtube.com/@tehran.network021',
+            'tehnet_telegram_url' => '',
+            'tehnet_instagram_url' => '',
+        ];
+    }
+
+    public static function value(string $key): string {
+        $defaults = self::defaults();
+        return (string) get_option($key, $defaults[$key] ?? '');
+    }
+
     public function register(): void {
         add_action('admin_menu', [$this, 'add_menu']);
         add_action('admin_init', [$this, 'register_settings']);
@@ -25,24 +47,12 @@ final class TehNet_Core_Settings {
     }
 
     public function register_settings(): void {
-        $text_settings = [
-            'tehnet_phone' => '021-91018746',
-            'tehnet_address' => 'تهران، آیت‌الله کاشانی، شاهین جنوبی',
-            'tehnet_primary_cta' => 'درخواست مشاوره شبکه',
-        ];
-        foreach ($text_settings as $key => $default) {
+        $url_keys = ['tehnet_youtube_url', 'tehnet_telegram_url', 'tehnet_instagram_url'];
+        foreach (self::defaults() as $key => $default) {
             register_setting(self::GROUP, $key, [
                 'type' => 'string',
-                'sanitize_callback' => 'sanitize_text_field',
+                'sanitize_callback' => in_array($key, $url_keys, true) ? 'esc_url_raw' : 'sanitize_text_field',
                 'default' => $default,
-            ]);
-        }
-
-        foreach (['tehnet_youtube_url', 'tehnet_telegram_url', 'tehnet_instagram_url'] as $key) {
-            register_setting(self::GROUP, $key, [
-                'type' => 'string',
-                'sanitize_callback' => 'esc_url_raw',
-                'default' => '',
             ]);
         }
 
@@ -54,8 +64,14 @@ final class TehNet_Core_Settings {
         );
 
         $labels = [
+            'tehnet_business_name' => 'نام کسب‌وکار',
             'tehnet_phone' => 'شماره تماس',
-            'tehnet_address' => 'آدرس',
+            'tehnet_address' => 'آدرس کامل',
+            'tehnet_address_locality' => 'شهر',
+            'tehnet_address_region' => 'استان',
+            'tehnet_address_country' => 'کد کشور',
+            'tehnet_onsite_area' => 'محدوده خدمات حضوری',
+            'tehnet_remote_area' => 'محدوده خدمات ریموت',
             'tehnet_youtube_url' => 'YouTube',
             'tehnet_telegram_url' => 'Telegram',
             'tehnet_instagram_url' => 'Instagram',
@@ -75,7 +91,7 @@ final class TehNet_Core_Settings {
 
     public function render_field(array $args): void {
         $key = (string) ($args['key'] ?? '');
-        $value = (string) get_option($key, '');
+        $value = self::value($key);
         $is_url = str_ends_with($key, '_url');
         printf(
             '<input class="regular-text" type="%1$s" name="%2$s" value="%3$s">',
@@ -86,11 +102,11 @@ final class TehNet_Core_Settings {
     }
 
     public function shortcode_phone(): string {
-        return esc_html((string) get_option('tehnet_phone', '021-91018746'));
+        return esc_html(self::value('tehnet_phone'));
     }
 
     public function shortcode_address(): string {
-        return esc_html((string) get_option('tehnet_address', 'تهران، آیت‌الله کاشانی، شاهین جنوبی'));
+        return esc_html(self::value('tehnet_address'));
     }
 
     public function render_page(): void {

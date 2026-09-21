@@ -44,7 +44,8 @@ Status legend: `LOCKED`, `NEXT`, `BACKLOG`, `BLOCKED`, `DONE`.
 - DONE — YouTube inventory and video→owner-URL mapping (33 current public videos).
 - DONE — Internal linking map Learn/Lab/Services/Shop.
 - DONE — First substantial Learn owner `/learn/mikrotik/` built and live-verified.
-- NEXT — LocalBusiness/NAP implementation with centralized settings.
+- DONE — LocalBusiness/NAP implementation with centralized settings.
+- NEXT — Expand MTCNA/VPN/Linux content only through intent-backed owner-page plans.
 
 ## Services
 - DONE — Tehran service taxonomy/pages using approved owner URLs.

@@ -18,9 +18,11 @@ define('TEHNET_CORE_DIR', plugin_dir_path(__FILE__));
 
 require_once TEHNET_CORE_DIR . 'includes/class-settings.php';
 require_once TEHNET_CORE_DIR . 'includes/class-content-types.php';
+require_once TEHNET_CORE_DIR . 'includes/class-schema.php';
 
 function tehnet_core_boot(): void {
     (new TehNet_Core_Settings())->register();
     (new TehNet_Core_Content_Types())->register();
+    (new TehNet_Core_Schema())->register();
 }
 add_action('plugins_loaded', 'tehnet_core_boot');

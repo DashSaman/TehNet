@@ -1,7 +1,7 @@
 # TehNet Execution Progress
 
 ## Current phase
-The approved Tehran/Remote service owner pages are implemented and live-verified while production remains intentionally noindex. Next phase is centralized LocalBusiness/NAP output and validation, followed by the remaining commerce/account/support phases.
+Centralized LocalBusiness/NAP output is implemented and live-verified while production remains intentionally noindex. Next phase is intent-backed MTCNA/VPN/Linux content expansion, followed by commerce/account/support foundations.
 
 ## Product decisions locked
 - Brand/domain: TehNet / تهران نتورک / `https://tehnet.ir`
@@ -48,6 +48,9 @@ The approved Tehran/Remote service owner pages are implemented and live-verified
 - A production 404 caused by the legacy `tn_service` rewrite collision was reproduced, covered by regression tests and fixed by disabling that unused pretty rewrite.
 - Fresh recovery points: `/root/tehnet-backups/20260921-005938` and `/root/tehnet-backups/20260921-010347`.
 - Non-TehNet runtime topology remained unchanged throughout the Services deployment.
+- Centralized LocalBusiness JSON-LD is live on homepage, About, Contact, Services hub and all five service owners, with truthful NAP/service-area values and no fabricated ratings/hours/geo.
+- LocalBusiness JSON is intentionally absent from `/learn/mikrotik/`; `BLOG_PUBLIC=0` and rendered `noindex,nofollow` remain active.
+- LocalBusiness recovery point: `/root/tehnet-backups/20260921-011103`; non-TehNet topology remained unchanged.
 
 ## Current production state
 - Active theme: `tehnet`; active plugin: `tehnet-core`.
@@ -57,12 +60,11 @@ The approved Tehran/Remote service owner pages are implemented and live-verified
 - No secret values are stored in Git.
 
 ## Next execution order
-1. Add and validate LocalBusiness/NAP output from centralized settings in a separate tested branch.
-2. Continue MTCNA/VPN/Linux content only through separate intent-backed plans; do not mass-create video pages.
-3. Implement Shop/catalog and physical-product inquiry flows.
-4. Implement account/support/ticket flows and Telegram bridge in separate tested branches.
-5. Implement digital delivery/licensing and payment adapters only after provider requirements are verified.
-6. Complete launch technical/content/measurement gates before enabling indexing.
+1. Continue MTCNA/VPN/Linux content only through separate intent-backed plans; do not mass-create video pages.
+2. Implement Shop/catalog and physical-product inquiry flows.
+3. Implement account/support/ticket flows and Telegram bridge in separate tested branches.
+4. Implement digital delivery/licensing and payment adapters only after provider requirements are verified.
+5. Complete launch technical/content/measurement gates before enabling indexing.
 
 ## Rules for all agents
 Read `AGENTS.md` and `HANDOFF.md` first, preserve locked decisions and verified work, use evidence before SEO claims, keep indexing disabled until an explicit launch gate, and never change unrelated project ports/containers during TehNet work.
