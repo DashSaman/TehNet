@@ -21,7 +21,7 @@ final class TehNet_Core_Content_Types {
             'menu_icon' => 'dashicons-hammer',
             'supports' => ['title', 'editor', 'excerpt', 'thumbnail', 'revisions'],
             'has_archive' => false,
-            'rewrite' => ['slug' => 'services', 'with_front' => false],
+            'rewrite' => false,
         ]);
 
         register_post_type('tn_lab', [
