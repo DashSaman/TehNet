@@ -1,6 +1,18 @@
 # TehNet Agent Handoff
 
-## Current state
+## READ FIRST — current continuation, 2026-10-13
+
+**FA:** بازطراحی TehNet 0.5.1 و رزومه برگه 80 منتشر شده‌اند. اصلاح جدید متادیتای سئو فقط در ریپو آماده و با ۳۳ آزمون واحد تأیید شده؛ **هنوز روی سایت نصب نشده است**. این دو وضعیت را یکی ندان. کاربر خواسته در پایان هر مرحله گزارش کوتاه در چت و گزارش ماندگار در ریپو ثبت شود.
+
+**EN:** Resume from this branch, not older main. Read `seo/SEO_AI_READINESS_2026-10-13.md` and `qa/SEARCH_METADATA_TESTS_2026-10-13.md`. The new `site/mu-plugins/tehnet-search-metadata.php` is PREPARED / UNIT-TESTED / NOT DEPLOYED. The current blocker is Remote Desktop Commander: RoboT lists online but ping/list_sessions/commands time out. Public website and authenticated WPVibe reads still work. GSC Wizard also returned payment_required; no upgrade was authorized.
+
+Exact next action: restore the authorized management connection, inspect real MU-plugin/metadata ownership and live Core drift, take a fresh targeted backup, deploy only the new metadata file after actual-container lint, then verify live output. Do not overwrite the whole Core plugin: runtime reports 0.3.1 while its repository bootstrap header is older. Do not rerun the previous one-shot visual builders/deployer.
+
+Fresh audit: homepage mobile lab Performance 93, Accessibility 100 (with a label-content-name-mismatch finding), Best Practices 100, SEO 61. Homepage description missing; noindex intentional. No field CrUX data. Published Sample Page ID 2 and prelaunch Learn wording remain launch-review items; nothing was silently deleted or made indexable.
+
+Keep `blog_public=0`, noindex/nofollow, payments, existing customer data and unrelated services unchanged. Public résumé excludes the designated partner brand and personal mobile; business office contact is a separate identity. Never publish credentials, private backup bytes, customer data or font files. Prepared metadata source/test commits: `ef5ac64`, `b8845ff`; test evidence: `cad908a`.
+
+## Earlier foundation state
 **FA:** Foundation، WordPress، SEO، Learn/Services، LocalBusiness و اکنون WooCommerce catalog + physical inquiry در production پیاده‌سازی و تأیید شده‌اند؛ سایت عمداً non-indexable باقی مانده است.
 
 **EN:** Foundation, WordPress, SEO, Learn/Services, LocalBusiness, and now the WooCommerce catalog + physical inquiry flow are implemented and verified in production. The site intentionally remains non-indexable.
@@ -58,7 +70,7 @@
 - WP-CLI used here has no `wp menu get`; Persian menu discovery uses the tested `ops/lib/wp-menu-id.awk` parser.
 - Current `robots.txt` only disallows `/wp-admin/`; actual prelaunch index blocking is the rendered meta robots plus `blog_public=0`.
 
-## Exact next task
+## Earlier product backlog — after the current SEO continuation
 **FA:** برای **Manual Quote/Invoice lifecycle** یک branch/plan ایزوله جدید بساز؛ inquiryهای موجود را به وضعیت‌های قابل‌پیگیری و پیش‌فاکتور/فاکتور دستی وصل کن، بدون فعال‌کردن payment یا indexing.
 
 **EN:** Create a new isolated branch/plan for the **manual Quote/Invoice lifecycle**; connect existing inquiries to trackable quote/invoice states without enabling payment or indexing.
