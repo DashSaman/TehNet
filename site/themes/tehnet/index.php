@@ -1,6 +1,11 @@
 <?php
 defined('ABSPATH') || exit;
 get_header();
+$tn_blog_archive = is_home() && ! is_front_page();
+if ($tn_blog_archive) {
+    echo '<header class="tn-section"><p class="tn-kicker">یادگیری، تجربه و فناوری</p><h1>بلاگ تهران نتورک</h1></header>';
+}
+
 
 if (have_posts()) {
     while (have_posts()) {
@@ -33,7 +38,7 @@ if (have_posts()) {
 } else {
     ?>
     <section class="tn-card">
-        <h1><?php esc_html_e('محتوایی پیدا نشد', 'tehnet'); ?></h1>
+        <?php if ($tn_blog_archive) : ?><p><?php esc_html_e('هنوز نوشته‌ای منتشر نشده است.', 'tehnet'); ?></p><?php else : ?><h1><?php esc_html_e('محتوایی پیدا نشد', 'tehnet'); ?></h1><?php endif; ?>
     </section>
     <?php
 }

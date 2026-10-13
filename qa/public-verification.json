@@ -1,0 +1,278 @@
+[
+  {
+    "url": "https://tehnet.ir/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/amirreza-golavar/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/amirreza-golavar/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/lab/gns3-mikrotik/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/lab/gns3-mikrotik/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/blog/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/blog/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/learn/mikrotik/mtcna/queues-troubleshooting/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/learn/mikrotik/mtcna/queues-troubleshooting/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/learn/mikrotik/mtcna/firewall-basics/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/learn/mikrotik/mtcna/firewall-basics/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/learn/mikrotik/mtcna/nat-masquerade/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/learn/mikrotik/mtcna/nat-masquerade/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/learn/mikrotik/mtcna/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/learn/mikrotik/mtcna/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/services/remote-support/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/services/remote-support/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/services/mikrotik-tehran/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/services/mikrotik-tehran/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/services/network-setup-tehran/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/services/network-setup-tehran/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/services/network-support-tehran/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/services/network-support-tehran/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/services/network-tehran/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/services/network-tehran/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/learn/mikrotik/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/learn/mikrotik/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/contact/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/contact/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/about/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/about/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/shop/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/shop/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/services/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/services/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/lab/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/lab/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/learn/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/learn/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/sample-page/",
+    "http": 200,
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/sample-page/"
+    ],
+    "robots": "noindex, nofollow",
+    "excluded_data_found": false,
+    "ok": true
+  },
+  {
+    "url": "https://tehnet.ir/wp-content/themes/tehnet/assets/profile/Amirreza-Golavar-Resume.txt",
+    "ok": true,
+    "http": 200,
+    "type": "download-privacy"
+  },
+  {
+    "url": "https://tehnet.ir/wp-content/themes/tehnet/assets/profile/Amirreza-Golavar.vcf",
+    "ok": true,
+    "http": 200,
+    "type": "download-privacy"
+  }
+]

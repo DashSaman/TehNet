@@ -77,3 +77,10 @@ Status legend: `LOCKED`, `NEXT`, `BACKLOG`, `BLOCKED`, `DONE`.
 - BACKLOG — Mobile/RTL validation.
 - BACKLOG — SEO launch checklist/retest.
 - BACKLOG — Production launch and post-launch measurement.
+
+## 2026-10-13 presentation deployment
+- DONE — TehNet 0.5.1 navy/cyan palette, résumé SVG, responsive header, theme/motion controls and native Amirreza profile.
+- DONE — Privacy, public route/metadata/download, origin and live Chromium verification; see ops/VISUAL_REFRESH_2026-10-13.md.
+- DONE — Corrected pre-existing blog archive H1/canonical.
+- DEFERRED — Review/integration of feat/portfolio-visual-20261013 into main; retain branch/worktree.
+- UNCHANGED — Payment, support/account, manual quote/invoice and indexing launch remain separate work.

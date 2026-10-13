@@ -77,3 +77,9 @@
 
 ## Rules for all agents
 Read `AGENTS.md` and `HANDOFF.md` first, preserve locked decisions and verified work, use evidence before SEO claims, keep indexing disabled until an explicit launch gate, and never change unrelated project ports/containers during TehNet work.
+
+## 2026-10-13 — Portfolio-derived visual refresh / بازطراحی ظاهری
+
+**FA:** بازطراحی قالب 0.5.1 و رزومه مستقل امیررضا روی سایت زنده منتشر شدند. نتیجه و محدودیت‌ها در `ops/VISUAL_REFRESH_2026-10-13.md` ثبت شده‌اند. محتوای سایر برگه‌ها، تنظیمات پرداخت و noindex تغییر نکردند. باگ قدیمی عنوان H1 و canonical بلاگ نیز اصلاح شد.
+
+**EN:** Preserved live theme drift first, then deployed the approved navy/cyan design and conceptual network SVG through a guarded file allowlist. Native profile page ID 80; live browser and public route/download checks passed. Source branch: `feat/portfolio-visual-20261013`, retained for review rather than automatically merging main. No unrelated runtime, core-plugin, font or service-restart changes on the TehNet host.

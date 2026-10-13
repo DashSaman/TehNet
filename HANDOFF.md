@@ -71,3 +71,11 @@ Do not change port `18082`, Nginx routing, Docker project topology or unrelated 
 - NoPayments official API/webhook implementation details.
 - Final optional logo redesign (must be previewed before replacement).
 - Search Console connection/measurement and final launch-indexing approval.
+
+## Latest live checkpoint — 2026-10-13 / بازطراحی منتشرشده
+
+**FA:** قالب TehNet 0.5.1 با رنگ‌بندی سرمه‌ای/فیروزه‌ای و گرافیک شبکه رزومه تأییدشده روی سایت زنده منتشر شد. رزومه امیررضا در `/amirreza-golavar/` (برگه 80) فعال است. شماره شخصی و برند مستثناشده در خروجی عمومی نیستند. آموزش، لاب، خدمات، فروشگاه، داده‌های قبلی، تنظیمات پرداخت و noindex حفظ شدند.
+
+**EN:** Production visual refresh is deployed. Source checkpoint is `feat/portfolio-visual-20261013`; main has not been auto-merged. Read `ops/VISUAL_REFRESH_2026-10-13.md`, `qa/live-browser-report.json` and `qa/public-verification.json` before continuing. Preserve existing production fonts and logo. The pre-existing blog archive H1/canonical defect was corrected.
+
+Next: review/integrate this branch without overwriting the newer live presentation. Keep its worktree. The earlier manual Quote/Invoice, account/support and indexing-launch tasks remain separate and unfinished. No service restarts, port/routing changes or TehNet Core changes were made.
