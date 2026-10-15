@@ -1,7 +1,7 @@
 # TehNet Agent Handoff
 
 ## Active store mission — 2026-10-15
-وضعیت نسخه محلی: اتصال ERP و عملیات Woo، نقش‌ها، فاکتور و درخواست مرجوعی پیاده‌سازی و آزموده شده‌اند. docs/acceptance-matrix-fa.md، docs/testing.md و docs/user-guide-fa.md مبنای ادامه‌اند. همه ۲۵ قلم draft و بدون قیمت/موجودی واقعی‌اند. شاخه audit/store-readiness-20261015 از visual واقعی شروع شده؛ main و production تغییر نکرده‌اند. هدف بعدی دریافت مشخصات ارائه‌دهنده و credentialهای sandbox، مدارک و قیمت/stock واقعی و پیکربندی مالیاتی است؛ سپس آزمون کامل checkout موبایل و طراحی release دارای backup/restore تولید و تأیید صریح مالک. ثبت یا ادعای پرداخت واقعی مجاز نیست.
+وضعیت نسخه محلی: اتصال ERP و عملیات Woo، نقش‌ها، فاکتور و درخواست مرجوعی پیاده‌سازی و آزموده شده‌اند. docs/acceptance-matrix-fa.md، docs/testing.md و docs/user-guide-fa.md مبنای ادامه‌اند. همه ۲۵ قلم draft و بدون قیمت/موجودی واقعی‌اند. شاخه audit/store-readiness-20261015 از visual واقعی شروع شده؛ main و production تغییر نکرده‌اند. زرین‌پال انتخاب و پروتکل sandbox واقعی آزموده شد؛ آداپتور آزمایشی با 49 بررسی mock آماده ولی خاموش است. docs/payment-sandbox-fa.md شواهد و محدودیت Docker را ثبت می‌کند. هدف بعدی آزمون native gateway→ERP و checkout موبایل پس از رفع دسترسی Docker، مدارک و قیمت/stock واقعی، مالیات و credential تولید، سپس release دارای backup/restore تولید و تأیید صریح مالک است. ثبت یا ادعای پرداخت واقعی مجاز نیست.
 
 
 

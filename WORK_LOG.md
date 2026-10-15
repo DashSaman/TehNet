@@ -32,3 +32,11 @@ GLM-5.3-Flash: یک مشاوره واقعی محدود، ۱۲۳۵ token گزار
 - importer بومی WordPress آماده است؛ اجرای integration، اثبات تکرار/rollback و سناریوهای مالی در انتظار آماده‌شدن محیط محلی‌اند. هیچ آزمون موفق خرید/ERP ادعا نشده است.
 - Ruling: bootstrap و class-quotes زنده با کپی دقیق بازیابی شدند. تنظیم غیرفعال‌کردن rewrite لاب در runtime با قرارداد موجود مخزن ناسازگار بود؛ آن فایل در evidence آرشیو و routing قدیمی مخزن حفظ شد. تغییری روی production اعمال نشد.
 - Docker محلی و download تصویرهای رسمی در حال آماده‌سازی است؛ انتقال تصویر stock از سرور فقط شامل لایه‌های image است، نه container، volume یا داده مشتری.
+
+## ادامه پرداخت آزمایشی — ۱۵ اکتبر ۲۰۲۶
+
+انتخاب فنی با درخواست ادامه کار کاربر: زرین‌پال v4 برای sandbox. بسته رسمی Woo 5.1.1 از WordPress با hash ثبت‌شده بررسی شد؛ code=101 در callback و ضریب ثابت refund نیازمند رسیدگی‌اند، بنابراین فعال نشد. آداپتور آزمایشی فقط برای local/staging و کالای synthetic ساخته شد؛ production host و bank refund ندارد. classic/Blocks ثبت شده ولی خرید کامل native هنوز تأیید نشده است.
+
+شاهد واقعی مستقل: request 11000 IRR، پرداخت ساختگی در صفحه sandbox، callback localhost، مبلغ 11001 → HTTP401/code -50، مبلغ درست →100، تکرار →101 با رسید ثابت. هیچ سفارش Woo/ERP از probe ایجاد نشد. بررسی‌های تازه: 20 protocol +29 state-machine با mock؛ mutation حذف101 شکست موردانتظار داد؛ lint10PHP و JS syntax سبز؛ 20 Python +7 visual و 20 سناریوی HTTP واقعی ERP نیز دوباره گذشتند. جزئیات و محدودیت‌ها در docs/payment-sandbox-fa.md.
+
+مانع تازه: Docker named pipe در محیط محدود فعلی permission denied؛ درخواست مجوز شبکه پذیرفته شد ولی pipe همچنان بسته است. WordPress HTTP/ERP HTTP در دسترس‌اند. Edge مستقل نتوانست راه بیفتد؛ CUA/IAB بازگشت sandbox را دید. overlay فعال‌سازی اعمال نشد؛ native gateway→ERP و خرید کامل موبایلی آزموده نیستند. نتیجه native مرحله قبلی با نتیجه تازه یکی نشده است. production و 25 draft تغییر نکردند. هیچ مشاوره مدل دیگری اجرا نشد.

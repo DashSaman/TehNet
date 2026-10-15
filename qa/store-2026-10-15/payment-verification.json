@@ -1,0 +1,108 @@
+{
+  "utc": "2026-10-15T14:32:25.472351+00:00",
+  "scope": "Portable PHP protocol and state machine with mocked Woo/ERP/HTTP; no native checkout claim",
+  "unique_assertions": {
+    "protocol": 20,
+    "lifecycle": 29
+  },
+  "checks": [
+    {
+      "name": "lint site\\plugins\\tehnet-store\\includes\\class-account.php",
+      "passed": true,
+      "expected_failure": false,
+      "exit_code": 0,
+      "output": "No syntax errors detected in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\site\\plugins\\tehnet-store\\includes\\class-account.php\n"
+    },
+    {
+      "name": "lint site\\plugins\\tehnet-store\\includes\\class-catalog.php",
+      "passed": true,
+      "expected_failure": false,
+      "exit_code": 0,
+      "output": "No syntax errors detected in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\site\\plugins\\tehnet-store\\includes\\class-catalog.php\n"
+    },
+    {
+      "name": "lint site\\plugins\\tehnet-store\\includes\\class-erp.php",
+      "passed": true,
+      "expected_failure": false,
+      "exit_code": 0,
+      "output": "No syntax errors detected in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\site\\plugins\\tehnet-store\\includes\\class-erp.php\n"
+    },
+    {
+      "name": "lint site\\plugins\\tehnet-store\\includes\\class-operations.php",
+      "passed": true,
+      "expected_failure": false,
+      "exit_code": 0,
+      "output": "No syntax errors detected in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\site\\plugins\\tehnet-store\\includes\\class-operations.php\n"
+    },
+    {
+      "name": "lint site\\plugins\\tehnet-store\\includes\\class-policy.php",
+      "passed": true,
+      "expected_failure": false,
+      "exit_code": 0,
+      "output": "No syntax errors detected in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\site\\plugins\\tehnet-store\\includes\\class-policy.php\n"
+    },
+    {
+      "name": "lint site\\plugins\\tehnet-store\\includes\\class-storefront.php",
+      "passed": true,
+      "expected_failure": false,
+      "exit_code": 0,
+      "output": "No syntax errors detected in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\site\\plugins\\tehnet-store\\includes\\class-storefront.php\n"
+    },
+    {
+      "name": "lint site\\plugins\\tehnet-store\\includes\\class-zarinpal-blocks.php",
+      "passed": true,
+      "expected_failure": false,
+      "exit_code": 0,
+      "output": "No syntax errors detected in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\site\\plugins\\tehnet-store\\includes\\class-zarinpal-blocks.php\n"
+    },
+    {
+      "name": "lint site\\plugins\\tehnet-store\\includes\\class-zarinpal-gateway.php",
+      "passed": true,
+      "expected_failure": false,
+      "exit_code": 0,
+      "output": "No syntax errors detected in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\site\\plugins\\tehnet-store\\includes\\class-zarinpal-gateway.php\n"
+    },
+    {
+      "name": "lint site\\plugins\\tehnet-store\\includes\\class-zarinpal-sandbox.php",
+      "passed": true,
+      "expected_failure": false,
+      "exit_code": 0,
+      "output": "No syntax errors detected in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\site\\plugins\\tehnet-store\\includes\\class-zarinpal-sandbox.php\n"
+    },
+    {
+      "name": "lint site\\plugins\\tehnet-store\\tehnet-store.php",
+      "passed": true,
+      "expected_failure": false,
+      "exit_code": 0,
+      "output": "No syntax errors detected in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\site\\plugins\\tehnet-store\\tehnet-store.php\n"
+    },
+    {
+      "name": "zarinpal-protocol",
+      "passed": true,
+      "expected_failure": false,
+      "exit_code": 0,
+      "output": "PASS: request accepts a sandbox authority\nPASS: only the fixed sandbox host is used\nPASS: integer IRR is sent without a toman multiplier\nPASS: TLS and bounded transport cannot be weakened\nPASS: server verification code 100 yields the receipt\nPASS: server verification code 101 yields the receipt\nPASS: production authority rejected before network\nPASS: production authority response rejected\nPASS: invalid verification response rejected\nPASS: invalid verification response rejected\nPASS: invalid verification response rejected\nPASS: invalid verification response rejected\nPASS: invalid verification response rejected\nPASS: HTTP failure cannot become a receipt\nPASS: transport uncertainty cannot become a receipt\nPASS: invalid JSON is rejected\nPASS: nonpositive amount rejected\nPASS: nonpositive amount rejected\nPASS: production environment refuses sandbox verification\nPASS: production guard runs before network\nZARINPAL_PROTOCOL=PASSED checks=20\n"
+    },
+    {
+      "name": "zarinpal-lifecycle",
+      "passed": true,
+      "expected_failure": false,
+      "exit_code": 0,
+      "output": "PASS: request accepts a sandbox authority\nPASS: only the fixed sandbox host is used\nPASS: integer IRR is sent without a toman multiplier\nPASS: TLS and bounded transport cannot be weakened\nPASS: server verification code 100 yields the receipt\nPASS: server verification code 101 yields the receipt\nPASS: production authority rejected before network\nPASS: production authority response rejected\nPASS: invalid verification response rejected\nPASS: invalid verification response rejected\nPASS: invalid verification response rejected\nPASS: invalid verification response rejected\nPASS: invalid verification response rejected\nPASS: HTTP failure cannot become a receipt\nPASS: transport uncertainty cannot become a receipt\nPASS: invalid JSON is rejected\nPASS: nonpositive amount rejected\nPASS: nonpositive amount rejected\nPASS: production environment refuses sandbox verification\nPASS: production guard runs before network\nZARINPAL_PROTOCOL=PASSED checks=20\nPASS: attempt is persisted with exact amount and strong callback token\nPASS: repeated start reuses one authority\nPASS: forged callback token is rejected\nPASS: authority from another order is rejected\nPASS: changed order amount is rejected\nPASS: invalid callbacks never reach provider verification\nPASS: browser NOK alone neither pays nor cancels the reservation\nPASS: previously verified provider response recovers payment exactly once\nPASS: repeated callback reuses the durable receipt\nPASS: concurrent/interrupted callback lock is respected\nPASS: late sandbox receipt cannot resurrect a canceled reservation\nPASS: late-payment marker survives repeated callbacks\nPASS: request timeout is explicit\nPASS: unknown request outcome remains durable\nPASS: unknown request cannot create a second payment\nPASS: unknown request does not retry network creation\nPASS: ordinary catalog items are forbidden\nPASS: non-IRR orders are forbidden\nPASS: expired ERP reservation blocks new payment\nPASS: one provider receipt cannot pay a second order\nPASS: verification timeout does not mark order paid\nPASS: verification failure preserves the unpaid order\nPASS: verification retry recovers with code 101\nPASS: ERP outage retains verified receipt on hold\nPASS: ERP recovery applies the stored receipt once\nPASS: ERP reconciliation of paid receipt does not create a second payment\nPASS: cancellation during provider verification is reloaded before completion\nPASS: concurrent amount edit retains receipt and stops completion\nPASS: production guard refuses the entire order flow\nZARINPAL_LIFECYCLE=PASSED checks=29\n"
+    },
+    {
+      "name": "blocks JavaScript syntax",
+      "passed": true,
+      "expected_failure": false,
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "name": "code 101 regression mutation",
+      "passed": true,
+      "expected_failure": true,
+      "exit_code": 255,
+      "output": "PASS: request accepts a sandbox authority\nPASS: only the fixed sandbox host is used\nPASS: integer IRR is sent without a toman multiplier\nPASS: TLS and bounded transport cannot be weakened\nPASS: server verification code 100 yields the receipt\n\nFatal error: Uncaught RuntimeException: Sandbox payment is not verified in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\ops\\staging\\.local\\tn-zarinpal-regression-kcmt15no\\adapter.php:40\nStack trace:\n#0 C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\ops\\staging\\.local\\tn-zarinpal-regression-kcmt15no\\test.php(23): TehNet_Store_Zarinpal_Sandbox->verify('S00000000000000...', 11000)\n#1 {main}\n  thrown in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\ops\\staging\\.local\\tn-zarinpal-regression-kcmt15no\\adapter.php on line 40\n"
+    }
+  ]
+}

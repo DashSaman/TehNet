@@ -37,3 +37,7 @@ ERP یک سایت `frontend` می‌سازد. در setup wizard فقط شرکت 
 ## تنظیم اتصال در انتشار
 
 مقدارهای سروری `TEHNET_ERP_URL`، `TEHNET_ERP_SITE`، `TEHNET_ERP_API_KEY`، `TEHNET_ERP_API_SECRET` و `TEHNET_ERP_STORE_ID` لازم‌اند. URL در production فقط HTTPS است. `TEHNET_VERIFIED_GATEWAYS` باید فقط نام adapterهای واقعاً آزموده‌شده سمت سرور را داشته باشد. `TEHNET_ERP_RESERVATIONS_ENABLED=true` به‌تنهایی خرید را فعال نمی‌کند. اعتبارنامه درگاه یا ERP را در فرم محصول، مرورگر یا Git قرار ندهید.
+
+## ادامه پرداخت آزمایشی — ۱۵ اکتبر ۲۰۲۶
+
+پرداخت آزمایشی به صورت پیش‌فرض خاموش است. overlay `payment-sandbox.compose.yml` فقط برای شرکت/موجودی synthetic محلی است و در این مرحله اعمال نشده است. راهنمای کامل، منابع و شواهد: ../../docs/payment-sandbox-fa.md. آزمون مستقل بدون Docker: `python ops/staging/verify-payment.py --php /path/to/php`. آن را آزمون native خرید کامل معرفی نکنید.

@@ -14,3 +14,7 @@
 
 منابع قابلیت: [Woo orders](https://woocommerce.com/document/managing-orders/)، [Woo HPOS](https://developer.woocommerce.com/docs/features/orders/high-performance-order-storage/)، [ERPNext integration](https://docs.frappe.io/erpnext/e-commerce-integrations-for-erpnext)، [اتصال deprecated](https://docs.frappe.io/erpnext/woocommerce_integration)، [UOM](https://docs.frappe.io/erpnext/Selling-in-different-UOM)، [رزرو](https://docs.frappe.io/erpnext/stock-reservation)، [گردش Odoo](https://www.odoo.com/documentation/19.0/applications/inventory_and_mrp/inventory/inventory_valuation/operations_valuation.html).
 مجوزها از LICENSE/metadata همان مخازن بررسی شدند؛ فعال‌بودن توسعه به معنای تضمین SLA یا سازگاری اتصال نیست.
+
+## ادامه پرداخت آزمایشی — ۱۵ اکتبر ۲۰۲۶
+
+برای ادامه پرداخت، پروتکل sandbox رسمی زرین‌پال انتخاب و واقعاً request/verify شد؛ هزینه/قرارداد یا پذیرش تولید حدس زده نشده است. افزونه رسمی Woo 5.1.1 خوانده شد اما مسیر callback101 و ضریب refund در IRR نیازمند اصلاح/تست‌اند. NextPay دارای مستند رسمی خواندنی بود؛ sandbox قابل اجرا در صفحه خوانده‌شده تأیید نشد. مستند IDPay/pay.ir قابل بازیابی نبود. جدول، منابع رسمی، نسخه/hash و حدود تصمیم در docs/payment-sandbox-fa.md آمده است.

@@ -13,9 +13,18 @@ require_once __DIR__ . '/includes/class-storefront.php';
 require_once __DIR__ . '/includes/class-erp.php';
 require_once __DIR__ . '/includes/class-operations.php';
 require_once __DIR__ . '/includes/class-account.php';
+require_once __DIR__ . '/includes/class-zarinpal-sandbox.php';
 register_activation_hook(__FILE__,['TehNet_Store_Operations','install']);
+add_action('woocommerce_blocks_payment_method_type_registration',static function($registry):void {
+    if (class_exists('Automattic\\WooCommerce\\Blocks\\Payments\\Integrations\\AbstractPaymentMethodType')) {
+        require_once __DIR__.'/includes/class-zarinpal-blocks.php';
+        $registry->register(new TehNet_Store_Zarinpal_Blocks());
+    }
+});
 add_action('plugins_loaded',static function():void {
     if (class_exists('WooCommerce')) {
+        require_once __DIR__ . '/includes/class-zarinpal-gateway.php';
+        add_filter('woocommerce_payment_gateways',static function(array $gateways):array { $gateways[]='TehNet_Store_Zarinpal_Gateway';return $gateways; });
         (new TehNet_Store_Storefront())->register(); (new TehNet_Store_ERP())->register();
         (new TehNet_Store_Operations())->register(); (new TehNet_Store_Account())->register();
     }

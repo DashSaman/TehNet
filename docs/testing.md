@@ -52,3 +52,11 @@ rtk proxy python -u ops/staging/test-erp.py
 خرید کامل موبایلی با **درگاه sandbox معتبر** اجرا نشده، چون ارائه‌دهنده و اعتبارنامه آن مشخص نیست. هیچ callback مرورگر یا شناسه ساختگی به‌عنوان پرداخت واقعی گزارش نمی‌شود. مالیات غیرصفر، سامانه مودیان، سفارش ترکیبی digital/physical و کالاهای سریال/بچ در مرز اتصال فعلی نیاز پیکربندی و آزمون جدا دارند و بسته می‌مانند. ERP native این حوزه‌ها را دارد، اما فعال‌بودن آن‌ها در اتصال حاضر ادعا نمی‌شود.
 
 بازیابی، آزمون تولید نیست. اولین backup بومی ERP به خطای اعتبار زمانی گواهی MariaDB محلی خورد؛ فقط همان فرمان backup/restore محلی با MYSQL_HOME موقت و غیرفعال‌کردن بررسی گواهی اجرا شد. تنظیم TLS برنامه و production عوض نشد. اصلاح ساعت/گواهی و آزمون با TLS معتبر شرط انتشار است.
+
+## ادامه پرداخت آزمایشی — ۱۵ اکتبر ۲۰۲۶
+
+آداپتور جدید: `python ops/staging/verify-payment.py --php /path/to/php`؛ 20 بررسی پروتکل و29 ماشین وضعیت ساختگی، lint10 فایل PHP، syntax JS و آزمون mutation حذف101 گذشتند. فایل کامل خروجی `qa/store-2026-10-15/payment-verification.json` است.
+
+probes رسمی request/verify در `zarinpal-request.json` و `zarinpal-provider-probe-fresh.json` ثبت‌اند: HTTP401/-50 برای اختلاف یک ریال، سپس100 و101 با ref_id ثابت. مرورگر داخلی بازگشت sandbox را دید. این آزمایش standalone است؛ checkout Woo یا سند ERP ایجاد نکرد.
+
+20 سناریوی موتور واقعی ERP دوباره گذشتند (`erp-results.json`) و Store API عمومی Woo 200/payment_methods=[] داد (`payment-public-smoke.json`). Docker named pipe و Edge مستقل در sandbox فعلی بسته‌اند؛ WP-CLI، فعال‌سازی overlay و آزمون جدید native gateway→ERP یا checkout موبایلی انجام نشد. شواهد native قبلی حفظ شده‌اند. راه‌اندازی/ادامه در docs/payment-sandbox-fa.md.

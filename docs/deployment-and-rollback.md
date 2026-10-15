@@ -35,3 +35,9 @@
 سند submitted مالی با حذف SQL اصلاح نمی‌شود؛ native cancellation/return/credit note و Payment Entry مرتبط استفاده شوند. rollback کاتالوگ فقط محصول draft دست‌نخورده همان run را soft-trash می‌کند و ویرایش انسانی را رد می‌کند. دسته‌ها برای جلوگیری از تخریب داده مشترک نگه داشته می‌شوند.
 
 lock معوق `tn_erp_order_lock_ID` یا importer را فقط پس از بررسی نتیجه احتمالی سمت ERP باز کنید. retry همان payload و key است؛ برای فرار از تضاد payload کلید جدید نسازید. تغییر terms سفارش رزروشده نیاز لغو و سفارش جدید دارد.
+
+## ادامه پرداخت آزمایشی — ۱۵ اکتبر ۲۰۲۶
+
+فایل `ops/staging/payment-sandbox.compose.yml` overlay صریح آزمایش محلی است؛ prepare-local آن را اجرا نمی‌کند و روی این محیط اعمال نشده است. هرگز در تولید استفاده نشود. حذف overlay و اجرای base compose با همان volumes flags آزمایشی را کنار می‌گذارد؛ سپس درگاه در Woo خاموش شود. receipt/attempt و outbox برای حسابرسی نگهداری شوند؛ پاک‌کردن آن‌ها روش بازیابی نیست.
+
+Docker named pipe در sandbox فعلی در دسترس نیست؛ بازسازی container/WP-CLI و native gateway checkout هنوز شرط بازند. نه backup/restore تولید و نه استقرار از این مرحله مجاز/اجرا شده‌اند. جزئیات قفل ماندگار و unknown request در docs/payment-sandbox-fa.md.
