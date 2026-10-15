@@ -22,7 +22,10 @@ run(erp+['python','-c',"from pathlib import Path;assert not Path('sites/'+"+repr
 secret=env['ERP_ADMIN_PASSWORD']
 run(erp+['bench','new-site',target,'--db-host','db','--db-root-password',secret,'--admin-password',secret,'--mariadb-user-host-login-scope','%'],timeout=300)
 run(erp+['bench','--site',target,'restore',paths['db'],'--db-root-password',secret,'--with-public-files',paths['public'],'--with-private-files',paths['private'],'--force'],timeout=300)
-run(erp+['python','-c',"import json;from pathlib import Path;s=json.loads(Path('sites/frontend/site_config.json').read_text());p=Path('sites/'+"+repr(target)+"+'/site_config.json');d=json.loads(p.read_text());d.update({'encryption_key':s['encryption_key'],'pause_scheduler':1,'mute_emails':1,'maintenance_mode':1});p.write_text(json.dumps(d))"])
+configuration_backup=paths['db'].replace('-database.sql.gz','-site_config_backup.json')
+run(erp+['python','-c',"import json;from pathlib import Path;s=json.loads(Path("+repr(configuration_backup)+").read_text());p=Path('sites/'+"+repr(target)+"+'/site_config.json');d=json.loads(p.read_text());d.update({k:v for k,v in s.items() if k.startswith('tehnet_') or k=='encryption_key'});d.update({'pause_scheduler':1,'mute_emails':1,'maintenance_mode':1});p.write_text(json.dumps(d))"])
+configuration_hash=run(erp+['bench','--site','frontend','execute','tehnet_erp.recovery.config_audit'])
+assert configuration_hash==run(erp+['bench','--site',target,'execute','tehnet_erp.recovery.config_audit']),'Restored ERP account/warehouse configuration differs'
 after=json.loads(run(erp+['bench','--site',target,'execute','tehnet_erp.recovery.audit']))
 assert before==after,'ERP restore fingerprint differs from source'
 decrypt=['execute','frappe.utils.password.get_decrypted_password','--kwargs',json.dumps({'doctype':'User','name':'tehnet-integration@example.invalid','fieldname':'api_secret'})]

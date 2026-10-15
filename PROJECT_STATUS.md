@@ -1,5 +1,15 @@
 # وضعیت فروشگاه تهران نتورک — ۱۵ اکتبر ۲۰۲۶
 
+## وضعیت آخر نسخه محلی — ۱۵ اکتبر ۲۰۲۶
+
+کد اتصال ERP، پنل عملیات با نقش‌های جدا، فاکتور مشتری و مرجوعی دارای تخفیف/ارسال تکمیل و محلی آزموده شده است. فروشگاه تولیدی یا پرداخت واقعی آماده اعلام نمی‌شود. ماتریس دقیق پذیرش در docs/acceptance-matrix-fa.md و شواهد در docs/testing.md است.
+
+نسخه قابل مشاهده: http://localhost:18083/shop/?tn_preview=1 برای مدیر محلی؛ عملیات /wp-admin/admin.php?page=tn-store و ERP روی localhost:18084. تمام ۲۵ قلم draft و sale data آن‌ها غیرفعال است.
+
+محیط واقعی: WordPress 7.1.3، WooCommerce 11.1.1، PHP 8.3، ERPNext 16.51.0، Frappe 16.52.0. آزمون‌های اصلی: ۲۰ unittest، ۲۰ policy، ۳۱ import، ۴ Core permission، ۴ role، ۹ bridge، ۷ lifecycle، چرخه ERP و مرورگر. بازیابی SQL/files و encryption key در مقصد جدا محلی گذشت؛ TLS client محلی backup استثنای موقت ثبت‌شده دارد.
+
+وابستگی نهایی: مدل/مجوز رسانه، قیمت و stock واقعی، درگاه/حمل/اعلان و sandbox معتبر، شرکت/مالیات، ظرفیت ERP و TLS/cron/backup تولید، سپس تأیید انتشار. هیچ deploy روی tehnet.ir انجام نشده است.
+
 وضعیت: توسعه و آزمون؛ فروشگاه کامل و آماده پرداخت واقعی نیست.
 
 مأموریت کامل در `docs/requirements-store-2026-10-15.fa.txt` حفظ شده است.

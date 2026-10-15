@@ -4,6 +4,12 @@ import json
 import os
 import frappe
 
+def config_audit():
+    if os.environ.get('TEHNET_SANDBOX')!='1' or not (frappe.local.site=='frontend' or frappe.local.site.startswith('tehnet-restore-')):
+        frappe.throw('Local recovery sandbox only')
+    values={key:value for key,value in frappe.conf.items() if key.startswith('tehnet_') or key=='encryption_key'}
+    return hashlib.sha256(json.dumps(values,sort_keys=True).encode()).hexdigest()
+
 def audit():
     if os.environ.get('TEHNET_SANDBOX')!='1' or not (frappe.local.site=='frontend' or frappe.local.site.startswith('tehnet-restore-')):
         frappe.throw('Local recovery sandbox only')

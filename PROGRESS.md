@@ -1,7 +1,8 @@
 # TehNet Execution Progress
 
 ## Active store mission — 2026-10-15
-Read PROJECT_STATUS.md, WORK_LOG.md, docs/architecture.md and docs/superpowers/plans/2026-10-15-operational-store.md first. Current SSH works. Preserve the three live Core drift files; do not deploy older Core wholesale. The full local user attachment has now been read. New development is local/staging only; no production release or real payment is authorized.
+وضعیت نسخه محلی: اتصال ERP و عملیات Woo، نقش‌ها، فاکتور و درخواست مرجوعی پیاده‌سازی و آزموده شده‌اند. docs/acceptance-matrix-fa.md، docs/testing.md و docs/user-guide-fa.md مبنای ادامه‌اند. همه ۲۵ قلم draft و بدون قیمت/موجودی واقعی‌اند. شاخه audit/store-readiness-20261015 از visual واقعی شروع شده؛ main و production تغییر نکرده‌اند. هدف بعدی دریافت مشخصات ارائه‌دهنده و credentialهای sandbox، مدارک و قیمت/stock واقعی و پیکربندی مالیاتی است؛ سپس آزمون کامل checkout موبایل و طراحی release دارای backup/restore تولید و تأیید صریح مالک. ثبت یا ادعای پرداخت واقعی مجاز نیست.
+
 
 
 ## Current phase / فاز فعلی — 2026-10-13

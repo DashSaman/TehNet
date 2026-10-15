@@ -1,0 +1,25 @@
+{
+  "checks": [
+    "duplicate reserve has exactly the same sales order",
+    "event key with changed payload rejected",
+    "cancel releases reservation",
+    "machine user cannot overwrite a reservation through generic CRUD",
+    "machine user cannot rewrite the event journal through generic CRUD",
+    "only one customer reserves the last available unit",
+    "expired reservation is released",
+    "duplicate verified payment makes no second invoice/receipt",
+    "amount mismatch rejected",
+    "dispatch creates native delivery note",
+    "partial return creates credit note and stock return",
+    "2.5m sale and 0.5m return reduce actual stock by exactly 2m",
+    "net settlement and fee create a native balanced journal",
+    "a different event cannot settle the same receipts twice",
+    "remaining quantity can be returned in full",
+    "all returned meter quantities restore the exact original stock",
+    "every native GL voucher is balanced",
+    "discount and partial shipping refund allocate exactly 1050 IRR",
+    "discounted order with shipping can be returned in full",
+    "all native GL vouchers remain balanced after discounted returns"
+  ],
+  "scope": "Real local ERPNext; synthetic inventory and payment evidence only. No bank/provider request."
+}
