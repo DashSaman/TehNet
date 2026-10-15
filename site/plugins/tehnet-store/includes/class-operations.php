@@ -18,6 +18,11 @@ final class TehNet_Store_Operations {
     public function page(): void {
         if (!current_user_can('tn_store_operations_view')) { wp_die('دسترسی مجاز نیست.',403); }
         echo '<div class="wrap" dir="rtl"><h1>عملیات فروشگاه تهران نتورک</h1>';
+        if (current_user_can('manage_woocommerce')) {
+            echo '<p><a class="button button-primary" href="'.esc_url(add_query_arg('tn_preview','1',wc_get_page_permalink('shop'))).'">مشاهده پیش‌نمایش خصوصی فروشگاه</a> <a class="button" href="'.esc_url(admin_url('edit.php?post_type=product')).'">مدیریت کالاها</a> <a class="button" href="'.esc_url(admin_url('admin.php?page=wc-orders')).'">مدیریت سفارش‌ها</a></p>';
+        }
+        $ready=(new TehNet_Store_ERP())->ready();
+        if (!$ready) { echo '<div class="notice notice-warning inline"><p>اتصال عملیاتی انبار و حسابداری برقرار نیست؛ فروش فیزیکی و ثبت عملیات مالی غیرفعال است. کالاهای واردشده فقط پیش‌نویس و نیازمند تأیید قیمت، موجودی و مشخصات هستند.</p></div>'; }
         echo '<p>ارسال و مرجوعی را با گردش واقعی انبار انجام دهید. ثبت استرداد و تسویه فقط پس از تطبیق مدرک بانکی انجام می‌شود؛ این فرم وجهی جابه‌جا نمی‌کند.</p>';
         if (isset($_GET['tn_result'])) { echo '<div class="notice notice-info"><p>'.esc_html($_GET['tn_result']==='ok'?'عملیات تأیید و همگام شد.':'عملیات تأیید نشد؛ وضعیت سفارش و گزارش ERP را بررسی کنید.').'</p></div>'; }
         echo '<table class="widefat striped"><thead><tr><th>سفارش</th><th>وضعیت فروشگاه</th><th>وضعیت ERP</th><th>فاکتور</th><th>رهگیری</th><th>تطبیق</th><th>بررسی مرجوعی</th></tr></thead><tbody>';
@@ -32,7 +37,9 @@ final class TehNet_Store_Operations {
             }
             echo '</td></tr>';
         }
-        echo '</tbody></table><h2>ثبت عملیات</h2><form method="post" action="'.esc_url(admin_url('admin-post.php')).'">';
+        echo '</tbody></table>';
+        if (!$ready) { echo '</div>';return; }
+        echo '<h2>ثبت عملیات</h2><form method="post" action="'.esc_url(admin_url('admin-post.php')).'">';
         wp_nonce_field('tn_store_operation');echo '<input type="hidden" name="action" value="tn_store_operation">';
         echo '<p><label>شماره داخلی سفارش <input type="number" name="order_id" min="1" required></label></p><p><label>عملیات <select name="operation">';
         foreach (['sync'=>'تطبیق وضعیت','cancel'=>'لغو سفارش پرداخت‌نشده','dispatch'=>'ثبت تحویل به حمل‌کننده','refund'=>'ثبت استرداد انجام‌شده','settle'=>'ثبت تسویه بانکی تأییدشده'] as $action=>$title) {
@@ -62,6 +69,7 @@ final class TehNet_Store_Operations {
             $order=wc_get_order(absint($this->input('order_id')));
             if (!$order instanceof WC_Order) { throw new RuntimeException('Order missing'); }
             $bridge=new TehNet_Store_ERP();
+            if (!$bridge->ready()) { throw new RuntimeException('Operational ERP required'); }
             if ($operation==='sync') { $bridge->retry_pending($order); }
             if ($operation==='cancel') { $bridge->cancel_order($order);$order->update_status('cancelled','لغو مجاز و آزادسازی رزرو ثبت شد.'); }
             if ($operation==='dispatch') { $bridge->send($order,'dispatch',['tracking_reference'=>$this->input('tracking_reference')]); }

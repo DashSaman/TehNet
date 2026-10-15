@@ -40,3 +40,20 @@ GLM-5.3-Flash: یک مشاوره واقعی محدود، ۱۲۳۵ token گزار
 شاهد واقعی مستقل: request 11000 IRR، پرداخت ساختگی در صفحه sandbox، callback localhost، مبلغ 11001 → HTTP401/code -50، مبلغ درست →100، تکرار →101 با رسید ثابت. هیچ سفارش Woo/ERP از probe ایجاد نشد. بررسی‌های تازه: 20 protocol +29 state-machine با mock؛ mutation حذف101 شکست موردانتظار داد؛ lint10PHP و JS syntax سبز؛ 20 Python +7 visual و 20 سناریوی HTTP واقعی ERP نیز دوباره گذشتند. جزئیات و محدودیت‌ها در docs/payment-sandbox-fa.md.
 
 مانع تازه: Docker named pipe در محیط محدود فعلی permission denied؛ درخواست مجوز شبکه پذیرفته شد ولی pipe همچنان بسته است. WordPress HTTP/ERP HTTP در دسترس‌اند. Edge مستقل نتوانست راه بیفتد؛ CUA/IAB بازگشت sandbox را دید. overlay فعال‌سازی اعمال نشد؛ native gateway→ERP و خرید کامل موبایلی آزموده نیستند. نتیجه native مرحله قبلی با نتیجه تازه یکی نشده است. production و 25 draft تغییر نکردند. هیچ مشاوره مدل دیگری اجرا نشد.
+
+
+## به‌روزرسانی انتشار آنلاین — ۱۵ اکتبر ۲۰۲۶
+
+مطالب محدودیت Docker/عدم استقرار در بخش‌های قبلی، گزارش مراحل پیشین‌اند. وضعیت فعلی: کاتالوگ استعلام عمومی https://tehnet.ir/shop/ و پنل https://tehnet.ir/wp-admin/admin.php?page=tn-store منتشر شده‌اند. ERP و پرداخت واقعی تولید غیرفعال‌اند. صفحه اصلی و theme و سرویس‌های دیگر حفظ شدند.
+
+پشتیبان کامل خصوصی `/root/tehnet-backups/20261015-184219-store-review` شامل SQL، کل WordPress، config/env و Nginx است. همان تولید در DB/volume محلی جدید بازیابی، همه فایل‌ها و ۹ جدول تطبیق و HTTP 200 تأیید شد؛ mail و HTTP خروجی clone بسته است. `production-recovery.json` شاهد است.
+
+انتشار allowlist با `deploy-store-review.py`، import صریح WP CLI مجاز با SHA256 و dry-run پیش‌فرض، سپس انتشار استعلام با `publish-inquiry-catalog.php` انجام شد. import عادی production هنوز بسته است و environment تغییر نکرده. rerun تولید صفر create و ۲۵ skip داد. `ensure-store-pages.php` نگاشت صفحات native منتشرشده را با حفظ draftهای قدیمی درست کرد. `deploy-store-media.py` فایل‌های رسانه/مهر را با backup و guard drift منتشر کرد. جزئیات `production-release.json` و `production-media-release.json`.
+
+برای rollback، افزونه Store را غیرفعال و فقط فایل‌های allowlist از checkpoint مربوط برگردانید. SQL را کورکورانه به عقب نبرید؛ داده/صفحه/audit جدید یا ویرایش انسانی باید تطبیق شود. گزینه coming-soon، متن قبلی shop و وضعیت/عنوان کالای جدید در option `tn_public_inquiry_release_20261015` محفوظ‌اند. صفحه اصلی در این مهاجرت‌ها هدف نبوده است.
+
+آزمون مرورگر تولید در `live-browser.json`: منوی اصلی → shop عمومی، ۲۵ کالای غیرقابل خرید، مقایسه مهمان، تصاویر اختصاصی، چرخش شماتیک، موبایل بدون overflow و HTTP 200 صفحات. Store API خود Woo مقدار قیمت unset را به رشته صفر serialize می‌کند؛ `is_purchasable=false` و `price_html=استعلام` و قیمت ذخیره‌شده خالی است؛ این پیشنهاد فروش رایگان نیست.
+
+خرید native رسمی sandbox محلی با سفارش ۲۵۲ / ۳۵۰۰ ریال و فاکتور ERP و callback تکراری گذشت (`native-payment.json`). هیچ وجه واقعی جابه‌جا نشد. تصویرسازی و مدل گروه کالا دقیق نیستند و با برچسب شماتیک عرضه می‌شوند؛ عکس واقعی/GLB معتبر همچنان وابستگی باز است.
+
+مقایسه اولیه ۱۲۰ سایت و نقشه خواندنی کد با یک Luna برای درخواست تازه benchmark ثبت شد. اولویت بعد: جست‌وجوی SKU/فارسی و مقایسه مشخصات معتبر. هیچ احراز هویت Codex یا مسیر provider تغییر نکرد.

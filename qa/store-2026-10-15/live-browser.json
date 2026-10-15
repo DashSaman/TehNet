@@ -1,0 +1,20 @@
+{
+  "utc": "2026-10-15T16:14:05.381Z",
+  "status": "passed",
+  "scope": "Read-only production public browsing; no order/payment/customer message or setting mutation",
+  "checks": [
+    "Original services/education homepage renders",
+    "Existing main menu opens public /shop/ catalog without login or coming-soon gate",
+    "25 public inquiry products, no purchasable offer; Woo Store API serializes unset numeric amounts as zero, native stored prices remain blank",
+    "Guest compare persists without registration",
+    "Public product has owned schematic illustration and inquiry form; no checkout action",
+    "Published lazy schematic viewer supports keyboard and 360-degree rotation controls",
+    "Shop and product mobile pages have no horizontal overflow",
+    "Invoice stamp SVG is publicly loadable",
+    "shop native public page HTTP 200",
+    "cart native public page HTTP 200",
+    "checkout native public page HTTP 200",
+    "myaccount native public page HTTP 200"
+  ],
+  "js_errors": []
+}

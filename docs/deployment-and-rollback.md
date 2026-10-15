@@ -41,3 +41,18 @@ lock معوق `tn_erp_order_lock_ID` یا importer را فقط پس از برر�
 فایل `ops/staging/payment-sandbox.compose.yml` overlay صریح آزمایش محلی است؛ prepare-local آن را اجرا نمی‌کند و روی این محیط اعمال نشده است. هرگز در تولید استفاده نشود. حذف overlay و اجرای base compose با همان volumes flags آزمایشی را کنار می‌گذارد؛ سپس درگاه در Woo خاموش شود. receipt/attempt و outbox برای حسابرسی نگهداری شوند؛ پاک‌کردن آن‌ها روش بازیابی نیست.
 
 Docker named pipe در sandbox فعلی در دسترس نیست؛ بازسازی container/WP-CLI و native gateway checkout هنوز شرط بازند. نه backup/restore تولید و نه استقرار از این مرحله مجاز/اجرا شده‌اند. جزئیات قفل ماندگار و unknown request در docs/payment-sandbox-fa.md.
+
+
+## به‌روزرسانی انتشار آنلاین — ۱۵ اکتبر ۲۰۲۶
+
+مطالب محدودیت Docker/عدم استقرار در بخش‌های قبلی، گزارش مراحل پیشین‌اند. وضعیت فعلی: کاتالوگ استعلام عمومی https://tehnet.ir/shop/ و پنل https://tehnet.ir/wp-admin/admin.php?page=tn-store منتشر شده‌اند. ERP و پرداخت واقعی تولید غیرفعال‌اند. صفحه اصلی و theme و سرویس‌های دیگر حفظ شدند.
+
+پشتیبان کامل خصوصی `/root/tehnet-backups/20261015-184219-store-review` شامل SQL، کل WordPress، config/env و Nginx است. همان تولید در DB/volume محلی جدید بازیابی، همه فایل‌ها و ۹ جدول تطبیق و HTTP 200 تأیید شد؛ mail و HTTP خروجی clone بسته است. `production-recovery.json` شاهد است.
+
+انتشار allowlist با `deploy-store-review.py`، import صریح WP CLI مجاز با SHA256 و dry-run پیش‌فرض، سپس انتشار استعلام با `publish-inquiry-catalog.php` انجام شد. import عادی production هنوز بسته است و environment تغییر نکرده. rerun تولید صفر create و ۲۵ skip داد. `ensure-store-pages.php` نگاشت صفحات native منتشرشده را با حفظ draftهای قدیمی درست کرد. `deploy-store-media.py` فایل‌های رسانه/مهر را با backup و guard drift منتشر کرد. جزئیات `production-release.json` و `production-media-release.json`.
+
+برای rollback، افزونه Store را غیرفعال و فقط فایل‌های allowlist از checkpoint مربوط برگردانید. SQL را کورکورانه به عقب نبرید؛ داده/صفحه/audit جدید یا ویرایش انسانی باید تطبیق شود. گزینه coming-soon، متن قبلی shop و وضعیت/عنوان کالای جدید در option `tn_public_inquiry_release_20261015` محفوظ‌اند. صفحه اصلی در این مهاجرت‌ها هدف نبوده است.
+
+آزمون مرورگر تولید در `live-browser.json`: منوی اصلی → shop عمومی، ۲۵ کالای غیرقابل خرید، مقایسه مهمان، تصاویر اختصاصی، چرخش شماتیک، موبایل بدون overflow و HTTP 200 صفحات. Store API خود Woo مقدار قیمت unset را به رشته صفر serialize می‌کند؛ `is_purchasable=false` و `price_html=استعلام` و قیمت ذخیره‌شده خالی است؛ این پیشنهاد فروش رایگان نیست.
+
+خرید native رسمی sandbox محلی با سفارش ۲۵۲ / ۳۵۰۰ ریال و فاکتور ERP و callback تکراری گذشت (`native-payment.json`). هیچ وجه واقعی جابه‌جا نشد. تصویرسازی و مدل گروه کالا دقیق نیستند و با برچسب شماتیک عرضه می‌شوند؛ عکس واقعی/GLB معتبر همچنان وابستگی باز است.

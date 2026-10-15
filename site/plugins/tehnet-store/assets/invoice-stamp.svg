@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="58mm" height="36mm" viewBox="0 0 580 360" role="img" aria-labelledby="title desc">
+  <title id="title">مهر تهران نتورک</title><desc id="desc">تهران نتورک؛ تجهیزات و خدمات شبکه؛ tehnet.ir</desc>
+  <g fill="none" stroke="#174f9d" transform="rotate(-4 290 180)">
+    <ellipse cx="290" cy="180" rx="269" ry="150" stroke-width="7"/>
+    <ellipse cx="290" cy="180" rx="256" ry="137" stroke-width="2.5"/>
+    <path d="M84 170h43m326 0h43M130 241h320" stroke-width="3"/>
+    <g fill="#174f9d" stroke="none" text-anchor="middle" font-family="Tahoma,Arial,sans-serif">
+      <text x="290" y="108" font-size="27" direction="rtl">تجهیزات و خدمات شبکه</text>
+      <text x="290" y="196" font-size="66" font-weight="bold" direction="rtl">تهران نتورک</text>
+      <text x="290" y="274" font-family="Arial,sans-serif" font-size="34" font-weight="bold" letter-spacing="6">TEHNET.IR</text>
+    </g>
+    <circle cx="163" cy="102" r="4" fill="#174f9d" stroke="none"/><circle cx="417" cy="102" r="4" fill="#174f9d" stroke="none"/>
+  </g>
+</svg>

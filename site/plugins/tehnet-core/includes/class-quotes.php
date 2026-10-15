@@ -787,7 +787,7 @@ final class TehNet_Core_Quotes {
     <p class="refline">این فاکتور به‌صورت الکترونیکی صادر شده است. لطفاً هنگام پرداخت شماره فاکتور را ذکر کنید.</p>
   <?php endif; ?>
   <div class="sign">
-    <div>مهر و امضای فروشنده</div>
+    <div><?php do_action('tehnet_invoice_stamp',$d); ?>مهر و امضای فروشنده</div>
     <div>امضای خریدار</div>
   </div>
   <div class="foot"><?php echo $e($d['business_name']); ?> — <?php echo $e($d['address']); ?> — تلفن <?php echo $e($d['phone']); ?><br><?php echo $e($d['youtube']); ?></div>

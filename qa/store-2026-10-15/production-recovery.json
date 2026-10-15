@@ -1,0 +1,55 @@
+{
+  "utc": "2026-10-15T15:37:27.968723+00:00",
+  "status": "passed",
+  "scope": "Fresh production backup restored locally into new DB and new volume. No source overwritten.",
+  "sql_sha256": "d863049425d3bd0136f16ab7cd8512ad0bb28ab7b86c27b723580c26fe649359",
+  "files_sha256": "a61d983a558f50678b604f8ca32aaa201f81b40ace749d9f64886428e62a82be",
+  "file_archive_compared_before_clone_configuration": true,
+  "business_fingerprints": {
+    "posts": {
+      "count": 77,
+      "sha256": "193c2260d58e88b50c568e86c946857ed2a3b0d712bcf7df7bafdc7fb7db0a84"
+    },
+    "postmeta": {
+      "count": 89,
+      "sha256": "07fe8bb6b3733cff45adb3ba0310ae7884f9dbda8ad4fdd9330fa52e3c8923a8"
+    },
+    "users": {
+      "count": 4,
+      "sha256": "f3bc48ed9c4f43756f8223147424a18ce806e2410e5fca3aab3ac90aacc5f2e4"
+    },
+    "usermeta": {
+      "count": 63,
+      "sha256": "beb6b2290ab4cd6b73d88c6547b743badb1a8ab49a9d5eeac20b069e61aee4a9"
+    },
+    "terms": {
+      "count": 19,
+      "sha256": "09a6715a802c1f951d480c3f14ee61a3e0eb8df2be4ba3922da5f7c77bdb8e7c"
+    },
+    "term_taxonomy": {
+      "count": 19,
+      "sha256": "33f59dac71b5d383da3e1c980efd1690d8e085de8de7c98476ee43fc01d52fec"
+    },
+    "term_relationships": {
+      "count": 11,
+      "sha256": "521b2485ae6a4329c75f6212b484930907ee548cf09589af24d957bd6d48028a"
+    },
+    "wc_orders": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "wc_orders_meta": {
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  },
+  "isolation": {
+    "local_clone": true,
+    "external_http_blocked": true,
+    "mail_blocked": true
+  },
+  "clone_url": "http://localhost:18086",
+  "clone_container": "tehnet-production-restore-81b62f7c84",
+  "clone_database": "tn_live_restore_81b62f7c84",
+  "clone_volume": "tehnet-production-restore-81b62f7c84"
+}

@@ -6,9 +6,27 @@ final class TehNet_Store_Catalog {
     private const LOCK = 'tn_store_catalog_lock';
 
     public function import(array $manifest, bool $dry_run = false): array {
+        return $this->apply($manifest, $dry_run, false);
+    }
+
+    /** Explicit operator migration; ordinary imports remain blocked in production. */
+    public function release(string $path, string $expected_sha256, bool $apply = false): array {
+        if (!defined('WP_CLI') || !WP_CLI || !current_user_can('manage_woocommerce') || !current_user_can('edit_products')) {
+            throw new RuntimeException('Authenticated commerce operator in WP CLI required');
+        }
+        if (!preg_match('/^[a-f0-9]{64}$/D', $expected_sha256) || !is_readable($path)) { throw new RuntimeException('Readable release manifest and SHA256 required'); }
+        $bytes=file_get_contents($path);
+        if (!hash_equals($expected_sha256, hash('sha256',$bytes))) { throw new RuntimeException('Release manifest hash mismatch'); }
+        $manifest=json_decode($bytes,true,512,JSON_THROW_ON_ERROR);
+        $result=$this->apply($manifest,!$apply,true);
+        if ($apply) { add_option('tn_catalog_release_'.$result['run_id'],['actor'=>get_current_user_id(),'sha256'=>$expected_sha256,'at'=>gmdate('c')],'',false); }
+        return $result;
+    }
+
+    private function apply(array $manifest, bool $dry_run, bool $release): array {
         if (!class_exists('WooCommerce')) { throw new RuntimeException('WooCommerce required'); }
         $this->validate($manifest);
-        if (!$dry_run) { $this->assert_environment(); }
+        if (!$dry_run && !$release) { $this->assert_environment(); }
         $result = ['run_id' => wp_generate_uuid4(), 'created' => [], 'skipped' => [], 'categories_created' => [], 'dry_run' => $dry_run];
         $plan = [];
         foreach ($manifest['products'] as $row) {

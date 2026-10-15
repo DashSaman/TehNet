@@ -74,6 +74,7 @@ final class TehNet_Core_Commerce {
         if (! self::is_physical_inquiry_product($product) || ! method_exists($product, 'get_id')) {
             return;
         }
+        if (method_exists($product,'is_purchasable') && $product->is_purchasable()) { return; }
         $product_id = (int) $product->get_id();
         ?>
         <form id="tehnet-inquiry" class="tn-inquiry-form" method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">

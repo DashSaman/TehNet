@@ -6,9 +6,13 @@ final class TehNet_Store_Account {
         return $user_id>0 && ((int)$order->get_customer_id()===$user_id || user_can($user_id,'manage_woocommerce'));
     }
     public function register(): void {
+        add_action('tehnet_invoice_stamp',[self::class,'stamp']);
         add_action('woocommerce_order_details_after_order_table',[$this,'details']);
         add_action('admin_post_tn_store_invoice',[$this,'invoice']);
         add_action('admin_post_tn_store_return_request',[$this,'return_request']);
+    }
+    public static function stamp(): void {
+        echo '<img src="'.esc_url(plugins_url('assets/invoice-stamp.svg',dirname(__DIR__).'/tehnet-store.php')).'" alt="مهر تهران نتورک" style="display:block;width:58mm;max-width:100%;height:auto;margin:8mm 0;break-inside:avoid">';
     }
     public function details($order): void {
         if (!$order instanceof WC_Order || !self::can_access($order,get_current_user_id())) { return; }
@@ -51,6 +55,8 @@ final class TehNet_Store_Account {
         nocache_headers();header('Content-Type: text/html; charset=utf-8');header('X-Robots-Tag: noindex, nofollow');
         echo '<!doctype html><html lang="fa" dir="rtl"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>فاکتور تهران نتورک</title><style>body{font:16px/1.8 Tahoma,sans-serif;max-width:900px;margin:32px auto;padding:20px;color:#142c3c}table{border-collapse:collapse;width:100%}td,th{border:1px solid #ccc;padding:10px;text-align:right}button{padding:12px}@media print{button{display:none}}</style><h1>فاکتور تهران نتورک</h1><p>شماره: <bdi>'.esc_html($invoice['invoice']).'</bdi> | تاریخ: '.esc_html($invoice['date']).'</p><p>سفارش: '.esc_html($order->get_order_number()).' | مشتری: '.esc_html($order->get_formatted_billing_full_name()).'</p><table><tr><th>کالا</th><th>مقدار</th><th>واحد</th><th>مبلغ خالص، ریال</th></tr>';
         foreach ($invoice['items'] as $line) { echo '<tr><td>'.esc_html($line['name']).'</td><td>'.esc_html($line['qty']).'</td><td>'.esc_html($line['uom']).'</td><td>'.esc_html($line['amount_irr']).'</td></tr>'; }
-        echo '</table><p>تخفیف اعمال‌شده: '.esc_html($invoice['discount_irr']).' ریال | ارسال: '.esc_html($invoice['shipping_irr']).' ریال</p><p><strong>جمع فاکتور: '.esc_html($invoice['amount_irr']).' ریال</strong></p><p>این نسخه نمایش سند ثبت‌شده ERP است؛ تأیید الزامات و شناسه‌های صورتحساب مالیاتی جداگانه انجام می‌شود.</p><button onclick="window.print()">چاپ فاکتور</button></html>';exit;
+        echo '</table><p>تخفیف اعمال‌شده: '.esc_html($invoice['discount_irr']).' ریال | ارسال: '.esc_html($invoice['shipping_irr']).' ریال</p><p><strong>جمع فاکتور: '.esc_html($invoice['amount_irr']).' ریال</strong></p><p>این نسخه نمایش سند ثبت‌شده ERP است؛ تأیید الزامات و شناسه‌های صورتحساب مالیاتی جداگانه انجام می‌شود.</p>';
+        self::stamp();
+        echo '<button onclick="window.print()">چاپ فاکتور</button></html>';exit;
     }
 }

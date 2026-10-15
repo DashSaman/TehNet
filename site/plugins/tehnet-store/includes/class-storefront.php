@@ -13,6 +13,8 @@ final class TehNet_Store_Storefront {
         add_action('woocommerce_product_query',[$this,'query']);
         add_action('woocommerce_before_shop_loop',[$this,'preview_notice'],1);
         add_filter('woocommerce_loop_product_link',[$this,'preview_link'],10,2);
+        add_action('template_redirect',[$this,'preview_headers']);
+        add_filter('woocommerce_get_stock_html',[$this,'stock_html'],30,2);
         add_action('wp_footer',[$this,'dialog']);
         add_filter('woocommerce_is_purchasable',[$this,'purchasable'],30,2);
         add_filter('woocommerce_get_price_html',[$this,'price'],30,2);
@@ -83,8 +85,8 @@ final class TehNet_Store_Storefront {
     }
     public function assets(): void {
         if (!function_exists('is_woocommerce') || !(is_woocommerce() || is_cart() || is_checkout() || is_account_page())) { return; }
-        wp_enqueue_style('tn-store',plugins_url('assets/store.css',dirname(__DIR__).'/tehnet-store.php'),[], '0.1.0');
-        wp_enqueue_script('tn-store',plugins_url('assets/store.js',dirname(__DIR__).'/tehnet-store.php'),[], '0.1.0',true);
+        wp_enqueue_style('tn-store',plugins_url('assets/store.css',dirname(__DIR__).'/tehnet-store.php'),[], '0.2.0');
+        wp_enqueue_script('tn-store',plugins_url('assets/store.js',dirname(__DIR__).'/tehnet-store.php'),[], '0.2.0',true);
     }
     public function filters(): void {
         $unit=isset($_GET['tn_unit']) && is_string($_GET['tn_unit']) ? sanitize_key(wp_unslash($_GET['tn_unit'])) : '';
@@ -120,10 +122,21 @@ final class TehNet_Store_Storefront {
         }
     }
     private function preview_allowed(): bool {
-        return wp_get_environment_type()==='local' && current_user_can('manage_woocommerce') && isset($_GET['tn_preview']) && $_GET['tn_preview']==='1';
+        return current_user_can('manage_woocommerce') && current_user_can('edit_products') && current_user_can('read_private_products') && isset($_GET['tn_preview']) && $_GET['tn_preview']==='1';
+    }
+    public function preview_headers(): void {
+        if (isset($_GET['tn_preview'])) {
+            if (!defined('DONOTCACHEPAGE')) { define('DONOTCACHEPAGE',true); }
+            nocache_headers();header('X-Robots-Tag: noindex, nofollow, noarchive');
+        }
+    }
+    public function stock_html(string $html,$product): string {
+        if (!$this->physical($product) || !$this->eligible($product)) { return $html; }
+        $unit=self::UNITS[$product->get_meta('_tn_sale_unit')];
+        return '<p class="stock in-stock">'.esc_html((string)$product->get_stock_quantity().' '.$unit.' قابل فروش').'</p>';
     }
     public function preview_notice(): void {
-        if ($this->preview_allowed()) { echo '<div class="woocommerce-info">محیط محلی: پیش‌نمایش پیش‌نویس‌ها برای مدیر. این اقلام هنوز برای فروش تأیید نشده‌اند.</div>'; }
+        if ($this->preview_allowed()) { echo '<div class="woocommerce-info">پیش‌نمایش خصوصی مدیر: این کالاها پیش‌نویس‌اند و هنوز برای فروش تأیید نشده‌اند.</div>'; }
     }
     public function preview_link(string $url,$product): string {
         return $this->preview_allowed() && $product instanceof WC_Product && $product->get_status()==='draft' ? get_preview_post_link($product->get_id()) : $url;
@@ -132,7 +145,7 @@ final class TehNet_Store_Storefront {
         global $product;
         if (!$product instanceof WC_Product) { return; }
         $unit=self::UNITS[$product->get_meta('_tn_sale_unit')]??'تأیید نشده';
-        $data=['id'=>$product->get_id(),'name'=>$product->get_name(),'url'=>$product->get_permalink(),'unit'=>$unit,'price'=>$this->eligible($product)?number_format(TehNet_Store_Policy::irr($product->get_price(),'IRR')).' ریال':'نیازمند استعلام'];
+        $data=['id'=>$product->get_id(),'name'=>$product->get_name(),'url'=>$this->preview_link($product->get_permalink(),$product),'unit'=>$unit,'price'=>$this->eligible($product)?number_format(TehNet_Store_Policy::irr($product->get_price(),'IRR')).' ریال':'نیازمند استعلام'];
         echo '<div class="tn-store-tools" data-tn-product="'.esc_attr(wp_json_encode($data)).'"><button type="button" data-tn-add="compare">مقایسه</button><button type="button" data-tn-add="wishlist">ذخیره در علاقه‌مندی</button></div>';
     }
     public function unit(): void {

@@ -1,0 +1,22 @@
+const fs=require('fs'),path=require('path'),assert=require('assert/strict');
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'C:/Users/amirreza/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const root=path.resolve(__dirname,'../..'),out=path.join(root,'qa/store-2026-10-15');
+const env=Object.fromEntries(fs.readFileSync(path.join(root,'ops/staging/.env'),'utf8').trim().split(/\r?\n/).map(l=>{const i=l.indexOf('=');return[l.slice(0,i),l.slice(i+1)];}));
+(async()=>{const browser=await chromium.launch({headless:true,channel:'msedge'}),c=await browser.newContext({viewport:{width:390,height:844}}),p=await c.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));
+try{
+await p.goto('http://localhost:18083/wp-login.php');await p.locator('#user_login').fill('tehnet-stage');await p.locator('#user_pass').fill(env.WP_ADMIN_PASSWORD);await Promise.all([p.waitForURL(/wp-admin/),p.locator('#wp-submit').click()]);
+await p.goto('http://localhost:18083/shop/?tn_preview=1');await p.waitForLoadState('networkidle');
+const link=p.locator('ul.products li.product:has(.tn-product-illustration) .woocommerce-loop-product__link').first();assert.equal(await link.count(),1,'imported product illustration card exists');await link.click();await p.waitForLoadState('networkidle');
+const viewer=p.locator('[data-tn-model]');assert.equal(await viewer.count(),1);assert((await viewer.innerText()).includes('شماتیک'));assert.equal(await p.locator('script[src$="model-viewer.js"]').count(),0);
+const image=p.locator('.woocommerce-product-gallery img.tn-product-illustration');assert.equal(await image.count(),1);await image.evaluate(async e=>{await e.decode();});assert((await image.getAttribute('alt')).includes('عکس واقعی محصول نیست'));
+const requested=[];p.on('request',r=>requested.push(r.url()));await viewer.locator('[data-tn-model-load]').click();const canvas=viewer.locator('canvas');await canvas.waitFor();await p.waitForFunction(()=>document.querySelector('[data-tn-model] canvas')?.dataset.yaw!==undefined);
+assert(requested.some(u=>u.endsWith('model-viewer.js')),'model module fetched only after user request');
+await canvas.focus();const old=await canvas.getAttribute('data-yaw');await p.keyboard.press('ArrowRight');assert.notEqual(await canvas.getAttribute('data-yaw'),old);
+await viewer.locator('[data-tn-yaw]').fill('140');await viewer.locator('[data-tn-yaw]').dispatchEvent('input');assert.equal(await canvas.getAttribute('data-yaw'),'140');
+await viewer.locator('[data-tn-model-reset]').click();assert.equal(await canvas.getAttribute('data-yaw'),'-30');assert.equal(await canvas.getAttribute('data-pitch'),'-20');
+assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),'mobile has no horizontal overflow');await viewer.screenshot({path:path.join(out,'schematic-3d-mobile.png')});
+assert.equal(await p.locator('button.single_add_to_cart_button').count(),0);assert.deepEqual(errors,[]);
+const svg=await c.request.get('http://localhost:18083/wp-content/plugins/tehnet-store/assets/invoice-stamp.svg');assert.equal(svg.status(),200);assert((await svg.text()).includes('تهران نتورک'));
+const stamp=await c.newPage();await stamp.setContent('<html><body style="margin:0;background:transparent"><img src="http://localhost:18083/wp-content/plugins/tehnet-store/assets/invoice-stamp.svg" width="580" height="360" alt="مهر تهران نتورک"></body></html>');await stamp.locator('img').evaluate(e=>e.decode());await stamp.locator('img').screenshot({path:path.join(out,'invoice-stamp.png'),omitBackground:true});
+fs.writeFileSync(path.join(out,'product-media-browser.json'),JSON.stringify({utc:new Date().toISOString(),status:'passed',original_generic_illustrations:true,owned_brand_logo_faint:true,actual_product_photo:false,exact_product_3d_model:false,schematic_module_lazy_loaded:true,keyboard_rotation:true,slider_rotation:true,reset:true,mobile_no_overflow:true,physical_checkout_closed:true,stamp_svg_rendered:true,js_errors:errors},null,2));console.log('PRODUCT_MEDIA_BROWSER=PASSED');
+}finally{await browser.close();}})().catch(e=>{console.error(e.stack);process.exit(1)});

@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-15T15:36:46.228Z",
+  "scope": "Local synthetic order, official Zarinpal sandbox, no real money or delivery",
+  "mobile": true,
+  "woo": {
+    "order_id": 252,
+    "status": "processing",
+    "total_irr": "3500",
+    "payment_method": "tn_zarinpal_sandbox",
+    "sandbox_state": "verified",
+    "transaction_id": "527856702",
+    "erp_state": "paid",
+    "invoice": "ACC-SINV-2026-00054"
+  },
+  "duplicate_callback_unchanged": true
+}

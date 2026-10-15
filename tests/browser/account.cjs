@@ -25,6 +25,7 @@ const env=Object.fromEntries(fs.readFileSync(path.join(root,'ops/staging/.env'),
   assert.equal(csrf.status(),403,'return request must have a valid nonce');
   await page.screenshot({path:path.join(out,'customer-order.png'),fullPage:true});
   await invoice.click();await page.waitForLoadState('networkidle');assert((await page.locator('body').innerText()).includes('2100'));
+  const stamp=page.getByAltText('مهر تهران نتورک');assert.equal(await stamp.count(),1);await stamp.evaluate(e=>e.decode());
   await page.screenshot({path:path.join(out,'customer-invoice.png'),fullPage:true});
   await page.goto(orderUrl);await page.locator('details summary').click();
   await page.locator('textarea[name=reason]').fill('درخواست ساختگی آزمون: بررسی مرجوعی یک متر کابل؛ هیچ پیام یا استرداد بانکی ارسال نمی‌شود.');
