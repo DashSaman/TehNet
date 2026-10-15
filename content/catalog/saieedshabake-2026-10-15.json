@@ -1,0 +1,3159 @@
+{
+  "schema_version": 1,
+  "source": "https://saieedshabake.ir",
+  "products": [
+    {
+      "source_id": 18002,
+      "source_url": "https://saieedshabake.ir/product/%d8%b3%d9%88%da%a9%d8%aa-%d8%b4%d8%a8%da%a9%d9%87-cat6-sftp-%d8%b4%db%8c%d9%84%d8%af%d8%af%d8%a7%d8%b1-rj45/",
+      "source_title": "سوکت شبکه Cat6 SFTP",
+      "source_key": "saieedshabake.ir:product:18002",
+      "sku": "TN-SN-18002",
+      "name": "سوکت شبکه Cat6 SFTP",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        170,
+        146,
+        174
+      ],
+      "verified_specifications": [],
+      "source_attributes": [
+        {
+          "id": 82,
+          "name": "نوع محصول",
+          "taxonomy": "pa_electrical-product-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 595,
+              "name": "سوکت شبکه (کانکتور RJ45)",
+              "slug": "%d8%b3%d9%88%da%a9%d8%aa-%d8%b4%d8%a8%da%a9%d9%87-%da%a9%d8%a7%d9%86%da%a9%d8%aa%d9%88%d8%b1-rj45"
+            }
+          ]
+        },
+        {
+          "id": 100,
+          "name": "رده شبکه (Category)",
+          "taxonomy": "pa_رده-شبکه-category",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 596,
+              "name": "Cat6",
+              "slug": "cat6"
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "name": "نوع شیلد",
+          "taxonomy": "pa_shield-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 597,
+              "name": "SFTP (شیلددار و فویل‌دار)",
+              "slug": "sftp-%d8%b4%db%8c%d9%84%d8%af%d8%af%d8%a7%d8%b1-%d9%88-%d9%81%d9%88%db%8c%d9%84%d8%af%d8%a7%d8%b1"
+            }
+          ]
+        },
+        {
+          "id": 60,
+          "name": "نوع کانکتور",
+          "taxonomy": "pa_connector-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 598,
+              "name": "RJ45 - 8P8C",
+              "slug": "rj45-8p8c"
+            }
+          ]
+        },
+        {
+          "id": 26,
+          "name": "جنس بدنه",
+          "taxonomy": "pa_body-material",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 599,
+              "name": "پلی‌کربنات با روکش فلزی",
+              "slug": "%d9%be%d9%84%db%8c%da%a9%d8%b1%d8%a8%d9%86%d8%a7%d8%aa-%d8%a8%d8%a7-%d8%b1%d9%88%da%a9%d8%b4-%d9%81%d9%84%d8%b2%db%8c"
+            }
+          ]
+        },
+        {
+          "id": 101,
+          "name": "روش نصب",
+          "taxonomy": "pa_روش-نصب",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 600,
+              "name": "پرسی (با آچار شبکه)",
+              "slug": "%d9%be%d8%b1%d8%b3%db%8c-%d8%a8%d8%a7-%d8%a2%da%86%d8%a7%d8%b1-%d8%b4%d8%a8%da%a9%d9%87"
+            }
+          ]
+        },
+        {
+          "id": 102,
+          "name": "کاربردها",
+          "taxonomy": "pa_کاربردها",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 601,
+              "name": "ساخت پچ‌کورد | دوربین مداربسته IP | شبکه LAN | سیستم‌های VoIP",
+              "slug": "%d8%b3%d8%a7%d8%ae%d8%aa-%d9%be%da%86%da%a9%d9%88%d8%b1%d8%af-%d8%af%d9%88%d8%b1%d8%a8%db%8c%d9%86-%d9%85%d8%af%d8%a7%d8%b1%d8%a8%d8%b3%d8%aa%d9%87-ip-%d8%b4%d8%a8%da%a9%d9%87-lan"
+            }
+          ]
+        }
+      ],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "0",
+          "regular_price": "0",
+          "sale_price": "0",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/08/RDCxHdnVudDj9haxKyXBJcULHKc-D9UNhmkIQY6T3J_iuo3W6w.jpg",
+          "https://saieedshabake.ir/wp-content/uploads/2026/08/cCs9azU_rg6wzs5d5L-4sK29_A4-WlSx5NkGSlWvtbf44WN2EA.png"
+        ]
+      }
+    },
+    {
+      "source_id": 17991,
+      "source_url": "https://saieedshabake.ir/product/%d8%b3%d9%88%da%a9%d8%aa-%d8%b4%d8%a8%da%a9%d9%87-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-utp-cat6-%d8%a8%d8%b3%d8%aa%d9%87-%db%b1%db%b0%db%b0-%d8%b9%d8%af%d8%af%db%8c/",
+      "source_title": "سوکت شبکه لگراند UTP Cat6 بسته ۱۰۰ عددی",
+      "source_key": "saieedshabake.ir:product:17991",
+      "sku": "TN-SN-17991",
+      "name": "سوکت شبکه لگراند UTP Cat6 بسته ۱۰۰ عددی",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        170,
+        78,
+        146,
+        174
+      ],
+      "verified_specifications": [],
+      "source_attributes": [],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "0",
+          "regular_price": "0",
+          "sale_price": "0",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/08/س.jpg"
+        ]
+      }
+    },
+    {
+      "source_id": 17989,
+      "source_url": "https://saieedshabake.ir/product/%d9%be%d8%b1%db%8c%d8%b2-%d8%a8%d8%b1%d9%82-%d9%82%d8%b1%d9%85%d8%b2-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-%d8%b4%d9%85%d8%a7%d8%b1%d9%87-%d9%81%d9%86%db%8c-77214/",
+      "source_title": "پریز برق قرمز لگراند (شماره فنی 77214)",
+      "source_key": "saieedshabake.ir:product:17989",
+      "sku": "TN-SN-17989",
+      "name": "پریز برق قرمز لگراند (شماره فنی 77214)",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        172,
+        78,
+        146
+      ],
+      "verified_specifications": [],
+      "source_attributes": [],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required",
+        "title-part-number-and-source-sku-conflict"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "0",
+          "regular_price": "0",
+          "sale_price": "0",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "PWR-WHT-77211",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/08/کابل-شبکه-Legrand-Cat6-SFTP-PVC-متراژ-500-متر-تست-فلوک-پرمننت.png"
+        ]
+      }
+    },
+    {
+      "source_id": 17982,
+      "source_url": "https://saieedshabake.ir/product/%d9%be%d8%b1%db%8c%d8%b2-%d8%a8%d8%b1%d9%82-%d8%b3%d9%81%db%8c%d8%af-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-%d8%b4%d9%85%d8%a7%d8%b1%d9%87-%d9%81%d9%86%db%8c-77210/",
+      "source_title": "پریز برق سفید لگراند (شماره فنی 77210)",
+      "source_key": "saieedshabake.ir:product:17982",
+      "sku": "TN-SN-17982",
+      "name": "پریز برق سفید لگراند (شماره فنی 77210)",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        172,
+        78,
+        146
+      ],
+      "verified_specifications": [],
+      "source_attributes": [],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "0",
+          "regular_price": "0",
+          "sale_price": "0",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "PWR-WHT-77210",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/08/ffba6d62-acc4-43f9-9bbc-fc9c97afea90.png"
+        ]
+      }
+    },
+    {
+      "source_id": 17941,
+      "source_url": "https://saieedshabake.ir/product/%d8%aa%d9%84%d9%81%d9%86-%d9%be%d9%87%d9%86-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-cat6-utp/",
+      "source_title": "خرید کیستون تلفن لگراند Cat6 UTP پهن | مناسب VoIP",
+      "source_key": "saieedshabake.ir:product:17941",
+      "sku": "TN-SN-17941",
+      "name": "کیستون تلفن لگراند Cat6 UTP پهن",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        170,
+        146,
+        171
+      ],
+      "verified_specifications": [],
+      "source_attributes": [
+        {
+          "id": 2,
+          "name": "برند",
+          "taxonomy": "pa_brand",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 311,
+              "name": "Legrand",
+              "slug": "legrand"
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "name": "نوع شیلد",
+          "taxonomy": "pa_shield-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 358,
+              "name": "UTP",
+              "slug": "utp"
+            }
+          ]
+        },
+        {
+          "id": 60,
+          "name": "نوع کانکتور",
+          "taxonomy": "pa_connector-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 577,
+              "name": "RJ45",
+              "slug": "rj45"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع ماژول",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "پهن(2ماژول)",
+              "slug": "پهن(2ماژول)"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "name": "کشور سازنده",
+          "taxonomy": "pa_country-of-manufacture",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 573,
+              "name": "وارداتی",
+              "slug": "%d9%88%d8%a7%d8%b1%d8%af%d8%a7%d8%aa%db%8c"
+            }
+          ]
+        },
+        {
+          "id": 82,
+          "name": "نوع محصول",
+          "taxonomy": "pa_electrical-product-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 583,
+              "name": "کیستون تلفن",
+              "slug": "%da%a9%db%8c%d8%b3%d8%aa%d9%88%d9%86-%d8%aa%d9%84%d9%81%d9%86"
+            }
+          ]
+        }
+      ],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required",
+        "telephone-category-conflict"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "0",
+          "regular_price": "0",
+          "sale_price": "0",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/07/b22308bc-4670-4c10-a335-76f01bf36c9b.jpg",
+          "https://saieedshabake.ir/wp-content/uploads/2026/07/8f357c25-b38d-498f-a503-d15a07f57ea5.jpg"
+        ]
+      }
+    },
+    {
+      "source_id": 17935,
+      "source_url": "https://saieedshabake.ir/product/legrand-cat6-utp-slim-keystone/",
+      "source_title": "خرید کیستون تلفن لگراند Cat6 UTP باریک| مناسب VoIP",
+      "source_key": "saieedshabake.ir:product:17935",
+      "sku": "TN-SN-17935",
+      "name": "کیستون تلفن لگراند Cat6 UTP باریک",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        170,
+        78,
+        146,
+        584,
+        171
+      ],
+      "verified_specifications": [],
+      "source_attributes": [
+        {
+          "id": 82,
+          "name": "نوع محصول",
+          "taxonomy": "pa_electrical-product-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 583,
+              "name": "کیستون تلفن",
+              "slug": "%da%a9%db%8c%d8%b3%d8%aa%d9%88%d9%86-%d8%aa%d9%84%d9%81%d9%86"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "برند",
+          "taxonomy": "pa_brand",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 311,
+              "name": "Legrand",
+              "slug": "legrand"
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "name": "نوع شیلد",
+          "taxonomy": "pa_shield-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 358,
+              "name": "UTP",
+              "slug": "utp"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "رده شبکه",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "Cat6",
+              "slug": "Cat6"
+            }
+          ]
+        }
+      ],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required",
+        "telephone-category-conflict"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "0",
+          "regular_price": "0",
+          "sale_price": "0",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/07/84ee2c99-69f6-4032-86d2-1bc102de0373.jpg"
+        ]
+      }
+    },
+    {
+      "source_id": 17929,
+      "source_url": "https://saieedshabake.ir/product/%da%a9%db%8c%d8%b3%d8%aa%d9%88%d9%86-%d8%b4%d8%a8%da%a9%d9%87-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-cat6-utp-%d8%a8%d8%a7%d8%b1%db%8c%da%a9/",
+      "source_title": "خرید کیستون شبکه لگراند Cat6 UTP باریک | پشتیبانی از VoIP",
+      "source_key": "saieedshabake.ir:product:17929",
+      "sku": "TN-SN-17929",
+      "name": "کیستون شبکه لگراند Cat6 UTP باریک",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        170,
+        78,
+        146,
+        171
+      ],
+      "verified_specifications": [],
+      "source_attributes": [
+        {
+          "id": 82,
+          "name": "نوع محصول",
+          "taxonomy": "pa_electrical-product-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 581,
+              "name": "کیستون شبکه",
+              "slug": "%da%a9%db%8c%d8%b3%d8%aa%d9%88%d9%86-%d8%b4%d8%a8%da%a9%d9%87"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "برند",
+          "taxonomy": "pa_brand",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 311,
+              "name": "Legrand",
+              "slug": "legrand"
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "name": "نوع شیلد",
+          "taxonomy": "pa_shield-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 358,
+              "name": "UTP",
+              "slug": "utp"
+            }
+          ]
+        }
+      ],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "0",
+          "regular_price": "0",
+          "sale_price": "0",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/07/fde14b45-5b8c-422f-9684-cff146e3d2cb.jpg",
+          "https://saieedshabake.ir/wp-content/uploads/2026/07/b8853bee-6017-420d-a5fd-b88f9a5d88a5-1.png"
+        ]
+      }
+    },
+    {
+      "source_id": 17927,
+      "source_url": "https://saieedshabake.ir/product/%da%a9%db%8c%d8%b3%d8%aa%d9%88%d9%86-%d8%b4%d8%a8%da%a9%d9%87-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-cat6-utp-%d9%be%d9%87%d9%86/",
+      "source_title": "خرید کیستون پهن UTP شبکه | قیمت و مشخصات",
+      "source_key": "saieedshabake.ir:product:17927",
+      "sku": "TN-SN-17927",
+      "name": "کیستون پهن UTP شبکه",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        170,
+        78,
+        146,
+        171
+      ],
+      "verified_specifications": [],
+      "source_attributes": [],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "0",
+          "regular_price": "0",
+          "sale_price": "0",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/07/HooshaAI_2026_07_23_020415.png"
+        ]
+      }
+    },
+    {
+      "source_id": 17920,
+      "source_url": "https://saieedshabake.ir/product/%da%a9%db%8c%d8%b3%d8%aa%d9%88%d9%86-%d8%b4%d8%a8%da%a9%d9%87-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-cat6-sftp-%d8%a8%d8%a7%d8%b1%db%8c%da%a9/",
+      "source_title": "کیستون شبکه لگراند Cat6 SFTP باریک",
+      "source_key": "saieedshabake.ir:product:17920",
+      "sku": "TN-SN-17920",
+      "name": "کیستون شبکه لگراند Cat6 SFTP باریک",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        170,
+        78,
+        146,
+        171
+      ],
+      "verified_specifications": [],
+      "source_attributes": [
+        {
+          "id": 82,
+          "name": "نوع محصول",
+          "taxonomy": "pa_electrical-product-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 581,
+              "name": "کیستون شبکه",
+              "slug": "%da%a9%db%8c%d8%b3%d8%aa%d9%88%d9%86-%d8%b4%d8%a8%da%a9%d9%87"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "برند",
+          "taxonomy": "pa_brand",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 311,
+              "name": "Legrand",
+              "slug": "legrand"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع ماژول",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "باریک",
+              "slug": "باریک"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "رده شبکه",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "Cat6",
+              "slug": "Cat6"
+            }
+          ]
+        }
+      ],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "0",
+          "regular_price": "0",
+          "sale_price": "0",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/07/edited.png",
+          "https://saieedshabake.ir/wp-content/uploads/2026/07/edited.png",
+          "https://saieedshabake.ir/wp-content/uploads/2026/07/79d7a9d178a9f2ba7fd7f5ebd0bde993.png"
+        ]
+      }
+    },
+    {
+      "source_id": 17888,
+      "source_url": "https://saieedshabake.ir/product/%da%a9%db%8c%d8%b3%d8%aa%d9%88%d9%86-%d8%b4%d8%a8%da%a9%d9%87-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-cat6-sftp-%d9%be%d9%87%d9%86/",
+      "source_title": "کیستون شبکه لگراند Cat6 SFTP پهن",
+      "source_key": "saieedshabake.ir:product:17888",
+      "sku": "TN-SN-17888",
+      "name": "کیستون شبکه لگراند Cat6 SFTP پهن",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        170,
+        78,
+        146,
+        171
+      ],
+      "verified_specifications": [],
+      "source_attributes": [
+        {
+          "id": 13,
+          "name": "رده کابل",
+          "taxonomy": "pa_cable-category",
+          "has_variations": true,
+          "terms": [
+            {
+              "id": 354,
+              "name": "Cat6",
+              "slug": "cat6",
+              "default": true
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "برند",
+          "taxonomy": "pa_brand",
+          "has_variations": true,
+          "terms": [
+            {
+              "id": 311,
+              "name": "Legrand",
+              "slug": "legrand"
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "name": "نوع شیلد",
+          "taxonomy": "pa_shield-type",
+          "has_variations": true,
+          "terms": [
+            {
+              "id": 360,
+              "name": "STP",
+              "slug": "stp"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع ماژول",
+          "taxonomy": null,
+          "has_variations": true,
+          "terms": [
+            {
+              "id": 0,
+              "name": "پهن",
+              "slug": "پهن"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "name": "کشور سازنده",
+          "taxonomy": "pa_country-of-manufacture",
+          "has_variations": true,
+          "terms": [
+            {
+              "id": 573,
+              "name": "وارداتی",
+              "slug": "%d9%88%d8%a7%d8%b1%d8%af%d8%a7%d8%aa%db%8c",
+              "default": true
+            }
+          ]
+        }
+      ],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "0",
+          "regular_price": "0",
+          "sale_price": "0",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/07/927f4d63-bdd2-45b8-8e49-e35f4ce0602a.jpg"
+        ]
+      }
+    },
+    {
+      "source_id": 17873,
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%86%da%af%d8%b2%d9%86%d8%b3-cat6-sftp-%d8%a7%d9%88%d8%aa-%d8%af%d9%88%d8%b1-%d8%aa%d8%b3%d8%aa-%d9%81%d9%84%d9%88%da%a9-%d9%be%d8%b1%d9%85%d9%86/",
+      "source_title": "کابل شبکه نگزنس LSZH Cat6 SFTP اوت دور تست فلوک پرمننت قرقره 305 متری (Nexans Outdoor)",
+      "source_key": "saieedshabake.ir:product:17873",
+      "sku": "TN-SN-17873",
+      "name": "کابل شبکه نگزنس LSZH Cat6 SFTP اوت دور قرقره 305 متری (Nexans Outdoor)",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        146,
+        147,
+        150,
+        148
+      ],
+      "verified_specifications": [],
+      "source_attributes": [
+        {
+          "id": 0,
+          "name": "رده کابل",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "Cat6",
+              "slug": "Cat6"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع محصول",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "کابل شبکه",
+              "slug": "کابل شبکه"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "کاربری محیطی",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "Outdoor",
+              "slug": "Outdoor"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع شیلد",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "SFTP",
+              "slug": "SFTP"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع روکش",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "PVC",
+              "slug": "PVC"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "تعداد زوج",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "4",
+              "slug": "4"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "طول",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "305",
+              "slug": "305"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "استانداردها",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "تست چنل",
+              "slug": "تست چنل"
+            }
+          ]
+        }
+      ],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required",
+        "test-certificate-required"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "22700000",
+          "regular_price": "22700000",
+          "sale_price": "22700000",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "کابل شبکه نگزنس Cat6 SFTP PVC Outdoor 305m تست چنل-2",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/06/کابل-شبکه-نگزنس-Cat6-SFTP-اوت-دور-تست-فلوک-پرمننت-قرقره-305-متری.jpg"
+        ]
+      }
+    },
+    {
+      "source_id": 17871,
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%86%da%af%d8%b2%d9%86%d8%b3-cat6-sftp-%d8%b1%d9%88%da%a9%d8%b4-pvc-%d8%ad%d9%84%d9%82%d9%87-500-%d9%85%d8%aa%d8%b1%db%8c-%d9%be%d8%b1%d9%85%d9%86/",
+      "source_title": "کابل شبکه نگزنس InDoor Cat6 SFTP روکش PVC حلقه 500 متری پرمننت",
+      "source_key": "saieedshabake.ir:product:17871",
+      "sku": "TN-SN-17871",
+      "name": "کابل شبکه نگزنس InDoor Cat6 SFTP روکش PVC حلقه 500 متری",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        78,
+        146,
+        150,
+        148
+      ],
+      "verified_specifications": [],
+      "source_attributes": [
+        {
+          "id": 13,
+          "name": "رده کابل",
+          "taxonomy": "pa_cable-category",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 354,
+              "name": "Cat6",
+              "slug": "cat6"
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "name": "نوع محصول",
+          "taxonomy": "pa_product-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 344,
+              "name": "کابل شبکه",
+              "slug": "%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87"
+            }
+          ]
+        },
+        {
+          "id": 20,
+          "name": "کاربری محیطی",
+          "taxonomy": "pa_environment",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 368,
+              "name": "Indoor",
+              "slug": "indoor"
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "name": "نوع شیلد",
+          "taxonomy": "pa_shield-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 361,
+              "name": "SFTP",
+              "slug": "sftp"
+            }
+          ]
+        },
+        {
+          "id": 68,
+          "name": "نوع روکش",
+          "taxonomy": "pa_fiber-jacket-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 475,
+              "name": "PVC",
+              "slug": "pvc"
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "name": "تعداد زوج",
+          "taxonomy": "pa_pair-count",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 569,
+              "name": "4",
+              "slug": "4"
+            }
+          ]
+        }
+      ],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required",
+        "test-certificate-required",
+        "source-sku-brand-conflict"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "44500000",
+          "regular_price": "44500000",
+          "sale_price": "44500000",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر تست چنل-2",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/06/کابل-شبکه-نگزنس-Cat6-SFTP-PVC-متراژ-500-متر-تست-چنل-نام.png"
+        ]
+      }
+    },
+    {
+      "source_id": 17868,
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%86%da%af%d8%b2%d9%86%d8%b3-cat6-sftp-%d8%b1%d9%88%da%a9%d8%b4-pvc-%d8%ad%d9%84%d9%82%d9%87-500-%d9%85%d8%aa%d8%b1%db%8c-%d8%aa%d8%b3%d8%aa-%da%86/",
+      "source_title": "کابل شبکه نگزنس Cat6 SFTP روکش PVC حلقه 500 متری تست چنل",
+      "source_key": "saieedshabake.ir:product:17868",
+      "sku": "TN-SN-17868",
+      "name": "کابل شبکه نگزنس Cat6 SFTP روکش PVC حلقه 500 متری",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        78,
+        146,
+        150,
+        148
+      ],
+      "verified_specifications": [],
+      "source_attributes": [
+        {
+          "id": 13,
+          "name": "رده کابل",
+          "taxonomy": "pa_cable-category",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 354,
+              "name": "Cat6",
+              "slug": "cat6"
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "name": "نوع محصول",
+          "taxonomy": "pa_product-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 344,
+              "name": "کابل شبکه",
+              "slug": "%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87"
+            }
+          ]
+        },
+        {
+          "id": 20,
+          "name": "کاربری محیطی",
+          "taxonomy": "pa_environment",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 368,
+              "name": "Indoor",
+              "slug": "indoor"
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "name": "نوع شیلد",
+          "taxonomy": "pa_shield-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 361,
+              "name": "SFTP",
+              "slug": "sftp"
+            }
+          ]
+        },
+        {
+          "id": 68,
+          "name": "نوع روکش",
+          "taxonomy": "pa_fiber-jacket-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 475,
+              "name": "PVC",
+              "slug": "pvc"
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "name": "تعداد زوج",
+          "taxonomy": "pa_pair-count",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 569,
+              "name": "4",
+              "slug": "4"
+            }
+          ]
+        }
+      ],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required",
+        "test-certificate-required",
+        "source-sku-brand-conflict"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "44500000",
+          "regular_price": "44500000",
+          "sale_price": "44500000",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر تست چنل-1",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/06/کابل-شبکه-نگزنس-Cat6-SFTP-PVC-متراژ-500-متر-تست-چنل-نام.png",
+          "https://saieedshabake.ir/wp-content/uploads/2026/06/b08e04bd-08be-44e6-9224-3ad438e3bf6c.png"
+        ]
+      }
+    },
+    {
+      "source_id": 17866,
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-legrand-cat6-sftp-pvc-%d9%85%d8%aa%d8%b1%d8%a7%da%98-500-%d9%85%d8%aa%d8%b1-%d8%aa%d8%b3%d8%aa-%da%86%d9%86%d9%84/",
+      "source_title": "کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر تست چنل",
+      "source_key": "saieedshabake.ir:product:17866",
+      "sku": "TN-SN-17866",
+      "name": "کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        78,
+        146,
+        150,
+        149
+      ],
+      "verified_specifications": [],
+      "source_attributes": [
+        {
+          "id": 13,
+          "name": "رده کابل",
+          "taxonomy": "pa_cable-category",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 354,
+              "name": "Cat6",
+              "slug": "cat6"
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "name": "نوع محصول",
+          "taxonomy": "pa_product-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 344,
+              "name": "کابل شبکه",
+              "slug": "%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87"
+            }
+          ]
+        },
+        {
+          "id": 20,
+          "name": "کاربری محیطی",
+          "taxonomy": "pa_environment",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 368,
+              "name": "Indoor",
+              "slug": "indoor"
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "name": "نوع شیلد",
+          "taxonomy": "pa_shield-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 361,
+              "name": "SFTP",
+              "slug": "sftp"
+            }
+          ]
+        },
+        {
+          "id": 68,
+          "name": "نوع روکش",
+          "taxonomy": "pa_fiber-jacket-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 475,
+              "name": "PVC",
+              "slug": "pvc"
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "name": "تعداد زوج",
+          "taxonomy": "pa_pair-count",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 569,
+              "name": "4",
+              "slug": "4"
+            }
+          ]
+        }
+      ],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required",
+        "test-certificate-required"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "44500000",
+          "regular_price": "44500000",
+          "sale_price": "44500000",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر تست چنل",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/06/کابل-شبکه-Legrand-Cat6-SFTP-PVC-متراژ-500-متر-تست-فلوک-پرمننت.png"
+        ]
+      }
+    },
+    {
+      "source_id": 17863,
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-legrand-cat6-sftp-pvc-%d9%85%d8%aa%d8%b1%d8%a7%da%98-500-%d9%85%d8%aa%d8%b1-%d8%aa%d8%b3%d8%aa-%d9%81%d9%84%d9%88%da%a9-%d9%be%d8%b1%d9%85%d9%86%d9%86/",
+      "source_title": "کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر تست فلوک پرمننت",
+      "source_key": "saieedshabake.ir:product:17863",
+      "sku": "TN-SN-17863",
+      "name": "کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        78,
+        146,
+        150,
+        149
+      ],
+      "verified_specifications": [],
+      "source_attributes": [
+        {
+          "id": 13,
+          "name": "رده کابل",
+          "taxonomy": "pa_cable-category",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 354,
+              "name": "Cat6",
+              "slug": "cat6"
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "name": "نوع محصول",
+          "taxonomy": "pa_product-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 344,
+              "name": "کابل شبکه",
+              "slug": "%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87"
+            }
+          ]
+        },
+        {
+          "id": 20,
+          "name": "کاربری محیطی",
+          "taxonomy": "pa_environment",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 368,
+              "name": "Indoor",
+              "slug": "indoor"
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "name": "نوع شیلد",
+          "taxonomy": "pa_shield-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 361,
+              "name": "SFTP",
+              "slug": "sftp"
+            }
+          ]
+        },
+        {
+          "id": 68,
+          "name": "نوع روکش",
+          "taxonomy": "pa_fiber-jacket-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 475,
+              "name": "PVC",
+              "slug": "pvc"
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "name": "تعداد زوج",
+          "taxonomy": "pa_pair-count",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 569,
+              "name": "4",
+              "slug": "4"
+            }
+          ]
+        }
+      ],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required",
+        "test-certificate-required"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "47500000",
+          "regular_price": "47500000",
+          "sale_price": "47500000",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر تست فلوک پرمننت",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/06/کابل-شبکه-Legrand-Cat6-SFTP-PVC-متراژ-500-متر-تست-فلوک-پرمننت.jpg"
+        ]
+      }
+    },
+    {
+      "source_id": 17860,
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%86%da%af%d8%b2%d9%86%d8%b3-cat6-utp-%d8%b1%d9%88%da%a9%d8%b4-pvc-%d8%ad%d9%84%d9%82%d9%87-305-%d9%85%d8%aa%d8%b1%db%8c-%d8%aa%d8%b3%d8%aa-%d9%81/",
+      "source_title": "کابل شبکه نگزنس Cat6 UTP روکش PVC حلقه 305 متری تست فلوک پرمننت",
+      "source_key": "saieedshabake.ir:product:17860",
+      "sku": "TN-SN-17860",
+      "name": "کابل شبکه نگزنس Cat6 UTP روکش PVC حلقه 305 متری",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        78,
+        146,
+        150,
+        148
+      ],
+      "verified_specifications": [],
+      "source_attributes": [
+        {
+          "id": 13,
+          "name": "رده کابل",
+          "taxonomy": "pa_cable-category",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 354,
+              "name": "Cat6",
+              "slug": "cat6"
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "name": "نوع محصول",
+          "taxonomy": "pa_product-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 344,
+              "name": "کابل شبکه",
+              "slug": "%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87"
+            }
+          ]
+        },
+        {
+          "id": 20,
+          "name": "کاربری محیطی",
+          "taxonomy": "pa_environment",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 368,
+              "name": "Indoor",
+              "slug": "indoor"
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "name": "نوع شیلد",
+          "taxonomy": "pa_shield-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 358,
+              "name": "UTP",
+              "slug": "utp"
+            }
+          ]
+        },
+        {
+          "id": 68,
+          "name": "نوع روکش",
+          "taxonomy": "pa_fiber-jacket-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 475,
+              "name": "PVC",
+              "slug": "pvc"
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "name": "تعداد زوج",
+          "taxonomy": "pa_pair-count",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 569,
+              "name": "4",
+              "slug": "4"
+            }
+          ]
+        }
+      ],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required",
+        "test-certificate-required",
+        "source-sku-brand-conflict"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "22570000",
+          "regular_price": "22570000",
+          "sale_price": "22570000",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "عنوان بهینه حدود ۶۰ کاراکتر: **کابل شبکه لگراند Cat6 UTP روکش PVC حلقه 305 متری تست فلوک**-1",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/06/کابل-شبکه-نگزنس-Cat6-UTP-روکش-PVC-حلقه-305-متری-تست-چنل.png"
+        ]
+      }
+    },
+    {
+      "source_id": 17857,
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%86%da%af%d8%b2%d9%86%d8%b3-cat6-utp-%d8%b1%d9%88%da%a9%d8%b4-pvc-%d8%ad%d9%84%d9%82%d9%87-305-%d9%85%d8%aa%d8%b1%db%8c-%d8%aa%d8%b3%d8%aa-%da%86/",
+      "source_title": "کابل شبکه نگزنس Cat6 UTP روکش PVC حلقه 305 متری تست چنل",
+      "source_key": "saieedshabake.ir:product:17857",
+      "sku": "TN-SN-17857",
+      "name": "کابل شبکه نگزنس Cat6 UTP روکش PVC حلقه 305 متری",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        78,
+        146,
+        150,
+        148
+      ],
+      "verified_specifications": [],
+      "source_attributes": [
+        {
+          "id": 13,
+          "name": "رده کابل",
+          "taxonomy": "pa_cable-category",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 354,
+              "name": "Cat6",
+              "slug": "cat6"
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "name": "نوع محصول",
+          "taxonomy": "pa_product-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 344,
+              "name": "کابل شبکه",
+              "slug": "%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87"
+            }
+          ]
+        },
+        {
+          "id": 20,
+          "name": "کاربری محیطی",
+          "taxonomy": "pa_environment",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 368,
+              "name": "Indoor",
+              "slug": "indoor"
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "name": "نوع شیلد",
+          "taxonomy": "pa_shield-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 358,
+              "name": "UTP",
+              "slug": "utp"
+            }
+          ]
+        },
+        {
+          "id": 68,
+          "name": "نوع روکش",
+          "taxonomy": "pa_fiber-jacket-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 475,
+              "name": "PVC",
+              "slug": "pvc"
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "name": "تعداد زوج",
+          "taxonomy": "pa_pair-count",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 569,
+              "name": "4",
+              "slug": "4"
+            }
+          ]
+        }
+      ],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required",
+        "test-certificate-required",
+        "source-sku-brand-conflict"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "20103000",
+          "regular_price": "20103000",
+          "sale_price": "20103000",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "کابل شبکه لگراند Cat6 UTP روکش PVC حلقه 305 متری تست چنل-1",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/06/کابل-شبکه-نگزنس-Cat6-UTP-روکش-PVC-حلقه-305-متری-تست-چنل.png"
+        ]
+      }
+    },
+    {
+      "source_id": 17855,
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-cat6-utp-%d8%b1%d9%88%da%a9%d8%b4-pvc-%d8%ad%d9%84%d9%82%d9%87-305-%d9%85%d8%aa%d8%b1%db%8c-%d8%aa%d8%b3%d8%aa/",
+      "source_title": "کابل شبکه لگراند Cat6 UTP روکش PVC حلقه 305 متری تست چنل",
+      "source_key": "saieedshabake.ir:product:17855",
+      "sku": "TN-SN-17855",
+      "name": "کابل شبکه لگراند Cat6 UTP روکش PVC حلقه 305 متری",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        78,
+        146,
+        150,
+        149
+      ],
+      "verified_specifications": [],
+      "source_attributes": [
+        {
+          "id": 13,
+          "name": "رده کابل",
+          "taxonomy": "pa_cable-category",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 354,
+              "name": "Cat6",
+              "slug": "cat6"
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "name": "نوع محصول",
+          "taxonomy": "pa_product-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 344,
+              "name": "کابل شبکه",
+              "slug": "%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87"
+            }
+          ]
+        },
+        {
+          "id": 20,
+          "name": "کاربری محیطی",
+          "taxonomy": "pa_environment",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 368,
+              "name": "Indoor",
+              "slug": "indoor"
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "name": "نوع شیلد",
+          "taxonomy": "pa_shield-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 358,
+              "name": "UTP",
+              "slug": "utp"
+            }
+          ]
+        },
+        {
+          "id": 68,
+          "name": "نوع روکش",
+          "taxonomy": "pa_fiber-jacket-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 475,
+              "name": "PVC",
+              "slug": "pvc"
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "name": "تعداد زوج",
+          "taxonomy": "pa_pair-count",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 569,
+              "name": "4",
+              "slug": "4"
+            }
+          ]
+        }
+      ],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required",
+        "test-certificate-required"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "20103000",
+          "regular_price": "20103000",
+          "sale_price": "20103000",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "کابل شبکه لگراند Cat6 UTP روکش PVC حلقه 305 متری تست چنل",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/06/کابل-شبکه-لگراند-Cat6-UTP-روکش-PVC-حلقه-305-متری-تست-فلوک-پرمننت-این-نام-محصول-رو-سئو-شده-اما-با-کمی-تغییر-برای-وبسایتم-بده.jpg"
+        ]
+      }
+    },
+    {
+      "source_id": 17851,
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-cat6-utp-%d8%b1%d9%88%da%a9%d8%b4-052-pvc-%d8%ad%d9%84%d9%82%d9%87-305-%d9%85%d8%aa%d8%b1%db%8c-%d8%aa%d8%b3/",
+      "source_title": "کابل شبکه لگراند Cat6 UTP روکش 052 PVC حلقه 305 متری تست فلوک پرمننت",
+      "source_key": "saieedshabake.ir:product:17851",
+      "sku": "TN-SN-17851",
+      "name": "کابل شبکه لگراند Cat6 UTP روکش 052 PVC حلقه 305 متری",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        78,
+        146,
+        150,
+        149
+      ],
+      "verified_specifications": [],
+      "source_attributes": [
+        {
+          "id": 13,
+          "name": "رده کابل",
+          "taxonomy": "pa_cable-category",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 354,
+              "name": "Cat6",
+              "slug": "cat6"
+            }
+          ]
+        },
+        {
+          "id": 12,
+          "name": "نوع محصول",
+          "taxonomy": "pa_product-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 344,
+              "name": "کابل شبکه",
+              "slug": "%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87"
+            }
+          ]
+        },
+        {
+          "id": 20,
+          "name": "کاربری محیطی",
+          "taxonomy": "pa_environment",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 368,
+              "name": "Indoor",
+              "slug": "indoor"
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "name": "نوع شیلد",
+          "taxonomy": "pa_shield-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 358,
+              "name": "UTP",
+              "slug": "utp"
+            }
+          ]
+        },
+        {
+          "id": 68,
+          "name": "نوع روکش",
+          "taxonomy": "pa_fiber-jacket-type",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 475,
+              "name": "PVC",
+              "slug": "pvc"
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "name": "تعداد زوج",
+          "taxonomy": "pa_pair-count",
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 569,
+              "name": "4",
+              "slug": "4"
+            }
+          ]
+        }
+      ],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required",
+        "test-certificate-required"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "22570000",
+          "regular_price": "22570000",
+          "sale_price": "22570000",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "عنوان بهینه حدود ۶۰ کاراکتر: **کابل شبکه لگراند Cat6 UTP روکش PVC حلقه 305 متری تست فلوک**",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/06/کابل-شبکه-لگراند-Cat6-UTP-روکش-PVC-حلقه-305-متری-تست-فلوک-پرمننت-این-نام-محصول-رو-سئو-شده-اما-با-کمی-تغییر-برای-وبسایتم-بده.jpg"
+        ]
+      }
+    },
+    {
+      "source_id": 17831,
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%86%da%af%d8%b2%d9%86%d8%b3-cat6-sftp-lszh-indoor-500m-%da%86%d9%86%d9%84-%d9%82%db%8c%d9%85%d8%aa-%d9%88-%d8%ae%d8%b1%db%8c%d8%af/",
+      "source_title": "کابل شبکه نگزنس Cat6 SFTP LSZH Indoor 500m چنل – قیمت و خرید",
+      "source_key": "saieedshabake.ir:product:17831",
+      "sku": "TN-SN-17831",
+      "name": "کابل شبکه نگزنس Cat6 SFTP LSZH Indoor 500m",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        78,
+        146,
+        150,
+        149
+      ],
+      "verified_specifications": [],
+      "source_attributes": [
+        {
+          "id": 0,
+          "name": "رده کابل",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "Cat6",
+              "slug": "Cat6"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع محصول",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "کابل شبکه",
+              "slug": "کابل شبکه"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "کاربری محیطی",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "Indoor",
+              "slug": "Indoor"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع شیلد",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "SFTP",
+              "slug": "SFTP"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع روکش",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "LSZH",
+              "slug": "LSZH"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "تعداد زوج",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "4",
+              "slug": "4"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "طول",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "500",
+              "slug": "500"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "استانداردها",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "تست چنل",
+              "slug": "تست چنل"
+            }
+          ]
+        }
+      ],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required",
+        "test-certificate-required",
+        "source-sku-brand-conflict"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "51000000",
+          "regular_price": "51000000",
+          "sale_price": "51000000",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m پرمننت – قیمت و خرید-3",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/06/de709dad-6a2d-4e20-ba0c-8017605555ae.png"
+        ]
+      }
+    },
+    {
+      "source_id": 17829,
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%86%da%af%d8%b2%d9%86%d8%b3-cat6-sftp-lszh-indoor-500m-%d9%be%d8%b1%d9%85%d9%86%d9%86%d8%aa-%d9%82%db%8c%d9%85%d8%aa-%d9%88-%d8%ae%d8%b1%db%8c/",
+      "source_title": "کابل شبکه نگزنس Cat6 SFTP LSZH Indoor 500m پرمننت – قیمت و خرید",
+      "source_key": "saieedshabake.ir:product:17829",
+      "sku": "TN-SN-17829",
+      "name": "کابل شبکه نگزنس Cat6 SFTP LSZH Indoor 500m",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        78,
+        146,
+        150,
+        149
+      ],
+      "verified_specifications": [],
+      "source_attributes": [
+        {
+          "id": 0,
+          "name": "رده کابل",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "Cat6",
+              "slug": "Cat6"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع محصول",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "کابل شبکه",
+              "slug": "کابل شبکه"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "کاربری محیطی",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "Indoor",
+              "slug": "Indoor"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع شیلد",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "SFTP",
+              "slug": "SFTP"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع روکش",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "LSZH",
+              "slug": "LSZH"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "تعداد زوج",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "4",
+              "slug": "4"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "طول",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "500",
+              "slug": "500"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "استانداردها",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "تست چنل",
+              "slug": "تست چنل"
+            }
+          ]
+        }
+      ],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required",
+        "test-certificate-required",
+        "source-sku-brand-conflict"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "51000000",
+          "regular_price": "51000000",
+          "sale_price": "51000000",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m پرمننت – قیمت و خرید-2",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/06/de709dad-6a2d-4e20-ba0c-8017605555ae.png"
+        ]
+      }
+    },
+    {
+      "source_id": 17827,
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-cat6-sftp-lszh-indoor-500m-%da%86%d9%86%d9%84-%d9%82%db%8c%d9%85%d8%aa-%d9%88-%d8%ae%d8%b1%db%8c%d8%af/",
+      "source_title": "کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m چنل – قیمت و خرید",
+      "source_key": "saieedshabake.ir:product:17827",
+      "sku": "TN-SN-17827",
+      "name": "کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        78,
+        146,
+        150,
+        149
+      ],
+      "verified_specifications": [],
+      "source_attributes": [
+        {
+          "id": 0,
+          "name": "رده کابل",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "Cat6",
+              "slug": "Cat6"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع محصول",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "کابل شبکه",
+              "slug": "کابل شبکه"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "کاربری محیطی",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "Indoor",
+              "slug": "Indoor"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع شیلد",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "SFTP",
+              "slug": "SFTP"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع روکش",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "LSZH",
+              "slug": "LSZH"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "تعداد زوج",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "4",
+              "slug": "4"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "طول",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "500",
+              "slug": "500"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "استانداردها",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "تست چنل",
+              "slug": "تست چنل"
+            }
+          ]
+        }
+      ],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required",
+        "test-certificate-required"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "51000000",
+          "regular_price": "51000000",
+          "sale_price": "51000000",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m پرمننت – قیمت و خرید-1",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/06/de709dad-6a2d-4e20-ba0c-8017605555ae.png"
+        ]
+      }
+    },
+    {
+      "source_id": 17824,
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%86%da%af%d8%b2%d9%86%d8%b3-cat6-sftp-pvc-outdoor-305m-%d8%aa%d8%b3%d8%aa-%da%86%d9%86%d9%84-%d9%82%db%8c%d9%85%d8%aa-%d9%88-%d8%ae%d8%b1%db%8c/",
+      "source_title": "کابل شبکه نگزنس Cat6 SFTP PVC Outdoor 305m تست چنل – قیمت و خرید",
+      "source_key": "saieedshabake.ir:product:17824",
+      "sku": "TN-SN-17824",
+      "name": "کابل شبکه نگزنس Cat6 SFTP PVC Outdoor 305m",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        146,
+        147,
+        150,
+        148
+      ],
+      "verified_specifications": [],
+      "source_attributes": [
+        {
+          "id": 0,
+          "name": "رده کابل",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "Cat6",
+              "slug": "Cat6"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع محصول",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "کابل شبکه",
+              "slug": "کابل شبکه"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "کاربری محیطی",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "Outdoor",
+              "slug": "Outdoor"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع شیلد",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "SFTP",
+              "slug": "SFTP"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع روکش",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "PVC",
+              "slug": "PVC"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "تعداد زوج",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "4",
+              "slug": "4"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "طول",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "305",
+              "slug": "305"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "استانداردها",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "تست چنل",
+              "slug": "تست چنل"
+            }
+          ]
+        }
+      ],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required",
+        "test-certificate-required"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "22700000",
+          "regular_price": "22700000",
+          "sale_price": "22700000",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "کابل شبکه نگزنس Cat6 SFTP PVC Outdoor 305m تست چنل-1",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/06/1f81da61-9bb6-4e5e-9f92-a79f5281d3ff.png"
+        ]
+      }
+    },
+    {
+      "source_id": 16585,
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-cat6-sftp-lszh-outdoor-305m/",
+      "source_title": "کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m پرمننت – قیمت و خرید",
+      "source_key": "saieedshabake.ir:product:16585",
+      "sku": "TN-SN-16585",
+      "name": "کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        78,
+        146,
+        150,
+        149
+      ],
+      "verified_specifications": [],
+      "source_attributes": [
+        {
+          "id": 0,
+          "name": "رده کابل",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "Cat6",
+              "slug": "Cat6"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع محصول",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "کابل شبکه",
+              "slug": "کابل شبکه"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "کاربری محیطی",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "Indoor",
+              "slug": "Indoor"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع شیلد",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "SFTP",
+              "slug": "SFTP"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع روکش",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "LSZH",
+              "slug": "LSZH"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "تعداد زوج",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "4",
+              "slug": "4"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "طول",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "500",
+              "slug": "500"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "استانداردها",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "تست فلوک",
+              "slug": "تست فلوک"
+            }
+          ]
+        }
+      ],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required",
+        "test-certificate-required"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "51000000",
+          "regular_price": "51000000",
+          "sale_price": "51000000",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m پرمننت – قیمت و خرید",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/06/de709dad-6a2d-4e20-ba0c-8017605555ae.png"
+        ]
+      }
+    },
+    {
+      "source_id": 16584,
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-cat6-sftp-pvc-outdoor-305m/",
+      "source_title": "کابل شبکه نگزنس Cat6 SFTP PVC Outdoor 305m پرمننت – قیمت و خرید",
+      "source_key": "saieedshabake.ir:product:16584",
+      "sku": "TN-SN-16584",
+      "name": "کابل شبکه نگزنس Cat6 SFTP PVC Outdoor 305m",
+      "status": "draft",
+      "description": "این قلم در کاتالوگ بررسی تهران نتورک ثبت شده است. مدل دقیق، مشخصات فنی، واحد فروش، محتویات بسته و شرایط تأمین باید پیش از فروش تأیید شوند. قیمت و موجودی این کالا نیازمند استعلام است.",
+      "short_description": "نیازمند تأیید مشخصات و استعلام قیمت و موجودی تهران نتورک.",
+      "regular_price": "",
+      "stock_quantity": 0,
+      "manage_stock": true,
+      "backorders": "no",
+      "images": [],
+      "media_license": "unverified-not-imported",
+      "category_source_ids": [
+        146,
+        147,
+        150,
+        148
+      ],
+      "verified_specifications": [],
+      "source_attributes": [
+        {
+          "id": 0,
+          "name": "رده کابل",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "Cat6",
+              "slug": "Cat6"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع محصول",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "کابل شبکه",
+              "slug": "کابل شبکه"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "کاربری محیطی",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "Outdoor",
+              "slug": "Outdoor"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع شیلد",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "SFTP",
+              "slug": "SFTP"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "نوع روکش",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "PVC",
+              "slug": "PVC"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "تعداد زوج",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "4",
+              "slug": "4"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "طول",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "305",
+              "slug": "305"
+            }
+          ]
+        },
+        {
+          "id": 0,
+          "name": "استانداردها",
+          "taxonomy": null,
+          "has_variations": false,
+          "terms": [
+            {
+              "id": 0,
+              "name": "تست چنل",
+              "slug": "تست چنل"
+            }
+          ]
+        }
+      ],
+      "review_flags": [
+        "manufacturer-part-number-unverified",
+        "image-license-unverified",
+        "tehnet-price-and-stock-required",
+        "test-certificate-required"
+      ],
+      "sale_unit": null,
+      "minimum_quantity": null,
+      "source_observation": {
+        "price": {
+          "price": "22700000",
+          "regular_price": "22700000",
+          "sale_price": "22700000",
+          "price_range": null,
+          "currency_code": "IRT",
+          "currency_symbol": "تومان",
+          "currency_minor_unit": 0,
+          "currency_decimal_separator": ".",
+          "currency_thousand_separator": ",",
+          "currency_prefix": "تومان ",
+          "currency_suffix": ""
+        },
+        "in_stock": true,
+        "supplier_sku": "کابل شبکه Cat 6 UTP لگرند تست فلوک به طول 305 متر – سعید شبکه",
+        "image_urls": [
+          "https://saieedshabake.ir/wp-content/uploads/2026/06/1f81da61-9bb6-4e5e-9f92-a79f5281d3ff.png"
+        ]
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": 170,
+      "name": "اتصالات",
+      "slug": "%d8%a7%d8%aa%d8%b5%d8%a7%d9%84%d8%a7%d8%aa",
+      "parent": 146
+    },
+    {
+      "id": 172,
+      "name": "انواع پریز شبکه",
+      "slug": "%d8%a7%d9%86%d9%88%d8%a7%d8%b9-%d9%be%d8%b1%db%8c%d8%b2-%d8%b4%d8%a8%da%a9%d9%87",
+      "parent": 170
+    },
+    {
+      "id": 78,
+      "name": "پسیو شبکه",
+      "slug": "passive-network",
+      "parent": 0
+    },
+    {
+      "id": 146,
+      "name": "پسیو شبکه (Passive Network)",
+      "slug": "%d9%be%d8%b3%db%8c%d9%88-%d8%b4%d8%a8%da%a9%d9%87-passive-network",
+      "parent": 78
+    },
+    {
+      "id": 174,
+      "name": "سوکت شبکه",
+      "slug": "%d8%b3%d9%88%da%a9%d8%aa-%d8%b4%d8%a8%da%a9%d9%87",
+      "parent": 170
+    },
+    {
+      "id": 20,
+      "name": "فروشگاه",
+      "slug": "shopnetwork",
+      "parent": 0
+    },
+    {
+      "id": 147,
+      "name": "کابل شبکه",
+      "slug": "%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87",
+      "parent": 146
+    },
+    {
+      "id": 150,
+      "name": "کابل شبکه CAT6",
+      "slug": "%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-cat6",
+      "parent": 147
+    },
+    {
+      "id": 149,
+      "name": "کابل شبکه لگراند (Legrand)",
+      "slug": "%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-legrand",
+      "parent": 147
+    },
+    {
+      "id": 148,
+      "name": "کابل شبکه نگزنس (Nexans)",
+      "slug": "%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%86%da%af%d8%b2%d9%86%d8%b3-nexans",
+      "parent": 147
+    },
+    {
+      "id": 584,
+      "name": "کیستون تلفن",
+      "slug": "%da%a9%db%8c%d8%b3%d8%aa%d9%88%d9%86-%d8%aa%d9%84%d9%81%d9%86",
+      "parent": 170
+    },
+    {
+      "id": 171,
+      "name": "کیستون شبکه",
+      "slug": "%da%a9%db%8c%d8%b3%d8%aa%d9%88%d9%86-%d8%b4%d8%a8%da%a9%d9%87",
+      "parent": 170
+    }
+  ]
+}
