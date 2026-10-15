@@ -136,7 +136,7 @@ final class TehNet_Store_Catalog {
             foreach ($pending as $key => $row) {
                 $parent = (int)$row['parent'];
                 if ($parent && !isset($mapping[$parent])) { continue; }
-                $terms = get_terms(['taxonomy' => 'product_cat', 'hide_empty' => false, 'meta_key' => '_tn_source_category', 'meta_value' => 'saieedshabake.ir:' . $row['id']]);
+                $terms = get_terms(['taxonomy' => 'product_cat', 'hide_empty' => false, 'orderby'=>'term_id', 'menu_order'=>false, 'meta_query'=>[['key'=>'_tn_source_category','value'=>'saieedshabake.ir:' . $row['id'],'compare'=>'=']]]);
                 if (is_wp_error($terms) || count($terms) > 1) { throw new RuntimeException('Category mapping conflict'); }
                 if ($terms) { $mapping[$row['id']] = $terms[0]->term_id; }
                 else {

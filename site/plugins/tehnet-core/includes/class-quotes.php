@@ -67,9 +67,9 @@ final class TehNet_Core_Quotes {
             'supports' => ['title'],
             'map_meta_cap' => true,
             'capabilities' => [
-                'edit_post' => 'manage_woocommerce',
-                'read_post' => 'manage_woocommerce',
-                'delete_post' => 'manage_woocommerce',
+                'edit_post' => 'edit_tn_commerce_document',
+                'read_post' => 'read_tn_commerce_document',
+                'delete_post' => 'delete_tn_commerce_document',
                 'edit_posts' => 'manage_woocommerce',
                 'edit_others_posts' => 'manage_woocommerce',
                 'delete_posts' => 'manage_woocommerce',

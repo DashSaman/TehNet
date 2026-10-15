@@ -26,9 +26,9 @@ final class TehNet_Core_Inquiries {
             'supports' => ['title'],
             'map_meta_cap' => true,
             'capabilities' => [
-                'edit_post' => 'manage_woocommerce',
-                'read_post' => 'manage_woocommerce',
-                'delete_post' => 'manage_woocommerce',
+                'edit_post' => 'edit_tn_inquiry',
+                'read_post' => 'read_tn_inquiry',
+                'delete_post' => 'delete_tn_inquiry',
                 'edit_posts' => 'manage_woocommerce',
                 'edit_others_posts' => 'manage_woocommerce',
                 'delete_posts' => 'manage_woocommerce',

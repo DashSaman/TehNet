@@ -1,0 +1,27 @@
+services:
+  configurator:
+    environment:
+      PYTHONPATH: /home/frappe/frappe-bench/apps/tehnet_erp
+    volumes:
+      - ../../integrations/tehnet_erp:/home/frappe/frappe-bench/apps/tehnet_erp:ro
+  backend:
+    environment:
+      PYTHONPATH: /home/frappe/frappe-bench/apps/tehnet_erp
+      TEHNET_SANDBOX: "1"
+    volumes:
+      - ../../integrations/tehnet_erp:/home/frappe/frappe-bench/apps/tehnet_erp:ro
+  queue-long:
+    environment:
+      PYTHONPATH: /home/frappe/frappe-bench/apps/tehnet_erp
+    volumes:
+      - ../../integrations/tehnet_erp:/home/frappe/frappe-bench/apps/tehnet_erp:ro
+  queue-short:
+    environment:
+      PYTHONPATH: /home/frappe/frappe-bench/apps/tehnet_erp
+    volumes:
+      - ../../integrations/tehnet_erp:/home/frappe/frappe-bench/apps/tehnet_erp:ro
+  scheduler:
+    environment:
+      PYTHONPATH: /home/frappe/frappe-bench/apps/tehnet_erp
+    volumes:
+      - ../../integrations/tehnet_erp:/home/frappe/frappe-bench/apps/tehnet_erp:ro

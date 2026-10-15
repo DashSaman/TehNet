@@ -1,0 +1,60 @@
+services:
+  woo-db:
+    restart: unless-stopped
+    image: mariadb:11.8
+    environment:
+      MARIADB_DATABASE: tehnet_stage
+      MARIADB_USER: tehnet_stage
+      MARIADB_PASSWORD: ${WOO_DB_PASSWORD:?Set WOO_DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${WOO_DB_ROOT_PASSWORD:?Set WOO_DB_ROOT_PASSWORD}
+    volumes:
+      - woo-db:/var/lib/mysql
+    healthcheck:
+      test: [CMD, healthcheck.sh, --connect, --innodb_initialized]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+  woo:
+    restart: unless-stopped
+    image: wordpress:php8.3-apache
+    depends_on:
+      woo-db:
+        condition: service_healthy
+    ports:
+      - 127.0.0.1:18083:80
+    environment:
+      WORDPRESS_DB_HOST: woo-db
+      WORDPRESS_DB_NAME: tehnet_stage
+      WORDPRESS_DB_USER: tehnet_stage
+      WORDPRESS_DB_PASSWORD: ${WOO_DB_PASSWORD:?Set WOO_DB_PASSWORD}
+      WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD:?Set WP_ADMIN_PASSWORD}
+      TEHNET_ERP_URL: http://backend:8000
+      TEHNET_ERP_SITE: frontend
+      TEHNET_ERP_API_KEY: ${ERP_API_KEY:-}
+      TEHNET_ERP_API_SECRET: ${ERP_API_SECRET:-}
+      TEHNET_ERP_STORE_ID: tehnet-local
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_ENVIRONMENT_TYPE', 'local');
+        define('DISALLOW_FILE_EDIT', true);
+    volumes:
+      - woo:/var/www/html
+      - ../../site/themes/tehnet:/var/www/html/wp-content/themes/tehnet:ro
+      - ../../site/plugins/tehnet-core:/var/www/html/wp-content/plugins/tehnet-core:ro
+      - ../../site/plugins/tehnet-store:/var/www/html/wp-content/plugins/tehnet-store:ro
+      - ../../content/catalog:/catalog:ro
+      - ../../content/pages:/content-pages:ro
+      - ../../tests:/tests:ro
+      - ./.local:/stage:ro
+      - ./seed-local.php:/local-seed.php:ro
+      - ./local-safety.php:/var/www/html/wp-content/mu-plugins/tn-local-safety.php:ro
+      - ./.local/fonts:/var/www/html/wp-content/themes/tehnet/assets/fonts:ro
+    networks:
+      - default
+      - erp-private
+networks:
+  erp-private:
+    external: true
+    name: tehnet-erp-stage_frappe_network
+volumes:
+  woo:
+  woo-db:

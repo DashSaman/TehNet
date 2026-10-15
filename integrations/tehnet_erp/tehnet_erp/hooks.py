@@ -1,0 +1,9 @@
+app_name='tehnet_erp'
+app_title='TehNet Operations'
+app_publisher='TehNet'
+app_description='WooCommerce boundary for native ERPNext inventory and accounting'
+app_email='sandbox@example.invalid'
+app_license='gpl-3.0'
+required_apps=['erpnext']
+after_install='tehnet_erp.install.after_install'
+scheduler_events={'cron':{'* * * * *':['tehnet_erp.api.expire_reservations']}}

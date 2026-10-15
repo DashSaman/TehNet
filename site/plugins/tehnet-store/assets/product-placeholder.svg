@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360" role="img" aria-labelledby="title">
+  <title id="title">تصویر محصول هنوز تأیید نشده است</title>
+  <rect width="480" height="360" rx="20" fill="#101e29"/>
+  <circle cx="240" cy="142" r="66" fill="#183242"/>
+  <g fill="none" stroke="#52bdd5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="204" y="107" width="72" height="64" rx="9"/>
+    <path d="M215 107V94h50v13M220 125v17m13-17v17m14-17v17m13-17v17M240 171v29m-25 0h50"/>
+  </g>
+  <text x="240" y="261" text-anchor="middle" fill="#d5e8ef" font-family="Tahoma, sans-serif" font-size="22" direction="rtl">تصویر محصول در انتظار تأیید</text>
+  <text x="240" y="304" text-anchor="middle" fill="#7e9aaa" font-family="Arial, sans-serif" font-size="17">TEHNET · PRODUCT CATALOG</text>
+</svg>
