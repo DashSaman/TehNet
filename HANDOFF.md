@@ -1,5 +1,9 @@
 # TehNet Agent Handoff
 
+## Active store mission — 2026-10-15
+Read PROJECT_STATUS.md, WORK_LOG.md, docs/architecture.md and docs/superpowers/plans/2026-10-15-operational-store.md first. Current SSH works. Preserve the three live Core drift files; do not deploy older Core wholesale. The full local user attachment has now been read. New development is local/staging only; no production release or real payment is authorized.
+
+
 ## READ FIRST — current continuation, 2026-10-13
 
 **FA:** بازطراحی TehNet 0.5.1 و رزومه برگه 80 منتشر شده‌اند. اصلاح جدید متادیتای سئو فقط در ریپو آماده و با ۳۳ آزمون واحد تأیید شده؛ **هنوز روی سایت نصب نشده است**. این دو وضعیت را یکی ندان. کاربر خواسته در پایان هر مرحله گزارش کوتاه در چت و گزارش ماندگار در ریپو ثبت شود.

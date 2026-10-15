@@ -1,0 +1,66 @@
+{
+    "options": [
+        {
+            "option_name": "active_plugins",
+            "option_value": "a:2:{i:0;s:27:\"tehnet-core\/tehnet-core.php\";i:1;s:27:\"woocommerce\/woocommerce.php\";}"
+        },
+        {
+            "option_name": "blog_public",
+            "option_value": "0"
+        },
+        {
+            "option_name": "home",
+            "option_value": "https:\/\/tehnet.ir"
+        },
+        {
+            "option_name": "siteurl",
+            "option_value": "https:\/\/tehnet.ir"
+        },
+        {
+            "option_name": "stylesheet",
+            "option_value": "tehnet"
+        },
+        {
+            "option_name": "template",
+            "option_value": "tehnet"
+        },
+        {
+            "option_name": "woocommerce_cart_page_id",
+            "option_value": "0"
+        },
+        {
+            "option_name": "woocommerce_checkout_page_id",
+            "option_value": "0"
+        },
+        {
+            "option_name": "woocommerce_currency",
+            "option_value": "IRR"
+        },
+        {
+            "option_name": "woocommerce_custom_orders_table_enabled",
+            "option_value": "yes"
+        },
+        {
+            "option_name": "woocommerce_myaccount_page_id",
+            "option_value": "0"
+        }
+    ],
+    "counts": [],
+    "products": [],
+    "source_keys": [],
+    "hpos_counts": [],
+    "gateways": [
+        {
+            "option_name": "woocommerce_bacs_settings",
+            "option_value": "a:1:{s:7:\"enabled\";s:2:\"no\";}"
+        },
+        {
+            "option_name": "woocommerce_cheque_settings",
+            "option_value": "a:1:{s:7:\"enabled\";s:2:\"no\";}"
+        },
+        {
+            "option_name": "woocommerce_cod_settings",
+            "option_value": "a:1:{s:7:\"enabled\";s:2:\"no\";}"
+        }
+    ]
+}

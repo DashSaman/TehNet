@@ -1,0 +1,116 @@
+[
+  {
+    "path": "site/themes/tehnet/front-page.php",
+    "live_sha256": "d8d7192d594dd7b316711e8cfe1afacc5bbd4dc5cd92ba8b493af96028d3178f",
+    "origin/main": "match",
+    "origin/feat/portfolio-visual-20261013": "match"
+  },
+  {
+    "path": "site/themes/tehnet/page-portfolio.php",
+    "live_sha256": "658b3d661f9e5bb1f9fdae26535755c3b729d6a6939e485060d8bcab0815393b",
+    "origin/main": "missing",
+    "origin/feat/portfolio-visual-20261013": "match"
+  },
+  {
+    "path": "site/themes/tehnet/footer.php",
+    "live_sha256": "97ba8be21b27bc2a37c54d9579876ca1c2f31c13a79a59ab0d27a02e7bb8c909",
+    "origin/main": "different",
+    "origin/feat/portfolio-visual-20261013": "match"
+  },
+  {
+    "path": "site/themes/tehnet/style.css",
+    "live_sha256": "fcd6fd8b712a14bf3301e9e641b33c6f0d48618c30949452a9ecd7a4765c2323",
+    "origin/main": "different",
+    "origin/feat/portfolio-visual-20261013": "match"
+  },
+  {
+    "path": "site/themes/tehnet/assets/js/visual-refresh.js",
+    "live_sha256": "06e595b7af973fd65f9b82392ef7dd75671c1f8ef0bc145253b393b2c7bfe588",
+    "origin/main": "missing",
+    "origin/feat/portfolio-visual-20261013": "match"
+  },
+  {
+    "path": "site/themes/tehnet/assets/css/visual-refresh.css",
+    "live_sha256": "568eb4b6ba97f9e72690de63a6fbf016663a72b9cc47578f2ada17fad8f3e44a",
+    "origin/main": "missing",
+    "origin/feat/portfolio-visual-20261013": "match"
+  },
+  {
+    "path": "site/themes/tehnet/index.php",
+    "live_sha256": "b6162d8237b9d12dbc508af2dd8dc08db09e3a6055cbfb3e795309c5dda170ae",
+    "origin/main": "different",
+    "origin/feat/portfolio-visual-20261013": "match"
+  },
+  {
+    "path": "site/themes/tehnet/header.php",
+    "live_sha256": "14cee90553c2ea9a36c61ff67babeca211b5c1cf496f68589fb6e7c0baa32995",
+    "origin/main": "different",
+    "origin/feat/portfolio-visual-20261013": "match"
+  },
+  {
+    "path": "site/themes/tehnet/inc/block-patterns.php",
+    "live_sha256": "27188f6170f8ed219782209dac097883318b5ce3a147e1bd8cb8e33db20e5e51",
+    "origin/main": "match",
+    "origin/feat/portfolio-visual-20261013": "match"
+  },
+  {
+    "path": "site/themes/tehnet/theme.json",
+    "live_sha256": "872617613646b70ccd2f5c82f7724ed7f04824ee3b473a904adf8f4e0812cd80",
+    "origin/main": "match",
+    "origin/feat/portfolio-visual-20261013": "match"
+  },
+  {
+    "path": "site/themes/tehnet/functions.php",
+    "live_sha256": "83e29d4ff2b8cbbc90569caab44b23aa628a9fb90d79e9c139055ed68af3ef95",
+    "origin/main": "different",
+    "origin/feat/portfolio-visual-20261013": "match"
+  },
+  {
+    "path": "site/themes/tehnet/page.php",
+    "live_sha256": "4963f580f4838bd2f81ab19cc6e5e6803238e5264f66580ad5040fa54d8fe3ef",
+    "origin/main": "match",
+    "origin/feat/portfolio-visual-20261013": "match"
+  },
+  {
+    "path": "site/plugins/tehnet-core/tehnet-core.php",
+    "live_sha256": "3e4fa17dcbf2cd01bbf1f6bf8ed81deddc35524d1d41055e51d166d226b3cc25",
+    "origin/main": "different",
+    "origin/feat/portfolio-visual-20261013": "different"
+  },
+  {
+    "path": "site/plugins/tehnet-core/includes/class-content-types.php",
+    "live_sha256": "2d3059386df16367e44698944d3eab5f5d7ae2f8a5798996506deebf1189c5df",
+    "origin/main": "different",
+    "origin/feat/portfolio-visual-20261013": "different"
+  },
+  {
+    "path": "site/plugins/tehnet-core/includes/class-inquiries.php",
+    "live_sha256": "38d15b77a04d7fae210a72a1aa4f7ac55edfc90a5d51df0610b4db46e60c0c27",
+    "origin/main": "match",
+    "origin/feat/portfolio-visual-20261013": "match"
+  },
+  {
+    "path": "site/plugins/tehnet-core/includes/class-schema.php",
+    "live_sha256": "156ed8bc03009ca7c71511e697b93d0fe29d9391c85ad1f18cd73c73e73fc082",
+    "origin/main": "match",
+    "origin/feat/portfolio-visual-20261013": "match"
+  },
+  {
+    "path": "site/plugins/tehnet-core/includes/class-settings.php",
+    "live_sha256": "8cf461caf289b6079f1988af28daca2a67cc55790c91c40c7b2c7d59c1158963",
+    "origin/main": "match",
+    "origin/feat/portfolio-visual-20261013": "match"
+  },
+  {
+    "path": "site/plugins/tehnet-core/includes/class-commerce.php",
+    "live_sha256": "e8207bc143fe19912ed53d525df247efdeb375d1916cc5f8aea216e384024c06",
+    "origin/main": "match",
+    "origin/feat/portfolio-visual-20261013": "match"
+  },
+  {
+    "path": "site/plugins/tehnet-core/includes/class-quotes.php",
+    "live_sha256": "45d650cff453be89738cc5e42902ed07a060fe922093916d6b08666cd4ebbc43",
+    "origin/main": "missing",
+    "origin/feat/portfolio-visual-20261013": "missing"
+  }
+]

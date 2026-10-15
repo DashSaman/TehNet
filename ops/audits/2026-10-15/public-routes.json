@@ -1,0 +1,74 @@
+[
+  {
+    "url": "https://tehnet.ir/",
+    "status": 200,
+    "final_url": "https://tehnet.ir/",
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/"
+    ],
+    "robots": [
+      "noindex, nofollow"
+    ]
+  },
+  {
+    "url": "https://tehnet.ir/shop/",
+    "status": 200,
+    "final_url": "https://tehnet.ir/shop/",
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/shop/"
+    ],
+    "robots": [
+      "noindex, nofollow"
+    ]
+  },
+  {
+    "url": "https://tehnet.ir/shop/mikrotik-routers/",
+    "status": 200,
+    "final_url": "https://tehnet.ir/shop/mikrotik-routers/",
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/shop/mikrotik-routers/"
+    ],
+    "robots": [
+      "noindex, nofollow"
+    ]
+  },
+  {
+    "url": "https://tehnet.ir/learn/",
+    "status": 200,
+    "final_url": "https://tehnet.ir/learn/",
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/learn/"
+    ],
+    "robots": [
+      "noindex, nofollow"
+    ]
+  },
+  {
+    "url": "https://tehnet.ir/services/",
+    "status": 200,
+    "final_url": "https://tehnet.ir/services/",
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/services/"
+    ],
+    "robots": [
+      "noindex, nofollow"
+    ]
+  },
+  {
+    "url": "https://tehnet.ir/amirreza-golavar/",
+    "status": 200,
+    "final_url": "https://tehnet.ir/amirreza-golavar/",
+    "h1": 1,
+    "canonical": [
+      "https://tehnet.ir/amirreza-golavar/"
+    ],
+    "robots": [
+      "noindex, nofollow"
+    ]
+  }
+]

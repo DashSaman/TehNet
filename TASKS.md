@@ -1,5 +1,9 @@
 # TehNet Task Backlog
 
+## Active store mission — 2026-10-15
+Read PROJECT_STATUS.md, WORK_LOG.md, docs/architecture.md and docs/superpowers/plans/2026-10-15-operational-store.md first. Current SSH works. Preserve the three live Core drift files; do not deploy older Core wholesale. The full local user attachment has now been read. New development is local/staging only; no production release or real payment is authorized.
+
+
 Status legend: `LOCKED`, `NEXT`, `BACKLOG`, `BLOCKED`, `DONE`, `PREPARED`, `DEFERRED`, `UNCHANGED`. PREPARED does not mean deployed.
 
 ## Current priority — 2026-10-13 SEO/AEO/GEO continuation

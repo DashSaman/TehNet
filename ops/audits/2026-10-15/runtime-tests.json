@@ -1,0 +1,22 @@
+[
+  {
+    "test": "site/plugins/tehnet-core/includes/class-content-types.php",
+    "exit_code": 0,
+    "output": "No syntax errors detected in Standard input code\n"
+  },
+  {
+    "test": "site/plugins/tehnet-core/includes/class-quotes.php",
+    "exit_code": 0,
+    "output": "No syntax errors detected in Standard input code\n"
+  },
+  {
+    "test": "site/plugins/tehnet-core/tehnet-core.php",
+    "exit_code": 0,
+    "output": "No syntax errors detected in Standard input code\n"
+  },
+  {
+    "test": "existing product-inquiry-logic.php against live classes; require paths adapted only",
+    "exit_code": 0,
+    "output": "PRODUCT_INQUIRY_LOGIC=PASSED\n"
+  }
+]

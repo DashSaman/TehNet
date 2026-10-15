@@ -1,5 +1,9 @@
 # TehNet Execution Progress
 
+## Active store mission — 2026-10-15
+Read PROJECT_STATUS.md, WORK_LOG.md, docs/architecture.md and docs/superpowers/plans/2026-10-15-operational-store.md first. Current SSH works. Preserve the three live Core drift files; do not deploy older Core wholesale. The full local user attachment has now been read. New development is local/staging only; no production release or real payment is authorized.
+
+
 ## Current phase / فاز فعلی — 2026-10-13
 - **FA:** بازطراحی TehNet 0.5.1 و رزومه مستقل امیررضا منتشر شده‌اند. ممیزی زنده و انتقال درس‌های SEO/AEO/GEO مایتل ثبت شد. اصلاح متادیتای تازه با ۳۳ آزمون واحد آماده است، اما به علت بی‌پاسخ‌بودن اتصال ریموت هنوز منتشر نشده است.
 - **EN:** Visual release LIVE; SEO follow-up PREPARED / UNIT-TESTED / NOT DEPLOYED. Read `seo/SEO_AI_READINESS_2026-10-13.md` and `qa/SEARCH_METADATA_TESTS_2026-10-13.md`. Noindex remains intentional. Restore the management connection and finish guarded integration/live checks before claiming this follow-up complete.
