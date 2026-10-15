@@ -6,6 +6,11 @@ test "$(id -u)" = 0
 test "$(docker port tehnet-wordpress 80/tcp)" = '127.0.0.1:18082'
 BASE=/root/tehnet-backups
 mkdir -p "$BASE"
+python3 - "$BASE" <<'PY'
+import shutil,sys
+if shutil.disk_usage(sys.argv[1]).free < 3*1024**3:
+    raise SystemExit('Backup refused: keep at least 3 GiB free; inspect storage/retention without deleting business data')
+PY
 BACKUP="$BASE/$(date -u +%Y%m%d-%H%M%S)-store-review"
 mkdir -m 700 "$BACKUP"
 docker ps --format '{{.Names}}' | sort > "$BACKUP/containers.txt"

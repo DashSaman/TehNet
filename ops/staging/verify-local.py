@@ -5,7 +5,7 @@ root=Path(__file__).resolve().parents[2]
 wp=['docker','exec','tehnet-woo-stage-woo-1','php','/stage/wp-cli.phar','--allow-root','--path=/var/www/html','eval-file']
 checks=[('python-contracts',[sys.executable,'-X','utf8','-m','unittest','discover','-s','tests','-p','test_*.py','-v']),
         ('visual-regression',[sys.executable,'-X','utf8','tests/visual-refresh-test.py'])]
-for name in ['store-policy','catalog-integration','commerce-capabilities','store-roles','erp-bridge','erp-lifecycle']:
+for name in ['store-policy','catalog-integration','commerce-capabilities','store-roles','erp-bridge','erp-lifecycle','online-release','store-discovery']:
     checks.append((name,wp+['/tests/'+name+'.php']))
 results=[]
 for name,command in checks:

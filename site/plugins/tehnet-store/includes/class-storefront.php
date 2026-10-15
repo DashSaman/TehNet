@@ -7,6 +7,10 @@ final class TehNet_Store_Storefront {
     public function register(): void {
         add_action('wp_enqueue_scripts',[$this,'assets']);
         add_action('woocommerce_before_shop_loop',[$this,'filters'],5);
+        add_action('woocommerce_no_products_found',[$this,'filters'],5);
+        add_filter('request',[$this,'normalize_request']);
+        add_filter('posts_search',[$this,'sku_search'],20,2);
+        add_filter('woocommerce_redirect_single_search_result',fn($value)=>$this->preview_allowed()?false:$value);
         add_action('woocommerce_after_shop_loop_item',[$this,'tools'],20);
         add_action('woocommerce_single_product_summary',[$this,'unit'],11);
         add_action('woocommerce_single_product_summary',[$this,'tools'],32);
@@ -36,6 +40,21 @@ final class TehNet_Store_Storefront {
     }
     private function physical($product): bool {
         return $product instanceof WC_Product && !$product->is_virtual() && !$product->is_downloadable();
+    }
+    public static function normalize_search(string $term): string {
+        return trim(strtr($term,['ي'=>'ی','ك'=>'ک','۰'=>'0','۱'=>'1','۲'=>'2','۳'=>'3','۴'=>'4','۵'=>'5','۶'=>'6','۷'=>'7','۸'=>'8','۹'=>'9','٠'=>'0','١'=>'1','٢'=>'2','٣'=>'3','٤'=>'4','٥'=>'5','٦'=>'6','٧'=>'7','٨'=>'8','٩'=>'9']));
+    }
+    public function normalize_request(array $vars): array {
+        if(!is_admin()&&($vars['post_type']??null)==='product'&&is_string($vars['s']??null)){$vars['s']=self::normalize_search($vars['s']);}
+        return $vars;
+    }
+    public function sku_search(string $search,$query): string {
+        if(is_admin()||$query->get('post_type')!=='product'||!$query->is_search()||!is_string($query->get('s'))){return $search;}
+        $id=wc_get_product_id_by_sku(self::normalize_search($query->get('s')));
+        if(!$id){return $search;}
+        // Only replaces the text-search clause. Native post status, capability, taxonomy and stock constraints remain.
+        global $wpdb;
+        return $wpdb->prepare(" AND {$wpdb->posts}.ID = %d ",$id).(!is_user_logged_in()?" AND {$wpdb->posts}.post_password = '' ":'');
     }
     private function eligible(WC_Product $product): bool {
         // Until a working ERP reservation endpoint is connected, physical checkout stays closed.
@@ -85,15 +104,16 @@ final class TehNet_Store_Storefront {
     }
     public function assets(): void {
         if (!function_exists('is_woocommerce') || !(is_woocommerce() || is_cart() || is_checkout() || is_account_page())) { return; }
-        wp_enqueue_style('tn-store',plugins_url('assets/store.css',dirname(__DIR__).'/tehnet-store.php'),[], '0.2.0');
-        wp_enqueue_script('tn-store',plugins_url('assets/store.js',dirname(__DIR__).'/tehnet-store.php'),[], '0.2.0',true);
+        wp_enqueue_style('tn-store',plugins_url('assets/store.css',dirname(__DIR__).'/tehnet-store.php'),[], '0.2.1');
+        wp_enqueue_script('tn-store',plugins_url('assets/store.js',dirname(__DIR__).'/tehnet-store.php'),[], '0.2.1',true);
     }
     public function filters(): void {
         $unit=isset($_GET['tn_unit']) && is_string($_GET['tn_unit']) ? sanitize_key(wp_unslash($_GET['tn_unit'])) : '';
         echo '<form class="tn-store-filters" method="get" action="'.esc_url(wc_get_page_permalink('shop')).'">';
-        echo '<input type="hidden" name="post_type" value="product"><label>جست‌وجوی کالا <input name="s" type="search" value="'.esc_attr(get_search_query()).'" placeholder="نام یا مدل کالا"></label>';
+        echo '<input type="hidden" name="post_type" value="product"><label>جست‌وجوی کالا <input name="s" type="search" value="'.esc_attr(get_search_query()).'" placeholder="نام، مدل یا SKU کالا"></label>';
         if ($this->preview_allowed()) { echo '<input type="hidden" name="tn_preview" value="1">'; }
-        echo '<label>دسته کالا ';wp_dropdown_categories(['taxonomy'=>'product_cat','name'=>'product_cat','value_field'=>'slug','show_option_all'=>'همه دسته‌ها','hide_empty'=>true,'hierarchical'=>true]);echo '</label>';
+        $category=isset($_GET['product_cat'])&&is_string($_GET['product_cat'])?sanitize_title(wp_unslash($_GET['product_cat'])):'';
+        echo '<label>دسته کالا ';wp_dropdown_categories(['taxonomy'=>'product_cat','name'=>'product_cat','value_field'=>'slug','selected'=>$category,'show_option_all'=>'همه دسته‌ها','hide_empty'=>true,'hierarchical'=>true]);echo '</label>';
         echo '<label>واحد فروش <select name="tn_unit"><option value="">همه واحدها</option>';
         foreach(self::UNITS as $key=>$label) { printf('<option value="%s" %s>%s</option>',esc_attr($key),selected($unit,$key,false),esc_html($label)); }
         echo '</select></label>';
@@ -103,7 +123,8 @@ final class TehNet_Store_Storefront {
             foreach ($definition[1] as $value) { echo '<option value="'.esc_attr($value).'" '.selected($current,$value,false).'>'.esc_html($value).'</option>'; }
             echo '</select></label>';
         }
-        echo '<button class="button" type="submit">اعمال فیلتر</button></form>';
+        $reset=$this->preview_allowed()?add_query_arg('tn_preview','1',wc_get_page_permalink('shop')):wc_get_page_permalink('shop');
+        echo '<button class="button" type="submit">اعمال فیلتر</button><a class="tn-filter-reset" href="'.esc_url($reset).'">پاک کردن فیلترها</a></form>';
         echo '<div class="tn-store-toolbar"><span>قیمت‌ها با واحد ریال نمایش داده می‌شوند؛ موجودی و ارسال پیش از تأیید سفارش بررسی می‌شود.</span><button type="button" data-tn-open="compare">مقایسه <span data-tn-count="compare">۰</span></button><button type="button" data-tn-open="wishlist">علاقه‌مندی <span data-tn-count="wishlist">۰</span></button></div>';
     }
     public function query($query): void {
@@ -136,7 +157,7 @@ final class TehNet_Store_Storefront {
         return '<p class="stock in-stock">'.esc_html((string)$product->get_stock_quantity().' '.$unit.' قابل فروش').'</p>';
     }
     public function preview_notice(): void {
-        if ($this->preview_allowed()) { echo '<div class="woocommerce-info">پیش‌نمایش خصوصی مدیر: این کالاها پیش‌نویس‌اند و هنوز برای فروش تأیید نشده‌اند.</div>'; }
+        if ($this->preview_allowed()) { echo '<div class="woocommerce-info">نمای مدیریت کاتالوگ: پیش‌نویس‌ها نیز فقط برای مدیر نمایش داده می‌شوند.</div>'; }
     }
     public function preview_link(string $url,$product): string {
         return $this->preview_allowed() && $product instanceof WC_Product && $product->get_status()==='draft' ? get_preview_post_link($product->get_id()) : $url;
@@ -144,9 +165,13 @@ final class TehNet_Store_Storefront {
     public function tools(): void {
         global $product;
         if (!$product instanceof WC_Product) { return; }
-        $unit=self::UNITS[$product->get_meta('_tn_sale_unit')]??'تأیید نشده';
-        $data=['id'=>$product->get_id(),'name'=>$product->get_name(),'url'=>$this->preview_link($product->get_permalink(),$product),'unit'=>$unit,'price'=>$this->eligible($product)?number_format(TehNet_Store_Policy::irr($product->get_price(),'IRR')).' ریال':'نیازمند استعلام'];
+        $data=$this->comparison_data($product);
         echo '<div class="tn-store-tools" data-tn-product="'.esc_attr(wp_json_encode($data)).'"><button type="button" data-tn-add="compare">مقایسه</button><button type="button" data-tn-add="wishlist">ذخیره در علاقه‌مندی</button></div>';
+    }
+    public function comparison_data(WC_Product $product): array {
+        $specs=[];
+        foreach(self::SPECS as $key=>$definition){$value=$product->get_meta('_tn_verified_'.$key);$specs[$key]=in_array($value,$definition[1],true)?$value:'تأیید نشده';}
+        return ['id'=>$product->get_id(),'sku'=>$product->get_sku(),'name'=>$product->get_name(),'url'=>$this->preview_link($product->get_permalink(),$product),'unit'=>self::UNITS[$product->get_meta('_tn_sale_unit')]??'تأیید نشده','minimum'=>$product->get_meta('_tn_min_quantity')?:'تأیید نشده','specs'=>$specs,'price'=>$this->eligible($product)?number_format(TehNet_Store_Policy::irr($product->get_price(),'IRR')).' ریال':'نیازمند استعلام'];
     }
     public function unit(): void {
         global $product;

@@ -23,9 +23,22 @@
       const card = document.createElement('article');
       const link = document.createElement('a'); link.href = item.url; link.textContent = item.name;
       const details = document.createElement('p'); details.textContent = `${item.price || 'نیازمند استعلام'} · واحد: ${item.unit || 'تأیید نشده'}`;
+      const sku = document.createElement('p'); sku.textContent = item.sku || 'شناسه تأیید نشده';sku.dir='ltr';
       const remove = document.createElement('button'); remove.type = 'button'; remove.textContent = 'حذف';
       remove.addEventListener('click', () => { lists[kind] = lists[kind].filter(p => p.id !== item.id); save(kind); show(kind); });
-      card.append(link, details, remove); container.append(card);
+      card.append(link, sku, details, remove); container.append(card);
+    }
+    if (kind === 'compare' && lists[kind].length) {
+      const wrap=document.createElement('div');wrap.className='tn-comparison-table';wrap.tabIndex=0;wrap.setAttribute('role','region');wrap.setAttribute('aria-label','جدول مقایسه مشخصات تأییدشده');
+      const table=document.createElement('table'),caption=document.createElement('caption');caption.textContent='مشخصات تأییدشده؛ مورد نامعلوم با حدس تکمیل نمی‌شود.';table.append(caption);
+      const head=document.createElement('tr'),corner=document.createElement('th');corner.textContent='مشخصه';corner.scope='col';head.append(corner);
+      for(const item of lists[kind]){const cell=document.createElement('th');cell.scope='col';cell.textContent=item.name;head.append(cell);}const thead=document.createElement('thead');thead.append(head);table.append(thead);
+      const body=document.createElement('tbody');
+      for(const [label,value] of [['واحد فروش',p=>p.unit],['حداقل مقدار',p=>p.minimum],['شیلد',p=>p.specs?.shield],['روکش',p=>p.specs?.jacket],['محیط نصب',p=>p.specs?.environment]]){
+        const row=document.createElement('tr'),name=document.createElement('th');name.scope='row';name.textContent=label;row.append(name);
+        for(const item of lists[kind]){const cell=document.createElement('td');cell.textContent=value(item)||'تأیید نشده';row.append(cell);}body.append(row);
+      }
+      table.append(body);wrap.append(table);container.append(wrap);
     }
     if (!dialog.open) dialog.showModal();
   }

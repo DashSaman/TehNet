@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-15T20:04:30.217Z",
+  "scope": "Local synthetic fixture only",
+  "observed_failure": "One second-refund event returned HTTP 417; exact remote reason was not retained by the privacy-preserving bridge. No claim of a code fix or proven root cause.",
+  "recovery": "Read ERP status; retry identical immutable event; reconcile native Woo refunds. No changed key or duplicate refund.",
+  "result": {
+    "order_id": 357,
+    "erp_state": "refunded",
+    "woo_status": "refunded",
+    "refunds": 2,
+    "total_refunded": 2100
+  }
+}

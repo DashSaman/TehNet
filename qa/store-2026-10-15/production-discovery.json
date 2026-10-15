@@ -1,0 +1,13 @@
+{
+  "status": "published",
+  "directory": "/root/tehnet-releases/discovery-2d9581d61a21",
+  "files": {
+    "plugins/tehnet-store/tehnet-store.php": "1b6727ec9d110513fb38c74bb8f98323bfba70ef469aefd8d5974ebd8ea0cd50",
+    "plugins/tehnet-store/includes/class-storefront.php": "4787143342c47d4c414b1f4cc2792498008b9846f39a78e120ef6876e440595c",
+    "plugins/tehnet-store/assets/store.js": "3b653d7245905da2d00d03ea272cf2bfcb98c0732290a11b9d520e8122a7cca1",
+    "plugins/tehnet-store/assets/store.css": "8a768ccb3f72d4247502f0de62ec717419872f2ad88b7ab9d6103702a29a6419"
+  },
+  "base": "/root/tehnet-releases/store-media-9b596368750a3ec3",
+  "settings_or_data_mutated": false,
+  "backup": "/root/tehnet-releases/discovery-2d9581d61a21/before.tar.gz"
+}
