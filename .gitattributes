@@ -1,1 +1,3 @@
 *.vcf text eol=crlf
+# Immutable native cleanup releases compare the CLI script bytes on replay.
+ops/replace-catalog-photo-attachments.php text eol=lf

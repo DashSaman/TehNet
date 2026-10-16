@@ -1,5 +1,5 @@
 {
-  "utc": "2026-10-16T12:54:48.538747+00:00",
+  "utc": "2026-10-16T15:08:44.026458+00:00",
   "checks": [
     {
       "name": "photo-render-contracts",
@@ -12,9 +12,24 @@
       "output": "PASS wrong manifest SHA rejected\nPASS dry run leaves all data unchanged\nPASS human image blocks entire release before mutation\nPASS all 25 products and 30 native attachments applied\nPASS repeat skips all products and creates no duplicates\nPASS rollback refuses human changes\nPASS rollback restores references and preserves image files for recovery\nPHOTO_IMPORT_CONTRACTS=7 PASSED\n"
     },
     {
+      "name": "photo-cleanup-contracts",
+      "exit_code": 0,
+      "output": "PASS unreviewed cleanup cannot run\nPASS dry run reports 11 affected products and changes nothing\nPASS human media drift blocks all writes\nPASS 15 clean files replace marked references on 11 products\nPASS repeat produces zero writes and no duplicate attachments\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS product mutation is media metadata only\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS original and clean files retained\nPASS uploaded clean bytes match manifest\nPASS original and clean files retained\nPASS uploaded clean bytes match manifest\nPASS original and clean files retained\nPASS uploaded clean bytes match manifest\nPASS original and clean files retained\nPASS uploaded clean bytes match manifest\nPASS original and clean files retained\nPASS uploaded clean bytes match manifest\nPASS original and clean files retained\nPASS uploaded clean bytes match manifest\nPASS original and clean files retained\nPASS uploaded clean bytes match manifest\nPASS original and clean files retained\nPASS uploaded clean bytes match manifest\nPASS original and clean files retained\nPASS uploaded clean bytes match manifest\nPASS original and clean files retained\nPASS uploaded clean bytes match manifest\nPASS original and clean files retained\nPASS uploaded clean bytes match manifest\nPASS original and clean files retained\nPASS uploaded clean bytes match manifest\nPASS original and clean files retained\nPASS uploaded clean bytes match manifest\nPASS original and clean files retained\nPASS uploaded clean bytes match manifest\nPASS original and clean files retained\nPASS uploaded clean bytes match manifest\nPASS rollback protects later human edit\nPASS rollback restores original references and retains recovery files\nPASS unsupported native image editor fails closed\nPHOTO_CLEANUP_CONTRACTS=PASSED\n"
+    },
+    {
+      "name": "cleanup-pixel-reconstruction",
+      "exit_code": 0,
+      "output": "CLEANUP_PIXEL_VERIFICATION=PASSED images=15 outside_mask_changed=0 exact_patch_reconstruction=15\n"
+    },
+    {
       "name": "php-lint:ops/import-catalog-photos.php",
       "exit_code": 0,
       "output": "No syntax errors detected in ops/import-catalog-photos.php\n"
+    },
+    {
+      "name": "php-lint:ops/replace-catalog-photo-attachments.php",
+      "exit_code": 0,
+      "output": "No syntax errors detected in ops/replace-catalog-photo-attachments.php\n"
     },
     {
       "name": "php-lint:site/plugins/tehnet-store/includes/class-product-visuals.php",

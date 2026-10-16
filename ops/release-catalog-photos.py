@@ -2,12 +2,14 @@
 from pathlib import Path
 import argparse,datetime,hashlib,io,json,shlex,subprocess,tarfile
 root=Path(__file__).resolve().parents[1]
-p=argparse.ArgumentParser();p.add_argument('mode',choices=['prepare','apply','rollback']);args=p.parse_args()
-media=root/'content/media/saieedshabake-2026-10-16';manifest=media/'manifest.json';digest=hashlib.sha256(manifest.read_bytes()).hexdigest()
-directory='/root/tehnet-releases/catalog-photos-'+digest[:16]
-files={'manifest.json':manifest.read_bytes(),'import.php':(root/'ops/import-catalog-photos.php').read_bytes()}
+p=argparse.ArgumentParser();p.add_argument('mode',choices=['prepare','apply','rollback']);p.add_argument('--cleanup',action='store_true');args=p.parse_args()
+media=root/('content/media/tehnet-clean-2026-10-16' if args.cleanup else 'content/media/saieedshabake-2026-10-16');manifest=media/'manifest.json';digest=hashlib.sha256(manifest.read_bytes()).hexdigest()
+directory='/root/tehnet-releases/'+('catalog-cleanup-' if args.cleanup else 'catalog-photos-')+digest[:16]
+files={'manifest.json':manifest.read_bytes(),'import.php':(root/('ops/replace-catalog-photo-attachments.php' if args.cleanup else 'ops/import-catalog-photos.php')).read_bytes()}
 for x in json.loads(manifest.read_text(encoding='utf-8'))['products']:
     for image in x['images']:
+        image=image.get('replacement') if args.cleanup else image
+        if image is None:continue
         b=(media/image['file']).read_bytes();assert hashlib.sha256(b).hexdigest()==image['sha256'];files[image['file']]=b
 payload=io.BytesIO()
 with tarfile.open(fileobj=payload,mode='w:gz') as archive:
@@ -52,11 +54,11 @@ if MODE!='prepare':
         result['products']=json.loads(run(cli+['eval',check]));assert len(result['products'])==25
         assert sum(len(x['photos'])for x in result['products'])==30
         assert all(i['sha256']==i['original_sha256'] for x in result['products']for i in x['photos'])
-        result['original_media_bytes_unchanged']=True
+        result['uploaded_media_bytes_unchanged' if CLEANUP else 'original_media_bytes_unchanged']=True
 (directory/(MODE+'-outcome.json')).write_text(json.dumps(result,ensure_ascii=False,indent=2));print(json.dumps(result))
-'''.replace('DIRECTORY',repr(directory)).replace('DIGEST',repr(digest)).replace('MODE',repr(args.mode))
+'''.replace('DIRECTORY',repr(directory)).replace('DIGEST',repr(digest)).replace('MODE',repr(args.mode)).replace('CLEANUP',repr(args.cleanup))
 compile(remote,'remote-photo-release','exec')
 proc=subprocess.run(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=10','-o','StrictHostKeyChecking=yes','netauto-main','python3 -c '+shlex.quote(remote)],input=payload.getvalue(),capture_output=True,timeout=700)
 if proc.returncode:raise RuntimeError((proc.stdout+proc.stderr).decode(errors='replace'))
-result=json.loads(proc.stdout);out=root/'qa/store-2026-10-16';out.mkdir(exist_ok=True);(out/('photos-'+args.mode+'.json')).write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
+result=json.loads(proc.stdout);out=root/'qa/store-2026-10-16';out.mkdir(exist_ok=True);(out/(('cleanup-' if args.cleanup else 'photos-')+args.mode+'.json')).write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
 print(json.dumps({k:v for k,v in result.items()if k!='products'},ensure_ascii=True,indent=2))

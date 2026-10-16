@@ -1,5 +1,13 @@
 # TehNet Agent Handoff
 
+## READ FIRST — catalogue cleanup live, 2026-10-16
+
+Current source branch is `feat/store-payment-sandbox-20261015`; older sections below are history. `/shop/` has25 public inquiry products with30 image references. Owner explicitly authorized removal of their Saieed retailer lettering:15 cleaned lossless assets replaced references on11 products,14 skipped. Original assets and attachments remain. Built-in imagegen reconstructed only masked backgrounds; original RGB outside reviewed masks was restored and independently reproduced from committed transparent patches. Manufacturer labels/details remain; exact manufacturer-model matching and photographic origin are still unverified. Real360 remains0 products.
+
+Native release receipt `tn_photo_cleanup_5918db794d83f97e`; fresh backup `/root/tehnet-backups/20261016-150644-store-review` checksums passed. Repeat apply changed0/skipped25; business fields, order count, homepage and theme snapshot unchanged. Evidence: `qa/store-2026-10-16/cleanup-apply.json`, `cleanup-pixel-verification.json`, `photo-verification.json`, `live-photos-browser.json` and `qa/store-2026-10-15/live-browser.json`. Run `python ops/release-catalog-photos.py rollback --cleanup` only if this media release needs reverting; it refuses later human edits and retains both versions. Do not run the older source-photo importer over the cleanup release.
+
+Next exact action for commerce: obtain verified physical model/stock/price data and same-item real360 frames before claiming them. Production ERP/payment remain disabled. Local Docker WSL bootstrap fails `0xc00000fd`; do not reset or wipe it. Full Woo/ERP sandbox proof from15 October is historical, independent PHP/pixel and read-only production browser checks are current. Keep main Learn/Services, menu, noindex and unrelated services intact. See `PROJECT_STATUS.md` for the current overall state.
+
 ## Active store mission — 2026-10-15
 وضعیت نسخه محلی: اتصال ERP و عملیات Woo، نقش‌ها، فاکتور و درخواست مرجوعی پیاده‌سازی و آزموده شده‌اند. docs/acceptance-matrix-fa.md، docs/testing.md و docs/user-guide-fa.md مبنای ادامه‌اند. همه ۲۵ قلم draft و بدون قیمت/موجودی واقعی‌اند. شاخه audit/store-readiness-20261015 از visual واقعی شروع شده؛ main و production تغییر نکرده‌اند. زرین‌پال انتخاب و پروتکل sandbox واقعی آزموده شد؛ آداپتور آزمایشی با 49 بررسی mock آماده ولی خاموش است. docs/payment-sandbox-fa.md شواهد و محدودیت Docker را ثبت می‌کند. هدف بعدی آزمون native gateway→ERP و checkout موبایل پس از رفع دسترسی Docker، مدارک و قیمت/stock واقعی، مالیات و credential تولید، سپس release دارای backup/restore تولید و تأیید صریح مالک است. ثبت یا ادعای پرداخت واقعی مجاز نیست.
 

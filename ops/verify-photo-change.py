@@ -2,8 +2,8 @@
 from pathlib import Path
 import datetime,json,subprocess
 root=Path(__file__).resolve().parents[1];php=str(root.parent/'php-runtime/php.exe')
-checks=[('photo-render-contracts',[php,'tests/product-photos-unit.php']),('photo-import-contracts',[php,'tests/photo-import-unit.php'])]
-for file in ['ops/import-catalog-photos.php','site/plugins/tehnet-store/includes/class-product-visuals.php','site/plugins/tehnet-store/includes/class-storefront.php','site/plugins/tehnet-store/tehnet-store.php']:
+checks=[('photo-render-contracts',[php,'tests/product-photos-unit.php']),('photo-import-contracts',[php,'tests/photo-import-unit.php']),('photo-cleanup-contracts',[php,'tests/photo-cleanup-unit.php']),('cleanup-pixel-reconstruction',['node','ops/verify-clean-catalog-images.cjs'])]
+for file in ['ops/import-catalog-photos.php','ops/replace-catalog-photo-attachments.php','site/plugins/tehnet-store/includes/class-product-visuals.php','site/plugins/tehnet-store/includes/class-storefront.php','site/plugins/tehnet-store/tehnet-store.php']:
  checks.append(('php-lint:'+file,[php,'-l',file]))
 checks.append(('photo-spin-js-syntax',['node','--check','site/plugins/tehnet-store/assets/photo-spin.js']))
 results=[]

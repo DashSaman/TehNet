@@ -1,5 +1,12 @@
 # TehNet Task Backlog
 
+## Current media task — 2026-10-16
+
+- DONE — Owner-authorized Saieed retailer-lettering cleanup:15 lossless background edits on11 products, manufacturer marks/product details retained, immutable originals kept for recovery.
+- DONE — Independent original+patch RGB reconstruction, native dry run, full backup/checksum, guarded apply, repeat0/25, media-only/business-home invariants and rollback/human-edit contracts. Evidence in `qa/store-2026-10-16`.
+- OPEN — Verify exact model against physical inventory and collect real same-product360 frames. Current catalogue remains inquiry-only; production payment/ERP and indexing are not enabled.
+- LOCKED — Do not rerun original photo import over cleanup references, overwrite main Learn/Services, wipe Docker data or invent product views. Current `HANDOFF.md` and `PROJECT_STATUS.md` supersede historical sections below.
+
 ## Active store mission — 2026-10-15
 وضعیت نسخه محلی: اتصال ERP و عملیات Woo، نقش‌ها، فاکتور و درخواست مرجوعی پیاده‌سازی و آزموده شده‌اند. docs/acceptance-matrix-fa.md، docs/testing.md و docs/user-guide-fa.md مبنای ادامه‌اند. همه ۲۵ قلم draft و بدون قیمت/موجودی واقعی‌اند. شاخه audit/store-readiness-20261015 از visual واقعی شروع شده؛ main و production تغییر نکرده‌اند. زرین‌پال انتخاب و پروتکل sandbox واقعی آزموده شد؛ آداپتور آزمایشی با 49 بررسی mock آماده ولی خاموش است. docs/payment-sandbox-fa.md شواهد و محدودیت Docker را ثبت می‌کند. هدف بعدی آزمون native gateway→ERP و checkout موبایل پس از رفع دسترسی Docker، مدارک و قیمت/stock واقعی، مالیات و credential تولید، سپس release دارای backup/restore تولید و تأیید صریح مالک است. ثبت یا ادعای پرداخت واقعی مجاز نیست.
 

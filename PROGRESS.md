@@ -1,5 +1,11 @@
 # TehNet Execution Progress
 
+## Current release — 2026-10-16 owner-authorized media cleanup
+
+- LIVE:15 background-lettering cleanups on11 products; original23 source assets and all prior attachments retained. Owner explicitly authorized this change after confirming ownership.30 references/25 inquiry-only products remain.
+- VERIFIED: exact RGB reconstruction of15 lossless images from original+transparent patch, zero changes outside reviewed masks; product/manufacturer details preserved visually. Native dry run, full backup/checksum, apply11/skip14, repeat0/skip25 and unchanged business/home snapshot recorded in `qa/store-2026-10-16`.
+- Scoped checks include PHP renderer/import/cleanup contracts, native WebP support, human-edit/rollback safeguards, PHP lint and read-only public browser gallery/mobile/lightbox checks. Real360 frames remain missing; no generated rear views or invented models were published. Production ERP/payment not activated. Current handoff and `PROJECT_STATUS.md` supersede historical readiness text below.
+
 ## Active store mission — 2026-10-15
 وضعیت نسخه محلی: اتصال ERP و عملیات Woo، نقش‌ها، فاکتور و درخواست مرجوعی پیاده‌سازی و آزموده شده‌اند. docs/acceptance-matrix-fa.md، docs/testing.md و docs/user-guide-fa.md مبنای ادامه‌اند. همه ۲۵ قلم draft و بدون قیمت/موجودی واقعی‌اند. شاخه audit/store-readiness-20261015 از visual واقعی شروع شده؛ main و production تغییر نکرده‌اند. زرین‌پال انتخاب و پروتکل sandbox واقعی آزموده شد؛ آداپتور آزمایشی با 49 بررسی mock آماده ولی خاموش است. docs/payment-sandbox-fa.md شواهد و محدودیت Docker را ثبت می‌کند. هدف بعدی آزمون native gateway→ERP و checkout موبایل پس از رفع دسترسی Docker، مدارک و قیمت/stock واقعی، مالیات و credential تولید، سپس release دارای backup/restore تولید و تأیید صریح مالک است. ثبت یا ادعای پرداخت واقعی مجاز نیست.
 
