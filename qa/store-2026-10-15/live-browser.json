@@ -1,5 +1,5 @@
 {
-  "utc": "2026-10-16T12:49:19.786Z",
+  "utc": "2026-10-16T13:01:50.604Z",
   "status": "passed",
   "scope": "Read-only production public browsing; no order/payment/customer message or setting mutation",
   "checks": [
@@ -11,7 +11,7 @@
     "Guest technical comparison uses reviewed/unknown specs and persists without registration",
     "Public product has native source catalogue image and inquiry form; no checkout action",
     "Catalogue photo has website overlay; no schematic or unsupported 360 claim",
-    "Shop and product mobile pages have no horizontal overflow",
+    "Shop/product mobile pages and full-page capture are 390px; anti-spam input remains present and visually clipped",
     "Invoice stamp SVG is publicly loadable",
     "shop native public page HTTP 200",
     "cart native public page HTTP 200",

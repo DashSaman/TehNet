@@ -2,7 +2,7 @@
 /**
  * Plugin Name: TehNet Store
  * Description: Safe catalog imports and ERP-backed commerce for TehNet.
- * Version: 0.2.3
+ * Version: 0.2.4
  * Requires PHP: 8.2
  * License: GPL-2.0-or-later
  */
