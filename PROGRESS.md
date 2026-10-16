@@ -1,5 +1,13 @@
 # TehNet Execution Progress
 
+## Latest — 2026-10-16 natural educational product visuals
+
+- Local localhost18084 preview now starts with two real, original-byte public-domain Cat7 photographs with source/credit/download. They are clearly separate educational samples and not exact TehNet product images or a360 sequence.
+- Original cable GLB improved with48 illustrative woven filaments, rippled foil, curved/capped tubes, four pair colours and white stripes, separate matte/metal PBR response, soft studio lighting and pose-bound framing. Five-part explode/assemble, slider and explanation remain; no real physical values asserted.
+- Fresh30 browser checks and12 independent binary/photo checks pass. Desktop/mobile screenshots actually inspected; original SHA-1/SHA-256 provenance recorded. Full one-shot animation end/hold verified instead of assuming the renderer's paused property. No JS/HTTP asset errors; all requests local.
+- Read `docs/research/product-visuals-2026-10-16.fa.md` and `qa/product-visuals-2026-10-16/`. Public Sketchfab poster used only as visual inspiration; full model could not render, geometry/textures not copied. Existing source-catalog photos remain origin/model-unverified.
+- Scope is the local teaching preview; no production product/runtime/settings or existing live release changed. Real exact-SKU media evidence remains open. One focused native read-only assistant was used; no GLM or new paid API.
+
 ## Latest — 2026-10-16 remediation and exploded inspection
 
 - Published guarded SEO/content release and follow-ups with verified full backups, field/hash drift guards, actual-container lint, repeat0 and unchanged native product metadata/home/menu/orders/commerce gates.

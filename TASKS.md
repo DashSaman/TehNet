@@ -1,5 +1,12 @@
 # TehNet Task Backlog
 
+## CURRENT — natural educational preview, 2026-10-16
+
+- DONE/LOCAL — Two real public-domain reference photos, unchanged original bytes/SHA, visible source/credit/download, photo-first gallery and explicit lazy photo/3D mode switch.
+- DONE/LOCAL — Original woven shield, foil surface variation, capped curved wires, four pair colours/striped white wires, PBR studio presentation and bounds-based framing; five-layer explanation and explode controls retained.30 browser +12 GLB/photo checks; screenshot QA complete.
+- OPEN — Same-MPN verified photography/licensed CAD or actual same-item360 frames for the25 live inquiry products. Generic educational photos/models must not be assigned as exact product evidence. Existing catalogue origin remains unverified.
+- UNCHANGED — Production site, runtime, orders, price/stock, ERP/payment and indexing gates. Details: `docs/research/product-visuals-2026-10-16.fa.md`.
+
 ## CURRENT — audit remediation and exploded parts, 2026-10-16
 
 - DONE/DEPLOYED — A02/A03 metadata/OG/template coverage; A06/A07 hubs/methodology/visible attribution; A09 archiveH1/canonical; A10 draft sample/UTF8 Woo titles; A11 brand,breadcrumb and light-footer contrast.70 unique pages verified,noindex preserved.

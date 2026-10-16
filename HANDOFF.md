@@ -1,5 +1,13 @@
 # TehNet Agent Handoff
 
+## CURRENT — real-photo-first local preview, 2026-10-16
+
+Owner requested real/natural imagery and inspiration from public 3D model sites while reviewing localhost18084. `ops/build-exploded-demo.py` now builds two unchanged, checksummed public-domain real Cat7 reference photographs, visible source/credit/download, explicit photo/model switch and improved original PBR cable geometry. These are independent educational photographs, not TehNet SKU images or a360 sequence; normalized geometry is not exact product CAD or a reconstruction of either photo. Source-catalog photographic origin and exact model identity remain unverified. No production runtime/content/settings changed in this step.
+
+Read `docs/research/product-visuals-2026-10-16.fa.md` and `content/media/educational-cable-reference/provenance.json`. Sketchfab PolyCab public poster was visually inspected; its full interactive model failed to render and no geometry/textures or reuse license were obtained. Do not imply otherwise. New demo has woven filament geometry, foil surface variation, four coloured pairs/striped white insulation, capped curved sweeps, studio lighting, bounds-based framing and unchanged shared production renderer. No real micron/material claims.
+
+Fresh checks:30 browser +12 independent GLB/photo checks; evidence and inspected screenshots in `qa/product-visuals-2026-10-16/`. Build with `rtk proxy python ops/build-exploded-demo.py --out ../../outputs/tehnet-parts-demo`, serve only that output directory on127.0.0.1:18084. Next exact action for live catalogue remains evidence-backed same-MPN photographic/CAD matching; do not assign this generic demo to an actual SKU. Prior live SEO/commerce/media release facts below remain current. No GLM/new paid API or production deployment occurred here.
+
 ## CURRENT — remediation and exploded-parts capability published, 2026-10-16
 
 Supersedes historical audit/prepared/connection-blocked notes below. Read `seo/SITE_REMEDIATION_2026-10-16.fa.md`, `seo/remediation-2026-10-16/verification.json`, release receipts and `docs/site-remediation-operations.fa.md`.55 native published items/12 terms;75 crawl records,70 unique successful pages, each with exactly one description/OG image/H1/canonical and deliberate noindex.25 unique product bodies/titles. Homepage body,8-link menu,all product metadata,orders and commercial gates preserved by native before/after fingerprints. Metadata is deployed, not merely prepared. Sample Page2 is draft; new methodology187 and MTU188 are public; Woo109/110 titles repaired.

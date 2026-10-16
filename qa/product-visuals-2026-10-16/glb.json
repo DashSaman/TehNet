@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "scope": "Structural validity only; no real CAD/dimensions asserted",
+  "checks": [
+    "GLB v2 header and exact total length",
+    "aligned JSON chunk",
+    "BIN chunk length matches bytes",
+    "self-contained asset without remote textures or buffers",
+    "asset explicitly rejects physical product claims",
+    "every mesh has finite positions, unit normals, bounded aligned accessors and valid triangle indices",
+    "five independently animated layer nodes",
+    "finite one-second translation tracks",
+    "shield uses original filament geometry rather than a smooth shell",
+    "distinct illustrative jacket, white, four pair colours and metals",
+    "separate metal and matte surface response",
+    "both real photographs exactly match reviewed original checksums"
+  ],
+  "vertices": 104354,
+  "triangles": 188352,
+  "glb_bytes": 3658572,
+  "glb_sha256": "045d23d98142452394dae57fb71692d4d9cf07555e9c84e16dda46500d4b2738"
+}

@@ -1,0 +1,33 @@
+{
+  "reviewed_on": "2026-10-16",
+  "purpose": "Real photographic references in an educational cable preview only; not evidence of any TehNet product identity, materials, dimensions or 360 sequence.",
+  "modifications_by_tehnet": "None. Original downloaded JPEG bytes retained; CSS contains the image without cropping.",
+  "files": [
+    {
+      "file": "sftp-cat7-talifero.jpg",
+      "sha256": "9c421fc32d8d0aa2c5ce68f2be719c11e8239c97b475b10b6717152375ee080e",
+      "sha1": "99e100e95030b91373cfde4bfc15dd06657053f1",
+      "bytes": 58525,
+      "width": 670,
+      "height": 500,
+      "page": "https://commons.wikimedia.org/wiki/File:S-FTP_CAT_7.jpg",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/e/ee/S-FTP_CAT_7.jpg",
+      "author": "Talifero (original 2008 photograph); Ru wiki (2011 derivative); DmitryKo (2017 crop/background revision)",
+      "license": "Public domain dedication by copyright holder (PD-self); see source page for worldwide fallback permission.",
+      "depicted": "Opened S/FTP Cat7 sample; not a product stocked or identified by TehNet."
+    },
+    {
+      "file": "cat7-bewareircd.jpg",
+      "sha256": "89ea4ba63f9fa523ee7aa97fdd2e0691f74ed3400e4adac47c5dcfeb2d1d7679",
+      "sha1": "b6fe852dd7586ac1289eab135066ce99c3870c16",
+      "bytes": 233181,
+      "width": 1600,
+      "height": 1200,
+      "page": "https://commons.wikimedia.org/wiki/File:Cat7.jpg",
+      "source": "https://upload.wikimedia.org/wikipedia/commons/5/54/Cat7.jpg",
+      "author": "Bewareircd (2008 photograph); Aavindraa (2010 cleanup); DmitryKo (2018 noise reduction)",
+      "license": "Public domain dedication by copyright holder (PD-self); see source page for worldwide fallback permission.",
+      "depicted": "Cat7 S/FTP sample with visible manufacturer lettering; lettering is preserved and is not TehNet branding."
+    }
+  ]
+}
