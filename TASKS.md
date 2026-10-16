@@ -1,5 +1,13 @@
 # TehNet Task Backlog
 
+## CURRENT — audit remediation and exploded parts, 2026-10-16
+
+- DONE/DEPLOYED — A02/A03 metadata/OG/template coverage; A06/A07 hubs/methodology/visible attribution; A09 archiveH1/canonical; A10 draft sample/UTF8 Woo titles; A11 brand,breadcrumb and light-footer contrast.70 unique pages verified,noindex preserved.
+- PARTIAL — A04:25 distinct record bodies/titles and explicit source conflicts; real MPN/stock/specification certificates still require evidence. A08 source-corrected Safe Mode text,without isolated RouterOS execution. A12 Article/ProfilePage added; unsupported Product/Offer/Review/video claims omitted.
+- DONE/CAPABILITY — MPN/license/SHA-reviewed GLB,exploded animation,per-part material/measurement/source document,selection and scrubber.30 policy contracts,19 synthetic browser and11 original educational cable-demo checks. No real product CAD/spin/parts activated.
+- OPEN — A01 separate indexing launch approval; A05 licensed exact-model assets or physical frames; A13 analytics access/inquiry-conversion measurement; A14 independent real projects/mentions and specifically authorized external participation. See `seo/SITE_REMEDIATION_2026-10-16.fa.md`.
+- LOCKED — No fabricated micron/material/model/AI endorsement,real payment or external posts. Preserve current allowlist receipts and private before-journals; historical blocks below are not current operating instructions.
+
 ## Whole-site SEO/AI/view audit — 2026-10-16
 
 - DONE — Current whole-site read-only audit with14 evidence-backed findings; all54 published items/12 terms included,69 unique public pages analyzed,7 mobile renders and2 lab performance samples. See `seo/SITE_AUDIT_2026-10-16.fa.md`.

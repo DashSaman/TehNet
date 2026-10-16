@@ -1,0 +1,32 @@
+[
+  {
+    "suffix": "/",
+    "theme": "dark",
+    "violations": []
+  },
+  {
+    "suffix": "/",
+    "theme": "light",
+    "violations": []
+  },
+  {
+    "suffix": "/product/tn-sn-17929/",
+    "theme": "dark",
+    "violations": []
+  },
+  {
+    "suffix": "/product/tn-sn-17929/",
+    "theme": "light",
+    "violations": []
+  },
+  {
+    "suffix": "/lab/wireguard-mtu/",
+    "theme": "dark",
+    "violations": []
+  },
+  {
+    "suffix": "/lab/wireguard-mtu/",
+    "theme": "light",
+    "violations": []
+  }
+]

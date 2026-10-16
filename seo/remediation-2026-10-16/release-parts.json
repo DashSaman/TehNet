@@ -1,0 +1,160 @@
+{
+  "status": "published",
+  "directory": "/root/tehnet-releases/site-remediation-20261016-58f41b2ccf70",
+  "files": {
+    "themes/tehnet/header.php": "1da4d8c8a36d1b87d866de867307030c0df53133f467f8ceb58f9966734b0c0c",
+    "themes/tehnet/index.php": "7247cc28a7f98df8dbbcb14ffd443c5c7338fb04e6ab5ddc824a0b886e3b0297",
+    "themes/tehnet/assets/img/tehnet-og.png": "37c567e15e1f73731ce64fdf3715d9e04bfef3208db8c1d836146c93f531492c",
+    "mu-plugins/tehnet-search-metadata.php": "ed6cdf42e870e8072d133c2e6ebb5891851a2a04dbe989848fc61f654af5fa7b",
+    "mu-plugins/tehnet-technical-resources.php": "05c5704c37b969bb41fab0bc5982af745e12b7ae9b359ed51b9f192f197cf1dd",
+    "mu-plugins/tehnet-technical-resources/technical-tools.js": "27d3151a9e7d7c0295eade48a861dc10f997bce31f380246bf147eed572ac4c6",
+    "mu-plugins/tehnet-technical-resources/technical-tools.css": "4b27faebdb048c7fe7fc2ed57d0009f4cf4f08109d49bb9bb76faffb4a6dbcca",
+    "mu-plugins/tehnet-technical-resources/wireguard-mtu.py.txt": "ef2270f55cb924a094244ea7c69092eb9bb54e049d665092c57115ac4e2aade3",
+    "plugins/tehnet-store/tehnet-store.php": "a3678401173e5a68e364c70d14cbb5a504a7fe6c6f96f4e1ee38043f8615efd0",
+    "plugins/tehnet-store/includes/class-storefront.php": "5b7ec901c9df6818ecfe058ea7855dd090a76428345930e0dbb5d786f866bb45",
+    "plugins/tehnet-store/includes/class-product-evidence.php": "65ca2912843fbd6b3a8a01522a510d2f4c8f40d68ce5968ba01c06cc42b1eccf",
+    "plugins/tehnet-store/assets/store.css": "8feff7472068361ac75d7cdb219a44fb7774f1319add8d3851f8837d10730bd4",
+    "plugins/tehnet-store/assets/reviewed-model.js": "33fc737bddd01b8e2de474fa31f4e3e84ba09ab8866c5ea3ed1738384cbdea6b",
+    "plugins/tehnet-store/assets/vendor/model-viewer/model-viewer.min.js": "18b2e711035aa4705ee281530a55dc2338ff05eed3d70ae16d54105282a75ed5",
+    "plugins/tehnet-store/assets/vendor/model-viewer/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "plugins/tehnet-store/assets/vendor/model-viewer/PROVENANCE.json": "6dddb91463d473e336d9c155558a8ca02fb4b8d7d8bbc0151de56d00a3a43421",
+    "mu-plugins/tehnet-technical-resources/accessibility.css": "9e242b412ae97ee1f2fadbc22e7b7429bac33d93b6eabd27163cb90cbc28b89d"
+  },
+  "content_sha256": "aa03ea96fbbd3fec693aa5b49e2217b9b6d39124a69f6189dfc2626079dea9db",
+  "backup": "/root/tehnet-backups/20261016-164508-store-review",
+  "backup_checksums_verified": true,
+  "preflight": {
+    "mode": "check",
+    "posts_pending": 0,
+    "terms_pending": 0,
+    "new_pending": 0,
+    "guarded": {
+      "product_meta": {
+        "82": "7fb21e0ffa22bc4136d137beb0ea08e66abca3c713653f9a2bb6f97e10d8d043",
+        "83": "f86f053a5269bc611a70053369669d651673f36e331c48e1aaceeab35dd5704e",
+        "84": "b1ffb39206b24b47b22059ccdf03b53e5dce02b423af86f7afc9c9ab4e44664c",
+        "85": "c31daccedcba0a14d7f8e436c0536a0a13058f55b8cfdff0c8e4e0478af83acd",
+        "86": "55906618d9a16eceb10ceea3d0c496118e302ac564264e729a2ac607cf53c2ea",
+        "87": "e4f63ad9dfdd93cc8bdb8ab55a886a3d6cf1afbd9a0dec7d1a279d45a84dd397",
+        "88": "6e373c4b0959bc91b564306997fd73e7629dfb0c5ca52f8d442673b99c89aa15",
+        "89": "7541404b478e57eb0c469483a6927101f761b0993602c3cae4531129291ea3ef",
+        "90": "d0736c9d561d529c93727c992b26ea4a9f2924aed9e3060bf351b7da2c435edc",
+        "91": "d297558e77f21317db91e22d4c1f460a7320d95c841137074517a6b2eb939ed7",
+        "92": "8e20355cbb83a20d52205b3b65813a1c452ac55aee827be570ce3f360e495e17",
+        "93": "525cfe9a03319e644e3f89aa021b8af4ffd27378e3a1c4fc821b13db5a5130ad",
+        "94": "c7f92d81b70004e651309f143bd31fa2cdbd7c68928817136e99aa7a14ce4c43",
+        "95": "b38eb44693d4b04606ee37cbac61e909fac0238ccdad30be77a1297069c60737",
+        "96": "071c4e071a674c8307e68c2a5418c1b07d128e2f1dffde454c47c2d08a05978d",
+        "97": "54d56358fde73047810989d4fb99d585e903b1572a006e37bbebea710fb103ab",
+        "98": "2349ee78e02850aec65184a5a5d788351ded90c02097fb6a1cc70d407a9ca0f7",
+        "99": "aa075d6886f902d0760fd91e4a19f98809b15c4b0a486ab34e6915dab01e4bce",
+        "100": "5dd8678cb7b258d1b856e2a7ab4d135e296c313499b82d8d4de081aea406cf65",
+        "101": "b7ae7e1a1ba566b8a30238484be71c0c342552de7bf690ac5561efb61951889b",
+        "102": "5b1142ba4995a3b98e45a219a2bea606c22b2746b52d4960c37ddb44608abf40",
+        "103": "f01762a8b415848eb1980eee1de4a057d26e654eb5af24578127be0444d52f5d",
+        "104": "dbed6a0f42f7a9c66a559d5abe707f1d30346acc02170905db27591fadb2a095",
+        "105": "71233f01a327f0558314dc79d626bcf36ece67e2404d7c17cb9dda3ca7a18b5d",
+        "106": "632bca81b79f32b425cf1796bc1715a3af6842eb69526392267b2ff5ba456383"
+      },
+      "options_sha256": "f5944cb17df37580b3664da9665c1fc8e67f36c825334908cbec3f6d0533039f",
+      "menu_sha256": "42f860d1018d167114c93d9fa77b6d6db56f894a142204e02a9156d402accddf",
+      "home_body_sha256": "1a05541d14cf8721b3ef6ba129167987f876f655289bc7de85ff370c6912f270",
+      "commerce_gates": {
+        "environment": "production",
+        "erp_ready": false,
+        "sandbox_enabled": false,
+        "sandbox_gateway_settings": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa"
+      },
+      "orders": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "applied": {
+    "mode": "apply",
+    "posts_updated": 0,
+    "terms_updated": 0,
+    "pages_created": 0,
+    "new_pages": {
+      "methodology": 187,
+      "mtu": 188
+    },
+    "protected_state_unchanged": true,
+    "noindex_preserved": true
+  },
+  "repeat": {
+    "mode": "apply",
+    "posts_updated": 0,
+    "terms_updated": 0,
+    "pages_created": 0,
+    "new_pages": {
+      "methodology": 187,
+      "mtu": 188
+    },
+    "protected_state_unchanged": true,
+    "noindex_preserved": true
+  },
+  "after": {
+    "mode": "check",
+    "posts_pending": 0,
+    "terms_pending": 0,
+    "new_pending": 0,
+    "guarded": {
+      "product_meta": {
+        "82": "7fb21e0ffa22bc4136d137beb0ea08e66abca3c713653f9a2bb6f97e10d8d043",
+        "83": "f86f053a5269bc611a70053369669d651673f36e331c48e1aaceeab35dd5704e",
+        "84": "b1ffb39206b24b47b22059ccdf03b53e5dce02b423af86f7afc9c9ab4e44664c",
+        "85": "c31daccedcba0a14d7f8e436c0536a0a13058f55b8cfdff0c8e4e0478af83acd",
+        "86": "55906618d9a16eceb10ceea3d0c496118e302ac564264e729a2ac607cf53c2ea",
+        "87": "e4f63ad9dfdd93cc8bdb8ab55a886a3d6cf1afbd9a0dec7d1a279d45a84dd397",
+        "88": "6e373c4b0959bc91b564306997fd73e7629dfb0c5ca52f8d442673b99c89aa15",
+        "89": "7541404b478e57eb0c469483a6927101f761b0993602c3cae4531129291ea3ef",
+        "90": "d0736c9d561d529c93727c992b26ea4a9f2924aed9e3060bf351b7da2c435edc",
+        "91": "d297558e77f21317db91e22d4c1f460a7320d95c841137074517a6b2eb939ed7",
+        "92": "8e20355cbb83a20d52205b3b65813a1c452ac55aee827be570ce3f360e495e17",
+        "93": "525cfe9a03319e644e3f89aa021b8af4ffd27378e3a1c4fc821b13db5a5130ad",
+        "94": "c7f92d81b70004e651309f143bd31fa2cdbd7c68928817136e99aa7a14ce4c43",
+        "95": "b38eb44693d4b04606ee37cbac61e909fac0238ccdad30be77a1297069c60737",
+        "96": "071c4e071a674c8307e68c2a5418c1b07d128e2f1dffde454c47c2d08a05978d",
+        "97": "54d56358fde73047810989d4fb99d585e903b1572a006e37bbebea710fb103ab",
+        "98": "2349ee78e02850aec65184a5a5d788351ded90c02097fb6a1cc70d407a9ca0f7",
+        "99": "aa075d6886f902d0760fd91e4a19f98809b15c4b0a486ab34e6915dab01e4bce",
+        "100": "5dd8678cb7b258d1b856e2a7ab4d135e296c313499b82d8d4de081aea406cf65",
+        "101": "b7ae7e1a1ba566b8a30238484be71c0c342552de7bf690ac5561efb61951889b",
+        "102": "5b1142ba4995a3b98e45a219a2bea606c22b2746b52d4960c37ddb44608abf40",
+        "103": "f01762a8b415848eb1980eee1de4a057d26e654eb5af24578127be0444d52f5d",
+        "104": "dbed6a0f42f7a9c66a559d5abe707f1d30346acc02170905db27591fadb2a095",
+        "105": "71233f01a327f0558314dc79d626bcf36ece67e2404d7c17cb9dda3ca7a18b5d",
+        "106": "632bca81b79f32b425cf1796bc1715a3af6842eb69526392267b2ff5ba456383"
+      },
+      "options_sha256": "f5944cb17df37580b3664da9665c1fc8e67f36c825334908cbec3f6d0533039f",
+      "menu_sha256": "42f860d1018d167114c93d9fa77b6d6db56f894a142204e02a9156d402accddf",
+      "home_body_sha256": "1a05541d14cf8721b3ef6ba129167987f876f655289bc7de85ff370c6912f270",
+      "commerce_gates": {
+        "environment": "production",
+        "erp_ready": false,
+        "sandbox_enabled": false,
+        "sandbox_gateway_settings": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa"
+      },
+      "orders": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "file_rollback": "/root/tehnet-releases/site-remediation-20261016-58f41b2ccf70/before.tar.gz",
+  "content_rollback": "/root/tehnet-releases/site-remediation-20261016-58f41b2ccf70/content-before.json"
+}

@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "checks": [
+    "70 page rows",
+    "14 findings",
+    "finding search",
+    "page search",
+    "mobile no horizontal overflow",
+    "no JS errors"
+  ]
+}

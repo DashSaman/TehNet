@@ -1,0 +1,9 @@
+{
+  "status": "prepared-not-activated",
+  "requires_separate_owner_launch_approval": true,
+  "blog_public_required_now": "0",
+  "candidate_paths": ["/", "/about/", "/contact/", "/services/", "/services/network-tehran/", "/services/network-support-tehran/", "/services/network-setup-tehran/", "/services/mikrotik-tehran/", "/services/remote-support/", "/learn/", "/lab/", "/lab/wireguard-mtu/", "/technical-methodology/", "/amirreza-golavar/"],
+  "excluded_until_evidence": ["/product/*", "/product-category/*", "/shop/"],
+  "utility_exclusions": ["/cart-2/", "/tn-checkout/", "/tn-account/", "/wp-admin/*", "search and filter queries", "private/password-protected content"],
+  "launch_acceptance": ["Review candidate content with the owner", "Keep unverified product and utility exclusions explicit", "Take and verify a fresh backup", "Approve indexing scope before changing robots/blog_public", "Generate and validate a sitemap containing only eligible canonical URLs", "Use an authorized verified search-console property; never invent indexing/ranking results"]
+}

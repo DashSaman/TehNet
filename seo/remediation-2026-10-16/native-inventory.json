@@ -1,0 +1,1060 @@
+{
+  "home": "https://tehnet.ir/",
+  "blog_public": "0",
+  "front_page_id": "5",
+  "permalink_structure": "/%postname%/",
+  "theme": "0.5.1",
+  "posts": [
+    {
+      "id": 5,
+      "type": "page",
+      "parent": 0,
+      "slug": "home",
+      "title": "خانه",
+      "url": "https://tehnet.ir/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 2449,
+      "content_sha256": "e5a4ab379cde3bbb9922b6892ce24f6db07618c61ea50b39ad14c7060747b123",
+      "excerpt_chars": 109
+    },
+    {
+      "id": 6,
+      "type": "page",
+      "parent": 0,
+      "slug": "learn",
+      "title": "آموزش",
+      "url": "https://tehnet.ir/learn/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 716,
+      "content_sha256": "1c641402d9e15f63a912a7b73c92b335420fabec6eddb87c8329265ef55e90a1",
+      "excerpt_chars": 98
+    },
+    {
+      "id": 7,
+      "type": "page",
+      "parent": 0,
+      "slug": "lab",
+      "title": "Lab",
+      "url": "https://tehnet.ir/lab/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 938,
+      "content_sha256": "4edea933071d3276e7c49cacf97db280d3d63bb9192117de14326137f78ccee4",
+      "excerpt_chars": 97
+    },
+    {
+      "id": 8,
+      "type": "page",
+      "parent": 0,
+      "slug": "services",
+      "title": "خدمات",
+      "url": "https://tehnet.ir/services/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 1306,
+      "content_sha256": "1cc13ecc0985a17f00d5368dd05ef208ffcb88c6b0b7b2e9de74117bc1ae23df",
+      "excerpt_chars": 105
+    },
+    {
+      "id": 9,
+      "type": "page",
+      "parent": 0,
+      "slug": "shop",
+      "title": "فروشگاه",
+      "url": "https://tehnet.ir/shop/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 231,
+      "content_sha256": "ab9a797dd772b66c5ff7759c4957d032c78e7468f41ba86a3219b31345089a37",
+      "excerpt_chars": 106
+    },
+    {
+      "id": 10,
+      "type": "page",
+      "parent": 0,
+      "slug": "about",
+      "title": "درباره ما",
+      "url": "https://tehnet.ir/about/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 859,
+      "content_sha256": "bcb0893c48ebc0afa9c3870ce45edc8d1b458e2423cee700c78acf6f8795cce1",
+      "excerpt_chars": 106
+    },
+    {
+      "id": 11,
+      "type": "page",
+      "parent": 0,
+      "slug": "contact",
+      "title": "تماس با ما",
+      "url": "https://tehnet.ir/contact/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 732,
+      "content_sha256": "3edf83d98309511d89af4039829b9e33c7e951dabf21a46f6e19cd7226a6b6cc",
+      "excerpt_chars": 112
+    },
+    {
+      "id": 26,
+      "type": "page",
+      "parent": 6,
+      "slug": "mikrotik",
+      "title": "آموزش میکروتیک",
+      "url": "https://tehnet.ir/learn/mikrotik/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 2581,
+      "content_sha256": "6ca940cab3d93c9e3afbcfa613a93c5631fb247411143f0f9230cc2423495411",
+      "excerpt_chars": 84
+    },
+    {
+      "id": 29,
+      "type": "page",
+      "parent": 8,
+      "slug": "network-tehran",
+      "title": "خدمات شبکه تهران",
+      "url": "https://tehnet.ir/services/network-tehran/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 1254,
+      "content_sha256": "30ce7284fca6bbf1b8f60b3f8dd42b8be1b5591016a7846ddc3f559252233853",
+      "excerpt_chars": 101
+    },
+    {
+      "id": 31,
+      "type": "page",
+      "parent": 8,
+      "slug": "network-support-tehran",
+      "title": "پشتیبانی شبکه تهران",
+      "url": "https://tehnet.ir/services/network-support-tehran/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 1295,
+      "content_sha256": "5b878eef73e2055127593e3ae2820b254456eae665e783bc2ed7cdb2cf52262a",
+      "excerpt_chars": 104
+    },
+    {
+      "id": 33,
+      "type": "page",
+      "parent": 8,
+      "slug": "network-setup-tehran",
+      "title": "راه‌اندازی شبکه شرکت در تهران",
+      "url": "https://tehnet.ir/services/network-setup-tehran/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 1251,
+      "content_sha256": "ae9740f1a15cb7a548f88833e848fe5ca326644224636dbb3063ff77a5d5880d",
+      "excerpt_chars": 114
+    },
+    {
+      "id": 35,
+      "type": "page",
+      "parent": 8,
+      "slug": "mikrotik-tehran",
+      "title": "خدمات MikroTik تهران",
+      "url": "https://tehnet.ir/services/mikrotik-tehran/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 1143,
+      "content_sha256": "31017f7a0aa1a2455b574c400fdb131db0ecd14649f050a4869106429b171c49",
+      "excerpt_chars": 105
+    },
+    {
+      "id": 37,
+      "type": "page",
+      "parent": 8,
+      "slug": "remote-support",
+      "title": "پشتیبانی شبکه از راه دور",
+      "url": "https://tehnet.ir/services/remote-support/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 1209,
+      "content_sha256": "05cd94292fbc7c8fe0ed625f46377d03bf3ac9be05e99629ec9c6272f99525f2",
+      "excerpt_chars": 109
+    },
+    {
+      "id": 40,
+      "type": "page",
+      "parent": 26,
+      "slug": "mtcna",
+      "title": "آموزش MTCNA میکروتیک",
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 2846,
+      "content_sha256": "d9cfc7d0ab27b0ec94c2465675f989a475b7be74e84970f1b4dbbf8ee38555a8",
+      "excerpt_chars": 91
+    },
+    {
+      "id": 62,
+      "type": "page",
+      "parent": 40,
+      "slug": "routeros-winbox",
+      "title": "شروع با RouterOS و Winbox — جلسه اول MTCNA",
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 2037,
+      "content_sha256": "5fc1684bd9e593737f9d3051d661ba782a6454c6aab571bb64f1ac3c0b40f9b1",
+      "excerpt_chars": 106
+    },
+    {
+      "id": 63,
+      "type": "page",
+      "parent": 40,
+      "slug": "ip-dhcp-dns",
+      "title": "آدرس‌دهی IP، DHCP و DNS در میکروتیک — MTCNA",
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 1659,
+      "content_sha256": "69b256a6db04a3b51f011bd6ee390e65849d6da695c343ee7407d6c4470f6371",
+      "excerpt_chars": 99
+    },
+    {
+      "id": 64,
+      "type": "page",
+      "parent": 40,
+      "slug": "static-routing",
+      "title": "مسیریابی استاتیک در میکروتیک — MTCNA",
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 1628,
+      "content_sha256": "2479a9f0afcf178b29f9f53131539e7bdeae36f025a64b255654361297263233",
+      "excerpt_chars": 83
+    },
+    {
+      "id": 65,
+      "type": "page",
+      "parent": 40,
+      "slug": "nat-masquerade",
+      "title": "NAT و Masquerade در میکروتیک — MTCNA",
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/nat-masquerade/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 1422,
+      "content_sha256": "74c22dd62bcb3544aeb1930377aa2d84bf25800dbad1aebe2f258b00ca81145d",
+      "excerpt_chars": 90
+    },
+    {
+      "id": 66,
+      "type": "page",
+      "parent": 40,
+      "slug": "firewall-basics",
+      "title": "فایروال میکروتیک؛ ساخت قانون با هدف مشخص — MTCNA",
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/firewall-basics/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 1866,
+      "content_sha256": "8033ebcce93eec4b098ad9278ce55feef4a263c0ac8791a523c9346d9ee21b72",
+      "excerpt_chars": 89
+    },
+    {
+      "id": 67,
+      "type": "page",
+      "parent": 40,
+      "slug": "queues-troubleshooting",
+      "title": "مدیریت پهنای باند و عیب‌یابی پایه — MTCNA",
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/queues-troubleshooting/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 1588,
+      "content_sha256": "ffbc13e920c3a6ac7f72f9a5b4681cad5304bc9a054b12f8b9c8dabffae664d7",
+      "excerpt_chars": 88
+    },
+    {
+      "id": 69,
+      "type": "page",
+      "parent": 0,
+      "slug": "blog",
+      "title": "بلاگ",
+      "url": "https://tehnet.ir/blog/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 0,
+      "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "excerpt_chars": 85
+    },
+    {
+      "id": 70,
+      "type": "post",
+      "parent": 0,
+      "slug": "mtcna-learning-path",
+      "title": "مسیر یادگیری میکروتیک؛ دوره MTCNA تهران نتورک",
+      "url": "https://tehnet.ir/mtcna-learning-path/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 625,
+      "content_sha256": "8917e5e4d468ef76f230aceb609ee22eb1683383fa7a3b586a6c92022ef1ccf9",
+      "excerpt_chars": 93
+    },
+    {
+      "id": 71,
+      "type": "post",
+      "parent": 0,
+      "slug": "lab-before-production",
+      "title": "چرا قبل از شبکه واقعی، لاب مجازی بسازیم؟",
+      "url": "https://tehnet.ir/lab-before-production/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 697,
+      "content_sha256": "976951de385c8d59aa90ec01f03959ce9a3e870885caf300794519cdac2cde0b",
+      "excerpt_chars": 105
+    },
+    {
+      "id": 76,
+      "type": "page",
+      "parent": 7,
+      "slug": "gns3-mikrotik",
+      "title": "مجازی‌سازی با GNS3؛ ساخت روتر میکروتیک مجازی برای تمرین",
+      "url": "https://tehnet.ir/lab/gns3-mikrotik/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 2197,
+      "content_sha256": "3924e5a93c5b8603f0cac270147446c3c3aacd2b0f4a59e3bd6900c91cfb0aa5",
+      "excerpt_chars": 91
+    },
+    {
+      "id": 80,
+      "type": "page",
+      "parent": 0,
+      "slug": "amirreza-golavar",
+      "title": "امیررضا گل‌آور | رزومه حرفه‌ای",
+      "url": "https://tehnet.ir/amirreza-golavar/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 3698,
+      "content_sha256": "17f489ae43361e4625a9d06977b808b7bf087606d377a7adee1eb66ffb4f6535",
+      "excerpt_chars": 92
+    },
+    {
+      "id": 82,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-18002",
+      "title": "سوکت شبکه Cat6 SFTP",
+      "url": "https://tehnet.ir/product/tn-sn-18002/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 998,
+      "content_sha256": "f61794ee0789c30d1a7791af81dc90ebc6a13b4c16169507aee162f68d00555d",
+      "excerpt_chars": 125,
+      "media": {
+        "primary": 144,
+        "gallery": [
+          145
+        ],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-18002",
+        "source_key": "saieedshabake.ir:product:18002",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 83,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17991",
+      "title": "سوکت شبکه لگراند UTP Cat6 بسته ۱۰۰ عددی",
+      "url": "https://tehnet.ir/product/tn-sn-17991/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 890,
+      "content_sha256": "34d27d0880659bda2b9b7238c91b014946459b093c55c10cb5d78d7bcd55f66d",
+      "excerpt_chars": 145,
+      "media": {
+        "primary": 146,
+        "gallery": [],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17991",
+        "source_key": "saieedshabake.ir:product:17991",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 84,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17989",
+      "title": "پریز برق قرمز لگراند — نیازمند تأیید مدل",
+      "url": "https://tehnet.ir/product/tn-sn-17989/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 920,
+      "content_sha256": "50b27d24234646ab237f041a02f389ca3b562f3ebceb7754c0f75214866ff73f",
+      "excerpt_chars": 146,
+      "media": {
+        "primary": 147,
+        "gallery": [],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17989",
+        "source_key": "saieedshabake.ir:product:17989",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 85,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17982",
+      "title": "پریز برق سفید لگراند — نیازمند تأیید مدل",
+      "url": "https://tehnet.ir/product/tn-sn-17982/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 888,
+      "content_sha256": "a534ddf00fb0085658418f4580d12c2df8da0bc84976f59f386a3e0462b029b5",
+      "excerpt_chars": 146,
+      "media": {
+        "primary": 148,
+        "gallery": [],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17982",
+        "source_key": "saieedshabake.ir:product:17982",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 86,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17941",
+      "title": "ماژول کیستون پهن — نوع پورت نیازمند تأیید",
+      "url": "https://tehnet.ir/product/tn-sn-17941/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 900,
+      "content_sha256": "4a1fc8c0b620bb926d0518ab9784ddf23061b371d6069615b3d3591c4d9344cc",
+      "excerpt_chars": 147,
+      "media": {
+        "primary": 149,
+        "gallery": [
+          150
+        ],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17941",
+        "source_key": "saieedshabake.ir:product:17941",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 87,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17935",
+      "title": "ماژول کیستون باریک — نوع پورت نیازمند تأیید",
+      "url": "https://tehnet.ir/product/tn-sn-17935/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 856,
+      "content_sha256": "576cd260d3e1e3c1925cb68db142181bd3d9111ec498ecab77f85f0ffc9a9074",
+      "excerpt_chars": 149,
+      "media": {
+        "primary": 151,
+        "gallery": [],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17935",
+        "source_key": "saieedshabake.ir:product:17935",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 88,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17929",
+      "title": "کیستون شبکه لگراند Cat6 UTP باریک",
+      "url": "https://tehnet.ir/product/tn-sn-17929/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 835,
+      "content_sha256": "752760a7131ccce82e58dc7f906f64c54246acc70474b2b965efca10992c9a9b",
+      "excerpt_chars": 139,
+      "media": {
+        "primary": 152,
+        "gallery": [
+          153
+        ],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17929",
+        "source_key": "saieedshabake.ir:product:17929",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 89,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17927",
+      "title": "کیستون پهن UTP شبکه",
+      "url": "https://tehnet.ir/product/tn-sn-17927/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 860,
+      "content_sha256": "bc39398741153cab8974acc9a264210d0b5adf48ce5473557ff4ce32f96cd964",
+      "excerpt_chars": 125,
+      "media": {
+        "primary": 154,
+        "gallery": [],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17927",
+        "source_key": "saieedshabake.ir:product:17927",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 90,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17920",
+      "title": "کیستون شبکه لگراند Cat6 SFTP باریک",
+      "url": "https://tehnet.ir/product/tn-sn-17920/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 817,
+      "content_sha256": "475f6c888dad969fcd253af56811a9cbcb78b99ecccf0428f6c318fcb83554e5",
+      "excerpt_chars": 140,
+      "media": {
+        "primary": 155,
+        "gallery": [
+          156
+        ],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17920",
+        "source_key": "saieedshabake.ir:product:17920",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 91,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17888",
+      "title": "کیستون شبکه لگراند Cat6 SFTP پهن",
+      "url": "https://tehnet.ir/product/tn-sn-17888/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 837,
+      "content_sha256": "d0fb9e0421a22dccbe3133cfa4fd373c558a989b0f1519554b2c53dd1add4bcf",
+      "excerpt_chars": 138,
+      "media": {
+        "primary": 157,
+        "gallery": [],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17888",
+        "source_key": "saieedshabake.ir:product:17888",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 92,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17873",
+      "title": "کابل شبکه نگزنس LSZH Cat6 SFTP اوت دور قرقره 305 متری (Nexans Outdoor)",
+      "url": "https://tehnet.ir/product/tn-sn-17873/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 1037,
+      "content_sha256": "1f21d912b2a157db71c1c767ddb309ddc4d0f17fde12f6022289e8a3136c5cbc",
+      "excerpt_chars": 176,
+      "media": {
+        "primary": 127,
+        "gallery": [],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17873",
+        "source_key": "saieedshabake.ir:product:17873",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 93,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17871",
+      "title": "کابل شبکه  InDoor Cat6 SFTP روکش PVC حلقه 500 متری — برند نیازمند تأیید",
+      "url": "https://tehnet.ir/product/tn-sn-17871/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 1070,
+      "content_sha256": "d05450f02e5a1759c2b6cca44034ed03681ec26f0bd8b30082e92b57da2ae0cb",
+      "excerpt_chars": 177,
+      "media": {
+        "primary": 128,
+        "gallery": [],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17871",
+        "source_key": "saieedshabake.ir:product:17871",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 94,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17868",
+      "title": "کابل شبکه  Cat6 SFTP روکش PVC حلقه 500 متری — برند نیازمند تأیید",
+      "url": "https://tehnet.ir/product/tn-sn-17868/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 1063,
+      "content_sha256": "e9e757fa292b0b1d34e00c44bdeaf42be136bca1598076b03382c23cd5bee27f",
+      "excerpt_chars": 170,
+      "media": {
+        "primary": 129,
+        "gallery": [
+          130
+        ],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17868",
+        "source_key": "saieedshabake.ir:product:17868",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 95,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17866",
+      "title": "کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر — TN-SN-17866",
+      "url": "https://tehnet.ir/product/tn-sn-17866/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 964,
+      "content_sha256": "2bc50825b96db3d90fc679ed441d558df2c0a06e2dbab0316aab3f1618b1e9a7",
+      "excerpt_chars": 151,
+      "media": {
+        "primary": 131,
+        "gallery": [],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17866",
+        "source_key": "saieedshabake.ir:product:17866",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 96,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17863",
+      "title": "کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر — TN-SN-17863",
+      "url": "https://tehnet.ir/product/tn-sn-17863/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 964,
+      "content_sha256": "fa8c59a67731fd1942808796db01176214a2c323fdf42918f00415ea752c58f0",
+      "excerpt_chars": 151,
+      "media": {
+        "primary": 143,
+        "gallery": [],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17863",
+        "source_key": "saieedshabake.ir:product:17863",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 97,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17860",
+      "title": "کابل شبکه  Cat6 UTP روکش PVC حلقه 305 متری — برند نیازمند تأیید — TN-SN-17860",
+      "url": "https://tehnet.ir/product/tn-sn-17860/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 1061,
+      "content_sha256": "31a17e46ae9ae4ebea8e1c3e0108034da5cfd928d8ebe7a3933c7d662f09c61a",
+      "excerpt_chars": 169,
+      "media": {
+        "primary": 133,
+        "gallery": [],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17860",
+        "source_key": "saieedshabake.ir:product:17860",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 98,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17857",
+      "title": "کابل شبکه  Cat6 UTP روکش PVC حلقه 305 متری — برند نیازمند تأیید — TN-SN-17857",
+      "url": "https://tehnet.ir/product/tn-sn-17857/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 1061,
+      "content_sha256": "01205a94d023446bb4d95061e2a41833610e453a280fbbd3be9f3ccf364da8ed",
+      "excerpt_chars": 169,
+      "media": {
+        "primary": 134,
+        "gallery": [],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17857",
+        "source_key": "saieedshabake.ir:product:17857",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 99,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17855",
+      "title": "کابل شبکه لگراند Cat6 UTP روکش PVC حلقه 305 متری — TN-SN-17855",
+      "url": "https://tehnet.ir/product/tn-sn-17855/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 966,
+      "content_sha256": "5c2f78a62a20334349509364eca18a1757b6f670d35fa75db98cd16b0e6c6c3c",
+      "excerpt_chars": 154,
+      "media": {
+        "primary": 135,
+        "gallery": [],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17855",
+        "source_key": "saieedshabake.ir:product:17855",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 100,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17851",
+      "title": "کابل شبکه لگراند Cat6 UTP روکش PVC حلقه 305 متری — TN-SN-17851",
+      "url": "https://tehnet.ir/product/tn-sn-17851/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 985,
+      "content_sha256": "981a8b6de4ec292473085a5c15631e1f5abfc204ad03eed6ef64d5a5fab9fc8d",
+      "excerpt_chars": 154,
+      "media": {
+        "primary": 136,
+        "gallery": [],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17851",
+        "source_key": "saieedshabake.ir:product:17851",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 101,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17831",
+      "title": "کابل شبکه  Cat6 SFTP LSZH Indoor 500m — برند نیازمند تأیید — TN-SN-17831",
+      "url": "https://tehnet.ir/product/tn-sn-17831/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 1086,
+      "content_sha256": "77fef25f631bd40225b593ad68f7a2cb1e0d95d6ee547c2b1b5791a092e799c7",
+      "excerpt_chars": 164,
+      "media": {
+        "primary": 137,
+        "gallery": [],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17831",
+        "source_key": "saieedshabake.ir:product:17831",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 102,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17829",
+      "title": "کابل شبکه  Cat6 SFTP LSZH Indoor 500m — برند نیازمند تأیید — TN-SN-17829",
+      "url": "https://tehnet.ir/product/tn-sn-17829/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 1086,
+      "content_sha256": "c5827cee27b1d05ce4e00d6da1cddae5877d840df0c727c5e9324c303db22e8f",
+      "excerpt_chars": 164,
+      "media": {
+        "primary": 138,
+        "gallery": [],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17829",
+        "source_key": "saieedshabake.ir:product:17829",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 103,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17827",
+      "title": "کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m — TN-SN-17827",
+      "url": "https://tehnet.ir/product/tn-sn-17827/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 991,
+      "content_sha256": "540ab975d6bfdbcab753c19f9c32ad06f4c27960304f158372c0e737d1f4d720",
+      "excerpt_chars": 149,
+      "media": {
+        "primary": 139,
+        "gallery": [],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17827",
+        "source_key": "saieedshabake.ir:product:17827",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 104,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-17824",
+      "title": "کابل شبکه نگزنس Cat6 SFTP PVC Outdoor 305m — TN-SN-17824",
+      "url": "https://tehnet.ir/product/tn-sn-17824/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 990,
+      "content_sha256": "a58549d8f55289c46a59cb916dee4375d8e38693da9e3a48f6395fbd5bc3c093",
+      "excerpt_chars": 148,
+      "media": {
+        "primary": 140,
+        "gallery": [],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-17824",
+        "source_key": "saieedshabake.ir:product:17824",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 105,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-16585",
+      "title": "کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m — TN-SN-16585",
+      "url": "https://tehnet.ir/product/tn-sn-16585/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 992,
+      "content_sha256": "bbfd50e915726d74f97750b6b0a345ee3bc2bb1b40beef8f28c0698eec7b731d",
+      "excerpt_chars": 149,
+      "media": {
+        "primary": 141,
+        "gallery": [],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-16585",
+        "source_key": "saieedshabake.ir:product:16585",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 106,
+      "type": "product",
+      "parent": 0,
+      "slug": "tn-sn-16584",
+      "title": "کابل شبکه نگزنس Cat6 SFTP PVC Outdoor 305m — TN-SN-16584",
+      "url": "https://tehnet.ir/product/tn-sn-16584/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 990,
+      "content_sha256": "2825c5e79ed62825d4ea5a3b0ce74d3d9e7b4df303e076542dd797d60ba0bbb9",
+      "excerpt_chars": 148,
+      "media": {
+        "primary": 142,
+        "gallery": [],
+        "spin_reviewed": "",
+        "spin_ids": "",
+        "sku": "TN-SN-16584",
+        "source_key": "saieedshabake.ir:product:16584",
+        "sale_approved": "no"
+      }
+    },
+    {
+      "id": 107,
+      "type": "page",
+      "parent": 0,
+      "slug": "cart-2",
+      "title": "سبد خرید",
+      "url": "https://tehnet.ir/cart-2/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 150,
+      "content_sha256": "642fdb5e0d52701fd7307b890661b4ada9b7c5f95facd51c84e99513d557371b",
+      "excerpt_chars": 87
+    },
+    {
+      "id": 109,
+      "type": "page",
+      "parent": 0,
+      "slug": "tn-checkout",
+      "title": "تسویه حساب",
+      "url": "https://tehnet.ir/tn-checkout/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 22,
+      "content_sha256": "12183af529c31d1919bba52398eb3fc62cc1fa3aab4f857e29df5243ca73ddd7",
+      "excerpt_chars": 99
+    },
+    {
+      "id": 110,
+      "type": "page",
+      "parent": 0,
+      "slug": "tn-account",
+      "title": "حساب کاربری",
+      "url": "https://tehnet.ir/tn-account/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 24,
+      "content_sha256": "0c846e85bd9bd3925320fc92c24a6cae9e2a860616209cb93311eed72f5ca56a",
+      "excerpt_chars": 75
+    },
+    {
+      "id": 187,
+      "type": "page",
+      "parent": 0,
+      "slug": "technical-methodology",
+      "title": "روش منابع، آزمون و اصلاح محتوا",
+      "url": "https://tehnet.ir/technical-methodology/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 2000,
+      "content_sha256": "95000db7b764bd52d428c2f2b3150d6cf45d5bd5ca54e773e7987da616aae432",
+      "excerpt_chars": 107
+    },
+    {
+      "id": 188,
+      "type": "page",
+      "parent": 7,
+      "slug": "wireguard-mtu",
+      "title": "برآورد MTU در WireGuard؛ ابزار محلی و محدودیت‌ها",
+      "url": "https://tehnet.ir/lab/wireguard-mtu/",
+      "modified": "2026-10-16 16:15:35",
+      "content_chars": 1764,
+      "content_sha256": "50a6411eccc8ce8dfef1d7c0fa5ecc54d5729b18f0ee3c80db25dcce361172d3",
+      "excerpt_chars": 117
+    }
+  ],
+  "terms": [
+    {
+      "taxonomy": "category",
+      "id": 18,
+      "name": "آموزش شبکه",
+      "count": 2,
+      "description_chars": 113,
+      "url": "https://tehnet.ir/category/%d8%a2%d9%85%d9%88%d8%b2%d8%b4-%d8%b4%d8%a8%da%a9%d9%87/"
+    },
+    {
+      "taxonomy": "product_cat",
+      "id": 27,
+      "name": "اتصالات",
+      "count": 10,
+      "description_chars": 141,
+      "url": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/"
+    },
+    {
+      "taxonomy": "product_cat",
+      "id": 28,
+      "name": "انواع پریز شبکه",
+      "count": 2,
+      "description_chars": 149,
+      "url": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/tn-sn-category-172/"
+    },
+    {
+      "taxonomy": "product_cat",
+      "id": 20,
+      "name": "پسیو شبکه",
+      "count": 25,
+      "description_chars": 143,
+      "url": "https://tehnet.ir/shop/tn-sn-category-78/"
+    },
+    {
+      "taxonomy": "product_cat",
+      "id": 21,
+      "name": "پسیو شبکه (Passive Network)",
+      "count": 25,
+      "description_chars": 161,
+      "url": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/"
+    },
+    {
+      "taxonomy": "product_cat",
+      "id": 29,
+      "name": "سوکت شبکه",
+      "count": 2,
+      "description_chars": 143,
+      "url": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/tn-sn-category-174/"
+    },
+    {
+      "taxonomy": "product_cat",
+      "id": 23,
+      "name": "کابل شبکه",
+      "count": 15,
+      "description_chars": 143,
+      "url": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-147/"
+    },
+    {
+      "taxonomy": "product_cat",
+      "id": 24,
+      "name": "کابل شبکه CAT6",
+      "count": 15,
+      "description_chars": 148,
+      "url": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-147/tn-sn-category-150/"
+    },
+    {
+      "taxonomy": "product_cat",
+      "id": 25,
+      "name": "کابل شبکه لگراند (Legrand)",
+      "count": 8,
+      "description_chars": 160,
+      "url": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-147/tn-sn-category-149/"
+    },
+    {
+      "taxonomy": "product_cat",
+      "id": 26,
+      "name": "کابل شبکه نگزنس (Nexans)",
+      "count": 7,
+      "description_chars": 158,
+      "url": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-147/tn-sn-category-148/"
+    },
+    {
+      "taxonomy": "product_cat",
+      "id": 30,
+      "name": "کیستون تلفن",
+      "count": 1,
+      "description_chars": 145,
+      "url": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/tn-sn-category-584/"
+    },
+    {
+      "taxonomy": "product_cat",
+      "id": 31,
+      "name": "کیستون شبکه",
+      "count": 6,
+      "description_chars": 145,
+      "url": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/tn-sn-category-171/"
+    }
+  ],
+  "menus": [
+    {
+      "menu": "منوی اصلی",
+      "title": "خانه",
+      "url": "https://tehnet.ir/"
+    },
+    {
+      "menu": "منوی اصلی",
+      "title": "آموزش",
+      "url": "https://tehnet.ir/learn/"
+    },
+    {
+      "menu": "منوی اصلی",
+      "title": "Lab",
+      "url": "https://tehnet.ir/lab/"
+    },
+    {
+      "menu": "منوی اصلی",
+      "title": "خدمات",
+      "url": "https://tehnet.ir/services/"
+    },
+    {
+      "menu": "منوی اصلی",
+      "title": "فروشگاه",
+      "url": "https://tehnet.ir/shop/"
+    },
+    {
+      "menu": "منوی اصلی",
+      "title": "درباره ما",
+      "url": "https://tehnet.ir/about/"
+    },
+    {
+      "menu": "منوی اصلی",
+      "title": "تماس با ما",
+      "url": "https://tehnet.ir/contact/"
+    },
+    {
+      "menu": "منوی اصلی",
+      "title": "بلاگ",
+      "url": "https://tehnet.ir/blog/"
+    }
+  ],
+  "runtime_files": {
+    "wp-content/mu-plugins/tehnet-search-metadata.php": {
+      "exists": true,
+      "sha256": "ed6cdf42e870e8072d133c2e6ebb5891851a2a04dbe989848fc61f654af5fa7b"
+    },
+    "wp-content/plugins/tehnet-core/includes/class-schema.php": {
+      "exists": true,
+      "sha256": "156ed8bc03009ca7c71511e697b93d0fe29d9391c85ad1f18cd73c73e73fc082"
+    },
+    "wp-content/plugins/tehnet-store/includes/class-product-visuals.php": {
+      "exists": true,
+      "sha256": "1e666253559c39de2079fa25d01a434cee93873043fa6ae694483213ffbb942a"
+    }
+  },
+  "utc": "2026-10-16T16:16:04.889357+00:00",
+  "scope": "Native read-only published content inventory; no private posts, orders or customer data."
+}

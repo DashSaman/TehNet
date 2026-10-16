@@ -1,5 +1,14 @@
 # TehNet Execution Progress
 
+## Latest — 2026-10-16 remediation and exploded inspection
+
+- Published guarded SEO/content release and follow-ups with verified full backups, field/hash drift guards, actual-container lint, repeat0 and unchanged native product metadata/home/menu/orders/commerce gates.
+- Fresh full crawl:70 unique successful public pages,0 missing/duplicate descriptions,0 missing OG images,oneH1/canonical each; intentional noindex retained.55 native items,25 unique product titles/bodies;12 term descriptions. Sample Page draft,account/checkout UTF8 fixed,Learn/Lab/About/Contact/methodology and Safe Mode updated.
+- Fresh checks:43 metadata,30 media/parts authorization contracts,11 PHP MTU cases,2 Python tests with9 subcases,19 synthetic renderer/tool browser checks,25 public remediation checks,14 shop checks,18 photo checks and11 educational exploded-demo checks. Two axe rules pass on home/product/tool in both color themes. No claim of full accessibility certification or a fresh Lighthouse/field-CWV score.
+- Owner's added exploded-view request implemented through native model animation,per-part names/material/source/measurements with explicit units,exact MPN/node/animation/SHA guards,assemble/explode/slider/selection and reduced-motion support. Original educational five-layer cable demo is separate from catalogue and carries no real material or micron claims.
+- Open dependencies: physical model identity/licensed exact-model CAD or true photo sequences; separate indexing launch approval; existing paid-plan analytics access; production ERP/payment prerequisites. No new GLM advice or paid API was used for this remediation.
+- Evidence/report: `seo/SITE_REMEDIATION_2026-10-16.fa.md`, `seo/remediation-2026-10-16`, `docs/site-remediation-operations.fa.md`. Historical baseline below is superseded, not rewritten.
+
 ## Current audit — 2026-10-16 SEO, AI visibility and product inspection
 
 - Read-only audit completed:54 native published items/12 terms,74 URL records/69 unique successful pages,7 mobile templates,2 Lighthouse samples, source/runtime comparison and MyTel/-SEO evidence. Report: `seo/SITE_AUDIT_2026-10-16.fa.md`;14 prioritized findings and evidence in `seo/audit-2026-10-16`.

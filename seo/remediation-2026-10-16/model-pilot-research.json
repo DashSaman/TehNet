@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-16",
+  "chosen_candidate": "Legrand Mosaic 076561",
+  "basis": "Marking076561 observed on a catalogue box image; not proof of stock/part/box identity",
+  "manufacturer_source": "https://www.legrand.com/ecatalogue/en/catalog/products/mosaic-rj45-socket-category-6-utp-1-module-white-076561",
+  "manufacturer_datasheet": "https://www.legrand.com/ecatalogue/en/legrand-ecat/generatepdf/133471",
+  "official_bim_library": "https://legrandbim.com/en/",
+  "observed_public_listing": "Official catalogue lists Mosaic Revit libraries, including BIM-LEGRAND-MOSAIC-2026-ENGLISH.rvt,143.42MB; a library listing is not an inspected product-specific GLB",
+  "access": "Official indexed catalogue and PDF text returned by web search; direct catalogue retrieval encountered403 in the earlier bounded attempt. No login/paywall bypass, no paid conversion service or API used.",
+  "matching_glb_obtained": false,
+  "real_spin_frames_obtained": false,
+  "physical_model_identity_verified": false,
+  "cad_redistribution_license_verified": false,
+  "publication": "No model or frame sequence attached to any live catalogue product",
+  "next_evidence": "Authorized CAD of exact076561 with an inspectable conversion and dimensional/port review, or a real same-part photo sequence. General or generated hidden geometry cannot pass review."
+}
