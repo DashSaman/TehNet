@@ -1,5 +1,5 @@
 {
-  "utc": "2026-10-15T20:07:01.817Z",
+  "utc": "2026-10-16T12:49:19.786Z",
   "status": "passed",
   "scope": "Read-only production public browsing; no order/payment/customer message or setting mutation",
   "checks": [
@@ -9,8 +9,8 @@
     "Public exact SKU search accepts Persian digits",
     "Empty product search retains controls and a working reset link",
     "Guest technical comparison uses reviewed/unknown specs and persists without registration",
-    "Public product has owned schematic illustration and inquiry form; no checkout action",
-    "Published lazy schematic viewer supports keyboard and 360-degree rotation controls",
+    "Public product has native source catalogue image and inquiry form; no checkout action",
+    "Catalogue photo has website overlay; no schematic or unsupported 360 claim",
     "Shop and product mobile pages have no horizontal overflow",
     "Invoice stamp SVG is publicly loadable",
     "shop native public page HTTP 200",

@@ -1,0 +1,14 @@
+{
+  "status": "published",
+  "directory": "/root/tehnet-releases/photo-view-64d4dae9738d",
+  "files": {
+    "plugins/tehnet-store/tehnet-store.php": "9ba6df48a1202198f0eb47c79ae642356671e2aab04e48d0e97540ff5c4e8d52",
+    "plugins/tehnet-store/includes/class-storefront.php": "dc8360061b67880ca5c43a992504a59bfc1ba63ef748d16c291b9ca8c9175811",
+    "plugins/tehnet-store/includes/class-product-visuals.php": "1e666253559c39de2079fa25d01a434cee93873043fa6ae694483213ffbb942a",
+    "plugins/tehnet-store/assets/store.css": "b715d6cba4614a99e71a4153f77bdb728fcfa0e142698ff3591dbfd787440c94",
+    "plugins/tehnet-store/assets/photo-spin.js": "1f218f56a12fd5fcfa351ebadf8e319db575b5d23f2d1058fa980cb5e5c2ec73"
+  },
+  "base": "/root/tehnet-releases/discovery-2d9581d61a21",
+  "settings_or_data_mutated": false,
+  "backup": "/root/tehnet-releases/photo-view-64d4dae9738d/before.tar.gz"
+}

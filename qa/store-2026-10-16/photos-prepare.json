@@ -1,0 +1,12 @@
+{
+  "mode": "prepare",
+  "directory": "/root/tehnet-releases/catalog-photos-7f5891d30ab771d1",
+  "dry_run": {
+    "mode": "dry",
+    "products": 25,
+    "create": 25,
+    "skip": 0,
+    "sha256": "7f5891d30ab771d19be3f4bab49dba030eb918b4164b17f1230c9eaea1f741a9"
+  },
+  "utc": "2026-10-16T12:43:02.392879+00:00"
+}

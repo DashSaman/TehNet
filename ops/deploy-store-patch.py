@@ -2,14 +2,16 @@
 from pathlib import Path
 import argparse,hashlib,io,json,re,shlex,subprocess,tarfile
 root=Path(__file__).resolve().parents[1]
-p=argparse.ArgumentParser();p.add_argument('--base',required=True);p.add_argument('--label',required=True);p.add_argument('--apply',action='store_true');p.add_argument('files',nargs='+');args=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--base',required=True);p.add_argument('--label',required=True);p.add_argument('--apply',action='store_true');p.add_argument('--new-file',action='append',default=[]);p.add_argument('files',nargs='+');args=p.parse_args()
 assert re.fullmatch(r'[a-z0-9-]{3,50}',args.label)
 base=json.loads((root/args.base).read_text());allowed={}
 for name in args.files:
     path=(root/name).resolve();assert path.is_relative_to((root/'site/plugins/tehnet-store').resolve()) and path.is_file() and path.suffix in ['.php','.js','.css','.svg']
-    relative=path.relative_to(root/'site').as_posix();assert relative in base['files'],'Only existing recorded Store paths may be patched'
+    relative=path.relative_to(root/'site').as_posix();assert relative in base['files'] or name in args.new_file,'New Store paths require explicit --new-file'
+    if name in args.new_file:assert relative not in base['files'],'An existing path is not a new file'
     allowed[relative]=path.read_bytes()
-meta={'base':base['directory'],'label':args.label,'old':{name:base['files'][name] for name in allowed},'new':{name:hashlib.sha256(data).hexdigest() for name,data in allowed.items()}}
+assert set(args.new_file).issubset(args.files)
+meta={'base':base['directory'],'label':args.label,'old':{name:base['files'].get(name) for name in allowed},'new':{name:hashlib.sha256(data).hexdigest() for name,data in allowed.items()}}
 digest=hashlib.sha256(json.dumps(meta,sort_keys=True).encode()).hexdigest()
 if not args.apply:print(json.dumps({'dry_run':True,'manifest':meta,'digest':digest}));raise SystemExit(0)
 buf=io.BytesIO()
@@ -30,17 +32,25 @@ assert run(['docker','port','tehnet-wordpress','80/tcp']).decode().strip()=='127
 prior={}
 for name,old in meta['old'].items():
     assert name.startswith('plugins/tehnet-store/') and '..' not in pathlib.PurePosixPath(name).parts
-    prior[name]=run(['docker','exec','tehnet-wordpress','cat','/var/www/html/wp-content/'+name]);assert hashlib.sha256(prior[name]).hexdigest()==old,'Live drift: '+name
+    if old is None:
+        assert subprocess.run(['docker','exec','tehnet-wordpress','test','-e','/var/www/html/wp-content/'+name],capture_output=True).returncode==1,'New path already exists: '+name
+        prior[name]=None
+    else:
+        prior[name]=run(['docker','exec','tehnet-wordpress','cat','/var/www/html/wp-content/'+name]);assert hashlib.sha256(prior[name]).hexdigest()==old,'Live drift: '+name
     assert hashlib.sha256((d/name).read_bytes()).hexdigest()==meta['new'][name]
     if name.endswith('.php'):run(['docker','exec','-i','tehnet-wordpress','php','-l'],(d/name).read_bytes())
 with tarfile.open(d/'before.tar.gz',mode='w:gz') as archive:
-    for name,data in prior.items():info=tarfile.TarInfo(name);info.size=len(data);info.mode=0o600;archive.addfile(info,io.BytesIO(data))
+    for name,data in prior.items():
+        if data is not None:info=tarfile.TarInfo(name);info.size=len(data);info.mode=0o600;archive.addfile(info,io.BytesIO(data))
 try:
     for name in meta['new']:
         run(['docker','cp',str(d/name),'tehnet-wordpress:/var/www/html/wp-content/'+name]);run(['docker','exec','tehnet-wordpress','chown','www-data:www-data','/var/www/html/wp-content/'+name])
     for name,digest in meta['new'].items():assert hashlib.sha256(run(['docker','exec','tehnet-wordpress','cat','/var/www/html/wp-content/'+name])).hexdigest()==digest
 except Exception:
-    for name,data in prior.items():run(['docker','exec','-i','tehnet-wordpress','sh','-c','cat > /var/www/html/wp-content/'+name],data)
+    for name,data in prior.items():
+        if data is not None:run(['docker','exec','-i','tehnet-wordpress','sh','-c','cat > /var/www/html/wp-content/'+name],data)
+        elif subprocess.run(['docker','exec','tehnet-wordpress','test','-f','/var/www/html/wp-content/'+name],capture_output=True).returncode==0:
+            if hashlib.sha256(run(['docker','exec','tehnet-wordpress','cat','/var/www/html/wp-content/'+name])).hexdigest()==meta['new'][name]:run(['docker','exec','tehnet-wordpress','rm','--','/var/www/html/wp-content/'+name])
     raise
 result={'status':'published','directory':str(d),'files':meta['new'],'base':meta['base'],'settings_or_data_mutated':False,'backup':str(d/'before.tar.gz')};(d/'outcome.json').write_text(json.dumps(result,indent=2));print(json.dumps(result))
 '''.replace('DIRECTORY',repr('/root/tehnet-releases/'+args.label+'-'+digest[:12]));compile(remote,'store-patch','exec')

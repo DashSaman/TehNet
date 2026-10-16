@@ -1,0 +1,206 @@
+{
+  "status": "passed",
+  "utc": "2026-10-16T12:52:50.359Z",
+  "scope": "Read-only production; source catalogue images do not certify photographic origin or exact manufacturer model",
+  "products": 25,
+  "image_references": 30,
+  "real_360_products": 0,
+  "checks": [
+    "All 25 products expose 30 native images; no purchasable offer",
+    "All 16 first-page cards use native images and website watermark",
+    "All 30 public catalogue image URLs return HEAD HTTP 200; gallery samples separately decode",
+    "TN-SN-18002 native gallery, watermark, honest 360 status, mobile layout",
+    "TN-SN-18002 second distinct native gallery image can be selected and decodes",
+    "TN-SN-18002 native lightbox opens and closes",
+    "TN-SN-17929 native gallery, watermark, honest 360 status, mobile layout",
+    "TN-SN-17929 second distinct native gallery image can be selected and decodes",
+    "TN-SN-17929 native lightbox opens and closes",
+    "TN-SN-17989 native gallery, watermark, honest 360 status, mobile layout",
+    "TN-SN-17989 native lightbox opens and closes",
+    "TN-SN-17824 native gallery, watermark, honest 360 status, mobile layout",
+    "TN-SN-17824 native lightbox opens and closes"
+  ],
+  "images": [
+    {
+      "sku": "TN-SN-16584",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-16584-0-f68e4cf522b5.png",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-16585",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-16585-0-85dd4de82e92.png",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17824",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17824-0-f68e4cf522b5.png",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17827",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17827-0-85dd4de82e92.png",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17829",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17829-0-85dd4de82e92.png",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17831",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17831-0-85dd4de82e92.png",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17851",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17851-0-4695c03d8db7.jpg",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17855",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17855-0-4695c03d8db7.jpg",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17857",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17857-0-15b41891aa75.png",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17860",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17860-0-15b41891aa75.png",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17863",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17863-0-d601c7cc1c1c.jpg",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17866",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17866-0-7b0356edfc40.png",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17868",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17868-0-020a31d98c6d.png",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17868",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17868-1-328f394963fd.png",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17871",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17871-0-020a31d98c6d.png",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17873",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17873-0-ab1863c055bb.jpg",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17888",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17888-0-9bce2ca05ddc.jpg",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17920",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17920-0-b1cac31686ab.png",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17920",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17920-1-4792fe02e778.png",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17927",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17927-0-4c69aba5c398.png",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17929",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17929-0-558b905defd7.jpg",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17929",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17929-1-5d9a1a58e85a.png",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17935",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17935-0-a7a9e2bd0683.jpg",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17941",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17941-0-bb925d0c3989.jpg",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17941",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17941-1-efbda3232f80.jpg",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17982",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17982-0-ab82eea17c2d.png",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17989",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17989-0-a4b1d26b8aa1.png",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-17991",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17991-0-4cf83fd97f81.jpg",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-18002",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-18002-0-52019247f419.jpg",
+      "method": "HEAD",
+      "http": 200
+    },
+    {
+      "sku": "TN-SN-18002",
+      "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-18002-1-4f5490263e97.png",
+      "method": "HEAD",
+      "http": 200
+    }
+  ],
+  "js_errors": []
+}

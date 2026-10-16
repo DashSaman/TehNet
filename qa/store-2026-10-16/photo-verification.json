@@ -1,0 +1,47 @@
+{
+  "utc": "2026-10-16T12:54:48.538747+00:00",
+  "checks": [
+    {
+      "name": "photo-render-contracts",
+      "exit_code": 0,
+      "output": "PASS media-empty fixture keeps clearly labelled fallback\nPASS native photograph preserved with website overlay\nPASS native photo never replaced by generic art\nPASS photo product never presents schematic as 360\nPASS one photo does not produce a spin\nPASS two views do not claim 360\nPASS unreviewed frames rejected\nPASS reviewed same-product photo sequence accepted\nPASS reviewed photos use genuine frame viewer\nPASS another product attachment rejected\nPASS duplicate frames cannot fake a 360 sequence\nPASS unrelated product preserved\nPASS photo-only product loads no schematic module\nPASS enqueue resolves queried product before the Woo loop\nPASS reviewed sequence selects photo loader only\nPASS native gallery gets website overlay\nPHOTO_CONTRACTS=16 PASSED\n"
+    },
+    {
+      "name": "photo-import-contracts",
+      "exit_code": 0,
+      "output": "PASS wrong manifest SHA rejected\nPASS dry run leaves all data unchanged\nPASS human image blocks entire release before mutation\nPASS all 25 products and 30 native attachments applied\nPASS repeat skips all products and creates no duplicates\nPASS rollback refuses human changes\nPASS rollback restores references and preserves image files for recovery\nPHOTO_IMPORT_CONTRACTS=7 PASSED\n"
+    },
+    {
+      "name": "php-lint:ops/import-catalog-photos.php",
+      "exit_code": 0,
+      "output": "No syntax errors detected in ops/import-catalog-photos.php\n"
+    },
+    {
+      "name": "php-lint:site/plugins/tehnet-store/includes/class-product-visuals.php",
+      "exit_code": 0,
+      "output": "No syntax errors detected in site/plugins/tehnet-store/includes/class-product-visuals.php\n"
+    },
+    {
+      "name": "php-lint:site/plugins/tehnet-store/includes/class-storefront.php",
+      "exit_code": 0,
+      "output": "No syntax errors detected in site/plugins/tehnet-store/includes/class-storefront.php\n"
+    },
+    {
+      "name": "php-lint:site/plugins/tehnet-store/tehnet-store.php",
+      "exit_code": 0,
+      "output": "No syntax errors detected in site/plugins/tehnet-store/tehnet-store.php\n"
+    },
+    {
+      "name": "photo-spin-js-syntax",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "local_docker_woo_erp_rerun": false,
+  "docker_limitation": "Docker Desktop WSL bootstrap exit 0xc00000fd. No data reset or WSL shutdown attempted.",
+  "earlier_python_contracts": {
+    "status": "passed",
+    "count": 20,
+    "evidence": "Fresh unittest full output in native task tool transcript on 2026-10-16"
+  }
+}
