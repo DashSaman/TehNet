@@ -1,0 +1,30 @@
+{
+  "method": "Same-origin query-free HTML anchor graph from homepage; inventory seeded independently so unreachable is not crawl failure. Forms, JS navigation and external links excluded.",
+  "homepage_reachable_paths": 67,
+  "native_unreachable_by_anchor": [
+    {
+      "url": "https://tehnet.ir/sample-page/",
+      "type": "page",
+      "title": "Sample Page",
+      "inlinks": 0
+    },
+    {
+      "url": "https://tehnet.ir/cart-2/",
+      "type": "page",
+      "title": "سبد خرید",
+      "inlinks": 0
+    },
+    {
+      "url": "https://tehnet.ir/tn-checkout/",
+      "type": "page",
+      "title": "ØªØ³ÙˆÛŒÙ‡ Ø­Ø³Ø§Ø¨",
+      "inlinks": 0
+    },
+    {
+      "url": "https://tehnet.ir/tn-account/",
+      "type": "page",
+      "title": "Ø­Ø³Ø§Ø¨ Ú©Ø§Ø±Ø¨Ø±ÛŒ",
+      "inlinks": 0
+    }
+  ]
+}

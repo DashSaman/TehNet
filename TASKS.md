@@ -1,5 +1,12 @@
 # TehNet Task Backlog
 
+## Whole-site SEO/AI/view audit — 2026-10-16
+
+- DONE — Current whole-site read-only audit with14 evidence-backed findings; all54 published items/12 terms included,69 unique public pages analyzed,7 mobile renders and2 lab performance samples. See `seo/SITE_AUDIT_2026-10-16.fa.md`.
+- NEXT/P1 — A02–A03: extend the single metadata owner for approved page/product/post/archive templates and OG images; existing prepared MU-plugin remains undeployed and incomplete for this scope. Keep noindex until separate launch approval.
+- NEXT/P1 — A04–A08: verify model/MPN, replace repeated product copy with supported information, gather real360 pilot, finish Learn/Lab and methodology, correct Safe Mode's unsupported absolute claim.
+- BACKLOG/P2 — Archive H1/canonical, UTF-8 native account titles, accessible label/contrast, truthful schema and measurement access. Community participation/recommendation tracking require actual evidence; nothing was posted or measured as AI endorsement.
+
 ## Current media task — 2026-10-16
 
 - DONE — Owner-authorized Saieed retailer-lettering cleanup:15 lossless background edits on11 products, manufacturer marks/product details retained, immutable originals kept for recovery.

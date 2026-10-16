@@ -1,0 +1,107 @@
+{
+  "status": "not-run",
+  "scope": "Measurement design only, no AI responses synthesized as independent evidence.",
+  "metrics": [
+    "brand_mention",
+    "cited_url",
+    "recommendation",
+    "referral",
+    "conversion"
+  ],
+  "required_context": [
+    "date",
+    "provider",
+    "model",
+    "language",
+    "location",
+    "full_prompt",
+    "response",
+    "source_urls"
+  ],
+  "prompts": [
+    {
+      "id": 1,
+      "language": "fa",
+      "prompt": "تهران نتورک چیست و چه خدماتی دارد؟",
+      "result": null,
+      "status": "not-run"
+    },
+    {
+      "id": 2,
+      "language": "fa",
+      "prompt": "برای پشتیبانی شبکه شرکت در تهران چه مجموعه‌هایی را بررسی کنم؟",
+      "result": null,
+      "status": "not-run"
+    },
+    {
+      "id": 3,
+      "language": "fa",
+      "prompt": "مرجع فارسی آموزش عملی میکروتیک و MTCNA معرفی کن.",
+      "result": null,
+      "status": "not-run"
+    },
+    {
+      "id": 4,
+      "language": "fa",
+      "prompt": "چطور MTU مناسب WireGuard روی میکروتیک را عیب‌یابی کنم؟",
+      "result": null,
+      "status": "not-run"
+    },
+    {
+      "id": 5,
+      "language": "fa",
+      "prompt": "تفاوت RJ11 و RJ45 در ماژول‌های کیستون چیست؟",
+      "result": null,
+      "status": "not-run"
+    },
+    {
+      "id": 6,
+      "language": "fa",
+      "prompt": "قبل از خرید کابل Cat6 چه مشخصاتی را باید بررسی کنم؟",
+      "result": null,
+      "status": "not-run"
+    },
+    {
+      "id": 7,
+      "language": "fa",
+      "prompt": "SFTP و UTP چه تفاوتی دارند و کدام برای پروژه من مناسب است؟",
+      "result": null,
+      "status": "not-run"
+    },
+    {
+      "id": 8,
+      "language": "fa",
+      "prompt": "روکش PVC و LSZH کابل شبکه چه تفاوتی دارند؟",
+      "result": null,
+      "status": "not-run"
+    },
+    {
+      "id": 9,
+      "language": "fa",
+      "prompt": "برای تشخیص مشکل DHCP و DNS در RouterOS از کجا شروع کنم؟",
+      "result": null,
+      "status": "not-run"
+    },
+    {
+      "id": 10,
+      "language": "fa",
+      "prompt": "محدودیت‌های Safe Mode میکروتیک چیست؟",
+      "result": null,
+      "status": "not-run"
+    },
+    {
+      "id": 11,
+      "language": "fa",
+      "prompt": "یک لاب GNS3 برای شروع یادگیری میکروتیک معرفی کن.",
+      "result": null,
+      "status": "not-run"
+    },
+    {
+      "id": 12,
+      "language": "fa",
+      "prompt": "برای استعلام کیستون لگراند، چه شماره فنی و عکس‌هایی لازم است؟",
+      "result": null,
+      "status": "not-run"
+    }
+  ]
+}

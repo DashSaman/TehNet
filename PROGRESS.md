@@ -1,5 +1,11 @@
 # TehNet Execution Progress
 
+## Current audit — 2026-10-16 SEO, AI visibility and product inspection
+
+- Read-only audit completed:54 native published items/12 terms,74 URL records/69 unique successful pages,7 mobile templates,2 Lighthouse samples, source/runtime comparison and MyTel/-SEO evidence. Report: `seo/SITE_AUDIT_2026-10-16.fa.md`;14 prioritized findings and evidence in `seo/audit-2026-10-16`.
+- Confirmed intentional noindex on69 pages, descriptions missing on68, metadata module not deployed, one shared stored body on25 products,6 duplicate-title pairs and zero real360 frame sets. GSC/Ahrefs AI reporting unavailable; no invented citation or ranking counts.
+- 33 prepared-metadata tests, 16 media contracts, synthetic spin browser test and 5 audit/report verification groups passed. Live indexing, content, WAF, payment and external conversations untouched. Next: coverage-aware metadata/content plan and a verified 360 pilot for one model, preserving the launch gate.
+
 ## Current release — 2026-10-16 owner-authorized media cleanup
 
 - LIVE:15 background-lettering cleanups on11 products; original23 source assets and all prior attachments retained. Owner explicitly authorized this change after confirming ownership.30 references/25 inquiry-only products remain.

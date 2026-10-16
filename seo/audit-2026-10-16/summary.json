@@ -1,0 +1,395 @@
+{
+  "crawled": 74,
+  "discovered": 74,
+  "native_published": 54,
+  "native_terms": 12,
+  "http_200": 73,
+  "non_200": [
+    {
+      "url": "https://tehnet.ir/cdn-cgi/l/email-protection",
+      "status": 404,
+      "error": null
+    }
+  ],
+  "noindex_count": 73,
+  "missing_description": [
+    "https://tehnet.ir/",
+    "https://tehnet.ir/sample-page/",
+    "https://tehnet.ir/learn/",
+    "https://tehnet.ir/lab/",
+    "https://tehnet.ir/services/",
+    "https://tehnet.ir/shop/",
+    "https://tehnet.ir/about/",
+    "https://tehnet.ir/contact/",
+    "https://tehnet.ir/learn/mikrotik/",
+    "https://tehnet.ir/services/network-tehran/",
+    "https://tehnet.ir/services/network-support-tehran/",
+    "https://tehnet.ir/services/network-setup-tehran/",
+    "https://tehnet.ir/services/mikrotik-tehran/",
+    "https://tehnet.ir/services/remote-support/",
+    "https://tehnet.ir/learn/mikrotik/mtcna/",
+    "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+    "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+    "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/",
+    "https://tehnet.ir/learn/mikrotik/mtcna/nat-masquerade/",
+    "https://tehnet.ir/learn/mikrotik/mtcna/firewall-basics/",
+    "https://tehnet.ir/learn/mikrotik/mtcna/queues-troubleshooting/",
+    "https://tehnet.ir/blog/",
+    "https://tehnet.ir/mtcna-learning-path/",
+    "https://tehnet.ir/lab-before-production/",
+    "https://tehnet.ir/lab/gns3-mikrotik/",
+    "https://tehnet.ir/product/tn-sn-18002/",
+    "https://tehnet.ir/product/tn-sn-17991/",
+    "https://tehnet.ir/product/tn-sn-17989/",
+    "https://tehnet.ir/product/tn-sn-17982/",
+    "https://tehnet.ir/product/tn-sn-17941/",
+    "https://tehnet.ir/product/tn-sn-17935/",
+    "https://tehnet.ir/product/tn-sn-17929/",
+    "https://tehnet.ir/product/tn-sn-17927/",
+    "https://tehnet.ir/product/tn-sn-17920/",
+    "https://tehnet.ir/product/tn-sn-17888/",
+    "https://tehnet.ir/product/tn-sn-17873/",
+    "https://tehnet.ir/product/tn-sn-17871/",
+    "https://tehnet.ir/product/tn-sn-17868/",
+    "https://tehnet.ir/product/tn-sn-17866/",
+    "https://tehnet.ir/product/tn-sn-17863/",
+    "https://tehnet.ir/product/tn-sn-17860/",
+    "https://tehnet.ir/product/tn-sn-17857/",
+    "https://tehnet.ir/product/tn-sn-17855/",
+    "https://tehnet.ir/product/tn-sn-17851/",
+    "https://tehnet.ir/product/tn-sn-17831/",
+    "https://tehnet.ir/product/tn-sn-17829/",
+    "https://tehnet.ir/product/tn-sn-17827/",
+    "https://tehnet.ir/product/tn-sn-17824/",
+    "https://tehnet.ir/product/tn-sn-16585/",
+    "https://tehnet.ir/product/tn-sn-16584/",
+    "https://tehnet.ir/cart-2/",
+    "https://tehnet.ir/tn-checkout/",
+    "https://tehnet.ir/tn-account/",
+    "https://tehnet.ir/category/%d8%a2%d9%85%d9%88%d8%b2%d8%b4-%d8%b4%d8%a8%da%a9%d9%87/",
+    "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/",
+    "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/tn-sn-category-172/",
+    "https://tehnet.ir/shop/tn-sn-category-78/",
+    "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/",
+    "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/tn-sn-category-174/",
+    "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-147/",
+    "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-147/tn-sn-category-150/",
+    "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-147/tn-sn-category-149/",
+    "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-147/tn-sn-category-148/",
+    "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/tn-sn-category-584/",
+    "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/tn-sn-category-171/",
+    "https://tehnet.ir/shop/page/2/",
+    "https://tehnet.ir/tn-account/lost-password/",
+    "https://tehnet.ir/shop/tn-sn-category-78/page/2/",
+    "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/page/2/",
+    "https://tehnet.ir/shop/page/1/",
+    "https://tehnet.ir/shop/tn-sn-category-78/page/1/",
+    "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/page/1/"
+  ],
+  "multiple_description": [],
+  "h1_not_one": [
+    {
+      "url": "https://tehnet.ir/category/%d8%a2%d9%85%d9%88%d8%b2%d8%b4-%d8%b4%d8%a8%da%a9%d9%87/",
+      "h1": []
+    }
+  ],
+  "canonical_not_one": [
+    {
+      "url": "https://tehnet.ir/category/%d8%a2%d9%85%d9%88%d8%b2%d8%b4-%d8%b4%d8%a8%da%a9%d9%87/",
+      "canonical": []
+    }
+  ],
+  "duplicate_titles": [
+    {
+      "title": "فروشگاه – تهران نتورک | TehNet",
+      "urls": [
+        "https://tehnet.ir/shop/",
+        "https://tehnet.ir/shop/page/1/"
+      ]
+    },
+    {
+      "title": "کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر – تهران نتورک | TehNet",
+      "urls": [
+        "https://tehnet.ir/product/tn-sn-17866/",
+        "https://tehnet.ir/product/tn-sn-17863/"
+      ]
+    },
+    {
+      "title": "کابل شبکه Cat6 UTP روکش PVC حلقه 305 متری — برند نیازمند تأیید – تهران نتورک | TehNet",
+      "urls": [
+        "https://tehnet.ir/product/tn-sn-17860/",
+        "https://tehnet.ir/product/tn-sn-17857/"
+      ]
+    },
+    {
+      "title": "کابل شبکه لگراند Cat6 UTP روکش PVC حلقه 305 متری – تهران نتورک | TehNet",
+      "urls": [
+        "https://tehnet.ir/product/tn-sn-17855/",
+        "https://tehnet.ir/product/tn-sn-17851/"
+      ]
+    },
+    {
+      "title": "کابل شبکه Cat6 SFTP LSZH Indoor 500m — برند نیازمند تأیید – تهران نتورک | TehNet",
+      "urls": [
+        "https://tehnet.ir/product/tn-sn-17831/",
+        "https://tehnet.ir/product/tn-sn-17829/"
+      ]
+    },
+    {
+      "title": "کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m – تهران نتورک | TehNet",
+      "urls": [
+        "https://tehnet.ir/product/tn-sn-17827/",
+        "https://tehnet.ir/product/tn-sn-16585/"
+      ]
+    },
+    {
+      "title": "کابل شبکه نگزنس Cat6 SFTP PVC Outdoor 305m – تهران نتورک | TehNet",
+      "urls": [
+        "https://tehnet.ir/product/tn-sn-17824/",
+        "https://tehnet.ir/product/tn-sn-16584/"
+      ]
+    },
+    {
+      "title": "سبد خرید – تهران نتورک | TehNet",
+      "urls": [
+        "https://tehnet.ir/cart-2/",
+        "https://tehnet.ir/tn-checkout/"
+      ]
+    },
+    {
+      "title": "پسیو شبکه – تهران نتورک | TehNet",
+      "urls": [
+        "https://tehnet.ir/shop/tn-sn-category-78/",
+        "https://tehnet.ir/shop/tn-sn-category-78/page/1/"
+      ]
+    },
+    {
+      "title": "پسیو شبکه (Passive Network) – تهران نتورک | TehNet",
+      "urls": [
+        "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/",
+        "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/page/1/"
+      ]
+    }
+  ],
+  "shared_canonical": [
+    {
+      "canonical": "https://tehnet.ir/shop/",
+      "urls": [
+        "https://tehnet.ir/shop/",
+        "https://tehnet.ir/shop/page/1/"
+      ]
+    },
+    {
+      "canonical": "https://tehnet.ir/cart-2/",
+      "urls": [
+        "https://tehnet.ir/cart-2/",
+        "https://tehnet.ir/tn-checkout/"
+      ]
+    },
+    {
+      "canonical": "https://tehnet.ir/tn-account/",
+      "urls": [
+        "https://tehnet.ir/tn-account/",
+        "https://tehnet.ir/tn-account/lost-password/"
+      ]
+    },
+    {
+      "canonical": "https://tehnet.ir/shop/tn-sn-category-78/",
+      "urls": [
+        "https://tehnet.ir/shop/tn-sn-category-78/",
+        "https://tehnet.ir/shop/tn-sn-category-78/page/1/"
+      ]
+    },
+    {
+      "canonical": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/",
+      "urls": [
+        "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/",
+        "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/page/1/"
+      ]
+    }
+  ],
+  "redirected_final_urls": [
+    {
+      "url": "https://tehnet.ir/tn-checkout/",
+      "final": "https://tehnet.ir/cart-2/"
+    },
+    {
+      "url": "https://tehnet.ir/shop/page/1/",
+      "final": "https://tehnet.ir/shop/"
+    },
+    {
+      "url": "https://tehnet.ir/shop/tn-sn-category-78/page/1/",
+      "final": "https://tehnet.ir/shop/tn-sn-category-78/"
+    },
+    {
+      "url": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/page/1/",
+      "final": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/"
+    }
+  ],
+  "schema_types": {
+    "LocalBusiness": 9,
+    "PostalAddress": 9,
+    "City": 9,
+    "Country": 9,
+    "BreadcrumbList": 43,
+    "ListItem": 217
+  },
+  "invalid_jsonld": [],
+  "offers": [],
+  "missing_og_title_count": 73,
+  "missing_og_description_count": 73,
+  "missing_og_image_count": 73,
+  "image_nodes": 472,
+  "missing_alt_count": 0,
+  "blank_alt_count": 0,
+  "images_without_dimensions": 0,
+  "main_chars_low": [
+    {
+      "url": "https://tehnet.ir/learn/",
+      "chars": 221
+    },
+    {
+      "url": "https://tehnet.ir/lab/",
+      "chars": 289
+    },
+    {
+      "url": "https://tehnet.ir/about/",
+      "chars": 194
+    },
+    {
+      "url": "https://tehnet.ir/contact/",
+      "chars": 196
+    },
+    {
+      "url": "https://tehnet.ir/blog/",
+      "chars": 503
+    },
+    {
+      "url": "https://tehnet.ir/cart-2/",
+      "chars": 396
+    },
+    {
+      "url": "https://tehnet.ir/tn-checkout/",
+      "chars": 396
+    },
+    {
+      "url": "https://tehnet.ir/tn-account/",
+      "chars": 130
+    },
+    {
+      "url": "https://tehnet.ir/category/%d8%a2%d9%85%d9%88%d8%b2%d8%b4-%d8%b4%d8%a8%da%a9%d9%87/",
+      "chars": 503
+    },
+    {
+      "url": "https://tehnet.ir/tn-account/lost-password/",
+      "chars": 195
+    }
+  ],
+  "product_count": 25,
+  "reviewed_spin_products": 0,
+  "spin_frames_present": 0,
+  "product_content_groups": [
+    {
+      "sha256": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88",
+      "count": 25,
+      "urls": [
+        "https://tehnet.ir/product/tn-sn-18002/",
+        "https://tehnet.ir/product/tn-sn-17991/",
+        "https://tehnet.ir/product/tn-sn-17989/",
+        "https://tehnet.ir/product/tn-sn-17982/",
+        "https://tehnet.ir/product/tn-sn-17941/",
+        "https://tehnet.ir/product/tn-sn-17935/",
+        "https://tehnet.ir/product/tn-sn-17929/",
+        "https://tehnet.ir/product/tn-sn-17927/",
+        "https://tehnet.ir/product/tn-sn-17920/",
+        "https://tehnet.ir/product/tn-sn-17888/",
+        "https://tehnet.ir/product/tn-sn-17873/",
+        "https://tehnet.ir/product/tn-sn-17871/",
+        "https://tehnet.ir/product/tn-sn-17868/",
+        "https://tehnet.ir/product/tn-sn-17866/",
+        "https://tehnet.ir/product/tn-sn-17863/",
+        "https://tehnet.ir/product/tn-sn-17860/",
+        "https://tehnet.ir/product/tn-sn-17857/",
+        "https://tehnet.ir/product/tn-sn-17855/",
+        "https://tehnet.ir/product/tn-sn-17851/",
+        "https://tehnet.ir/product/tn-sn-17831/",
+        "https://tehnet.ir/product/tn-sn-17829/",
+        "https://tehnet.ir/product/tn-sn-17827/",
+        "https://tehnet.ir/product/tn-sn-17824/",
+        "https://tehnet.ir/product/tn-sn-16585/",
+        "https://tehnet.ir/product/tn-sn-16584/"
+      ]
+    }
+  ],
+  "author_nodes_count": 0,
+  "date_nodes_count": 0,
+  "analytics_pages": 0,
+  "native_posts_not_crawled": [],
+  "runtime_files": {
+    "wp-content/mu-plugins/tehnet-search-metadata.php": {
+      "exists": false,
+      "sha256": null
+    },
+    "wp-content/plugins/tehnet-core/includes/class-schema.php": {
+      "exists": true,
+      "sha256": "156ed8bc03009ca7c71511e697b93d0fe29d9391c85ad1f18cd73c73e73fc082"
+    },
+    "wp-content/plugins/tehnet-store/includes/class-product-visuals.php": {
+      "exists": true,
+      "sha256": "1e666253559c39de2079fa25d01a434cee93873043fa6ae694483213ffbb942a"
+    }
+  },
+  "mobile_rendered": 7,
+  "mobile_overflow": 0,
+  "unique_final_http200_pages": 69,
+  "unique_missing_description": 68,
+  "unique_noindex": 69,
+  "unique_missing_og_image": 69,
+  "utility_endpoint_404": [
+    "https://tehnet.ir/cdn-cgi/l/email-protection"
+  ],
+  "product_duplicate_title_groups": [
+    {
+      "title": "کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر – تهران نتورک | TehNet",
+      "urls": [
+        "https://tehnet.ir/product/tn-sn-17866/",
+        "https://tehnet.ir/product/tn-sn-17863/"
+      ]
+    },
+    {
+      "title": "کابل شبکه Cat6 UTP روکش PVC حلقه 305 متری — برند نیازمند تأیید – تهران نتورک | TehNet",
+      "urls": [
+        "https://tehnet.ir/product/tn-sn-17860/",
+        "https://tehnet.ir/product/tn-sn-17857/"
+      ]
+    },
+    {
+      "title": "کابل شبکه لگراند Cat6 UTP روکش PVC حلقه 305 متری – تهران نتورک | TehNet",
+      "urls": [
+        "https://tehnet.ir/product/tn-sn-17855/",
+        "https://tehnet.ir/product/tn-sn-17851/"
+      ]
+    },
+    {
+      "title": "کابل شبکه Cat6 SFTP LSZH Indoor 500m — برند نیازمند تأیید – تهران نتورک | TehNet",
+      "urls": [
+        "https://tehnet.ir/product/tn-sn-17831/",
+        "https://tehnet.ir/product/tn-sn-17829/"
+      ]
+    },
+    {
+      "title": "کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m – تهران نتورک | TehNet",
+      "urls": [
+        "https://tehnet.ir/product/tn-sn-17827/",
+        "https://tehnet.ir/product/tn-sn-16585/"
+      ]
+    },
+    {
+      "title": "کابل شبکه نگزنس Cat6 SFTP PVC Outdoor 305m – تهران نتورک | TehNet",
+      "urls": [
+        "https://tehnet.ir/product/tn-sn-17824/",
+        "https://tehnet.ir/product/tn-sn-16584/"
+      ]
+    }
+  ]
+}

@@ -1,5 +1,13 @@
 # TehNet Agent Handoff
 
+## READ FIRST — whole-site SEO/AI/product-view audit, 2026-10-16
+
+Read `seo/SITE_AUDIT_2026-10-16.fa.md` and `seo/audit-2026-10-16/verification.json`. This task audited, documented and tested; it made no production content/settings/index/WAF/payment changes or external posts. Native inventory:54 published posts/pages/products,12 terms. Crawl:74 requests,73 final200 responses,69 unique successful pages; all69 noindex deliberately,68 lack descriptions, all69 lack OG data. Metadata MU-plugin remains absent on server; existing prepared source passes33 tests but excludes product/post/archive and has no OG image. Installing it alone will not close the audit.
+
+All25 products share one182-character stored body;6 pairs share titles. Zero registered/reviewed spin sequences; current viewer's16 contracts and synthetic spin UI pass, not evidence of real3D. Home/product mobile Lighthouse performance98/95, SEO61/61; no field CrUX. Seven rendered templates show no overflow. GSC payment_required and Ahrefs AI Insufficient plan; rankings/citations/backlinks remain unmeasured. Community searches/contributions are research only; no messages sent. Original MyTel and local -SEO SOP read as dated sources; no private backups copied.
+
+Next exact implementation action: plan/extend one metadata owner across approved templates with editable descriptions and verified OG images, preserve noindex and stable URLs, then validate/backup/allowlist-deploy under the applicable authorization. Separately verify physical MPNs and collect one real360 pilot. Correct the Safe Mode absolute claim against official docs; improve Learn/Lab and methodology. Do not fabricate Product offers/reviews, models, external endorsements or AI recommendation metrics. Full findings A01–A14 and acceptance criteria are in the report. Existing commerce/backup/media state below is unchanged.
+
 ## READ FIRST — catalogue cleanup live, 2026-10-16
 
 Current source branch is `feat/store-payment-sandbox-20261015`; older sections below are history. `/shop/` has25 public inquiry products with30 image references. Owner explicitly authorized removal of their Saieed retailer lettering:15 cleaned lossless assets replaced references on11 products,14 skipped. Original assets and attachments remain. Built-in imagegen reconstructed only masked backgrounds; original RGB outside reviewed masks was restored and independently reproduced from committed transparent patches. Manufacturer labels/details remain; exact manufacturer-model matching and photographic origin are still unverified. Real360 remains0 products.
