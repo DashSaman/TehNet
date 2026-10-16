@@ -2,12 +2,12 @@
 /**
  * Plugin Name: TehNet Search Metadata
  * Description: Bounded page descriptions, social metadata and truthful profile identity.
- * Version: 0.1.0
+ * Version: 0.2.0
  * Requires PHP: 8.2
  *
- * Prepared as a one-file, removable MU-plugin because the live TehNet Core version
- * differs from its repository header. No theme/Core replacement is required.
- * Does NOT change indexability, canonicals, titles, robots, content or database state.
+ * Isolated metadata owner; the existing Core owns LocalBusiness and Woo archives.
+ * Does not change indexability, titles, robots, content or database state.
+ * Supplies only the otherwise missing blog-category/tag archive canonical.
  */
 declare(strict_types=1);
 namespace TehNet\SearchMetadata;
@@ -58,10 +58,25 @@ function descriptions(): array {
 /** An empty model deliberately emits nothing for unsupported/private contexts. */
 function model(): array {
     if (is_admin() || is_feed() || is_404() || is_search() || is_preview()) return [];
-    if (!is_front_page() && !is_home() && !is_page()) return [];
-    $post = is_home() && !is_front_page()
-        ? get_post((int) get_option('page_for_posts')) : get_queried_object();
-    if (!$post instanceof \WP_Post || $post->post_type !== 'page'
+    $taxonomy = (function_exists('is_category') && is_category())
+        || (function_exists('is_tag') && is_tag())
+        || (function_exists('is_tax') && is_tax('product_cat'));
+    $singular = function_exists('is_singular') && is_singular(['page','post','product']);
+    $shop = function_exists('is_shop') && is_shop();
+    if (!is_front_page() && !is_home() && !is_page() && !$singular && !$taxonomy && !$shop) return [];
+    $post = $shop ? get_post((int)wc_get_page_id('shop')) : (is_home() && !is_front_page()
+        ? get_post((int) get_option('page_for_posts')) : get_queried_object());
+    if ($taxonomy && is_a($post, 'WP_Term')) {
+        $url = get_term_link($post);
+        if (is_wp_error($url) || !is_string($url)) return [];
+        if ((int)get_query_var('paged') > 1) $url = get_pagenum_link((int)get_query_var('paged'));
+        $description = clean((string)$post->description);
+        if ($description === '') $description = clean('مطالب و کالاهای دستهٔ '.$post->name.' در تهران نتورک؛ برای بررسی جزئیات، صفحهٔ هر مورد را ببینید.');
+        return ['description'=>$description,'url'=>$url,'title'=>clean(wp_get_document_title(),250),'site_name'=>clean(get_bloginfo('name'),120),'locale'=>get_locale(),'skip_description'=>false,'person'=>false,'image'=>social_image(0),'article'=>null,
+            'canonical'=>in_array($post->taxonomy,['category','post_tag'],true) ? $url : null];
+    }
+    if (!$post instanceof \WP_Post || !in_array($post->post_type,['page','post','product'],true)
+        || ($post->post_type !== 'page' && !$singular)
         || $post->post_status !== 'publish' || $post->post_password !== '') return [];
     $path = is_front_page() ? '/' : trim((string) get_page_uri($post->ID), '/');
     if ($path === 'sample-page') return [];
@@ -76,7 +91,7 @@ function model(): array {
     // The legacy theme owns this exact profile description; do not duplicate it.
     if ($legacy_profile_description) $description = $fallbacks[$path];
     $url = get_permalink($post->ID);
-    if (is_home() && !is_front_page() && (int) get_query_var('paged') > 1)
+    if ((is_home() || $shop) && !is_front_page() && (int) get_query_var('paged') > 1)
         $url = get_pagenum_link((int) get_query_var('paged'));
     if (!is_string($url) || $url === '') return [];
     $visible = wp_strip_all_tags((string) $post->post_content);
@@ -87,7 +102,32 @@ function model(): array {
         'locale' => get_locale(), 'skip_description' => $legacy_profile_description,
         'person' => $profile && str_contains($visible, 'امیررضا')
             && str_contains($visible, 'گل‌آور'),
+        'image'=>social_image($post->ID), 'canonical'=>null,
+        'article'=>editorial_schema($post,$url),
     ];
+}
+
+/** Native featured images are editable. A local brand poster is the fallback. */
+function social_image(int $id): array {
+    if ($id && function_exists('get_post_thumbnail_id')) {
+        $aid=(int)get_post_thumbnail_id($id);
+        $image=$aid ? wp_get_attachment_image_src($aid,'full') : false;
+        if ($image && str_starts_with($image[0],home_url('/'))) return [$image[0],(int)$image[1],(int)$image[2]];
+    }
+    if (function_exists('get_theme_file_path') && is_file(get_theme_file_path('assets/img/tehnet-og.png')))
+        return [get_theme_file_uri('assets/img/tehnet-og.png'),1200,630];
+    return [];
+}
+
+/** Only opted-in, visibly attributed articles. No invented review or test claims. */
+function editorial_schema(\WP_Post $post,string $url): ?array {
+    if (!function_exists('has_shortcode') || !has_shortcode($post->post_content,'tn_editorial_note')) return null;
+    if (!function_exists('get_post_time') || !function_exists('get_post_modified_time')) return null;
+    return ['@context'=>'https://schema.org','@type'=>'Article','@id'=>$url.'#article','mainEntityOfPage'=>$url,
+        'headline'=>clean(get_the_title($post),250),'inLanguage'=>'fa-IR',
+        'datePublished'=>get_post_time('c',true,$post),'dateModified'=>get_post_modified_time('c',true,$post),
+        'author'=>['@type'=>'Organization','name'=>'تهران نتورک','url'=>home_url('/about/')],
+        'publisher'=>['@id'=>home_url('/#localbusiness')]];
 }
 
 function render(): void {
@@ -100,6 +140,14 @@ function render(): void {
         'url'=>$data['url'], 'site_name'=>$data['site_name'], 'locale'=>$data['locale']] as $key=>$value) {
         echo '<meta property="og:' . esc_attr($key) . '" content="' . esc_attr($value) . '">' . "\n";
     }
+    if (!empty($data['canonical'])) echo '<link rel="canonical" href="'.esc_url($data['canonical']).'">'."\n";
+    if (!empty($data['image'])) {
+        foreach (['image'=>$data['image'][0],'image:width'=>$data['image'][1],'image:height'=>$data['image'][2],
+            'image:alt'=>$data['title']]as $key=>$value)
+            echo '<meta property="og:'.esc_attr($key).'" content="'.esc_attr((string)$value).'">'."\n";
+        echo '<meta name="twitter:card" content="summary_large_image">'."\n";
+    }
+    if (!empty($data['article'])) echo '<script type="application/ld+json" class="tehnet-article-schema">'.wp_json_encode($data['article'],JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_HEX_TAG|JSON_HEX_AMP|JSON_HEX_APOS|JSON_HEX_QUOT).'</script>'."\n";
     if (!$data['person']) return;
     $schema = [
         '@context'=>'https://schema.org', '@type'=>'ProfilePage',

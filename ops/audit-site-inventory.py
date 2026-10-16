@@ -1,7 +1,8 @@
 """Read-only native published URL/media inventory. No settings or content writes."""
 from pathlib import Path
-import datetime,json,shlex,subprocess
-root=Path(__file__).resolve().parents[1];out=root/'seo/audit-2026-10-16';out.mkdir(parents=True,exist_ok=True)
+import argparse,datetime,json,shlex,subprocess
+parser=argparse.ArgumentParser();parser.add_argument('--out',default='seo/audit-2026-10-16');args=parser.parse_args()
+root=Path(__file__).resolve().parents[1];out=root/args.out;out.mkdir(parents=True,exist_ok=True)
 php=r'''
 $types=get_post_types(['public'=>true],'names');unset($types['attachment']);$posts=[];
 foreach(get_posts(['post_type'=>array_values($types),'post_status'=>'publish','numberposts'=>-1,'orderby'=>'ID','order'=>'ASC'])as $p){

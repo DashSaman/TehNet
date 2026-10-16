@@ -132,6 +132,46 @@
         {
             "name": "registered only front-end head hook",
             "pass": true
+        },
+        {
+            "name": "public product gets editable description without fake offers",
+            "pass": true
+        },
+        {
+            "name": "product social image uses native full-size image dimensions",
+            "pass": true
+        },
+        {
+            "name": "private product metadata remains hidden",
+            "pass": true
+        },
+        {
+            "name": "blog category gets one missing canonical and description",
+            "pass": true
+        },
+        {
+            "name": "category pagination canonical points to its own page",
+            "pass": true
+        },
+        {
+            "name": "Woo product category canonical owner remains unchanged",
+            "pass": true
+        },
+        {
+            "name": "visible editorial note permits truthful Article dates",
+            "pass": true
+        },
+        {
+            "name": "article author does not expose account email or phone",
+            "pass": true
+        },
+        {
+            "name": "article attribution is not invented for unmarked content",
+            "pass": true
+        },
+        {
+            "name": "Woo shop archive gets description without duplicate canonical",
+            "pass": true
         }
     ]
 }

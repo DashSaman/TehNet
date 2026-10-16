@@ -1,0 +1,14 @@
+<p>وقتی تونل برقرار است ولی بعضی ارتباط‌ها کند یا ناپایدارند، MTU یکی از موارد قابل‌بررسی است؛ وجود چنین نشانه‌ای، علت را به‌تنهایی ثابت نمی‌کند. این ابزار فقط سربار پایهٔ پیام دادهٔ WireGuard را محاسبه می‌کند و تنظیمی روی روتر تغییر نمی‌دهد.</p>
+[tn_wireguard_mtu]
+<h2>چگونه از نتیجه استفاده کنیم؟</h2>
+<ol><li>MTU مؤثر مسیر بیرونی را با توجه به لینک و تجهیزات تعیین یا اندازه‌گیری کنید؛ عدد۱۵۰۰ را صرفاً از روی نوع کابل فرض نکنید.</li><li>نسخهٔ IP انتقال‌دهندهٔ تونل را انتخاب کنید. IPv4/IPv6 بیرونی با نوع آدرس‌های داخل تونل متفاوت است.</li><li>مقدار محاسباتی را نقطهٔ شروع بررسی در لاب بدانید؛ مسیر، encapsulationهای دیگر و رفتار تجهیزات را جدا آزمایش کنید.</li><li>پیش از تغییر شبکهٔ عملیاتی، راه بازیابی و دسترسی جایگزین داشته باشید. <a href="/learn/mikrotik/mtcna/routeros-winbox/">Safe Mode و نسخهٔ پشتیبان</a> محدودیت‌های خود را دارند.</li></ol>
+<h2>فرض‌ها و محدودیت‌ها</h2>
+<p>فرمول، IP بیرونی بدون option/extension header، UDP با سربار۸ بایت و پیام دادهٔ WireGuard با سربار پایه۳۲ بایت را در نظر می‌گیرد. padding، محدودیت IPv6 داخلی، تونل تو در تو، EoIP و سربار شبکهٔ زیرین نیاز بررسی مستقل دارند. اگر MTU واردشده از قبل MTU مؤثر مسیر است، سربار همان لایه را دوباره کم نکنید.</p>
+<h2>آزمون محاسبات؛ نه تست روتر</h2>
+<table><thead><tr><th>MTU مسیر</th><th>IP بیرونی</th><th>نتیجهٔ پایه</th></tr></thead><tbody><tr><td>۱۵۰۰</td><td>IPv4</td><td>۱۴۴۰</td></tr><tr><td>۱۵۰۰</td><td>IPv6</td><td>۱۴۲۰</td></tr><tr><td>۱۴۹۲</td><td>IPv4</td><td>۱۴۳۲</td></tr><tr><td>۱۴۹۲</td><td>IPv6</td><td>۱۴۱۲</td></tr></tbody></table>
+<p>ورودی غیرصحیح یا خارج از محدوده رد می‌شود. نسخهٔ مرورگر، Python و PHP با ورودی‌های یکسان آزموده می‌شوند. این‌ها نتیجهٔ آزمون محاسبات نرم‌افزارند؛ سرعت یا پایداری هیچ روتر یا شبکه‌ای با آن‌ها تضمین نشده است.</p>
+<p><a href="/wp-content/mu-plugins/tehnet-technical-resources/wireguard-mtu.py.txt" download="wireguard-mtu.py">دریافت کد Python برای استفادهٔ آفلاین</a> — اجرای نمونه: <code>python wireguard-mtu.py 1500 --outer-ip 4</code></p>
+<h2>منابع و ادامهٔ بررسی</h2>
+<ul><li><a href="https://www.wireguard.com/protocol/">ساختار رسمی پیام‌های WireGuard</a></li><li><a href="https://help.mikrotik.com/docs/spaces/ROS/pages/69664792/WireGuard">راهنمای WireGuard در RouterOS</a></li><li><a href="https://forum.mikrotik.com/t/mtu-optimization-on-vlan-over-eoip-over-wireguard-over-vlan-over-ethernet-site-to-site/265520">نمونهٔ گفت‌وگوی فنی دربارهٔ MTU در تونل‌های تو در تو</a></li></ul>
+<p>برای گزارش اشکال، ورودی، IP بیرونی، خروجی و شرح اختلاف را از <a href="/contact/">تماس با تهران نتورک</a> بفرستید؛ کلید خصوصی یا کانفیگ حساس ارسال نکنید.</p>
+[tn_editorial_note]

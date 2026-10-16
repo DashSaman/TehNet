@@ -1,3 +1,13 @@
 *.vcf text eol=crlf
 # Immutable native cleanup releases compare the CLI script bytes on replay.
 ops/replace-catalog-photo-attachments.php text eol=lf
+# Runtime/manifests are hash-verified across Windows and Linux releases.
+site/**/*.php text eol=lf
+site/**/*.js text eol=lf
+site/**/*.css text eol=lf
+site/**/*.json text eol=lf
+site/mu-plugins/tehnet-technical-resources/wireguard-mtu.py.txt text eol=lf
+content/remediation-2026-10-16/manifest.json text eol=lf
+# Preserve the exact upstream bytes recorded in PROVENANCE.json.
+site/plugins/tehnet-store/assets/vendor/model-viewer/model-viewer.min.js -text
+site/plugins/tehnet-store/assets/vendor/model-viewer/LICENSE -text

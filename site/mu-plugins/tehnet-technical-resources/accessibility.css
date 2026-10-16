@@ -1,0 +1,5 @@
+/* Legacy footer opacity reduced contrast only in the light palette. */
+html[data-theme="light"] .tn-visual .tn-footer-col a,
+html[data-theme="light"] .tn-visual .tn-footer-about p,
+html[data-theme="light"] .tn-visual .tn-footer-contact li,
+html[data-theme="light"] .tn-visual .tn-footer-bottom{opacity:1}

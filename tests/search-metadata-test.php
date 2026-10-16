@@ -10,6 +10,7 @@ class WP_Post {
     public string $post_excerpt = '';
     public string $post_content = '';
 }
+class WP_Term {public string $name='آموزش شبکه';public string $description='مرور آموزش شبکه و سناریوهای منتشرشده';public string $taxonomy='category';}
 $ctx = []; $hooks = [];
 function reset_context(): void {
     global $ctx;
@@ -26,6 +27,21 @@ function is_preview(){return $GLOBALS['ctx']['preview'];}
 function is_front_page(){return $GLOBALS['ctx']['front'];}
 function is_home(){return $GLOBALS['ctx']['home'];}
 function is_page(){return $GLOBALS['ctx']['page'];}
+function is_singular($types=[]){return $GLOBALS['ctx']['singular']??false;}
+function is_shop(){return $GLOBALS['ctx']['shop']??false;}
+function wc_get_page_id($key){return 9;}
+function is_category(){return ($GLOBALS['ctx']['taxonomy']??'')==='category';}
+function is_tag(){return ($GLOBALS['ctx']['taxonomy']??'')==='post_tag';}
+function is_tax($type){return ($GLOBALS['ctx']['taxonomy']??'')===$type;}
+function get_term_link($t){return 'https://tehnet.ir/category/network/';}
+function is_wp_error($x){return false;}
+function home_url($p='/'){return 'https://tehnet.ir'.$p;}
+function get_post_thumbnail_id($id){return $GLOBALS['ctx']['thumbnail']??0;}
+function wp_get_attachment_image_src($id,$size){return ['https://tehnet.ir/wp-content/uploads/reviewed.webp',1024,1024];}
+function has_shortcode($v,$tag){return str_contains($v,'['.$tag.']');}
+function get_post_time($f,$utc,$p){return '2026-09-23T00:00:00+00:00';}
+function get_post_modified_time($f,$utc,$p){return '2026-10-16T00:00:00+00:00';}
+function get_the_title($p){return 'مقالهٔ فنی با منبع';}
 function get_queried_object(){return $GLOBALS['ctx']['post'];}
 function get_post($id){return $GLOBALS['ctx']['post'];}
 function get_option($name,$default=false){return ['page_for_posts'=>69,'blog_public'=>0][$name]??$default;}
@@ -84,5 +100,18 @@ $ctx['profile_owner']=false;check('profile description available without legacy 
 $ctx['post']->post_content='<h1>شخص دیگر</h1>';check('renamed page does not get false Person schema',!str_contains(output(),'ProfilePage'));
 reset_context();$before=serialize($ctx);output();check('render does not write state',serialize($ctx)===$before&&get_option('blog_public')===0);
 check('registered only front-end head hook',count($hooks)===1&&$hooks[0][0]==='wp_head');
+reset_context();$ctx['front']=false;$ctx['page']=false;$ctx['singular']=true;$ctx['post']->post_type='product';$ctx['post']->post_excerpt='استعلام کالای TN-SN-17929؛ مدل نیازمند تطبیق';$ctx['thumbnail']=123;$out=output();
+check('public product gets editable description without fake offers',substr_count($out,'name="description"')===1&&!preg_match('/priceCurrency|Offer|aggregateRating/',$out));
+check('product social image uses native full-size image dimensions',str_contains($out,'reviewed.webp')&&str_contains($out,'og:image:width" content="1024'));
+$ctx['post']->post_status='private';check('private product metadata remains hidden',output()==='');
+reset_context();$ctx['front']=false;$ctx['page']=false;$ctx['taxonomy']='category';$ctx['post']=new WP_Term();$out=output();
+check('blog category gets one missing canonical and description',substr_count($out,'rel="canonical"')===1&&substr_count($out,'name="description"')===1);
+$ctx['paged']=2;check('category pagination canonical points to its own page',str_contains(output(),'rel="canonical" href="https://tehnet.ir/blog/page/2/"'));
+$ctx['taxonomy']='product_cat';$ctx['post']->taxonomy='product_cat';check('Woo product category canonical owner remains unchanged',!str_contains(output(),'rel="canonical"'));
+reset_context();$ctx['front']=false;$ctx['page']=false;$ctx['singular']=true;$ctx['post']->post_type='post';$ctx['post']->post_excerpt='متن فنی با مرجع رسمی';$ctx['post']->post_content='متن [tn_editorial_note]';$out=output();
+check('visible editorial note permits truthful Article dates',str_contains($out,'"@type":"Article"')&&str_contains($out,'dateModified'));
+check('article author does not expose account email or phone',!preg_match('/email|telephone|sameAs|credential/',$out));
+$ctx['post']->post_content='متن بدون یادداشت';check('article attribution is not invented for unmarked content',!str_contains(output(),'"@type":"Article"'));
+reset_context();$ctx['front']=false;$ctx['page']=false;$ctx['shop']=true;$ctx['path']='shop';$out=output();check('Woo shop archive gets description without duplicate canonical',str_contains($out,'فروشگاه تجهیزات شبکه')&&!str_contains($out,'rel="canonical"'));
 file_put_contents(__DIR__.'/../qa/search-metadata-unit.json',json_encode(['scope'=>'PHP unit tests with WP stubs; not integration/live proof','results'=>$results],JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE));
 $failed=count(array_filter($results,fn($r)=>!$r['pass']));echo 'CHECKS='.count($results).' FAILURES='.$failed."\n";exit($failed?1:0);

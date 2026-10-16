@@ -1,0 +1,32 @@
+<?php
+// Synthetic fixtures test authorization and media contracts, never product accuracy.
+define('ABSPATH',__DIR__);$dir=sys_get_temp_dir().'/tn-evidence-'.bin2hex(random_bytes(5));mkdir($dir);$meta=[];$allowed=true;$foreign=0;$count=0;
+function current_user_can(...$a){global $allowed;return $allowed;}function wp_unslash($v){return $v;}function wp_verify_nonce($v,$a){return $v==='valid';}function sanitize_text_field($v){return strip_tags($v);}function esc_url_raw($v){return filter_var($v,FILTER_VALIDATE_URL)?$v:'';}function wp_parse_url($v,$part){return parse_url($v,$part);}function get_current_user_id(){return 1;}function wp_json_encode($v){return json_encode($v);}
+function update_post_meta($id,$key,$v){global $meta;$meta[$key]=$v;}function add_post_meta(...$a){}function get_post_field($k,$id){global $foreign;return $id===$foreign?99:10;}function get_attached_file($id){global $dir;return $dir.'/'.$id.($id===1?'.glb':'.png');}function wp_get_upload_dir(){global $dir;return ['basedir'=>$dir];}function wp_attachment_is_image($id){return $id!==1;}function wp_get_attachment_url($id){return 'https://tehnet.ir/uploads/'.$id.'.glb';}function home_url($p){return 'https://tehnet.ir'.$p;}
+require __DIR__.'/../site/plugins/tehnet-store/includes/class-product-evidence.php';$s=new TehNet_Store_Product_Evidence();
+function check($v,$label){global $count;if(!$v)throw new RuntimeException($label);$count++;echo "PASS $label\n";}
+function glb($json){$b=json_encode($json);$b.=str_repeat(' ',(4-strlen($b)%4)%4);return 'glTF'.pack('VVVV',2,20+strlen($b),strlen($b),0x4E4F534A).$b;}
+$base=['asset'=>['version'=>'2.0'],'meshes'=>[['primitives'=>[]]],'nodes'=>[['name'=>'foil']],'animations'=>[['name'=>'Explode']]];file_put_contents($dir.'/1.glb',glb($base));
+try{
+ check(strlen($s::validate_glb($dir.'/1.glb')['sha256'])===64,'self-contained synthetic GLB accepted');
+ foreach(['external'=>['buffers'=>[['uri'=>'https://other.test/a.bin']]],'relative'=>['images'=>[['uri'=>'tex.png']]],'decoder'=>['extensionsUsed'=>['KHR_draco_mesh_compression']],'nested-decoder'=>['meshes'=>[['extensions'=>['EXT_meshopt_compression'=>[]]]]],'no-mesh'=>['meshes'=>[]]]as $label=>$change){file_put_contents($dir.'/bad.glb',glb(array_replace($base,$change)));$blocked=false;try{$s::validate_glb($dir.'/bad.glb');}catch(Throwable $e){$blocked=true;}check($blocked,$label.' rejected');}
+ file_put_contents($dir.'/bad.glb','not-a-model');$blocked=false;try{$s::validate_glb($dir.'/bad.glb');}catch(Throwable $e){$blocked=true;}check($blocked,'invalid binary rejected');
+ $_POST=['tn_product_evidence_nonce'=>'bad'];$s->save(10);check($meta===[],'nonce failure writes nothing');
+ $_POST=['tn_product_evidence_nonce'=>'valid','_tn_verified_mpn'=>'076561','_tn_identity_source'=>'https://manufacturer.test/076561','_tn_identity_reviewed'=>'yes','_tn_model_attachment_id'=>'1','_tn_model_mpn'=>'076561','_tn_model_source'=>'https://manufacturer.test/license','_tn_model_rights'=>'yes','_tn_model_reviewed'=>'yes'];
+ $allowed=false;$s->save(10);check($meta===[],'capability failure writes nothing');$allowed=true;
+ $s->save(10);check($meta['_tn_model_reviewed']==='yes'&&$meta['_tn_identity_reviewed']==='yes','exact reviewed identity and local model approved');
+ $p=new class{function get_id(){return 10;}function get_meta($k){global $meta;return $meta[$k]??'';}};check(count($s->model($p))===4,'approved model can render');
+ $parts=['mpn'=>'076561','animation'=>'Explode','parts'=>[['name'=>'Synthetic foil','node'=>'foil','description'=>'Synthetic policy fixture, not a product','material'=>'Fixture material','source'=>'https://manufacturer.test/fixture','target'=>[0,1,0],'measurements'=>[['label'=>'Synthetic thickness','value'=>12.5,'unit'=>'µm']]]]];
+ $_POST['_tn_parts_json']=json_encode($parts);$_POST['_tn_parts_reviewed']='yes';$s->save(10);check($meta['_tn_parts_reviewed']==='yes'&&isset($s->model($p)['parts']),'documented parts bound to exact model SHA and MPN');
+ foreach(['mpn','animation','node','source','unit','value','html','target','duplicate']as $case){$bad=$parts;switch($case){case'mpn':$bad['mpn']='OTHER';break;case'animation':$bad['animation']='Absent';break;case'node':$bad['parts'][0]['node']='NotInGLB';break;case'source':$bad['parts'][0]['source']='javascript:alert(1)';break;case'unit':$bad['parts'][0]['measurements'][0]['unit']='guessed';break;case'value':$bad['parts'][0]['measurements'][0]['value']=-1;break;case'html':$bad['parts'][0]['material']='<img src=x>';break;case'target':$bad['parts'][0]['target']=[0,'NaN',0];break;case'duplicate':$bad['parts'][]=$bad['parts'][0];break;}$blocked=false;try{$s::parts(json_encode($bad),'076561',$s::validate_glb($dir.'/1.glb'));}catch(Throwable $e){$blocked=true;}check($blocked,'parts '.$case.' mismatch rejected');}
+ unset($_POST['_tn_parts_reviewed']);$s->save(10);check($meta['_tn_parts_reviewed']===''&&!isset($s->model($p)['parts']),'parts are hidden without separate documentary approval');
+ $foreign=1;check($s->model($p)===[],'foreign product attachment blocked at render');$foreign=0;
+ $meta['_tn_model_mpn']='OTHER';check($s->model($p)===[],'model identity mismatch blocked');$meta['_tn_model_mpn']='076561';
+ file_put_contents($dir.'/1.glb',glb(array_replace($base,['extras'=>['changed'=>true]])));check($s->model($p)===[],'replaced model hash blocked');
+ $_POST['_tn_model_reviewed']='no';$s->save(10);check($meta['_tn_model_reviewed']==='','literal approval required');
+ $_POST['_tn_identity_source']='http://manufacturer.test/076561';$s->save(10);check($meta['_tn_identity_reviewed']==='','identity source requires HTTPS');
+ $_POST['_tn_identity_source']='https://manufacturer.test/076561';$_POST['_tn_spin_rights']='yes';$_POST['_tn_spin_reviewed']='yes';$_POST['_tn_spin_ids_input']=implode(',',range(2,13));foreach(range(2,13)as $id)file_put_contents($dir.'/'.$id.'.png','fixture-'.$id);$s->save(10);check($meta['_tn_spin_reviewed']==='yes','twelve distinct owned frames can be reviewed');
+ file_put_contents($dir.'/3.png','fixture-2');$s->save(10);check($meta['_tn_spin_reviewed']==='','identical file hashes cannot fake distinct frames');
+ check(!array_filter(array_keys($meta),fn($k)=>preg_match('/price|stock|sale_approved|source_key|erp/',$k)),'no commercial or source fields written');
+ echo "PRODUCT_EVIDENCE_CONTRACTS=$count PASSED\n";
+}finally{foreach(glob($dir.'/*')as $f)unlink($f);rmdir($dir);}

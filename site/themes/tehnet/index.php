@@ -5,6 +5,11 @@ $tn_blog_archive = is_home() && ! is_front_page();
 if ($tn_blog_archive) {
     echo '<header class="tn-section"><p class="tn-kicker">یادگیری، تجربه و فناوری</p><h1>بلاگ تهران نتورک</h1></header>';
 }
+elseif (is_category() || is_tag()) {
+    echo '<header class="tn-section"><p class="tn-kicker">آرشیو نوشته‌ها</p><h1>'.esc_html(single_term_title('',false)).'</h1>';
+    if (term_description()) echo '<div class="tn-archive-description">'.wp_kses_post(term_description()).'</div>';
+    echo '</header>';
+}
 
 
 if (have_posts()) {

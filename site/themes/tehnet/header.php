@@ -16,9 +16,9 @@ $tn_logo = file_exists(get_theme_file_path('assets/img/tehnet-logo.jpg'));
 <a class="tn-skip-link" href="#tn-main-content">رفتن به محتوای اصلی</a>
 <header class="tn-site-header">
     <div class="tn-container tn-header-inner">
-        <a class="tn-brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php echo esc_attr(get_bloginfo('name')); ?>">
+        <a class="tn-brand" href="<?php echo esc_url(home_url('/')); ?>">
             <?php if ($tn_logo) : ?>
-                <img class="tn-brand-logo" src="<?php echo esc_url(get_theme_file_uri('assets/img/tehnet-logo.jpg')); ?>" alt="<?php echo esc_attr(get_bloginfo('name')); ?>" width="48" height="48">
+                <img class="tn-brand-logo" src="<?php echo esc_url(get_theme_file_uri('assets/img/tehnet-logo.jpg')); ?>" alt="" width="48" height="48">
             <?php endif; ?>
             <span class="tn-brand-text">
                 <span class="tn-brand-name"><?php bloginfo('name'); ?></span>

@@ -1,0 +1,841 @@
+{
+  "schema": 1,
+  "operation": "approved-site-audit-remediation",
+  "posts": [
+    {
+      "id": 109,
+      "type": "page",
+      "url": "https://tehnet.ir/tn-checkout/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_title": "75ae16b422bbb6b1d83a4a41634ced698d01d900c39f17412c63530b59689c25"
+      },
+      "after": {
+        "post_excerpt": "تسویه حساب تهران نتورک؛ ثبت سفارش و پرداخت فقط پس از تأیید شرایط و فعال‌شدن مسیر مجاز انجام می‌شود.",
+        "post_title": "تسویه حساب"
+      }
+    },
+    {
+      "id": 110,
+      "type": "page",
+      "url": "https://tehnet.ir/tn-account/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_title": "1cb02504c2d07f6cbaf6c15faa94c76686f79d20484a7c458b801498139fe5e4"
+      },
+      "after": {
+        "post_excerpt": "حساب کاربری تهران نتورک؛ ورود و دسترسی به امکانات حساب و درخواست‌های مرتبط.",
+        "post_title": "حساب کاربری"
+      }
+    },
+    {
+      "id": 107,
+      "type": "page",
+      "url": "https://tehnet.ir/cart-2/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "post_excerpt": "سبد خرید تهران نتورک؛ اقلام کاتالوگ فعلی برای استعلام مدل، قیمت و موجودی ارائه می‌شوند."
+      }
+    },
+    {
+      "id": 82,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-18002/",
+      "before": {
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_excerpt": "استعلام سوکت شبکه Cat6 SFTP؛ کد تهران نتورک TN-SN-18002. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>سوکت شبکه Cat6 SFTP</strong> با کد <strong>TN-SN-18002</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این سوکت چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>برای انتخاب سوکت، نوع کابل، شیلد، قطر هادی و شیوهٔ نصب باید با مشخصات همان اتصال سازگار باشند. تصویر و نام دسته برای تأیید همهٔ این موارد کافی نیستند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>نوع محصول: سوکت شبکه (کانکتور RJ45)</li><!-- /wp:list-item --><!-- wp:list-item --><li>رده شبکه (Category): Cat6</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع شیلد: SFTP (شیلددار و فویل‌دار)</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع کانکتور: RJ45 - 8P8C</li><!-- /wp:list-item --><!-- wp:list-item --><li>جنس بدنه: پلی‌کربنات با روکش فلزی</li><!-- /wp:list-item --><!-- wp:list-item --><li>روش نصب: پرسی (با آچار شبکه)</li><!-- /wp:list-item --><!-- wp:list-item --><li>کاربردها: ساخت پچ‌کورد | دوربین مداربسته IP | شبکه LAN | سیستم‌های VoIP</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شماره فنی و تطبیق تصویر با همان کالای قابل‌تأمین هنوز نیازمند تأیید است.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-18002 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 83,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17991/",
+      "before": {
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_excerpt": "استعلام سوکت شبکه لگراند UTP Cat6 بسته ۱۰۰ عددی؛ کد تهران نتورک TN-SN-17991. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>سوکت شبکه لگراند UTP Cat6 بسته ۱۰۰ عددی</strong> با کد <strong>TN-SN-17991</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این سوکت چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>برای انتخاب سوکت، نوع کابل، شیلد، قطر هادی و شیوهٔ نصب باید با مشخصات همان اتصال سازگار باشند. تصویر و نام دسته برای تأیید همهٔ این موارد کافی نیستند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>جزئیات فنی قابل‌اتکای بیشتری در ویژگی‌های ساختاریافتهٔ منبع ثبت نشده است؛ عبارت‌های عنوان باید با مدرک همان مدل بررسی شوند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شماره فنی و تطبیق تصویر با همان کالای قابل‌تأمین هنوز نیازمند تأیید است.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17991 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 84,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17989/",
+      "before": {
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_excerpt": "استعلام پریز برق قرمز لگراند — نیازمند تأیید مدل؛ کد تهران نتورک TN-SN-17989. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>پریز برق قرمز لگراند — نیازمند تأیید مدل</strong> با کد <strong>TN-SN-17989</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این پریز چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>در انتخاب پریز، شماره فنی، رنگ، ابعاد ماژول، استاندارد اتصال و مشخصات درج‌شده روی خود قطعه اهمیت دارند. مشخصات الکتریکی را از ظاهر تصویر حدس نزنید.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>جزئیات فنی قابل‌اتکای بیشتری در ویژگی‌های ساختاریافتهٔ منبع ثبت نشده است؛ عبارت‌های عنوان باید با مدرک همان مدل بررسی شوند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شمارهٔ درج‌شده در عنوان منبع با شناسهٔ اعلامی آن یکسان نیست؛ شماره فنی روی خود قطعه باید تطبیق داده شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17989 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 85,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17982/",
+      "before": {
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_excerpt": "استعلام پریز برق سفید لگراند — نیازمند تأیید مدل؛ کد تهران نتورک TN-SN-17982. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>پریز برق سفید لگراند — نیازمند تأیید مدل</strong> با کد <strong>TN-SN-17982</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این پریز چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>در انتخاب پریز، شماره فنی، رنگ، ابعاد ماژول، استاندارد اتصال و مشخصات درج‌شده روی خود قطعه اهمیت دارند. مشخصات الکتریکی را از ظاهر تصویر حدس نزنید.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>جزئیات فنی قابل‌اتکای بیشتری در ویژگی‌های ساختاریافتهٔ منبع ثبت نشده است؛ عبارت‌های عنوان باید با مدرک همان مدل بررسی شوند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شماره فنی و تطبیق تصویر با همان کالای قابل‌تأمین هنوز نیازمند تأیید است.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17982 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 86,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17941/",
+      "before": {
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_excerpt": "استعلام ماژول کیستون پهن — نوع پورت نیازمند تأیید؛ کد تهران نتورک TN-SN-17941. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>ماژول کیستون پهن — نوع پورت نیازمند تأیید</strong> با کد <strong>TN-SN-17941</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این کیستون چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>پیش از انتخاب کیستون، نوع پورت، پهن یا باریک‌بودن ماژول، نوع شیلد و سازگاری با قاب و کابل را بررسی کنید. شماره فنی، مبنای تطبیق نهایی است.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>برند: Legrand</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع شیلد: UTP</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع کانکتور: RJ45</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع ماژول: پهن(2ماژول)</li><!-- /wp:list-item --><!-- wp:list-item --><li>کشور سازنده: وارداتی</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع محصول: کیستون تلفن</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>دسته‌بندی تلفن و عبارت Cat6 در دادهٔ منبع کنار هم آمده‌اند؛ نوع پورت RJ11/RJ45 را پیش از انتخاب مشخص کنید.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17941 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 87,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17935/",
+      "before": {
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_excerpt": "استعلام ماژول کیستون باریک — نوع پورت نیازمند تأیید؛ کد تهران نتورک TN-SN-17935. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>ماژول کیستون باریک — نوع پورت نیازمند تأیید</strong> با کد <strong>TN-SN-17935</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این کیستون چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>پیش از انتخاب کیستون، نوع پورت، پهن یا باریک‌بودن ماژول، نوع شیلد و سازگاری با قاب و کابل را بررسی کنید. شماره فنی، مبنای تطبیق نهایی است.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>نوع محصول: کیستون تلفن</li><!-- /wp:list-item --><!-- wp:list-item --><li>برند: Legrand</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع شیلد: UTP</li><!-- /wp:list-item --><!-- wp:list-item --><li>رده شبکه: Cat6</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>عنوان تلفن و عبارت Cat6 نیاز به بررسی دارند؛ تصویر و ابعاد ماژول باید با شماره فنی همان قطعه تطبیق یابند.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17935 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 88,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17929/",
+      "before": {
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_excerpt": "استعلام کیستون شبکه لگراند Cat6 UTP باریک؛ کد تهران نتورک TN-SN-17929. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>کیستون شبکه لگراند Cat6 UTP باریک</strong> با کد <strong>TN-SN-17929</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این کیستون چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>پیش از انتخاب کیستون، نوع پورت، پهن یا باریک‌بودن ماژول، نوع شیلد و سازگاری با قاب و کابل را بررسی کنید. شماره فنی، مبنای تطبیق نهایی است.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>نوع محصول: کیستون شبکه</li><!-- /wp:list-item --><!-- wp:list-item --><li>برند: Legrand</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع شیلد: UTP</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>در تصویر جعبه، نوشتهٔ076561 دیده می‌شود؛ این مشاهده به‌تنهایی تطبیق جعبه و قطعهٔ قابل‌تأمین را ثابت نمی‌کند.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17929 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 89,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17927/",
+      "before": {
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_excerpt": "استعلام کیستون پهن UTP شبکه؛ کد تهران نتورک TN-SN-17927. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>کیستون پهن UTP شبکه</strong> با کد <strong>TN-SN-17927</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این کیستون چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>پیش از انتخاب کیستون، نوع پورت، پهن یا باریک‌بودن ماژول، نوع شیلد و سازگاری با قاب و کابل را بررسی کنید. شماره فنی، مبنای تطبیق نهایی است.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>جزئیات فنی قابل‌اتکای بیشتری در ویژگی‌های ساختاریافتهٔ منبع ثبت نشده است؛ عبارت‌های عنوان باید با مدرک همان مدل بررسی شوند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شماره فنی و تطبیق تصویر با همان کالای قابل‌تأمین هنوز نیازمند تأیید است.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17927 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 90,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17920/",
+      "before": {
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_excerpt": "استعلام کیستون شبکه لگراند Cat6 SFTP باریک؛ کد تهران نتورک TN-SN-17920. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>کیستون شبکه لگراند Cat6 SFTP باریک</strong> با کد <strong>TN-SN-17920</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این کیستون چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>پیش از انتخاب کیستون، نوع پورت، پهن یا باریک‌بودن ماژول، نوع شیلد و سازگاری با قاب و کابل را بررسی کنید. شماره فنی، مبنای تطبیق نهایی است.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>نوع محصول: کیستون شبکه</li><!-- /wp:list-item --><!-- wp:list-item --><li>برند: Legrand</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع ماژول: باریک</li><!-- /wp:list-item --><!-- wp:list-item --><li>رده شبکه: Cat6</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شماره فنی و تطبیق تصویر با همان کالای قابل‌تأمین هنوز نیازمند تأیید است.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17920 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 91,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17888/",
+      "before": {
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_excerpt": "استعلام کیستون شبکه لگراند Cat6 SFTP پهن؛ کد تهران نتورک TN-SN-17888. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>کیستون شبکه لگراند Cat6 SFTP پهن</strong> با کد <strong>TN-SN-17888</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این کیستون چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>پیش از انتخاب کیستون، نوع پورت، پهن یا باریک‌بودن ماژول، نوع شیلد و سازگاری با قاب و کابل را بررسی کنید. شماره فنی، مبنای تطبیق نهایی است.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>رده کابل: Cat6</li><!-- /wp:list-item --><!-- wp:list-item --><li>برند: Legrand</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع شیلد: STP</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع ماژول: پهن</li><!-- /wp:list-item --><!-- wp:list-item --><li>کشور سازنده: وارداتی</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>عنوان SFTP و ویژگی اعلامی STP یکسان نیستند؛ نوع شیلد را با دیتاشیت و قطعه تطبیق دهید.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17888 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 92,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17873/",
+      "before": {
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_excerpt": "استعلام کابل شبکه نگزنس LSZH Cat6 SFTP اوت دور قرقره 305 متری (Nexans Outdoor)؛ کد تهران نتورک TN-SN-17873. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>کابل شبکه نگزنس LSZH Cat6 SFTP اوت دور قرقره 305 متری (Nexans Outdoor)</strong> با کد <strong>TN-SN-17873</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این کابل چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>برای انتخاب کابل، محیط نصب، شیلد، جنس روکش، متراژ و نوع اتصال ابتدا با نیاز پروژه تطبیق داده شوند. نام Cat6 به‌تنهایی نتیجهٔ تست مسیر را ثابت نمی‌کند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>رده کابل: Cat6</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع محصول: کابل شبکه</li><!-- /wp:list-item --><!-- wp:list-item --><li>کاربری محیطی: Outdoor</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع شیلد: SFTP</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع روکش: PVC</li><!-- /wp:list-item --><!-- wp:list-item --><li>تعداد زوج: 4</li><!-- /wp:list-item --><!-- wp:list-item --><li>طول: 305</li><!-- /wp:list-item --><!-- wp:list-item --><li>استانداردها: تست چنل</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>در عنوان منبع LSZH و در ویژگی آن PVC ثبت شده است؛ نوع روکش و مدرک همان قرقره باید روشن شود. ادعای Channel، Permanent یا Fluke بدون گزارش قابل‌انتساب به همان کالا، گواه عملکرد محسوب نمی‌شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17873 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 93,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17871/",
+      "before": {
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_excerpt": "استعلام کابل شبکه  InDoor Cat6 SFTP روکش PVC حلقه 500 متری — برند نیازمند تأیید؛ کد تهران نتورک TN-SN-17871. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>کابل شبکه  InDoor Cat6 SFTP روکش PVC حلقه 500 متری — برند نیازمند تأیید</strong> با کد <strong>TN-SN-17871</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این کابل چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>برای انتخاب کابل، محیط نصب، شیلد، جنس روکش، متراژ و نوع اتصال ابتدا با نیاز پروژه تطبیق داده شوند. نام Cat6 به‌تنهایی نتیجهٔ تست مسیر را ثابت نمی‌کند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>رده کابل: Cat6</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع محصول: کابل شبکه</li><!-- /wp:list-item --><!-- wp:list-item --><li>کاربری محیطی: Indoor</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع شیلد: SFTP</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع روکش: PVC</li><!-- /wp:list-item --><!-- wp:list-item --><li>تعداد زوج: 4</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شماره فنی و تطبیق تصویر با همان کالای قابل‌تأمین هنوز نیازمند تأیید است. برند در بخش‌های منبع یکسان نیست؛ نام سازنده پیش از استعلام نهایی باید روشن شود. ادعای Channel، Permanent یا Fluke بدون گزارش قابل‌انتساب به همان کالا، گواه عملکرد محسوب نمی‌شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17871 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 94,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17868/",
+      "before": {
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_excerpt": "استعلام کابل شبکه  Cat6 SFTP روکش PVC حلقه 500 متری — برند نیازمند تأیید؛ کد تهران نتورک TN-SN-17868. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>کابل شبکه  Cat6 SFTP روکش PVC حلقه 500 متری — برند نیازمند تأیید</strong> با کد <strong>TN-SN-17868</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این کابل چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>برای انتخاب کابل، محیط نصب، شیلد، جنس روکش، متراژ و نوع اتصال ابتدا با نیاز پروژه تطبیق داده شوند. نام Cat6 به‌تنهایی نتیجهٔ تست مسیر را ثابت نمی‌کند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>رده کابل: Cat6</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع محصول: کابل شبکه</li><!-- /wp:list-item --><!-- wp:list-item --><li>کاربری محیطی: Indoor</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع شیلد: SFTP</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع روکش: PVC</li><!-- /wp:list-item --><!-- wp:list-item --><li>تعداد زوج: 4</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شماره فنی و تطبیق تصویر با همان کالای قابل‌تأمین هنوز نیازمند تأیید است. برند در بخش‌های منبع یکسان نیست؛ نام سازنده پیش از استعلام نهایی باید روشن شود. ادعای Channel، Permanent یا Fluke بدون گزارش قابل‌انتساب به همان کالا، گواه عملکرد محسوب نمی‌شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17868 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 95,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17866/",
+      "before": {
+        "post_title": "49c99cc05121f870153c95c41ba6c5bfcb0e75bae17280f6c94677971482dc94",
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_title": "کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر — TN-SN-17866",
+        "post_excerpt": "استعلام کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر؛ کد تهران نتورک TN-SN-17866. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر</strong> با کد <strong>TN-SN-17866</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این کابل چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>برای انتخاب کابل، محیط نصب، شیلد، جنس روکش، متراژ و نوع اتصال ابتدا با نیاز پروژه تطبیق داده شوند. نام Cat6 به‌تنهایی نتیجهٔ تست مسیر را ثابت نمی‌کند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>رده کابل: Cat6</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع محصول: کابل شبکه</li><!-- /wp:list-item --><!-- wp:list-item --><li>کاربری محیطی: Indoor</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع شیلد: SFTP</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع روکش: PVC</li><!-- /wp:list-item --><!-- wp:list-item --><li>تعداد زوج: 4</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شماره فنی و تطبیق تصویر با همان کالای قابل‌تأمین هنوز نیازمند تأیید است. ادعای Channel، Permanent یا Fluke بدون گزارش قابل‌انتساب به همان کالا، گواه عملکرد محسوب نمی‌شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17866 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 96,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17863/",
+      "before": {
+        "post_title": "49c99cc05121f870153c95c41ba6c5bfcb0e75bae17280f6c94677971482dc94",
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_title": "کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر — TN-SN-17863",
+        "post_excerpt": "استعلام کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر؛ کد تهران نتورک TN-SN-17863. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر</strong> با کد <strong>TN-SN-17863</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این کابل چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>برای انتخاب کابل، محیط نصب، شیلد، جنس روکش، متراژ و نوع اتصال ابتدا با نیاز پروژه تطبیق داده شوند. نام Cat6 به‌تنهایی نتیجهٔ تست مسیر را ثابت نمی‌کند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>رده کابل: Cat6</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع محصول: کابل شبکه</li><!-- /wp:list-item --><!-- wp:list-item --><li>کاربری محیطی: Indoor</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع شیلد: SFTP</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع روکش: PVC</li><!-- /wp:list-item --><!-- wp:list-item --><li>تعداد زوج: 4</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شماره فنی و تطبیق تصویر با همان کالای قابل‌تأمین هنوز نیازمند تأیید است. ادعای Channel، Permanent یا Fluke بدون گزارش قابل‌انتساب به همان کالا، گواه عملکرد محسوب نمی‌شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17863 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 97,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17860/",
+      "before": {
+        "post_title": "55fd9998e6230da44629eca5cdcce5ab00def610fb368f82e75089ed72f2dff0",
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_title": "کابل شبکه  Cat6 UTP روکش PVC حلقه 305 متری — برند نیازمند تأیید — TN-SN-17860",
+        "post_excerpt": "استعلام کابل شبکه  Cat6 UTP روکش PVC حلقه 305 متری — برند نیازمند تأیید؛ کد تهران نتورک TN-SN-17860. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>کابل شبکه  Cat6 UTP روکش PVC حلقه 305 متری — برند نیازمند تأیید</strong> با کد <strong>TN-SN-17860</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این کابل چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>برای انتخاب کابل، محیط نصب، شیلد، جنس روکش، متراژ و نوع اتصال ابتدا با نیاز پروژه تطبیق داده شوند. نام Cat6 به‌تنهایی نتیجهٔ تست مسیر را ثابت نمی‌کند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>رده کابل: Cat6</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع محصول: کابل شبکه</li><!-- /wp:list-item --><!-- wp:list-item --><li>کاربری محیطی: Indoor</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع شیلد: UTP</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع روکش: PVC</li><!-- /wp:list-item --><!-- wp:list-item --><li>تعداد زوج: 4</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شماره فنی و تطبیق تصویر با همان کالای قابل‌تأمین هنوز نیازمند تأیید است. برند در بخش‌های منبع یکسان نیست؛ نام سازنده پیش از استعلام نهایی باید روشن شود. ادعای Channel، Permanent یا Fluke بدون گزارش قابل‌انتساب به همان کالا، گواه عملکرد محسوب نمی‌شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17860 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 98,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17857/",
+      "before": {
+        "post_title": "55fd9998e6230da44629eca5cdcce5ab00def610fb368f82e75089ed72f2dff0",
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_title": "کابل شبکه  Cat6 UTP روکش PVC حلقه 305 متری — برند نیازمند تأیید — TN-SN-17857",
+        "post_excerpt": "استعلام کابل شبکه  Cat6 UTP روکش PVC حلقه 305 متری — برند نیازمند تأیید؛ کد تهران نتورک TN-SN-17857. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>کابل شبکه  Cat6 UTP روکش PVC حلقه 305 متری — برند نیازمند تأیید</strong> با کد <strong>TN-SN-17857</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این کابل چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>برای انتخاب کابل، محیط نصب، شیلد، جنس روکش، متراژ و نوع اتصال ابتدا با نیاز پروژه تطبیق داده شوند. نام Cat6 به‌تنهایی نتیجهٔ تست مسیر را ثابت نمی‌کند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>رده کابل: Cat6</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع محصول: کابل شبکه</li><!-- /wp:list-item --><!-- wp:list-item --><li>کاربری محیطی: Indoor</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع شیلد: UTP</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع روکش: PVC</li><!-- /wp:list-item --><!-- wp:list-item --><li>تعداد زوج: 4</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شماره فنی و تطبیق تصویر با همان کالای قابل‌تأمین هنوز نیازمند تأیید است. برند در بخش‌های منبع یکسان نیست؛ نام سازنده پیش از استعلام نهایی باید روشن شود. ادعای Channel، Permanent یا Fluke بدون گزارش قابل‌انتساب به همان کالا، گواه عملکرد محسوب نمی‌شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17857 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 99,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17855/",
+      "before": {
+        "post_title": "1e9915914f979b90cbd28729721d797c70315bd12fae5b88b72e5369b6697aa9",
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_title": "کابل شبکه لگراند Cat6 UTP روکش PVC حلقه 305 متری — TN-SN-17855",
+        "post_excerpt": "استعلام کابل شبکه لگراند Cat6 UTP روکش PVC حلقه 305 متری؛ کد تهران نتورک TN-SN-17855. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>کابل شبکه لگراند Cat6 UTP روکش PVC حلقه 305 متری</strong> با کد <strong>TN-SN-17855</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این کابل چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>برای انتخاب کابل، محیط نصب، شیلد، جنس روکش، متراژ و نوع اتصال ابتدا با نیاز پروژه تطبیق داده شوند. نام Cat6 به‌تنهایی نتیجهٔ تست مسیر را ثابت نمی‌کند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>رده کابل: Cat6</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع محصول: کابل شبکه</li><!-- /wp:list-item --><!-- wp:list-item --><li>کاربری محیطی: Indoor</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع شیلد: UTP</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع روکش: PVC</li><!-- /wp:list-item --><!-- wp:list-item --><li>تعداد زوج: 4</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شماره فنی و تطبیق تصویر با همان کالای قابل‌تأمین هنوز نیازمند تأیید است. ادعای Channel، Permanent یا Fluke بدون گزارش قابل‌انتساب به همان کالا، گواه عملکرد محسوب نمی‌شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17855 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 100,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17851/",
+      "before": {
+        "post_title": "1e9915914f979b90cbd28729721d797c70315bd12fae5b88b72e5369b6697aa9",
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_title": "کابل شبکه لگراند Cat6 UTP روکش PVC حلقه 305 متری — TN-SN-17851",
+        "post_excerpt": "استعلام کابل شبکه لگراند Cat6 UTP روکش PVC حلقه 305 متری؛ کد تهران نتورک TN-SN-17851. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>کابل شبکه لگراند Cat6 UTP روکش PVC حلقه 305 متری</strong> با کد <strong>TN-SN-17851</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این کابل چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>برای انتخاب کابل، محیط نصب، شیلد، جنس روکش، متراژ و نوع اتصال ابتدا با نیاز پروژه تطبیق داده شوند. نام Cat6 به‌تنهایی نتیجهٔ تست مسیر را ثابت نمی‌کند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>رده کابل: Cat6</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع محصول: کابل شبکه</li><!-- /wp:list-item --><!-- wp:list-item --><li>کاربری محیطی: Indoor</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع شیلد: UTP</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع روکش: PVC</li><!-- /wp:list-item --><!-- wp:list-item --><li>تعداد زوج: 4</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>عنوان اولیهٔ منبع دارای عبارت مبهم052 است؛ آن را شماره فنی معتبر یا ویژگی فیزیکی فرض نکنید. ادعای Channel، Permanent یا Fluke بدون گزارش قابل‌انتساب به همان کالا، گواه عملکرد محسوب نمی‌شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17851 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 101,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17831/",
+      "before": {
+        "post_title": "c40d5d2653f7aa5a31fb99aad32d39f8f07df9ac606075eda7e635dde5b234c6",
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_title": "کابل شبکه  Cat6 SFTP LSZH Indoor 500m — برند نیازمند تأیید — TN-SN-17831",
+        "post_excerpt": "استعلام کابل شبکه  Cat6 SFTP LSZH Indoor 500m — برند نیازمند تأیید؛ کد تهران نتورک TN-SN-17831. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>کابل شبکه  Cat6 SFTP LSZH Indoor 500m — برند نیازمند تأیید</strong> با کد <strong>TN-SN-17831</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این کابل چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>برای انتخاب کابل، محیط نصب، شیلد، جنس روکش، متراژ و نوع اتصال ابتدا با نیاز پروژه تطبیق داده شوند. نام Cat6 به‌تنهایی نتیجهٔ تست مسیر را ثابت نمی‌کند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>رده کابل: Cat6</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع محصول: کابل شبکه</li><!-- /wp:list-item --><!-- wp:list-item --><li>کاربری محیطی: Indoor</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع شیلد: SFTP</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع روکش: LSZH</li><!-- /wp:list-item --><!-- wp:list-item --><li>تعداد زوج: 4</li><!-- /wp:list-item --><!-- wp:list-item --><li>طول: 500</li><!-- /wp:list-item --><!-- wp:list-item --><li>استانداردها: تست چنل</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شماره فنی و تطبیق تصویر با همان کالای قابل‌تأمین هنوز نیازمند تأیید است. برند در بخش‌های منبع یکسان نیست؛ نام سازنده پیش از استعلام نهایی باید روشن شود. ادعای Channel، Permanent یا Fluke بدون گزارش قابل‌انتساب به همان کالا، گواه عملکرد محسوب نمی‌شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17831 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 102,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17829/",
+      "before": {
+        "post_title": "c40d5d2653f7aa5a31fb99aad32d39f8f07df9ac606075eda7e635dde5b234c6",
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_title": "کابل شبکه  Cat6 SFTP LSZH Indoor 500m — برند نیازمند تأیید — TN-SN-17829",
+        "post_excerpt": "استعلام کابل شبکه  Cat6 SFTP LSZH Indoor 500m — برند نیازمند تأیید؛ کد تهران نتورک TN-SN-17829. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>کابل شبکه  Cat6 SFTP LSZH Indoor 500m — برند نیازمند تأیید</strong> با کد <strong>TN-SN-17829</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این کابل چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>برای انتخاب کابل، محیط نصب، شیلد، جنس روکش، متراژ و نوع اتصال ابتدا با نیاز پروژه تطبیق داده شوند. نام Cat6 به‌تنهایی نتیجهٔ تست مسیر را ثابت نمی‌کند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>رده کابل: Cat6</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع محصول: کابل شبکه</li><!-- /wp:list-item --><!-- wp:list-item --><li>کاربری محیطی: Indoor</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع شیلد: SFTP</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع روکش: LSZH</li><!-- /wp:list-item --><!-- wp:list-item --><li>تعداد زوج: 4</li><!-- /wp:list-item --><!-- wp:list-item --><li>طول: 500</li><!-- /wp:list-item --><!-- wp:list-item --><li>استانداردها: تست چنل</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شماره فنی و تطبیق تصویر با همان کالای قابل‌تأمین هنوز نیازمند تأیید است. برند در بخش‌های منبع یکسان نیست؛ نام سازنده پیش از استعلام نهایی باید روشن شود. ادعای Channel، Permanent یا Fluke بدون گزارش قابل‌انتساب به همان کالا، گواه عملکرد محسوب نمی‌شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17829 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 103,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17827/",
+      "before": {
+        "post_title": "f3a703961b4d05a103ae7b83cf4e5ba887602b4955108d412e123793e6265ead",
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_title": "کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m — TN-SN-17827",
+        "post_excerpt": "استعلام کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m؛ کد تهران نتورک TN-SN-17827. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m</strong> با کد <strong>TN-SN-17827</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این کابل چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>برای انتخاب کابل، محیط نصب، شیلد، جنس روکش، متراژ و نوع اتصال ابتدا با نیاز پروژه تطبیق داده شوند. نام Cat6 به‌تنهایی نتیجهٔ تست مسیر را ثابت نمی‌کند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>رده کابل: Cat6</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع محصول: کابل شبکه</li><!-- /wp:list-item --><!-- wp:list-item --><li>کاربری محیطی: Indoor</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع شیلد: SFTP</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع روکش: LSZH</li><!-- /wp:list-item --><!-- wp:list-item --><li>تعداد زوج: 4</li><!-- /wp:list-item --><!-- wp:list-item --><li>طول: 500</li><!-- /wp:list-item --><!-- wp:list-item --><li>استانداردها: تست چنل</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شماره فنی و تطبیق تصویر با همان کالای قابل‌تأمین هنوز نیازمند تأیید است. ادعای Channel، Permanent یا Fluke بدون گزارش قابل‌انتساب به همان کالا، گواه عملکرد محسوب نمی‌شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17827 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 104,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-17824/",
+      "before": {
+        "post_title": "c93da93bbdf99db0bbbf45bb5990a0cd9db00164886a048c3bed93343e381e09",
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_title": "کابل شبکه نگزنس Cat6 SFTP PVC Outdoor 305m — TN-SN-17824",
+        "post_excerpt": "استعلام کابل شبکه نگزنس Cat6 SFTP PVC Outdoor 305m؛ کد تهران نتورک TN-SN-17824. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>کابل شبکه نگزنس Cat6 SFTP PVC Outdoor 305m</strong> با کد <strong>TN-SN-17824</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این کابل چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>برای انتخاب کابل، محیط نصب، شیلد، جنس روکش، متراژ و نوع اتصال ابتدا با نیاز پروژه تطبیق داده شوند. نام Cat6 به‌تنهایی نتیجهٔ تست مسیر را ثابت نمی‌کند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>رده کابل: Cat6</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع محصول: کابل شبکه</li><!-- /wp:list-item --><!-- wp:list-item --><li>کاربری محیطی: Outdoor</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع شیلد: SFTP</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع روکش: PVC</li><!-- /wp:list-item --><!-- wp:list-item --><li>تعداد زوج: 4</li><!-- /wp:list-item --><!-- wp:list-item --><li>طول: 305</li><!-- /wp:list-item --><!-- wp:list-item --><li>استانداردها: تست چنل</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شماره فنی و تطبیق تصویر با همان کالای قابل‌تأمین هنوز نیازمند تأیید است. ادعای Channel، Permanent یا Fluke بدون گزارش قابل‌انتساب به همان کالا، گواه عملکرد محسوب نمی‌شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-17824 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 105,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-16585/",
+      "before": {
+        "post_title": "f3a703961b4d05a103ae7b83cf4e5ba887602b4955108d412e123793e6265ead",
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_title": "کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m — TN-SN-16585",
+        "post_excerpt": "استعلام کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m؛ کد تهران نتورک TN-SN-16585. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m</strong> با کد <strong>TN-SN-16585</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این کابل چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>برای انتخاب کابل، محیط نصب، شیلد، جنس روکش، متراژ و نوع اتصال ابتدا با نیاز پروژه تطبیق داده شوند. نام Cat6 به‌تنهایی نتیجهٔ تست مسیر را ثابت نمی‌کند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>رده کابل: Cat6</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع محصول: کابل شبکه</li><!-- /wp:list-item --><!-- wp:list-item --><li>کاربری محیطی: Indoor</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع شیلد: SFTP</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع روکش: LSZH</li><!-- /wp:list-item --><!-- wp:list-item --><li>تعداد زوج: 4</li><!-- /wp:list-item --><!-- wp:list-item --><li>طول: 500</li><!-- /wp:list-item --><!-- wp:list-item --><li>استانداردها: تست فلوک</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شماره فنی و تطبیق تصویر با همان کالای قابل‌تأمین هنوز نیازمند تأیید است. ادعای Channel، Permanent یا Fluke بدون گزارش قابل‌انتساب به همان کالا، گواه عملکرد محسوب نمی‌شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-16585 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 106,
+      "type": "product",
+      "url": "https://tehnet.ir/product/tn-sn-16584/",
+      "before": {
+        "post_title": "c93da93bbdf99db0bbbf45bb5990a0cd9db00164886a048c3bed93343e381e09",
+        "post_excerpt": "8c56bf56b53991764b3e563b379535843eb8c36b00207f603b7bd60680653ea1",
+        "post_content": "8bc5255a245f6e70115296ffa560eb6407158188e8d48578ae688b03ae1e4e88"
+      },
+      "after": {
+        "post_title": "کابل شبکه نگزنس Cat6 SFTP PVC Outdoor 305m — TN-SN-16584",
+        "post_excerpt": "استعلام کابل شبکه نگزنس Cat6 SFTP PVC Outdoor 305m؛ کد تهران نتورک TN-SN-16584. مدل، واحد فروش، موجودی و قیمت نهایی پیش از سفارش تطبیق داده می‌شوند.",
+        "post_content": "<!-- wp:paragraph --><p>این رکورد کاتالوگ برای بررسی و استعلام <strong>کابل شبکه نگزنس Cat6 SFTP PVC Outdoor 305m</strong> با کد <strong>TN-SN-16584</strong> است. کد تهران نتورک، شماره فنی سازنده نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">در انتخاب این کابل چه چیزهایی را بررسی کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>برای انتخاب کابل، محیط نصب، شیلد، جنس روکش، متراژ و نوع اتصال ابتدا با نیاز پروژه تطبیق داده شوند. نام Cat6 به‌تنهایی نتیجهٔ تست مسیر را ثابت نمی‌کند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اطلاعات اعلامی منبع؛ نیازمند تطبیق</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>رده کابل: Cat6</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع محصول: کابل شبکه</li><!-- /wp:list-item --><!-- wp:list-item --><li>کاربری محیطی: Outdoor</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع شیلد: SFTP</li><!-- /wp:list-item --><!-- wp:list-item --><li>نوع روکش: PVC</li><!-- /wp:list-item --><!-- wp:list-item --><li>تعداد زوج: 4</li><!-- /wp:list-item --><!-- wp:list-item --><li>طول: 305</li><!-- /wp:list-item --><!-- wp:list-item --><li>استانداردها: تست چنل</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مواردی که قبل از سفارش باید روشن شوند</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شماره فنی و تطبیق تصویر با همان کالای قابل‌تأمین هنوز نیازمند تأیید است. ادعای Channel، Permanent یا Fluke بدون گزارش قابل‌انتساب به همان کالا، گواه عملکرد محسوب نمی‌شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>واحد فروش، محتویات بسته، شرایط ضمانت و ارسال، موجودی و قیمت نهایی در استعلام تهران نتورک مشخص می‌شوند. تصویر کاتالوگ، اعلام موجودی فیزیکی یا اثبات اصالت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای پیگیری این قلم، کد TN-SN-16584 و شماره فنی موردنظر را اعلام کنید. <a href=\"/technical-methodology/\">روش بررسی مشخصات و تصاویر</a> · <a href=\"/contact/\">تماس برای استعلام</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 80,
+      "type": "page",
+      "url": "https://tehnet.ir/amirreza-golavar/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "post_excerpt": "رزومه امیررضا گل‌آور؛ شبکه، زیرساخت، پشتیبانی فناوری اطلاعات و فعالیت آموزشی در تهران نتورک."
+      }
+    },
+    {
+      "id": 76,
+      "type": "page",
+      "url": "https://tehnet.ir/lab/gns3-mikrotik/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_content": "6d808290103c56c04cd7fbc37a3f2d27e5a89b53ab9afc630585fbe1a9582ead"
+      },
+      "after": {
+        "post_excerpt": "ساخت روتر مجازی میکروتیک در GNS3 برای تمرین؛ محیط آزمایشگاهی، منابع و ارتباط با مسیر MTCNA.",
+        "post_content": "<!-- wp:paragraph --><p>برای تمرین سناریوهای میکروتیک — از دوره MTCNA تا پیکربندی‌های سازمانی — لازم نیست روتر واقعی بخرید یا شبکه سازمانی را ریسک کنید. با GNS3 می‌توانید روترهای مجازی میکروتیک را روی یک سیستم معمولی اجرا کنید، همان‌طور که در شبکه واقعی کار می‌کنند: همین Interface، همین Winbox، همین Terminal.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>https://www.youtube.com/watch?v=OgypQcQS3FA</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">چرا GNS3 و نه شبیه‌ساز ساده؟</h2><!-- /wp:heading -->\n<!-- wp:paragraph --><p>ابزارهایی مثل Packet Tracer یک «شبیه‌ساز» هستند؛ یعنی رفتار شبکه را تقریب می‌زنند. GNS3 اما روتر را واقعاً اجرا می‌کند — تصویر واقعی سیستم‌عامل روی موتور مجازی‌سازی. برای میکروتیک این یعنی تمام جزئیات RouterOS، از Safe Mode تا فایروال و Queue، دقیقاً مثل دستگاه واقعی رفتار می‌کنند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">قطعات لاب شما</h2><!-- /wp:heading -->\n<!-- wp:list --><ul><li><strong>GNS3:</strong> نرم‌افزار اصلی روی سیستم شما (سرور مدیریت سناریو)</li><li><strong>GNS3 VM:</strong> ماشین مجازی کمکی (روی VirtualBox یا VMware) که روترهای سنگین را اجرا می‌کند</li><li><strong>تصویر RouterOS:</strong> نسخه ابری میکروتیک (CHR) که برای محیط مجازی ساخته شده — نسخه آزمایشی آن رایگان است و برای یادگیری کاملاً کافی است؛ برای استفاده عملیاتی مطابق قوانین لایسنس میکروتیک اقدام کنید</li></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مسیر راه‌اندازی، مرحله به مرحله</h2><!-- /wp:heading -->\n<!-- wp:list --><ol><li>GNS3 را نصب کنید و در مرحله انتخاب سرور، GNS3 VM را انتخاب کنید.</li><li>GNS3 VM را در VirtualBox یا VMware وارد و اجرا کنید تا با سرور اصلی Sync شود.</li><li>تصویر RouterOS (CHR) را دانلود کنید.</li><li>در GNS3 از مسیر New Template یک QEMU VM جدید بسازید و فایل تصویر را به آن بدهید.</li><li>روتر مجازی را به سناریو بکشید، Interface ها را به Switch مجازی وصل کنید و از Cloud/VirtualBox، سیستم‌های کلاینت را هم وارد لاب کنید.</li><li>با Winbox به روتر مجازی وصل شوید — از این لحظه، تمرین دقیقاً مثل روتر واقعی است.</li></ol><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">سه لاب پیشنهادی برای شروع</h2><!-- /wp:heading -->\n<!-- wp:list --><ul><li>دو روتر پشت‌به‌پشت و تمرین مسیریابی استاتیک (جلسه <a href=\"/learn/mikrotik/mtcna/static-routing/\">مسیریابی MTCNA</a>)</li><li>یک روتر با LAN/جدار DNS/DHCP و سناریوی NAT (جلسات <a href=\"/learn/mikrotik/mtcna/ip-dhcp-dns/\">IP و DHCP</a> و <a href=\"/learn/mikrotik/mtcna/nat-masquerade/\">NAT</a>)</li><li>ساخت فایروال پایه و تست با Counter ها (جلسه <a href=\"/learn/mikrotik/mtcna/firewall-basics/\">فایروال</a>)</li></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">نکته‌های عملی</h2><!-- /wp:heading -->\n<!-- wp:list --><ul><li>قبل از هر تمرین، Snapshot ماشین مجازی بگیرید؛ برگشت به وضعیت سالم چند ثانیه طول می‌کشد.</li><li>روترهای مجازی RAM واقعی مصرف می‌کنند؛ لاب را کوچک شروع کنید و هر جا لازم شد بزرگ کنید.</li><li>برای هر سناریو یک فایل GNS3 جدا نگه دارید و نام‌گذاری معنادار بدهید.</li></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>این مطلب بخش Lab از مسیر <a href=\"/learn/mikrotik/mtcna/\">دوره MTCNA تهران نتورک</a> است. اگر تمرین‌های آماده و فایل‌های سناریو می‌خواهید، <a href=\"/lab/\">صفحه Lab</a> را دنبال کنید و برای راه‌اندازی محیط تمرین یا شبکه واقعی سازمان، <a href=\"/services/mikrotik-tehran/\">خدمات میکروتیک تهران</a> در دسترس شماست.</p><!-- /wp:paragraph -->\n\n<!-- wp:shortcode -->\n[tn_editorial_note]\n<!-- /wp:shortcode -->"
+      }
+    },
+    {
+      "id": 71,
+      "type": "post",
+      "url": "https://tehnet.ir/lab-before-production/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_content": "715c59f948f7b715bf8ec4e73e1145acbc9c5e7827efc4a4fe743f9db0c32ec6"
+      },
+      "after": {
+        "post_excerpt": "چرا قبل از تغییر شبکهٔ واقعی، لاب بسازیم؟ یادداشت تهران نتورک درباره تمرین، کاهش ریسک و بررسی روش بازگشت.",
+        "post_content": "<!-- wp:paragraph --><p>واقعیت تلخ اما مفید: بهترین محیط برای یادگیری شبکه، شبکه‌ای است که اجازه خراب‌کردن دارد. تمرین روی شبکه واقعی سازمان، هزینه قطعی‌سرویس دارد؛ اما یک لاب مجازی، جای امنی برای آزمایش هر ایده است.</p><!-- /wp:paragraph -->\n<!-- wp:paragraph --><p>با <a href=\"https://www.youtube.com/watch?v=OgypQcQS3FA\">نصب GNS3 VM و ساخت روتر مجازی میکروتیک</a> می‌توانید در کمتر از یک ساعت، لاب شخصی دوره <a href=\"/learn/mikrotik/mtcna/\">MTCNA</a> خودتان را بسازید: چند روتر، چند شبکه، یک سناریوی مسیریابی — و دکمه ریست همیشه در دسترس.</p><!-- /wp:paragraph -->\n<!-- wp:heading --><h2 class=\"wp-block-heading\">سه قاعده تمرین امن</h2><!-- /wp:heading -->\n<!-- wp:list --><ol><li>قبل از هر تغییر، Safe Mode و Backup — همیشه.</li><li>هر بار فقط یک تغییر؛ بعد از آن تست مشخص.</li><li>مسیر بازگشت را قبل از تغییر بدانید، نه بعد از مشکل.</li></ol><!-- /wp:list -->\n<!-- wp:paragraph --><p>فایل‌ها و سناریوهای آماده تمرین در <a href=\"/lab/\">Lab تهران نتورک</a> منتشر می‌شوند؛ همین قواعد ساده هستند که بعدها روی شبکه واقعی، جلوی خطاهای زنجیره‌ای را می‌گیرند.</p><!-- /wp:paragraph -->\n\n<!-- wp:shortcode -->\n[tn_editorial_note]\n<!-- /wp:shortcode -->"
+      }
+    },
+    {
+      "id": 70,
+      "type": "post",
+      "url": "https://tehnet.ir/mtcna-learning-path/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_content": "1e6942ef13fcfc59ef904f93bf8f0aadc019df6e327e07b24fd6956e11566a39"
+      },
+      "after": {
+        "post_excerpt": "مسیر یادگیری میکروتیک و دسترسی به دوره MTCNA تهران نتورک؛ ترتیب مباحث و پیشنهاد تمرین در لاب.",
+        "post_content": "<!-- wp:paragraph --><p>مسیر یادگیری میکروتیک در تهران نتورک حالا کامل‌تر از همیشه است: دوره <a href=\"/learn/mikrotik/mtcna/\">MTCNA</a> با شش جلسه آموزشی نوشتاری و ویدیویی، از اولین اتصال به RouterOS تا مدیریت پهنای باند و عیب‌یابی منظم پیش می‌رود.</p><!-- /wp:paragraph -->\n<!-- wp:paragraph --><p>در هر جلسه، مفاهیم با دستورات واقعی RouterOS و یک چک‌پوینت تمرین همراه شده‌اند تا مطمئن شوید چیزی که دیدید، مهارت شده است:</p><!-- /wp:paragraph -->\n<!-- wp:list --><ul><li><a href=\"/learn/mikrotik/mtcna/routeros-winbox/\">شروع با RouterOS و Winbox</a></li><li><a href=\"/learn/mikrotik/mtcna/ip-dhcp-dns/\">آدرس‌دهی IP، DHCP و DNS</a></li><li><a href=\"/learn/mikrotik/mtcna/static-routing/\">مسیریابی استاتیک</a></li><li><a href=\"/learn/mikrotik/mtcna/nat-masquerade/\">NAT و Masquerade</a></li><li><a href=\"/learn/mikrotik/mtcna/firewall-basics/\">فایروال پایه</a></li><li><a href=\"/learn/mikrotik/mtcna/queues-troubleshooting/\">مدیریت پهنای باند و عیب‌یابی</a></li></ul><!-- /wp:list -->\n<!-- wp:paragraph --><p>پیشنهاد ما ساده است: هر جلسه را بخوانید، ویدیویش را ببینید، سناریو را در محیط مجازی اجرا کنید و بعد سراغ جلسه بعد بروید. اگر جایی گیر کردید، <a href=\"/contact/\">تیم تهران نتورک</a> پاسخگوی شماست.</p><!-- /wp:paragraph -->\n\n<!-- wp:shortcode -->\n[tn_editorial_note]\n<!-- /wp:shortcode -->"
+      }
+    },
+    {
+      "id": 69,
+      "type": "page",
+      "url": "https://tehnet.ir/blog/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "post_excerpt": "فهرست نوشته‌های منتشرشدهٔ تهران نتورک درباره یادگیری میکروتیک، لاب و تجربهٔ فنی شبکه."
+      }
+    },
+    {
+      "id": 67,
+      "type": "page",
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/queues-troubleshooting/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_content": "5af3cd319a29c052a02860c3c43e4540ae80a4fad1d9c71bd934601acc9cbdf7"
+      },
+      "after": {
+        "post_excerpt": "مدیریت پهنای باند و عیب‌یابی پایه در RouterOS؛ آخرین بخش مسیر نوشتاری MTCNA تهران نتورک.",
+        "post_content": "<!-- wp:paragraph --><p>در جلسه پایانی این مجموعه، دو مهارت کاربردی را کنار هم می‌بینیم: مدیریت پهنای باند با Queue و یک چک‌لیست عیب‌یابی منظم برای وقتی که «اینترنت کار نمی‌کند». این همان جمع‌بندی‌ای است که مسیر MTCNA را از حفظ‌کردن دستور به تفکر شبکه‌ای می‌رساند.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>https://www.youtube.com/watch?v=I_8T6nu8JNg</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">Simple Queue در پنج دقیقه</h2><!-- /wp:heading -->\n<!-- wp:code --><pre class=\"wp-block-code\"><code>/queue simple\nadd name=office-limit target=192.168.10.0/24 \\\n    max-limit=20M/20M comment=\"Office bandwidth cap\"</code></pre><!-- /wp:code -->\n<!-- wp:paragraph --><p>فرمت پهنای باند همیشه <code>upload/download</code> است. می‌توانید به‌جای کل شبکه، یک IP خاص یا یک رنج را محدود کنید؛ Queue ها از بالا به پایین اعمال می‌شوند، پس محدودترها را بالاتر بگذارید.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">دیدن مصرف لحظه‌ای</h2><!-- /wp:heading -->\n<!-- wp:code --><pre class=\"wp-block-code\"><code>/tool graphing interface add interface=ether1\n/tool torch interface=ether2 port=any</code></pre><!-- /wp:code -->\n<!-- wp:paragraph --><p>با Torch می‌بینید همین لحظه چه IP و چه پورتی بیشترین ترافیک را می‌سازد — قبل از هر تصمیم Queue، اول اندازه‌گیری کنید.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">چک‌لیست عیب‌یابی «اینترنت قطع است»</h2><!-- /wp:heading -->\n<!-- wp:list --><ol><li><strong>لایه اتصال:</strong> Interface ها up هستند؟ (cable/peer)</li><li><strong>آدرس:</strong> روتر IP واپ‌لینک دارد؟ کلاینت IP از DHCP گرفته؟</li><li><strong>مسیر:</strong> مسیر پیش‌فرض هست و Gateway به ping جواب می‌دهد؟</li><li><strong>DNS:</strong> ping به ۸.۸.۸.۸ جواب می‌دهد ولی به دامنه نه؟ DNS مقصر است.</li><li><strong>NAT و فایروال:</strong> قانون Masquerade هست؟ شمارنده forward می‌شمارد؟</li><li><strong>مصرف:</strong> آیا صف یا لینک اشباع شده؟</li></ol><!-- /wp:list -->\n<!-- wp:paragraph --><p>همیشه از لایه پایین به بالا پیش بروید و هر مرحله را با یک تست مشخص اثبات کنید؛ حدس‌زدن جای تست‌کردن را نمی‌گیرد.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">بعد از MTCNA چه کار کنم؟</h2><!-- /wp:heading -->\n<!-- wp:paragraph --><p>تمرین‌ها و فایل‌های سناریو را در <a href=\"/lab/\">Lab تهران نتورک</a> دنبال کنید، ویدیوی <a href=\"https://www.youtube.com/watch?v=XRIMAowqdM4\">بخش تکمیلی دوره</a> را ببینید و اگر محیط تمرین ندارید با <a href=\"https://www.youtube.com/watch?v=OgypQcQS3FA\">ساخت روتر مجازی در GNS3</a> لاب خودتان را بسازید. برای اجرای همین مباحث روی شبکه سازمانی واقعی هم <a href=\"/services/mikrotik-tehran/\">خدمات میکروتیک تهران نتورک</a> در کنار شماست.</p><!-- /wp:paragraph -->\n\n<!-- wp:shortcode -->\n[tn_editorial_note]\n<!-- /wp:shortcode -->"
+      }
+    },
+    {
+      "id": 66,
+      "type": "page",
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/firewall-basics/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_content": "3d4fae02a5c70df70840b8fda2045d0ed8659fb3fb060b64e05bf2a656bfa1e8"
+      },
+      "after": {
+        "post_excerpt": "فایروال میکروتیک؛ درس پایهٔ MTCNA برای تعیین هدف قانون، ترتیب بررسی و تمرین جدا از تولید.",
+        "post_content": "<!-- wp:paragraph --><p>فایروال میکروتیک فقط زمانی امنیت می‌سازد که بدانید هر قانون <strong>چرا</strong> نوشته شده. در این جلسه MTCNA ساختار chain ها را می‌فهمید، یک مجموعه قانون پایه و استاندارد می‌سازید و با شمارنده‌ها کارکردشان را اثبات می‌کنید.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>https://www.youtube.com/watch?v=LO4m55Hf-do</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">سه chain اصلی</h2><!-- /wp:heading -->\n<!-- wp:list --><ul><li><strong>input:</strong> ترافیکی که مقصدش خود روتر است (مدیریت، Winbox، DNS).</li><li><strong>forward:</strong> ترافیکی که از میان روتر رد می‌شود (کلاینت‌ها به اینترنت).</li><li><strong>output:</strong> ترافیکی که از خود روتر بیرون می‌رود.</li></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مجموعه قانون پایه پیشنهادی</h2><!-- /wp:heading -->\n<!-- wp:code --><pre class=\"wp-block-code\"><code>/ip firewall filter\nadd chain=input action=accept connection-state=established,related comment=\"Allow established\"\nadd chain=input action=drop connection-state=invalid comment=\"Drop invalid\"\nadd chain=input action=accept protocol=icmp comment=\"Allow ping\"\nadd chain=input action=accept in-interface=ether2 comment=\"Allow LAN management\"\nadd chain=input action=drop comment=\"Drop everything else\"\n\nadd chain=forward action=fasttrack-connection connection-state=established,related comment=\"FastTrack\"\nadd chain=forward action=accept connection-state=established,related\nadd chain=forward action=drop connection-state=invalid</code></pre><!-- /wp:code -->\n<!-- wp:paragraph --><p>قانون اول از هر chain، ادامه اتصال‌های مجاز را تضمین می‌کند؛ قانون پایانی، هر چیز دیگر را می‌بندد. مدیریت از LAN باز و از WAN بسته است. قبل از اعمال قانون drop نهایی، Safe Mode را فعال کنید (جلسه اول!).</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اثبات با Counter و Log</h2><!-- /wp:heading -->\n<!-- wp:code --><pre class=\"wp-block-code\"><code>/ip firewall filter print stats\n/ip firewall filter set [find comment=\"Drop everything else\"] log=yes</code></pre><!-- /wp:code -->\n<!-- wp:paragraph --><p>هر قانونی که بسته‌ها را می‌شمارد یعنی واقعاً در مسیر است؛ قانونی همیشه صفر است یا جایش عوض شده یا شرطش اشتباه است. با log موقت می‌توانید ببینید دقیقاً چه چیزی می‌خواست رد شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">چک‌پوینت این جلسه</h2><!-- /wp:heading -->\n<!-- wp:list --><ul><li>بتوانید تفاوت مشکل Interface، Route، DNS و Firewall را مرحله‌به‌مرحله جدا کنید.</li><li>هر قانون با هدف مشخص و comment معنادار نوشته شود؛ قانون بی‌دلیل = بدهی آینده.</li></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>جلسه بعدی: <a href=\"/learn/mikrotik/mtcna/queues-troubleshooting/\">مدیریت پهنای باند و عیب‌یابی پایه</a> — برگشت به <a href=\"/learn/mikrotik/mtcna/\">صفحه دوره MTCNA</a>.</p><!-- /wp:paragraph -->\n\n<!-- wp:shortcode -->\n[tn_editorial_note]\n<!-- /wp:shortcode -->"
+      }
+    },
+    {
+      "id": 65,
+      "type": "page",
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/nat-masquerade/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_content": "f7bc8b2bb4b2482f9d3e8039a7e8da70b8616dc5ba503d20a30b3ff27875d265"
+      },
+      "after": {
+        "post_excerpt": "NAT و Masquerade در میکروتیک؛ درس MTCNA برای شناخت ترجمهٔ آدرس و بررسی سناریوی آزمایشگاهی.",
+        "post_content": "<!-- wp:paragraph --><p>NAT همان جادویی است که اجازه می‌دهد ده‌ها دستگاه پشت یک IP عمومی به اینترنت وصل شوند. در این جلسه MTCNA با Masquerade آشنا می‌شوید، تفاوت srcnat و dstnat را می‌فهمید و یک پورت‌فوروارد واقعی می‌سازید.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>https://www.youtube.com/watch?v=Z5EWfUn1Ejw</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">Masquerade؛ اشتراک اینترنت</h2><!-- /wp:heading -->\n<!-- wp:code --><pre class=\"wp-block-code\"><code>/ip firewall nat\nadd chain=srcnat action=masquerade out-interface=ether1 comment=\"Internet sharing\"</code></pre><!-- /wp:code -->\n<!-- wp:paragraph --><p>یعنی: «هر ترافیکی که قصد خروج از ether1 (سمت اینترنت) را دارد، آدرس مبدااش را با آدرس خود ether1 عوض کن». Masquerade برای لینک‌هایی با IP داینامیک (مثل PPPoE) انتخاب درست است.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">srcnat در برابر dstnat</h2><!-- /wp:heading -->\n<!-- wp:list --><ul><li><strong>srcnat</strong> آدرس <em>مبدأ</em> را تغییر می‌دهد — خروج به اینترنت.</li><li><strong>dstnat</strong> آدرس <em>مقصد</em> را تغییر می‌دهد — رساندن ترافیک ورودی به یک سرور داخلی.</li></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">پورت‌فوروارد به یک سرور داخلی</h2><!-- /wp:heading -->\n<!-- wp:code --><pre class=\"wp-block-code\"><code>/ip firewall nat\nadd chain=dstnat action=dst-nat protocol=tcp dst-port=8080 \\\n    in-interface=ether1 to-addresses=192.168.10.50 to-ports=80 \\\n    comment=\"Web server publish\"</code></pre><!-- /wp:code -->\n<!-- wp:paragraph --><p>درخواست‌های TCP روی پورت ۸۰۸۰ از اینترنت، به پورت ۸۰ سرور داخلی ۱۹۲.۱۶۸.۱۰.۵۰ فرستاده می‌شوند. یادتان باشد در کنار dstnat، عبور این ترافیک در فایروال (chain مربوطه) هم باید مجاز باشد.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">ترتیب پردازش و شمارنده‌ها</h2><!-- /wp:heading -->\n<!-- wp:code --><pre class=\"wp-block-code\"><code>/ip firewall nat print stats</code></pre><!-- /wp:code -->\n<!-- wp:paragraph --><p>قوانین NAT از بالا به پایین بررسی می‌شوند؛ اولین تطبیق برنده است. اگر قاعده‌ای کار نمی‌کند، شمارنده بسته‌ها و جای قانون در لیست را بررسی کنید و برای تست موقت <code>log=yes</code> بگذارید.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>جلسه بعدی: <a href=\"/learn/mikrotik/mtcna/firewall-basics/\">فایروال میکروتیک و ساخت قانون با هدف مشخص</a> — برگشت به <a href=\"/learn/mikrotik/mtcna/\">صفحه دوره MTCNA</a>.</p><!-- /wp:paragraph -->\n\n<!-- wp:shortcode -->\n[tn_editorial_note]\n<!-- /wp:shortcode -->"
+      }
+    },
+    {
+      "id": 64,
+      "type": "page",
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_content": "5a2c36f6a2b567557a3518f2b56e4aeb3196fc411267cd869732f51a94edc07b"
+      },
+      "after": {
+        "post_excerpt": "مسیریابی استاتیک در RouterOS؛ درس MTCNA درباره مسیر، gateway و بررسی دسترسی در لاب.",
+        "post_content": "<!-- wp:paragraph --><p>وقتی بیش از یک روتر یا بیش از یک شبکه در بازی باشد، «مسیریابی» قلب ماجراست. در این جلسه از دوره MTCNA یاد می‌گیرید Static Route بنویسید، جدول مسیریابی را بخوانید و بفهمید ترافیک واقعاً از کدام مسیر می‌رود — مهارتی که بعداً در VPN و فایروال هم به آن نیاز دارید.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>https://www.youtube.com/watch?v=hqjjvQoO7as</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">سناریوی کلاسیک سه‌روتری</h2><!-- /wp:heading -->\n<!-- wp:paragraph --><p>دو شبکه LAN پشت دو روتر جدا (R1 و R2) هستند که با یک لینک به هم وصل‌اند. کلاینت‌های شبکه اول باید کلاینت‌های شبکه دوم را ببینند. بدون مسیر، هر روتر فقط شبکه‌های مستقیم خودش را می‌شناسد:</p><!-- /wp:paragraph -->\n<!-- wp:code --><pre class=\"wp-block-code\"><code># روی R1: برو سمت شبکه پشت R2\n/ip route add dst-address=10.20.0.0/24 gateway=192.168.12.2\n\n# روی R2: برو سمت شبکه پشت R1\n/ip route add dst-address=10.10.0.0/24 gateway=192.168.12.1</code></pre><!-- /wp:code -->\n<!-- wp:paragraph --><p>نکته کلیدی: مسیر باید <strong>دوطرفه</strong> باشد. اگر فقط یک سمت route داشته باشد، بسته می‌رود ولی جوابش برنمی‌گردد و اتصال «به‌ظاهر قطع» است.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">خواندن جدول مسیریابی</h2><!-- /wp:heading -->\n<!-- wp:code --><pre class=\"wp-block-code\"><code>/ip route print detail\n/ip route check 10.20.0.5</code></pre><!-- /wp:code -->\n<!-- wp:paragraph --><p>برای هر مقصد، روتر خاص‌ترین مسیر تطبیقی را انتخاب می‌کند (مسیر با پرفیکس طولانی‌تر برنده است). مسیرهای <code>DAC</code> شبکه‌های متصل مستقیم و مسیر با <code>dst-address=0.0.0.0/0</code> مسیر پیش‌فرض است.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">ابزارهای دیدن مسیر واقعی</h2><!-- /wp:heading -->\n<!-- wp:code --><pre class=\"wp-block-code\"><code>/ping 10.20.0.5 src-address=10.10.0.1\n/tool traceroute 10.20.0.5</code></pre><!-- /wp:code -->\n<!-- wp:paragraph --><p>با <code>src-address</code> مطمئن می‌شوید بسته از IP درست خارج می‌شود و traceroute نشان می‌دهد در هر هاپ چه کسی پاسخ می‌دهد — اولین جایی برای یافتن محل دقیق مشکل مسیر.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اشتباه‌های رایج</h2><!-- /wp:heading -->\n<!-- wp:list --><ul><li>نوشتن Gateway خارج از شبکه متصل به اینترفیس (خطای immediate unreachable).</li><li>فراموش‌کردن مسیر برگشت روی روتر دوم.</li><li>انتظار پینگ بین شبکه‌ها وقتی فایروال هنوز ترافیک forward را نمی‌پذیرد — مبحث جلسه فایروال.</li></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>جلسه بعدی: <a href=\"/learn/mikrotik/mtcna/nat-masquerade/\">NAT و Masquerade در میکروتیک</a> — برگشت به <a href=\"/learn/mikrotik/mtcna/\">صفحه دوره MTCNA</a>.</p><!-- /wp:paragraph -->\n\n<!-- wp:shortcode -->\n[tn_editorial_note]\n<!-- /wp:shortcode -->"
+      }
+    },
+    {
+      "id": 63,
+      "type": "page",
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_content": "16403ac0785c5d18f2d3a314575594d25911d304c6b0ca0f360414b62974394b"
+      },
+      "after": {
+        "post_excerpt": "آدرس‌دهی IP، DHCP و DNS در RouterOS؛ درس پایهٔ MTCNA تهران نتورک برای تمرین و بررسی ارتباط کاربران.",
+        "post_content": "<!-- wp:paragraph --><p>بدون آدرس‌دهی درست IP، هیچ سرویس شبکه‌ای کار نمی‌کند. در این جلسه یاد می‌گیرید روی روتر میکروتیک IP بگذارید، DHCP Server راه بیندازید، DNS تنظیم کنید و مسیر پیش‌فرض (Gateway) را تعریف کنید — یعنی پایه‌ای که بقیه دوره روی آن سوار می‌شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>https://www.youtube.com/watch?v=a0JMhBdNNgs</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">گذاشتن IP روی Interface</h2><!-- /wp:heading -->\n<!-- wp:code --><pre class=\"wp-block-code\"><code>/ip address\nadd address=192.168.10.1/24 interface=ether2 comment=\"LAN\"</code></pre><!-- /wp:code -->\n<!-- wp:paragraph --><p>همیشه <code>/</code> پرفیکس را بنویسید؛ <code>192.168.10.1/24</code> یعنی این پورت در شبکه ۱۹۲.۱۶۸.۱۰.۰ با ماسک ۲۵۵.۲۵۵.۲۵۵.۰ کار می‌کند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">راه‌اندازی DHCP Server</h2><!-- /wp:heading -->\n<!-- wp:code --><pre class=\"wp-block-code\"><code>/ip pool add name=lan-pool ranges=192.168.10.10-192.168.10.100\n\n/ip dhcp-server\nadd address-pool=lan-pool interface=ether2 name=dhcp-lan disabled=no\n\n/ip dhcp-server network\nadd address=192.168.10.0/24 gateway=192.168.10.1 dns-server=192.168.10.1</code></pre><!-- /wp:code -->\n<!-- wp:paragraph --><p>سه لایه را از هم جدا کنید: Pool (رنج IP)، DHCP Server (سرویس روی Interface) و DHCP Network (تنظیماتی که به کلاینت‌ها داده می‌شود: Gateway و DNS). اگر سمت WAN اینترنت دارید، به‌جای ساخت سرور، کلاینت شوید:</p><!-- /wp:paragraph -->\n<!-- wp:code --><pre class=\"wp-block-code\"><code>/ip dhcp-client add interface=ether1 disabled=no</code></pre><!-- /wp:code -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">DNS و مسیر پیش‌فرض</h2><!-- /wp:heading -->\n<!-- wp:code --><pre class=\"wp-block-code\"><code>/ip dns set servers=8.8.8.8,1.1.1.1 allow-remote-requests=yes\n/ip route add dst-address=0.0.0.0/0 gateway=<span>آدرس-مودم-یا-آپ‌لینک</span></code></pre><!-- /wp:code -->\n<!-- wp:paragraph --><p>روتر خودش هم DNS می‌تواند باشد (به همین دلیل DNS سرور را IP خود روتر دادیم) و کلاینت‌های LAN درخواست‌هایشان را از او می‌پرسند. مسیر پیش‌فرض یعنی «هر مقصدی که نمی‌شناسی، بفرست به سمت Gateway».</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تست درست‌بودن کار</h2><!-- /wp:heading -->\n<!-- wp:code --><pre class=\"wp-block-code\"><code>/ping 8.8.8.8\n/ping google.com\n/ip dhcp-server lease print</code></pre><!-- /wp:code -->\n<!-- wp:paragraph --><p>اگر ping به IP جواب داد ولی به نام دامنه نه، مشکل DNS است؛ اگر هیچ‌کدام نه، مشکل مسیر یا اینترفیس. این تفکیک ساده، نصف عیب‌یابی شبکه است.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>جلسه بعدی: <a href=\"/learn/mikrotik/mtcna/static-routing/\">مسیریابی استاتیک در میکروتیک</a> — برگشت به <a href=\"/learn/mikrotik/mtcna/\">صفحه دوره MTCNA</a>.</p><!-- /wp:paragraph -->\n\n<!-- wp:shortcode -->\n[tn_editorial_note]\n<!-- /wp:shortcode -->"
+      }
+    },
+    {
+      "id": 62,
+      "type": "page",
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_content": "0b8c2daa816415b14b1b56c80b34f7cdec751b1b20127bba08480f25a774d50b"
+      },
+      "after": {
+        "post_excerpt": "شروع با RouterOS و Winbox؛ اتصال، محدودیت‌های Safe Mode، backup و export در مسیر آموزشی MTCNA تهران نتورک.",
+        "post_content": "<!-- wp:paragraph --><p>اولین قدم در مسیر MTCNA، راحت‌شدن با خود RouterOS و ابزار Winbox است. در این جلسه یاد می‌گیرید چطور به روتر وصل شوید، وضعیت فعلی را ببینید، تنظیمات را ذخیره و بازگردانی کنید و با خیال راحت روی دستگاه تمرین کنید ؛ با شناخت خطر از دست‌رفتن دسترسی و روش بازیابی.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>https://www.youtube.com/watch?v=Wbj3C0g__zw</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اتصال به RouterOS</h2><!-- /wp:heading -->\n<!-- wp:paragraph --><p>Winbox را باز کنید؛ در تب Neighbors همه روترهای قابل‌دسترسی روی شبکه محلی دیده می‌شوند. می‌توانید با IP وصل شوید یا — وقتی روتر هنوز IP ندارد — با MAC Address. اگر ترجیح می‌دهید از ترمینال کار کنید:</p><!-- /wp:paragraph -->\n<!-- wp:code --><pre class=\"wp-block-code\"><code>ssh admin@192.168.88.1</code></pre><!-- /wp:code -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">Safe Mode؛ کاهش ریسک با محدودیت مشخص</h2><!-- /wp:heading -->\n<!-- wp:paragraph --><p>قبل از هر تغییر ریسک‌دار (مثل تغییر IP یا فایروال) در Winbox دکمه <strong>Safe Mode</strong> را بزنید (یا در ترمینال کلید‌های Ctrl+X). Safe Mode خطر از دست‌رفتن دسترسی را کم می‌کند، اما تضمین نیست. در قطع غیرعادی نشست، تغییرات قابل‌برگشت طبق رفتار RouterOS بازگردانده می‌شوند؛ این کار ممکن است تا پایان timeout طول بکشد. ظرفیت تاریخچه محدود است؛ با پرشدن آن، حالت امن می‌تواند خاتمه یابد. دستورهایی که reboot لازم دارند، مانند reset یا restore از backup، تحت این حفاظت نیستند. قبل از تغییر، نسخهٔ پشتیبان و مسیر دسترسی جایگزین داشته باشید.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">Backup و Export</h2><!-- /wp:heading -->\n<!-- wp:code --><pre class=\"wp-block-code\"><code>/system backup save name=before-lab\n/export file=before-lab</code></pre><!-- /wp:code -->\n<!-- wp:paragraph --><p>فایل <code>backup</code> کل پیکربندی باینری را نگه می‌دارد و با <code>/system backup load</code> برمی‌گردد؛ خروجی <code>export</code> متنی و خواناست و برای مقایسه تغییرات عالی است. هر دو را قبل از شروع هر جلسه بگیرید.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">ریست‌کردن و شروع تمیز</h2><!-- /wp:heading -->\n<!-- wp:code --><pre class=\"wp-block-code\"><code>/system reset-configuration no-defaults=no skip-backup=no</code></pre><!-- /wp:code -->\n<!-- wp:paragraph --><p>وقتی لاب به‌هم ریخت، پاک‌کردن و شروع دوباره سریع‌تر از رفع عجیب‌ترین حالت‌هاست. برای تمرین روی روتر مجازی، ویدیوی <a href=\"https://www.youtube.com/watch?v=OgypQcQS3FA\">ساخت روتر MikroTik مجازی با GNS3</a> را ببینید.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">چک‌پوینت این جلسه</h2><!-- /wp:heading -->\n<!-- wp:list --><ul><li>بتوانید با IP و MAC وصل شوید و وضعیت Interface ها را بخوانید.</li><li>قبل از تغییر مهم، Safe Mode فعال و Backup گرفته باشید.</li><li>بتوانید پیکربندی را Export و دوباره Restore کنید.</li></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>جلسه بعدی: <a href=\"/learn/mikrotik/mtcna/ip-dhcp-dns/\">آدرس‌دهی IP، DHCP و DNS در میکروتیک</a>. همه جلسات در <a href=\"/learn/mikrotik/mtcna/\">صفحه اصلی دوره MTCNA</a> جمع شده‌اند.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>منبع رفتار Safe Mode: <a href=\"https://help.mikrotik.com/docs/spaces/ROS/pages/8978498/Console\">مستند رسمی MikroTik Console</a>. این درس برای تمرین است؛ نتیجهٔ تست روی مدل و نسخهٔ شما در این صفحه ادعا نشده است.</p><!-- /wp:paragraph -->\n\n<!-- wp:shortcode -->\n[tn_editorial_note]\n<!-- /wp:shortcode -->"
+      }
+    },
+    {
+      "id": 40,
+      "type": "page",
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_content": "97925fd1d54e90e10a3853343e14d909216bf0769817e2d49c40f5579effb1a7"
+      },
+      "after": {
+        "post_excerpt": "آموزش MTCNA میکروتیک؛ ترتیب مطالعه و تمرین RouterOS، IP، مسیریابی، NAT، فایروال و عیب‌یابی.",
+        "post_content": "<!-- wp:paragraph {\"className\":\"tn-lead\"} -->\n<p class=\"tn-lead\">این صفحه مسیر یکپارچه یادگیری MTCNA در تهران نتورک است. به‌جای پراکنده‌کردن هر قسمت در یک صفحه جدا، همه ویدیوهای دوره، لاب GNS3 و چک‌پوینت‌های تمرین در همین Owner جمع شده‌اند تا از مبانی RouterOS به یک سناریوی قابل‌تست برسید.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">MTCNA برای چه کسی مناسب است؟</h2><!-- /wp:heading -->\n<!-- wp:paragraph --><p>اگر می‌خواهید RouterOS را از سطح ورود به Winbox و تنظیمات اولیه تا IP، DHCP، NAT، Routing، Firewall و عیب‌یابی پایه به‌صورت عملی یاد بگیرید، این مسیر نقطه شروع مناسبی است. برای موضوعات گسترده‌تر MikroTik، هاب <a href=\"/learn/mikrotik/\">آموزش میکروتیک</a> را ببینید.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">پیش‌نیاز قبل از شروع</h2><!-- /wp:heading -->\n<!-- wp:list --><ul><li>درک پایه IP، Subnet، Gateway و تفاوت LAN/WAN.</li><li>یک سیستم برای اجرای RouterOS/CHR و ترجیحاً GNS3 یا محیط مجازی مشابه.</li><li>عادت به گرفتن Backup و یادداشت‌کردن تغییرات قبل از آزمایش Rule یا Route جدید.</li><li>تمرکز روی «دلیل تنظیم»؛ صرفاً کپی‌کردن دستور یا Rule هدف این مسیر نیست.</li></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">ترتیب پیشنهادی ویدیوهای دوره</h2><!-- /wp:heading -->\n<!-- wp:paragraph --><p>هر قسمت را ببینید، همان سناریو را اجرا کنید و فقط وقتی به چک‌پوینت آن مرحله رسیدید سراغ قسمت بعد بروید.</p><!-- /wp:paragraph -->\n<!-- wp:list {\"ordered\":true} --><ol>\n<li><a href=\"https://www.youtube.com/watch?v=Wbj3C0g__zw\">قسمت اول MTCNA</a> — شروع مسیر، محیط کار و مفاهیم پایه.</li>\n<li><a href=\"https://www.youtube.com/watch?v=a0JMhBdNNgs\">قسمت دوم MTCNA</a> — ادامه پیکربندی و ساختن پایه سناریو.</li>\n<li><a href=\"https://www.youtube.com/watch?v=hqjjvQoO7as\">قسمت سوم MTCNA</a> — تثبیت کار با RouterOS و سرویس‌های شبکه.</li>\n<li><a href=\"https://www.youtube.com/watch?v=Z5EWfUn1Ejw\">قسمت چهارم MTCNA</a> — توسعه سناریو و بررسی رفتار ترافیک.</li>\n<li><a href=\"https://www.youtube.com/watch?v=LO4m55Hf-do\">قسمت پنجم MTCNA</a> — ادامه تنظیمات عملی و تست مرحله‌ای.</li>\n<li><a href=\"https://www.youtube.com/watch?v=XRIMAowqdM4\">قسمت پنجم و نیم MTCNA</a> — بخش تکمیلی بین قسمت پنجم و ششم.</li>\n<li><a href=\"https://www.youtube.com/watch?v=I_8T6nu8JNg\">قسمت ششم MTCNA</a> — ادامه مسیر دوره و جمع‌بندی سناریوهای این مجموعه.</li>\n</ol><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">لاب GNS3؛ ویدیو را به مهارت تبدیل کن</h2><!-- /wp:heading -->\n<!-- wp:paragraph --><p>برای تمرین بدون ریسک روی شبکه واقعی، یک RouterOS مجازی بساز و سناریوها را در GNS3 بازسازی کن. ویدیوی <a href=\"https://www.youtube.com/watch?v=OgypQcQS3FA\">نصب GNS3 VM و ساخت روتر MikroTik مجازی</a> و مطلب نوشتاری <a href=\"/lab/gns3-mikrotik/\">مجازی‌سازی با GNS3</a> برای همین بخش از مسیر در نظر گرفته شده است.</p><!-- /wp:paragraph --><!-- wp:embed {\"url\":\"https://www.youtube.com/watch?v=OgypQcQS3FA\",\"type\":\"video\",\"providerNameSlug\":\"youtube\",\"responsive\":true} --><figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube\"><div class=\"wp-block-embed__wrapper\">https://www.youtube.com/watch?v=OgypQcQS3FA</div></figure><!-- /wp:embed -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">چک‌پوینت‌های تمرین MTCNA</h2><!-- /wp:heading -->\n<!-- wp:list --><ul><li><strong>دسترسی و مدیریت:</strong> بتوانید به RouterOS وصل شوید، تنظیمات را بررسی کنید و قبل از تغییر مهم Backup بگیرید.</li><li><strong>IP و سرویس پایه:</strong> بتوانید Addressing، DHCP، DNS و NAT را در یک لاب ساده توضیح و تست کنید.</li><li><strong>Routing:</strong> قبل از ساخت Route بدانید ترافیک از کجا وارد می‌شود، مقصد کجاست و با چه دستور/ابزاری نتیجه را می‌سنجید.</li><li><strong>Firewall:</strong> Rule را با هدف مشخص بسازید و اثر آن را با Counter، Log یا تست اتصال تأیید کنید.</li><li><strong>عیب‌یابی:</strong> بتوانید تفاوت مشکل Interface، IP، Route، DNS و Firewall را مرحله‌به‌مرحله جدا کنید.</li></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">روش تمرین امن روی RouterOS</h2><!-- /wp:heading -->\n<!-- wp:paragraph --><p>هر بار فقط یک تغییر معنی‌دار اعمال کنید. قبل از تغییر وضعیت فعلی را ثبت کنید، بعد از تغییر تست مشخص انجام دهید و اگر نتیجه مطابق انتظار نبود مسیر بازگشت داشته باشید. این روش در لاب ساده به نظر می‌رسد، اما همان عادتی است که هنگام کار روی شبکه واقعی جلوی خطاهای زنجیره‌ای را می‌گیرد.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">بعد از این مسیر چه کار کنم؟</h2><!-- /wp:heading -->\n<!-- wp:paragraph --><p>برای سناریوها، فایل‌ها و تمرین‌های قابل دانلود به <a href=\"/lab/\">Lab تهران نتورک</a> بروید. اگر مسئله شما آموزشی نیست و روی شبکه واقعی به تنظیم یا عیب‌یابی MikroTik نیاز دارید، صفحه <a href=\"/services/mikrotik-tehran/\">خدمات MikroTik تهران</a> را ببینید یا از <a href=\"/contact/\">تماس با تهران نتورک</a> استفاده کنید.</p><!-- /wp:paragraph -->\n<!-- wp:heading --><h2 class=\"wp-block-heading\">جلسات نوشتاری دوره</h2><!-- /wp:heading -->\n<!-- wp:list --><ul><!-- wp:list-item --><li><a href=\"/learn/mikrotik/mtcna/routeros-winbox/\">شروع با RouterOS و Winbox</a></li><!-- /wp:list-item --><!-- wp:list-item --><li><a href=\"/learn/mikrotik/mtcna/ip-dhcp-dns/\">آدرس‌دهی IP، DHCP و DNS</a></li><!-- /wp:list-item --><!-- wp:list-item --><li><a href=\"/learn/mikrotik/mtcna/static-routing/\">مسیریابی استاتیک</a></li><!-- /wp:list-item --><!-- wp:list-item --><li><a href=\"/learn/mikrotik/mtcna/nat-masquerade/\">NAT و Masquerade</a></li><!-- /wp:list-item --><!-- wp:list-item --><li><a href=\"/learn/mikrotik/mtcna/firewall-basics/\">فایروال پایه</a></li><!-- /wp:list-item --><!-- wp:list-item --><li><a href=\"/learn/mikrotik/mtcna/queues-troubleshooting/\">مدیریت پهنای باند و عیب‌یابی</a></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:shortcode -->\n[tn_editorial_note]\n<!-- /wp:shortcode -->"
+      }
+    },
+    {
+      "id": 37,
+      "type": "page",
+      "url": "https://tehnet.ir/services/remote-support/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_content": "cf29c4c7aa8a583003ede59055497a16c9feef2b69cd045e5fa2523d6279a305"
+      },
+      "after": {
+        "post_excerpt": "پشتیبانی شبکه از راه دور؛ بررسی نیاز، تعیین محدودهٔ کار و انتخاب حضور در تهران یا دسترسی ریموت در صورت امکان.",
+        "post_content": "<!-- wp:paragraph {\"className\":\"tn-lead\"} --><p class=\"tn-lead\">پشتیبانی شبکه از راه دور تهران نتورک برای مشتریان سراسر ایران است؛ زمانی که مشکل از طریق دسترسی مدیریتی امن، بررسی تنظیمات و تست نرم‌افزاری قابل پیگیری باشد و حضور فیزیکی در محل لازم نباشد.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">چه کارهایی از راه دور قابل بررسی است؟</h2><!-- /wp:heading -->\n<!-- wp:list --><ul><li>بررسی Routing، NAT، Firewall، DHCP، DNS و تنظیمات Router.</li><li>عیب‌یابی دسترسی کاربران و سرویس‌های شبکه وقتی مسیر مدیریتی برقرار است.</li><li>بررسی MikroTik/RouterOS، VPN و تغییرات نرم‌افزاری قابل تست.</li><li>خواندن Log و مقایسه وضعیت قبل و بعد از تغییرات برای پیدا کردن علت مشکل.</li></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">چه زمانی ریموت کافی نیست؟</h2><!-- /wp:heading -->\n<!-- wp:paragraph --><p>خرابی کابل، برق، پورت فیزیکی، تجهیز خاموش یا تعویض سخت‌افزار از راه دور حل نمی‌شود. در این شرایط برای تهران امکان بررسی خدمت حضوری وجود دارد و در سایر شهرها لازم است فردی در محل بخش فیزیکی را انجام دهد.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">فرایند پشتیبانی ریموت</h2><!-- /wp:heading -->\n<!-- wp:list {\"ordered\":true} --><ol><li>شرح مشکل و محدوده دسترسی لازم مشخص می‌شود.</li><li>فقط دسترسی موردنیاز برای زمان بررسی دریافت می‌شود.</li><li>قبل از تغییر حساس، وضعیت فعلی و Backup در حد امکان کنترل می‌شود.</li><li>بعد از تغییر، مسیر یا سرویس مرتبط دوباره تست و نتیجه اعلام می‌شود.</li></ol><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>برای پشتیبانی شبکه از راه دور در سراسر ایران با <strong>[tehnet_phone]</strong> تماس بگیر یا از <a href=\"/contact/\">صفحه تماس</a> شرح مشکل را ارسال کن.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>محدودهٔ کار، روش دسترسی و شرایط انجام خدمت پیش از اجرا مشخص می‌شود. <a href=\"/technical-methodology/\">روش منابع و مستندسازی</a> و <a href=\"/contact/\">اطلاعات لازم برای شروع درخواست</a> را ببینید.</p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 35,
+      "type": "page",
+      "url": "https://tehnet.ir/services/mikrotik-tehran/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_content": "482629abb816b6c88d5d4030e6d33fbcf3dbc1e37a043fbcdca5af05c13c9cf3"
+      },
+      "after": {
+        "post_excerpt": "خدمات MikroTik تهران؛ بررسی نیاز، تعیین محدودهٔ کار و انتخاب حضور در تهران یا دسترسی ریموت در صورت امکان.",
+        "post_content": "<!-- wp:paragraph {\"className\":\"tn-lead\"} --><p class=\"tn-lead\">خدمات MikroTik تهران برای نصب، تنظیم و عیب‌یابی RouterOS در شبکه‌های واقعی است. اگر مسئله آموزشی است، از <a href=\"/learn/mikrotik/\">هاب آموزش میکروتیک</a> شروع کن؛ این صفحه برای زمانی است که اجرای درست روی شبکه عملی اهمیت دارد.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">چه تنظیماتی روی MikroTik بررسی می‌شود؟</h2><!-- /wp:heading -->\n<!-- wp:list --><ul><li>IP، DHCP، DNS، NAT و Routing متناسب با ساختار شبکه.</li><li>Firewall و محدودکردن دسترسی‌ها بر اساس نیاز واقعی مجموعه.</li><li>VPN و دسترسی راه‌دور با توجه به کلاینت‌ها و الزامات امنیتی.</li><li>بررسی Route، Rule، Interface و Log برای پیدا کردن علت اختلال.</li></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تغییرات RouterOS بدون حدس‌زدن</h2><!-- /wp:heading -->\n<!-- wp:paragraph --><p>قبل از تغییرات مهم، وضعیت فعلی RouterOS و Backup بررسی می‌شود. Rule یا Route جدید باید هدف مشخص و روش تست داشته باشد تا اگر نتیجه مطلوب نبود، مسیر بازگشت روشن باشد.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">حضوری تهران یا بررسی ریموت</h2><!-- /wp:heading -->\n<!-- wp:paragraph --><p>اگر روتر از راه امن قابل مدیریت باشد، بسیاری از تنظیمات و عیب‌یابی‌ها می‌توانند ریموت انجام شوند. برای نصب فیزیکی، کابل‌کشی، تعویض تجهیز یا مشکلاتی که دسترسی مدیریتی ندارند، خدمات حضوری در تهران بررسی می‌شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای درخواست خدمات MikroTik با <strong>[tehnet_phone]</strong> تماس بگیر یا از <a href=\"/contact/\">صفحه تماس تهران نتورک</a> جزئیات شبکه را ارسال کن.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>محدودهٔ کار، روش دسترسی و شرایط انجام خدمت پیش از اجرا مشخص می‌شود. <a href=\"/technical-methodology/\">روش منابع و مستندسازی</a> و <a href=\"/contact/\">اطلاعات لازم برای شروع درخواست</a> را ببینید.</p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 33,
+      "type": "page",
+      "url": "https://tehnet.ir/services/network-setup-tehran/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_content": "af768a04ea92869a40d680da389e79c19f39ec426968e3cef19fb32d50dc9944"
+      },
+      "after": {
+        "post_excerpt": "راه‌اندازی شبکه شرکت در تهران؛ بررسی نیاز، تعیین محدودهٔ کار و انتخاب حضور در تهران یا دسترسی ریموت در صورت امکان.",
+        "post_content": "<!-- wp:paragraph {\"className\":\"tn-lead\"} --><p class=\"tn-lead\">راه‌اندازی شبکه شرکت در تهران برای مجموعه‌ای است که می‌خواهد شبکه جدید را از ابتدا آماده کند یا ساختار فعلی را منظم‌تر توسعه دهد. قبل از خرید یا تغییر تجهیزات، نیاز کاربران، اینترنت، سرویس‌های داخلی و محدودیت‌های محیط بررسی می‌شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">قبل از اجرا چه چیزهایی مشخص می‌شود؟</h2><!-- /wp:heading -->\n<!-- wp:list --><ul><li>تعداد و نوع کاربران و دستگاه‌های متصل به شبکه.</li><li>نقش Router، Switch، Access Point و سرویس‌های داخلی موجود یا موردنیاز.</li><li>نیاز به جداسازی بخش‌های شبکه، دسترسی مهمان، VPN یا ارتباط بین چند قسمت.</li><li>وضعیت کابل‌کشی و تجهیزات موجود و اینکه چه بخش‌هایی واقعاً نیاز به تغییر دارند.</li></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اجرای تنظیمات و تحویل قابل پیگیری</h2><!-- /wp:heading -->\n<!-- wp:paragraph --><p>تنظیمات شبکه مرحله‌ای انجام می‌شود تا IP addressing، DHCP، DNS، Routing، NAT و Ruleهای دسترسی قابل تست باشند. در تغییرات حساس، Backup و راه بازگشت باید قبل از اجرای نهایی در نظر گرفته شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تجهیزات بر اساس نیاز پروژه</h2><!-- /wp:heading -->\n<!-- wp:paragraph --><p>انتخاب Router، Switch، کابل و اتصالات باید بعد از مشخص‌شدن نیاز فنی انجام شود. اگر تجهیز موردنیاز از فروشگاه تهران نتورک قابل تأمین باشد، قیمت روز جداگانه استعلام می‌شود و خرید اجباری از سایت شرط اجرای خدمت نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای بررسی اولیه پروژه راه‌اندازی شبکه شرکت در تهران با <strong>[tehnet_phone]</strong> تماس بگیر یا از <a href=\"/contact/\">صفحه تماس</a> درخواستت را ثبت کن.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>محدودهٔ کار، روش دسترسی و شرایط انجام خدمت پیش از اجرا مشخص می‌شود. <a href=\"/technical-methodology/\">روش منابع و مستندسازی</a> و <a href=\"/contact/\">اطلاعات لازم برای شروع درخواست</a> را ببینید.</p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 31,
+      "type": "page",
+      "url": "https://tehnet.ir/services/network-support-tehran/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_content": "f302deec106f63b3f243daba1ff656890f1335222ff63c20df945fd564d20c16"
+      },
+      "after": {
+        "post_excerpt": "پشتیبانی شبکه تهران؛ بررسی نیاز، تعیین محدودهٔ کار و انتخاب حضور در تهران یا دسترسی ریموت در صورت امکان.",
+        "post_content": "<!-- wp:paragraph {\"className\":\"tn-lead\"} --><p class=\"tn-lead\">پشتیبانی شبکه تهران برای زمانی است که شبکه در حال استفاده است اما قطعی، کندی، خطای دسترسی یا نیاز به تغییر تنظیمات باعث اختلال در کار مجموعه می‌شود. هدف این صفحه پشتیبانی و عیب‌یابی شبکه موجود است، نه طراحی یک شبکه از صفر.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">چه مشکلاتی برای عیب‌یابی بررسی می‌شوند؟</h2><!-- /wp:heading -->\n<!-- wp:list --><ul><li>قطع و وصل شدن ارتباط داخلی یا اینترنت و پیدا کردن نقطه ایجاد اختلال.</li><li>مشکل DHCP، DNS، Gateway، Route یا دسترسی بین VLANها و بخش‌های شبکه.</li><li>بررسی تنظیمات Router، Firewall و سرویس‌هایی که روی ارتباط کاربران اثر می‌گذارند.</li><li>بررسی تغییرات اخیر و مقایسه وضعیت قبل و بعد از بروز مشکل.</li></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">پشتیبانی حضوری و ریموت چگونه انتخاب می‌شود؟</h2><!-- /wp:heading -->\n<!-- wp:paragraph --><p>اگر دسترسی مدیریتی امن و ارتباط شبکه برقرار باشد، بسیاری از بررسی‌های نرم‌افزاری را می‌توان از راه دور انجام داد. برای خرابی فیزیکی، تست کابل، تجهیزات خاموش یا مواردی که دسترسی ریموت ممکن نیست، پشتیبانی حضوری در تهران بررسی می‌شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">برای شروع چه اطلاعاتی آماده باشد؟</h2><!-- /wp:heading -->\n<!-- wp:list --><ul><li>شرح دقیق نشانه مشکل و زمان شروع آن.</li><li>تغییرات انجام‌شده پیش از بروز اختلال، اگر وجود داشته است.</li><li>مدل یا نقش تجهیزات اصلی و محدوده کاربرانی که تحت تأثیر هستند.</li><li>دسترسی مدیریتی فقط در زمان و سطحی که برای عیب‌یابی لازم است.</li></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>برای درخواست پشتیبانی شبکه تهران با <strong>[tehnet_phone]</strong> تماس بگیر یا جزئیات را از <a href=\"/contact/\">صفحه تماس</a> ارسال کن.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>محدودهٔ کار، روش دسترسی و شرایط انجام خدمت پیش از اجرا مشخص می‌شود. <a href=\"/technical-methodology/\">روش منابع و مستندسازی</a> و <a href=\"/contact/\">اطلاعات لازم برای شروع درخواست</a> را ببینید.</p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 29,
+      "type": "page",
+      "url": "https://tehnet.ir/services/network-tehran/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_content": "4a817c4c1de7b255e8bd3f70bf773b33707e36e77a7c8fae22aa2e20f169a9d7"
+      },
+      "after": {
+        "post_excerpt": "خدمات شبکه تهران؛ بررسی نیاز، تعیین محدودهٔ کار و انتخاب حضور در تهران یا دسترسی ریموت در صورت امکان.",
+        "post_content": "<!-- wp:paragraph {\"className\":\"tn-lead\"} --><p class=\"tn-lead\">خدمات شبکه تهران برای کسب‌وکارها و مجموعه‌هایی است که به بررسی، تنظیم یا رفع مشکل زیرساخت شبکه در محل نیاز دارند. تهران نتورک ابتدا مسئله و محدوده کار را مشخص می‌کند تا اجرای حضوری فقط برای بخش‌هایی انجام شود که واقعاً به حضور فیزیکی نیاز دارند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">چه کارهایی در خدمات شبکه تهران بررسی می‌شود؟</h2><!-- /wp:heading -->\n<!-- wp:list --><ul><li>بررسی ارتباطات شبکه، Gateway، DHCP، DNS و دسترسی کاربران.</li><li>تنظیم و عیب‌یابی Router، Switch و تجهیزات شبکه در محدوده پروژه.</li><li>بررسی Routing، NAT، Firewall و ارتباط بین بخش‌های شبکه.</li><li>رفع اختلال‌هایی که نیاز به تست هم‌زمان تجهیزات و کابل‌کشی موجود در محل دارند.</li></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">حضوری در تهران، ریموت در صورت امکان</h2><!-- /wp:heading -->\n<!-- wp:paragraph --><p>خدمات حضوری فعلاً فقط در تهران انجام می‌شود. اگر مشکل بدون حضور فیزیکی قابل بررسی باشد، می‌توان ابتدا از پشتیبانی ریموت استفاده کرد تا زمان و محدوده کار حضوری مشخص‌تر شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">فرایند بررسی درخواست</h2><!-- /wp:heading -->\n<!-- wp:list {\"ordered\":true} --><ol><li>شرح مشکل، تعداد تقریبی تجهیزات و وضعیت فعلی شبکه دریافت می‌شود.</li><li>مشخص می‌شود بررسی ریموت کافی است یا حضور در محل لازم است.</li><li>قبل از تغییرات حساس، وضعیت فعلی و امکان بازگشت تنظیمات بررسی می‌شود.</li><li>پس از اجرا، مسیر ارتباطی و بخش‌های تغییرکرده تست می‌شوند.</li></ol><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>برای مطرح‌کردن درخواست با شماره <strong>[tehnet_phone]</strong> تماس بگیر یا از <a href=\"/contact/\">صفحه تماس تهران نتورک</a> استفاده کن.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>محدودهٔ کار، روش دسترسی و شرایط انجام خدمت پیش از اجرا مشخص می‌شود. <a href=\"/technical-methodology/\">روش منابع و مستندسازی</a> و <a href=\"/contact/\">اطلاعات لازم برای شروع درخواست</a> را ببینید.</p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 26,
+      "type": "page",
+      "url": "https://tehnet.ir/learn/mikrotik/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_content": "9346756932f8de381ed54e770e75e12681c41b38d5612d8b244aa33494a695fd"
+      },
+      "after": {
+        "post_excerpt": "مسیر آموزش میکروتیک در تهران نتورک؛ RouterOS، لاب GNS3 و دسترسی به مباحث دوره MTCNA.",
+        "post_content": "<!-- wp:paragraph {\"className\":\"tn-lead\"} -->\n<p class=\"tn-lead\">این صفحه مسیر یادگیری عملی MikroTik در تهران نتورک است؛ از آشنایی با RouterOS و ساخت لاب تا Routing، Firewall و VPN. هدف این هاب این است که آموزش‌ها پراکنده نباشند و بدانی هر مبحث را با چه پیش‌نیازی و در چه ترتیبی دنبال کنی.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">از کجا شروع کنیم؟</h2>\n<!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol><li><strong>RouterOS و مدیریت روتر:</strong> Interfaceها، Winbox/Terminal، گرفتن Backup و شناخت ساختار تنظیمات.</li><li><strong>IP و سرویس‌های پایه:</strong> Addressing، DHCP، DNS و NAT را قبل از سناریوهای پیچیده مسلط شو.</li><li><strong>Routing و Firewall:</strong> مسیر ترافیک را بفهم، بعد Ruleها را طوری بساز که قابل تست و قابل برگشت باشند.</li><li><strong>VPN و دسترسی امن:</strong> پروتکل را بر اساس نیاز کلاینت، امنیت و سازگاری انتخاب کن؛ صرفاً چون یک روش قدیمی هنوز کار می‌کند، انتخاب مناسبی نیست.</li><li><strong>Lab و عیب‌یابی:</strong> قبل از تغییر روی شبکه واقعی، سناریو را در محیط آزمایشگاهی بازسازی و خروجی هر مرحله را بررسی کن.</li></ol>\n<!-- /wp:list -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">مسیر RouterOS و تمرین عملی</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>در RouterOS بهتر است هر تغییر با یک هدف مشخص، یک روش تست و یک راه برگشت انجام شود. برای سناریوهای آموزشی، ساخت روتر مجازی در GNS3 کمک می‌کند بدون دست‌زدن به شبکه اصلی، Routing، Firewall و VPN را تمرین کنی.</p>\n<!-- /wp:paragraph -->\n<!-- wp:embed {\"url\":\"https://www.youtube.com/watch?v=OgypQcQS3FA\",\"type\":\"video\",\"providerNameSlug\":\"youtube\",\"responsive\":true} -->\n<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube\"><div class=\"wp-block-embed__wrapper\">https://www.youtube.com/watch?v=OgypQcQS3FA</div></figure>\n<!-- /wp:embed -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">مسیر MTCNA</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>ویدیوهای MTCNA کانال را به‌عنوان یک مسیر پیوسته ببین، نه مجموعه‌ای از قسمت‌های جدا. <a href=\"/learn/mikrotik/mtcna/\">صفحه مسیر MTCNA</a> ترتیب قسمت‌ها، لاب GNS3 و چک‌پوینت‌های تمرین را یکجا نگه می‌دارد تا قبل از رفتن به مرحله بعد بتوانی همان سناریو را خودت اجرا و تست کنی.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p><a href=\"https://www.youtube.com/watch?v=Wbj3C0g__zw\">شروع ویدیوهای MTCNA تهران نتورک از قسمت اول</a></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">VPN روی MikroTik؛ انتخاب را از نیاز شروع کن</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>برای دسترسی راه‌دور، فقط «وصل شدن» معیار کافی نیست. نوع کلاینت، روش احراز هویت، مدیریت Certificate، محدودیت شبکه مقصد و امکان نگهداری بلندمدت را کنار هم ببین. در آموزش‌های جدیدتر کانال، IKEv2 و OpenVPN سناریوهای عملی مناسبی برای بررسی این تصمیم‌ها هستند.</p>\n<!-- /wp:paragraph -->\n<!-- wp:embed {\"url\":\"https://www.youtube.com/watch?v=iSNDz7xfNtg\",\"type\":\"video\",\"providerNameSlug\":\"youtube\",\"responsive\":true} -->\n<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube\"><div class=\"wp-block-embed__wrapper\">https://www.youtube.com/watch?v=iSNDz7xfNtg</div></figure>\n<!-- /wp:embed -->\n\n<!-- wp:embed {\"url\":\"https://www.youtube.com/watch?v=7cXU76ofkSg\",\"type\":\"video\",\"providerNameSlug\":\"youtube\",\"responsive\":true} -->\n<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube\"><div class=\"wp-block-embed__wrapper\">https://www.youtube.com/watch?v=7cXU76ofkSg</div></figure>\n<!-- /wp:embed -->\n\n<!-- wp:paragraph -->\n<p>آموزش PPTP/L2TP موجود در کانال برای شناخت تنظیمات و مقایسه روش‌ها مفید است، اما انتخاب پروتکل برای یک استقرار جدید باید با توجه به الزامات امنیتی و پشتیبانی کلاینت‌ها انجام شود؛ این هاب هیچ پروتکل قدیمی را صرفاً به‌خاطر سادگی به‌عنوان انتخاب امن پیش‌فرض معرفی نمی‌کند.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">Lab، Backup و روش عیب‌یابی</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>در هر Lab یک تغییر را در هر مرحله اعمال کن، قبل و بعد آن وضعیت Route، Interface، Firewall و Log را مقایسه کن و Backup قابل‌بازگشت داشته باش. فایل‌ها و سناریوهای قابل دانلود به‌تدریج در <a href=\"/lab/\">Lab تهران نتورک</a> قرار می‌گیرند.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">برای اجرای واقعی شبکه</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>اگر سناریوی تو مربوط به شبکه واقعی شرکت، Routing، Firewall، VPN یا عیب‌یابی MikroTik است و نمی‌خواهی فقط آزمایش آموزشی انجام بدهی، از <a href=\"/services/\">بخش خدمات شبکه</a> یا <a href=\"/contact/\">تماس با تهران نتورک</a> استفاده کن. صفحات تخصصی خدمات فقط زمانی لینک می‌شوند که خودشان منتشر و بررسی شده باشند.</p>\n<!-- /wp:paragraph -->\n\n\n<!-- wp:shortcode -->\n[tn_editorial_note]\n<!-- /wp:shortcode -->"
+      }
+    },
+    {
+      "id": 11,
+      "type": "page",
+      "url": "https://tehnet.ir/contact/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_content": "d403b0baada487ef47dc7642714bc035bdec258b994ced395c33612a71d424c2"
+      },
+      "after": {
+        "post_excerpt": "راه‌های تماس تهران نتورک برای خدمات شبکه، پشتیبانی ریموت، استعلام تجهیزات و گزارش اشکال محتوا؛ تلفن021-91018746.",
+        "post_content": "<!-- wp:paragraph --><p>برای خدمات شبکه، پشتیبانی ریموت، استعلام تجهیزات یا پیشنهاد اصلاح محتوا با تهران نتورک در تماس باشید.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تماس کسب‌وکار</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>تلفن: <a href=\"tel:+982191018746\">021-91018746</a><br>محدودهٔ نشانی: تهران، آیت‌الله کاشانی، شاهین جنوبی.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">برای بررسی درخواست چه اطلاعاتی لازم است؟</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>شرح نیاز یا نشانهٔ مشکل، زمان شروع و تغییرات اخیر.</li><!-- /wp:list-item --><!-- wp:list-item --><li>شهر و امکان دسترسی ریموت، بدون ارسال رمز عبور یا کلید خصوصی.</li><!-- /wp:list-item --><!-- wp:list-item --><li>برای کالا: کد کاتالوگ، شماره فنی موردنظر، مقدار و واحد فروش مدنظر.</li><!-- /wp:list-item --><!-- wp:list-item --><li>برای اصلاح محتوا: نشانی صفحه، بخش موردنظر، نسخه یا مدرک عمومی مرتبط.</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>قبل از دریافت دسترسی یا اجرای کار، محدوده و روش دسترسی بررسی می‌شود. اطلاعات محرمانه و دادهٔ مشتری را در پیام اولیه قرار ندهید. زمان اجرا، موجودی و هزینهٔ نهایی پس از بررسی اعلام می‌شوند.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p><a href=\"/services/\">خدمات حضوری تهران و پشتیبانی ریموت ایران</a> · <a href=\"/technical-methodology/\">روش منابع و اصلاح محتوا</a></p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 10,
+      "type": "page",
+      "url": "https://tehnet.ir/about/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_content": "daecc47909f85c5a14a46159345417d04ccf6d94335b8697456591443591c1a4"
+      },
+      "after": {
+        "post_excerpt": "درباره تهران نتورک؛ حوزهٔ آموزش، لاب، خدمات شبکه و استعلام تجهیزات، روش بررسی محتوا و راه ارتباط کسب‌وکار.",
+        "post_content": "<!-- wp:paragraph --><p>تهران نتورک یک پلتفرم فارسی برای آموزش عملی شبکه، لاب، خدمات فنی و استعلام تجهیزات است. مسیر آموزش و خدمات در همین سایت کنار هم قرار دارند تا مفهوم، تمرین و نیاز اجرایی از هم قابل‌تشخیص باشند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">حوزهٔ فعالیت</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>آموزش‌های موجود MikroTik و MTCNA و تمرین‌های مرتبط با RouterOS.</li><!-- /wp:list-item --><!-- wp:list-item --><li>خدمات حضوری طراحی، راه‌اندازی و پشتیبانی شبکه در تهران، پس از بررسی نیاز.</li><!-- /wp:list-item --><!-- wp:list-item --><li>پشتیبانی ریموت در سراسر ایران در صورت امکان دسترسی و مناسب‌بودن مسئله.</li><!-- /wp:list-item --><!-- wp:list-item --><li>بررسی و استعلام تجهیزات؛ قیمت، مدل و شرایط تأمین پیش از سفارش تأیید می‌شوند.</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مرز ادعا و مدرک</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>مشخصات اعلام‌شدهٔ فروشنده، تصویر کاتالوگ و نتیجهٔ آزمون واقعی یکسان نیستند. نام سازنده یا لینک مستندات، به معنی نمایندگی رسمی نیست. <a href=\"/technical-methodology/\">روش بررسی و اصلاح محتوا</a> را برای جزئیات ببینید.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مسئول و راه ارتباط</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p><a href=\"/amirreza-golavar/\">رزومه و فعالیت حرفه‌ای امیررضا گل‌آور</a> در صفحهٔ مستقل قابل مشاهده است. برای خدمات، تجهیزات و پیشنهاد اصلاح محتوا از <a href=\"/contact/\">راه‌های تماس کسب‌وکار</a> استفاده کنید.</p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 9,
+      "type": "page",
+      "url": "https://tehnet.ir/shop/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "post_excerpt": "کاتالوگ تجهیزات شبکه تهران نتورک؛ بررسی تصاویر و اطلاعات اعلامی و استعلام مدل، قیمت، موجودی و شرایط تأمین."
+      }
+    },
+    {
+      "id": 8,
+      "type": "page",
+      "url": "https://tehnet.ir/services/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_content": "42dabfb7b4c45fdee8d0458d438aae797fc193915434715b9232f56b4ba8d8c8"
+      },
+      "after": {
+        "post_excerpt": "خدمات شبکه تهران نتورک؛ بررسی نیاز، طراحی و پشتیبانی حضوری تهران یا ریموت در ایران، با تعیین محدودهٔ کار.",
+        "post_content": "<!-- wp:paragraph {\"className\":\"tn-lead\"} --><p class=\"tn-lead\">تهران نتورک خدمات حضوری شبکه را در تهران و پشتیبانی فنی از راه دور را برای مشتریان سراسر ایران ارائه می‌کند. برای اینکه درخواست مستقیم به صفحه درست برسد، نوع خدمت را از گزینه‌های زیر انتخاب کن.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">خدمات حضوری شبکه در تهران</h2><!-- /wp:heading -->\n<!-- wp:columns --><div class=\"wp-block-columns\">\n<!-- wp:column --><div class=\"wp-block-column\"><!-- wp:heading {\"level\":3} --><h3 class=\"wp-block-heading\"><a href=\"/services/network-tehran/\">خدمات شبکه تهران</a></h3><!-- /wp:heading --><!-- wp:paragraph --><p>بررسی و اجرای مسائل شبکه‌ای که نیاز به حضور در محل، تست تجهیزات یا بررسی هم‌زمان زیرساخت دارند.</p><!-- /wp:paragraph --></div><!-- /wp:column -->\n<!-- wp:column --><div class=\"wp-block-column\"><!-- wp:heading {\"level\":3} --><h3 class=\"wp-block-heading\"><a href=\"/services/network-support-tehran/\">پشتیبانی شبکه تهران</a></h3><!-- /wp:heading --><!-- wp:paragraph --><p>عیب‌یابی شبکه موجود، قطعی، دسترسی، Routing، DHCP/DNS و مشکلاتی که روی کار روزمره مجموعه اثر می‌گذارند.</p><!-- /wp:paragraph --></div><!-- /wp:column -->\n</div><!-- /wp:columns -->\n\n<!-- wp:columns --><div class=\"wp-block-columns\">\n<!-- wp:column --><div class=\"wp-block-column\"><!-- wp:heading {\"level\":3} --><h3 class=\"wp-block-heading\"><a href=\"/services/network-setup-tehran/\">راه‌اندازی شبکه شرکت در تهران</a></h3><!-- /wp:heading --><!-- wp:paragraph --><p>بررسی نیاز، آماده‌سازی ساختار شبکه و تنظیم تجهیزات برای مجموعه‌ای که شبکه جدید یا توسعه ساختار فعلی می‌خواهد.</p><!-- /wp:paragraph --></div><!-- /wp:column -->\n<!-- wp:column --><div class=\"wp-block-column\"><!-- wp:heading {\"level\":3} --><h3 class=\"wp-block-heading\"><a href=\"/services/mikrotik-tehran/\">خدمات MikroTik تهران</a></h3><!-- /wp:heading --><!-- wp:paragraph --><p>تنظیم و عیب‌یابی RouterOS، Routing، Firewall، VPN و ارتباطات MikroTik در شبکه واقعی.</p><!-- /wp:paragraph --></div><!-- /wp:column -->\n</div><!-- /wp:columns -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">پشتیبانی ریموت برای سراسر ایران</h2><!-- /wp:heading -->\n<!-- wp:paragraph --><p>اگر مسئله بدون حضور فیزیکی و از طریق دسترسی مدیریتی امن قابل بررسی است، صفحه <a href=\"/services/remote-support/\">پشتیبانی شبکه از راه دور</a> مسیر مناسب‌تری است. خرابی‌های فیزیکی، کابل و تعویض سخت‌افزار نیازمند فرد حاضر در محل هستند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تماس و محدوده فعلی خدمات</h2><!-- /wp:heading -->\n<!-- wp:paragraph --><p>شماره تماس: <strong>[tehnet_phone]</strong><br>آدرس فعلی تهران نتورک: [tehnet_address]</p><!-- /wp:paragraph -->\n<!-- wp:paragraph --><p>برای توضیح نیاز یا هماهنگی اولیه می‌توانی از <a href=\"/contact/\">صفحه تماس تهران نتورک</a> هم استفاده کنی. قیمت و محدوده نهایی هر کار بعد از مشخص‌شدن نیاز فنی اعلام می‌شود.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>محدودهٔ کار، روش دسترسی و شرایط انجام خدمت پیش از اجرا مشخص می‌شود. <a href=\"/technical-methodology/\">روش منابع و مستندسازی</a> و <a href=\"/contact/\">اطلاعات لازم برای شروع درخواست</a> را ببینید.</p><!-- /wp:paragraph -->"
+      }
+    },
+    {
+      "id": 7,
+      "type": "page",
+      "url": "https://tehnet.ir/lab/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_content": "e7255451ce65c6525e439e9fe2d8ede43f675b2ef79501c801057dfbebf134c6"
+      },
+      "after": {
+        "post_excerpt": "لاب تهران نتورک؛ محیط GNS3، برآورد MTU در WireGuard و روش ثبت نتیجهٔ تمرین، جدا از شبکهٔ عملیاتی.",
+        "post_content": "<!-- wp:paragraph --><p>Lab تهران نتورک برای تمرین جدا از شبکهٔ عملیاتی و بررسی مسئله‌های فنی است. هر ابزار یا سناریو باید فرض‌ها، ورودی و محدودیت‌های خود را روشن کند.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">محیط تمرین میکروتیک</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p><a href=\"/lab/gns3-mikrotik/\">ساخت روتر میکروتیک مجازی با GNS3</a> نقطهٔ شروع تمرین است. مجوز و نسخهٔ تصویر RouterOS/CHR را از سازنده بررسی کنید؛ کلید یا تصویر دارای محدودیت را در اختیار دیگران نگذارید.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">ابزار محاسباتی WireGuard</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p><a href=\"/lab/wireguard-mtu/\">برآورد MTU داخلی WireGuard</a>، سربار پایه را با انتخاب IPv4/IPv6 بیرونی محاسبه می‌کند. ابزار محلی است، داده‌ای به روتر نمی‌فرستد و نتیجهٔ تست مسیر یا سرعت نیست. کد Python برای استفادهٔ آفلاین نیز در همان صفحه قرار دارد.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">چطور نتیجهٔ تمرین را ثبت کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>نسخهٔ نرم‌افزار، توپولوژی و تنظیمات اثرگذار را ثبت کنید.</li><!-- /wp:list-item --><!-- wp:list-item --><li>ورودی، خروجی، انتظار و نتیجهٔ واقعی را از هم جدا بنویسید.</li><!-- /wp:list-item --><!-- wp:list-item --><li>پیش از اشتراک خروجی، رمز، کلید خصوصی، نشانی حساس و دادهٔ مشتری را حذف کنید.</li><!-- /wp:list-item --><!-- wp:list-item --><li>قبل از اجرای تغییر در تولید، محدودهٔ کار و راه بازگشت را مشخص کنید.</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p><a href=\"/technical-methodology/\">روش منابع، آزمون و اصلاح</a> · <a href=\"/learn/mikrotik/mtcna/\">بازگشت به مسیر MTCNA</a></p><!-- /wp:paragraph -->\n\n<!-- wp:shortcode -->\n[tn_editorial_note]\n<!-- /wp:shortcode -->"
+      }
+    },
+    {
+      "id": 6,
+      "type": "page",
+      "url": "https://tehnet.ir/learn/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_content": "812f4fb2d4aa9c553738c76f9dfb055c86f6f8947fc9027db2cb6069826cf2a4"
+      },
+      "after": {
+        "post_excerpt": "آموزش‌های موجود شبکه و میکروتیک تهران نتورک؛ مسیر MTCNA، شش درس نوشتاری و دسترسی به تمرین‌های Lab.",
+        "post_content": "<!-- wp:paragraph --><p>آموزش‌های موجود تهران نتورک برای یادگیری شبکه در محیط آزمایشگاهی و بررسی سناریوهای MikroTik دسته‌بندی شده‌اند. از مسیر پایه شروع کنید و پیش از هر تغییر عملیاتی، امکان بازیابی را بررسی کنید.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مسیر میکروتیک و MTCNA</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p><a href=\"/learn/mikrotik/\">هاب آموزش میکروتیک</a> و <a href=\"/learn/mikrotik/mtcna/\">مسیر MTCNA</a>، ترتیب مطالعه و تمرین را نشان می‌دهند. درس‌های نوشتاری موجود:</p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><a href=\"/learn/mikrotik/mtcna/routeros-winbox/\">اتصال به RouterOS، Winbox و بازیابی</a></li><!-- /wp:list-item --><!-- wp:list-item --><li><a href=\"/learn/mikrotik/mtcna/ip-dhcp-dns/\">آدرس‌دهی IP، DHCP و DNS</a></li><!-- /wp:list-item --><!-- wp:list-item --><li><a href=\"/learn/mikrotik/mtcna/static-routing/\">مسیریابی استاتیک</a></li><!-- /wp:list-item --><!-- wp:list-item --><li><a href=\"/learn/mikrotik/mtcna/nat-masquerade/\">NAT و Masquerade</a></li><!-- /wp:list-item --><!-- wp:list-item --><li><a href=\"/learn/mikrotik/mtcna/firewall-basics/\">فایروال پایه</a></li><!-- /wp:list-item --><!-- wp:list-item --><li><a href=\"/learn/mikrotik/mtcna/queues-troubleshooting/\">پهنای باند و عیب‌یابی</a></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تمرین و منابع</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>در <a href=\"/lab/\">Lab</a> راه ساخت محیط GNS3 و ابزار محاسباتی MTU را ببینید. ویدیو و متن، مکمل تمرین‌اند؛ خواندن درس به معنی تأیید آمادگی برای تغییر شبکهٔ سازمانی نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p><a href=\"/technical-methodology/\">روش منابع و اصلاح محتوای تهران نتورک</a>، تفاوت مثال آموزشی و نتیجهٔ آزمایش واقعی را توضیح می‌دهد.</p><!-- /wp:paragraph -->\n\n<!-- wp:shortcode -->\n[tn_editorial_note]\n<!-- /wp:shortcode -->"
+      }
+    },
+    {
+      "id": 5,
+      "type": "page",
+      "url": "https://tehnet.ir/",
+      "before": {
+        "post_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "post_excerpt": "تهران نتورک؛ آموزش عملی شبکه و میکروتیک، لاب، خدمات حضوری تهران، پشتیبانی ریموت ایران و استعلام تجهیزات شبکه."
+      }
+    },
+    {
+      "id": 2,
+      "type": "page",
+      "url": "https://tehnet.ir/sample-page/",
+      "before": {
+        "post_status": "a5d47a4311d759db69e576d9eedd6a02fcfd9cd214129fa8492ee1e9c7343def"
+      },
+      "after": {
+        "post_status": "draft"
+      }
+    }
+  ],
+  "new_pages": [
+    {
+      "key": "methodology",
+      "slug": "technical-methodology",
+      "parent": 0,
+      "title": "روش منابع، آزمون و اصلاح محتوا",
+      "excerpt": "روش تهران نتورک برای منابع رسمی، تفکیک دادهٔ کاتالوگ از نتیجهٔ آزمایش، شناسایی مدل، نویسندگی و اصلاح خطاها.",
+      "content": "<!-- wp:paragraph --><p>در تهران نتورک، متن آموزشی، دادهٔ کاتالوگ و نتیجهٔ آزمایش سه نوع مدرک متفاوت‌اند. این صفحه روش آماده‌سازی، بررسی و اصلاح آن‌ها را توضیح می‌دهد.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">از کدام منابع استفاده می‌کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>برای رفتار نرم‌افزار و پروتکل، مستند سازنده و استاندارد رسمی اولویت دارند. برای کالا، شماره فنی، دیتاشیت و مدرک همان مدل لازم است. نوشتهٔ فروشنده یا ظاهر عکس، به‌تنهایی تأیید ویژگی فنی، اصالت، موجودی یا عملکرد نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><a href=\"https://help.mikrotik.com/docs/\">مستندات RouterOS شرکت MikroTik</a></li><!-- /wp:list-item --><!-- wp:list-item --><li><a href=\"https://www.wireguard.com/protocol/\">ساختار پروتکل WireGuard</a></li><!-- /wp:list-item --><!-- wp:list-item --><li><a href=\"https://www.rfc-editor.org/\">استانداردهای RFC</a></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">چه چیزی را «آزموده» می‌نامیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>وقتی نتیجهٔ آزمایش منتشر شود، باید نسخه، محیط، ورودی، خروجی و محدودیت آن مشخص باشند. تست محاسبه یا رابط وب، معادل تست روی روتر، کابل یا شبکهٔ مشتری نیست. مثال‌های آموزشی ابتدا برای لاب جدا هستند و نباید بدون بررسی به شبکهٔ عملیاتی منتقل شوند.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p><a href=\"/lab/wireguard-mtu/\">ابزار محاسباتی MTU در WireGuard</a> نمونهٔ یک ابزار محلی با آزمون محاسبات و محدودهٔ کاربرد روشن است؛ این ابزار به روتر متصل نمی‌شود و اندازه‌گیری مسیر انجام نمی‌دهد.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تصویر، نمای۳۶۰ و مشخصات کالا</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>تصویرهای مجاز کاتالوگ ممکن است عکس یا رندر باشند. برای فعال‌کردن چرخش۳۶۰، فریم‌های متعلق به همان کالا و پوشش زاویه‌ها باید بازبینی شوند. مدل سه‌بعدی باید با شماره فنی، ابعاد و جزئیات همان کالا تطبیق داشته باشد. از یک تصویر، پشت کالا را به اسم نمای واقعی تولید نمی‌کنیم.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">نویسندگی و اصلاح محتوا</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>محتوای منتشرشده با نام تهران نتورک مشخص می‌شود. ابزارهای خودکار می‌توانند در تهیه و بررسی ساختار کمک کنند؛ این موضوع جای تطبیق منابع و تأیید فنی یا فیزیکی را نمی‌گیرد. تاریخ آخرین ویرایش با تاریخ تست واقعی فرق دارد.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>اگر خطا یا ابهامی دیدید، نشانی صفحه، بخش موردنظر، نسخهٔ نرم‌افزار یا شماره فنی و مدرک عمومی مرتبط را از <a href=\"/contact/\">راه‌های تماس</a> بفرستید. اطلاعات محرمانه، رمز عبور، کلید خصوصی یا دادهٔ مشتری را در پیام اولیه قرار ندهید. در اصلاح، نشانی‌های مفید حفظ و ادعاهای نادرست تصحیح می‌شوند؛ صرف تغییر تاریخ، نشانهٔ بازآزمایی نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">دامنهٔ خدمات</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>خدمات حضوری در تهران و پشتیبانی ریموت در سراسر ایران، با بررسی امکان دسترسی و محدودهٔ کار، ارائه می‌شود. استفاده از نام یا لینک سازنده و استاندارد، به معنی نمایندگی رسمی یا تأیید تهران نتورک از سوی آن‌ها نیست.</p><!-- /wp:paragraph -->\n\n<!-- wp:shortcode -->\n[tn_editorial_note]\n<!-- /wp:shortcode -->"
+    },
+    {
+      "key": "mtu",
+      "slug": "wireguard-mtu",
+      "parent": 7,
+      "title": "برآورد MTU در WireGuard؛ ابزار محلی و محدودیت‌ها",
+      "excerpt": "محاسبهٔ محلی سربار پایهٔ WireGuard برای IPv4/IPv6 بیرونی، با نمونه‌های آزمودهٔ محاسبات، کد Python و محدودیت‌های روشن.",
+      "content": "<!-- wp:paragraph --><p>وقتی تونل برقرار است ولی بعضی ارتباط‌ها کند یا ناپایدارند، MTU یکی از موارد قابل‌بررسی است؛ وجود چنین نشانه‌ای، علت را به‌تنهایی ثابت نمی‌کند. این ابزار فقط سربار پایهٔ پیام دادهٔ WireGuard را محاسبه می‌کند و تنظیمی روی روتر تغییر نمی‌دهد.</p><!-- /wp:paragraph -->\n\n<!-- wp:shortcode -->\n[tn_wireguard_mtu]\n<!-- /wp:shortcode -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">چگونه از نتیجه استفاده کنیم؟</h2><!-- /wp:heading -->\n\n<!-- wp:list {\"ordered\":true} --><ol class=\"wp-block-list\"><!-- wp:list-item --><li>MTU مؤثر مسیر بیرونی را با توجه به لینک و تجهیزات تعیین یا اندازه‌گیری کنید؛ عدد۱۵۰۰ را صرفاً از روی نوع کابل فرض نکنید.</li><!-- /wp:list-item --><!-- wp:list-item --><li>نسخهٔ IP انتقال‌دهندهٔ تونل را انتخاب کنید. IPv4/IPv6 بیرونی با نوع آدرس‌های داخل تونل متفاوت است.</li><!-- /wp:list-item --><!-- wp:list-item --><li>مقدار محاسباتی را نقطهٔ شروع بررسی در لاب بدانید؛ مسیر، encapsulationهای دیگر و رفتار تجهیزات را جدا آزمایش کنید.</li><!-- /wp:list-item --><!-- wp:list-item --><li>پیش از تغییر شبکهٔ عملیاتی، راه بازیابی و دسترسی جایگزین داشته باشید. <a href=\"/learn/mikrotik/mtcna/routeros-winbox/\">Safe Mode و نسخهٔ پشتیبان</a> محدودیت‌های خود را دارند.</li><!-- /wp:list-item --></ol><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">فرض‌ها و محدودیت‌ها</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>فرمول، IP بیرونی بدون option/extension header، UDP با سربار۸ بایت و پیام دادهٔ WireGuard با سربار پایه۳۲ بایت را در نظر می‌گیرد. padding، محدودیت IPv6 داخلی، تونل تو در تو، EoIP و سربار شبکهٔ زیرین نیاز بررسی مستقل دارند. اگر MTU واردشده از قبل MTU مؤثر مسیر است، سربار همان لایه را دوباره کم نکنید.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">آزمون محاسبات؛ نه تست روتر</h2><!-- /wp:heading -->\n\n<!-- wp:table {\"hasFixedLayout\":false} --><figure class=\"wp-block-table\"><table><thead><tr><th>MTU مسیر</th><th>IP بیرونی</th><th>نتیجهٔ پایه</th></tr></thead><tbody><tr><td>۱۵۰۰</td><td>IPv4</td><td>۱۴۴۰</td></tr><tr><td>۱۵۰۰</td><td>IPv6</td><td>۱۴۲۰</td></tr><tr><td>۱۴۹۲</td><td>IPv4</td><td>۱۴۳۲</td></tr><tr><td>۱۴۹۲</td><td>IPv6</td><td>۱۴۱۲</td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:paragraph --><p>ورودی غیرصحیح یا خارج از محدوده رد می‌شود. نسخهٔ مرورگر، Python و PHP با ورودی‌های یکسان آزموده می‌شوند. این‌ها نتیجهٔ آزمون محاسبات نرم‌افزارند؛ سرعت یا پایداری هیچ روتر یا شبکه‌ای با آن‌ها تضمین نشده است.</p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p><a href=\"/wp-content/mu-plugins/tehnet-technical-resources/wireguard-mtu.py.txt\" download=\"wireguard-mtu.py\">دریافت کد Python برای استفادهٔ آفلاین</a> — اجرای نمونه: <code>python wireguard-mtu.py 1500 --outer-ip 4</code></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">منابع و ادامهٔ بررسی</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><a href=\"https://www.wireguard.com/protocol/\">ساختار رسمی پیام‌های WireGuard</a></li><!-- /wp:list-item --><!-- wp:list-item --><li><a href=\"https://help.mikrotik.com/docs/spaces/ROS/pages/69664792/WireGuard\">راهنمای WireGuard در RouterOS</a></li><!-- /wp:list-item --><!-- wp:list-item --><li><a href=\"https://forum.mikrotik.com/t/mtu-optimization-on-vlan-over-eoip-over-wireguard-over-vlan-over-ethernet-site-to-site/265520\">نمونهٔ گفت‌وگوی فنی دربارهٔ MTU در تونل‌های تو در تو</a></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>برای گزارش اشکال، ورودی، IP بیرونی، خروجی و شرح اختلاف را از <a href=\"/contact/\">تماس با تهران نتورک</a> بفرستید؛ کلید خصوصی یا کانفیگ حساس ارسال نکنید.</p><!-- /wp:paragraph -->\n\n<!-- wp:shortcode -->\n[tn_editorial_note]\n<!-- /wp:shortcode -->"
+    }
+  ],
+  "terms": [
+    {
+      "id": 18,
+      "taxonomy": "category",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "description": "مرور نوشته‌های منتشرشدهٔ آموزش شبکه در تهران نتورک؛ برای متن کامل، منابع و زمان ویرایش، صفحهٔ هر نوشته را ببینید."
+    },
+    {
+      "id": 27,
+      "taxonomy": "product_cat",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "description": "کالاهای دستهٔ اتصالات در کاتالوگ تهران نتورک؛ تصویر و اطلاعات اعلامی را بررسی و مدل، قیمت، موجودی و شرایط تأمین را پیش از سفارش استعلام کنید."
+    },
+    {
+      "id": 28,
+      "taxonomy": "product_cat",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "description": "کالاهای دستهٔ انواع پریز شبکه در کاتالوگ تهران نتورک؛ تصویر و اطلاعات اعلامی را بررسی و مدل، قیمت، موجودی و شرایط تأمین را پیش از سفارش استعلام کنید."
+    },
+    {
+      "id": 20,
+      "taxonomy": "product_cat",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "description": "کالاهای دستهٔ پسیو شبکه در کاتالوگ تهران نتورک؛ تصویر و اطلاعات اعلامی را بررسی و مدل، قیمت، موجودی و شرایط تأمین را پیش از سفارش استعلام کنید."
+    },
+    {
+      "id": 21,
+      "taxonomy": "product_cat",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "description": "کالاهای دستهٔ پسیو شبکه (Passive Network) در کاتالوگ تهران نتورک؛ تصویر و اطلاعات اعلامی را بررسی و مدل، قیمت، موجودی و شرایط تأمین را پیش از سفارش استعلام کنید."
+    },
+    {
+      "id": 29,
+      "taxonomy": "product_cat",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "description": "کالاهای دستهٔ سوکت شبکه در کاتالوگ تهران نتورک؛ تصویر و اطلاعات اعلامی را بررسی و مدل، قیمت، موجودی و شرایط تأمین را پیش از سفارش استعلام کنید."
+    },
+    {
+      "id": 23,
+      "taxonomy": "product_cat",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "description": "کالاهای دستهٔ کابل شبکه در کاتالوگ تهران نتورک؛ تصویر و اطلاعات اعلامی را بررسی و مدل، قیمت، موجودی و شرایط تأمین را پیش از سفارش استعلام کنید."
+    },
+    {
+      "id": 24,
+      "taxonomy": "product_cat",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "description": "کالاهای دستهٔ کابل شبکه CAT6 در کاتالوگ تهران نتورک؛ تصویر و اطلاعات اعلامی را بررسی و مدل، قیمت، موجودی و شرایط تأمین را پیش از سفارش استعلام کنید."
+    },
+    {
+      "id": 25,
+      "taxonomy": "product_cat",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "description": "کالاهای دستهٔ کابل شبکه لگراند (Legrand) در کاتالوگ تهران نتورک؛ تصویر و اطلاعات اعلامی را بررسی و مدل، قیمت، موجودی و شرایط تأمین را پیش از سفارش استعلام کنید."
+    },
+    {
+      "id": 26,
+      "taxonomy": "product_cat",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "description": "کالاهای دستهٔ کابل شبکه نگزنس (Nexans) در کاتالوگ تهران نتورک؛ تصویر و اطلاعات اعلامی را بررسی و مدل، قیمت، موجودی و شرایط تأمین را پیش از سفارش استعلام کنید."
+    },
+    {
+      "id": 30,
+      "taxonomy": "product_cat",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "description": "کالاهای دستهٔ کیستون تلفن در کاتالوگ تهران نتورک؛ تصویر و اطلاعات اعلامی را بررسی و مدل، قیمت، موجودی و شرایط تأمین را پیش از سفارش استعلام کنید."
+    },
+    {
+      "id": 31,
+      "taxonomy": "product_cat",
+      "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "description": "کالاهای دستهٔ کیستون شبکه در کاتالوگ تهران نتورک؛ تصویر و اطلاعات اعلامی را بررسی و مدل، قیمت، موجودی و شرایط تأمین را پیش از سفارش استعلام کنید."
+    }
+  ],
+  "files_before": {
+    "themes/tehnet/header.php": {
+      "sha256": "14cee90553c2ea9a36c61ff67babeca211b5c1cf496f68589fb6e7c0baa32995",
+      "lf_sha256": "14cee90553c2ea9a36c61ff67babeca211b5c1cf496f68589fb6e7c0baa32995",
+      "crlf_count": 0
+    },
+    "themes/tehnet/index.php": {
+      "sha256": "b6162d8237b9d12dbc508af2dd8dc08db09e3a6055cbfb3e795309c5dda170ae",
+      "lf_sha256": "b6162d8237b9d12dbc508af2dd8dc08db09e3a6055cbfb3e795309c5dda170ae",
+      "crlf_count": 0
+    },
+    "plugins/tehnet-store/tehnet-store.php": {
+      "sha256": "20dfd304474177f4a4926a7f22891b0dc43084fcc5cee70436a08f741099d3ff",
+      "lf_sha256": "20dfd304474177f4a4926a7f22891b0dc43084fcc5cee70436a08f741099d3ff",
+      "crlf_count": 0
+    },
+    "plugins/tehnet-store/includes/class-storefront.php": {
+      "sha256": "12f49960e16538cee650d89fd06285fff66a6e7d88062100ca78b0badd442aa9",
+      "lf_sha256": "12f49960e16538cee650d89fd06285fff66a6e7d88062100ca78b0badd442aa9",
+      "crlf_count": 0
+    },
+    "plugins/tehnet-store/assets/store.css": {
+      "sha256": "0e827239ae3cdfa8ae6e74fbac462954642612eb9e5389a84ebf3fee0c6799c3",
+      "lf_sha256": "766458c8d2b0ba3b3f80370799791085d9981bdc8a12dad10294f28d5f219623",
+      "crlf_count": 9
+    }
+  },
+  "preserve_noindex": true,
+  "preserve_commercial_fields": true
+}
