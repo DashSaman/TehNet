@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "scope": "Isolated native Woo; synthetic hidden future product, emulated touch; no production asset approval",
+  "checks": [
+    "future native Woo fixture has no source catalogue identity dependency",
+    "reviewed model is beside product media",
+    "real renderer and GLB remain lazy",
+    "five reviewed synthetic parts render through native pipeline",
+    "reduced motion disables automatic rotation",
+    "shared zoom changes projected model size",
+    "shared reset restores initial camera after zoom",
+    "shared native model rotates with actual mouse drag",
+    "shared gallery model enters fullscreen",
+    "shared controls preserve native exploded animation",
+    "synthetic part explanation contains no physical measurements",
+    "camera reset preserves exploded pose",
+    "opt-in native turntable rotation advances",
+    "automatic rotation can be stopped",
+    "future-product model supports one-finger touch rotation",
+    "future-product model supports pinch zoom",
+    "native portrait reset handles pinch-adjusted FoV",
+    "shared gallery and toolbar have no mobile overflow",
+    "missing GLB exposes retry and gallery fallback",
+    "no JavaScript errors across native shared controls"
+  ],
+  "js_errors": [],
+  "observed_file_utc": "2026-10-16T19:00:40.767241+00:00"
+}

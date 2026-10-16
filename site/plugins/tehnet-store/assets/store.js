@@ -13,6 +13,14 @@
   function save(kind) {
     try { localStorage.setItem(`tn-store-v1-${kind}`, JSON.stringify(lists[kind])); } catch { feedback.textContent = 'ذخیره روی این مرورگر ممکن نیست؛ انتخاب‌ها فقط در همین صفحه می‌مانند.'; }
     document.querySelectorAll(`[data-tn-count="${kind}"]`).forEach(el => { el.textContent = lists[kind].length.toLocaleString('fa-IR'); });
+    syncButtons();
+  }
+  function syncButtons() {
+    document.querySelectorAll('[data-tn-add]').forEach(button=>{
+      try{const kind=button.dataset.tnAdd,item=JSON.parse(button.closest('[data-tn-product]').dataset.tnProduct);
+      const active=lists[kind]?.some(p=>p.id===item.id);button.setAttribute('aria-pressed',String(Boolean(active)));
+      button.textContent=kind==='compare'?(active?'حذف از مقایسه':'مقایسه'):(active?'حذف از علاقه‌مندی':'علاقه‌مندی');}catch{}
+    });
   }
   function show(kind) {
     const container = document.querySelector('#tn-store-dialog-content');
@@ -52,8 +60,8 @@
         if (!Number.isSafeInteger(item.id) || new URL(item.url, location.origin).origin !== location.origin) return;
         const existing = lists[kind].find(p => p.id === item.id);
         if (!existing && lists[kind].length >= (kind === 'compare' ? 4 : 24)) { feedback.textContent = 'تعداد انتخاب‌ها به سقف مجاز رسیده است.'; return; }
-        if (existing) Object.assign(existing, item); else lists[kind].push(item);
-        save(kind); feedback.textContent = 'کالا به انتخاب‌های شما اضافه شد.';
+        if (existing) lists[kind]=lists[kind].filter(p=>p.id!==item.id); else lists[kind].push(item);
+        save(kind); feedback.textContent = existing?'کالا از انتخاب‌های شما حذف شد.':'کالا به انتخاب‌های شما اضافه شد.';
       } catch { feedback.textContent = 'اطلاعات کالا قابل خواندن نیست.'; }
     }
     const open = event.target.closest('[data-tn-open]');

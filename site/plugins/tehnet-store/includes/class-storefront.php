@@ -6,6 +6,13 @@ final class TehNet_Store_Storefront {
     private const SPECS=['shield'=>['شیلد',['UTP','FTP','SFTP']],'jacket'=>['روکش',['PVC','LSZH']],'environment'=>['محیط نصب',['Indoor','Outdoor']]];
     public function register(): void {
         add_action('wp_enqueue_scripts',[$this,'assets']);
+        add_filter('body_class',[$this,'body_classes']);
+        add_action('woocommerce_before_shop_loop',[$this,'categories'],2);
+        add_action('woocommerce_no_products_found',[$this,'categories'],2);
+        add_action('woocommerce_before_shop_loop_item_title',static function():void{echo '<div class="tn-card-media">';},5);
+        add_action('woocommerce_before_shop_loop_item_title',static function():void{echo '</div>';},20);
+        add_action('woocommerce_shop_loop_item_title',[$this,'card_identity'],5);
+        add_action('woocommerce_shop_loop_item_title',[$this,'card_specs'],15);
         add_action('woocommerce_before_shop_loop',[$this,'filters'],5);
         add_action('woocommerce_no_products_found',[$this,'filters'],5);
         add_filter('request',[$this,'normalize_request']);
@@ -104,17 +111,55 @@ final class TehNet_Store_Storefront {
     }
     public function assets(): void {
         if (!function_exists('is_woocommerce') || !(is_woocommerce() || is_cart() || is_checkout() || is_account_page())) { return; }
-        wp_enqueue_style('tn-store',plugins_url('assets/store.css',dirname(__DIR__).'/tehnet-store.php'),[], '0.3.0');
-        wp_enqueue_script('tn-store',plugins_url('assets/store.js',dirname(__DIR__).'/tehnet-store.php'),[], '0.2.1',true);
+        wp_enqueue_style('tn-store',plugins_url('assets/store.css',dirname(__DIR__).'/tehnet-store.php'),[], '0.4.0');
+        wp_enqueue_script('tn-store',plugins_url('assets/store.js',dirname(__DIR__).'/tehnet-store.php'),[], '0.4.0',true);
+        if(is_shop()||is_product_taxonomy()||is_product())wp_enqueue_style('tn-shop-experience',plugins_url('assets/store-experience.css',dirname(__DIR__).'/tehnet-store.php'),['tn-store','tehnet-visual-refresh'],'0.4.0');
+    }
+    public function body_classes(array $classes):array {
+        if(function_exists('is_shop')&&(is_shop()||is_product_taxonomy()||is_product()))$classes[]='tn-shop';return $classes;
+    }
+    public function categories():void {
+        $terms=get_terms(['taxonomy'=>'product_cat','hide_empty'=>true,'exclude'=>[(int)get_option('default_product_cat')],'orderby'=>'count','order'=>'DESC']);
+        if(is_wp_error($terms)||!$terms)return;
+        $children=[];foreach($terms as $term)$children[$term->parent][]=$term;$selected=[];
+        // Collapse single-child wrappers. Keep overlapping brand/spec facets
+        // together; expand distinct product families, without hardcoded IDs.
+        $walk=function($term,int $depth=0)use(&$walk,&$selected,$children):void{
+            $next=$children[$term->term_id]??[];
+            if($depth<10&&$next&&count($next)<=6&&(count($next)===1||max(array_map(static fn($t)=>(int)$t->count,$next))<(int)$term->count))foreach($next as $child)$walk($child,$depth+1);
+            else $selected[]=$term;
+        };
+        foreach($children[0]??$terms as $term)$walk($term);$terms=array_slice($selected,0,6);
+        echo '<nav class="tn-shop-categories" aria-label="دسته‌های محصولات">';
+        foreach($terms as $term){
+            $url=get_term_link($term);if(is_wp_error($url))continue;
+            $label=$term->slug.' '.$term->name;
+            $path=match(true){str_contains($label,'cable')||str_contains($label,'کابل')=>'M4 5h6v6H4zM14 13h6v6h-6zM7 11v6h7M6 3v2m2-2v2m8 14v2m2-2v2',str_contains($label,'keystone')||str_contains($label,'کیستون')=>'M5 6h14v13H5zM8 6V3h8v3M8 10v5m3-5v5m3-5v5m3-5v5',str_contains($label,'socket')||str_contains($label,'پریز')=>'M4 4h16v16H4zM9 10v3m6-3v3M11 16h2',str_contains($label,'plug')||str_contains($label,'سوکت')=>'M7 8h10v9H7zM9 8V3m6 5V3m-3 14v4',default=>'m12 3 9 5v9l-9 5-9-5V8l9-5Zm0 10 9-5M3 8l9 5v9'};
+            echo '<a class="tn-shop-category" href="'.esc_url($url).'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="'.esc_attr($path).'"/></svg><span>'.esc_html($term->name).'</span><span class="tn-category-arrow" aria-hidden="true">←</span></a>';
+        }
+        echo '</nav><div class="tn-shop-steps" aria-label="مراحل سفارش"><span><b>۱</b> بررسی مدل و مشخصات</span><span><b>۲</b> درخواست پیش‌فاکتور</span><span><b>۳</b> تأیید شرایط تأمین</span></div>';
+    }
+    public function card_identity():void {
+        global $product;if(!$product instanceof WC_Product)return;
+        $terms=get_the_terms($product->get_id(),'product_cat');
+        echo '<div class="tn-card-identity">';if(is_array($terms)&&$terms){$parents=array_column($terms,'parent');$chosen=$terms[0];foreach($terms as $term)if(!in_array($term->term_id,$parents,true)){$chosen=$term;break;}echo '<span>'.esc_html($chosen->name).'</span>';}
+        if($product->get_sku())echo '<span class="tn-card-sku" dir="ltr">'.esc_html($product->get_sku()).'</span>';echo '</div>';
+    }
+    public function card_specs():void {
+        global $product;if(!$product instanceof WC_Product)return;$chips=[];
+        foreach(self::SPECS as $key=>$definition){$v=$product->get_meta('_tn_verified_'.$key);if(in_array($v,$definition[1],true))$chips[]=$definition[0].': '.$v;}
+        if($chips)echo '<p class="tn-card-specs">'.esc_html(implode(' · ',$chips)).'</p>';
     }
     public function filters(): void {
         $unit=isset($_GET['tn_unit']) && is_string($_GET['tn_unit']) ? sanitize_key(wp_unslash($_GET['tn_unit'])) : '';
         echo '<form class="tn-store-filters" method="get" action="'.esc_url(wc_get_page_permalink('shop')).'">';
-        echo '<input type="hidden" name="post_type" value="product"><label>جست‌وجوی کالا <input name="s" type="search" value="'.esc_attr(get_search_query()).'" placeholder="نام، مدل یا SKU کالا"></label>';
+        echo '<input type="hidden" name="post_type" value="product"><label class="tn-filter-search"><span>جست‌وجوی کالا</span><input name="s" type="search" value="'.esc_attr(get_search_query()).'" placeholder="جست‌وجو با نام، مدل یا کد کالا"></label>';
         if ($this->preview_allowed()) { echo '<input type="hidden" name="tn_preview" value="1">'; }
         $category=isset($_GET['product_cat'])&&is_string($_GET['product_cat'])?sanitize_title(wp_unslash($_GET['product_cat'])):'';
-        echo '<label>دسته کالا ';wp_dropdown_categories(['taxonomy'=>'product_cat','name'=>'product_cat','value_field'=>'slug','selected'=>$category,'show_option_all'=>'همه دسته‌ها','hide_empty'=>true,'hierarchical'=>true]);echo '</label>';
-        echo '<label>واحد فروش <select name="tn_unit"><option value="">همه واحدها</option>';
+        if($category===''&&function_exists('is_product_category')&&is_product_category())$category=(string)(get_queried_object()->slug??'');
+        echo '<label class="tn-filter-category"><span>دسته کالا</span>';wp_dropdown_categories(['taxonomy'=>'product_cat','name'=>'product_cat','value_field'=>'slug','selected'=>$category,'show_option_all'=>'همه دسته‌ها','hide_empty'=>true,'hierarchical'=>true]);echo '</label>';
+        $advanced=$unit!=='';foreach(array_keys(self::SPECS)as $key)if(isset($_GET['tn_'.$key])&&is_string($_GET['tn_'.$key])&&$_GET['tn_'.$key]!=='')$advanced=true;
+        echo '<button class="button tn-filter-submit" type="submit">جست‌وجو و فیلتر</button><details class="tn-filter-advanced"'.($advanced?' open':'').'><summary>فیلترهای فنی و واحد فروش</summary><div class="tn-filter-options"><label>واحد فروش <select name="tn_unit"><option value="">همه واحدها</option>';
         foreach(self::UNITS as $key=>$label) { printf('<option value="%s" %s>%s</option>',esc_attr($key),selected($unit,$key,false),esc_html($label)); }
         echo '</select></label>';
         foreach (self::SPECS as $key=>$definition) {
@@ -124,7 +169,7 @@ final class TehNet_Store_Storefront {
             echo '</select></label>';
         }
         $reset=$this->preview_allowed()?add_query_arg('tn_preview','1',wc_get_page_permalink('shop')):wc_get_page_permalink('shop');
-        echo '<button class="button" type="submit">اعمال فیلتر</button><a class="tn-filter-reset" href="'.esc_url($reset).'">پاک کردن فیلترها</a></form>';
+        echo '</div></details><a class="tn-filter-reset" href="'.esc_url($reset).'">پاک کردن فیلترها</a></form>';
         echo '<div class="tn-store-toolbar"><span>قیمت‌ها با واحد ریال نمایش داده می‌شوند؛ موجودی و ارسال پیش از تأیید سفارش بررسی می‌شود.</span><button type="button" data-tn-open="compare">مقایسه <span data-tn-count="compare">۰</span></button><button type="button" data-tn-open="wishlist">علاقه‌مندی <span data-tn-count="wishlist">۰</span></button></div>';
     }
     public function query($query): void {

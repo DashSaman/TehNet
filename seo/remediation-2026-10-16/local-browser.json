@@ -22,18 +22,18 @@
     "missing GLB exposes retry and fallback message"
   ],
   "requests": [
-    "http://127.0.0.1:62479/",
-    "http://127.0.0.1:62479/store.css",
-    "http://127.0.0.1:62479/reviewed-model.js",
-    "http://127.0.0.1:62479/technical-tools.js",
-    "http://127.0.0.1:62479/model-viewer.min.js",
-    "http://127.0.0.1:62479/fixture.glb",
-    "http://127.0.0.1:62479/",
-    "http://127.0.0.1:62479/store.css",
-    "http://127.0.0.1:62479/reviewed-model.js",
-    "http://127.0.0.1:62479/technical-tools.js",
-    "http://127.0.0.1:62479/model-viewer.min.js",
-    "http://127.0.0.1:62479/fixture.glb"
+    "http://127.0.0.1:54811/",
+    "http://127.0.0.1:54811/store.css",
+    "http://127.0.0.1:54811/reviewed-model.js",
+    "http://127.0.0.1:54811/technical-tools.js",
+    "http://127.0.0.1:54811/model-viewer.min.js",
+    "http://127.0.0.1:54811/fixture.glb",
+    "http://127.0.0.1:54811/",
+    "http://127.0.0.1:54811/store.css",
+    "http://127.0.0.1:54811/reviewed-model.js",
+    "http://127.0.0.1:54811/technical-tools.js",
+    "http://127.0.0.1:54811/model-viewer.min.js",
+    "http://127.0.0.1:54811/fixture.glb"
   ],
   "errors": []
 }

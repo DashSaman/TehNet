@@ -1,0 +1,43 @@
+{
+  "observed_at": "2026-10-16T18:13:50.097Z",
+  "scope": "Public read-only sample, no accounts/carts/orders; a screenshot is not checkout verification",
+  "sites": [
+    {
+      "name": "ubiquiti",
+      "url": "https://store.ui.com/us/en/category/switching-utility",
+      "status": 200,
+      "final_url": "https://store.ui.com/us/en/category/switching-utility"
+    },
+    {
+      "name": "tehnet",
+      "url": "https://tehnet.ir/shop/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/shop/"
+    },
+    {
+      "name": "bh",
+      "url": "https://www.bhphotovideo.com/c/buy/network-switches/ci/47413",
+      "status": 403,
+      "final_url": "https://www.bhphotovideo.com/c/buy/network-switches/ci/47413"
+    },
+    {
+      "name": "digikala",
+      "url": "https://www.digikala.com/",
+      "status": 200,
+      "final_url": "https://www.digikala.com/"
+    },
+    {
+      "name": "netran",
+      "url": "https://netran.net/",
+      "status": 200,
+      "final_url": "https://netran.net/"
+    },
+    {
+      "name": "technolife",
+      "url": "https://www.technolife.com/",
+      "status": 200,
+      "final_url": "https://www.technolife.com/"
+    }
+  ],
+  "report": "docs/research/shop-experience-2026-10-16.fa.md"
+}

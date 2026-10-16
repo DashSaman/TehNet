@@ -1,0 +1,74 @@
+{
+  "status": "verified-with-production-browser-limit",
+  "utc": "2026-10-16T19:58:54.475954+00:00",
+  "local_contracts": [
+    {
+      "command": [
+        "tests/product-photos-unit.php"
+      ],
+      "exit_code": 0,
+      "output": "PASS media-empty fixture keeps clearly labelled fallback\nPASS native photograph preserved with website overlay\nPASS native photo never replaced by generic art\nPASS photo product never presents schematic as 360\nPASS one photo does not produce a spin\nPASS two views do not claim 360\nPASS unreviewed frames rejected\nPASS reviewed same-product photo sequence accepted\nPASS reviewed photos use genuine frame viewer\nPASS another product attachment rejected\nPASS duplicate frames cannot fake a 360 sequence\nPASS unmarked native product preserved\nPASS future approved native photo supports website overlay without imported-source IDs\nPASS future approved native gallery supports website overlay without imported-source IDs\nPASS photo-only product loads no schematic module\nPASS enqueue resolves queried product before the Woo loop\nPASS reviewed sequence selects photo loader only\nPASS future native Woo product supports reviewed spin without imported-source IDs\nPASS future native product renders reviewed sequence\nPASS approved future spin does not depend on a thumbnail or gallery assignment\nPASS missing photo sequence rights fail closed\nPASS unreviewed identity fails closed\nPASS native gallery gets website overlay\nPHOTO_CONTRACTS=23 PASSED"
+    },
+    {
+      "command": [
+        "tests/product-evidence-unit.php"
+      ],
+      "exit_code": 0,
+      "output": "PASS self-contained synthetic GLB accepted\nPASS external rejected\nPASS relative rejected\nPASS decoder rejected\nPASS nested-decoder rejected\nPASS no-mesh rejected\nPASS invalid binary rejected\nPASS nonce failure writes nothing\nPASS capability failure writes nothing\nPASS exact reviewed identity and local model approved\nPASS approved model can render\nPASS documented parts bound to exact model SHA and MPN\nPASS Persian quotes and backslashes survive WordPress request and metadata unslashing\nPASS parts mpn mismatch rejected\nPASS parts animation mismatch rejected\nPASS parts node mismatch rejected\nPASS parts source mismatch rejected\nPASS parts unit mismatch rejected\nPASS parts value mismatch rejected\nPASS parts html mismatch rejected\nPASS parts target mismatch rejected\nPASS parts duplicate mismatch rejected\nPASS parts are hidden without separate documentary approval\nPASS foreign product attachment blocked at render\nPASS model identity mismatch blocked\nPASS replaced model hash blocked\nPASS literal approval required\nPASS identity source requires HTTPS\nPASS twelve distinct owned frames can be reviewed\nPASS identical file hashes cannot fake distinct frames\nPASS no commercial or source fields written\nPRODUCT_EVIDENCE_CONTRACTS=31 PASSED"
+    },
+    {
+      "command": [
+        "tests/search-metadata-test.php"
+      ],
+      "exit_code": 0,
+      "output": "PASS homepage description exactly once\nPASS homepage description is meaningful Persian\nPASS title canonical robots owners untouched\nPASS no organization or fabricated rich-result types\nPASS no outgoing script or tracking\nPASS Open Graph URL and locale\nPASS manual excerpt takes priority\nPASS HTML and attributes escaped\nPASS Unicode truncation remains valid and bounded\nPASS invalid UTF8 safely omitted\nPASS skip admin\nPASS skip feed\nPASS skip 404\nPASS skip search\nPASS skip preview\nPASS skip unpublished object\nPASS skip password protected even with cookie\nPASS no interference with product metadata\nPASS null queried object safely ignored\nPASS external SEO owner wins\nPASS no guessed description for unknown empty page\nPASS future pages work with explicit excerpt\nPASS sample page is not promoted\nPASS blog pagination Open Graph matches page URL\nPASS full route keyed not leaf slug\nPASS existing profile description not duplicated\nPASS valid ProfilePage and Person\nPASS stable profile identity\nPASS no private telephone or brand social impersonation\nPASS profile description available without legacy theme callback\nPASS renamed page does not get false Person schema\nPASS render does not write state\nPASS registered only front-end head hook\nPASS public product gets editable description without fake offers\nPASS product social image uses native full-size image dimensions\nPASS private product metadata remains hidden\nPASS blog category gets one missing canonical and description\nPASS category pagination canonical points to its own page\nPASS Woo product category canonical owner remains unchanged\nPASS visible editorial note permits truthful Article dates\nPASS article author does not expose account email or phone\nPASS article attribution is not invented for unmarked content\nPASS Woo shop archive gets description without duplicate canonical\nCHECKS=43 FAILURES=0"
+    },
+    {
+      "command": [
+        "tests/technical-resources-unit.php"
+      ],
+      "exit_code": 0,
+      "output": "MTU_CONTRACTS=11 PASSED"
+    },
+    {
+      "command": [
+        "tests/technical-resources-python.py"
+      ],
+      "exit_code": 0,
+      "output": "test_invalid_inputs (__main__.MTU.test_invalid_inputs) ... ok\ntest_standard_paths (__main__.MTU.test_standard_paths) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK"
+    }
+  ],
+  "store_php_lint": "all12 passed",
+  "changed_javascript_syntax": "3 passed",
+  "browser_receipts": {
+    "staging/shop-browser.json": {
+      "checks": 27,
+      "receipt_sha256": "4e6cc6e500221baeb65b90d3e57d5fe983065bcbd225f3c2f42d53af9cdd6bd8"
+    },
+    "staging/native-controls.json": {
+      "checks": 20,
+      "receipt_sha256": "2dd7b2c9565c82cc8bbad753d9ba990b6f166d383e40ce8eae256f5e1497183d"
+    }
+  },
+  "production_browser": {
+    "status": "incomplete",
+    "completed_checks": 12,
+    "failure": "Public Persian-SKU navigation exceeded90000ms; no failed functional assertion before transport timeout",
+    "receipt_sha256": "80027c707df1eac653c2c2e97af16715cfc0bef286f846d2c9de7f9715e3e4d4"
+  },
+  "production_public_http": "25 products + shop + home + Persian SKU passed from managed host via public HTTPS/Cloudflare; not full browser proof",
+  "protected_native_state_unchanged": true,
+  "backup_checksums_verified": true,
+  "published_products": 25,
+  "approved_real_product_models": 0,
+  "approved_real_product_spins": 0,
+  "scope": "Universal Woo templates and exact-evidence gates; native model fixture is synthetic and staging-only. Public production tests are read-only, no order/inquiry/payment.",
+  "limitations": [
+    "Complete production browser rerun limited by connection/nav timeouts; only12 completed assertions claimed",
+    "No exact-SKU approved CAD or complete real spin exists",
+    "No physical handset or full WCAG assertion",
+    "No field conversion/performance improvement measured",
+    "No production rollback exercise; archive/guards prepared",
+    "Prior 70-page SEO crawl is historical evidence, not rerun by this command"
+  ]
+}

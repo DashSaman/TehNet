@@ -1,0 +1,11 @@
+{
+  "scope": "Isolated synthetic fixture only, no production product modified",
+  "product_id": 189,
+  "url": "http://localhost:18085/product/%d9%86%d9%85%d9%88%d9%86%d9%87%d9%94-%d8%a2%d9%85%d9%88%d8%b2%d8%b4%db%8c-%d8%a2%d8%b2%d9%85%d9%88%d9%86-%d8%b1%d8%a7%d8%a8%d8%b7%d8%9b-%da%a9%d8%a7%d9%84%d8%a7%db%8c-%d9%82%d8%a7%d8%a8%d9%84-%d9%81/",
+  "source_catalogue_key": "",
+  "model": true,
+  "parts": 5,
+  "purchasable": false,
+  "external_http_blocked": true,
+  "mail_blocked": true
+}

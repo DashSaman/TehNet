@@ -5,3 +5,6 @@
 **/__pycache__/
 .superpowers/
 **/*.woff2
+
+# Raw third-party screenshots/text are local research, not distributable assets.
+qa/shop-ux-2026-10-16/baseline/

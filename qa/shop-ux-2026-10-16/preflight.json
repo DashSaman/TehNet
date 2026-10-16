@@ -1,0 +1,161 @@
+{
+  "status": "preflight-passed",
+  "directory": "/root/tehnet-releases/shop-experience-20261016-0aeb95218702",
+  "changed_files": {
+    "plugins/tehnet-store/tehnet-store.php": "ad8c10ca6dfa96a38841ccdb3b6568602cdb52d9737bd6bdc5e15f5798a0a2cc",
+    "plugins/tehnet-store/includes/class-storefront.php": "95e05e1953018fbb4b6f307c66d42ca1c323e3bc358602f83587ea4f11821972",
+    "plugins/tehnet-store/includes/class-product-evidence.php": "2cc16fb6ac777e379ec2d491eb7e42d15fa5e264a3caa37551ad5fd4bbc19d44",
+    "plugins/tehnet-store/includes/class-product-visuals.php": "64def55bb3bf66071e7aecfd5bc9f5b09b1011ef8a36c4976e877ce11e75fdf0",
+    "plugins/tehnet-store/assets/store.js": "9e00825ef57b030273bccacd472a01deec5d1c6c85181d3d648e140dcac2cce6",
+    "plugins/tehnet-store/assets/reviewed-model.js": "28044382f8387854de18f4780fd3c4679c6c82b89a84ba456b0010b4e18d9a72",
+    "plugins/tehnet-store/assets/store-experience.css": "2fcd31d01e43e1c796f6f9251c372c22d7105ebe47d60336f980b98713b4110e",
+    "plugins/tehnet-store/assets/model-controls.js": "dde6bdcd69f1ce24e1c7e89c6a7912205020fc77b84ac3b20cd7b95e71293921",
+    "plugins/tehnet-store/assets/model-controls.css": "adcce57cf4e864c5cb1067397c033be4fd3a05c5d2db158f638c65a9d52139fd"
+  },
+  "before": {
+    "products": {
+      "82": {
+        "body": "526fa7fca878b27a5515ebd72d89f02a4768445702635f59514ffe9c7c3aac62",
+        "meta": "7fb21e0ffa22bc4136d137beb0ea08e66abca3c713653f9a2bb6f97e10d8d043"
+      },
+      "83": {
+        "body": "06c9c6532da0590e229cf3b4cda75f6b94603fc8c8130d2691a6809281ff69be",
+        "meta": "f86f053a5269bc611a70053369669d651673f36e331c48e1aaceeab35dd5704e"
+      },
+      "84": {
+        "body": "447bbe2a59409d5ca14e737ddd0352055753afa2548110afea71d00d090b697f",
+        "meta": "b1ffb39206b24b47b22059ccdf03b53e5dce02b423af86f7afc9c9ab4e44664c"
+      },
+      "85": {
+        "body": "63eab3d26e02dfe1c75a6b73a41c15fe858340abdb8528d0ddd8c4fe30eae212",
+        "meta": "c31daccedcba0a14d7f8e436c0536a0a13058f55b8cfdff0c8e4e0478af83acd"
+      },
+      "86": {
+        "body": "c282c223b03b361b45b1e0ce18a9d2a28a3233bca74db19be4842c8cd6dee2b4",
+        "meta": "55906618d9a16eceb10ceea3d0c496118e302ac564264e729a2ac607cf53c2ea"
+      },
+      "87": {
+        "body": "a1550b750fa4f29b133bd58e1ccb4718d8f09c77e234cb77a344d9671ca26317",
+        "meta": "e4f63ad9dfdd93cc8bdb8ab55a886a3d6cf1afbd9a0dec7d1a279d45a84dd397"
+      },
+      "88": {
+        "body": "7b9e60446ec9c42fd0dc09e5d8c78b62e96e5e25287913e6ff8eb3b27e7d1c16",
+        "meta": "6e373c4b0959bc91b564306997fd73e7629dfb0c5ca52f8d442673b99c89aa15"
+      },
+      "89": {
+        "body": "f2a0c88234719b71ec68e4acf35d037054a764ff5ea342a0679d1e930717222a",
+        "meta": "7541404b478e57eb0c469483a6927101f761b0993602c3cae4531129291ea3ef"
+      },
+      "90": {
+        "body": "5f2103de732665e9d34a82047874e861383dd6d48a5090b11022dde149760293",
+        "meta": "d0736c9d561d529c93727c992b26ea4a9f2924aed9e3060bf351b7da2c435edc"
+      },
+      "91": {
+        "body": "487ef684cbb4055657b4efbc29ae74f1f01b37feff82fc623504c6ba89aeefbd",
+        "meta": "d297558e77f21317db91e22d4c1f460a7320d95c841137074517a6b2eb939ed7"
+      },
+      "92": {
+        "body": "d5fec6864048331099343ce22186f4fa17f146876cd7834fb5d96a490539e58c",
+        "meta": "8e20355cbb83a20d52205b3b65813a1c452ac55aee827be570ce3f360e495e17"
+      },
+      "93": {
+        "body": "a1c8be2c119fbe80c15213e85b3e5c56b0af7fddc71cd22e804547f394d80f01",
+        "meta": "525cfe9a03319e644e3f89aa021b8af4ffd27378e3a1c4fc821b13db5a5130ad"
+      },
+      "94": {
+        "body": "62a4b3b064b4f604951cd833ff78c44b659ebfbac95d4ec9e5a03b2d780b85c0",
+        "meta": "c7f92d81b70004e651309f143bd31fa2cdbd7c68928817136e99aa7a14ce4c43"
+      },
+      "95": {
+        "body": "f9335ebcbca1be085664eb89af8d524b2eddfcdef4433e82206f3a197000f467",
+        "meta": "b38eb44693d4b04606ee37cbac61e909fac0238ccdad30be77a1297069c60737"
+      },
+      "96": {
+        "body": "9aa8f951a304f57b80229f6c504f812fe8a4c08d4e48ea28941a09beee8e30a0",
+        "meta": "071c4e071a674c8307e68c2a5418c1b07d128e2f1dffde454c47c2d08a05978d"
+      },
+      "97": {
+        "body": "95ae37c4a7afe0cd40bc348aaae81da041b7e10a89aac999617274b306618ffb",
+        "meta": "54d56358fde73047810989d4fb99d585e903b1572a006e37bbebea710fb103ab"
+      },
+      "98": {
+        "body": "8feda980ca752dd739eabd40a0c9bc0ac5f98fac6df22f1b8c517512564e8647",
+        "meta": "2349ee78e02850aec65184a5a5d788351ded90c02097fb6a1cc70d407a9ca0f7"
+      },
+      "99": {
+        "body": "01fde7107916a594ea5843c61187c377cc7dfd76113ce64b19d1effd37ee8780",
+        "meta": "aa075d6886f902d0760fd91e4a19f98809b15c4b0a486ab34e6915dab01e4bce"
+      },
+      "100": {
+        "body": "93f495fd687b75d56684840c358fa090a16d9b0bfe9f09c73a350c0b2a484b33",
+        "meta": "5dd8678cb7b258d1b856e2a7ab4d135e296c313499b82d8d4de081aea406cf65"
+      },
+      "101": {
+        "body": "30f7a5af9b36a5d9e29f84cc0452033077b1deada0cf0496de18ab030810f6c1",
+        "meta": "b7ae7e1a1ba566b8a30238484be71c0c342552de7bf690ac5561efb61951889b"
+      },
+      "102": {
+        "body": "b291238a3f101900d382c156ee17da4984fb3e544a013cb6dc237fcc43e9044f",
+        "meta": "5b1142ba4995a3b98e45a219a2bea606c22b2746b52d4960c37ddb44608abf40"
+      },
+      "103": {
+        "body": "668e6c26fee7a26cb0baf581257bbfbc85c65c1fc824c99d0c5ad351c37b741d",
+        "meta": "f01762a8b415848eb1980eee1de4a057d26e654eb5af24578127be0444d52f5d"
+      },
+      "104": {
+        "body": "5f7e6107754ebee1b8ce5276fafdcf438710fc8dca2d76fbbc48d312a5073799",
+        "meta": "dbed6a0f42f7a9c66a559d5abe707f1d30346acc02170905db27591fadb2a095"
+      },
+      "105": {
+        "body": "1b6b748f90cff25858ba281f123d7e85d66900fde7830de70e0342b287300764",
+        "meta": "71233f01a327f0558314dc79d626bcf36ece67e2404d7c17cb9dda3ca7a18b5d"
+      },
+      "106": {
+        "body": "4e440b4068d6d36ac5b540ae17acfe559e64bd538de31538e00a725bc98ea7b7",
+        "meta": "632bca81b79f32b425cf1796bc1715a3af6842eb69526392267b2ff5ba456383"
+      }
+    },
+    "published_product_ids": [
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106
+    ],
+    "purchasable_ids": [],
+    "real_models": 0,
+    "real_spins": 0,
+    "options_sha256": "353029031793fd443fb42a072c1d168ec37a31fcf8deb9ffd905420723d70c33",
+    "blog_public": "0",
+    "menu_sha256": "42f860d1018d167114c93d9fa77b6d6db56f894a142204e02a9156d402accddf",
+    "menu_items": 8,
+    "home_body_sha256": "1a05541d14cf8721b3ef6ba129167987f876f655289bc7de85ff370c6912f270",
+    "orders_count": 0,
+    "order_ids_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "commerce_gates": {
+      "environment": "production",
+      "erp_ready": false,
+      "sandbox_enabled": false
+    }
+  }
+}

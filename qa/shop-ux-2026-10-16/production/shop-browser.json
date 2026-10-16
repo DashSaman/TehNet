@@ -1,0 +1,26 @@
+{
+  "status": "incomplete",
+  "utc": "2026-10-16T19:56:42.888604+00:00",
+  "base": "https://tehnet.ir",
+  "browser_args": [
+    "--disable-http2",
+    "--disable-quic"
+  ],
+  "checks": [
+    "shared shop presentation active",
+    "single existing archive H1 preserved",
+    "existing public first page remains16 items",
+    "dynamic graphic category navigation present",
+    "every card has shared category/SKU identity",
+    "advanced filters collapsed until needed",
+    "desktop catalogue uses four readable columns",
+    "wishlist selected state is explicit",
+    "guest selection survives reload",
+    "selection can be removed directly on card",
+    "verified technical comparison retained",
+    "category archive preserves its selected filter"
+  ],
+  "failure": "Public Persian-SKU navigation exceeded90000ms; no failed functional assertion before transport timeout",
+  "js_errors": null,
+  "scope": "Partial actual public browser run; desktop images, shared styles, categories, guest wishlist persistence/removal, technical comparison and selected category passed. Full27 production browser checks NOT claimed. Native27+20 and public HTTP evidence are separate."
+}

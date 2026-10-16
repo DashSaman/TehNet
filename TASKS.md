@@ -1,5 +1,12 @@
 # TehNet Task Backlog
 
+## CURRENT — universal Woo shop experience, 2026-10-16
+
+- DONE/DEPLOYED — Responsive shop/product template, graphic dynamic categories, compact technical filters, SKU/category cards and explicit compare/wishlist selection/removal; all current/future native products inherit it.
+- DONE/CAPABILITY — Shared reviewed GLB rotation/zoom/fullscreen/reset/optional auto-rotation, existing documented exploded parts; native future product has no source ID requirement. Approved spin and photo overlay similarly generalized. Real WordPress Persian JSON storage fixed.
+- VERIFIED —27 staging shop checks,20 native synthetic future-model checks,23photo/31evidence/43metadata/11MTU contracts and19 synthetic renderer checks; full private backup/SHA and unchanged native business/home/menu fingerprints. Production acceptance/verification receipts: `qa/shop-ux-2026-10-16/`.
+- OPEN — Exact-MPN licensed assets/physical spin for real products (0 approved), verified physical measurements and stock/price, faceted option counts, account wishlist sync, field conversion data and separate indexing/commerce launch. Generic teaching assets are not assigned to actual SKUs.
+
 ## CURRENT — explicit3D inspection, 2026-10-16
 
 - DONE/LOCAL — Obvious3D entrance/direct link, mouse/touch rotation and pan, native zoom, optional automatic rotation/stop, fullscreen/exit, complete camera reset and reduced-motion/background handling.

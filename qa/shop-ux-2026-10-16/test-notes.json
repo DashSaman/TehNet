@@ -1,0 +1,15 @@
+{
+  "native_transport": [
+    "A read-only GET ended with socket hang up; repeated navigation/model load timed out; native server 200 in0.155s, local transfer partial at25s; clone OOM=false/restart=0.",
+    "Renewed only the owned SSH tunnel with keepalive, compression and IPQoS=none; native20 and shop27 subsequently passed."
+  ],
+  "public_transport": [
+    "Default Edge navigation failed ERR_CONNECTION_CLOSED/30s navigation timeout; local curl and origin curl both public200.",
+    "Isolated probe with --disable-http2 --disable-quic reached public shop200,16 cards,new CSS,no pending requests in31.506s. Full production rerun uses explicit flags recorded in its receipt; no site/Cloudflare settings changed.",
+    "Final full browser rerun completed12 checks then90s Persian-SKU navigation timeout. Repeated public GET follows WordPress302 to correct product200; managed-host public HTTPS acceptance passes all25 products+shop+home+Persian query. Complete27 public browser acceptance is not claimed; temporary SOCKS probe tunnel closed."
+  ],
+  "implementation_regressions": [
+    "Actual native WordPress stripped JSON Unicode escapes; fixed with wp_slash; Persian quotes/backslash unit and native future fixture passed.",
+    "Future approved spin without thumbnail and approved photo overlays without source key failed before fixes and passed after."
+  ]
+}

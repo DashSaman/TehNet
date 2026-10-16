@@ -5,13 +5,17 @@ final class TehNet_Store_Product_Evidence {
     public function register(): void {
         add_action('woocommerce_product_options_inventory_product_data',[$this,'fields']);
         add_action('woocommerce_process_product_meta',[$this,'save']);
-        add_action('woocommerce_single_product_summary',[$this,'viewer'],35);
+        add_action('woocommerce_product_thumbnails',[$this,'viewer'],30);
         add_filter('upload_mimes',static function(array $m):array {if(current_user_can('manage_woocommerce')&&current_user_can('upload_files'))$m['glb']='model/gltf-binary';return $m;});
         add_filter('wp_check_filetype_and_ext',[$this,'filetype'],10,4);
         add_action('wp_enqueue_scripts',function():void {
             if(!function_exists('is_product')||!is_product())return;
             $p=wc_get_product(get_queried_object_id());
-            if($p && $this->model($p))wp_enqueue_script('tn-reviewed-glb',$this->asset('reviewed-model.js'),[],'0.1.0',true);
+            if($p && $this->model($p)){
+                wp_enqueue_script('tn-reviewed-glb',$this->asset('reviewed-model.js'),[],'0.4.0',true);
+                wp_enqueue_script('tn-model-controls',$this->asset('model-controls.js'),['tn-reviewed-glb'],'0.4.0',true);
+                wp_enqueue_style('tn-model-controls',$this->asset('model-controls.css'),['tn-store'],'0.4.0');
+            }
         });
     }
     private function asset(string $name):string {return plugins_url('assets/'.$name,dirname(__DIR__).'/tehnet-store.php');}
@@ -98,7 +102,9 @@ final class TehNet_Store_Product_Evidence {
         foreach(['_tn_model_attachment_id'=>$model,'_tn_model_mpn'=>$modelMpn,'_tn_model_source'=>$https($modelSource)?$modelSource:'','_tn_model_rights'=>$rights?'yes':'','_tn_model_reviewed'=>$reviewed?'yes':'','_tn_model_sha256'=>$sha]as $k=>$v)update_post_meta($id,$k,$v);
         $partsRaw=isset($_POST['_tn_parts_json'])&&is_string($_POST['_tn_parts_json'])?wp_unslash($_POST['_tn_parts_json']):'';$partsApproved=false;$partsJson='';
         try{if($reviewed&&$input('_tn_parts_reviewed')==='yes'){$partsJson=wp_json_encode(self::parts($partsRaw,$mpn,self::validate_glb($this->attachment($model,$id))));$partsApproved=true;}}catch(Throwable $e){}
-        update_post_meta($id,'_tn_parts_json',$partsApproved?$partsJson:substr($partsRaw,0,48000));update_post_meta($id,'_tn_parts_reviewed',$partsApproved?'yes':'');update_post_meta($id,'_tn_parts_model_sha256',$partsApproved?$sha:'');
+        // WordPress unslashes metadata on storage; preserve JSON Unicode,
+        // escaped quotations and paths through that boundary.
+        update_post_meta($id,'_tn_parts_json',wp_slash($partsApproved?$partsJson:substr($partsRaw,0,48000)));update_post_meta($id,'_tn_parts_reviewed',$partsApproved?'yes':'');update_post_meta($id,'_tn_parts_model_sha256',$partsApproved?$sha:'');
         $ids=array_values(array_filter(array_map('intval',preg_split('/[\s,،]+/u',substr($input('_tn_spin_ids_input'),0,2000))?:[])));$valid=$identity&&$input('_tn_spin_rights')==='yes'&&$input('_tn_spin_reviewed')==='yes'&&count($ids)>=12&&count($ids)<=144&&count(array_unique($ids))===count($ids);$hashes=[];
         try{if($valid)foreach($ids as $aid){$file=$this->attachment($aid,$id);if(!wp_attachment_is_image($aid))throw new RuntimeException('Image frame required');$hashes[]=hash_file('sha256',$file);}if(count(array_unique($hashes))!==count($hashes))$valid=false;}catch(Throwable $e){$valid=false;}
         update_post_meta($id,'_tn_spin_attachment_ids',$ids);update_post_meta($id,'_tn_spin_rights',$input('_tn_spin_rights')==='yes'?'yes':'');update_post_meta($id,'_tn_spin_reviewed',$valid?'yes':'');

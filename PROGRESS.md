@@ -1,5 +1,13 @@
 # TehNet Execution Progress
 
+## Latest — 2026-10-16 universal shop experience published
+
+- Published Store0.4.0: current/future Woo templates, dynamic graphic categories, search/expandable technical filters, consistent image/SKU cards, selected-state comparison/wishlist, responsive gallery/inquiry and shared reviewed3D inspection controls.
+- Removed imported-source dependency for reviewed spin and approved-photo overlays. Fixed actual WordPress JSON escaping of Persian part text with a native roundtrip and red/green regressions.23photo/31evidence/43metadata/11MTU contracts and19 synthetic browser checks passed; native clone27shop/20future-product controls passed.
+- Nine files changed; fresh full backup checksums verified; native product/home/menu/order/settings hashes unchanged. Latest22-path runtime receipt: `qa/shop-ux-2026-10-16/release.json`; final verification/public read-only acceptance is in that directory. Noindex/payment/ERP gates preserved; zero real-product CAD/spin approved.
+- Compared actual Ubiquiti/Digikala/NetRan/Technolife public screens; documented B&H403 and limits. Private isolated clone and future synthetic product retained for review. No real orders, inquiries, payments or external posts; no GLM/new paid API. See the research and operator guide linked in HANDOFF.
+- Final scope: public HTTP/API/HTML passes for25 products,shop,home and Persian-SKU redirect; public browser completes12 checks then transport navigation timeout. Full27 public browser acceptance is incomplete, not passed. Fresh local verifier records this limitation and reconciles all22 runtime paths; earlier70-page crawl remains historical.
+
 ## Latest — 2026-10-16 explicit3D inspection
 
 - LOCAL: prominent3D button/direct URL `?view=3d`, drag/pinch/pan instructions, zoom, opt-in auto-rotation/stop, fullscreen and full reset. The photo-first default remains; production shared renderer, product assignments and business settings were not edited.

@@ -1,0 +1,222 @@
+{
+  "status": "passed",
+  "utc": "2026-10-16T19:56:51.995384+00:00",
+  "route": "Public HTTPS through Cloudflare from managed host; certificate verification enabled",
+  "scope": "HTTP/HTML/API, not a replacement for complete real-browser production acceptance; no writes/forms/orders",
+  "products": [
+    {
+      "sku": "TN-SN-16584",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-16584/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-16585",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-16585/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17824",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17824/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17827",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17827/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17829",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17829/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17831",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17831/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17851",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17851/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17855",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17855/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17857",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17857/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17860",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17860/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17863",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17863/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17866",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17866/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17868",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17868/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17871",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17871/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17873",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17873/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17888",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17888/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17920",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17920/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17927",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17927/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17929",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17929/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17935",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17935/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17941",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17941/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17982",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17982/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17989",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17989/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-17991",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17991/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    },
+    {
+      "sku": "TN-SN-18002",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-18002/",
+      "shared_style": true,
+      "noindex": true,
+      "unapproved3D_absent": true
+    }
+  ],
+  "shop": {
+    "status": 200,
+    "final_url": "https://tehnet.ir/shop/"
+  },
+  "home": {
+    "status": 200,
+    "final_url": "https://tehnet.ir/"
+  },
+  "persian_sku_redirect": {
+    "status": 200,
+    "final_url": "https://tehnet.ir/product/tn-sn-18002/"
+  },
+  "published_products": 25,
+  "purchasable_products": 0
+}
