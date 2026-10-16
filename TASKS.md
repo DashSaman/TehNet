@@ -1,5 +1,11 @@
 # TehNet Task Backlog
 
+## CURRENT — explicit3D inspection, 2026-10-16
+
+- DONE/LOCAL — Obvious3D entrance/direct link, mouse/touch rotation and pan, native zoom, optional automatic rotation/stop, fullscreen/exit, complete camera reset and reduced-motion/background handling.
+- VERIFIED —26 mouse/touch interaction checks,30 base browser checks and12 unchanged-asset structural/photo checks; desktop/mobile/fullscreen screenshots inspected. Portrait reset after pinch is covered.
+- OPEN/UNCHANGED — Exact-MPN assets for real products; generic educational model is not live product CAD. No production changes in this continuation.
+
 ## CURRENT — natural educational preview, 2026-10-16
 
 - DONE/LOCAL — Two real public-domain reference photos, unchanged original bytes/SHA, visible source/credit/download, photo-first gallery and explicit lazy photo/3D mode switch.

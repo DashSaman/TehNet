@@ -1,5 +1,12 @@
 # TehNet Execution Progress
 
+## Latest — 2026-10-16 explicit3D inspection
+
+- LOCAL: prominent3D button/direct URL `?view=3d`, drag/pinch/pan instructions, zoom, opt-in auto-rotation/stop, fullscreen and full reset. The photo-first default remains; production shared renderer, product assignments and business settings were not edited.
+- Fixed portrait reset after pinch: restore aspect-aware declarative FoV, force its update and await the asynchronous native camera jump before fitting. Gesture zoom may change FoV as well as radius; tests measure actual projected scale.
+- Fresh26 interaction checks pass, including physical mouse events and emulated touch/CDP gestures, native fullscreen and auto-rotation yaw. Fresh30 base browser and12 structural/photo checks also pass. Screenshots inspected in `qa/product-visuals-2026-10-16/interaction/`; no physical handset test claimed.
+- One focused native read-only API mapper used; no GLM/new paid API. Educational geometry remains separate from exact-product assets.
+
 ## Latest — 2026-10-16 natural educational product visuals
 
 - Local localhost18084 preview now starts with two real, original-byte public-domain Cat7 photographs with source/credit/download. They are clearly separate educational samples and not exact TehNet product images or a360 sequence.

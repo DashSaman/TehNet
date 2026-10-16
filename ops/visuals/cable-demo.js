@@ -36,14 +36,14 @@ new MutationObserver(()=>{
 }).observe(modelPanel.querySelector('[data-tn-model-stage]'),{childList:true});
 // Fit the actual illustrative bounds, rather than a generic bounding sphere.
 // This is local presentation data; these coordinates are never real dimensions.
-function frameIllustration(amount){
+function frameIllustration(amount,orientation){
  const viewer=modelPanel.querySelector('model-viewer');if(!viewer?.loaded||modelPanel.hidden)return;
  const parts=JSON.parse(modelPanel.dataset.modelParts).parts,lo=[Infinity,Infinity,Infinity],hi=[-Infinity,-Infinity,-Infinity];
  parts.forEach(p=>p.illustration_bounds.forEach((bound,side)=>bound.forEach((v,k)=>{
   const position=v+p.target[k]*amount;
   if(side===0)lo[k]=Math.min(lo[k],position);else hi[k]=Math.max(hi[k],position);
  })));
- const target=lo.map((v,k)=>(v+hi[k])/2),orbit=viewer.getCameraOrbit(),theta=orbit.theta,phi=orbit.phi;
+ const target=lo.map((v,k)=>(v+hi[k])/2),orbit=viewer.getCameraOrbit(),theta=orientation?.theta??orbit.theta,phi=orientation?.phi??orbit.phi;
  const forward=[Math.sin(theta)*Math.sin(phi),Math.cos(phi),Math.cos(theta)*Math.sin(phi)];
  const right=[Math.cos(theta),0,-Math.sin(theta)],up=[-Math.sin(theta)*Math.cos(phi),Math.sin(phi),-Math.cos(theta)*Math.cos(phi)];
  const tanV=Math.tan(viewer.getFieldOfView()*Math.PI/360),tanH=tanV*viewer.clientWidth/Math.max(1,viewer.clientHeight);

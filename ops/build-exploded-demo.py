@@ -254,7 +254,7 @@ def main():
     data, size = build_model(out)
     template = (ROOT/'ops/visuals/cable-demo.html').read_text(encoding='utf-8')
     (out/'index.html').write_text(template.replace('@@PARTS@@', html.escape(json.dumps(data, ensure_ascii=False), quote=True)), encoding='utf-8')
-    for name in ['cable-demo.css', 'cable-demo.js']:
+    for name in ['cable-demo.css', 'cable-demo.js', 'cable-controls.js']:
         shutil.copyfile(ROOT/'ops/visuals'/name, out/name)
     for src, dest in [('assets/reviewed-model.js', 'reviewed-model.js'), ('assets/store.css', 'store.css'),
                       ('assets/vendor/model-viewer/model-viewer.min.js', 'model-viewer.min.js'),

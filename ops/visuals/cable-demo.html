@@ -34,7 +34,8 @@
              alt="عکس واقعی یک نمونه کابل Cat7 بازشده؛ زوج‌های رنگی، فویل و شیلد بافته‌شده؛ این عکس کالای تهران نتورک نیست">
         <figcaption>نمونهٔ واقعی کابل S/FTP Cat7؛ برای مشاهدهٔ ساختار، مستقل از محصولات فروشگاه.</figcaption>
       </figure>
-      <div class="photo-options" role="group" aria-label="انتخاب عکس مرجع">
+      <div class="photo-options" role="group" aria-label="انتخاب عکس یا مدل مرجع">
+        <button type="button" class="open-model-cta" data-open-model>مدل ۳۶۰° را بچرخانید ↗</button>
         <button type="button" data-photo="0" aria-pressed="true">برش و رشته‌ها</button>
         <button type="button" data-photo="1" aria-pressed="false">بافت شیلد از نزدیک</button>
         <a id="photo-original" href="sftp-cat7-talifero.jpg" download>دریافت فایل اصلی عکس</a>
@@ -48,8 +49,19 @@
       data-model-src="/educational-cable.glb" data-model-module="/model-viewer.min.js" data-model-parts="@@PARTS@@">
       <h2>ساختار لایه‌ای، قابل چرخش و بازشدن</h2>
       <p class="model-caption">مدل آموزشیِ تألیفی با تناسب‌های غیرمقیاس؛ بازسازی دقیق عکس یا CAD محصول نیست.</p>
+      <p id="model-gesture-help" class="gesture-help"><strong>مدل را بگیرید و بچرخانید.</strong> زوم با چرخ موس یا باز و بسته کردن دو انگشت؛ جابه‌جایی با راست‌کلیک و کشیدن یا حرکت دو انگشت.</p>
       <button type="button" data-tn-model-open>بارگذاری مدل سه‌بعدی</button>
-      <div data-tn-model-stage></div>
+      <div class="model-canvas" data-model-canvas>
+        <div data-tn-model-stage></div>
+        <div class="model-toolbar" data-demo-toolbar role="group" aria-label="کنترل مدل سه‌بعدی" hidden>
+          <button type="button" data-demo-action="zoom-in" aria-label="بزرگ‌نمایی مدل">＋ <span>نزدیک‌تر</span></button>
+          <button type="button" data-demo-action="zoom-out" aria-label="کوچک‌نمایی مدل">− <span>دورتر</span></button>
+          <button type="button" data-demo-action="rotate" aria-pressed="false">چرخش خودکار</button>
+          <button type="button" data-demo-action="home">نمای اولیه</button>
+          <button type="button" data-demo-action="fullscreen" aria-pressed="false">تمام‌صفحه</button>
+        </div>
+      </div>
+      <p class="demo-status" data-demo-status role="status" aria-live="polite"></p>
       <p role="status" data-tn-model-message aria-live="polite"></p>
       <div class="tn-model-controls" hidden>
         <button type="button" data-orbit="left">چپ</button><button type="button" data-orbit="right">راست</button>
@@ -71,5 +83,6 @@
 </main>
 <script src="cable-demo.js"></script>
 <script src="reviewed-model.js"></script>
+<script src="cable-controls.js"></script>
 </body>
 </html>

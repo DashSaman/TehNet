@@ -1,5 +1,11 @@
 # TehNet Agent Handoff
 
+## CURRENT — explicit interactive3D controls, 2026-10-16
+
+Owner requested visible rotation/inspection. Local demo now has a prominent3D entrance, gesture guide, zoom buttons, opt-in auto-rotation/stop, fullscreen/exit and full camera reset. Direct link: `http://localhost:18084/?view=3d`. Ordinary URL still starts with real photographs; production remains unchanged. Demo-only controller `ops/visuals/cable-controls.js` uses the existing self-hosted model-viewer4.4.0. Hidden panels/background and reduced-motion changes stop auto-rotation; reduced motion disables its button. Fullscreen is offered where supported, with a fallback message on denial.
+
+Fresh26 actual mouse/CDP-touch checks plus30 base browser and12 GLB/photo checks pass. Evidence and inspected desktop/mobile/fullscreen screenshots: `qa/product-visuals-2026-10-16/interaction/`. Mouse rotation/pan, two-finger pinch/pan, zoom projection, native turntable yaw and portrait reset were exercised. Reset must restore declarative `fieldOfView` (initially auto), request its update, await updateComplete and the asynchronous jump before recomputing bounds; using a stale live FoV made portrait reset too small. GLB and actual photo bytes are unchanged; exact-SKU/CAD limitations below remain. No GLM/new paid API or production release in this step.
+
 ## CURRENT — real-photo-first local preview, 2026-10-16
 
 Owner requested real/natural imagery and inspiration from public 3D model sites while reviewing localhost18084. `ops/build-exploded-demo.py` now builds two unchanged, checksummed public-domain real Cat7 reference photographs, visible source/credit/download, explicit photo/model switch and improved original PBR cable geometry. These are independent educational photographs, not TehNet SKU images or a360 sequence; normalized geometry is not exact product CAD or a reconstruction of either photo. Source-catalog photographic origin and exact model identity remain unverified. No production runtime/content/settings changed in this step.
