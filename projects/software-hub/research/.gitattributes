@@ -1,0 +1,2 @@
+# Preserve upstream Git blob bytes on Windows and Linux checkouts.
+upstream/** -text

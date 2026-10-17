@@ -1,0 +1,4 @@
+# Scripts must remain executable by Bash after a Windows checkout.
+deployment/scripts/*.sh text eol=lf
+# Keep upstream license formatting, including its one trailing space.
+static/fonts/OFL.txt whitespace=-blank-at-eol

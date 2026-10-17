@@ -1,0 +1,22 @@
+{
+  "observed_at_utc": "2026-10-17T14:42:31.177843+00:00",
+  "url": "https://tehnet.ir/software/",
+  "dark_background": "rgb(8, 15, 24)",
+  "light_background": "rgb(245, 248, 251)",
+  "font": "Vazirmatn, Tahoma, Arial, sans-serif",
+  "guides": 8,
+  "clipboard_test": {
+    "method": "click check-curl then Control+V into public search field",
+    "pasted": "curl --version",
+    "passed": true
+  },
+  "mobile": {
+    "viewport_width": 390,
+    "viewport_height": 844,
+    "client_width": 375,
+    "scroll_width": 375
+  },
+  "console_warnings_errors": [],
+  "package_install_executed": false,
+  "offline_install_accepted": false
+}
