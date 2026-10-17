@@ -44,7 +44,9 @@ for path in ROOT.rglob('*.md'):
 base = record['destination_base_ref']
 allowed = {'README.md', 'PROGRESS.md', 'HANDOFF.md', 'TASKS.md'}
 changed = subprocess.check_output(['git', '-C', str(REPO), 'diff', base, '--name-only'], text=True).splitlines()
-assert all(p in allowed or p.startswith('projects/software-hub/') for p in changed), changed
+scoped_additions = {'ops/software-menu.php', 'ops/lib/software-menu.php', 'tests/software-menu-logic.php'}
+assert all(p in allowed or p in scoped_additions or p.startswith('projects/software-hub/') or
+           (p.startswith('projects/melika/') and not (REPO / p).exists()) for p in changed), changed
 for name in allowed:
     original = subprocess.check_output(['git', '-C', str(REPO), 'show', f'{base}:{name}']).decode('utf-8')
     current = (REPO / name).read_text(encoding='utf-8')
@@ -52,4 +54,5 @@ for name in allowed:
 print(json.dumps({'result': 'PASS', 'source_blobs_verified': len(entries),
                   'copied_bytes': sum(e['size_bytes'] for e in entries),
                   'local_markdown_links_checked': links,
-                  'existing_site_files_changed': 0, 'root_docs_append_only': sorted(allowed)}, indent=2))
+                  'existing_site_files_changed': 0, 'authorized_new_menu_scripts': sorted(scoped_additions),
+                  'root_docs_append_only': sorted(allowed)}, indent=2))

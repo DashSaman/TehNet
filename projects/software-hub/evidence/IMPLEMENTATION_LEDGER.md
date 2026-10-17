@@ -16,3 +16,9 @@ Owner request (2026-10-17): finalize W0, begin implementation using existing res
 W0 claimed by current Codex implementer; base e61227712311d77baef4694f88d2b934ab90ec43. Exact owned paths: app/models.py, config.py, db.py, migrations/, contracts/, tests/test_contracts.py and task/status documents. W6-preview follows after W0 acceptance; it does not close full W6 or W2.
 
 W0 complete: nine tests PASS / exit 0. Typed v1 contract and schema frozen; test fixtures explicitly close SQLite handles for Windows cleanup. Next W6-preview; no W2/private/provider acceptance.
+
+W6-preview software ready: 30/30 Linux tests PASS; 23/23 local runnable checks PASS; 18 original probe checks PASS; PHP menu logic 5 checks PASS and two PHP lint checks PASS. Browser rendering/search verified. Initial Linux suite fixture omitted the rehearsal tool mount (5 expected setup failures); reran with full read-only validation tree and all 30 passed.
+
+Ruling: before deployment, nullable unknown source base_url takes precedence over contradictory original NOT NULL SQL. Corrected the initial migration before any deployed state existed; replaced broad INSERT OR IGNORE with ID-conflict-only handling. Cost if wrong: future source imports fail visibly instead of silently discarding records.
+
+Final review: one independent focused reviewer, three Important deployment findings. Added actual-flow sandbox tests for preexisting route, partial startup, post-data/snippet/reload/menu failures and SIGTERM; each failed against original behavior and passed after the single fix pass. No reportable minors deferred. Not assessed by reviewer: production host/edge behavior; live validation remains required.

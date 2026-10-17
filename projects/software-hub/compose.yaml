@@ -1,0 +1,21 @@
+services:
+  app:
+    image: ${TEHNET_SOFTWARE_IMAGE:?exact locally loaded image reference required}
+    container_name: tehnet-software
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:18083:8000"
+    volumes:
+      - /srv/tehnet-software/data:/data:ro
+    read_only: true
+    tmpfs:
+      - /tmp:size=16777216,mode=1777
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 192m
+    cpus: 0.50
+    pids_limit: 64
+    networks: [software]
+networks:
+  software:
+    internal: true

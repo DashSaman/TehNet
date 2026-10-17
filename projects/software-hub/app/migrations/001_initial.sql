@@ -1,7 +1,7 @@
 CREATE TABLE sources (
  visibility TEXT NOT NULL DEFAULT 'restricted' CHECK(visibility IN ('public','restricted')),
  id TEXT PRIMARY KEY, provider TEXT NOT NULL, ecosystem TEXT NOT NULL,
- base_url TEXT NOT NULL, suite_map_json TEXT NOT NULL DEFAULT '{}',
+ base_url TEXT, suite_map_json TEXT NOT NULL DEFAULT '{}',
  allowed_hosts_json TEXT NOT NULL, config_json TEXT NOT NULL,
  routing_enabled INTEGER NOT NULL DEFAULT 0 CHECK(routing_enabled IN (0,1)),
  permission_state TEXT NOT NULL DEFAULT 'unreviewed',

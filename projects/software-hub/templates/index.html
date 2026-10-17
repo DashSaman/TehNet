@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>آرشیو نرم‌افزار تهران نتورک</title>
+  <link rel="stylesheet" href="{{ prefix }}/static/style.css">
+</head>
+<body>
+<header class="top"><a class="brand" href="/">تهران نتورک <span>TehNet</span></a><a class="back" href="/">بازگشت به سایت ←</a></header>
+<main>
+  <section class="hero">
+    <div><p class="eyebrow">زیرساختی برای ادامه کار</p><h1>آرشیو نرم‌افزار<br><em>تهران نتورک</em></h1>
+    <p class="intro">منابع لینوکس، ابزارهای توسعه و مسیر آماده‌سازی نصب آفلاین؛ با منشأ روشن و وضعیت بررسی مشخص.</p>
+    <a class="button" href="#sources">بررسی منابع پژوهش ↓</a></div>
+    <aside class="status"><span class="dot"></span><strong>نسخه اولیه عمومی</strong><p>فهرست پژوهش آماده مرور است.<br>دانلود تأییدشده هنوز فعال نیست.</p><div class="stat"><b>{{ result.total if not q else '۲۷' }}</b><span>ردیف منبع پژوهشی</span></div><small>این عدد تعداد اپراتورهای مستقل یا میرورهای تأییدشده نیست.</small></aside>
+  </section>
+  <section class="principles" aria-label="اصول آرشیو"><div><span>۰۱</span><h2>ابتدا اعتماد</h2><p>بررسی مجوز، امضا و هش فایل، پیش از ارائه دانلود.</p></div><div><span>۰۲</span><h2>آمادگی آفلاین</h2><p>برنامه‌ریزی برای بسته کامل وابستگی‌ها و آزمون روی محیط پاک.</p></div><div><span>۰۳</span><h2>وضعیت شفاف</h2><p>نامزد پژوهش را با منبع آزموده‌شده یکی نمی‌دانیم.</p></div></section>
+  <section id="sources" class="sources">
+    <div class="section-heading"><div><p class="eyebrow">نمایه منابع</p><h2>از منبع شروع کنید</h2></div><span class="pill">پژوهش: ۱۷ اکتبر ۲۰۲۶</span></div>
+    <p class="muted">این فهرست بر اساس پژوهش ثبت‌شده تهیه شده است. هیچ منبعی هنوز برای دانلود خودکار فعال نشده؛ دسترسی و تازگی فایل‌ها باید جداگانه آزموده شوند.</p>
+    <form method="get" action="{{ prefix }}/" class="search"><label for="q">جست‌وجوی نام یا اکوسیستم</label><div><input id="q" name="q" value="{{ q }}" maxlength="120" placeholder="مثلاً Ubuntu، apt یا نام سرویس‌دهنده"><button type="submit">جست‌وجو</button></div></form>
+    <p class="result-count">{{ result.total }} نتیجه</p>
+    <div class="grid">
+    {% for item in result['items'] %}
+      <article class="card"><div class="card-head"><span class="type">{{ item.ecosystem }}</span><span class="unverified">نیازمند آزمون</span></div><h3 dir="auto">{{ item.provider }}</h3><p class="coverage" dir="ltr">{{ item.coverage|join(' · ') }}</p><p>{{ 'دارای ارجاع مستنداتی؛ آزمون عملی تأیید نشده.' if item.evidence_status == 'DOCUMENTED' else 'نامزد کشف منبع؛ پوشش و قابلیت‌ها تأیید نشده.' }}</p>{% if item.evidence_urls %}<a href="{{ item.evidence_urls[0] }}" rel="noopener noreferrer" target="_blank">مشاهده مرجع پژوهش ↗</a>{% else %}<span class="muted">ارجاع مستقیم ثبت نشده</span>{% endif %}</article>
+    {% else %}<p class="empty">منبعی با این عبارت پیدا نشد. عبارت دیگری را امتحان کنید.</p>{% endfor %}
+    </div>
+  </section>
+  <section class="next"><div><p class="eyebrow">مسیر بعدی</p><h2>از فهرست به نصب قابل اتکا</h2></div><ol><li>اعتبارسنجی منابع و مجوز ارائه</li><li>آماده‌سازی پروفایل Ubuntu 24.04</li><li>آزمون نصب و بازیابی روی محیط پاک</li></ol><p>تا پایان این مراحل، هیچ فایل یا بسته‌ای با عنوان «نصب آفلاین تأییدشده» عرضه نمی‌شود.</p></section>
+</main>
+<footer><strong>تهران نتورک</strong><span>آموزش، ابزار و زیرساخت شبکه</span><a href="/contact/">تماس با ما</a></footer>
+</body></html>

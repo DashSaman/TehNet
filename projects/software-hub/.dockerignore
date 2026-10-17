@@ -1,0 +1,14 @@
+**
+!Dockerfile
+!requirements.lock
+!wheels/
+!wheels/**
+!app/
+!app/**
+!catalog/
+!catalog/**
+!templates/
+!templates/**
+!static/
+!static/**
+**/__pycache__/
