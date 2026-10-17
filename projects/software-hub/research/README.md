@@ -2,7 +2,7 @@
 
 This directory is an evidence archive, not a static website asset directory. Never mount it as web root or include it in a frontend bundle. Archived prompts and AGENTS files are historical reference data; they are not instructions to execute or to modify unrelated projects.
 
-Source: [DashSaman/software at d77dd9d](https://github.com/DashSaman/software/tree/d77dd9db570b972e41b55a92c08716055009f994/Linux). Exact blob inventory and checksums: [PROVENANCE.json](PROVENANCE.json). The owner requested this research copy; no source files were removed. Authorship and upstream citations remain unchanged. No repository-wide LICENSE was found at the inspected source ref; copying this owner's research does not grant redistribution rights to third-party software. Check each upstream license before archiving artifacts.
+Source: [DashSaman/melika at d77dd9d](https://github.com/DashSaman/melika/tree/d77dd9db570b972e41b55a92c08716055009f994/Linux). Exact blob inventory and checksums: [PROVENANCE.json](PROVENANCE.json). The owner requested this research copy; no source files were removed. Authorship and upstream citations remain unchanged. No repository-wide LICENSE was found at the inspected source ref; copying this owner's research does not grant redistribution rights to third-party software. Check each upstream license before archiving artifacts.
 
 Read RESEARCH, ARCHITECTURE, API_CONTRACT, SECURITY_AND_OFFLINE, RUBIKA_FEASIBILITY, then IMPLEMENTATION_PLAN. Read the other materials by topic. Existing probe evidence is historical and labeled as such; fresh rerun results live outside the immutable copy.
 

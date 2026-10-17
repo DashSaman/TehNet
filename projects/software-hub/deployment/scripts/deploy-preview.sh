@@ -51,7 +51,10 @@ rollback(){
   rollback_failed=0
   if [[ "$MENU_ATTEMPTED" == 1 ]]; then docker exec --user www-data tehnet-wordpress php /tmp/tehnet-software-menu.php rollback-owner "$OWNER" || rollback_failed=1; fi
   if [[ "$ROUTE_EDITED" == 1 ]]; then cp "$BACKUP/nginx.conf" "$CONF" && nginx -t && systemctl reload nginx || rollback_failed=1; fi
-  if [[ "$APP_STARTED" == 1 ]]; then TEHNET_SOFTWARE_IMAGE="$IMAGE" docker compose -p tehnet-software -f "$RELEASE/compose.yaml" down || rollback_failed=1; fi
+  if [[ "$APP_STARTED" == 1 ]]; then
+    docker logs tehnet-software > "$BACKUP/software-failure.log" 2>&1 || true
+    TEHNET_SOFTWARE_IMAGE="$IMAGE" docker compose -p tehnet-software -f "$RELEASE/compose.yaml" down || rollback_failed=1
+  fi
   if [[ "$SNIPPET_CREATED" == 1 && -f "$SNIPPET" ]]; then mv "$SNIPPET" "$BACKUP/failed-software-snippet.conf" || rollback_failed=1; fi
   if [[ "$DATA_CREATED" == 1 && -d /srv/tehnet-software/data ]]; then mv /srv/tehnet-software/data "$BACKUP/failed-software-data" || rollback_failed=1; fi
   if [[ "$rollback_failed" == 0 ]]; then echo "DEPLOY_FAILED_ROLLED_BACK backup=$BACKUP status=$status" >&2;
@@ -91,17 +94,28 @@ NGINX
 ROUTE_EDITED=1
 python3 - "$CONF" <<'PY'
 from pathlib import Path
+import re
 import sys
 path=Path(sys.argv[1])
 data=path.read_text()
 marker='    server_name tehnet.ir www.tehnet.ir;'
-assert data.count(marker)==1 and '/software' not in data
+https_block=data.split('\nserver {',1)[0]
+assert https_block.count(marker)==1 and '/software' not in data
+assert re.search(r'\blisten\s+(?:\[::\]:)?443\s+ssl',https_block), 'First matching server must be HTTPS'
 path.write_text(data.replace(marker,marker+'\n    include /etc/nginx/snippets/tehnet-software.conf;',1))
 PY
 ROUTE_EDITED=1
 nginx -t
 systemctl reload nginx
-curl --fail --silent --show-error --resolve tehnet.ir:443:127.0.0.1 https://tehnet.ir/software/readyz >/dev/null
+# deployment-stage: edge-check
+EDGE_READY=0
+for attempt in $(seq 1 10); do
+  if curl --fail --silent --show-error --resolve tehnet.ir:443:127.0.0.1 https://tehnet.ir/software/readyz > "$BACKUP/edge-ready.json" 2>> "$BACKUP/edge-errors.log"; then
+    if python3 -c 'import json,sys; assert json.load(open(sys.argv[1])).get("status")=="ready"' "$BACKUP/edge-ready.json"; then EDGE_READY=1; break; fi
+  fi
+  sleep 1
+done
+[[ "$EDGE_READY" == 1 ]]
 
 docker cp "$RELEASE/software-menu.php" tehnet-wordpress:/tmp/tehnet-software-menu.php
 docker cp "$RELEASE/software-menu-lib.php" tehnet-wordpress:/tmp/software-menu-lib.php

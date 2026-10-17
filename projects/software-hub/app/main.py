@@ -13,6 +13,16 @@ from .db import open_readonly
 
 ROOT=Path(__file__).resolve().parents[1]
 CAPABILITIES={'public_research':True,'downloads':False,'apt_profile_accepted':False,'restricted_access':False,'rubika':False}
+INSTALL_GUIDES=[
+    {'id':'curl','title':'cURL','description':'دریافت فایل و بررسی پاسخ سرویس‌های وب از خط فرمان.','package':'curl','check':'curl --version'},
+    {'id':'git','title':'Git','description':'دریافت و مدیریت تاریخچه پروژه‌ها و کد.','package':'git','check':'git --version'},
+    {'id':'nginx','title':'Nginx','description':'وب‌سرور و پراکسی معکوس. نصب ممکن است سرویس را راه‌اندازی کند؛ اگر وب‌سرور دیگری دارید، ابتدا تداخل پورت را بررسی کنید.','package':'nginx','check':'nginx -v'},
+    {'id':'ssh','title':'SSH Client','description':'اتصال امن به سرورهای در دسترس؛ این بسته سرور SSH نصب نمی‌کند.','package':'openssh-client','check':'ssh -V'},
+    {'id':'rsync','title':'rsync','description':'همگام‌سازی و انتقال افزایشی فایل‌ها برای پشتیبان‌گیری.','package':'rsync','check':'rsync --version'},
+    {'id':'unzip','title':'unzip','description':'نمایش و بازکردن فایل‌های ZIP.','package':'unzip','check':'unzip -v'},
+    {'id':'jq','title':'jq','description':'خواندن، فیلترکردن و پردازش خروجی JSON.','package':'jq','check':'jq --version'},
+    {'id':'certificates','title':'CA Certificates','description':'گواهی‌های ریشه برای بررسی ارتباط HTTPS؛ بررسی TLS را غیرفعال نکنید.','package':'ca-certificates','check':'dpkg-query -W ca-certificates'},
+]
 
 
 def sources(settings: Settings, q: str, cursor: int, limit: int):
@@ -44,7 +54,7 @@ def create_app(settings: Settings | None=None) -> FastAPI:
         response.headers['X-Robots-Tag']='noindex, nofollow'
         response.headers['X-Content-Type-Options']='nosniff'
         response.headers['Referrer-Policy']='no-referrer'
-        response.headers['Content-Security-Policy']="default-src 'self'; style-src 'self'; script-src 'none'; object-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'"
+        response.headers['Content-Security-Policy']="default-src 'self'; style-src 'self'; script-src 'self'; font-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'"
         return response
 
     @site.exception_handler(sqlite3.Error)
@@ -56,7 +66,7 @@ def create_app(settings: Settings | None=None) -> FastAPI:
     def index(request: Request,q: str=Query('',max_length=120)):
         result=sources(settings,q,0,100)
         return templates.TemplateResponse(request=request,name='index.html',context={
-            'prefix':settings.base_path,'result':result,'q':q})
+            'prefix':settings.base_path,'result':result,'q':q,'guides':INSTALL_GUIDES})
 
     @site.get('/healthz')
     def health(): return {'status':'alive'}

@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REPO = ROOT.parents[1]
 record = json.loads((ROOT / 'research/PROVENANCE.json').read_text(encoding='utf-8'))
 entries = record['files']
+assert record['source_repository'] in (ROOT/'research/README.md').read_text(encoding='utf-8'), 'Research attribution must link to original repository'
 expected = set()
 for entry in entries:
     path = ROOT / entry['destination_path']

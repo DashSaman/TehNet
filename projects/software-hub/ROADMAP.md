@@ -6,7 +6,7 @@
 
 **Tech stack:** selected research stack Python 3.12/FastAPI/Jinja2, SQLite single writer, native APT/gpgv, bounded CAS, Nginx/Compose; lock actual supported versions during implementation.
 
-**Spec:** [DESIGN](DESIGN.md), [CONTRACTS](CONTRACTS.md), [security](SECURITY_PRIVACY.md), [migration](deployment/MIGRATION.md). This is the requested plan/handoff; application implementation awaits the relevant task gates. Use the environment's appropriate implementation/testing skills when implementing; do not bypass the owner's limit on delegation or scope.
+**Spec:** [DESIGN](DESIGN.md), [CONTRACTS](CONTRACTS.md), [security](SECURITY_PRIVACY.md), [migration](deployment/MIGRATION.md). W0 v1 is implemented and frozen; the public read-only preview is implemented. Remaining capabilities await their individual gates. Use the environment's appropriate implementation/testing skills when implementing; do not bypass the owner's limit on delegation or scope.
 
 ## Global constraints
 
@@ -26,7 +26,7 @@ Prefix loss/login redirect escapes (W6); private data leaking through public API
 
 ## Phase 1 — contracts and recovered knowledge (W0/W1)
 
-- [ ] W0 resolves app boundary vs TehNet Core, base path, route ownership and auth/data models; publishes versioned typed contracts and release/state schema, plus baseline tests.
+- [x] W0 resolves app boundary vs TehNet Core, base path, route ownership and auth/data models; publishes versioned typed contracts and release/state schema, plus baseline tests.
 - [ ] W1 imports and audits the missing package when supplied; indexes every recovered file, reconciles counts/claims, preserves sources and private classification.
 - [ ] Content owner selects a modest public P0 subset and one native Ubuntu profile. VPN candidates stay restricted; broad 200+ candidate lists do not imply deployment readiness.
 
@@ -44,7 +44,9 @@ Prefix loss/login redirect escapes (W6); private data leaking through public API
 
 ## Phase 3 — foreign VPS staging/subpath (W6 + integrator)
 
-- [ ] Fresh host/port/route/resource inventory and scoped backup; no inference from stale repository baseline.
+- [x] Fresh host/port/route inventory and validated scoped backup for the public preview.
+- [x] Public preview and one menu item deployed; actual site colors and eight online copy/paste guides verified.
+- [ ] Complete full engine/privacy/download/load acceptance; preview evidence does not close full W6.
 - [ ] Deploy the isolated new project only after topology/config review; run actual Nginx, route, WordPress/noindex, public/private and load checks.
 - [ ] Measure CPU/RSS/disk/egress, latency and current-site impact; set quotas from evidence. Record exact service and image refs.
 - [ ] Provider agreements, actual full hashes, storage retention and real Iranian-client tests documented separately.

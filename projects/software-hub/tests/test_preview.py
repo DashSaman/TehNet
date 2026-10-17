@@ -87,5 +87,30 @@ class PreviewTests(unittest.TestCase):
         with closing(sqlite3.connect(self.settings.database)) as db:
             self.assertEqual(db.execute("SELECT visibility FROM sources WHERE id='secret-source'").fetchone(),('restricted',))
 
+    def test_easy_install_has_explained_copyable_online_commands(self):
+        response=self.client.get('/software/')
+        self.assertTrue('نصب آسان' in response.text,'Easy-install section is absent')
+        self.assertIn('data-copy',response.text)
+        self.assertIn('sudo apt-get update',response.text)
+        self.assertIn('sudo apt-get install --no-install-recommends curl',response.text)
+        self.assertIn('نصب آنلاین',response.text)
+        self.assertIn('Ubuntu 24.04',response.text)
+        self.assertNotIn('curl | bash',response.text)
+        self.assertNotIn('trusted=yes',response.text)
+
+    def test_theme_and_copy_assets_are_local_and_csp_allows_only_self_script(self):
+        page=self.client.get('/software/')
+        self.assertTrue('data-theme="dark"' in page.text,'TehNet theme mode is absent')
+        self.assertIn('/software/static/ui.js',page.text)
+        self.assertIn("script-src 'self'",page.headers['content-security-policy'])
+        js=self.client.get('/software/static/ui.js')
+        self.assertEqual(js.status_code,200)
+        self.assertIn('navigator.clipboard.writeText',js.text)
+        self.assertIn('tn-theme',js.text)
+        css=self.client.get('/software/static/style.css').text
+        self.assertIn('#080f18',css)
+        self.assertIn('#79e7f7',css)
+        self.assertIn('Vazirmatn',css)
+
 
 if __name__ == '__main__': unittest.main()

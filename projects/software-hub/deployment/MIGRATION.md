@@ -1,6 +1,6 @@
 # Foreign VPS → Iranian server migration runbook
 
-Status: documented procedure with a **synthetic local drill only**. Production scripts/app, Linux/container restore, real transfer, Iranian host access and end-to-end rollback are not implemented/tested here. Do not run illustrative CLI names as if they existed; W7 must implement the release commands in CONTRACTS and satisfy the gates below.
+Status: W7 production migration remains **NOT_ACCEPTED**. Public preview and same-host deploy/update/rollback scripts now exist; this does not implement the W7 cross-host release/preflight/restore/cutover CLI. Earlier synthetic drills and a real same-host Linux cold-process preview restore have passed. The latter used the actual 110592-byte catalog, a preloaded immutable image, read-only mounts and network none in 1.764 seconds; see [report](../evidence/preview-linux-restore.json). It does not measure image import, WAN, Iran, DNS, private authentication or post-write rollback. No real Iranian host/transfer/cutover test has run. Do not execute proposed W7 CLI names as if implemented.
 
 ## Define the 30-minute objective honestly
 

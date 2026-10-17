@@ -1,6 +1,6 @@
 # TehNet Software Archive AI agent execution contract
 
-Scope: `projects/software-hub/` only, plus minimal integrator-owned root coordination notes required by the repository AGENTS. Read the repository-root AGENTS first; preserve its site/business decisions and current noindex state. This folder is a new independent research/design handoff, not a deployed mirror.
+Scope: `projects/software-hub/` only, plus minimal integrator-owned root coordination notes required by the repository AGENTS. Read the repository-root AGENTS first; preserve its site/business decisions and current noindex state. This is the independent engine for TehNet Software Archive. Read current STATUS and DEPLOYMENT before making runtime claims; a public research preview is not an accepted mirror.
 
 ## Mandatory start sequence
 
@@ -12,7 +12,7 @@ Scope: `projects/software-hub/` only, plus minimal integrator-owned root coordin
 
 ## Non-negotiable engineering constraints
 
-- Existing WordPress theme/Core/content/deployment/ports are outside scope. No automatic root Nginx edits, topology changes or restarts. Initial proposed `/software/` integration needs W0 design and W6 scoped deployment gate.
+- Existing WordPress theme/Core/content/ports stay outside scope. The owner authorized the exact /software prefix and one menu item in this stage; no broader Nginx/topology changes or unrelated restarts. Initial proposed `/software/` integration needs W0 design and W6 scoped deployment gate.
 - The original Python/FastAPI/Jinja2, single-writer SQLite, gpgv/APT, CAS and bounded-probe contracts are design baselines. Resolve actual dependencies/digests during implementation; do not claim the app exists because the research defines it.
 - VPN section is server-authenticated and excluded from public listings, APIs, counts, downloads, caches, feeds and direct object paths. No hiding-in-JS workaround. Unclassified imports default restricted. No credentials or private artifacts in public Git; this folder is not web root.
 - Preserve provenance, licenses, trusted full hashes and original signed metadata. Never disable TLS/signature/date verification. Unknown remains unknown, not absent. No unrestricted URL fetch/proxy, automatic foreign fallback in domestic-only mode or user-supplied source approvals.

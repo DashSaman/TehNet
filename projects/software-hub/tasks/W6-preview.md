@@ -1,16 +1,21 @@
-# W6-preview — public research interface and scoped first deployment
+# W6-preview — public preview, isolated deployment and easy installation guides
 
-- State: in_progress (software checks complete, live deployment pending)
-- Owner: current implementer/integrator
-- Base: 49c9452 (W0 contract/naming checkpoint)
-- Scope: app/main.py, app/cli.py, catalog public projections, templates/static, locked Linux runtime, first-install deployment script, new WordPress menu scripts and tests. Full W6, W2 and W7 are not closed by this preview.
+- State: done, limited to preview acceptance. Full W6 remains open.
+- Owner: current Codex implementer/integrator; no shared-file concurrent owner.
+- Base: 49c9452; first implementation checkpoint 2d42f3ad6e9d39affd3d09aa73eee9a6b89a1006.
+- Scope: public app/CLI/catalog projections, templates/static/fonts, locked runtime/Compose, scoped deploy/update scripts, one WordPress menu helper and their tests; integrator status/changelog/root updates.
+- Dependencies: W0 v1. W2/W3/W4/W5 are deliberately not bypassed to claim full acceptance.
 
-Implemented public Persian interface/search, 27 explicitly research-only source rows, safe public API, health/readiness capabilities and plan-only Ubuntu profile. No verified download, worker/upstream fetch, provider activation, private auth or public upload. All restricted/unimplemented routes deny requests. No active theme/Core/content changes.
+Implemented the Persian read-only preview at https://tehnet.ir/software/ with search, 27 attributed research rows, empty artifact results, plan-only Ubuntu profile and explicit capabilities. Added one owned menu item, ID 189 in primary menu 2. Original eight items and existing container identities/images/ports are unchanged. No theme/Core/content file was deployed.
 
-Verification: 23 local software/rehearsal tests pass; all 30 tests pass in exact locked Linux image (9 contracts, 9 preview, 5 earlier rehearsal, 7 deployment failure injections). Original 18 probe tests also pass. PHP menu helper passed 5 logic checks and both PHP files lint. Local browser rendered the Persian interface and Ubuntu search returned seven matching source rows. Offline image build used 16 exact hashed wheels with `--network none` and immutable Python base digest.
+Latest owner request: preserve existing colors and provide copy/paste installation with explanations. Measured the actual theme tokens and reused its dark/light palette, self-hosted Vazirmatn and `tn-theme` preference. Added eight explained Ubuntu 24.04 online apt guides with install/check copy controls, prerequisites and honest offline status. Browser tests verified both palettes, mobile width 390 (client/scroll width 375), exact `curl --version` copy/paste and no console warnings/errors. These are guide/UI checks, not clean-client install acceptance. Font OFL attribution is included.
 
-One focused independent review found 3 Important deployment risks (WordPress route conflict, partial Compose start cleanup, failure/cancellation cleanup). Seven real-flow sandbox failure tests were strengthened until each went RED, then all passed after fixes. Newly created data/snippet are preserved in the private backup on rollback; original website config/menu/container identities are restored/preserved. No second reviewer or recursive delegation was used.
+Actual checks: 36/36 tests pass in the exact Linux runtime image, no skips (9 contracts, 11 preview, 5 synthetic rehearsal, 9 first-deploy fault/positive tests, 2 update/rollback tests). Windows: 25 passed, 11 Linux-only skipped. Original 18 probe tests pass separately. PHP menu helper: 5 logic checks, both files lint. Build with network none and 16 hashed wheels succeeds. See evidence/DEPLOYMENT.md and machine-readable reports for current results.
 
-Ruling: original SQL required sources.base_url NOT NULL while its YAML and W0 model permit unknown/null. Initial public seeding silently inserted zero rows under INSERT OR IGNORE. Before first deployment, align schema with documented nullable unknown and use ON CONFLICT(id) DO NOTHING so unrelated constraints cannot be swallowed. Public source count/reseed tests went RED→GREEN. No deployed migration was edited.
+One focused reviewer identified three Important deployment risks; regression tests first failed then passed after route-conflict/partial-start/rollback cleanup fixes. Real initial deploy also discovered host internal-network publishing behavior, two HTTP/HTTPS server_name blocks and graceful-reload convergence; all were recorded and corrected. Three failed first-install attempts rolled back; fourth succeeded. Latest update used a fresh validated whole-site backup, touched only the archive container and retained previous image. Two transient archive 502 responses occurred while it restarted; WordPress containers were not restarted.
 
-Next exact action: first-install script creates/validates full TehNet backup, verifies original /software absence, starts only the new bounded service, adds exact Nginx prefix and one owned menu item, checks original routes/ports/container IDs. Record actual live outcome before changing this task to review/done. W1 remains owner-deferred; W2/W3/W4/W5/full-W6/W7 remain planned.
+Final image: sha256:54f507b987e5a252a6f207478ddd5bb6251c8889c1ed45657857be017e314352. Config/release: /opt/tehnet-software/releases/ui-20261017. Backup: /root/tehnet-backups/20261017-143634-software-update. Private backup bytes/secrets are not in Git. Public/origin tests recheck the main pages, source counts, noindex, local assets and deny responses.
+
+Next: W2/W3/W5, then W4 and full W6. No provider enabled, no real download/authentication/Rubika, no Iranian migration acceptance. The same-host cold-process restore with a preloaded image took 1.764 seconds for a 110592-byte DB; it is not a WAN/cutover result. Integrator reconciled STATUS, CHANGELOG and root coordination documents for this task.
+
+Developer instructions include a separate hashed test dependency lock (19 combined wheels resolved offline in a disposable-container dry run), venv and copy/paste run/test steps. All 18 deployed runtime input hashes match local bytes. Bash scripts retain LF on Windows checkout; local .venv is ignored. New evidence and tools remain in this project's ownership boundary.

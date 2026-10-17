@@ -18,4 +18,6 @@ services:
     networks: [software]
 networks:
   software:
-    internal: true
+    # This Docker host suppresses published ports on internal networks.
+    # Preview performs no upstream I/O; production egress policy remains a W3/W6 gate.
+    driver: bridge

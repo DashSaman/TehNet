@@ -1,43 +1,49 @@
-# Initial subpath deployment — design, not applied
+# Foreign VPS subpath — implemented preview and operating procedure
 
-Target: `https://tehnet.ir/software/` on the owner's current foreign VPS. Existing WordPress stays at its root and `127.0.0.1:18082`. No existing PHP, content, deployment scripts or host routing were changed by this delivery.
+Current public preview: https://tehnet.ir/software/ . Existing WordPress remains at the root on 127.0.0.1:18082. New archive container `tehnet-software` publishes only 127.0.0.1:18083. Its database mount and root filesystem are read-only; non-root UID/GID 10001; 192 MiB / 0.5 CPU / 64 PID limits. No provider fetcher or worker exists. The separate bridge network does permit physical outbound traffic; physical egress restriction remains a W3/full-W6 gate.
 
-## Prerequisites and stop conditions
+## Applied route and menu boundary
 
-W0/W6 must freshly inspect the host via authorized access: container/port/network inventory, Nginx includes, TLS/edge/CDN, disk/RAM and WordPress route conflicts. Repository evidence is historical. Candidate `18083` is not reserved until verified free. Confirm no existing `/software` page/rewrite/static alias. Record root homepage, services/shop/learn response status/canonical/noindex and non-TehNet fingerprints before deployment. Preserve the repository's `blog_public=0` launch restriction.
-
-Create the existing required TehNet backup under `/root/tehnet-backups/` and a TehNet Software Archive release/data backup separately; keep secrets out of Git. Test archive/DB readability. Do not stop existing services to inspect or install TehNet Software Archive. Production routing is a later narrowly reviewed deployment action.
-
-## Routing proposal
-
-Run only the TehNet Software Archive project with loopback edge access; network/volumes/secrets are separate. Foreign-stage routing may look like the following **unapplied example**, inserted only inside the identified TehNet HTTPS server block after review (not in a new default server). The current repository prohibits ad hoc Nginx changes; this addition requires its scoped deployment gate.
+The owner authorized precisely `/software/` plus one menu link. `/etc/nginx/snippets/tehnet-software.conf` is included once in the validated TehNet HTTPS server block; the HTTP redirect block is unchanged. The prefix is preserved on proxy_pass because the FastAPI application mounts `/software` itself:
 
 ```nginx
-# Candidate only: confirm port, route ownership, TLS and current config first.
 location = /software { return 308 /software/; }
 location ^~ /software/ {
-    proxy_pass http://127.0.0.1:18083/;
+    proxy_pass http://127.0.0.1:18083;
     proxy_set_header Host $host;
-    proxy_set_header X-Forwarded-Proto $scheme;
-    proxy_set_header X-Forwarded-Prefix /software;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_cache off;
+    proxy_read_timeout 15s;
 }
 ```
 
-Here the URI on `proxy_pass` strips the matched prefix. Configure application root_path/base-path `/software` explicitly; trust proxy metadata only from the known loopback proxy. Do not assume `X-Forwarded-Prefix` configures the framework by itself. Match slash behavior and redirects at both proxy layers. Use [official Nginx proxy_pass semantics](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass) when implementing; this configuration was not parsed/tested locally because no Nginx runtime was available.
+Every asset/form/API URL uses `/software/`; static serving exposes only `static/`. Fonts and JS are local. Research, DB, configuration and backups are outside web root. Responses have no-store/noindex. Unimplemented/private URLs fail closed. There is no accepted login/download surface. Preserve the main site's indexing restriction.
 
-Generate every HTML asset, form action, API URL, login redirect, cookie path, OpenAPI server, download URL and APT base URL with this prefix. Local assets only, no external fonts/CDN login scripts. Preserve safe HTTPS canonical host; do not trust arbitrary Host/forwarded headers. Any redirect return_to must be a validated local path.
+One idempotent WordPress menu addition uses existing PHP APIs, item 189 in primary menu 2. Ownership metadata permits removal of only the newly created item. Existing menu items and their order are checked. No theme, Core plugin, page content or unrelated container is redeployed.
 
-Configure only `/software/` on the CDN to respect no-store/auth bypass and private paths. Do not change the entire site's cache policy. Never expose `research/`, `evidence/`, `.env`, data, SQLite, backups or private storage as static files. No automatic WordPress menu changes in this phase; any link/admin facade is a separate TehNet Core/content change.
+## Copy/paste operator steps and conditions
 
-## Required staging and live checks
+These commands are for the authorized host operator, after a release is built and tested, not for visitors. Supply an existing, inspected release path and the exact image ID. Never use a floating tag in the actual deployment argument. Read the scripts before executing; they intentionally stop on conflicts.
 
-- `/software` redirects once to HTTPS `/software/`; public page/assets/API/health/download and their query/pagination paths work without escaping prefix.
-- Unknown `/software/*` is handled by TehNet Software Archive; `/`, `/learn/`, `/services/`, `/shop/`, `/wp-admin/` still reach WordPress with previous canonical/noindex behavior.
-- All private GET/HEAD/Range/cache/direct-object tests in SECURITY_PRIVACY pass through the actual edge and origin.
-- Local public download checksum/size and Range/resume agree; a remote 302 reveals its destination and no private URL enters logs/caches.
-- APT client uses `https://tehnet.ir/software/ubuntu` explicitly. Do not rewrite existing root `/ubuntu` or external URLs. Keep profile acceptance false without real clean-client evidence.
-- `nginx -t` succeeds before a graceful reload; only the TehNet scoped include changes. Record byte-level before/after config diff and unrelated runtime fingerprint. On failure restore previous include, validate and reload; stop only the new TehNet Software Archive project if necessary.
+First install only on a fresh host where `/software/` is absent, WordPress is verified and port 18083 is free:
 
-No production SSH access or live host inventory was available in this session. All bullets remain deployment acceptance tasks, not results.
+```bash
+bash /opt/tehnet-software/releases/RELEASE/deployment/scripts/deploy-preview.sh   /opt/tehnet-software/releases/RELEASE sha256:EXACT_64_HEX_IMAGE_ID
+```
+
+For an existing **schema-compatible read-only preview**, use the update procedure (it does not migrate state):
+
+```bash
+bash /opt/tehnet-software/releases/RELEASE/deployment/scripts/update-preview.sh   /opt/tehnet-software/releases/RELEASE sha256:EXACT_64_HEX_IMAGE_ID
+```
+
+Both create a fresh private backup of the existing TehNet DB/wp-content/config before runtime mutation, verify archive readability and compare unrelated container fingerprints. Update also snapshots the archive DB via SQLite backup API, retains the old immutable image and automatically recreates only the archive with that image on a failed gate. Do not use this procedure for a schema or writable-service upgrade: design and rehearse its state reconciliation separately.
+
+The first installer checks WordPress page/rewrite ownership, snapshots Nginx/menu, starts only new resources, validates `nginx -t`, reloads gracefully and waits for a ready JSON response. ERR/INT/TERM cleanup preserves new data/snippet in the private backup and removes only newly owned state. Failed startup logs are saved first. Shell integration tests exercise real script flow against sandbox services, including partial startup, cancellation, reload convergence and update rollback.
+
+## Latest verified result and rollback
+
+[DEPLOYMENT](../evidence/DEPLOYMENT.md) records actual image, backup and release paths. Original pages `/`, `/learn/`, `/services/`, `/shop/`, `/contact/` retained HTTP 200, one H1, exact canonical and noindex in origin and independent public TLS tests. All old container IDs/images/ports remained unchanged. This is bounded regression evidence, not a load or complete website audit.
+
+For latest preview-only rollback, retain the data and reuse the same Compose with the previous exact image saved in the private update backup's `previous-image.txt`. Run the same update script with that verified ID to take another fresh backup and revalidate readiness. Do not restore stale WordPress DB snapshots merely to reverse this isolated container update. Removing the entire feature requires the saved original Nginx config, `nginx -t`/graceful reload, owned-item-only removal and stopping only this project, followed by original-route/fingerprint checks. Never delete the sole state copy.
+
+Downloads, Range/resume for accepted artifacts, APT trust, private login/revoke/cache bypass, load and Iranian-client acceptance remain future gates. A public preview does not close them.

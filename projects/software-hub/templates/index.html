@@ -1,21 +1,43 @@
 <!doctype html>
-<html lang="fa" dir="rtl">
+<html lang="fa" dir="rtl" data-theme="dark">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#080f18">
   <title>آرشیو نرم‌افزار تهران نتورک</title>
   <link rel="stylesheet" href="{{ prefix }}/static/style.css">
+  <script src="{{ prefix }}/static/ui.js" defer></script>
 </head>
 <body>
-<header class="top"><a class="brand" href="/">تهران نتورک <span>TehNet</span></a><a class="back" href="/">بازگشت به سایت ←</a></header>
+<header class="top"><a class="brand" href="/">تهران نتورک <span>TehNet</span></a><div class="header-actions"><button class="theme-toggle" type="button" aria-label="فعال‌کردن حالت روشن" aria-pressed="false">حالت روشن</button><a class="back" href="/">بازگشت به سایت ←</a></div></header>
 <main>
   <section class="hero">
     <div><p class="eyebrow">زیرساختی برای ادامه کار</p><h1>آرشیو نرم‌افزار<br><em>تهران نتورک</em></h1>
     <p class="intro">منابع لینوکس، ابزارهای توسعه و مسیر آماده‌سازی نصب آفلاین؛ با منشأ روشن و وضعیت بررسی مشخص.</p>
-    <a class="button" href="#sources">بررسی منابع پژوهش ↓</a></div>
+    <div class="hero-actions"><a class="button" href="#install">نصب آسان ابزارها ↓</a><a class="text-button" href="#sources">مرور منابع پژوهش</a></div></div>
     <aside class="status"><span class="dot"></span><strong>نسخه اولیه عمومی</strong><p>فهرست پژوهش آماده مرور است.<br>دانلود تأییدشده هنوز فعال نیست.</p><div class="stat"><b>{{ result.total if not q else '۲۷' }}</b><span>ردیف منبع پژوهشی</span></div><small>این عدد تعداد اپراتورهای مستقل یا میرورهای تأییدشده نیست.</small></aside>
   </section>
   <section class="principles" aria-label="اصول آرشیو"><div><span>۰۱</span><h2>ابتدا اعتماد</h2><p>بررسی مجوز، امضا و هش فایل، پیش از ارائه دانلود.</p></div><div><span>۰۲</span><h2>آمادگی آفلاین</h2><p>برنامه‌ریزی برای بسته کامل وابستگی‌ها و آزمون روی محیط پاک.</p></div><div><span>۰۳</span><h2>وضعیت شفاف</h2><p>نامزد پژوهش را با منبع آزموده‌شده یکی نمی‌دانیم.</p></div></section>
+  <section id="install" class="install">
+    <div class="section-heading"><div><p class="eyebrow">فرمان روشن، نتیجه قابل بررسی</p><h2>نصب آسان؛ کپی، اجرا، بررسی</h2></div><span class="pill">نصب آنلاین · Ubuntu 24.04</span></div>
+    <p class="muted">این راهنما از مخازن امضاشده پیکربندی‌شده سیستم شما استفاده می‌کند؛ دانلود از آرشیو تهران نتورک هنوز فعال نیست. برای اجرای این روش، اینترنت یا دسترسی به یک مخزن معتبر و حساب دارای دسترسی sudo لازم است.</p>
+    <ol class="install-steps"><li>ابزار مورد نیاز را باز کنید.</li><li>فرمان نصب را کپی و در ترمینال اجرا کنید.</li><li>فهرست بسته‌ها را بخوانید و نصب را تأیید کنید.</li><li>فرمان بررسی را اجرا کنید و نتیجه را ببینید.</li></ol>
+    <div class="install-grid">
+    {% for guide in guides %}
+      <details class="guide" {% if loop.first %}open{% endif %}>
+        <summary><strong dir="ltr">{{ guide.title }}</strong><span>راهنمای نصب +</span></summary>
+        <p>{{ guide.description }}</p><label for="install-{{ guide.id }}">فرمان نصب</label>
+        <textarea id="install-{{ guide.id }}" class="command" dir="ltr" rows="3" readonly spellcheck="false">sudo apt-get update
+sudo apt-get install --no-install-recommends {{ guide.package }}</textarea>
+        <button type="button" class="copy" data-copy="install-{{ guide.id }}">کپی فرمان نصب</button>
+        <label for="check-{{ guide.id }}">بررسی پس از نصب</label><textarea id="check-{{ guide.id }}" class="command" dir="ltr" rows="1" readonly spellcheck="false">{{ guide.check }}</textarea>
+        <button type="button" class="copy secondary" data-copy="check-{{ guide.id }}">کپی فرمان بررسی</button>
+      </details>
+    {% endfor %}
+    </div>
+    <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
+    <p class="offline-note"><strong>برای نصب آفلاین:</strong> فایل برنامه به‌تنهایی کافی نیست؛ وابستگی‌های همان نسخه و معماری هم باید آماده باشند. بسته آفلاین این ابزارها هنوز آزموده و منتشر نشده است. <a href="https://ubuntu.com/server/docs/tutorial/managing-software/" target="_blank" rel="noopener noreferrer">راهنمای رسمی مدیریت نرم‌افزار Ubuntu ↗</a></p>
+  </section>
   <section id="sources" class="sources">
     <div class="section-heading"><div><p class="eyebrow">نمایه منابع</p><h2>از منبع شروع کنید</h2></div><span class="pill">پژوهش: ۱۷ اکتبر ۲۰۲۶</span></div>
     <p class="muted">این فهرست بر اساس پژوهش ثبت‌شده تهیه شده است. هیچ منبعی هنوز برای دانلود خودکار فعال نشده؛ دسترسی و تازگی فایل‌ها باید جداگانه آزموده شوند.</p>

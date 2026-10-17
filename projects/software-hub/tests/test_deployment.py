@@ -13,6 +13,8 @@ r=pathlib.Path(os.environ['DEPLOY_FIXTURE']); name=pathlib.Path(sys.argv[0]).nam
 scenario=os.environ['DEPLOY_SCENARIO']
 if name in ['ss','systemctl','nginx','chown','sleep']: sys.exit(0)
 if name=='curl':
+    if scenario=='convergence' and '--resolve' in a and a[-1].endswith('/software/readyz') and not (r/'edge-converged').exists():
+        (r/'edge-converged').write_text('first request still old worker');sys.exit(22)
     if '%{http_code}' in a: print('200' if scenario=='conflict' or not a[-1].endswith('/software/') else '404',end='')
     else: print('{"status":"ready"}')
     sys.exit(0)
@@ -48,7 +50,7 @@ class DeploymentTests(unittest.TestCase):
             (root/'root/tehnet-backups').mkdir(parents=True)
             (root/'srv').mkdir()
             (root/'etc/nginx/sites-enabled').mkdir(parents=True);(root/'etc/nginx/snippets').mkdir()
-            original='server {\n    server_name tehnet.ir www.tehnet.ir;\n}\n'
+            original='server {\n    server_name tehnet.ir www.tehnet.ir;\n    listen 443 ssl;\n}\nserver {\n    server_name tehnet.ir www.tehnet.ir;\n    listen 80;\n}\n'
             conf=root/'etc/nginx/sites-enabled/tehnet.ir.conf';conf.write_text(original)
             binary=root/'bin';binary.mkdir()
             for name in ['docker','curl','ss','nginx','systemctl','chown','sleep']:
@@ -57,7 +59,7 @@ class DeploymentTests(unittest.TestCase):
             for path in ['/opt/tehnet-software','/opt/tehnet/','/root/tehnet-backups','/srv/tehnet-software','/etc/nginx/']:
                 script=script.replace(path,str(root)+path)
             points={'data':'docker run --rm --network none','snippet':'python3 - "$CONF"',
-                    'reload':'curl --fail --silent --show-error --resolve tehnet.ir:443:127.0.0.1 https://tehnet.ir/software/readyz',
+                    'reload':'# deployment-stage: edge-check',
                     'menu':'for path in / /learn/ /services/ /shop/ /contact/ /software/; do'}
             if scenario in points:
                 script=script.replace(points[scenario],'false\n'+points[scenario],1)
@@ -65,6 +67,14 @@ class DeploymentTests(unittest.TestCase):
             path=root/'deploy.sh';path.write_text(script)
             env={**os.environ,'PATH':str(binary)+':'+os.environ['PATH'],'DEPLOY_FIXTURE':str(root),'DEPLOY_SCENARIO':scenario}
             result=subprocess.run(['bash',str(path),str(release),'sha256:'+'a'*64],env=env,capture_output=True,text=True,timeout=20)
+            if scenario in ['success','convergence']:
+                self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+                data=conf.read_text()
+                self.assertEqual(data.count('include '),1)
+                self.assertNotIn('include ',data.split('\nserver {',1)[1])
+                self.assertTrue((root/'menu').exists())
+                self.assertTrue((root/'container').exists())
+                return
             self.assertNotEqual(result.returncode,0,result.stdout)
             if scenario!='conflict':
                 self.assertIn('DEPLOY_FAILED_ROLLED_BACK',result.stdout+result.stderr)
@@ -81,3 +91,5 @@ class DeploymentTests(unittest.TestCase):
     def test_failure_after_nginx_reload_restores_config(self): self.run_scenario('reload')
     def test_failure_after_menu_addition_removes_only_added_item(self): self.run_scenario('menu')
     def test_sigterm_rolls_back_owned_state(self): self.run_scenario('signal')
+    def test_success_changes_only_https_server_when_host_has_http_and_https(self): self.run_scenario('success')
+    def test_graceful_reload_waits_for_new_worker_readiness(self): self.run_scenario('convergence')
