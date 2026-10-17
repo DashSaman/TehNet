@@ -1,5 +1,7 @@
 # TehNet Software Archive design and decision record
 
+> Current owner override (2026-10-17): no downloadable payloads on the website VPS. [ADR 0002](decisions/0002-external-payload-storage.md) supersedes historical local-CAS requirements. The engine keeps metadata only, redirects approved public downloads externally, and refuses private redirects. W2/W3/external-W5 code is staged; production activation, external private delivery, provider and migration acceptance remain separate gates. See [external storage](EXTERNAL_STORAGE.md) and [engine operations](deployment/ENGINE_OPERATIONS.md).
+
 Status: owner authorized implementation on 2026-10-17; W0 v1 frozen. Runtime capabilities and deployment are tracked individually in STATUS. Date: 2026-10-17. Current request authorizes implementation plus the scoped software-section route and menu item; existing site routes and services must stay intact. This document carries intent into the roadmap; task owners must resolve listed gates before coding/integration.
 
 ## Purpose and acceptance
@@ -12,7 +14,7 @@ Acceptance is staged: verified research copy; deterministic software tests; isol
 
 ## Current repository evidence
 
-`DashSaman/TehNet` explicitly identifies itself as the source of tehnet.ir in its root README/AGENTS and `ops/PRODUCTION_BASELINE.md`. Base ref is `a84f46dad515c6151ef06c10dcea6e13dfde05a1`. Historical baseline: Compose project `tehnet`, WordPress `127.0.0.1:18082`, MariaDB and Redis, Nginx `/etc/nginx/sites-enabled/tehnet.ir.conf`, deployment under `/opt/tehnet/`. This is repository evidence from September, not a fresh SSH inventory. A public web fetch failed in this environment; current live state and IP were not confirmed. Never infer an origin IP from this record.
+`DashSaman/TehNet` identifies itself as the source of tehnet.ir in root README/AGENTS and `ops/PRODUCTION_BASELINE.md`. Main base is `a84f46dad515c6151ef06c10dcea6e13dfde05a1`. Historical baseline and current scoped validation agree: WordPress `127.0.0.1:18082`, MariaDB/Redis and Nginx `/etc/nginx/sites-enabled/tehnet.ir.conf`, existing deployment `/opt/tehnet/`. The public software preview is already live on loopback `18083` behind `/software/`; current image, backup and route tests are recorded in [deployment evidence](evidence/DEPLOYMENT.md). The new engine is separately staged; [engine validation](evidence/ENGINE_VALIDATION.md) records actual preserved container/config fingerprints. Do not infer a secret origin IP from domain/repository data.
 
 ## Options and recommendation
 
@@ -26,27 +28,27 @@ The independent engine is a **new subsystem proposal**. Root TehNet theme/Core r
 
 ## Runtime and state boundaries
 
-Carry forward the research's Python 3.12/FastAPI/Jinja2, SQLite one-writer, native gpgv/APT verification, bounded filesystem CAS and Compose edge/app/worker design. These are selected design choices, not installed dependencies. W0 approved the isolated research engine with WordPress business logic left in Core; pin versions/digests after checking actual support and vulnerabilities. No Redis/Celery/Kubernetes requirement in P0.
+Carry forward the research's Python 3.12/FastAPI/Jinja2, SQLite one-writer, native gpgv/APT verification, external payload storage and Compose edge/app/worker design. Pinned installed runtime dependencies are recorded in requirements.lock and the corresponding staged/live image evidence; APT acceptance remains planned. W0 approved the isolated research engine with WordPress business logic left in Core; pin versions/digests after checking actual support and vulnerabilities. No Redis/Celery/Kubernetes requirement in P0.
 
-Dedicated project `tehnet-software`, network and private data root `/srv/software`; never reuse TehNet DB, volumes or existing container names. Candidate loopback binding `127.0.0.1:18083` is **unallocated until a fresh host check**; do not assume it is free. `/software/` is the only initial public prefix. No changes to `18082`, existing host default routes or unrelated projects. Data partitions: public catalog/CAS; private VPN catalog and objects; restricted operational audit; external secret mounts. Backups retain those classifications and encryption policy.
+Dedicated project `tehnet-software`, network and private metadata/auth root `/srv/tehnet-software`; never reuse TehNet DB, volumes or existing container names. Loopback `127.0.0.1:18083` is already allocated to the accepted archive preview; do not run a second listener there or assume it is available for another task. `/software/` is the only initial public prefix. No changes to `18082`, existing host default routes or unrelated projects. Data partitions: public external metadata; private VPN external metadata; separate auth state; restricted operational audit; external secret mounts. Payloads stay at external providers. Backups retain those classifications and encryption policy.
 
-Schema/trust defaults from the archive remain: SHA-256 CAS, immutable original signed APT metadata, signature→index→artifact chain, seven-day by-hash retention plus live references, fail closed on expiry/tamper, null for unknown, source approval and license gates. Private access policy is an added required schema migration; unclassified imported software defaults restricted until reviewed.
+Trust defaults carried into the current external design: exact SHA-256 identities, immutable original signed APT metadata, signature→index→artifact chain, seven-day by-hash retention plus live references, fail closed on expiry/tamper, null for unknown, source approval and license gates. Private access policy is an added required schema migration; unclassified imported software defaults restricted until reviewed.
 
 ## Downloads and storage
 
-User-facing links start at `/software/download/...` or the protected equivalent and identify a registered exact digest. Remote redirects are low-bandwidth but expose their destination to the client; they do not conceal infrastructure or turn foreign bytes into domestic tariff traffic. A controlled stream/local serve keeps the visible URL but consumes server bandwidth and needs its own verification and Range tests. Never implement an arbitrary URL proxy. No claims of origin-IP secrecy from a domain name alone.
+User-facing links start at `/software/download/...` or the protected equivalent and identify a registered exact digest. Remote redirects are low-bandwidth but expose their destination to the client; they do not conceal infrastructure or turn foreign bytes into domestic tariff traffic. A future authenticated external stream could keep the visible URL but consumes server bandwidth and requires its own verification, Range and no-disk-spool tests. Never implement an arbitrary URL proxy. No claims of origin-IP secrecy from a domain name alone.
 
-Public mirrors are allowed only after operator/permission, exact hash, freshness and policy checks. VPN payloads cannot be made private through a public mirror redirect. Keep them behind an authenticated local/internal object serve or a backend with revocable authorization on every retrieval; plain public URLs are ineligible.
+Public mirrors are allowed only after operator/permission, exact hash, freshness and policy checks. VPN payloads cannot be made private through a public mirror redirect. Keep them behind an authenticated external stream with no website disk spool or a backend with revocable authorization on every retrieval; plain public URLs are ineligible.
 
-Local CAS is the first dependable storage target. Rubika remains a disabled optional adapter; no official quota, retention, anonymous download, token lifetime or outage suitability has been verified here. Iranian S3/object storage and partner-host mirrors remain replaceable candidates: require exact contract, retention, egress/Range, costs, failure-domain and restore evidence. Do not treat free accounts as unlimited storage or independent backup.
+Website local CAS is prohibited by the current owner instruction; existing mirrors and accepted external storage hold payloads. Rubika remains a disabled optional adapter; no official quota, retention, anonymous download, token lifetime or outage suitability has been verified here. Iranian S3/object storage and partner-host mirrors remain replaceable candidates: require exact contract, retention, egress/Range, costs, failure-domain and restore evidence. Do not treat free accounts as unlimited storage or independent backup.
 
 ## Assumptions and open gates
 
-- `/software/` is the proposed slug; W0 must check current WordPress routes and owner preference before deployment.
-- Existing foreign VPS has spare resources; not measured. Start a staging estimate of 2 vCPU and 2–4 GiB **additional** RAM only as a planning range, not a requirement proven by load tests. Budget at least metadata cap 1 GiB + CAS cap 5 GiB + images/logs/staging + an independent backup; maintain 30% free headroom. W6 measures peak RSS/CPU/disk and existing-site latency.
-- Password/user management is local and works without external SSO; specific audited auth library is chosen by W0/W2 after current verification. Private route remains absent until W2 acceptance.
-- Under-30-minute migration is a warm-target cutover objective with preseeded large data/images and validated secrets/TLS. It excludes server procurement and bulk first transfer; total preparation time must still be disclosed.
-- Catalog ZIP/patch recovery, provider permissions, origin access, current port availability, domestic hosting, DNS/TLS control, production auth and true outage tests remain unresolved.
+- `/software/` was accepted and deployed with one owned menu item; retain its route ownership and existing WordPress paths.
+- Existing foreign VPS has spare resources; not measured. Start a staging estimate of 2 vCPU and 2–4 GiB **additional** RAM only as a planning range, not a requirement proven by load tests. Budget at least metadata cap 1 GiB + images/bounded logs (no software payload staging/cache) + an independent backup; maintain 30% free headroom. W6 measures peak RSS/CPU/disk and existing-site latency.
+- Password management uses pinned pwdlib/Argon2id and local opaque sessions without external SSO. Component tests passed; new-state recovery/deployment and owner password setup remain production gates.
+- Under-30-minute migration is a warm-target cutover objective with preloaded images/metadata and validated secrets/TLS/provider connectivity. It excludes server procurement and bulk first transfer; total preparation time must still be disclosed.
+- Catalog ZIP/patch recovery, provider permissions, domestic hosting, target DNS/TLS control, production auth, encrypted new-state recovery and true outage tests remain unresolved.
 
 ## Source and evidence rules
 

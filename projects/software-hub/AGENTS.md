@@ -12,8 +12,10 @@ Scope: `projects/software-hub/` only, plus minimal integrator-owned root coordin
 
 ## Non-negotiable engineering constraints
 
+- Owner override, 2026-10-17: [ADR 0002](decisions/0002-external-payload-storage.md) is authoritative. No downloadable payloads/CAS/staging/cache on the website VPS; use existing mirrors or separately accepted external storage. Only application code and small metadata/auth/operational state are local. Supersede historical local-CAS requirements in all workstreams. Follow [external storage](EXTERNAL_STORAGE.md) and [engine operations](deployment/ENGINE_OPERATIONS.md); private external delivery remains closed until separately accepted.
+
 - Existing WordPress theme/Core/content/ports stay outside scope. The owner authorized the exact /software prefix and one menu item in this stage; no broader Nginx/topology changes or unrelated restarts. Initial proposed `/software/` integration needs W0 design and W6 scoped deployment gate.
-- The original Python/FastAPI/Jinja2, single-writer SQLite, gpgv/APT, CAS and bounded-probe contracts are design baselines. Resolve actual dependencies/digests during implementation; do not claim the app exists because the research defines it.
+- The original Python/FastAPI/Jinja2, single-writer SQLite, gpgv/APT, exact hash identity and bounded-probe contracts (external payload placement under ADR 0002) are design baselines. Resolve actual dependencies/digests during implementation; do not claim the app exists because the research defines it.
 - VPN section is server-authenticated and excluded from public listings, APIs, counts, downloads, caches, feeds and direct object paths. No hiding-in-JS workaround. Unclassified imports default restricted. No credentials or private artifacts in public Git; this folder is not web root.
 - Preserve provenance, licenses, trusted full hashes and original signed metadata. Never disable TLS/signature/date verification. Unknown remains unknown, not absent. No unrestricted URL fetch/proxy, automatic foreign fallback in domestic-only mode or user-supplied source approvals.
 - Rubika remains disabled pending separate official API/permission/quota/retention/Range/hash/anonymous access/domestic/restore gates. Never use personal sessions, quota rotation or assumed unlimited free storage.

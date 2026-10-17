@@ -1,0 +1,7 @@
+<!doctype html><html lang="fa" dir="rtl" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>ورود به بخش محدود | تهران نتورک</title><link rel="stylesheet" href="{{ prefix }}/static/style.css"><meta name="theme-color" content="#080f18"><script src="{{ prefix }}/static/ui.js" defer></script></head><body>
+<header class="top"><button class="theme-toggle" type="button" aria-label="تغییر حالت رنگ" aria-pressed="false">حالت روشن</button><a class="brand" href="/">تهران نتورک</a><a href="{{ prefix }}/">بازگشت به آرشیو</a></header>
+<main class="access-panel"><p class="eyebrow">دسترسی محدود</p><h1>ورود به بخش خصوصی</h1>
+{% if message %}<p role="alert">{{ message }}</p>{% endif %}
+{% if available %}<p class="muted">رمز این بخش را وارد کنید. پس از پایان کار، از حساب خارج شوید.</p><form method="post" action="{{ prefix }}/access/" class="search"><input type="hidden" name="csrf" value="{{ csrf }}"><label for="password">رمز ورود</label><input id="password" name="password" type="password" autocomplete="current-password" maxlength="256" required><button type="submit">ورود</button></form>
+{% else %}<p class="muted">{% if not message %}دسترسی خصوصی هنوز آماده نیست. مدیر باید رمز را روی سرور تنظیم کند.{% endif %}</p><a href="{{ prefix }}/access/">بازکردن دوباره فرم ورود</a>{% endif %}
+</main></body></html>

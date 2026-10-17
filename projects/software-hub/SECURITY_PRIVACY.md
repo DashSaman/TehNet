@@ -1,5 +1,7 @@
 # Public catalog and password-protected VPN section
 
+> Current owner override (2026-10-17): no downloadable payloads on the website VPS. [ADR 0002](decisions/0002-external-payload-storage.md) supersedes historical local-CAS requirements. The engine keeps metadata only, redirects approved public downloads externally, and refuses private redirects. W2/W3/external-W5 code is staged; production activation, external private delivery, provider and migration acceptance remain separate gates. See [external storage](EXTERNAL_STORAGE.md) and [engine operations](deployment/ENGINE_OPERATIONS.md).
+
 Status: required design and acceptance checklist; no live authentication was implemented in this consolidation. Existing public research references are not secret; private runtime configuration, subscriber data, credentials and access links are.
 
 ## Boundary that must hold
@@ -18,7 +20,7 @@ Never commit production VPN client lists, subscriber database, connection profil
 
 Migration must carry access policy and password hashes securely, rotate/invalidate sessions at cutover unless keys are securely transferred, and test logout/old-cookie invalidation. Private section remains disabled on a new target until its authorization and direct-object tests pass. Do not expose it temporarily to meet a migration timer.
 
-## W2 acceptance matrix (all unexecuted for the real app)
+## W2 acceptance matrix (component tests executed; production acceptance pending)
 
 | Input / condition | Required behavior |
 |---|---|

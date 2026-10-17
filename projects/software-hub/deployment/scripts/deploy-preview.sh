@@ -6,6 +6,7 @@ RELEASE="$(realpath "${1:?release directory required}")"
 IMAGE="${2:?immutable image ID required}"
 [[ "$RELEASE" == /opt/tehnet-software/releases/* ]] || { echo 'Invalid release root'; exit 1; }
 [[ "$IMAGE" =~ ^sha256:[a-f0-9]{64}$ ]] || { echo 'Exact image ID required'; exit 1; }
+[[ ! -f "$RELEASE/app/external_storage.py" ]] || { echo 'ENGINE_RELEASE_REQUIRES_NEW_STATE_BACKUP_AND_ROLLBACK_GATE' >&2; exit 2; }
 [[ "$(docker port tehnet-wordpress 80/tcp)" == '127.0.0.1:18082' ]]
 ! docker container inspect tehnet-software >/dev/null 2>&1 || { echo 'Already installed: use reviewed upgrade procedure'; exit 1; }
 ! ss -ltnH '( sport = :18083 )' | grep -q . || { echo 'Port occupied'; exit 1; }

@@ -1,10 +1,12 @@
 # TehNet Software Archive implementation roadmap
 
+> Current owner override (2026-10-17): no downloadable payloads on the website VPS. [ADR 0002](decisions/0002-external-payload-storage.md) supersedes historical local-CAS requirements. The engine keeps metadata only, redirects approved public downloads externally, and refuses private redirects. W2/W3/external-W5 code is staged; production activation, external private delivery, provider and migration acceptance remain separate gates. See [external storage](EXTERNAL_STORAGE.md) and [engine operations](deployment/ENGINE_OPERATIONS.md).
+
 **Goal:** consolidate research and build an independently operable offline-continuity service under TehNet without disrupting its current site.
 
 **Architecture:** a proposed isolated mirror engine under `/software/`, preserving the WordPress/Core boundary, with local state, verified artifacts and explicit restricted access.
 
-**Tech stack:** selected research stack Python 3.12/FastAPI/Jinja2, SQLite single writer, native APT/gpgv, bounded CAS, Nginx/Compose; lock actual supported versions during implementation.
+**Tech stack:** selected research stack Python 3.12/FastAPI/Jinja2, SQLite single writer, native APT/gpgv, external payload placement, Nginx/Compose; lock actual supported versions during implementation.
 
 **Spec:** [DESIGN](DESIGN.md), [CONTRACTS](CONTRACTS.md), [security](SECURITY_PRIVACY.md), [migration](deployment/MIGRATION.md). W0 v1 is implemented and frozen; the public read-only preview is implemented. Remaining capabilities await their individual gates. Use the environment's appropriate implementation/testing skills when implementing; do not bypass the owner's limit on delegation or scope.
 
@@ -34,9 +36,10 @@ Prefix loss/login redirect escapes (W6); private data leaking through public API
 
 ## Phase 2 — independently tested engine (W2/W3/W5 parallel, then W4/W6)
 
-- [ ] W2 implements local password/session authorization, public projections and leakage tests before any restricted import/UI.
-- [ ] W3 implements bounded DNS-pinned fetch/probe/source policy and real local TLS fixture tests; research probe is a supporting tool, not production netguard.
-- [ ] W5 implements verified CAS/quotas/atomic writes, consistent backup and private-capable serving; Rubika stub explicitly disabled.
+- [x] W2 component implements local password/session authorization, public projections and leakage tests. Owner-operated setup and production activation remain open.
+- [x] W3 component implements bounded DNS-pinned full-stream verification/probe/source policy and real local TLS fixtures. Real provider activation remains open.
+- [x] W5 first component implements external metadata registry, no-disk full hashing, public redirects and refusal of private redirects; Rubika stub remains disabled.
+- [ ] W5/W6/W7 implement an accepted external private backend, workstation/transfer-worker direct upload, encrypted metadata/auth backup+restore and new-state activation/rollback. No website payload cache/CAS is permitted.
 - [ ] W4 verifies original APT metadata/index/artifact chain and native dependency closure; unknown availability stays unknown; no fabricated production hashes.
 - [ ] W6 wires app/UI/worker with one writer, local Persian assets, prefix-safe URLs and source approval CLI; checks the full feature/integration suite.
 

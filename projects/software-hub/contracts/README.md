@@ -1,5 +1,7 @@
 # W0 v1 frozen contract — 2026-10-17
 
+Current engine extension: [ADR 0002](../decisions/0002-external-payload-storage.md) and [CONTRACTS 1.1](../CONTRACTS.md) supersede the local-payload design. Frozen release/artifact/source schema files retain their v1 semantics; original SQL migration 001 is unchanged. `openapi.json` is the current **public** engine snapshot; private/access routes are excluded. Auth/external metadata have separate explicit databases. The paragraphs below describe the earlier preview, still live; the new engine is staged and has no accepted production migration/backup manifest yet.
+
 User accepted implementation and corrected branding: this is TehNet's software archive. Public prefix `/software`, source `projects/software-hub`, service `tehnet-software`. Independent mirror-engine state; WordPress retains its commerce/account/business ownership. Only the explicitly authorized navigation item is added to WordPress.
 
 The concrete typed models are in `app/models.py`, configuration in `app/config.py`, SQL migration in `app/migrations/001_initial.sql`, initialization/read-only/snapshot interfaces in `app/db.py`. Machine-readable release/artifact/source schemas accompany this document. Contract version 1.0; schema 1. Missing classification defaults restricted in both models and SQL. Future schemas and edited applied migrations fail closed; HTTP serving must not migrate or write state. DB creation/import/backup are explicit offline administrator operations.

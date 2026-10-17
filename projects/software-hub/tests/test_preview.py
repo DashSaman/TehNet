@@ -47,7 +47,7 @@ class PreviewTests(unittest.TestCase):
         self.assertNotIn('config_json',response.text)
 
     def test_private_and_unimplemented_surfaces_deny_all_methods(self):
-        for path in ['/private/known','/private/random','/access/','/download/'+('a'*64)+'/private.deb']:
+        for path in ['/private/known','/private/random','/download/'+('a'*64)+'/private.deb']:
             for method in ['GET','HEAD','POST']:
                 response=self.client.request(method,'/software'+path,headers={'Range':'bytes=0-4','If-None-Match':'*'})
                 self.assertEqual(response.status_code,404)

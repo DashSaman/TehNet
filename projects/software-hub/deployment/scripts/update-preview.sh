@@ -6,6 +6,7 @@ RELEASE="$(realpath "${1:?release directory required}")"
 IMAGE="${2:?immutable image ID required}"
 [[ "$RELEASE" == /opt/tehnet-software/releases/* ]]
 [[ "$IMAGE" =~ ^sha256:[a-f0-9]{64}$ ]]
+[[ ! -f "$RELEASE/app/external_storage.py" ]] || { echo 'ENGINE_RELEASE_REQUIRES_NEW_STATE_BACKUP_AND_ROLLBACK_GATE' >&2; exit 2; }
 OLD_IMAGE="$(docker inspect -f '{{.Image}}' tehnet-software)"
 [[ "$OLD_IMAGE" =~ ^sha256:[a-f0-9]{64}$ ]]
 [[ "$(docker port tehnet-wordpress 80/tcp)" == '127.0.0.1:18082' ]]
