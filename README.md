@@ -61,3 +61,7 @@ This repository is the canonical source of truth for TehNet product, implementat
 - `HANDOFF.md` / `PROGRESS.md` / `TASKS.md` — continuation state, verified progress and backlog
 
 See `PROGRESS.md` and `HANDOFF.md` for the current implementation state.
+
+## ملیکا — پژوهش و برنامه مستقل / Melika
+
+[Start here: projects/melika/README.md](projects/melika/README.md) — isolated research copy, roadmap, agent workstreams, privacy and portable migration design. This is not a deployed service; original TehNet site/runtime is unchanged.

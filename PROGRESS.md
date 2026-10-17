@@ -77,3 +77,7 @@
 
 ## Rules for all agents
 Read `AGENTS.md` and `HANDOFF.md` first, preserve locked decisions and verified work, use evidence before SEO claims, keep indexing disabled until an explicit launch gate, and never change unrelated project ports/containers during TehNet work.
+
+## 2026-10-17 — Isolated Melika research/design handoff
+
+Added `projects/melika/` with 22 provenance-traced Linux research copies, entry guide, roadmap, privacy/agent/task contracts and migration design with a synthetic local rehearsal. OFFLINE_SOFTWARE_CATALOG is missing from inspected source history and awaits its original ZIP/patch. No WordPress/theme/plugin/content/ops/runtime configuration was changed or deployed. Fresh checks and precise limits: `projects/melika/evidence/VALIDATION.md`. Existing production statements above are historical and were not revalidated by this work.

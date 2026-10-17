@@ -77,3 +77,10 @@ Status legend: `LOCKED`, `NEXT`, `BACKLOG`, `BLOCKED`, `DONE`.
 - BACKLOG — Mobile/RTL validation.
 - BACKLOG — SEO launch checklist/retest.
 - BACKLOG — Production launch and post-launch measurement.
+
+## Separate Melika research and implementation track (2026-10-17)
+
+- REVIEW — Isolated research consolidation/design at `projects/melika/`; exact checks in its evidence log.
+- BLOCKED — W1: recover original OFFLINE_SOFTWARE_CATALOG ZIP/patch/checksums (not in source Git history).
+- NEXT (Melika only) — W0: freeze interfaces, private-access boundary and proposed subpath design; do not replace the existing commerce NEXT task.
+- BACKLOG — W2–W7 implementation, staged deployment and real timed Iran migration/rollback; see `projects/melika/WORKSTREAMS.md`.

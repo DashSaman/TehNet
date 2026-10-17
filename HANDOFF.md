@@ -71,3 +71,7 @@ Do not change port `18082`, Nginx routing, Docker project topology or unrelated 
 - NoPayments official API/webhook implementation details.
 - Final optional logo redesign (must be previewed before replacement).
 - Search Console connection/measurement and final launch-indexing approval.
+
+## Separate workstream: Melika (2026-10-17)
+
+Read `projects/melika/README.md`, `AGENTS.md` and `STATUS.md`. Consolidation/design is isolated from the existing Quote/Invoice priority. Next Melika actions: acquire original OFFLINE_SOFTWARE_CATALOG ZIP/patch and checksums, then freeze W0 contracts for the proposed `/melika/` subsystem. Public catalog/private VPN separation, initial foreign-VPS subpath and measured prepared-target migration to Iran are requirements, not live features. No production access/deployment or real migration acceptance occurred in this delivery.
