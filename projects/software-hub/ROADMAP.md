@@ -1,8 +1,8 @@
-# Melika implementation roadmap
+# TehNet Software Archive implementation roadmap
 
 **Goal:** consolidate research and build an independently operable offline-continuity service under TehNet without disrupting its current site.
 
-**Architecture:** a proposed isolated mirror engine under `/melika/`, preserving the WordPress/Core boundary, with local state, verified artifacts and explicit restricted access.
+**Architecture:** a proposed isolated mirror engine under `/software/`, preserving the WordPress/Core boundary, with local state, verified artifacts and explicit restricted access.
 
 **Tech stack:** selected research stack Python 3.12/FastAPI/Jinja2, SQLite single writer, native APT/gpgv, bounded CAS, Nginx/Compose; lock actual supported versions during implementation.
 
@@ -10,7 +10,7 @@
 
 ## Global constraints
 
-Public normal sections; password protection for VPN on the server; no secrets/private payloads in public Git. Preserve source attribution and trust labels. Never change `18082`, WordPress/Core behavior, existing index status or unrelated containers as part of Melika work. No provider enabled by discovery, Rubika disabled, no arbitrary URL proxy, no foreign fallback in domestic-only mode. Do not claim a profile, provider, migration or official certification passed without its own evidence.
+Public normal sections; password protection for VPN on the server; no secrets/private payloads in public Git. Preserve source attribution and trust labels. Never change `18082`, WordPress/Core behavior, existing index status or unrelated containers as part of TehNet Software Archive work. No provider enabled by discovery, Rubika disabled, no arbitrary URL proxy, no foreign fallback in domestic-only mode. Do not claim a profile, provider, migration or official certification passed without its own evidence.
 
 ## Review focus
 
@@ -54,7 +54,7 @@ Prefix loss/login redirect escapes (W6); private data leaking through public API
 ## Phase 4 — portable migration qualification (W7)
 
 - [ ] Implement real release/preflight/snapshot/restore/smoke/cutover/rollback scripts and cold Linux restore from preloaded artifacts.
-- [ ] Warm an Iranian target, preseed media/images, select hostname/ingress plan preserving WordPress and removing foreign dependencies for Melika.
+- [ ] Warm an Iranian target, preseed media/images, select hostname/ingress plan preserving WordPress and removing foreign dependencies for TehNet Software Archive.
 - [ ] Complete two representative measured cross-host drills and rollback, plus post-write rollback/split-brain safety tests.
 - [ ] Measure complete timed window under 1,800 seconds with prerequisites disclosed; test domestic mode with isolated foreign egress denial.
 - [ ] Perform the owner-authorized cutover, retain old state and independently verified backups for the approved retention period.

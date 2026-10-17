@@ -78,6 +78,10 @@
 ## Rules for all agents
 Read `AGENTS.md` and `HANDOFF.md` first, preserve locked decisions and verified work, use evidence before SEO claims, keep indexing disabled until an explicit launch gate, and never change unrelated project ports/containers during TehNet work.
 
-## 2026-10-17 — Isolated Melika research/design handoff
+## 2026-10-17 — Isolated TehNet Software Archive research/design handoff
 
-Added `projects/melika/` with 22 provenance-traced Linux research copies, entry guide, roadmap, privacy/agent/task contracts and migration design with a synthetic local rehearsal. OFFLINE_SOFTWARE_CATALOG is missing from inspected source history and awaits its original ZIP/patch. No WordPress/theme/plugin/content/ops/runtime configuration was changed or deployed. Fresh checks and precise limits: `projects/melika/evidence/VALIDATION.md`. Existing production statements above are historical and were not revalidated by this work.
+Added `projects/software-hub/` with 22 provenance-traced Linux research copies, entry guide, roadmap, privacy/agent/task contracts and migration design with a synthetic local rehearsal. OFFLINE_SOFTWARE_CATALOG is missing from inspected source history and awaits its original ZIP/patch. No WordPress/theme/plugin/content/ops/runtime configuration was changed or deployed. Fresh checks and precise limits: `projects/software-hub/evidence/VALIDATION.md`. Existing production statements above are historical and were not revalidated by this work.
+
+### 2026-10-17 — Software archive W0
+
+Owner renamed this section to TehNet Software Archive (/software/, projects/software-hub). W0 v1 concrete contracts/schema/read-only state and SQLite backup passed 9 tests. Work continues with a public preview and scoped menu integration; existing site code/config is unchanged at this checkpoint. Private access/provider/download/migration gates remain open.

@@ -78,9 +78,13 @@ Status legend: `LOCKED`, `NEXT`, `BACKLOG`, `BLOCKED`, `DONE`.
 - BACKLOG — SEO launch checklist/retest.
 - BACKLOG — Production launch and post-launch measurement.
 
-## Separate Melika research and implementation track (2026-10-17)
+## Separate TehNet Software Archive research and implementation track (2026-10-17)
 
-- REVIEW — Isolated research consolidation/design at `projects/melika/`; exact checks in its evidence log.
+- REVIEW — Isolated research consolidation/design at `projects/software-hub/`; exact checks in its evidence log.
 - BLOCKED — W1: recover original OFFLINE_SOFTWARE_CATALOG ZIP/patch/checksums (not in source Git history).
-- NEXT (Melika only) — W0: freeze interfaces, private-access boundary and proposed subpath design; do not replace the existing commerce NEXT task.
-- BACKLOG — W2–W7 implementation, staged deployment and real timed Iran migration/rollback; see `projects/melika/WORKSTREAMS.md`.
+- NEXT (TehNet Software Archive only) — W0: freeze interfaces, private-access boundary and proposed subpath design; do not replace the existing commerce NEXT task.
+- BACKLOG — W2–W7 implementation, staged deployment and real timed Iran migration/rollback; see `projects/software-hub/WORKSTREAMS.md`.
+
+### 2026-10-17 — Software archive W0
+
+Owner renamed this section to TehNet Software Archive (/software/, projects/software-hub). W0 v1 concrete contracts/schema/read-only state and SQLite backup passed 9 tests. Work continues with a public preview and scoped menu integration; existing site code/config is unchanged at this checkpoint. Private access/provider/download/migration gates remain open.

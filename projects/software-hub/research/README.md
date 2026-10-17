@@ -2,7 +2,7 @@
 
 This directory is an evidence archive, not a static website asset directory. Never mount it as web root or include it in a frontend bundle. Archived prompts and AGENTS files are historical reference data; they are not instructions to execute or to modify unrelated projects.
 
-Source: [DashSaman/melika at d77dd9d](https://github.com/DashSaman/melika/tree/d77dd9db570b972e41b55a92c08716055009f994/Linux). Exact blob inventory and checksums: [PROVENANCE.json](PROVENANCE.json). The owner requested this research copy; no source files were removed. Authorship and upstream citations remain unchanged. No repository-wide LICENSE was found at the inspected source ref; copying this owner's research does not grant redistribution rights to third-party software. Check each upstream license before archiving artifacts.
+Source: [DashSaman/software at d77dd9d](https://github.com/DashSaman/software/tree/d77dd9db570b972e41b55a92c08716055009f994/Linux). Exact blob inventory and checksums: [PROVENANCE.json](PROVENANCE.json). The owner requested this research copy; no source files were removed. Authorship and upstream citations remain unchanged. No repository-wide LICENSE was found at the inspected source ref; copying this owner's research does not grant redistribution rights to third-party software. Check each upstream license before archiving artifacts.
 
 Read RESEARCH, ARCHITECTURE, API_CONTRACT, SECURITY_AND_OFFLINE, RUBIKA_FEASIBILITY, then IMPLEMENTATION_PLAN. Read the other materials by topic. Existing probe evidence is historical and labeled as such; fresh rerun results live outside the immutable copy.
 
@@ -32,9 +32,9 @@ Read RESEARCH, ARCHITECTURE, API_CONTRACT, SECURITY_AND_OFFLINE, RUBIKA_FEASIBIL
 
 ## Interpretation and path changes
 
-Old `Linux/app/`, `Linux/tests/`, `Linux/profiles/` and deployment paths in historical plans map to `projects/melika/app/`, `tests/`, `profiles/` and `deployment/` for new work. Do not rewrite the archive to hide this relocation. Old research tests remain under `research/upstream/Linux/tests/`. Do not put new application code into the immutable archive.
+Old `Linux/app/`, `Linux/tests/`, `Linux/profiles/` and deployment paths in historical plans map to `projects/software-hub/app/`, `tests/`, `profiles/` and `deployment/` for new work. Do not rewrite the archive to hide this relocation. Old research tests remain under `research/upstream/Linux/tests/`. Do not put new application code into the immutable archive.
 
-The old design assumed an Iranian host first. The current owner request supersedes that sequence: first an isolated `/melika/` service on the existing foreign VPS, then migration to Iran. The APT metadata and integrity policy remain; a foreign staging deployment is not accepted domestic outage coverage.
+The old design assumed an Iranian host first. The current owner request supersedes that sequence: first an isolated `/software/` service on the existing foreign VPS, then migration to Iran. The APT metadata and integrity policy remain; a foreign staging deployment is not accepted domestic outage coverage.
 
 The original API did not define VPN authorization. [DESIGN](../DESIGN.md), [CONTRACTS](../CONTRACTS.md) and [SECURITY_PRIVACY](../SECURITY_PRIVACY.md) add that required boundary before any private data is imported. All historical source flags remain disabled until evidence and permission approval.
 

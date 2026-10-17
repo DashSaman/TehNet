@@ -62,6 +62,6 @@ This repository is the canonical source of truth for TehNet product, implementat
 
 See `PROGRESS.md` and `HANDOFF.md` for the current implementation state.
 
-## ملیکا — پژوهش و برنامه مستقل / Melika
+## آرشیو نرم‌افزار تهران نتورک — پژوهش و برنامه مستقل / TehNet Software Archive
 
-[Start here: projects/melika/README.md](projects/melika/README.md) — isolated research copy, roadmap, agent workstreams, privacy and portable migration design. This is not a deployed service; original TehNet site/runtime is unchanged.
+[Start here: projects/software-hub/README.md](projects/software-hub/README.md) — isolated research copy, roadmap, agent workstreams, privacy and portable migration design. This is not a deployed service; original TehNet site/runtime is unchanged.

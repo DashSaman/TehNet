@@ -1,6 +1,6 @@
 # Integration contracts for independent owners
 
-Status: planned contracts. W0 is the sole editor until frozen; changes require a versioned decision and consumer acknowledgement. Original type/function/CLI contracts remain in [API_CONTRACT](research/upstream/Linux/API_CONTRACT.md), except the documented path relocation and privacy additions here. Never treat historical public endpoints as permission to return VPN records.
+Status: W0 v1 frozen; concrete models/schema and evidence in [contracts/README](contracts/README.md). W0 remains the sole contract owner; changes require a versioned decision and consumer acknowledgement. Original type/function/CLI contracts remain in [API_CONTRACT](research/upstream/Linux/API_CONTRACT.md), except the documented path relocation and privacy additions here. Never treat historical public endpoints as permission to return VPN records.
 
 ## Ownership and module interfaces
 
@@ -13,11 +13,11 @@ Status: planned contracts. W0 is the sole editor until frozen; changes require a
 - W6 consumes these components through service entry points; public UI never receives private rows to filter in JavaScript. W6 owns app composition and scheduler wiring, and requests interface changes from their owners.
 - W7 consumes a versioned release/state manifest from W6; no independent schema rewrite or migration-on-import. Unknown/newer schema fails validation and preserves old release.
 
-## External paths (planned)
+## External paths (v1 contract; capabilities individually gated)
 
-All archived root routes acquire `/melika` externally. Public API includes `/melika/v1/sources`, `/v1/artifacts`, `/v1/artifacts/{sha256}`, `/v1/gaps`, `/v1/profiles/{id}` (each relative to `/melika`), public download and Ubuntu dists/pool. These expose only reviewed public records; public counts, pagination, search, autocomplete and errors exclude restricted content. Health is process-only and ready checks need no external calls.
+All archived root routes acquire `/software` externally. Public API includes `/software/v1/sources`, `/v1/artifacts`, `/v1/artifacts/{sha256}`, `/v1/gaps`, `/v1/profiles/{id}` (each relative to `/software`), public download and Ubuntu dists/pool. These expose only reviewed public records; public counts, pagination, search, autocomplete and errors exclude restricted content. Health is process-only and ready checks need no external calls.
 
-Private equivalents live under `/melika/private/`, including private search/API/download; login at `/melika/access/`, logout a CSRF-protected POST. No public alias for a private SHA/path, no public APT feed containing VPN data. Unauthenticated requests to known and unknown private artifacts share a consistent denial without existence/count disclosure. No permissive CORS. OpenAPI may describe generic schemas but may not embed private examples or URLs.
+Private equivalents live under `/software/private/`, including private search/API/download; login at `/software/access/`, logout a CSRF-protected POST. No public alias for a private SHA/path, no public APT feed containing VPN data. Unauthenticated requests to known and unknown private artifacts share a consistent denial without existence/count disclosure. No permissive CORS. OpenAPI may describe generic schemas but may not embed private examples or URLs.
 
 Default download method is GET/HEAD; admin mutations remain local CLI-only. Public unknown IDs return 404, no approved usable public copy 503, conflicting digest 409; never turn a timeout into absence. Restricted data needs authorization even when its hash is known and on HEAD/Range/conditional requests. No method or internal redirect bypass.
 

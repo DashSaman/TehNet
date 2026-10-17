@@ -44,11 +44,11 @@ for path in ROOT.rglob('*.md'):
 base = record['destination_base_ref']
 allowed = {'README.md', 'PROGRESS.md', 'HANDOFF.md', 'TASKS.md'}
 changed = subprocess.check_output(['git', '-C', str(REPO), 'diff', base, '--name-only'], text=True).splitlines()
-assert all(p in allowed or p.startswith('projects/melika/') for p in changed), changed
+assert all(p in allowed or p.startswith('projects/software-hub/') for p in changed), changed
 for name in allowed:
     original = subprocess.check_output(['git', '-C', str(REPO), 'show', f'{base}:{name}']).decode('utf-8')
     current = (REPO / name).read_text(encoding='utf-8')
-    assert current.startswith(original.replace('\r\n', '\n')), f'Root document was not append-only: {name}'
+    assert current.startswith(original.replace('\r\n', '\n')), f'Pre-existing root content changed: {name}'
 print(json.dumps({'result': 'PASS', 'source_blobs_verified': len(entries),
                   'copied_bytes': sum(e['size_bytes'] for e in entries),
                   'local_markdown_links_checked': links,

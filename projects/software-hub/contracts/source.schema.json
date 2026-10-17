@@ -1,0 +1,103 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "pattern": "^[a-z0-9][a-z0-9-]{0,79}$",
+      "title": "Id",
+      "type": "string"
+    },
+    "provider": {
+      "title": "Provider",
+      "type": "string"
+    },
+    "ecosystem": {
+      "title": "Ecosystem",
+      "type": "string"
+    },
+    "base_url": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Base Url"
+    },
+    "allowed_hosts": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Allowed Hosts",
+      "type": "array"
+    },
+    "visibility": {
+      "default": "restricted",
+      "enum": [
+        "public",
+        "restricted"
+      ],
+      "title": "Visibility",
+      "type": "string"
+    },
+    "routing_enabled": {
+      "default": false,
+      "title": "Routing Enabled",
+      "type": "boolean"
+    },
+    "permission_state": {
+      "default": "unreviewed",
+      "enum": [
+        "unreviewed",
+        "approved",
+        "denied"
+      ],
+      "title": "Permission State",
+      "type": "string"
+    },
+    "domestic_state": {
+      "default": "unverified",
+      "enum": [
+        "unverified",
+        "provider_claimed",
+        "verified"
+      ],
+      "title": "Domestic State",
+      "type": "string"
+    },
+    "approval_evidence": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Approval Evidence"
+    },
+    "failure_domain": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Failure Domain"
+    }
+  },
+  "required": [
+    "id",
+    "provider",
+    "ecosystem"
+  ],
+  "title": "SourceConfig",
+  "type": "object"
+}

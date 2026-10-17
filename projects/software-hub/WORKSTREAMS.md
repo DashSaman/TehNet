@@ -6,7 +6,7 @@ These are work packages, **not agents already launched or tasks already implemen
 
 Integrator owns README/DESIGN/CONTRACTS/ROADMAP/STATUS/CHANGELOG and root PROGRESS/HANDOFF/TASKS. Only the W0 contract owner edits shared models/config/schema/OpenAPI until frozen. Each other worker owns its listed files, tests and `tasks/<ID>.md`; workers propose shared changes in their own log. Integrator applies shared updates serially before merge. Do not edit a sibling's modules, revert concurrent changes or modify the archived research. Request contract changes instead of guessing types.
 
-| ID / owner role | Owned deliverable and paths (relative to projects/melika) | Depends on | Acceptance evidence |
+| ID / owner role | Owned deliverable and paths (relative to projects/software-hub) | Depends on | Acceptance evidence |
 |---|---|---|---|
 | C0 / integrator | This research consolidation + docs; `research/upstream/`, PROVENANCE, tools/rehearsal, current evidence | Current owner request | Exact 22-blob hashes, archive probe rerun, docs/isolation checks; honest missing-catalog and runtime limits |
 | W0 / contracts | `app/models.py`, `config.py`, `db.py`, `migrations/`, `contracts/`, tests `test_contracts.py`, `tasks/W0.md`; shared-doc integration | C0 | Concrete types/signatures, visibility deny-default, schema/release versions, root architecture alignment, base-path contract, source defaults, migration compatibility tests |
