@@ -1,0 +1,20 @@
+{
+  "result": "PASS",
+  "linux_qualified_source_matches_staged": {
+    "app/aptmeta.py": "236f36980224c2c1445bf8c90786bc6a8b605f122026360f6259185a35637598",
+    "deployment/client/offline-install.sh": "28e69ac2dc26fd165627138e56ea58751bd93b16408f8017d7bd5cd89b8d879f",
+    "deployment/public-offline/offline_kit.py": "fd35d9874932bc35fa8ff026c8608c61ed86533fc46d9ac56d00387e710e0fc9",
+    "deployment/qualification/devtools-smoke.py": "a6f50e4bf6893b7ff09afdc05633fd7732a87bf2933c9bdf828085446e2f33fc",
+    "deployment/qualification/discover-devtools.sh": "b5bf3ba48ecd561cc615f00ba4e619fb28c7df4dd170eb9ab0f1e03381d7d18d",
+    "deployment/qualification/run-devtools-lab.sh": "375c66b3fb77de94cd72fbcdae4c4226fcb624454302524fab41e25c11755f2e",
+    "tests/test_aptmeta.py": "dc8cee7d5e86bc9dc138c3ffa8efa92ae8e912d67c663a506d752060e7c450be",
+    "tests/test_offline_kit.py": "633fb5bab937f1deae170421d9e6dad991082eef38758cc44521b7ccd05c2ae2",
+    "tests/test_offline_lab.py": "d74d763a9b5f57099044d4716543b123bd919c4a0dcf97ff8fba2e54e2e4cc02",
+    "tests/test_offline_publication.py": "11bd1e25604d803117fe2cd797a5e92c6ad443ccb50f47fcdf76532805166ce6",
+    "tools/build_devtools_profile.py": "35e79b2948b635a0b20d7715d012010158c25c0ae57adebd1959d5738346e4e3",
+    "tools/offline_kit.py": "fd35d9874932bc35fa8ff026c8608c61ed86533fc46d9ac56d00387e710e0fc9",
+    "tools/offline_lab.py": "0250edb898108f52473abe85351d0e45515f3a76ebfd699b45d6771bbad78ad3",
+    "tools/offline_publication.py": "3c800cb6b494582e5516e4a41c1ebd854e34f1783fe633a5ec64c1e8e17cdc47"
+  },
+  "bash_syntax_checked": 3
+}

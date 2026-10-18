@@ -6,7 +6,7 @@
 
 بخش عمومی فعال است: https://tehnet.ir/software/ .
 
-**فهرست دانلود گسترش یافت:** ۱۱ فایل واقعی شامل Git، curl، jq، Python، pip، wget، rsync و OpenSSH Client برای Ubuntu 24.04، دو Mini rootfs آلپاین و GNU hello از میرورهای آروان/مبین‌هاست. دانلود فقط از فضای بیرونی است. [نسخه‌ها و روش دریافت/نصب](catalog/README.md)، [نتیجه آزمون‌ها](evidence/CATALOG_EXPANSION.md)، [عملیات و بازگشت](deployment/PUBLIC_MIRRORS.md)، [تنظیم مخفی توکن روبیکا](deployment/RUBIKA_PILOT.md). وابستگی‌های نصب آفلاین و ذخیره‌سازی واقعی روبیکا هنوز پذیرفته نشده‌اند.
+**فهرست دانلود گسترش یافت:** ۱۱ فایل واقعی شامل Git، curl، jq، Python، pip، wget، rsync و OpenSSH Client برای Ubuntu 24.04، دو Mini rootfs آلپاین و GNU hello از میرورهای آروان/مبین‌هاست. دانلود فقط از فضای بیرونی است. [نسخه‌ها و روش دریافت/نصب](catalog/README.md)، [نتیجه آزمون‌ها](evidence/CATALOG_EXPANSION.md)، [عملیات و بازگشت](deployment/PUBLIC_MIRRORS.md)، [تنظیم مخفی توکن روبیکا](deployment/RUBIKA_PILOT.md). پروفایل جداگانه نصب آفلاین Ubuntu 24.04 amd64 با ۵۸ بسته و آزمون کارکرد هر هشت ابزار پذیرفته شد؛ ذخیره‌سازی واقعی روبیکا هنوز تأیید نشده است. [راهنمای کپی‌پیست آفلاین](OFFLINE_INSTALL.md)، [راهنمای فعال سایت](https://tehnet.ir/software/offline/)، [نتیجه واقعی آزمون](evidence/OFFLINE_DEVTOOLS.md).
 
 ## وضعیت فعلی
 

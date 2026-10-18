@@ -59,3 +59,7 @@ Use a new output path in an existing writable directory; existing evidence is no
 ## Acceptance report template for W7
 
 Record date/operator, source/target country-vantage evidence, host OS/arch, application commit, image digests, schema, DB/CAS/delta bytes, measured link throughput, cold/warm state, preparation seconds, phase seconds, outage seconds, total cutover seconds, rollback seconds, commands and exit codes, public/private test results, no-foreign-egress results, WordPress regression results, remaining risks and sanitized log paths. Mark the 30-minute gate PASS only when **each** representative real-host rehearsal is under 1,800 seconds, all critical checks pass and rollback is demonstrated. Until then: `NOT_ACCEPTED`.
+
+## Dated offline guide code/metadata addendum — 2026-10-18
+
+The four new public guide/client-code/small-metadata files have exact Nginx aliases. Include their immutable directory and hashes in any prepared-target code migration/recovery; no software payload accompanies them. Restore aliases only after files exist and verify /software/offline/, exact helper/profile hashes and unknown-child404. Re-run/timestamp the target rehearsal before extending any prior under30min result to this addition. [Procedure and rollback](OFFLINE_DEVTOOLS.md). Active engine/DB recovery rules and private boundaries remain unchanged.

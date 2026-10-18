@@ -1,0 +1,67 @@
+Starting tehnet-offline-full-20261018-r5.service - /usr/bin/unshare --mount --propagation private /bin/bash /opt/tehnet-software/operations/offline-devtools-20261018/full-lab.sh...
+Started tehnet-offline-full-20261018-r5.service - /usr/bin/unshare --mount --propagation private /bin/bash /opt/tehnet-software/operations/offline-devtools-20261018/full-lab.sh.
+{"base": "ubuntu-base-24.04.5-base-amd64.tar.gz", "base_sha256": "e77b6f10c2590cef872b33ee9f635a0e3fd1f57fb074c0e52b5c7f56147a0c86", "base_bytes": 30028293, "signature_key": "843938DF228D22F7B3742BC0D94AA3F0EFE21092", "tls_verified": true, "payload_location": "private tmpfs,noswap", "elapsed_seconds": 4.033}
+Verified 1/58: perl-base
+Verified 2/58: libssl3t64
+Verified 3/58: libpython3.12-minimal
+Verified 4/58: libexpat1
+Verified 5/58: python3.12-minimal
+Verified 6/58: python3-minimal
+Verified 7/58: media-types
+Verified 8/58: netbase
+Verified 9/58: tzdata
+Verified 10/58: readline-common
+Verified 11/58: libreadline8t64
+Verified 12/58: libsqlite3-0
+Verified 13/58: libpython3.12-stdlib
+Verified 14/58: python3.12
+Verified 15/58: libpython3-stdlib
+Verified 16/58: python3
+Verified 17/58: libpopt0
+Verified 18/58: rsync
+Verified 19/58: perl-modules-5.38
+Verified 20/58: libgdbm6t64
+Verified 21/58: libgdbm-compat4t64
+Verified 22/58: libperl5.38t64
+Verified 23/58: perl
+Verified 24/58: adduser
+Verified 25/58: openssl
+Verified 26/58: ca-certificates
+Verified 27/58: libbsd0
+Verified 28/58: libkrb5support0
+Verified 29/58: libk5crypto3
+Verified 30/58: libkeyutils1
+Verified 31/58: libkrb5-3
+Verified 32/58: libgssapi-krb5-2
+Verified 33/58: python3-pkg-resources
+Verified 34/58: libcbor0.10
+Verified 35/58: libedit2
+Verified 36/58: libfido2-1
+Verified 37/58: libnghttp2-14
+Verified 38/58: libpsl5t64
+Verified 39/58: openssh-client
+Verified 40/58: wget
+Verified 41/58: libbrotli1
+Verified 42/58: libsasl2-modules-db
+Verified 43/58: libsasl2-2
+Verified 44/58: libldap2
+Verified 45/58: librtmp1
+Verified 46/58: libssh-4
+Verified 47/58: libcurl4t64
+Verified 48/58: curl
+Verified 49/58: libcurl3t64-gnutls
+Verified 50/58: liberror-perl
+Verified 51/58: git-man
+Verified 52/58: git
+Verified 53/58: libonig5
+Verified 54/58: libjq1
+Verified 55/58: jq
+Verified 56/58: python3-setuptools
+Verified 57/58: python3-wheel
+Verified 58/58: python3-pip
+KIT_FULL_SIGNED_CHAIN_AND_BYTES_PASS
+{"offline_installed_packages": 58, "tools": ["git", "curl", "jq", "python", "pip", "wget", "rsync", "ssh"], "negative_checks": {"corrupt_required_archive": {"exit": 1, "elapsed_seconds": 8.94, "dpkg_unchanged": true}, "missing_required_archive": {"exit": 1, "elapsed_seconds": 8.967, "dpkg_unchanged": true}, "forged_signed_metadata": {"exit": 100, "elapsed_seconds": 5.435, "dpkg_unchanged": true}, "newer_nonseed_dependency": {"exit": 2, "elapsed_seconds": 8.955, "dpkg_unchanged": true}, "clean_offline_install": {"exit": 0, "elapsed_seconds": 28.84, "dpkg_audit": "empty"}}}
+{"tmpfs_options": "rw,relatime,size=786432k,mode=700,inode64,noswap", "cgroup": {"memory.peak": "689852416", "memory.swap.current": "0", "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"}, "all_existing_container_fingerprints_preserved": true, "nginx_auth_restricted_research_preserved": true, "software_payload_disk_files": 0, "downloaded_archives_location": "private,noswap768MiB tmpfs; destroyed at namespace exit", "baseline_and_kit_source": "official signed Ubuntu Base + original approved Arvan Ubuntu main/universe", "state_files": ["auth/auth.sqlite", "data/catalog.sqlite", "metadata/public/external.sqlite", "metadata/restricted/external.sqlite", "ops/network.sqlite"]}
+NATIVE_CLEAN_OFFLINE_DEVTOOLS_ACCEPTANCE_PASS
+tehnet-offline-full-20261018-r5.service: Deactivated successfully.
+tehnet-offline-full-20261018-r5.service: Consumed 38.716s CPU time, 435.8M memory peak, 0B memory swap peak.
