@@ -1,5 +1,13 @@
 # TehNet Task Backlog
 
+## CURRENT — exact25 product models, 2026-10-18
+
+- DONE/RESEARCH — Both public25-record inventories rechecked, all23 existing unique source files visually reviewed/SHA checked,17 manufacturer/platform sources and perSKU decisions recorded. Read `docs/research/exact-product-models-2026-10-18.fa.md` and its manifest.
+- VERIFIED — Native read-only audit and protected before/after hashes;0 reviewedMPNs/GLB/parts/spins,25 inquiry-only/noindex. Fresh31 model+23photo contracts and auditPHP lint. `qa/exact-media-2026-10-18/verification.json` deliberately says publication incomplete.
+- OPEN/IDENTITY —076561 packaging candidate →078731RJ11 photo conflict →077210 retailer claim; red77214/77211/77218 unresolved while sales unavailable. Cable factory article/print legends missing; shared cross-brand/length/environment imagery is not proof.
+- OPEN/ASSETS — Same-MPN/edition licensed web model with actual separated interior parts and documented values. Official familyRVT is simplified BIM; binary was not inspected and manufacturer rehosting permission not obtained. No substitute model, hidden-side generation or invented microns.
+- NOT DEPLOYED —0 new model/photo assignments; no production changes in this pass. Existing Store0.4.0 controls remain available. Qualified assets must pass private native staging, new backup/checksums and SKU-only rollback-journaled release.
+
 ## CURRENT — universal Woo shop experience, 2026-10-16
 
 - DONE/DEPLOYED — Responsive shop/product template, graphic dynamic categories, compact technical filters, SKU/category cards and explicit compare/wishlist selection/removal; all current/future native products inherit it.

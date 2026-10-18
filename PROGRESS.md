@@ -1,5 +1,12 @@
 # TehNet Execution Progress
 
+## Latest — 2026-10-18 exact-model source matching
+
+- Rechecked both public APIs:25 source IDs/25 live products; visually inspected all23 unique existing source images. Curated per-SKU candidates, conflicts,17 primary/platform sources and explicit access limits in `content/media/exact-product-review-2026-10-18/manifest.json`; Persian report in `docs/research/exact-product-models-2026-10-18.fa.md`.
+- Located076561 code on gallery packaging andRJ11/78731 on a telephone image; manufacturer pages corroborate those candidate identities, not physical stock. Detected shared Legrand/Outdoor305 image across four Indoor500/cross-brand cables. Red socket code remains conflicting; sales unavailable, other work continued.
+- Found official MosaicRVT link; not downloaded/parsed. Manufacturer explicitly documents simplified BIM geometry and prior written approval for upload to another website/server. No licensed exact internal assembly obtained;0 new models/photos published and no source image edits.
+- New read-only native audit confirms0 reviewed identities/GLB/parts/spins,25 inquiry-only products, noindex and unchanged protected native before/after hashes. Fresh31 model+23photo contracts, auditPHP lint and packet/file-hash integrity pass. Receipts: `qa/exact-media-2026-10-18/`. No production content/runtime/payment writes or new browser acceptance claim. Exact25-model publication remains OPEN.
+
 ## Latest — 2026-10-16 universal shop experience published
 
 - Published Store0.4.0: current/future Woo templates, dynamic graphic categories, search/expandable technical filters, consistent image/SKU cards, selected-state comparison/wishlist, responsive gallery/inquiry and shared reviewed3D inspection controls.
