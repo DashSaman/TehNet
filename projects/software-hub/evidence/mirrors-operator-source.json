@@ -1,0 +1,18 @@
+{
+  "base_commit": "cbedff35a5efdec3371daf16e4a968326aa9e47e",
+  "active_engine_image": "sha256:ab4220407e6a35a6e3d4221b44f238f12b25b1081be4b03ce8a92276a60289fa",
+  "operator_directory": "/opt/tehnet-software/operations/mirrors-20261018",
+  "normalization": "CRLF to LF only",
+  "files_sha256": {
+    "tools/mirror_operations.py": "5c615177ba3c995a70857f91472f49fb27f39180227ee644997af70f4380d8aa",
+    "tools/rubika_probe.py": "5f91c9ad385f5c0ff075d2bc55be92fb2d0466333532411c63d0f3fc62e156f0",
+    "tools/verify_mirror_delivery.py": "64e60f74fbb958719fee7e8aff573357a1dd4004b5d766312e87f3e5a771fad0",
+    "tools/verify_live.py": "4c06f9db02a74fa3f651a28d8baf2d4394f7559d7466170a14b9649ad494c55e",
+    "catalog/public-downloads.json": "4c78e253c0f36f067bf25bb4954099c302cd6043c9c01b18c14eb57caf8d4a08",
+    "deployment/scripts/install-public-mirrors.sh": "2ebd9aeeffd8493d2b9e5642ec90d75dbd6cb3488139855502eeb3363584b70d",
+    "deployment/scripts/refresh-public.sh": "ac67784b199ed35568b9508b8018920a43e7922189db121911b1f786fb4cb8c2",
+    "deployment/scripts/set-rubika-token.sh": "8baa6cea821ddf97e2e4d1292a91b61738ed5fd08731109c4d7c5949fc3d0e6a",
+    "deployment/systemd/tehnet-software-mirrors.service": "c92fadfbc1964121106a688d11dab93be1b3217dc1dbbc3fd0477454ca8031e4",
+    "deployment/systemd/tehnet-software-mirrors.timer": "eea94b48df416f3a0b339c4e53a0f368c482f0a26c75f62b74d560939c2fe48a"
+  }
+}

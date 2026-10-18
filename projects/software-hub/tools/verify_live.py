@@ -9,6 +9,7 @@ from urllib.request import Request,urlopen
 from urllib.error import HTTPError
 
 origin='--origin' in sys.argv
+expected_downloads='--expect-downloads' in sys.argv
 class Document(HTMLParser):
     def __init__(self):super().__init__();self.h1=0;self.canonical=[];self.robots=[];self.software_links=0
     def handle_starttag(self,tag,attrs):
@@ -56,7 +57,7 @@ for path in ['/','/learn/','/services/','/shop/','/contact/','/software/']:
 for path in ['/software/readyz','/software/v1/sources','/software/static/style.css','/software/openapi.json']:
     code,headers,body=get(path);assert code==200,(path,code)
     if path.endswith('readyz'):
-        data=json.loads(body);assert data['capabilities']=={'public_research':True,'downloads':False,'apt_profile_accepted':False,'restricted_access':False,'rubika':False}
+        data=json.loads(body);assert data['capabilities']=={'public_research':True,'downloads':expected_downloads,'apt_profile_accepted':False,'restricted_access':False,'rubika':False}
     if path.endswith('sources'):
         data=json.loads(body);assert data['total']==27 and not any(x['routing_enabled'] for x in data['items'])
     report['checks'].append({'path':path,'status':code,'cache_control':headers.get('cache-control')})

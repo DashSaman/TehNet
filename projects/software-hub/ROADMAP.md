@@ -4,7 +4,9 @@
 
 **Goal:** consolidate research and build an independently operable offline-continuity service under TehNet without disrupting its current site.
 
-**Architecture:** a proposed isolated mirror engine under `/software/`, preserving the WordPress/Core boundary, with local state, verified artifacts and explicit restricted access.
+Current provider acceptance is limited to the [three-file live public mirror pilot](evidence/LIVE_MIRRORS.md), with [bounded refresh](deployment/PUBLIC_MIRRORS.md). [Rubika tooling](deployment/RUBIKA_PILOT.md) is prepared, but actual credential/upload/retention/private-delivery acceptance remains open. Research source rows do not inherit pilot approval.
+
+**Architecture:** an isolated engine active under `/software/`, preserving the WordPress/Core boundary, with small local metadata/auth state, externally placed artifacts and explicit restricted access.
 
 **Tech stack:** selected research stack Python 3.12/FastAPI/Jinja2, SQLite single writer, native APT/gpgv, external payload placement, Nginx/Compose; lock actual supported versions during implementation.
 
