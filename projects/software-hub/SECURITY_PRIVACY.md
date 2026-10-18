@@ -1,8 +1,8 @@
 # Public catalog and password-protected VPN section
 
-> Current owner override (2026-10-17): no downloadable payloads on the website VPS. [ADR 0002](decisions/0002-external-payload-storage.md) supersedes historical local-CAS requirements. The engine keeps metadata only, redirects approved public downloads externally, and refuses private redirects. W2/W3/external-W5 code is staged; production activation, external private delivery, provider and migration acceptance remain separate gates. See [external storage](EXTERNAL_STORAGE.md) and [engine operations](deployment/ENGINE_OPERATIONS.md).
+> Current owner override (2026-10-17): no downloadable payloads on the website VPS. [ADR 0002](decisions/0002-external-payload-storage.md) supersedes historical local-CAS requirements. The engine keeps metadata only, redirects approved public downloads externally, and refuses private redirects. W2/W3/external-W5 engine is active after accepted same-host recovery/code rollback (2026-10-18); owner password setup, external private delivery, provider and Iran migration acceptance remain separate gates. See [external storage](EXTERNAL_STORAGE.md) and [engine operations](deployment/ENGINE_OPERATIONS.md).
 
-Status: required design and acceptance checklist; no live authentication was implemented in this consolidation. Existing public research references are not secret; private runtime configuration, subscriber data, credentials and access links are.
+Status: required design and acceptance checklist; the authentication engine is deployed with its password deliberately unset. Component tests and the live unconfigured denial boundary passed; owner-provisioned login and real external private delivery remain separate acceptance gates. Existing public research references are not secret; private runtime configuration, subscriber data, credentials and access links are.
 
 ## Boundary that must hold
 
@@ -20,7 +20,7 @@ Never commit production VPN client lists, subscriber database, connection profil
 
 Migration must carry access policy and password hashes securely, rotate/invalidate sessions at cutover unless keys are securely transferred, and test logout/old-cookie invalidation. Private section remains disabled on a new target until its authorization and direct-object tests pass. Do not expose it temporarily to meet a migration timer.
 
-## W2 acceptance matrix (component tests executed; production acceptance pending)
+## W2 acceptance matrix (component and live unconfigured checks passed; owner setup/private delivery pending)
 
 | Input / condition | Required behavior |
 |---|---|
@@ -38,3 +38,5 @@ W2 owns this matrix and records actual commands, output, fixtures and limitation
 ## Integrity and fetch policy carried forward
 
 Read the immutable research security/API contract: approved sources only, validated and pinned DNS/TLS, no arbitrary fetch proxy, quarantine mismatches, signed APT metadata with freshness and by-hash retention, license/permission records, and no foreign fallback in DOMESTIC_ONLY. A VPN running domestically does not create an international route during complete upstream disconnection. Report local use and external connectivity separately.
+
+Current same-host acceptance: [engine activation](evidence/ENGINE_ACTIVATION.md) and [recovery](deployment/RECOVERY.md). Frozen v1 preview manifest retains its historical meaning; the implemented encrypted engine backup has its own format 1 and strict image/state contract. Generic future Iran cutover commands remain proposals unless explicitly implemented.

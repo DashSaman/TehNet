@@ -1,6 +1,6 @@
 # W2/W3/W5 external engine — operator runbook
 
-This is a prepared engine release, not a production cutover. Live `/software/` stays on the previously accepted public preview until the new-state deployment/backup/rollback gate is implemented and tested. Do not run `update-preview.sh` or `deploy-preview.sh` with an engine release. Main WordPress/theme/Core/menu/ports are outside this change.
+Current engine is active on `/software` as of 2026-10-18. [Recovery and activation evidence](../evidence/ENGINE_ACTIVATION.md) supersedes the earlier staged-only status. Owner password remains unset and private access closed until local setup; actual external private delivery/Rubika are still unaccepted. Use [RECOVERY](RECOVERY.md) for tested metadata recovery and code rollback. WordPress/theme/Core/menu/other ports are outside scope.
 
 ## Password setup chosen by the owner
 
@@ -9,21 +9,19 @@ The password is selected locally by the owner in an interactive SSH terminal; ne
 After verifying the immutable engine image from the current build evidence is loaded on the server, run:
 
 ```sh
-cd /opt/tehnet-software/releases/engine-external-20261017-r2
-bash deployment/scripts/set-password.sh "$VERIFIED_ENGINE_IMAGE_ID"
+cd /opt/tehnet-software/releases/engine-active-20261018
+bash deployment/scripts/set-password.sh "$(docker inspect -f '{{.Image}}' tehnet-software)"
 ```
 
-Replace the variable with the **exact sha256 image ID** from the engine validation evidence; a preview image is ineligible because it lacks the auth CLI. The script accepts only an image ID and an interactive terminal. It mounts only `/srv/tehnet-software/auth` read/write into a disposable, nonroot, network-disabled container. It neither enables login on the current preview nor restarts any existing service. The hidden prompt requires 16–256 characters and matching confirmation; changing the password invalidates every old session. No production password is configured by the implementation/test process.
+The command resolves the **exact sha256 image ID** of the active engine; compare it with the activation evidence before use. A historical preview image is ineligible because it lacks the auth CLI. The script accepts only an image ID and an interactive terminal. It mounts only `/srv/tehnet-software/auth` read/write into a disposable, nonroot, network-disabled container. The active engine reads the resulting credential without a restart. The hidden prompt requires 16–256 characters and matching confirmation; changing the password invalidates every old session. No production password is configured by the implementation/test process.
 
-Until engine activation and owner setup are both complete, private routes remain uniformly denied and the generic login is unavailable. Once activated, visit `/software/access/` directly; there is no public VPN menu item. Logout is a CSRF-protected POST. Local administrative recovery commands are `python -m app.cli revoke-sessions` and `reset-lockout` with the auth directory mounted; they never print session tokens/passwords.
+Until owner setup is complete, private routes remain uniformly denied and the generic login shows the owner-setup message (503). After setup, visit `/software/access/` directly; there is no public VPN menu item. Logout is a CSRF-protected POST. Local administrative recovery commands are `python -m app.cli revoke-sessions` and `reset-lockout` with the auth directory mounted; they never print session tokens/passwords.
 
-## New-state production activation gate — pending
+## New-state production activation gate — accepted for current same-schema transition
 
-Current `compose.yaml` and existing deployment scripts remain **preview only**. New engine production activation requires a separate tested composition with research metadata read-only, external registry partitions read-only, auth read/write, no payload volume/cache/temp spool, root read-only and explicit limits. Web process needs no upstream verification worker; run operator registration separately. Remove archive-prefix access logging and prevent private paths/tokens in error logs without changing WordPress logging. No trusted proxy client IP is assumed.
+The legacy `compose.yaml` and preview deployment scripts remain preview-only and reject engine source. Current `compose.engine.yaml` plus `activate-engine.sh` have passed encrypted metadata/config staged recovery, isolated network-none restored boot, fault-injection and actual same-host rollback/final activation. The web process mounts research and external registries read-only, auth read/write, no payload volume, root read-only with explicit limits. The owned archive Nginx snippet excludes request logging, cache and disk buffering; WordPress logging/config is preserved. Routine password setup shares the engine operation lock.
 
-Before activation: consistent encrypted backup of research + both external registries + auth/operational state/config; independent protected decryption key; actual restore integrity/schema/credential checks; invalidate restored sessions/challenges; unknown versions fail closed. A manifest identity row alone is not sufficient validation. The unpublished CAS backup prototype was withdrawn under ADR 0002 and is not an accepted backup tool. Existing preview backups do not cover new auth/registry state.
-
-Test archive-only activation, failure during activation, interruption, automatic fallback to the exact old image/composition, absence of two writers, and post-write reconciliation. Capture existing WordPress container IDs/images/ports plus homepage/Learn/Services/Shop/Contact fingerprints before/after; no unrelated restart. Do not claim password-protected VPN file downloads until an external private backend passes its authorization/revocation/no-spool tests. Public fixture redirects prove routing behavior, not real mirror permission or current file availability.
+Actual owner-copy decryption key, backup results, exact active/previous images and limits are documented in [RECOVERY](RECOVERY.md) and [activation evidence](../evidence/ENGINE_ACTIVATION.md). Code rollback keeps newer databases; restore never activates a volume automatically. Temporary server secret keys were removed after acceptance; future restore/deployment requires the owner to provide a temporary recovery key home. Only public recipient material remains on the server. Public/private provider and native offline-install acceptance are separate from engine activation.
 
 ## Portable migration target under 30 minutes — acceptance still open
 

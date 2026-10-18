@@ -1,6 +1,6 @@
 # TehNet Software Archive design and decision record
 
-> Current owner override (2026-10-17): no downloadable payloads on the website VPS. [ADR 0002](decisions/0002-external-payload-storage.md) supersedes historical local-CAS requirements. The engine keeps metadata only, redirects approved public downloads externally, and refuses private redirects. W2/W3/external-W5 code is staged; production activation, external private delivery, provider and migration acceptance remain separate gates. See [external storage](EXTERNAL_STORAGE.md) and [engine operations](deployment/ENGINE_OPERATIONS.md).
+> Current owner override (2026-10-17): no downloadable payloads on the website VPS. [ADR 0002](decisions/0002-external-payload-storage.md) supersedes historical local-CAS requirements. The engine keeps metadata only, redirects approved public downloads externally, and refuses private redirects. W2/W3/external-W5 engine is active after accepted same-host recovery/code rollback (2026-10-18); owner password setup, external private delivery, provider and Iran migration acceptance remain separate gates. See [external storage](EXTERNAL_STORAGE.md) and [engine operations](deployment/ENGINE_OPERATIONS.md).
 
 Status: owner authorized implementation on 2026-10-17; W0 v1 frozen. Runtime capabilities and deployment are tracked individually in STATUS. Date: 2026-10-17. Current request authorizes implementation plus the scoped software-section route and menu item; existing site routes and services must stay intact. This document carries intent into the roadmap; task owners must resolve listed gates before coding/integration.
 
@@ -14,7 +14,7 @@ Acceptance is staged: verified research copy; deterministic software tests; isol
 
 ## Current repository evidence
 
-`DashSaman/TehNet` identifies itself as the source of tehnet.ir in root README/AGENTS and `ops/PRODUCTION_BASELINE.md`. Main base is `a84f46dad515c6151ef06c10dcea6e13dfde05a1`. Historical baseline and current scoped validation agree: WordPress `127.0.0.1:18082`, MariaDB/Redis and Nginx `/etc/nginx/sites-enabled/tehnet.ir.conf`, existing deployment `/opt/tehnet/`. The public software preview is already live on loopback `18083` behind `/software/`; current image, backup and route tests are recorded in [deployment evidence](evidence/DEPLOYMENT.md). The new engine is separately staged; [engine validation](evidence/ENGINE_VALIDATION.md) records actual preserved container/config fingerprints. Do not infer a secret origin IP from domain/repository data.
+`DashSaman/TehNet` identifies itself as the source of tehnet.ir in root README/AGENTS and `ops/PRODUCTION_BASELINE.md`. Main base is `a84f46dad515c6151ef06c10dcea6e13dfde05a1`. Historical baseline and current scoped validation agree: WordPress `127.0.0.1:18082`, MariaDB/Redis and Nginx `/etc/nginx/sites-enabled/tehnet.ir.conf`, existing deployment `/opt/tehnet/`. The engine is active on loopback `18083` behind `/software/`; [activation evidence](evidence/ENGINE_ACTIVATION.md) records current image, real encrypted recovery/code rollback and preserved website fingerprints. [Preview deployment](evidence/DEPLOYMENT.md) and [staged validation](evidence/ENGINE_VALIDATION.md) remain historical evidence. Do not infer a secret origin IP from domain/repository data.
 
 ## Options and recommendation
 
@@ -24,7 +24,7 @@ Acceptance is staged: verified research copy; deterministic software tests; isol
 | Independent TehNet Software Archive app behind one prefix | Isolated data, quotas, release and recovery; preserves original research stack | Requires explicit path/auth contract and a narrowly reviewed Nginx addition; recommended for mirror engine |
 | Separate subdomain/site immediately | Simplest root paths | Does not meet the requested initial subpath; reserve for a future optional download host |
 
-The independent engine is a **new subsystem proposal**. Root TehNet theme/Core responsibilities for existing business logic remain. Any WordPress navigation/editorial/account integration stays in TehNet Core and requires a separate change; never put mirror workers or commerce logic into the theme. There is no new checkout, payments or license entitlement system in TehNet Software Archive P0.
+The independent engine is now deployed as a scoped subsystem. Root TehNet theme/Core responsibilities for existing business logic remain. Any further WordPress navigation/editorial/account integration stays in TehNet Core and requires a separate change; never put mirror workers or commerce logic into the theme. There is no new checkout, payments or license entitlement system in TehNet Software Archive P0.
 
 ## Runtime and state boundaries
 
@@ -46,10 +46,12 @@ Website local CAS is prohibited by the current owner instruction; existing mirro
 
 - `/software/` was accepted and deployed with one owned menu item; retain its route ownership and existing WordPress paths.
 - Existing foreign VPS has spare resources; not measured. Start a staging estimate of 2 vCPU and 2–4 GiB **additional** RAM only as a planning range, not a requirement proven by load tests. Budget at least metadata cap 1 GiB + images/bounded logs (no software payload staging/cache) + an independent backup; maintain 30% free headroom. W6 measures peak RSS/CPU/disk and existing-site latency.
-- Password management uses pinned pwdlib/Argon2id and local opaque sessions without external SSO. Component tests passed; new-state recovery/deployment and owner password setup remain production gates.
+- Password management uses pinned pwdlib/Argon2id and local opaque sessions without external SSO. Component tests and same-host recovery/deployment passed; owner password setup remains intentional and pending.
 - Under-30-minute migration is a warm-target cutover objective with preloaded images/metadata and validated secrets/TLS/provider connectivity. It excludes server procurement and bulk first transfer; total preparation time must still be disclosed.
-- Catalog ZIP/patch recovery, provider permissions, domestic hosting, target DNS/TLS control, production auth, encrypted new-state recovery and true outage tests remain unresolved.
+- Catalog ZIP/patch recovery, provider permissions, domestic hosting, target DNS/TLS control, owner-provisioned production login and true outage tests remain unresolved. Encrypted five-database recovery is accepted on the current host only.
 
 ## Source and evidence rules
 
 Original dated research, source links and probe results remain in [research](research/README.md). Do not silently refresh or endorse historical price/security/provider claims. Current requirements supersede old host/path instructions; preserve the original for attribution. W1 records original vs newly validated claims. No statements here certify national registration, tariff eligibility, lending or knowledge-based company qualification.
+
+Current same-host acceptance: [engine activation](evidence/ENGINE_ACTIVATION.md) and [recovery](deployment/RECOVERY.md). Frozen v1 preview manifest retains its historical meaning; the implemented encrypted engine backup has its own format 1 and strict image/state contract. Generic future Iran cutover commands remain proposals unless explicitly implemented.

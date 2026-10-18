@@ -1,0 +1,10 @@
+test_backup_failure_restarts_old_container (test_engine_activation.EngineActivationTests.test_backup_failure_restarts_old_container) ... ok
+test_partial_new_container_failure_restores_old_code_and_keeps_new_write (test_engine_activation.EngineActivationTests.test_partial_new_container_failure_restores_old_code_and_keeps_new_write) ... ok
+test_rehearsal_returns_to_exact_old_image_without_state_restore (test_engine_activation.EngineActivationTests.test_rehearsal_returns_to_exact_old_image_without_state_restore) ... ok
+test_sigterm_restores_old_code_and_keeps_new_write (test_engine_activation.EngineActivationTests.test_sigterm_restores_old_code_and_keeps_new_write) ... ok
+test_success_preserves_other_website_and_metadata (test_engine_activation.EngineActivationTests.test_success_preserves_other_website_and_metadata) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 6.996s
+
+OK

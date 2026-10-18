@@ -5,6 +5,8 @@ umask 077
 [[ $# == 1 && "$1" =~ ^sha256:[a-f0-9]{64}$ ]] || { echo 'Usage: set-password.sh sha256:<locally-tested-engine-image-id>' >&2; exit 2; }
 [[ -t 0 && -t 1 ]] || { echo 'Run in an interactive SSH terminal; never pipe a password.' >&2; exit 2; }
 [[ "$(id -u)" == 0 ]] || { echo 'Run as the server administrator.' >&2; exit 2; }
+exec 9>/run/lock/tehnet-software-engine.lock
+flock -n 9 || { echo 'Engine deployment/backup is active; retry after completion.' >&2; exit 2; }
 AUTH=/srv/tehnet-software/auth
 [[ ! -L "$AUTH" && ! -L /srv/tehnet-software && ! -L /srv ]] || exit 2
 docker image inspect "$1" >/dev/null

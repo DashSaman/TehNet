@@ -1,6 +1,6 @@
 # TehNet Software Archive implementation roadmap
 
-> Current owner override (2026-10-17): no downloadable payloads on the website VPS. [ADR 0002](decisions/0002-external-payload-storage.md) supersedes historical local-CAS requirements. The engine keeps metadata only, redirects approved public downloads externally, and refuses private redirects. W2/W3/external-W5 code is staged; production activation, external private delivery, provider and migration acceptance remain separate gates. See [external storage](EXTERNAL_STORAGE.md) and [engine operations](deployment/ENGINE_OPERATIONS.md).
+> Current owner override (2026-10-17): no downloadable payloads on the website VPS. [ADR 0002](decisions/0002-external-payload-storage.md) supersedes historical local-CAS requirements. The engine keeps metadata only, redirects approved public downloads externally, and refuses private redirects. W2/W3/external-W5 engine is active after accepted same-host recovery/code rollback (2026-10-18); owner password setup, external private delivery, provider and Iran migration acceptance remain separate gates. See [external storage](EXTERNAL_STORAGE.md) and [engine operations](deployment/ENGINE_OPERATIONS.md).
 
 **Goal:** consolidate research and build an independently operable offline-continuity service under TehNet without disrupting its current site.
 
@@ -81,3 +81,5 @@ For tariff registration, national-project support, loans and knowledge-based-com
 ## Task execution and handoff
 
 Use [WORKSTREAMS](WORKSTREAMS.md) for exact owners, paths, dependencies and acceptance. Claim one task before editing, write a task-specific plan/test cycle, run checks, record actual results and next action. Integrator serializes shared docs and root coordination updates. A task without its task log and changelog/status reconciliation cannot be merged as done.
+
+Current same-host acceptance: [engine activation](evidence/ENGINE_ACTIVATION.md) and [recovery](deployment/RECOVERY.md). Frozen v1 preview manifest retains its historical meaning; the implemented encrypted engine backup has its own format 1 and strict image/state contract. Generic future Iran cutover commands remain proposals unless explicitly implemented.
