@@ -1,5 +1,5 @@
 """Operator-only atomic metadata refresh. Payload chunks are verified and discarded."""
-import argparse,ipaddress,json,os,sqlite3,tempfile,time
+import argparse,hashlib,ipaddress,json,os,sqlite3,tempfile,time
 from contextlib import closing
 from pathlib import Path
 from app.models import SourceConfig,Artifact
@@ -7,6 +7,19 @@ from app.external_storage import ExternalRegistry
 from app.storage import open_regular,safe_path
 from app.http_client import GuardedClient
 from app.health import NetworkBudget
+from app.models import ProbeBudget
+
+MAX_ENTRIES=12
+REFRESH_SECONDS=1800
+
+def refresh_plan(entries):
+    # One extra run covers startup; 20% remains for failures/manual operations.
+    runs=86400//REFRESH_SECONDS+1;limits=ProbeBudget()
+    plan={'entries':len(entries),'bytes_per_run':sum(e['artifact']['size_bytes'] for e in entries),'planned_runs_per_day':runs,'refresh_seconds':REFRESH_SECONDS}
+    plan['planned_bytes_per_day']=plan['bytes_per_run']*runs
+    plan['planned_requests_per_day']=len(entries)*runs
+    if plan['planned_bytes_per_day']>limits.full_bytes_per_day*4//5 or plan['planned_requests_per_day']>limits.requests_per_day*4//5:raise ValueError('Scheduled verification exceeds reserved daily budget')
+    return plan
 
 def load_manifest(path):
     with open_regular(path) as f:raw=f.read(65537)
@@ -18,7 +31,7 @@ def load_manifest(path):
             out[k]=v
         return out
     value=json.loads(raw,object_pairs_hook=unique)
-    if set(value)!={'format','entries'} or type(value['format'])!=int or value['format']!=1 or not isinstance(value['entries'],list) or not 1<=len(value['entries'])<=5:raise ValueError('Unsupported mirror manifest')
+    if set(value)!={'format','entries'} or type(value['format'])!=int or value['format']!=1 or not isinstance(value['entries'],list) or not 1<=len(value['entries'])<=MAX_ENTRIES:raise ValueError('Unsupported mirror manifest')
     seen=set()
     for entry in value['entries']:
         if set(entry)!={'source','artifact','relative_path','license_evidence','identity_evidence','approved_cidrs'}:raise ValueError('Unexpected mirror fields')
@@ -28,6 +41,7 @@ def load_manifest(path):
             if not isinstance(entry[k],str) or not entry[k].startswith('https://') or not 1<=len(entry[k])<=900:raise ValueError('Reviewed references required')
         seen.add(item.sha256)
         approved_networks(entry)
+    refresh_plan(value['entries'])
     return value['entries']
 
 def approved_networks(entry):
@@ -47,7 +61,7 @@ class ApprovedPeerClient:
         self.observation={'peer_ip':str(peer),'tls_verified':result.observation.tls_verified,'bytes':result.observation.body_bytes,'checked_at_utc':result.checked_at.isoformat(),'elapsed_seconds':round(time.monotonic()-started,3)}
         return result
 
-def refresh(entries,public_root,budget,*,client=None):
+def refresh(entries,public_root,budget,*,client=None,publication_receipt=None):
     store=ExternalRegistry(safe_path(public_root),visibility='public')
     client=client or GuardedClient(budget)
     owner=store.database.stat()
@@ -66,6 +80,17 @@ def refresh(entries,public_root,budget,*,client=None):
         os.chmod(stage.database,0o600)
         if os.name=='posix':os.chown(stage.database,owner.st_uid,owner.st_gid)
         with stage.database.open('r+b') as f:os.fsync(f.fileno())
+        if publication_receipt is not None:
+            # Record exact candidate BEFORE publication, so post-replace failures
+            # can restore either our old or new state without accepting unknown writes.
+            receipt=safe_path(Path(publication_receipt))
+            with receipt.open('x',encoding='ascii') as f:
+                os.chmod(receipt,0o600)
+                f.write(hashlib.sha256(stage.database.read_bytes()).hexdigest()+'\n');f.flush();os.fsync(f.fileno())
+            if os.name=='posix':
+                fd=os.open(receipt.parent,os.O_RDONLY|os.O_DIRECTORY)
+                try:os.fsync(fd)
+                finally:os.close(fd)
         os.replace(stage.database,store.database)
         if os.name=='posix':
             fd=os.open(store.root,os.O_RDONLY|os.O_DIRECTORY)
@@ -76,8 +101,9 @@ def refresh(entries,public_root,budget,*,client=None):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--manifest',type=Path,required=True);parser.add_argument('--public-root',type=Path,required=True);parser.add_argument('--ops-root',type=Path,required=True)
+    parser.add_argument('--publication-receipt',type=Path)
     args=parser.parse_args()
     # Caller must hold the same operation lock as deployment and password setup.
-    result=refresh(load_manifest(args.manifest),args.public_root,NetworkBudget(args.ops_root/'network.sqlite'))
+    result=refresh(load_manifest(args.manifest),args.public_root,NetworkBudget(args.ops_root/'network.sqlite'),publication_receipt=args.publication_receipt)
     print(json.dumps(result))
 if __name__=='__main__':main()

@@ -3,7 +3,7 @@ Description=Reverify pinned TehNet public mirror bytes before one-hour expiry
 
 [Timer]
 OnBootSec=2min
-OnUnitActiveSec=20min
+OnUnitActiveSec=30min
 RandomizedDelaySec=30s
 AccuracySec=15s
 Persistent=false

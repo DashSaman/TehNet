@@ -2,7 +2,7 @@
 # One metadata writer, shared with engine deployment, backup and password setup.
 set -Eeuo pipefail
 umask 077
-OPS=/opt/tehnet-software/operations/mirrors-20261018
+OPS=/opt/tehnet-software/operations/catalog-expanded-20261018
 BASE=/opt/tehnet-software/releases/engine-active-20261018
 exec 9>/run/lock/tehnet-software-engine.lock
 flock -n 9 || { echo 'Engine operation in progress; refresh deferred.'; exit 75; }

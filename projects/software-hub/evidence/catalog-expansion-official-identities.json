@@ -1,0 +1,157 @@
+{
+  "retrieved_at_utc": "2026-10-18T15:07:05.920036+00:00",
+  "method": "Official HTTPS metadata fetched in memory on foreign VPS; software payloads not stored. Package-page hashes, not native APT signed-index acceptance.",
+  "items": [
+    {
+      "name": "git",
+      "path": "pool/main/g/git/git_2.43.0-1ubuntu7.3_amd64.deb",
+      "sha256": "099bb129f543adc4c14203334b0fa0a909f8bf038c4d56bc9cc7c774ebf78f87",
+      "size_bytes": 3679758,
+      "version": "1:2.43.0-1ubuntu7.3",
+      "identity_evidence": "https://packages.ubuntu.com/noble-updates/amd64/git/download",
+      "license_evidence": "https://changelogs.ubuntu.com/changelogs/pool/main/g/git/git_2.43.0-1ubuntu7.3/copyright",
+      "license_labels": [
+        "Apache-2.0",
+        "BSD-3-clause",
+        "Boost",
+        "EDL-1.0",
+        "Expat",
+        "GPL-1+ or Artistic-1",
+        "GPL-2",
+        "GPL-2+",
+        "ISC",
+        "LGPL-2+",
+        "LGPL-2.1+",
+        "Zlib",
+        "dlmalloc",
+        "mingw-runtime"
+      ],
+      "copyright_sha256": "e7efbd67e2dac6d950e4607b541778a610561ec77562b8b0a9704a7a3fcbc39c"
+    },
+    {
+      "name": "curl",
+      "path": "pool/main/c/curl/curl_8.5.0-2ubuntu10.15_amd64.deb",
+      "sha256": "4358c023e3c1a74bb1e77935807ea2088b137a898167fca278a1767c353ac1c5",
+      "size_bytes": 226504,
+      "version": "8.5.0-2ubuntu10.15",
+      "identity_evidence": "https://packages.ubuntu.com/noble-updates/amd64/curl/download",
+      "license_evidence": "https://changelogs.ubuntu.com/changelogs/pool/main/c/curl/curl_8.5.0-2ubuntu10.15/copyright",
+      "license_labels": [
+        "BSD-3-Clause",
+        "BSD-3-clause",
+        "BSD-4-Clause-UC",
+        "FSFULLR",
+        "GPL-2+ with Autoconf-data exception",
+        "GPL-2+ with Libtool exception",
+        "GPL-3+ with Autoconf-data exception",
+        "ISC",
+        "OLDAP-2.8",
+        "X11",
+        "curl"
+      ],
+      "copyright_sha256": "a7c131b21e6e73b3b085a7d9f1637b68f5f92b832cc6f462e0c978fbe7841ccb"
+    },
+    {
+      "name": "jq",
+      "path": "pool/main/j/jq/jq_1.7.1-3ubuntu0.24.04.2_amd64.deb",
+      "sha256": "f59183392f84fe67b407b494d8ba6185e9b0e4a106ffcb369490bd20a83fd40e",
+      "size_bytes": 65694,
+      "version": "1.7.1-3ubuntu0.24.04.2",
+      "identity_evidence": "https://packages.ubuntu.com/noble-updates/amd64/jq/download",
+      "license_evidence": "https://changelogs.ubuntu.com/changelogs/pool/main/j/jq/jq_1.7.1-3ubuntu0.24.04.2/copyright",
+      "license_labels": [
+        "CC-BY-3.0",
+        "Expat",
+        "GPL-2.0+",
+        "MIT"
+      ],
+      "copyright_sha256": "71a7b9322efe66bc489a97dcb3452992e419494043f6798fb61dc347648f06cd"
+    },
+    {
+      "name": "python3.12-minimal",
+      "path": "pool/main/p/python3.12/python3.12-minimal_3.12.3-1ubuntu0.17_amd64.deb",
+      "sha256": "d452689b9660845345a4c3e05e4ad82c082d5474e04031b7aa47f1a6d5610a6e",
+      "size_bytes": 2334634,
+      "version": "3.12.3-1ubuntu0.17",
+      "identity_evidence": "https://packages.ubuntu.com/noble-updates/amd64/python3.12-minimal/download",
+      "license_evidence": "https://changelogs.ubuntu.com/changelogs/pool/main/p/python3.12/python3.12_3.12.3-1ubuntu0.17/copyright",
+      "license_labels": [
+        "* Permission to use this software in any way is granted without",
+        "* Permission to use, copy, modify, and distribute this software and",
+        "By obtaining, using, and/or copying this software and/or its",
+        "Permission  is  hereby granted,  free  of charge,  to  any person",
+        "Permission is hereby granted, free of charge, to any person obtaining",
+        "Permission to use, copy, modify, and distribute this software and",
+        "Permission to use, copy, modify, and distribute this software and its",
+        "Permission to use, copy, modify, and distribute this software for any",
+        "Redistribution and use in source and binary forms, with or without",
+        "The following text includes the Python license and licenses and",
+        "This software is provided 'as-is', without any express or implied",
+        "This software is provided as-is, without express or implied"
+      ],
+      "copyright_sha256": "f1cbf908e1daa8789b389fdcf17811ed36b675d736b39a103591399861350382"
+    },
+    {
+      "name": "python3-pip",
+      "path": "pool/universe/p/python-pip/python3-pip_24.0+dfsg-1ubuntu1.3_all.deb",
+      "sha256": "4e1af0b6f0b52c847ffa7b192b9f650845b99ff300138af05ab9a6252eb75682",
+      "size_bytes": 1319940,
+      "version": "24.0+dfsg-1ubuntu1.3",
+      "identity_evidence": "https://packages.ubuntu.com/noble-updates/amd64/python3-pip/download",
+      "license_evidence": "https://changelogs.ubuntu.com/changelogs/pool/universe/p/python-pip/python-pip_24.0+dfsg-1ubuntu1.3/copyright",
+      "license_labels": [
+        "Apache-2.0",
+        "Apache-2.0 OR BSD-2",
+        "BSD-2",
+        "BSD-3",
+        "Expat",
+        "ISC",
+        "LGPL-2.1+",
+        "MPL-2",
+        "Python"
+      ],
+      "copyright_sha256": "e8945857357ef1399a575fcd6b92f1957a5e49edcd65779002dde0bce84f3c1a"
+    },
+    {
+      "name": "wget",
+      "path": "pool/main/w/wget/wget_1.21.4-1ubuntu4.5_amd64.deb",
+      "sha256": "2aa5a734b21b49ff6bd2239546b3f88275f8abb55dd8a984249e6cd0c1173a92",
+      "size_bytes": 334118,
+      "version": "1.21.4-1ubuntu4.5",
+      "identity_evidence": "https://packages.ubuntu.com/noble-updates/amd64/wget/download",
+      "license_evidence": "https://changelogs.ubuntu.com/changelogs/pool/main/w/wget/wget_1.21.4-1ubuntu4.5/copyright",
+      "license_labels": [],
+      "copyright_sha256": "c58cb5a2d94f35f0e9b0f1a038d48b73477aa12782ff17328c21d8a86f5f99d5"
+    },
+    {
+      "name": "rsync",
+      "path": "pool/main/r/rsync/rsync_3.2.7-1ubuntu1.5_amd64.deb",
+      "sha256": "8f952895697d19a6f1caa71f17c7d4e8c1f1fb485eb824ffe3e4c77dd587b338",
+      "size_bytes": 442954,
+      "version": "3.2.7-1ubuntu1.5",
+      "identity_evidence": "https://packages.ubuntu.com/noble-updates/amd64/rsync/download",
+      "license_evidence": "https://changelogs.ubuntu.com/changelogs/pool/main/r/rsync/rsync_3.2.7-1ubuntu1.5/copyright",
+      "license_labels": [],
+      "copyright_sha256": "240afc05aff098e53dafe0def34030b2ef7848b78b9ebabf2c157713b9f975c5"
+    },
+    {
+      "name": "openssh-client",
+      "path": "pool/main/o/openssh/openssh-client_9.6p1-3ubuntu13.19_amd64.deb",
+      "sha256": "c77365e50089a9be1ccc4cb28a586d7485b9d83798e67b8ad6636e53cc921649",
+      "size_bytes": 907922,
+      "version": "1:9.6p1-3ubuntu13.19",
+      "identity_evidence": "https://packages.ubuntu.com/noble-updates/amd64/openssh-client/download",
+      "license_evidence": "https://changelogs.ubuntu.com/changelogs/pool/main/o/openssh/openssh_9.6p1-3ubuntu13.19/copyright",
+      "license_labels": [
+        "BSD-2-clause",
+        "BSD-3-clause",
+        "Expat-with-advertising-restriction",
+        "Mazieres-BSD-style",
+        "OpenSSH",
+        "Powell-BSD-style",
+        "public-domain"
+      ],
+      "copyright_sha256": "b6be93136b065505bf4fa315914a8c31c2a07865e7b5152dc1cbca324d86c860"
+    }
+  ]
+}

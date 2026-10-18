@@ -3,6 +3,8 @@ from pathlib import Path
 from unittest.mock import patch
 from tools.mirror_operations import load_manifest,refresh
 from app.external_storage import ExternalRegistry
+from tools.catalog_transaction import snapshot,restore_public,fingerprint
+import os
 import test_http_client as fixture
 
 class MirrorOperationsTests(unittest.TestCase):
@@ -46,3 +48,32 @@ class MirrorOperationsTests(unittest.TestCase):
         entry={**self.entry,'approved_cidrs':['8.8.8.0/24']}
         with self.assertRaises(ValueError):refresh([entry],self.store.root,None,client=self.case.client(fixture.Reply()))
         self.assertEqual(original,self.store.database.read_bytes())
+    def test_expanded_manifest_accepts_twelve_unique_small_items_but_not_thirteen(self):
+        entries=[{**self.entry,'artifact':{**self.entry['artifact'],'sha256':format(i,'064x')}} for i in range(13)]
+        path=self.root/'manifest.json';path.write_text(json.dumps(self.manifest(entries[:12])))
+        self.assertEqual(len(load_manifest(path)),12)
+        path.write_text(json.dumps(self.manifest(entries)))
+        with self.assertRaises(ValueError):load_manifest(path)
+    def test_manifest_rejects_scheduled_byte_exhaustion_before_network(self):
+        entry={**self.entry,'artifact':{**self.entry['artifact'],'size_bytes':18000000}}
+        path=self.root/'manifest.json';path.write_text(json.dumps(self.manifest([entry])))
+        with self.assertRaisesRegex(ValueError,'Scheduled.*budget'):load_manifest(path)
+    def test_expansion_preserves_existing_unlisted_metadata(self):
+        with patch('tools.mirror_operations.time.sleep'):refresh([self.entry],self.store.root,None,client=self.case.client(fixture.Reply()))
+        other_item=self.item.model_copy(update={'name':'other','sha256':hashlib.sha256(b'other').hexdigest(),'filename':'other.bin','size_bytes':5})
+        other={**self.entry,'artifact':other_item.model_dump(mode='json'),'relative_path':'other.bin'}
+        self.case.now+=2
+        with patch('tools.mirror_operations.time.sleep'):refresh([other],self.store.root,None,client=self.case.client(fixture.Reply(body=b'other')))
+        self.assertEqual(self.store.list_artifacts()['total'],2)
+        self.assertEqual(self.store.artifact(self.item.sha256),self.item)
+    def test_failure_after_replace_can_restore_using_prepublication_receipt(self):
+        backup=self.root/'before.sqlite';snapshot(self.store.database,backup)
+        old=fingerprint(self.store.database);receipt=self.root/'candidate';replace=os.replace
+        def publish_then_fail(*args):
+            replace(*args)
+            raise OSError('Injected failure immediately after publication')
+        with patch('tools.mirror_operations.os.replace',side_effect=publish_then_fail):
+            with self.assertRaisesRegex(OSError,'after publication'):refresh([self.entry],self.store.root,None,client=self.case.client(fixture.Reply()),publication_receipt=receipt)
+        self.assertEqual(self.store.list_artifacts()['total'],1)
+        restore_public(self.store.database,backup,[old,receipt.read_text().strip()])
+        self.assertEqual(self.store.list_artifacts()['total'],0)

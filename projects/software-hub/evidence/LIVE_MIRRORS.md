@@ -1,5 +1,7 @@
 # Accepted public mirror pilot and Rubika capability — 2026-10-18
 
+Historical acceptance of the original three files. The current eleven-file catalog and30-minute operator supersede this scope: [catalog expansion](CATALOG_EXPANSION.md). Original results below are preserved.
+
 Owner authorized real trusted-mirror downloads, Rubika tests, external-only payload placement, preservation of the existing website and post-task status/test entries. Owner then confirmed there is no bot token and requested hidden setup. Base `cbedff35a5efdec3371daf16e4a968326aa9e47e`; branch `docs/melika-consolidation-2026-10-17`. [Execution record](../tasks/W5-LIVE-MIRRORS.md), [phase ledger](LIVE_MIRROR_LEDGER.md), [operator pins/source hashes](mirrors-operator-source.json).
 
 **Accepted:** three public exact-identity files at [TehNet downloads](https://tehnet.ir/software/#downloads). The active web image remains `sha256:ab4220407e6a35a6e3d4221b44f238f12b25b1081be4b03ce8a92276a60289fa`; no web image, template, WordPress/theme/Core/menu, Nginx file or running container was replaced/restarted in this task. Operator code lives separately at `/opt/tehnet-software/operations/mirrors-20261018`. Only the public registry and bounded network-operation state changed; auth/restricted/research bytes matched before/after.
