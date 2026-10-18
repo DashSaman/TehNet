@@ -82,6 +82,8 @@ For tariff registration, national-project support, loans and knowledge-based-com
 
 ## Task execution and handoff
 
+Scoped W4 follow-up accepted on2026-10-18: [automatic devtools refresh](deployment/AUTO_REFRESH.md) is installed and its persistent6h timer enabled after actual signed discovery,clean no-network installation and checked four-file publication. It qualifies after12h,keeps original48h client freshness,adds an explicit bounded384MiB/day operating allowance and retains the old release on failure. [Acceptance](evidence/AUTO_REFRESH.md) distinguishes successful Linux/Base/live checks,recorded failures and injected recovery tests. This closes that refresh task only; bootedVM/Iran access/long outage/PyPI/Rubika and the unexecuted W7 cross-host drills remain separate gates.
+
 Use [WORKSTREAMS](WORKSTREAMS.md) for exact owners, paths, dependencies and acceptance. Claim one task before editing, write a task-specific plan/test cycle, run checks, record actual results and next action. Integrator serializes shared docs and root coordination updates. A task without its task log and changelog/status reconciliation cannot be merged as done.
 
 Current same-host acceptance: [engine activation](evidence/ENGINE_ACTIVATION.md) and [recovery](deployment/RECOVERY.md). Frozen v1 preview manifest retains its historical meaning; the implemented encrypted engine backup has its own format 1 and strict image/state contract. Generic future Iran cutover commands remain proposals unless explicitly implemented.

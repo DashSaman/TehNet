@@ -1,0 +1,12 @@
+{
+  "tested_at_utc": "2026-10-18T17:55:43.781497+00:00",
+  "backup": "/root/tehnet-backups/20261018-175541-offline-auto-operations",
+  "backup_restore_verified_files": 10,
+  "sha256_round_trip": true,
+  "public_acceptance_identity_checked": true,
+  "daily_budget_preserved": true,
+  "second_writer_started": false,
+  "injected_pending_intent_actual_nginx_reload_and_origin_check": "PASS; recovered_publication",
+  "production_status_and_snippet_unchanged": true,
+  "scope": "Small new refresh operational state/public-code backup and restore plus injected publication-recovery intent; not a host reboot,full engine restore or Iran migration."
+}

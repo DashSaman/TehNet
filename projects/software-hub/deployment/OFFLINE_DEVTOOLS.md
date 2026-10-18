@@ -1,5 +1,7 @@
 # Dated Ubuntu devtools — qualification, publication and rollback
 
+This document preserves the first manual58-package acceptance/reproduction procedure. For current unattended qualification,use [automatic refresh](AUTO_REFRESH.md) and its separate evidence; do not replay the manual publication against an automatic release or reset its durable budget. The original48h client freshness policy remains unchanged.
+
 Scope: the separate `noble-devtools-amd64` profile, eight tools plus CA support, Ubuntu main+universe, 58 exact archives/32,139,756 bytes relative to the recorded clean Base. The previous main-only `noble-core` capability remains unaccepted. The existing eleven-download worker/pins/quotas and active image stay unchanged. User instructions: [OFFLINE_INSTALL](../OFFLINE_INSTALL.md). Acceptance: [evidence](../evidence/OFFLINE_DEVTOOLS.md).
 
 ## Trust and storage

@@ -20,6 +20,9 @@ from app.netguard import validate_target
 from app.http_client import PinnedHTTPSConnection,abort
 from tools.offline_lab import extract_clean_root
 root=Path(os.environ['LAB']);meta=Path(os.environ['OPS'])/'metadata'
+if os.environ.get('SOFTWARE_REFRESH_BUDGET_FILE'):
+ from tools.refresh_transport import reserve_request
+ reserve_request(os.environ['SOFTWARE_REFRESH_BUDGET_FILE'],40*1024**2)
 host='cdimage.ubuntu.com';path='ubuntu-base/releases/24.04/release/ubuntu-base-24.04.5-base-amd64.tar.gz'
 target=validate_target('https://'+host,path,{host});connection=PinnedHTTPSConnection(target,10)
 timer=threading.Timer(60,abort,args=(connection,));timer.daemon=True;timer.start()
@@ -47,11 +50,25 @@ mkdir -p "$ROOT/etc/ssl/certs"
 cp /etc/ssl/certs/ca-certificates.crt "$ROOT/etc/ssl/certs/ca-certificates.crt"
 printf '127.0.0.1 localhost\n185.143.233.132 mirror.arvancloud.ir\n' > "$ROOT/etc/hosts"
 rm -f "$ROOT/etc/apt/sources.list.d/ubuntu.sources"
+if [[ -n "${SOFTWARE_REFRESH_BUDGET_FILE:-}" ]]; then
+python3 - <<'PY'
+from pathlib import Path
+import os
+from tools.refresh_transport import populate_repo
+meta=Path(os.environ['OPS'])/'metadata'
+populate_repo(Path(os.environ['ROOT'])/'repo',meta,os.environ['SOFTWARE_REFRESH_BUDGET_FILE'],meta/'previous-profile.json')
+PY
+: > "$ROOT/etc/apt/sources.list"
+for suite in noble noble-updates noble-security; do
+ printf 'deb [arch=amd64 signed-by=/usr/share/keyrings/ubuntu-archive-keyring.gpg] file:/repo %s main universe\n' "$suite" >> "$ROOT/etc/apt/sources.list"
+done
+else
 cat > "$ROOT/etc/apt/sources.list" <<'SOURCES'
 deb [arch=amd64 signed-by=/usr/share/keyrings/ubuntu-archive-keyring.gpg] https://mirror.arvancloud.ir/ubuntu noble main universe
 deb [arch=amd64 signed-by=/usr/share/keyrings/ubuntu-archive-keyring.gpg] https://mirror.arvancloud.ir/ubuntu noble-updates main universe
 deb [arch=amd64 signed-by=/usr/share/keyrings/ubuntu-archive-keyring.gpg] https://mirror.arvancloud.ir/ubuntu noble-security main universe
 SOURCES
+fi
 cat > "$ROOT/etc/apt/apt.conf.d/99tehnet-lab" <<'CONF'
 APT::Install-Recommends "false";
 Acquire::Languages "none";
@@ -63,7 +80,11 @@ Acquire::https::Timeout "10";
 APT::Update::Error-Mode "any";
 CONF
 chroot "$ROOT" dpkg-query -W -f='${Package}\t${Version}\t${Architecture}\n' > "$OPS/metadata/baseline-packages.tsv"
-chroot "$ROOT" apt-get update
+if [[ -n "${SOFTWARE_REFRESH_BUDGET_FILE:-}" ]]; then
+ unshare --net chroot "$ROOT" apt-get update
+else
+ chroot "$ROOT" apt-get update
+fi
 python3 - <<'PY'
 import os,subprocess,re,json
 from pathlib import Path
@@ -84,7 +105,9 @@ import os,subprocess,json,re,hashlib
 from urllib.parse import unquote
 from pathlib import Path
 root=Path(os.environ['LAB'])/'root';out=Path(os.environ['OPS'])/'metadata'
-plan=(out/'native-plan.txt').read_text();uris=re.findall(r"^'(https://[^']+)' ([^ ]+) ([0-9]+) (.+)$",plan,re.M)
+plan=(out/'native-plan.txt').read_text()
+if os.environ.get('SOFTWARE_REFRESH_BUDGET_FILE'):plan=plan.replace("'file:/repo/","'https://mirror.arvancloud.ir/ubuntu/")
+uris=re.findall(r"^'(https://[^']+)' ([^ ]+) ([0-9]+) (.+)$",plan,re.M)
 assert uris and len(uris)<=200
 names=set()
 for url,filename,size,checksum in uris:

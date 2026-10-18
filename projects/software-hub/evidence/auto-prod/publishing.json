@@ -1,0 +1,16 @@
+{
+  "accepted_at": "2026-10-18T16:54:44.583116+00:00",
+  "checked_at": "2026-10-18T17:53:33.940565+00:00",
+  "stage": "publishing",
+  "run": "run-20261018-175032-adab0629",
+  "result": "in_progress",
+  "failed_at": "2026-10-18T17:39:10.267195+00:00",
+  "last_failure": "ValueError",
+  "pending": {
+    "before_file": "/opt/tehnet-software/operations/offline-refresh-state/run-20261018-175032-adab0629/metadata/nginx.before",
+    "old_sha256": "515e4fe2641320a22cb31df1113ba1d7eb7dc1afc2618acbd1150e746b65a59b",
+    "new_sha256": "b6f4370f22300049b3be2585b307853e9607874f1cf4ef5ad4e5675d056b5bad",
+    "public": "/opt/tehnet-software/public/auto-20261018-175032-adab0629",
+    "previous_public": "/opt/tehnet-software/public/offline-20261018-165701"
+  }
+}

@@ -20,6 +20,9 @@ from app.netguard import validate_target
 from app.http_client import PinnedHTTPSConnection,abort
 from tools.offline_lab import extract_clean_root
 root=Path(os.environ['LAB']);meta=Path(os.environ['OPS'])/'metadata'
+if os.environ.get('SOFTWARE_REFRESH_BUDGET_FILE'):
+ from tools.refresh_transport import reserve_request
+ reserve_request(os.environ['SOFTWARE_REFRESH_BUDGET_FILE'],40*1024**2)
 host='cdimage.ubuntu.com';path='ubuntu-base/releases/24.04/release/ubuntu-base-24.04.5-base-amd64.tar.gz'
 target=validate_target('https://'+host,path,{host});connection=PinnedHTTPSConnection(target,10)
 timer=threading.Timer(60,abort,args=(connection,));timer.daemon=True;timer.start()
@@ -56,6 +59,9 @@ import json,os,hashlib,time
 from pathlib import Path
 from tools.offline_kit import prepare
 root=Path(os.environ['LAB']);ops=Path(os.environ['OPS']);profile=json.loads((ops/'metadata/profile-unaccepted.json').read_text())
+if os.environ.get('SOFTWARE_REFRESH_BUDGET_FILE'):
+ from tools.refresh_transport import install_budget_hook
+ install_budget_hook(os.environ['SOFTWARE_REFRESH_BUDGET_FILE'])
 start=time.monotonic();result=prepare(profile,root/'kit',require_accepted=False)
 result['elapsed_seconds']=round(time.monotonic()-start,3);result['scope']='Actual code qualification; profile still unaccepted until offline installation and smoke pass'
 (ops/'metadata/kit-preparation.json').write_text(json.dumps(result,indent=2)+'\n')
@@ -109,7 +115,7 @@ assert not subprocess.check_output(['chroot',str(root),'dpkg','--audit'])
 outcomes['clean_offline_install']={'exit':result,'elapsed_seconds':elapsed,'dpkg_audit':'empty'}
 smoke=subprocess.run(['chroot',str(root),'python3','/kit/smoke.py'],capture_output=True,text=True)
 if smoke.returncode:raise AssertionError(smoke.stdout+smoke.stderr)
-data=json.loads(smoke.stdout);data['negative_checks']=outcomes;data['baseline_status_sha256']=original;data['offline_lists_before']=lists_before;data['network_links']=links;data['network_isolation']='Fresh namespace,only loopback up,no default/foreign route; kernel-created tunnel interfaces remain DOWN; no host firewall/network change';data['rootfs']='Clean signed Ubuntu Base24.04.5 amd64,not a booted VM'
+data=json.loads(smoke.stdout);data['qualified_profile_sha256']=hashlib.sha256((kit/'profile.json').read_bytes()).hexdigest();data['negative_checks']=outcomes;data['baseline_status_sha256']=original;data['offline_lists_before']=lists_before;data['network_links']=links;data['network_isolation']='Fresh namespace,only loopback up,no default/foreign route; kernel-created tunnel interfaces remain DOWN; no host firewall/network change';data['rootfs']='Clean signed Ubuntu Base24.04.5 amd64,not a booted VM'
 (meta/'offline-install-acceptance.json').write_text(json.dumps(data,indent=2)+'\n')
 print(json.dumps({'offline_installed_packages':data['installed_packages'],'tools':data['functional_tools'],'negative_checks':outcomes}),flush=True)
 PY
@@ -124,7 +130,7 @@ for line in (ops/'protected.before').read_text().splitlines():
 group=Path('/sys/fs/cgroup')/Path('/proc/self/cgroup').read_text().split('0::',1)[1].strip().lstrip('/')
 metrics={name:(group/name).read_text().strip() for name in ['memory.peak','memory.swap.current','memory.events']}
 assert metrics['memory.swap.current']=='0' and 'oom_kill 0' in metrics['memory.events']
-result={'tmpfs_options':subprocess.check_output(['findmnt','-n','-o','OPTIONS',str(lab)],text=True).strip(),'cgroup':metrics,'all_existing_container_fingerprints_preserved':True,'nginx_auth_restricted_research_preserved':True,'software_payload_disk_files':0,'downloaded_archives_location':'private,noswap768MiB tmpfs; destroyed at namespace exit','baseline_and_kit_source':'official signed Ubuntu Base + original approved Arvan Ubuntu main/universe','state_files':sorted(str(f.relative_to('/srv/tehnet-software')) for f in Path('/srv/tehnet-software').rglob('*') if f.is_file())}
+result={'tmpfs_options':subprocess.check_output(['findmnt','-n','-o','OPTIONS',str(lab)],text=True).strip(),'cgroup':metrics,'all_existing_container_fingerprints_preserved':True,'nginx_and_selected_protected_files_preserved':True,'software_payload_disk_files':0,'downloaded_archives_location':'private,noswap768MiB tmpfs; destroyed at namespace exit','baseline_and_kit_source':'official signed Ubuntu Base + original approved Arvan Ubuntu main/universe','engine_state_read':'intentionally inaccessible' if os.environ.get('LAB_STATE_READ')=='0' else 'directly inspected','state_files':None if os.environ.get('LAB_STATE_READ')=='0' else sorted(str(f.relative_to('/srv/tehnet-software')) for f in Path('/srv/tehnet-software').rglob('*') if f.is_file())}
 (meta/'lab-state.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result),flush=True)
 PY
 echo NATIVE_CLEAN_OFFLINE_DEVTOOLS_ACCEPTANCE_PASS

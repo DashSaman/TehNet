@@ -1,0 +1,40 @@
+[Unit]
+Description=TehNet signed and clean-install-gated offline profile refresh
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+# System units default to root. Explicit User=root plus NoNewPrivileges on the
+# current host loses CAP_SETUID; APT must still drop to its _apt sandbox user.
+UMask=0077
+WorkingDirectory=/opt/tehnet-software/operations/offline-refresh-20261018
+Environment=PYTHONPATH=/opt/tehnet-software/operations/offline-refresh-20261018:/opt/tehnet-software/releases/engine-active-20261018/host-site
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStartPre=/usr/bin/unshare --mount --net /usr/bin/python3 /opt/tehnet-software/operations/offline-refresh-20261018/deployment/qualification/check-refresh-uid.py
+ExecStart=/usr/bin/python3 -m tools.offline_refresh --state /opt/tehnet-software/operations/offline-refresh-state --seed /opt/tehnet-software/operations/offline-devtools-20261018 --host-site /opt/tehnet-software/releases/engine-active-20261018/host-site
+SuccessExitStatus=75
+TimeoutStartSec=1200
+TimeoutStopSec=90
+KillMode=control-group
+MemoryMax=900M
+MemorySwapMax=0
+CPUQuota=50%
+TasksMax=96
+OOMPolicy=stop
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateMounts=true
+ProtectSystem=strict
+ProtectHome=read-only
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX AF_NETLINK
+ReadWritePaths=/opt/tehnet-software/operations/offline-refresh-state /opt/tehnet-software/public /root/tehnet-backups /etc/nginx/snippets /var/log/nginx /run
+InaccessiblePaths=/srv/tehnet-software
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

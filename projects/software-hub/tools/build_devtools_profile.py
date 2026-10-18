@@ -31,7 +31,7 @@ for uri in data['native_uris']:
  packages.append(record)
 installer=Path(sys.argv[2]).read_text(encoding='utf-8')
 profile={'format':1,'id':'noble-devtools-amd64','distribution':'ubuntu24.04','architecture':'amd64','accepted':False,'generated_at_utc':datetime.now(timezone.utc).isoformat(),'baseline':json.loads((M/'baseline.json').read_text()),'seeds':json.loads((M/'native-seeds.json').read_text()),'packages':packages,'releases':public,'installer':installer,'scope':'Eight tools plus CA TLS support; dependencies resolved against exact clean Ubuntu Base. Frozen dated kit,not general noble-core/VM/Iran acceptance.'}
-assert len(packages)==58 and sum(x['size_bytes'] for x in packages)==32139756
+assert 1<=len(packages)<=200 and sum(x['size_bytes'] for x in packages)<=128*1024**2
 (M/'profile-unaccepted.json').write_text(json.dumps(profile,indent=2)+'\n')
 updates=next(x for x in public if x['suite']=='noble-updates');original=next(M.glob('*_noble-updates_InRelease'))
 negative={}

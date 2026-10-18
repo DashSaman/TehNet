@@ -1,0 +1,10 @@
+Starting tehnet-offline-auto-q4.service - TehNet signed and clean-install-gated offline profile refresh...
+{"apt_sandbox_uid_probe": "PASS", "uid": 42, "gid": 65534}
+{"stage": "signed_discovery", "run": "run-20261018-174707-3507ed28"}
+{"stage": "candidate_signature_chain", "run": "run-20261018-174707-3507ed28"}
+{"stage": "clean_offline_install", "run": "run-20261018-174707-3507ed28"}
+{"stage": "qualified", "run": "run-20261018-174707-3507ed28"}
+{"accepted_at": "2026-10-18T16:54:44.583116+00:00", "checked_at": "2026-10-18T17:50:08.586640+00:00", "stage": "qualified_dry_run", "run": "run-20261018-174707-3507ed28", "result": "PASS; publication intentionally not performed"}
+tehnet-offline-auto-q4.service: Deactivated successfully.
+Finished tehnet-offline-auto-q4.service - TehNet signed and clean-install-gated offline profile refresh.
+tehnet-offline-auto-q4.service: Consumed 46.958s CPU time, 782.5M memory peak, 0B memory swap peak.
