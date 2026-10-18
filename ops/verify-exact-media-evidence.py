@@ -87,5 +87,5 @@ result = {'status': 'evidence-verified-publication-incomplete',
     'limitations': ['No exact physical-stock identity proved', 'No new licensed fully separated model obtained or published',
         'Linked BIM binary not downloaded or parsed', 'No new production UI acceptance run; prior browser limitation remains',
         'No stock, price, payment, order or indexing change', 'Research coverage does not prove absence of other models on the Internet']}
-(qa / 'verification.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+(qa / 'verification.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8', newline='\n')
 print('EXACT_MEDIA_EVIDENCE=VERIFIED;25 source/native products;23 original SHA;17 sources;31 model+23 photo contracts;0 new models;PUBLICATION_INCOMPLETE')

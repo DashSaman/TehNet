@@ -1,6 +1,6 @@
 {
   "status": "evidence-verified-publication-incomplete",
-  "verified_utc": "2026-10-18T14:11:26.325289+00:00",
+  "verified_utc": "2026-10-18T14:13:00.672458+00:00",
   "catalogue_products": 25,
   "public_api_products_each": 25,
   "original_image_files_sha256_verified": 23,
@@ -12,9 +12,9 @@
   "native_parts": 0,
   "native_spins": 0,
   "protected_state_unchanged": true,
-  "manifest_sha256": "9defc9d2f03d7f35def774e3de507247ec7b9020ada70b653de384923461964b",
-  "native_receipt_sha256": "260555d085d2c7087e803769acbf07e99de9aef62349b9afd67254f98237fb09",
-  "public_receipt_sha256": "c5193bd07dd98d674388c13b31fe5b9d8905480e5366dfe3c32c9afc107e4b15",
+  "manifest_sha256": "53ef45b02e737cb18709d763be57cc25783d75151a91c59be3ae9c7645d33d23",
+  "native_receipt_sha256": "f184b64fad1317064144828c7af79e35e7af17976d87443b8d35cad763ef79ed",
+  "public_receipt_sha256": "a90f7900f1aa29da4913b9dd0973638d4c5564a1bcb6f5fe10cc29d02572e8b1",
   "contracts": [
     {
       "command": "php tests/product-evidence-unit.php",

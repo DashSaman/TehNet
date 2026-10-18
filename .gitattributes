@@ -8,6 +8,13 @@ site/**/*.css text eol=lf
 site/**/*.json text eol=lf
 site/mu-plugins/tehnet-technical-resources/wireguard-mtu.py.txt text eol=lf
 content/remediation-2026-10-16/manifest.json text eol=lf
+# Exact-media evidence hashes must survive Windows/Linux checkout unchanged.
+ops/audit-exact-media.php text eol=lf
+ops/shop-experience-state.php text eol=lf
+ops/collect-exact-media-evidence.py text eol=lf
+ops/verify-exact-media-evidence.py text eol=lf
+content/media/exact-product-review-2026-10-18/*.json text eol=lf
+qa/exact-media-2026-10-18/*.json text eol=lf
 # Preserve the exact upstream bytes recorded in PROVENANCE.json.
 site/plugins/tehnet-store/assets/vendor/model-viewer/model-viewer.min.js -text
 site/plugins/tehnet-store/assets/vendor/model-viewer/LICENSE -text

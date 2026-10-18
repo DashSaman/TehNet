@@ -40,7 +40,7 @@ value = json.loads(result.stdout)
 value['audit_source_sha256'] = hashlib.sha256(sources['audit'].encode()).hexdigest()
 value['state_source_sha256'] = hashlib.sha256(sources['state'].encode()).hexdigest()
 args.out.parent.mkdir(parents=True, exist_ok=True)
-args.out.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+args.out.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8', newline='\n')
 print(json.dumps({'mode': value['mode'], 'products': len(value['products']),
     'approved_identity': sum(p['evidence_fields']['_tn_identity_reviewed'] == 'yes' for p in value['products']),
     'models': sum(p['model_available'] for p in value['products']),
