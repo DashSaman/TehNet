@@ -35,7 +35,7 @@ def raw_save(path,data):
         try:os.fsync(directory)
         finally:os.close(directory)
 
-def reconcile_pending(status,snippet,*,check,reload):
+def reconcile_pending(status,snippet,*,check,reload,sync=lambda public:None):
     if not status.get('pending'):return status
     pending=status['pending'];snippet=Path(snippet);old=Path(pending['before_file']).read_bytes()
     if hashlib.sha256(old).hexdigest()!=pending['old_sha256']:raise ValueError('Pending rollback evidence changed')
@@ -43,14 +43,15 @@ def reconcile_pending(status,snippet,*,check,reload):
     if digest not in {pending['old_sha256'],pending['new_sha256']}:raise ValueError('Unexpected concurrent snippet; recovery refused')
     if digest==pending['old_sha256']:
         reload()
-        if pending.get('previous_public'):check(pending['previous_public'])
+        if pending.get('previous_public'):check(pending['previous_public']);sync(pending['previous_public'])
         return {**status,'stage':'recovered_previous_publication','pending':None}
     try:
         reload();check(pending['public'])
     except BaseException as failure:
         raw_save(snippet,old);reload()
-        if pending.get('previous_public'):check(pending['previous_public'])
+        if pending.get('previous_public'):check(pending['previous_public']);sync(pending['previous_public'])
         raise ValueError('Incomplete publication failed live checks; previous snippet restored') from failure
+    sync(pending['public'])
     return {**status,'stage':'recovered_publication','pending':None}
 
 RUN_NAME=re.compile(r'run-\d{8}-\d{6}-[a-f0-9]{8}')
@@ -160,7 +161,7 @@ def live_check(public):
 
 def run(state_root,seed,host_site,*,force=False,dry_run=False):
     import fcntl
-    from tools.offline_publication import publish
+    from tools.offline_publication import publish,set_current
     state_root,seed=Path(state_root),Path(seed)
     state_root.mkdir(mode=0o700,parents=True,exist_ok=True)
     snippet=Path('/etc/nginx/snippets/tehnet-software.conf')
@@ -169,10 +170,12 @@ def run(state_root,seed,host_site,*,force=False,dry_run=False):
         status_path=state_root/'status.json';status=json.loads(status_path.read_text()) if status_path.exists() else {}
         from tools.offline_publication import command,BASE,routes
         def reload():command('nginx','-t');command('systemctl','reload','nginx')
-        try:status=reconcile_pending(status,snippet,check=live_check,reload=reload)
+        pointer=Path('/opt/tehnet-software/public/current')
+        try:status=reconcile_pending(status,snippet,check=live_check,reload=reload,sync=lambda public:set_current(pointer,public))
         except BaseException as failure:
             status.update({'stage':'recovery_failed','result':str(failure)[:5000]});save(status_path,status);raise
         now=datetime.now(timezone.utc);public,previous,previous_proof=current_public(snippet)
+        set_current(pointer,public)
         initial_snippet=snippet.read_bytes()
         protected_runs={status.get('run'),'run-'+public.name.removeprefix('auto-')}
         prune_runs(state_root,protected_runs);prune_public_and_backups(public)
@@ -238,7 +241,7 @@ def run(state_root,seed,host_site,*,force=False,dry_run=False):
             before=metadata/'nginx.before';raw_save(before,snippet.read_bytes())
             status['pending']={'before_file':str(before),'old_sha256':hashlib.sha256(before.read_bytes()).hexdigest(),'new_sha256':hashlib.sha256(BASE.read_bytes().replace(b'\r\n',b'\n')+routes(destination).encode()).hexdigest(),'public':str(destination),'previous_public':str(public)}
             stage('publishing')
-            result=publish(ready,snippet,destination,backup,previous_public=public,check=lambda:live_check(destination))
+            result=publish(ready,snippet,destination,backup,previous_public=public,check=lambda:live_check(destination),current_pointer=pointer)
             status.update({'stage':'published','result':'PASS','pending':None,'accepted_at':proof['tested_at_utc'],'profile_sha256':proof['profile_sha256'],'publication':result,'run':directory.name});save(metadata/'publication.json',result);save(status_path,status)
             try:prune_runs(state_root,{directory.name,'run-'+public.name.removeprefix('auto-')});prune_public_and_backups(destination)
             except (OSError,ValueError) as warning:

@@ -1,0 +1,15 @@
+{
+  "tmpfs_options": "rw,relatime,size=786432k,mode=700,inode64,noswap",
+  "cgroup": {
+    "memory.peak": "694333440",
+    "memory.swap.current": "0",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"
+  },
+  "all_existing_container_fingerprints_preserved": true,
+  "nginx_and_selected_protected_files_preserved": true,
+  "software_payload_disk_files": 0,
+  "downloaded_archives_location": "private,noswap768MiB tmpfs; destroyed at namespace exit",
+  "baseline_and_kit_source": "official signed Ubuntu Base; exact signed profile bytes from selected linuxmirrors",
+  "engine_state_read": "intentionally inaccessible",
+  "state_files": null
+}

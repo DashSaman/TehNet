@@ -111,19 +111,27 @@ def selected_transport(profile,source,*,allow_candidate=False,observations=None)
     try:yield
     finally:kit.download,kit.validated_mirror_target=original_download,original_validator
 
+def require_current_qualification(digest,source,receipt):
+    if receipt.get('profile_sha256')!=digest:raise ValueError('Current profile has not been requalified; old receipts cannot activate it')
+    matches=[r for r in receipt.get('providers',[]) if r.get('provider')==source and r.get('profile_sha256')==digest]
+    if len(matches)!=1 or not kit.SHA.fullmatch(matches[0].get('install_evidence_sha256','')):raise ValueError('Selected source lacks current installation acceptance')
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--provider',choices=QUALIFIED_SOURCES,required=True)
     parser.add_argument('--manifest',type=Path,required=True);parser.add_argument('--output',type=Path,required=True)
+    parser.add_argument('--qualification',type=Path,required=True)
     args=parser.parse_args()
-    if args.manifest.stat().st_size>2*1024**2:raise ValueError('Profile metadata cap')
+    if args.manifest.stat().st_size>2*1024**2 or args.qualification.stat().st_size>131072:raise ValueError('Profile/qualification metadata cap')
     def unique(pairs):
         result={}
         for key,value in pairs:
             if key in result:raise ValueError('Duplicate profile field')
             result[key]=value
         return result
-    profile=json.loads(args.manifest.read_text(encoding='utf-8'),object_pairs_hook=unique)
+    raw=args.manifest.read_bytes();profile=json.loads(raw,object_pairs_hook=unique)
+    qualification=json.loads(args.qualification.read_text(encoding='utf-8'),object_pairs_hook=unique)
+    require_current_qualification(hashlib.sha256(raw).hexdigest(),args.provider,qualification)
     with selected_transport(profile,args.provider):result=kit.prepare(profile,args.output)
     result.update({'selected_provider':args.provider,'automatic_fallback':False})
     print(json.dumps(result))

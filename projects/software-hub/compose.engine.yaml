@@ -10,10 +10,13 @@ services:
       TEHNET_SOFTWARE_AUTH: /auth
       TEHNET_SOFTWARE_RESTRICTED: "1"
       TEHNET_SOFTWARE_ORIGIN: https://tehnet.ir
+      TEHNET_SOFTWARE_OFFLINE_PUBLIC: /offline-public
+      TEHNET_SOFTWARE_PROVIDER_RECEIPTS: /metadata/public/provider-qualification.json
     volumes:
       - /srv/tehnet-software/data:/data:ro
       - /srv/tehnet-software/metadata:/metadata:ro
       - /srv/tehnet-software/auth:/auth:rw
+      - /opt/tehnet-software/public:/offline-public:ro
     read_only: true
     tmpfs: ["/tmp:size=16777216,mode=1777,noexec,nosuid"]
     cap_drop: [ALL]

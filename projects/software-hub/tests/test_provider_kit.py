@@ -5,6 +5,15 @@ from app.provider_kit import mapped_url,validated_target,selected_transport,kit,
 from tools.provider_lab import render_lab
 
 class ProviderKitTests(unittest.TestCase):
+    def test_copied_old_qualification_cannot_prepare_new_profile_or_failed_source(self):
+        from app import provider_kit
+        self.assertTrue(hasattr(provider_kit,'require_current_qualification'),'Client must require exact current requalification before payload I/O')
+        receipt={'profile_sha256':'a'*64,'providers':[{'provider':'arvan','profile_sha256':'a'*64}]}
+        with self.assertRaises(ValueError):provider_kit.require_current_qualification('b'*64,'arvan',receipt)
+        with self.assertRaises(ValueError):provider_kit.require_current_qualification('a'*64,'liara',receipt)
+        receipt['providers'][0]['install_evidence_sha256']='b'*64
+        provider_kit.require_current_qualification('a'*64,'arvan',receipt)
+
     def test_security_packages_stay_on_selected_liara_security_service(self):
         profile={'packages':[{'relative_path':'pool/main/x/x.deb','suite':'noble-security'}]}
         self.assertEqual(mapped_url(profile,'liara',kit.MIRROR+'pool/main/x/x.deb'),'https://linux-mirror.liara.ir/repository/ubuntu-security/pool/main/x/x.deb')

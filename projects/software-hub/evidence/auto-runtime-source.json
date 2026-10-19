@@ -1,6 +1,6 @@
 {
-  "tested_at_utc": "2026-10-18T17:53:47.989998+00:00",
-  "runtime": "/opt/tehnet-software/operations/offline-refresh-20261018-v2",
+  "tested_at_utc": "2026-10-19T16:48:41.884718+00:00",
+  "runtime": "/opt/tehnet-software/operations/offline-refresh-20261018-v3",
   "code_files_sha256": {
     "app/access.py": "79bfe2f26a29f266e0227a5d9664c65bd3258ec311f1c8f7f5299b86e5f88182",
     "app/aptmeta.py": "236f36980224c2c1445bf8c90786bc6a8b605f122026360f6259185a35637598",
@@ -26,8 +26,8 @@
     "tools/mirror_operations.py": "42fce81015649d352f6d269d4a7787f6f464c64a95db873d316eca22725a90d7",
     "tools/offline_kit.py": "fd35d9874932bc35fa8ff026c8608c61ed86533fc46d9ac56d00387e710e0fc9",
     "tools/offline_lab.py": "0250edb898108f52473abe85351d0e45515f3a76ebfd699b45d6771bbad78ad3",
-    "tools/offline_publication.py": "3c800cb6b494582e5516e4a41c1ebd854e34f1783fe633a5ec64c1e8e17cdc47",
-    "tools/offline_refresh.py": "7fba646ad6561dbf89fef77407361d0c5cbf1ffdf9d98f704a448545c881a177",
+    "tools/offline_publication.py": "1ccc6bd384f954e9339f98d5e28e70a8ea0690bfe0b8f002cb15bc9c541b7a46",
+    "tools/offline_refresh.py": "5e114a8908274df1f3c80b075fbd382d3077f7b953705a729391723c7d7ce85f",
     "tools/refresh_transport.py": "7e892fe54b64059e039c45dbd834405adee3a838d3317171bae4fe7efbdbf18e",
     "tools/rehearse_migration.py": "4d245bfefa9dc07e926625cf0f4ce545f142973c34b0b647dc36313f98a9babf",
     "tools/rehearse_preview_restore.py": "0afe42b095b95fa32d7cabe249c1d44da78a2dd724d98ca2ab206f366cc8e0ca",
@@ -49,5 +49,7 @@
   },
   "installed_new_units_match_tested_source": true,
   "unchanged_client_sha256": "fd35d9874932bc35fa8ff026c8608c61ed86533fc46d9ac56d00387e710e0fc9",
-  "unchanged_installer_sha256": "28e69ac2dc26fd165627138e56ea58751bd93b16408f8017d7bd5cd89b8d879f"
+  "unchanged_installer_sha256": "28e69ac2dc26fd165627138e56ea58751bd93b16408f8017d7bd5cd89b8d879f",
+  "previous_runtime": "/opt/tehnet-software/operations/offline-refresh-20261018-v2",
+  "legitimate_pointer_upgrade_evidence": "provider-auto/producer-adopted.json"
 }

@@ -1,0 +1,34 @@
+{
+  "checked_at_utc": "2026-10-19T16:54:37.123017+00:00",
+  "predecessor": "762d56f886ecfc04e7c149ab4cf4118812dc74ae",
+  "staged_changed_files": 118,
+  "only_software_and_three_append_only_root_notes": true,
+  "active_web_staged_hashes_verified": 34,
+  "worker_source_hashes_verified": 78,
+  "producer_manifest_files": 44,
+  "intentional_frozen_producer_main_vs_web_difference": [
+    "app/main.py"
+  ],
+  "exact_staged_installation_proofs_verified": 4,
+  "credential_shaped_content_heuristic": "pass; not an exhaustive secret audit",
+  "staged_whitespace": "pass",
+  "consolidation": {
+    "result": "PASS",
+    "source_blobs_verified": 22,
+    "copied_bytes": 189734,
+    "local_markdown_links_checked": 517,
+    "existing_site_files_changed": 0,
+    "authorized_new_menu_scripts": [
+      "ops/lib/software-menu.php",
+      "ops/software-menu.php",
+      "tests/software-menu-logic.php"
+    ],
+    "root_docs_append_only": [
+      "HANDOFF.md",
+      "PROGRESS.md",
+      "README.md",
+      "TASKS.md"
+    ]
+  },
+  "full_relevant_code_diff_reviewed": true
+}

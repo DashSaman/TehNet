@@ -1,6 +1,6 @@
 """Publish only the offline guide/client code/small metadata under /software/."""
 from pathlib import Path
-import argparse,fcntl,hashlib,json,os,shutil,signal,subprocess,tempfile
+import argparse,fcntl,hashlib,json,os,shutil,signal,subprocess,tempfile,uuid
 from datetime import datetime,timezone
 
 FILES={'index.html':'text/html; charset=utf-8','profile.json':'application/json','offline_kit.py':'text/plain; charset=utf-8','acceptance.json':'application/json'}
@@ -17,6 +17,21 @@ def atomic(path,data):
         name=Path(out.name);out.write(data);out.flush();os.fsync(out.fileno())
     try:name.chmod(0o644);os.replace(name,path)
     finally:name.unlink(missing_ok=True)
+
+def set_current(pointer,target):
+    """Fail closed before route publication; directory bind mounts see replacement."""
+    pointer=Path(pointer)
+    if pointer.name!='current' or (pointer.exists() and not pointer.is_symlink()):raise ValueError('Owned current symlink required')
+    if target is None:pointer.unlink(missing_ok=True)
+    else:
+        target=Path(target)
+        if target.is_symlink() or not target.is_dir() or target.parent.resolve()!=pointer.parent.resolve():raise ValueError('Current public target must be a real sibling')
+        temporary=pointer.with_name('.current-'+uuid.uuid4().hex)
+        try:temporary.symlink_to(target.name,target_is_directory=True);os.replace(temporary,pointer)
+        finally:temporary.unlink(missing_ok=True)
+    directory=os.open(pointer.parent,os.O_RDONLY|os.O_DIRECTORY)
+    try:os.fsync(directory)
+    finally:os.close(directory)
 
 def routes(public):
     if not str(public).startswith('/opt/tehnet-software/public/') or any(c in str(public) for c in ' \n\r\t;{}'):raise ValueError('Unapproved public code directory')
@@ -51,7 +66,7 @@ def validate_source(source):
     if proof.get('profile_sha256')!=hashlib.sha256((source/'profile.json').read_bytes()).hexdigest():raise ValueError('Accepted profile proof mismatch')
     return {name:hashlib.sha256((source/name).read_bytes()).hexdigest() for name in FILES}
 
-def publish(source,snippet,public,backup,*,run=command,check=lambda:None,previous_public=None):
+def publish(source,snippet,public,backup,*,run=command,check=lambda:None,previous_public=None,current_pointer=None):
     """Caller holds the existing engine lock. No other site file is written."""
     source,snippet,public,backup=map(Path,(source,snippet,public,backup))
     hashes=validate_source(source);old=snippet.read_bytes()
@@ -67,10 +82,13 @@ def publish(source,snippet,public,backup,*,run=command,check=lambda:None,previou
     # Nginx syntax test includes the active sites before any reload. A failed
     # test/reload/post-check restores bytes and verifies the rollback reload.
     try:
+        if current_pointer is not None:set_current(current_pointer,public)
         atomic(snippet,candidate);run('nginx','-t');run('systemctl','reload','nginx');check()
     except BaseException as failure:
         atomic(snippet,old)
-        try:run('nginx','-t');run('systemctl','reload','nginx')
+        try:
+            run('nginx','-t');run('systemctl','reload','nginx')
+            if current_pointer is not None:set_current(current_pointer,previous_public)
         except BaseException as rollback:raise RuntimeError('Publication failed AND rollback reload failed; inspect retained backup') from rollback
         raise RuntimeError('Publication failed; prior snippet restored and reload verified') from failure
     return {'published_files_sha256':hashes,'backup':str(backup),'owned_snippet_only':True,'container_restart':False,'software_payload_files':0}

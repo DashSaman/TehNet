@@ -1,5 +1,7 @@
 # Automatic offline profile refresh
 
+Automatic selected-source qualification now follows each accepted publication: [provider worker, current-profile gate and operations](PROVIDER_AUTO.md). The19October extension changes only `tools/offline_refresh.py` and `tools/offline_publication.py` in the frozen44-file producer: an owned relative `public/current` pointer switches before the existing Nginx publication transaction, restores on rollback and reconciles from the verified actual route after interruption. Old/new full manifests and the narrow watch source-hash transition are retained under [provider evidence](../evidence/PROVIDER_AUTO.md). The schedule, original canonical client/signature/freshness/install gates and all production quotas below remain unchanged.
+
 Owner-authorized scope: keep the isolated `/software/offline/` profile fresh through actual signed qualification. No change to WordPress/theme/Core/menu,active web image,auth/Rubika or the eleven-file mirror worker. The48h client freshness rule remains enforced. This extends the [dated devtools procedure](OFFLINE_DEVTOOLS.md); original static acceptance remains historical evidence.
 
 ## Schedule and admission

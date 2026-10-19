@@ -1,6 +1,6 @@
 {
-  "base_commit": "0f0f32bd8bce6ee85a5dee2998ecfbc8edd7158b",
-  "image": "sha256:4645434de155d667198d925ddd18fe1d9aeeca5f96452d1093abd368f48a2e69",
+  "base_commit": "762d56f886ecfc04e7c149ab4cf4118812dc74ae",
+  "image": "sha256:d7cb725013a64de941bc383dfe3725670d48a9623cebc7d5cfaea4496110e179",
   "normalization": "CRLF to LF only",
   "files_sha256": {
     "app/access.py": "79bfe2f26a29f266e0227a5d9664c65bd3258ec311f1c8f7f5299b86e5f88182",
@@ -33,10 +33,10 @@
     "static/fonts/Vazirmatn-Regular.woff2": "e382101336c6eb32cfb31381c027d02d2e0354bad08f6a395d4088beb3db3d91",
     "app/source_status.py": "a3706a16081623b292d5c0ac7b5bf126d9db092ec04576202524c52734e81509",
     "catalog/source-observations.json": "0ae08ec27fd4317bb00abbd0ca165897865e00b7d8478f51097241e66c03d36d",
-    "app/provider_kit.py": "3297543cb2947206c080fa868eb8679983ce15a532948dba5446ae9a2fca16ea",
-    "app/provider_routes.py": "1055040314ea0831eed1cfa1770c2790c127484d0532abf3f28deb63ee57d1e4",
+    "app/provider_kit.py": "caaac96580ad83c570563d85b37b2856ade182d08e57fe86ffaa2313881251ca",
+    "app/provider_routes.py": "359d640e9f054105b62b82cb1205458129c740a98feb1dafaf48267ec0a641c0",
     "catalog/provider-qualification.json": "0894130294b0935d79fa6166dd9cf87588d861338c77e5f0023349d87cf91773",
-    "templates/provider-sources.html": "5554833d01ae70837c1d7eb3de1faf13b9a25bdd2dd948cb7f28ec6e018cd89c"
+    "templates/provider-sources.html": "9bf990659e02cbcf41f44e44c2d9129a787be471e7011f3364ad75c5f2c3ea52"
   },
-  "previous_image": "sha256:3d01499c5a3c66b625abd95f113a4d37a156f6a230c4bb283cacac3237b3d8a6"
+  "previous_image": "sha256:4645434de155d667198d925ddd18fe1d9aeeca5f96452d1093abd368f48a2e69"
 }

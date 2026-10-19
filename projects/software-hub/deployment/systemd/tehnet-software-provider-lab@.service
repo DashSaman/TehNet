@@ -1,0 +1,36 @@
+[Unit]
+Description=TehNet exact-profile selected-provider native offline lab %i
+After=network-online.target
+[Service]
+Type=oneshot
+WorkingDirectory=@RUNTIME@
+Environment=PYTHONPATH=@RUNTIME@:@HOST_SITE@
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=OPS=/opt/tehnet-software/operations/provider-auto-state/runs/%i
+Environment=HOST_SITE=@HOST_SITE@
+Environment=LAB_STATE_READ=0
+EnvironmentFile=/opt/tehnet-software/operations/provider-auto-state/runs/%i/lab.env
+ExecStartPre=/usr/bin/unshare --mount --net /usr/bin/python3 @RUNTIME@/deployment/qualification/check-refresh-uid.py
+ExecStart=/usr/bin/flock --nonblock --conflict-exit-code=75 /run/lock/tehnet-software-offline-refresh.lock /usr/bin/unshare --mount --propagation private /usr/bin/python3 -m tools.provider_lab
+TimeoutStartSec=1200
+TimeoutStopSec=30
+KillMode=control-group
+MemoryMax=900M
+MemorySwapMax=0
+CPUQuota=50%
+TasksMax=96
+OOMPolicy=stop
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateMounts=true
+ProtectSystem=strict
+ProtectHome=read-only
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX AF_NETLINK
+ReadWritePaths=/opt/tehnet-software/operations/provider-auto-state/runs /run
+InaccessiblePaths=/srv/tehnet-software
+UMask=0077
+StandardOutput=journal
+StandardError=journal

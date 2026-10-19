@@ -1,0 +1,7 @@
+test_candidate_pointer_is_changed_before_nginx_and_old_pointer_restored_on_failure (producer_pointer_qa.PublicationPointerTests.test_candidate_pointer_is_changed_before_nginx_and_old_pointer_restored_on_failure) ... ok
+test_crash_reconciliation_uses_actual_old_route_and_repairs_real_pointer (producer_pointer_qa.PublicationPointerTests.test_crash_reconciliation_uses_actual_old_route_and_repairs_real_pointer) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.036s
+
+OK

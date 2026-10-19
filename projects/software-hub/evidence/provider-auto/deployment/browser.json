@@ -1,0 +1,34 @@
+{
+  "cards": [
+    "provider-arvan",
+    "provider-linuxmirrors",
+    "provider-liara",
+    "provider-hamravesh"
+  ],
+  "checks": "نتیجه بازآزمایی منابع نسخه فعلی\nابر آروان: آزمون قبول شد\nLinuxMirrors.ir: آزمون قبول شد\nلیارا: آزمون قبول شد\nهم‌روش: آزمون قبول شد",
+  "commands": [
+    {
+      "hasQualification": true,
+      "id": "prepare-arvan"
+    },
+    {
+      "hasQualification": true,
+      "id": "prepare-linuxmirrors"
+    },
+    {
+      "hasQualification": true,
+      "id": "prepare-liara"
+    },
+    {
+      "hasQualification": true,
+      "id": "prepare-hamravesh"
+    }
+  ],
+  "duplicateIds": [],
+  "overflow": false,
+  "clipboardMatches": true,
+  "consoleErrors": [],
+  "checkedAt": "2026-10-19T16:49:38.494Z",
+  "clipboardFirstObservationMatches": false,
+  "clipboardNote": "Initial post-reload native AX-click clipboard read still exposed the historical command despite success toast; subsequent explicit locator click and separate read recorded here. No UI-code change inferred from that observation."
+}
