@@ -14,6 +14,7 @@ from .auth import AuthStore
 from .private_routes import install_access
 from .external_storage import ExternalRegistry
 from .downloads import install_public_downloads,public_catalog
+from .source_status import source_assessments,unmeasured
 
 ROOT=Path(__file__).resolve().parents[1]
 CAPABILITIES={'public_research':True,'downloads':False,'apt_profile_accepted':False,'restricted_access':False,'rubika':False}
@@ -30,6 +31,7 @@ INSTALL_GUIDES=[
 
 
 def sources(settings: Settings, q: str, cursor: int, limit: int):
+    assessments=source_assessments()
     where="visibility='public' AND instr(lower(provider||' '||ecosystem||' '||id),lower(?))>0"
     with closing(open_readonly(settings.database)) as db:
         count=db.execute('SELECT COUNT(*) FROM sources WHERE '+where,(q,)).fetchone()[0]
@@ -41,7 +43,8 @@ def sources(settings: Settings, q: str, cursor: int, limit: int):
         items.append({'id':row['id'],'provider':row['provider'],'ecosystem':row['ecosystem'],
                       'evidence_status':config.get('evidence_status','UNVERIFIED'),
                       'evidence_urls':config.get('evidence_urls',[]),'coverage':config.get('coverage',[]),
-                      'routing_enabled':False,'research_date':'2026-10-17'})
+                      'routing_enabled':False,'research_date':'2026-10-17',
+                      'assessment':assessments.get(row['id'],unmeasured())})
     return {'items':items,'total':count,'cursor':cursor,'limit':limit}
 
 

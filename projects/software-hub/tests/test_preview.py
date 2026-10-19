@@ -112,5 +112,14 @@ class PreviewTests(unittest.TestCase):
         self.assertIn('#79e7f7',css)
         self.assertIn('Vazirmatn',css)
 
+    def test_home_distinguishes_research_and_live_downloads_without_obsolete_claims(self):
+        page=self.client.get('/software/').text
+        self.assertFalse('نیازمند آزمون' in page,'Home still renders the same untested badge on every research card')
+        self.assertNotIn('هیچ منبعی هنوز برای دانلود خودکار فعال نشده',page)
+        self.assertNotIn('بسته آفلاین این ابزارها هنوز آزموده و منتشر نشده',page)
+        self.assertIn('href="/software/offline/"',page)
+        self.assertIn('<details class="research-archive"',page)
+        self.assertIn('زمان و دامنه آزمون',page)
+
 
 if __name__ == '__main__': unittest.main()

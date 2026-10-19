@@ -1,5 +1,7 @@
 # 48h observation — setup accepted,real window ongoing
 
+Latest19October post-deployment observation: [source-status release](SOURCE_STATUS.md), [fourth stored sample and fresh revalidation](source-status/watch-postcheck.json). Current engine changed with explicit owner authority; original deadline/history/producer preserved. The14:19UTC scheduled sample was healthy. No new offline profile or completed48h result is claimed.
+
 Predecessor `cdb01c02b4e1e1af77c4c2aa6dcde9bbae20dfbf`; [task](../tasks/W4-OFFLINE-WATCH-48H.md), [operation](../deployment/OFFLINE_WATCH.md), [stage ledger](OFFLINE_WATCH_LEDGER.md).
 
 Window **2026-10-19T13:39:28.226058Z through2026-10-21T13:39:28.226058Z**. The latter is21October17:09:28 Tehran. Initial state is `observing`,not48h complete. [Activation](watch-activation.json), [latest captured sample](watch-start/latest.json).

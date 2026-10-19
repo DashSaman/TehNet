@@ -1,6 +1,7 @@
 # W4-OFFLINE-WATCH-48H
 
 - State: in_progress — deployment and observation start; do not mark the elapsed48h window complete early.
+- Latest19October follow-up: [source-status deployment and authorized baseline transition](../evidence/SOURCE_STATUS.md); [native14:19UTC fourth healthy sample](../evidence/source-status/watch-postcheck.json). Original deadline/history and producer preserved; no new in-window offline publication yet. Use current private config/current engine manifest,not historical image/container assumptions.
 - Owner: Codex integrator,direct work; no assistant needed.
 - Branch: docs/melika-consolidation-2026-10-17
 - Base: cdb01c02b4e1e1af77c4c2aa6dcde9bbae20dfbf

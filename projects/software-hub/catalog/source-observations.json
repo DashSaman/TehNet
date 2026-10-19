@@ -1,0 +1,464 @@
+{
+  "schema": 1,
+  "checked_at": "2026-10-19T14:09:10.632664+00:00",
+  "vantage": "current foreign VPS; not Iran",
+  "scope": "One bounded HTTPS endpoint GET and,for Ubuntu APT sources,one signed noble-updates InRelease; no packages,install or production routing approvals",
+  "maximum_requests": 40,
+  "maximum_response_body_bytes": 5505024,
+  "payloads_saved": 0,
+  "observations": [
+    {
+      "id": "arvan-ubuntu",
+      "checked_at": "2026-10-19T14:08:52.844535+00:00",
+      "url": "https://mirror.arvancloud.ir/ubuntu/",
+      "http_upgraded_to_https": false,
+      "state": "signed_metadata_verified",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "endpoint": {
+        "status": 301,
+        "tls_verified": true,
+        "body_bytes": 0,
+        "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "body_is_prefix": false
+      },
+      "signed_metadata_response": {
+        "status": 200,
+        "tls_verified": true,
+        "body_bytes": 126125,
+        "body_sha256": "05c2c50a69e01a09541b744202c5267e5cdf0392f9cc5e3668f6771236c9ebd1",
+        "body_is_prefix": false
+      },
+      "signed_suite": "noble-updates",
+      "signed_date": "2026-10-18T23:55:07+00:00",
+      "inrelease_sha256": "05c2c50a69e01a09541b744202c5267e5cdf0392f9cc5e3668f6771236c9ebd1",
+      "signers": [
+        "F6ECB3762474EDA9D21B7022871920D1991BC93C"
+      ],
+      "elapsed_seconds": 0.494
+    },
+    {
+      "id": "iranserver-ubuntu",
+      "checked_at": "2026-10-19T14:08:52.845225+00:00",
+      "url": "https://mirror.iranserver.com/ubuntu/",
+      "http_upgraded_to_https": false,
+      "state": "unavailable",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "error_code": "TimeoutError",
+      "elapsed_seconds": 6.215
+    },
+    {
+      "id": "mobinhost-ubuntu",
+      "checked_at": "2026-10-19T14:11:03.387549+00:00",
+      "url": "https://mirror.mobinhost.com/ubuntu/",
+      "http_upgraded_to_https": false,
+      "state": "metadata_rejected",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "endpoint": {
+        "status": 200,
+        "tls_verified": true,
+        "body_bytes": 4588,
+        "body_sha256": "a0dcbe2d427453a05de6c83e9bee4b765f455ab08f171c2a4a6d61a543dfd2de",
+        "body_is_prefix": false
+      },
+      "signed_metadata_response": {
+        "status": 200,
+        "tls_verified": true,
+        "body_bytes": 126125,
+        "body_sha256": "e1cc62b7aa9a5ab3eb01359e28a7bfa402891bcb5e01507523ac20a01ef7e6f9",
+        "body_is_prefix": false
+      },
+      "metadata_error": "Stale mutable suite",
+      "elapsed_seconds": 0.963
+    },
+    {
+      "id": "iut-ubuntu",
+      "checked_at": "2026-10-19T14:08:52.846131+00:00",
+      "url": "https://repo.iut.ac.ir/repo/ubuntu/",
+      "http_upgraded_to_https": false,
+      "state": "unavailable",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "error_code": "DNS_FAILED",
+      "elapsed_seconds": 4.0
+    },
+    {
+      "id": "shatel-debian",
+      "checked_at": "2026-10-19T14:08:53.338575+00:00",
+      "url": "https://mirror.shatel.ir/debian/",
+      "http_upgraded_to_https": true,
+      "state": "endpoint_reachable",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "endpoint": {
+        "status": 200,
+        "tls_verified": true,
+        "body_bytes": 1759,
+        "body_sha256": "5dda1f0fc44269a6dcd94a9417bd7485d7a0a84dc58bfbafa79b273d310b8c5f",
+        "body_is_prefix": false
+      },
+      "elapsed_seconds": 0.531
+    },
+    {
+      "id": "linuxmirrors-ubuntu",
+      "checked_at": "2026-10-19T14:08:53.811838+00:00",
+      "url": "https://repo.linuxmirrors.ir/ubuntu/",
+      "http_upgraded_to_https": false,
+      "state": "signed_metadata_verified",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "endpoint": {
+        "status": 200,
+        "tls_verified": true,
+        "body_bytes": 2130,
+        "body_sha256": "93372105eddf5b832744cb32c6200641220a82810df91bb59f68e4c4b8e9b6ac",
+        "body_is_prefix": false
+      },
+      "signed_metadata_response": {
+        "status": 200,
+        "tls_verified": true,
+        "body_bytes": 126125,
+        "body_sha256": "05c2c50a69e01a09541b744202c5267e5cdf0392f9cc5e3668f6771236c9ebd1",
+        "body_is_prefix": false
+      },
+      "signed_suite": "noble-updates",
+      "signed_date": "2026-10-18T23:55:07+00:00",
+      "inrelease_sha256": "05c2c50a69e01a09541b744202c5267e5cdf0392f9cc5e3668f6771236c9ebd1",
+      "signers": [
+        "F6ECB3762474EDA9D21B7022871920D1991BC93C"
+      ],
+      "elapsed_seconds": 1.797
+    },
+    {
+      "id": "liara-ubuntu",
+      "checked_at": "2026-10-19T14:08:53.869563+00:00",
+      "url": "https://linux-mirror.liara.ir/repository/ubuntu/",
+      "http_upgraded_to_https": true,
+      "state": "signed_metadata_verified",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "endpoint": {
+        "status": 200,
+        "tls_verified": true,
+        "body_bytes": 395,
+        "body_sha256": "a39894d629cfb8df3c28f70bf0cd3533db56317ca338608ef24de39a0ac73779",
+        "body_is_prefix": false
+      },
+      "signed_metadata_response": {
+        "status": 200,
+        "tls_verified": true,
+        "body_bytes": 126125,
+        "body_sha256": "05c2c50a69e01a09541b744202c5267e5cdf0392f9cc5e3668f6771236c9ebd1",
+        "body_is_prefix": false
+      },
+      "signed_suite": "noble-updates",
+      "signed_date": "2026-10-18T23:55:07+00:00",
+      "inrelease_sha256": "05c2c50a69e01a09541b744202c5267e5cdf0392f9cc5e3668f6771236c9ebd1",
+      "signers": [
+        "F6ECB3762474EDA9D21B7022871920D1991BC93C"
+      ],
+      "elapsed_seconds": 1.364
+    },
+    {
+      "id": "chabokan-portal",
+      "checked_at": "2026-10-19T14:08:55.233230+00:00",
+      "url": "https://mirror2.chabokan.net/",
+      "http_upgraded_to_https": false,
+      "state": "endpoint_reachable",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "endpoint": {
+        "status": 200,
+        "tls_verified": true,
+        "body_bytes": 37926,
+        "body_sha256": "266b0556fddd6eb731308ad109c290ec2e466ba9d26df5799a75ad10957f9adb",
+        "body_is_prefix": false
+      },
+      "elapsed_seconds": 1.433
+    },
+    {
+      "id": "runflare-portal",
+      "checked_at": "2026-10-19T14:08:55.608743+00:00",
+      "url": "https://runflare.com/mirrors/",
+      "http_upgraded_to_https": false,
+      "state": "endpoint_reachable",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "endpoint": {
+        "status": 200,
+        "tls_verified": true,
+        "body_bytes": 65536,
+        "body_sha256": "c86e9af85045897488d29801f1b8753087fd80ec8398683add406670e25ea03d",
+        "body_is_prefix": true
+      },
+      "elapsed_seconds": 0.593
+    },
+    {
+      "id": "myket-portal",
+      "checked_at": "2026-10-19T14:08:56.201777+00:00",
+      "url": "https://maven.myket.ir/",
+      "http_upgraded_to_https": false,
+      "state": "endpoint_reachable",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "endpoint": {
+        "status": 200,
+        "tls_verified": true,
+        "body_bytes": 11047,
+        "body_sha256": "91b72c1dc9195a4dd16794d991218499f2a91aa9a5f20fa7b71b5bdc054eaa0b",
+        "body_is_prefix": false
+      },
+      "elapsed_seconds": 0.386
+    },
+    {
+      "id": "hamravesh-ubuntu",
+      "checked_at": "2026-10-19T14:08:56.587967+00:00",
+      "url": "https://repo.hmirror.ir/ubuntu/",
+      "http_upgraded_to_https": false,
+      "state": "signed_metadata_verified",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "endpoint": {
+        "status": 200,
+        "tls_verified": true,
+        "body_bytes": 634,
+        "body_sha256": "da97fde54fed14133cdd767509bcbb673d27a7deec905fcbdf12557e60d2bf0f",
+        "body_is_prefix": false
+      },
+      "signed_metadata_response": {
+        "status": 200,
+        "tls_verified": true,
+        "body_bytes": 126125,
+        "body_sha256": "05c2c50a69e01a09541b744202c5267e5cdf0392f9cc5e3668f6771236c9ebd1",
+        "body_is_prefix": false
+      },
+      "signed_suite": "noble-updates",
+      "signed_date": "2026-10-18T23:55:07+00:00",
+      "inrelease_sha256": "05c2c50a69e01a09541b744202c5267e5cdf0392f9cc5e3668f6771236c9ebd1",
+      "signers": [
+        "F6ECB3762474EDA9D21B7022871920D1991BC93C"
+      ],
+      "elapsed_seconds": 1.179
+    },
+    {
+      "id": "hamdocker-hub",
+      "checked_at": "2026-10-19T14:08:56.666613+00:00",
+      "url": "https://hub.hamdocker.ir/",
+      "http_upgraded_to_https": false,
+      "state": "redirect",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "endpoint": {
+        "status": 302,
+        "tls_verified": true,
+        "body_bytes": 145,
+        "body_sha256": "2c4839021111059526058ddcbdb681808354b612589d5c2a3002670b6589d8fc",
+        "body_is_prefix": false
+      },
+      "elapsed_seconds": 0.323
+    },
+    {
+      "id": "oneplatform-portal",
+      "checked_at": "2026-10-19T14:08:56.846569+00:00",
+      "url": "https://mirror.1platform.net/",
+      "http_upgraded_to_https": false,
+      "state": "endpoint_reachable",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "endpoint": {
+        "status": 200,
+        "tls_verified": true,
+        "body_bytes": 14676,
+        "body_sha256": "c0c31624763f9d303f00eedafb428c114121c678dd387bed33c79764f58338c0",
+        "body_is_prefix": false
+      },
+      "elapsed_seconds": 0.153
+    },
+    {
+      "id": "aminidc-candidate",
+      "checked_at": "2026-10-19T14:08:56.989965+00:00",
+      "url": "https://mirror.aminidc.com/",
+      "http_upgraded_to_https": true,
+      "state": "unavailable",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "error_code": "TimeoutError",
+      "elapsed_seconds": 7.248
+    },
+    {
+      "id": "kubarcloud-candidate",
+      "checked_at": "2026-10-19T14:08:56.999350+00:00",
+      "url": "https://mirrors.kubarcloud.com/",
+      "http_upgraded_to_https": false,
+      "state": "unavailable",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "error_code": "DNS_FAILED",
+      "elapsed_seconds": 0.061
+    },
+    {
+      "id": "ito-portal-candidate",
+      "checked_at": "2026-10-19T14:08:57.060613+00:00",
+      "url": "https://repo-portal.ito.gov.ir/repo/",
+      "http_upgraded_to_https": false,
+      "state": "unavailable",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "error_code": "TimeoutError",
+      "elapsed_seconds": 6.831
+    },
+    {
+      "id": "ito-repo-candidate",
+      "checked_at": "2026-10-19T14:08:57.766867+00:00",
+      "url": "https://repo.ito.gov.ir/",
+      "http_upgraded_to_https": false,
+      "state": "unavailable",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "error_code": "TimeoutError",
+      "elapsed_seconds": 7.662
+    },
+    {
+      "id": "pardis-candidate",
+      "checked_at": "2026-10-19T14:08:59.059998+00:00",
+      "url": "https://mirrors.pardisco.co/",
+      "http_upgraded_to_https": false,
+      "state": "endpoint_reachable",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "endpoint": {
+        "status": 200,
+        "tls_verified": true,
+        "body_bytes": 9056,
+        "body_sha256": "2f6c00a7435307876a0ffdb804f27b2e95c54852cbfdd861f118df0718ff3c6f",
+        "body_is_prefix": false
+      },
+      "elapsed_seconds": 0.4
+    },
+    {
+      "id": "afranet-candidate",
+      "checked_at": "2026-10-19T14:08:59.460103+00:00",
+      "url": "https://mirror.afranet.com/",
+      "http_upgraded_to_https": true,
+      "state": "unavailable",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "error_code": "DNS_FAILED",
+      "elapsed_seconds": 4.001
+    },
+    {
+      "id": "pishgaman-candidate",
+      "checked_at": "2026-10-19T14:09:03.460718+00:00",
+      "url": "https://ubuntu.pishgaman.net/",
+      "http_upgraded_to_https": false,
+      "state": "redirect",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "endpoint": {
+        "status": 301,
+        "tls_verified": true,
+        "body_bytes": 178,
+        "body_sha256": "7cb59ce037656d9a4e8ee9194bc31dfc540cbc8fd5b19c64439a89631cde3715",
+        "body_is_prefix": false
+      },
+      "elapsed_seconds": 0.501
+    },
+    {
+      "id": "ferdowsi-cran-candidate",
+      "checked_at": "2026-10-19T14:09:03.891874+00:00",
+      "url": "https://cran.um.ac.ir/",
+      "http_upgraded_to_https": false,
+      "state": "unavailable",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "error_code": "DNS_FAILED",
+      "elapsed_seconds": 4.001
+    },
+    {
+      "id": "zeroone-candidate",
+      "checked_at": "2026-10-19T14:09:03.962119+00:00",
+      "url": "https://mirror.0-1.cloud/",
+      "http_upgraded_to_https": false,
+      "state": "unavailable",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "error_code": "TimeoutError",
+      "elapsed_seconds": 6.216
+    },
+    {
+      "id": "kimiahost-candidate",
+      "checked_at": "2026-10-19T14:09:04.237586+00:00",
+      "url": "https://ubuntu-mirror.kimiahost.com/",
+      "http_upgraded_to_https": false,
+      "state": "unavailable",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "error_code": "SSLCertVerificationError",
+      "elapsed_seconds": 0.293
+    },
+    {
+      "id": "digitalvps-candidate",
+      "checked_at": "2026-10-19T14:09:04.530161+00:00",
+      "url": "https://mirror.digitalvps.ir/ubuntu/",
+      "http_upgraded_to_https": false,
+      "state": "unavailable",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "error_code": "TimeoutError",
+      "elapsed_seconds": 6.101
+    },
+    {
+      "id": "sindad-candidate",
+      "checked_at": "2026-10-19T14:09:05.428975+00:00",
+      "url": "https://ir.ubuntu.sindad.cloud/",
+      "http_upgraded_to_https": false,
+      "state": "endpoint_reachable",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "endpoint": {
+        "status": 200,
+        "tls_verified": true,
+        "body_bytes": 2008,
+        "body_sha256": "5ad8b06dcb7f218a7ace2956bd213e41778356cb6ab90808fa1c379f970a291b",
+        "body_is_prefix": false
+      },
+      "elapsed_seconds": 0.392
+    },
+    {
+      "id": "faraso-candidate",
+      "checked_at": "2026-10-19T14:09:05.820528+00:00",
+      "url": "https://mirror.faraso.org/",
+      "http_upgraded_to_https": true,
+      "state": "endpoint_reachable",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "endpoint": {
+        "status": 200,
+        "tls_verified": true,
+        "body_bytes": 920,
+        "body_sha256": "e704b948c804d06d7a04c197de2fa1230d313bf27b7b3428b4e3602876b11d7b",
+        "body_is_prefix": false
+      },
+      "elapsed_seconds": 0.704
+    },
+    {
+      "id": "parsdev-candidate",
+      "checked_at": "2026-10-19T14:09:06.524605+00:00",
+      "url": "https://mirror.parsdev.com/",
+      "http_upgraded_to_https": false,
+      "state": "endpoint_reachable",
+      "installation_verified": false,
+      "routing_enabled": false,
+      "endpoint": {
+        "status": 200,
+        "tls_verified": true,
+        "body_bytes": 2187,
+        "body_sha256": "a987e78c4255661d2df1b17156f9f61731bce3950dea7f76978aa9dd06baa95d",
+        "body_is_prefix": false
+      },
+      "elapsed_seconds": 0.395
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # W2/W3/W5 external engine — operator runbook
 
+Current web presentation release as of19October2026:`/opt/tehnet-software/releases/engine-source-status-20261019`,image `sha256:3d01499c5a3c66b625abd95f113a4d37a156f6a230c4bb283cacac3237b3d8a6`. [Source checks,recovery/rollback and deployment](../evidence/SOURCE_STATUS.md). Schema,state mounts,password CLI,producer and normal download worker are unchanged. Preserve the complete current offline Nginx aliases during code activation; never replace them with a historical base-only snippet. The existing password helper still operates on the exact current inspected image.
+
 Current engine is active on `/software` as of 2026-10-18. [Recovery and activation evidence](../evidence/ENGINE_ACTIVATION.md) supersedes the earlier staged-only status. Owner password remains unset and private access closed until local setup; actual external private delivery/Rubika are still unaccepted. Use [RECOVERY](RECOVERY.md) for tested metadata recovery and code rollback. WordPress/theme/Core/menu/other ports are outside scope.
 
 ## Password setup chosen by the owner

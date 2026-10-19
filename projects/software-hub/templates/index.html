@@ -14,17 +14,17 @@
   <section class="hero">
     <div><p class="eyebrow">زیرساختی برای ادامه کار</p><h1>آرشیو نرم‌افزار<br><em>تهران نتورک</em></h1>
     <p class="intro">منابع لینوکس، ابزارهای توسعه و مسیر آماده‌سازی نصب آفلاین؛ با منشأ روشن و وضعیت بررسی مشخص.</p>
-    <div class="hero-actions"><a class="button" href="#install">نصب آسان ابزارها ↓</a><a class="text-button" href="#sources">مرور منابع پژوهش</a></div></div>
-    <aside class="status"><span class="dot"></span><strong>نسخه اولیه عمومی</strong><p>فهرست پژوهش آماده مرور است.<br>{% if downloads['items'] %}دانلودهای ثبت‌شده از منابع بیرونی در پایین صفحه قرار دارند.{% else %}دانلود تأییدشده هنوز فعال نیست.{% endif %}</p><div class="stat"><b>{{ result.total if not q else '۲۷' }}</b><span>ردیف منبع پژوهشی</span></div><small>این عدد تعداد اپراتورهای مستقل یا میرورهای تأییدشده نیست.</small></aside>
+    <div class="hero-actions"><a class="button" href="#install">نصب آسان ابزارها ↓</a><a class="text-button" href="{{ prefix }}/offline/">راهنمای نصب آفلاین</a><a class="text-button" href="#sources">وضعیت منابع</a></div></div>
+    <aside class="status"><span class="dot"></span><strong>نسخه اولیه عمومی</strong><p>دانلودها، راهنمای نصب و نتیجه بررسی منابع در این صفحه قرار دارند.<br>{% if downloads['items'] %}دانلودهای ثبت‌شده از منابع بیرونی در پایین صفحه قرار دارند.{% else %}دانلود تأییدشده هنوز فعال نیست.{% endif %}</p><div class="stat"><b>{{ downloads.total }}</b><span>فایل ثبت‌شده برای دانلود</span></div><small>فایل‌های دانلودی روی منابع بیرونی می‌مانند؛ وضعیت هر منبع جداگانه نمایش داده می‌شود.</small></aside>
   </section>
-  <section class="principles" aria-label="اصول آرشیو"><div><span>۰۱</span><h2>ابتدا اعتماد</h2><p>بررسی مجوز، امضا و هش فایل، پیش از ارائه دانلود.</p></div><div><span>۰۲</span><h2>آمادگی آفلاین</h2><p>برنامه‌ریزی برای بسته کامل وابستگی‌ها و آزمون روی محیط پاک.</p></div><div><span>۰۳</span><h2>وضعیت شفاف</h2><p>نامزد پژوهش را با منبع آزموده‌شده یکی نمی‌دانیم.</p></div></section>
+  <section class="principles" aria-label="اصول آرشیو"><div><span>۰۱</span><h2>ابتدا اعتماد</h2><p>بررسی مجوز، امضا و هش فایل، پیش از ارائه دانلود.</p></div><div><span>۰۲</span><h2>آمادگی آفلاین</h2><p>آماده‌سازی بسته‌ها روی دستگاه خودتان و استفاده از راهنمای نصب آفلاین اوبونتو.</p></div><div><span>۰۳</span><h2>وضعیت شفاف</h2><p>دامنه، تاریخ و محل آزمون هر منبع را می‌توانید ببینید.</p></div></section>
   {% if downloads['items'] %}<section id="downloads" class="install">
     <h2>دانلود از منابع بیرونی</h2><p class="muted">فایل‌ها روی میرور یا فضای ذخیره‌سازی بیرونی قرار دارند. مقصد پس از کلیک مشخص است؛ پیش از اجرا، هش فایل را بررسی کنید. این فهرست تأیید نصب آفلاین نیست.</p>
     <div class="grid">{% for item in downloads['items'] %}<article class="card"><h3>{{ item.name }}</h3><p>{{ item.version }} · {{ item.architecture }} · {{ item.size_bytes }} bytes</p><a href="{{ prefix }}/download/{{ item.sha256 }}/{{ item.filename }}">دریافت {{ item.filename }}</a><label for="hash-{{ loop.index }}">بررسی فایل دریافت‌شده در لینوکس</label><textarea id="hash-{{ loop.index }}" class="command" rows="2" readonly dir="ltr">printf '%s  %s\n' '{{ item.sha256 }}' '{{ item.filename }}' | sha256sum --check -</textarea><button type="button" class="copy" data-copy="hash-{{ loop.index }}">کپی فرمان بررسی هش</button></article>{% endfor %}</div>
   </section>{% endif %}
   <section id="install" class="install">
     <div class="section-heading"><div><p class="eyebrow">فرمان روشن، نتیجه قابل بررسی</p><h2>نصب آسان؛ کپی، اجرا، بررسی</h2></div><span class="pill">نصب آنلاین · Ubuntu 24.04</span></div>
-    <p class="muted">این راهنما از مخازن امضاشده پیکربندی‌شده سیستم شما استفاده می‌کند؛ دانلود از آرشیو تهران نتورک هنوز فعال نیست. برای اجرای این روش، اینترنت یا دسترسی به یک مخزن معتبر و حساب دارای دسترسی sudo لازم است.</p>
+    <p class="muted">این روش آنلاین از مخازن امضاشده پیکربندی‌شده سیستم شما استفاده می‌کند. برای دانلود مستقیم، بخش فایل‌ها و برای آماده‌سازی وابستگی‌ها، راهنمای نصب آفلاین را ببینید. برای اجرای این روش، اینترنت یا دسترسی به یک مخزن معتبر و حساب دارای دسترسی sudo لازم است.</p>
     <ol class="install-steps"><li>ابزار مورد نیاز را باز کنید.</li><li>فرمان نصب را کپی و در ترمینال اجرا کنید.</li><li>فهرست بسته‌ها را بخوانید و نصب را تأیید کنید.</li><li>فرمان بررسی را اجرا کنید و نتیجه را ببینید.</li></ol>
     <div class="install-grid">
     {% for guide in guides %}
@@ -40,20 +40,25 @@ sudo apt-get install --no-install-recommends {{ guide.package }}</textarea>
     {% endfor %}
     </div>
     <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
-    <p class="offline-note"><strong>برای نصب آفلاین:</strong> فایل برنامه به‌تنهایی کافی نیست؛ وابستگی‌های همان نسخه و معماری هم باید آماده باشند. بسته آفلاین این ابزارها هنوز آزموده و منتشر نشده است. <a href="https://ubuntu.com/server/docs/tutorial/managing-software/" target="_blank" rel="noopener noreferrer">راهنمای رسمی مدیریت نرم‌افزار Ubuntu ↗</a></p>
+    <p class="offline-note"><strong>برای نصب آفلاین:</strong> فایل برنامه به‌تنهایی کافی نیست؛ وابستگی‌های همان نسخه و معماری هم باید آماده باشند. <a href="{{ prefix }}/offline/">راهنمای آماده‌سازی و نصب آفلاین Ubuntu 24.04</a> شامل فهرست دقیق ابزارها، وابستگی‌ها، بررسی امضا و مدرک آزمون همان نسخه است؛ دامنه تأیید را در آن صفحه بخوانید. <a href="https://ubuntu.com/server/docs/tutorial/managing-software/" target="_blank" rel="noopener noreferrer">راهنمای رسمی مدیریت نرم‌افزار Ubuntu ↗</a></p>
   </section>
   <section id="sources" class="sources">
-    <div class="section-heading"><div><p class="eyebrow">نمایه منابع</p><h2>از منبع شروع کنید</h2></div><span class="pill">پژوهش: ۱۷ اکتبر ۲۰۲۶</span></div>
-    <p class="muted">این فهرست بر اساس پژوهش ثبت‌شده تهیه شده است. هیچ منبعی هنوز برای دانلود خودکار فعال نشده؛ دسترسی و تازگی فایل‌ها باید جداگانه آزموده شوند.</p>
-    <form method="get" action="{{ prefix }}/" class="search"><label for="q">جست‌وجوی نام یا اکوسیستم</label><div><input id="q" name="q" value="{{ q }}" maxlength="120" placeholder="مثلاً Ubuntu، apt یا نام سرویس‌دهنده"><button type="submit">جست‌وجو</button></div></form>
-    <p class="result-count">{{ result.total }} نتیجه</p>
+    <div class="section-heading"><div><p class="eyebrow">نتیجه بررسی منابع</p><h2>منابع با نتیجه آزمون مشخص</h2></div><a class="pill" href="{{ prefix }}/offline/">راهنمای آفلاین اوبونتو ←</a></div>
+    <p class="muted">پاسخ HTTPS و اعتبار امضای مخزن، نتیجه‌های جداگانه‌اند. تأیید نصب فقط برای نسخه و ابزارهایی معتبر است که مدرک نصب دارند. زمان و دامنه آزمون روی هر کارت آمده؛ دسترسی از داخل ایران با این بررسی تأیید نمی‌شود.</p>
+    <form method="get" action="{{ prefix }}/#sources" class="search"><label for="q">جست‌وجوی نام یا اکوسیستم</label><div><input id="q" name="q" value="{{ q }}" maxlength="120" placeholder="مثلاً Ubuntu، apt یا نام سرویس‌دهنده"><button type="submit">جست‌وجو</button></div></form>
+    {% set measured = result['items']|selectattr('assessment.usable_observation')|list %}
+    {% set research = result['items']|rejectattr('assessment.usable_observation')|list %}
+    <p class="result-count">{{ measured|length }} نتیجه با پاسخ موفق در آخرین بررسی · {{ result.total }} ردیف پژوهشی در مجموع</p>
     <div class="grid">
-    {% for item in result['items'] %}
-      <article class="card"><div class="card-head"><span class="type">{{ item.ecosystem }}</span><span class="unverified">نیازمند آزمون</span></div><h3 dir="auto">{{ item.provider }}</h3><p class="coverage" dir="ltr">{{ item.coverage|join(' · ') }}</p><p>{{ 'دارای ارجاع مستنداتی؛ آزمون عملی تأیید نشده.' if item.evidence_status == 'DOCUMENTED' else 'نامزد کشف منبع؛ پوشش و قابلیت‌ها تأیید نشده.' }}</p>{% if item.evidence_urls %}<a href="{{ item.evidence_urls[0] }}" rel="noopener noreferrer" target="_blank">مشاهده مرجع پژوهش ↗</a>{% else %}<span class="muted">ارجاع مستقیم ثبت نشده</span>{% endif %}</article>
-    {% else %}<p class="empty">منبعی با این عبارت پیدا نشد. عبارت دیگری را امتحان کنید.</p>{% endfor %}
+    {% for item in measured %}
+      <article class="card"><div class="card-head"><span class="type">{{ item.ecosystem }}</span><span class="source-result">{{ item.assessment.label }}</span></div><h3 dir="auto">{{ item.provider }}</h3><p class="coverage" dir="ltr">{{ item.coverage|join(' · ') }}</p><p>{{ item.assessment.detail }}</p><p class="check-date">زمان و دامنه آزمون: <time dir="ltr">{{ item.assessment.checked_at }}</time><br>{{ item.assessment.scope }} · {{ item.assessment.vantage }}</p>{% if item.evidence_urls %}<a href="{{ item.evidence_urls[0] }}" rel="noopener noreferrer" target="_blank">مستندات منبع ↗</a>{% endif %}</article>
+    {% else %}<p class="empty">برای این جست‌وجو، نتیجه موفق تازه‌ای ثبت نشده است. نتیجه‌های دیگر در سوابق بررسی آمده‌اند؛ دانلودهای فعال بالای صفحه قرار دارند.</p>{% endfor %}
     </div>
+    <details class="research-archive"><summary>سوابق بررسی و منابع پژوهشی ({{ research|length }})</summary><p class="muted">این موارد مسیر دانلود فعال نیستند. محدودیت اتصال از محل آزمون یا نبود نتیجه معتبر، دلیل قطع بودن سراسری یک سرویس نیست.</p><div class="grid">
+    {% for item in research %}<article class="card"><div class="card-head"><span class="type">{{ item.ecosystem }}</span><span class="unverified">{{ item.assessment.label }}</span></div><h3 dir="auto">{{ item.provider }}</h3><p>{{ item.assessment.detail }}</p>{% if item.assessment.checked_at %}<p class="check-date">زمان و دامنه آزمون: <time dir="ltr">{{ item.assessment.checked_at }}</time><br>{{ item.assessment.scope }} · {{ item.assessment.vantage }}</p>{% endif %}{% if item.evidence_urls %}<a href="{{ item.evidence_urls[0] }}" rel="noopener noreferrer" target="_blank">مشاهده مرجع پژوهش ↗</a>{% endif %}</article>{% else %}<p class="muted">سابقه دیگری برای این جست‌وجو وجود ندارد.</p>{% endfor %}
+    </div></details>
   </section>
-  <section class="next"><div><p class="eyebrow">مسیر بعدی</p><h2>از فهرست به نصب قابل اتکا</h2></div><ol><li>اعتبارسنجی منابع و مجوز ارائه</li><li>آماده‌سازی پروفایل Ubuntu 24.04</li><li>آزمون نصب و بازیابی روی محیط پاک</li></ol><p>تا پایان این مراحل، هیچ فایل یا بسته‌ای با عنوان «نصب آفلاین تأییدشده» عرضه نمی‌شود.</p></section>
+  <section class="next"><div><p class="eyebrow">آماده‌سازی روی دستگاه خودتان</p><h2>بسته کامل، همراه با وابستگی‌ها</h2></div><ol><li>راهنمای آفلاین و دامنه آزمون نسخه را بخوانید.</li><li>فایل‌ها را مستقیم از منبع بیرونی روی دستگاه خودتان آماده کنید.</li><li>امضا و هش را بررسی کنید و سپس نصب را انجام دهید.</li></ol><p><a href="{{ prefix }}/offline/">شروع از راهنمای کپی‌پیست نصب آفلاین ←</a></p></section>
 </main>
 <footer><strong>تهران نتورک</strong><span>آموزش، ابزار و زیرساخت شبکه</span><a href="/contact/">تماس با ما</a></footer>
 </body></html>

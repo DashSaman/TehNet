@@ -1,5 +1,7 @@
 # Finite48h offline refresh observation
 
+19October authorized baseline transition: [source-status release and concurrent owner change](../evidence/SOURCE_STATUS.md) supersede the initial engine image/container inventory and one main-config hash. The exact owner-added TunnelPannel container/include and the new software engine were verified; original start/deadline/history,producer44source hashes and all other protected hashes remain. Current expected identities are in private watch config and [engine manifest](../evidence/active-runtime-source.json). Native14:19scheduled sample passed after transition. Never replay initial hardcoded-image setup or restore an older baseline over these accepted owner changes.
+
 This is a read-only observer of [automatic refresh](AUTO_REFRESH.md),not a replacement producer or website change. Task: [W4-OFFLINE-WATCH-48H](../tasks/W4-OFFLINE-WATCH-48H.md). Evidence/status: [OFFLINE_WATCH](../evidence/OFFLINE_WATCH.md). The observation remains ongoing until the actual deadline; synthetic tests never certify elapsed48h.
 
 ## Installed operation

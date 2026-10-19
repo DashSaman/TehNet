@@ -1,0 +1,8 @@
+{
+  "checked_at_utc": "2026-10-19T14:17:54.740057+00:00",
+  "reason": "Direct owner request in concurrent TunnelPannel task; verified exact added container and single Nginx include",
+  "added_container_count": 1,
+  "added_main_nginx_include_count": 1,
+  "all_prior_container_identities_and_other_protected_hashes_preserved": true,
+  "start_deadline_history_and_producer_baseline_preserved": true
+}
