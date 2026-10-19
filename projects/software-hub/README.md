@@ -10,6 +10,8 @@
 
 **پایش ۴۸ ساعته در جریان است:** ثبت نیم‌ساعته روی سرور تا ۲۱ اکتبر ساعت ۱۷:۰۹ تهران؛ انتشار خودکار ساعت ۰۹:۵۶ روز ۱۹ اکتبر بررسی شد. [وضعیت و شواهد](evidence/OFFLINE_WATCH.md)، [راهنمای پایش و رفع خطا](deployment/OFFLINE_WATCH.md). پایان دوره هنوز تأیید نشده است.
 
+**چهار منبع آفلاین فعال شدند:** آروان، LinuxMirrors.ir، لیارا و هم‌روش، دریافت کامل ۵۸ بسته و نصب بدون شبکه برای هشت ابزار را گذراندند. [انتخاب منبع و فرمان کپی‌پیست](https://tehnet.ir/software/offline/sources/)، [نتیجه هر تلاش، از جمله خطای اولیه و اصلاح LinuxMirrors](evidence/PROVIDER_KITS.md)، [روش آماده‌سازی و بازگشت](deployment/PROVIDER_KITS.md). این تأیید برای کیت مشخص و تاریخ آزمون است؛ فایل‌ها مستقیم از منبع بیرونی دریافت می‌شوند.
+
 **فهرست دانلود گسترش یافت:** ۱۱ فایل واقعی شامل Git، curl، jq، Python، pip، wget، rsync و OpenSSH Client برای Ubuntu 24.04، دو Mini rootfs آلپاین و GNU hello از میرورهای آروان/مبین‌هاست. دانلود فقط از فضای بیرونی است. [نسخه‌ها و روش دریافت/نصب](catalog/README.md)، [نتیجه آزمون‌ها](evidence/CATALOG_EXPANSION.md)، [عملیات و بازگشت](deployment/PUBLIC_MIRRORS.md)، [تنظیم مخفی توکن روبیکا](deployment/RUBIKA_PILOT.md). پروفایل جداگانه نصب آفلاین Ubuntu 24.04 amd64 با ۵۸ بسته و آزمون کارکرد هر هشت ابزار پذیرفته شد؛ ذخیره‌سازی واقعی روبیکا هنوز تأیید نشده است. [راهنمای کپی‌پیست آفلاین](OFFLINE_INSTALL.md)، [راهنمای فعال سایت](https://tehnet.ir/software/offline/)، [نتیجه واقعی آزمون](evidence/OFFLINE_DEVTOOLS.md).
 
 ## وضعیت فعلی

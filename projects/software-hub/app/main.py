@@ -15,6 +15,7 @@ from .private_routes import install_access
 from .external_storage import ExternalRegistry
 from .downloads import install_public_downloads,public_catalog
 from .source_status import source_assessments,unmeasured
+from .provider_routes import install_provider_routes
 
 ROOT=Path(__file__).resolve().parents[1]
 CAPABILITIES={'public_research':True,'downloads':False,'apt_profile_accepted':False,'restricted_access':False,'rubika':False}
@@ -105,6 +106,7 @@ def create_app(settings: Settings | None=None) -> FastAPI:
                 'installation_policy':'--no-install-recommends','baseline_digest':None,'acceptance_evidence':None}
 
     install_public_downloads(site,public_store)
+    install_provider_routes(site,settings,templates)
     install_access(site,settings,templates,auth,private_store)
     site.mount('/static',StaticFiles(directory=ROOT/'static'),name='static')
 

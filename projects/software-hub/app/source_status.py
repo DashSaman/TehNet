@@ -2,6 +2,7 @@
 from datetime import datetime,timedelta,timezone
 from pathlib import Path
 import json
+from .provider_routes import accepted_sources
 
 OBSERVATIONS=Path(__file__).resolve().parents[1]/'catalog/source-observations.json'
 LABELS={
@@ -22,6 +23,8 @@ def source_assessments(now=None):
         data=json.loads(OBSERVATIONS.read_text(encoding='utf-8'))
         if data['schema']!=1 or len(data['observations'])>100:return {}
         result={}
+        qualified={item['provider']:item for item in accepted_sources()['providers']}
+        provider_ids={'arvan-ubuntu':'arvan','linuxmirrors-ubuntu':'linuxmirrors','liara-ubuntu':'liara','hamravesh-ubuntu':'hamravesh'}
         for item in data['observations']:
             state=item['state'];checked=datetime.fromisoformat(item['checked_at'])
             if state not in LABELS or checked.tzinfo is None or checked>now+timedelta(minutes=5):continue
@@ -30,6 +33,12 @@ def source_assessments(now=None):
             result[item['id']]={'state':state,'label':label,'detail':detail,'checked_at':checked.isoformat(timespec='seconds'),
                                 'vantage':'سرور خارج از ایران','scope':'امضای متادیتای noble-updates' if state=='signed_metadata_verified' else 'اتصال HTTPS؛ بدون تأیید نصب',
                                 'usable_observation':state in {'signed_metadata_verified','endpoint_reachable'}}
+            provider=provider_ids.get(item['id'])
+            if provider in qualified:
+                proof=qualified[provider]
+                result[item['id']].update({'kit_provider':provider,'state':'kit_install_verified',
+                    'label':'دانلود و نصب آفلاین کیت تأیید شد','detail':f"دریافت کامل و نصب آفلاین {proof['packages']} بسته و وابستگی برای هشت ابزار قبول شد.",
+                    'checked_at':proof['accepted_at'],'scope':'کیت مشخص Ubuntu 24.04 amd64؛ چهار آزمون رد فایل نامعتبر','usable_observation':True})
         return result
     except (OSError,ValueError,KeyError,TypeError,OverflowError):return {}
 

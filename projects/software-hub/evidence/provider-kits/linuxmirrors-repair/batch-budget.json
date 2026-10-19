@@ -1,0 +1,13 @@
+{
+  "started_at": "2026-10-19T15:04:42.281041+00:00",
+  "limit": 201326592,
+  "reserved": 201326592,
+  "attempts": [
+    {
+      "provider": "linuxmirrors",
+      "reserved_bytes": 201326592,
+      "started_at": "2026-10-19T15:10:16.127402+00:00"
+    }
+  ],
+  "scope": "One explicit LinuxMirrors timeout-repair requalification; v1failed reservations retained; no production-ledger reset"
+}

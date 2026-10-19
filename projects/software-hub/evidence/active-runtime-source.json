@@ -1,6 +1,6 @@
 {
-  "base_commit": "f4e5711423cd19083a3b93eb9291fa83377314b4",
-  "image": "sha256:3d01499c5a3c66b625abd95f113a4d37a156f6a230c4bb283cacac3237b3d8a6",
+  "base_commit": "0f0f32bd8bce6ee85a5dee2998ecfbc8edd7158b",
+  "image": "sha256:4645434de155d667198d925ddd18fe1d9aeeca5f96452d1093abd368f48a2e69",
   "normalization": "CRLF to LF only",
   "files_sha256": {
     "app/access.py": "79bfe2f26a29f266e0227a5d9664c65bd3258ec311f1c8f7f5299b86e5f88182",
@@ -12,7 +12,7 @@
     "app/external_storage.py": "650572bb5c251866b02618408095cfeefe096990d896cdb2226164210b83d1b2",
     "app/health.py": "1428eb31e48978c2b9a0c8926413fdae8ee41bc21d76e865480a96951cabd8d8",
     "app/http_client.py": "f6d0a1f7599944868d493db0449d0444e243d44aa1b26fb3309eeafbc622d2fa",
-    "app/main.py": "9cc264c5c2f03978fe30217020aee8a84f1330ed6f46485e135dff6962b944e0",
+    "app/main.py": "699e7a5fd14d913b7d0ba0fd593b611c318b6d69c2cee6509db65e603a8ab587",
     "app/models.py": "766700e7713f7674f274d9bdabce3b2a9d274ee970ac9ea675ba8239f2a123a7",
     "app/netguard.py": "580f3f9ecd518aa785fbc8e8dbc3164f512fd08da69b8749f695c0f65a746983",
     "app/private_routes.py": "6168717473dede58b8e9e23dd00b492aa65acc57eb91ff3df5e1d00e19cfaf35",
@@ -23,7 +23,7 @@
     "app/storage_backends/rubika.py": "bf115ed0a3a7c4679305834ef3306e99a90cf517dbbf073b87d568e8eb5d879b",
     "app/storage_backends/__init__.py": "8c5f193feec83d5ef2ec302413c9fa25a16c98192a56f5ca0e20d3933e6dec71",
     "templates/access.html": "ab761aa5095967075f904a08efec75071ccf1dc4e232611e6238d1c2c90e2e00",
-    "templates/index.html": "184e89e0db1d28a606d599927b695c120f35ca2af1f83b140dba352cca1ef6a4",
+    "templates/index.html": "4a43b5663ea665aa42a0e7bee6bbb72d26b55d60957263c780325e814d083fed",
     "templates/private.html": "b94c70b047be4efa829264b73e499cb85764fc9de95215c4b52044eb8cf83c56",
     "static/style.css": "efe6e268193e3424a69671c57a5a06f7f49cf582e651f61d3d89984699cc3ff8",
     "static/ui.js": "9d495d54eb5e865cca4b5b8a40e775366baf1445e6e05cc29ac5acd915a2cc91",
@@ -31,8 +31,12 @@
     "static/fonts/README.md": "74ca6fd8edc4f402eab0bd4d1d50456792109d1139b64215c8f585576d397413",
     "static/fonts/Vazirmatn-ExtraBold.woff2": "cd67558bbca0ad319b89e3b2edb8a914f87f864951d7a9d24e1404cbf3b45b02",
     "static/fonts/Vazirmatn-Regular.woff2": "e382101336c6eb32cfb31381c027d02d2e0354bad08f6a395d4088beb3db3d91",
-    "app/source_status.py": "a9ec9ccc4af7487d5b321e880b4649ffbe603b637b87d7804d7765b7f58b01e7",
-    "catalog/source-observations.json": "0ae08ec27fd4317bb00abbd0ca165897865e00b7d8478f51097241e66c03d36d"
+    "app/source_status.py": "a3706a16081623b292d5c0ac7b5bf126d9db092ec04576202524c52734e81509",
+    "catalog/source-observations.json": "0ae08ec27fd4317bb00abbd0ca165897865e00b7d8478f51097241e66c03d36d",
+    "app/provider_kit.py": "3297543cb2947206c080fa868eb8679983ce15a532948dba5446ae9a2fca16ea",
+    "app/provider_routes.py": "1055040314ea0831eed1cfa1770c2790c127484d0532abf3f28deb63ee57d1e4",
+    "catalog/provider-qualification.json": "0894130294b0935d79fa6166dd9cf87588d861338c77e5f0023349d87cf91773",
+    "templates/provider-sources.html": "5554833d01ae70837c1d7eb3de1faf13b9a25bdd2dd948cb7f28ec6e018cd89c"
   },
-  "previous_image": "sha256:ab4220407e6a35a6e3d4221b44f238f12b25b1081be4b03ce8a92276a60289fa"
+  "previous_image": "sha256:3d01499c5a3c66b625abd95f113a4d37a156f6a230c4bb283cacac3237b3d8a6"
 }
