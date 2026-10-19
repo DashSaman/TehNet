@@ -1,0 +1,10 @@
+{
+  "watcher_source_sha256": {
+    "tools/offline_watch.py": "173f275cacf21270771b304a8d0d0778ad1aa80f0652b5ca2e05cf056768713a",
+    "tests/test_offline_watch.py": "18fb4c07d6f3d89da7bf2897cd1e8d884b343267397579651985a119b9fbf372",
+    "deployment/systemd/tehnet-software-offline-watch.service": "5a3fe52ce1664a0c89ede1466e85de373b71a645bd3a59aa9bd04a8eefaf322d",
+    "deployment/systemd/tehnet-software-offline-watch.timer": "cf770f611c2431dec6e2e0e4d00a25448d6a3ef2b134835427051cfcb0e679eb"
+  },
+  "installed_units_match_tested_source": true,
+  "producer_units_budget_and_owned_snippet_unchanged_after_monitor_setup": true
+}
