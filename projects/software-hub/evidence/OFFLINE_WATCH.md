@@ -1,5 +1,13 @@
 # 48h observation — setup accepted,real window ongoing
 
+## 19October15:44UTC heartbeat
+
+[Existing recorded state and read-only native checks](watch-heartbeat-20261019-1540/read-only-state.json):six native healthy samples through15:19:49UTC,zero failed samples/new in-window publications,no native producer events since original start,completed.json absent. The original19October13:39:28–21October13:39:28UTC window remains ongoing. Producer timer enabled/active,next18:21:14UTC;watch timer enabled/active with monotonic next event. No collector/refresh was forced and no extra health sample was invented.
+
+A manual inventory guard found the owner's independently deployed,healthy TunnelPannel commercial-console release. [Diagnosis](watch-heartbeat-20261019-1540/diagnosis.json),[exact baseline transition](watch-heartbeat-20261019-1540/baseline-transition.json):only its external container fingerprint reconciled under both locks after checking the owner request/current deployment confirmation,GitHub source ref,immutable nginx image,read-only mounts and health. All other config fields,protected hashes,source hashes,original dates,samples/events and budgets preserved;private backup stayed on server. No website/container/code mutation or offline-publisher failure. No original failed observation was removed.
+
+[Independent public20checks and four published hashes](watch-heartbeat-20261019-1540/public-http.json) and [main/private acceptance](watch-heartbeat-20261019-1540/public-main-privacy.json) passed. Current software engine4645434d is healthy/read-only;post-transition inventory/protected hashes pass. Same accepted433c8629profile,not a new publication or new installation/GPG run. Zero payload requests;watcher/producer source and schedules unchanged. Documentation/sanitized receipts only;existing unit suites not rerun for this metadata reconciliation. Continue original48h observation and verify the next natural in-window publication;do not reset ledgers/window or replay completed provider tests.
+
 Latest19October post-deployment observation: [source-status release](SOURCE_STATUS.md), [fourth stored sample and fresh revalidation](source-status/watch-postcheck.json). Current engine changed with explicit owner authority; original deadline/history/producer preserved. The14:19UTC scheduled sample was healthy. No new offline profile or completed48h result is claimed.
 
 Predecessor `cdb01c02b4e1e1af77c4c2aa6dcde9bbae20dfbf`; [task](../tasks/W4-OFFLINE-WATCH-48H.md), [operation](../deployment/OFFLINE_WATCH.md), [stage ledger](OFFLINE_WATCH_LEDGER.md).
