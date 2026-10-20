@@ -1,0 +1,203 @@
+{
+  "format": 1,
+  "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724",
+  "created_at": "2026-10-20T00:25:30.411925+00:00",
+  "providers": {
+    "arvan": {
+      "provider": "arvan",
+      "outcome": "pass",
+      "started_at": "2026-10-20T00:25:30.430664+00:00",
+      "accepted_at": "2026-10-20T00:28:04.916933+00:00",
+      "qualified_profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724",
+      "packages": 58,
+      "package_bytes": 32141260,
+      "complete_hash_verified_downloads": 64,
+      "functional_tools": [
+        "git",
+        "curl",
+        "jq",
+        "python",
+        "pip",
+        "wget",
+        "rsync",
+        "ssh"
+      ],
+      "negative_checks": {
+        "corrupt_required_archive": {
+          "exit": 1,
+          "elapsed_seconds": 8.908,
+          "dpkg_unchanged": true
+        },
+        "missing_required_archive": {
+          "exit": 1,
+          "elapsed_seconds": 8.916,
+          "dpkg_unchanged": true
+        },
+        "forged_signed_metadata": {
+          "exit": 100,
+          "elapsed_seconds": 5.467,
+          "dpkg_unchanged": true
+        },
+        "newer_nonseed_dependency": {
+          "exit": 2,
+          "elapsed_seconds": 8.718,
+          "dpkg_unchanged": true
+        },
+        "clean_offline_install": {
+          "exit": 0,
+          "elapsed_seconds": 28.408,
+          "dpkg_audit": "empty"
+        }
+      },
+      "install_evidence_sha256": "e45251d8bd9e31b1622de2fb984dec958c88ac918fbeee13e2589d8972d2f299",
+      "finished_at": "2026-10-20T00:28:04.916979+00:00"
+    },
+    "linuxmirrors": {
+      "provider": "linuxmirrors",
+      "outcome": "pass",
+      "started_at": "2026-10-20T00:28:04.933884+00:00",
+      "accepted_at": "2026-10-20T00:39:10.993725+00:00",
+      "qualified_profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724",
+      "packages": 58,
+      "package_bytes": 32141260,
+      "complete_hash_verified_downloads": 64,
+      "functional_tools": [
+        "git",
+        "curl",
+        "jq",
+        "python",
+        "pip",
+        "wget",
+        "rsync",
+        "ssh"
+      ],
+      "negative_checks": {
+        "corrupt_required_archive": {
+          "exit": 1,
+          "elapsed_seconds": 9.201,
+          "dpkg_unchanged": true
+        },
+        "missing_required_archive": {
+          "exit": 1,
+          "elapsed_seconds": 9.099,
+          "dpkg_unchanged": true
+        },
+        "forged_signed_metadata": {
+          "exit": 100,
+          "elapsed_seconds": 5.406,
+          "dpkg_unchanged": true
+        },
+        "newer_nonseed_dependency": {
+          "exit": 2,
+          "elapsed_seconds": 9.19,
+          "dpkg_unchanged": true
+        },
+        "clean_offline_install": {
+          "exit": 0,
+          "elapsed_seconds": 29.099,
+          "dpkg_audit": "empty"
+        }
+      },
+      "install_evidence_sha256": "3b135d0ed9b1218fb5c8ae2d363f126873f332a6d771dc330da5e3af445f0383",
+      "finished_at": "2026-10-20T00:39:10.993772+00:00"
+    },
+    "liara": {
+      "provider": "liara",
+      "outcome": "pass",
+      "started_at": "2026-10-20T00:39:11.015833+00:00",
+      "accepted_at": "2026-10-20T00:42:32.362800+00:00",
+      "qualified_profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724",
+      "packages": 58,
+      "package_bytes": 32141260,
+      "complete_hash_verified_downloads": 64,
+      "functional_tools": [
+        "git",
+        "curl",
+        "jq",
+        "python",
+        "pip",
+        "wget",
+        "rsync",
+        "ssh"
+      ],
+      "negative_checks": {
+        "corrupt_required_archive": {
+          "exit": 1,
+          "elapsed_seconds": 8.773,
+          "dpkg_unchanged": true
+        },
+        "missing_required_archive": {
+          "exit": 1,
+          "elapsed_seconds": 8.723,
+          "dpkg_unchanged": true
+        },
+        "forged_signed_metadata": {
+          "exit": 100,
+          "elapsed_seconds": 5.416,
+          "dpkg_unchanged": true
+        },
+        "newer_nonseed_dependency": {
+          "exit": 2,
+          "elapsed_seconds": 9.165,
+          "dpkg_unchanged": true
+        },
+        "clean_offline_install": {
+          "exit": 0,
+          "elapsed_seconds": 29.0,
+          "dpkg_audit": "empty"
+        }
+      },
+      "install_evidence_sha256": "0b29cd5c198816ea5a947b9b7f273d7fd5055566b919d962a6fad944700ead2d",
+      "finished_at": "2026-10-20T00:42:32.362866+00:00"
+    },
+    "hamravesh": {
+      "provider": "hamravesh",
+      "outcome": "pass",
+      "started_at": "2026-10-20T00:42:32.417825+00:00",
+      "accepted_at": "2026-10-20T00:45:42.955487+00:00",
+      "qualified_profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724",
+      "packages": 58,
+      "package_bytes": 32141260,
+      "complete_hash_verified_downloads": 64,
+      "functional_tools": [
+        "git",
+        "curl",
+        "jq",
+        "python",
+        "pip",
+        "wget",
+        "rsync",
+        "ssh"
+      ],
+      "negative_checks": {
+        "corrupt_required_archive": {
+          "exit": 1,
+          "elapsed_seconds": 8.991,
+          "dpkg_unchanged": true
+        },
+        "missing_required_archive": {
+          "exit": 1,
+          "elapsed_seconds": 9.017,
+          "dpkg_unchanged": true
+        },
+        "forged_signed_metadata": {
+          "exit": 100,
+          "elapsed_seconds": 5.593,
+          "dpkg_unchanged": true
+        },
+        "newer_nonseed_dependency": {
+          "exit": 2,
+          "elapsed_seconds": 9.025,
+          "dpkg_unchanged": true
+        },
+        "clean_offline_install": {
+          "exit": 0,
+          "elapsed_seconds": 29.173,
+          "dpkg_audit": "empty"
+        }
+      },
+      "install_evidence_sha256": "d1c30a796473abc29ce7edf026fe571310fb8925b8d3a41b0a5ab55873fe8d8f",
+      "finished_at": "2026-10-20T00:45:42.955532+00:00"
+    }
+  }
+}

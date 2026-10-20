@@ -1,0 +1,40 @@
+{
+  "packages": 58,
+  "package_bytes": 32141260,
+  "signed_indices": [
+    {
+      "suite": "noble-security",
+      "index": "main/binary-amd64/Packages.xz",
+      "sha256": "4243a0871b51d8a50698a86a5dc0dd3288f775261b34820e3105c5163978ab8c"
+    },
+    {
+      "suite": "noble-security",
+      "index": "universe/binary-amd64/Packages.xz",
+      "sha256": "1f1fb2369dfb95d9c07275396b40e7620927347e5a83af3339e7c19f4c78f50c"
+    },
+    {
+      "suite": "noble-updates",
+      "index": "main/binary-amd64/Packages.xz",
+      "sha256": "424e9966d4d549da3f08f0737b0cefbcfffd76464ba25efee146647b198bd6f5"
+    },
+    {
+      "suite": "noble-updates",
+      "index": "universe/binary-amd64/Packages.xz",
+      "sha256": "1aa680fbcf4303eee697a7d54c7d6a8e1f941461e64d23871b04d1fe963abb21"
+    },
+    {
+      "suite": "noble",
+      "index": "main/binary-amd64/Packages.xz",
+      "sha256": "2a6a199e1031a5c279cb346646d594993f35b1c03dd4a82aaa0323980dd92451"
+    },
+    {
+      "suite": "noble",
+      "index": "universe/binary-amd64/Packages.xz",
+      "sha256": "ba9057fa1b91438cc8a1d26808d00c85389fe101d0c1496254df97236405599a"
+    }
+  ],
+  "payload_location": "user-selected kit directory; external mirror originals",
+  "complete_hashes": true,
+  "elapsed_seconds": 86.864,
+  "scope": "Actual code qualification; profile still unaccepted until offline installation and smoke pass"
+}

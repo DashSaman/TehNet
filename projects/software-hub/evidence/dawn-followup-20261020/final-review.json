@@ -1,0 +1,39 @@
+{
+  "checked_at_utc": "2026-10-20T10:58:55.627041+00:00",
+  "predecessor": "09db062789b83d050450320137e1ee374ac0758b",
+  "documentation_and_small_evidence_files_only": 59,
+  "runtime_source_unit_and_manifest_changes": 0,
+  "live_runtime_hashes": {
+    "web": 34,
+    "producer": 44,
+    "provider": 78,
+    "watch": 4
+  },
+  "web_source_hashes_preserved": 34,
+  "exact_original_provider_proofs_rehashed": 4,
+  "original_signature_chains_rechecked": 3,
+  "public_https_checks": 36,
+  "new_canonical_successor": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724",
+  "post_repair_natural_watch_sample": "pending; retained45samples/35failures",
+  "credential_shaped_content_heuristic": "pass; not exhaustive audit",
+  "staged_whitespace": "pass",
+  "consolidation": {
+    "result": "PASS",
+    "source_blobs_verified": 22,
+    "copied_bytes": 189734,
+    "local_markdown_links_checked": 538,
+    "existing_site_files_changed": 0,
+    "authorized_new_menu_scripts": [
+      "ops/lib/software-menu.php",
+      "ops/software-menu.php",
+      "tests/software-menu-logic.php"
+    ],
+    "root_docs_append_only": [
+      "HANDOFF.md",
+      "PROGRESS.md",
+      "README.md",
+      "TASKS.md"
+    ]
+  },
+  "full_relevant_documentation_diff_reviewed": true
+}
