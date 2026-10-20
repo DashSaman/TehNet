@@ -1,5 +1,7 @@
 # 20October dawn publication and four automatic source requalifications
 
+Subsequent20October11:23:22UTC status:[first natural post-repair sample healthy](NATURAL_RECOVERY_20261020.md),46samples/35retained failures/1in-window publication. The pending recovery descriptions below record the earlier10:50–10:58UTC follow-up;original evidence/history remains unchanged.
+
 The native scheduled run `run-20261020-002025-75be29d8` started00:20:24UTC,published00:23:55UTC and accepted the new profile at **2026-10-20T00:23:53.116922Z (03:53:53Tehran)**. This follow-up ran after the requested00:25UTC boundary;the new publication itself occurred during the requested dawn slot. Its SHA256 is `fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724`. The independent conversation follow-up ran around10:50UTC;it did not run at dawn or initiate this publication.
 
 [Native event journal and stored samples](dawn-followup-20261020/post-transition-native.json),[canonical publication metadata](dawn-followup-20261020/canonical/publication.json) and [read-only verification](dawn-followup-20261020/read-only-state.json) agree on the run,profile SHA and installation acceptance. Three original Ubuntu InRelease signatures and dates were rechecked with the pinned archive keyring. The native candidate/install proof passes `validate_acceptance`;accepted public profile is exactly that candidate plus the accepted/scope fields. Four public file hashes also match independently over HTTPS.
