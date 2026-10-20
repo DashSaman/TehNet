@@ -1,0 +1,47 @@
+{
+  "verified_at_utc": "2026-10-20T19:09:22.038656+00:00",
+  "scope": "Sanitized recovery summary and append-only coordination documents only",
+  "raw_logs_snapshots_internal_ids_or_server_paths_added": false,
+  "historical_git_evidence_blobs_unchanged": true,
+  "original_dawn_working_bytes_unchanged": true,
+  "local_prior_report_line_endings": "Windows CRLF; unchanged normalized Git blob",
+  "initial_local_gate_line_ending_mismatch_corrected": true,
+  "previous57_native_sample_hashes_unchanged": true,
+  "samples_healthy_errors_deferred": [
+    61,
+    19,
+    42,
+    0
+  ],
+  "four_natural_recoveries_and_native_success_runs_verified": true,
+  "scheduled_refresh_not_due_no_new_publication_verified": true,
+  "original_window_three_active_timers_and_same_finite_followup_preserved": true,
+  "server_runtime_source_config_unit_website_or_provider_result_changes": 0,
+  "current_public_metadata_and_selector_checks": 3,
+  "original_signature_chains_and_passing_provider_proofs": [
+    3,
+    3
+  ],
+  "all_current_intents_and_failed_source_preserved": true,
+  "runtime_hashes_verified": 160,
+  "staged_scope_json_whitespace_and_sensitive_content_checks": "pass",
+  "consolidation": {
+    "result": "PASS",
+    "source_blobs_verified": 22,
+    "copied_bytes": 189734,
+    "local_markdown_links_checked": 553,
+    "existing_site_files_changed": 0,
+    "authorized_new_menu_scripts": [
+      "ops/lib/software-menu.php",
+      "ops/software-menu.php",
+      "tests/software-menu-logic.php"
+    ],
+    "root_docs_append_only": [
+      "HANDOFF.md",
+      "PROGRESS.md",
+      "README.md",
+      "TASKS.md"
+    ]
+  },
+  "final48h_acceptance": "ongoing;not certified"
+}

@@ -1,5 +1,7 @@
 # Finite48h offline refresh observation
 
+20 October 19:04 UTC: [natural recovery confirmed](../evidence/NATURAL_RECOVERY_20261020_1902.md). Four natural healthy samples; 61 total/19 healthy/42 retained failures. Previous 57 sample hashes unchanged; scheduled refresh not_due, no new publication. Three timers active, original deadline unchanged; 48h ongoing.
+
 20October17:03UTC follow-up:[recovery retained and new inventory incident](../evidence/WATCH_FOLLOWUP_20261020_1657.md). Two natural samples recovered before two new strict-inventory failures during another authorized deployment.57samples/42retained failures/2accepted publications;only exact verified expectation corrected,next natural recovery pending. Source results/quotas/timers/original dates unchanged. Raw evidence remains private.
 
 20October14:59UTC follow-up:[recovery retained and new inventory incident](../evidence/WATCH_FOLLOWUP_20261020_1455.md). Two natural samples recovered before two new strict-inventory failures during another authorized deployment.53samples/40retained failures/2accepted publications;only exact verified expectation corrected,next natural recovery pending. Source results/quotas/timers/original dates unchanged. Raw evidence remains private.
