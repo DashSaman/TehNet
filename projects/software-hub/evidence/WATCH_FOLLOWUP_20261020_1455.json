@@ -1,0 +1,44 @@
+{
+  "checked_at_utc": "2026-10-20T15:02:47.909957+00:00",
+  "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808",
+  "new_publication": false,
+  "samples": 53,
+  "healthy_samples": 13,
+  "failed_samples_retained": 40,
+  "deferred_samples": 0,
+  "healthy_observed_publications": 2,
+  "actual_in_window_publications": 2,
+  "prior49_sample_hashes_unchanged": true,
+  "natural_recovery_samples_utc": [
+    "2026-10-20T13:23:46.402135Z",
+    "2026-10-20T13:53:47.420779Z"
+  ],
+  "new_failed_samples_utc": [
+    "2026-10-20T14:23:48.536301Z",
+    "2026-10-20T14:54:18.551210Z"
+  ],
+  "new_failure_category": "environment_inventory_changed_after_independent_authorized_deployment",
+  "narrow_inventory_expectation_correction_verified": true,
+  "next_natural_recovery": "pending;no forced sample",
+  "runtime_hashes_verified": 160,
+  "signature_chains_rechecked": 3,
+  "current_passing_original_proofs_rechecked": 3,
+  "independent_public_metadata_checks": 2,
+  "current_active_sources": [
+    "arvan",
+    "liara",
+    "linuxmirrors"
+  ],
+  "hamravesh": "historical same-generation failed preservation gate;inactive,no replay",
+  "daily_attempts_and_reserved_mib": [
+    8,
+    1536
+  ],
+  "original_window_start_utc": "2026-10-19T13:39:28.226058Z",
+  "original_window_end_utc": "2026-10-21T13:39:28.226058Z",
+  "three_native_timers_enabled_active": true,
+  "runtime_source_unit_website_or_provider_result_changes": 0,
+  "extra_collector_lab_refresh_payload_or_quota_reset": false,
+  "raw_evidence": "retained privately;not exported",
+  "final48h_acceptance": "ongoing;not certified"
+}
