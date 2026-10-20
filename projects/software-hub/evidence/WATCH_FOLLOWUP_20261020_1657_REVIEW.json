@@ -1,0 +1,41 @@
+{
+  "verified_at_utc": "2026-10-20T17:04:32.605976+00:00",
+  "scope": "Sanitized summaries and append-only coordination documents only",
+  "raw_logs_snapshots_internal_ids_or_server_paths_added": false,
+  "prior_historical_evidence_byte_preserved": true,
+  "previous53_native_sample_hashes_unchanged": true,
+  "native_samples_and_retained_failures": [
+    57,
+    42
+  ],
+  "observed_recovery_then_new_failure_timeline_verified": true,
+  "original_window_three_active_timers_and_same_finite_followup_preserved": true,
+  "runtime_source_unit_website_or_provider_result_changes": 0,
+  "current_public_metadata_checks": 2,
+  "signature_chains_and_current_valid_provider_proofs": [
+    3,
+    3
+  ],
+  "runtime_hashes_verified": 160,
+  "staged_scope_json_whitespace_and_sensitive_content_checks": "pass",
+  "consolidation": {
+    "result": "PASS",
+    "source_blobs_verified": 22,
+    "copied_bytes": 189734,
+    "local_markdown_links_checked": 550,
+    "existing_site_files_changed": 0,
+    "authorized_new_menu_scripts": [
+      "ops/lib/software-menu.php",
+      "ops/software-menu.php",
+      "tests/software-menu-logic.php"
+    ],
+    "root_docs_append_only": [
+      "HANDOFF.md",
+      "PROGRESS.md",
+      "README.md",
+      "TASKS.md"
+    ]
+  },
+  "next_natural_recovery": "pending",
+  "final48h_acceptance": "ongoing;not certified"
+}

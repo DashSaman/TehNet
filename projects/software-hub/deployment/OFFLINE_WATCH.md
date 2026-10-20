@@ -1,5 +1,7 @@
 # Finite48h offline refresh observation
 
+20October17:03UTC follow-up:[recovery retained and new inventory incident](../evidence/WATCH_FOLLOWUP_20261020_1657.md). Two natural samples recovered before two new strict-inventory failures during another authorized deployment.57samples/42retained failures/2accepted publications;only exact verified expectation corrected,next natural recovery pending. Source results/quotas/timers/original dates unchanged. Raw evidence remains private.
+
 20October14:59UTC follow-up:[recovery retained and new inventory incident](../evidence/WATCH_FOLLOWUP_20261020_1455.md). Two natural samples recovered before two new strict-inventory failures during another authorized deployment.53samples/40retained failures/2accepted publications;only exact verified expectation corrected,next natural recovery pending. Source results/quotas/timers/original dates unchanged. Raw evidence remains private.
 
 20October midday follow-up:[sanitized current publication/source results](../evidence/MIDDAY_PUBLICATION_20261020.md). Three current sources pass;one remains failed/inactive after an environment-preservation change.49samples/38retained errors;next natural recovery pending after narrow authorized expectation correction. Original dates,all three timers,intents and quotas retained. Original logs/snapshots remain private;publish only reviewed summaries and public acceptance fields.
