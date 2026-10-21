@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+data/
+.venv/
+backups/
+secrets/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm

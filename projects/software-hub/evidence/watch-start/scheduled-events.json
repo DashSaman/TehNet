@@ -1,0 +1,5 @@
+{
+  "events": [],
+  "source": "native refresh service journal; host/credentials omitted",
+  "query_limit_lines": 512
+}

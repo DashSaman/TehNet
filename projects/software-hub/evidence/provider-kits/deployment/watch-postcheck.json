@@ -1,0 +1,94 @@
+{
+  "checked_at_utc": "2026-10-19T15:30:04.869578+00:00",
+  "independent_manual_revalidation": {
+    "checked_at": "2026-10-19T15:30:04.869578+00:00",
+    "outcome": "healthy",
+    "errors": [],
+    "refresh_timer": {
+      "NextElapseUSecRealtime": "Mon 2026-10-19 18:21:14 UTC",
+      "LastTriggerUSec": "Mon 2026-10-19 12:20:53 UTC",
+      "Result": "success",
+      "Persistent": "yes",
+      "ActiveState": "active",
+      "UnitFileState": "enabled"
+    },
+    "refresh_service": {
+      "Result": "success",
+      "ExecMainStatus": "0",
+      "ActiveState": "inactive",
+      "UnitFileState": "disabled"
+    },
+    "refresh_stage": "not_due",
+    "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+    "accepted_at": "2026-10-19T06:26:39.147044+00:00",
+    "packages": 58,
+    "signature_and_exact_install_binding": true,
+    "main_private_origin_checks": true,
+    "swap_bytes": 0,
+    "accepted_run": "run-20261019-062320-a1195755",
+    "producer_hashes_preserved": true,
+    "site_research_containers_preserved": true,
+    "catalog_payload_files_in_scanned_opt_tree": 0,
+    "private_engine_state": "inaccessible; not read",
+    "preexisting_app_wheels": "preserved as application build code; not catalog payloads"
+  },
+  "stored_watch_latest": {
+    "phase": "observing",
+    "started_at": "2026-10-19T13:39:28.226058+00:00",
+    "deadline": "2026-10-21T13:39:28.226058+00:00",
+    "elapsed_hours": 1.6724,
+    "samples": 6,
+    "failed_samples": 0,
+    "new_publications": 0,
+    "maximum_observation_gap_seconds": 1826.655983,
+    "limitations": [
+      "no_new_publication"
+    ],
+    "latest": {
+      "checked_at": "2026-10-19T15:19:49.023985+00:00",
+      "outcome": "healthy",
+      "errors": [],
+      "refresh_timer": {
+        "NextElapseUSecRealtime": "Mon 2026-10-19 18:21:14 UTC",
+        "LastTriggerUSec": "Mon 2026-10-19 12:20:53 UTC",
+        "Result": "success",
+        "Persistent": "yes",
+        "ActiveState": "active",
+        "UnitFileState": "enabled"
+      },
+      "refresh_service": {
+        "Result": "success",
+        "ExecMainStatus": "0",
+        "ActiveState": "inactive",
+        "UnitFileState": "disabled"
+      },
+      "refresh_stage": "not_due",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+      "accepted_at": "2026-10-19T06:26:39.147044+00:00",
+      "packages": 58,
+      "signature_and_exact_install_binding": true,
+      "main_private_origin_checks": true,
+      "swap_bytes": 0,
+      "accepted_run": "run-20261019-062320-a1195755",
+      "producer_hashes_preserved": true,
+      "site_research_containers_preserved": true,
+      "catalog_payload_files_in_scanned_opt_tree": 0,
+      "private_engine_state": "inaccessible; not read",
+      "preexisting_app_wheels": "preserved as application build code; not catalog payloads"
+    }
+  },
+  "window_as_of_check": {
+    "phase": "observing",
+    "started_at": "2026-10-19T13:39:28.226058+00:00",
+    "deadline": "2026-10-21T13:39:28.226058+00:00",
+    "elapsed_hours": 1.8435,
+    "samples": 6,
+    "failed_samples": 0,
+    "new_publications": 0,
+    "maximum_observation_gap_seconds": 1826.655983,
+    "limitations": [
+      "no_new_publication"
+    ]
+  },
+  "fresh_manual_check_is_not_scheduled_sample": true
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "suite": "noble",
+    "date": "2024-04-25T15:10:33+00:00",
+    "inrelease_sha256": "cdb2f31d809f589719a53c6ad15f255b27569c4059542ada282aaa21b8e164b0"
+  },
+  {
+    "suite": "noble-updates",
+    "date": "2026-10-18T12:26:19+00:00",
+    "inrelease_sha256": "7b97d54ebc76e0e2f9d39ab66448c677fa82e7adab08b9162bc53a94aa885f91"
+  },
+  {
+    "suite": "noble-security",
+    "date": "2026-10-17T23:35:54+00:00",
+    "inrelease_sha256": "f444994ac2ed9f6a64365d5baee6f9540f2cad3320d7f574b0efd4c0d514c32c"
+  }
+]

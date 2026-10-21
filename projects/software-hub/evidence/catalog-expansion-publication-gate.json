@@ -1,0 +1,37 @@
+{
+  "tested_at_utc": "2026-10-18T15:23:35.448372+00:00",
+  "base_commit": "7828a5e8a45aa9b15114daf570be005a2d4e91be",
+  "provenance": {
+    "result": "PASS",
+    "source_blobs_verified": 22,
+    "copied_bytes": 189734,
+    "local_markdown_links_checked": 296,
+    "existing_site_files_changed": 0,
+    "authorized_new_menu_scripts": [
+      "ops/lib/software-menu.php",
+      "ops/software-menu.php",
+      "tests/software-menu-logic.php"
+    ],
+    "root_docs_append_only": [
+      "HANDOFF.md",
+      "PROGRESS.md",
+      "README.md",
+      "TASKS.md"
+    ]
+  },
+  "original_probe_tests": 18,
+  "original_three_manifest_entries_unchanged": true,
+  "existing_website_source_changes": 0,
+  "operator_source_runtime_audit": "catalog-expansion-live-state.json",
+  "linux_full_tests": 137,
+  "windows_passed": 112,
+  "windows_platform_skips": 25,
+  "payload_files_written": 0,
+  "publication": "Separate existing review branch only; exact final ref verified after push",
+  "final_markdown_links": 297,
+  "staged_paths": 36,
+  "staged_whitespace": "PASS",
+  "credential_heuristic_matches": 0,
+  "operator_staged_bytes_match_live": true,
+  "client_example_shell_syntax": "PASS; installation not executed"
+}

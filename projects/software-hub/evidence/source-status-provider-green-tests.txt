@@ -1,0 +1,13 @@
+test_dns_pins_refuse_drift_and_mixed_private_addresses (test_provider_kit.ProviderKitTests.test_dns_pins_refuse_drift_and_mixed_private_addresses) ... ok
+test_nonapproved_choices_fail_before_any_download (test_provider_kit.ProviderKitTests.test_nonapproved_choices_fail_before_any_download) ... ok
+test_provider_lab_preserves_ram_isolation_and_all_negative_install_cases (test_provider_kit.ProviderKitTests.test_provider_lab_preserves_ram_isolation_and_all_negative_install_cases) ... ok
+test_security_packages_stay_on_selected_liara_security_service (test_provider_kit.ProviderKitTests.test_security_packages_stay_on_selected_liara_security_service) ... ok
+test_selected_provider_uses_original_hash_verifier_and_restores_globals (test_provider_kit.ProviderKitTests.test_selected_provider_uses_original_hash_verifier_and_restores_globals) ... ok
+test_size_aware_deadline_allows_large_index_but_is_finite (test_provider_kit.ProviderKitTests.test_size_aware_deadline_allows_large_index_but_is_finite) ... ok
+test_slow_source_reader_requires_complete_exact_bytes_and_refuses_redirect (test_provider_kit.ProviderKitTests.test_slow_source_reader_requires_complete_exact_bytes_and_refuses_redirect) ... ok
+test_unlisted_archive_arbitrary_url_and_traversal_are_rejected (test_provider_kit.ProviderKitTests.test_unlisted_archive_arbitrary_url_and_traversal_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.009s
+
+OK

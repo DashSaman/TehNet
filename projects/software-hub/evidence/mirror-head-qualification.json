@@ -1,0 +1,41 @@
+[
+  {
+    "host": "mirror.mobinhost.com",
+    "path": "ubuntu/pool/main/h/hello/hello_2.10-3build1_amd64.deb",
+    "status": 200,
+    "size": "26006",
+    "range": "bytes",
+    "location": null,
+    "ip": "87.107.153.51",
+    "tls_verified": true,
+    "elapsed": 0.412
+  },
+  {
+    "host": "mirror.iranserver.com",
+    "path": "ubuntu/pool/main/h/hello/hello_2.10-3build1_amd64.deb",
+    "error": "ConnectionRefusedError",
+    "elapsed": 0.285
+  },
+  {
+    "host": "mirror.arvancloud.ir",
+    "path": "ubuntu/pool/main/h/hello/hello_2.10-3build1_amd64.deb",
+    "status": 200,
+    "size": "26006",
+    "range": "bytes",
+    "location": null,
+    "ip": "185.143.233.132",
+    "tls_verified": true,
+    "elapsed": 0.479
+  },
+  {
+    "host": "mirror.mobinhost.com",
+    "path": "alpine/v3.24/releases/x86_64/alpine-minirootfs-3.24.2-x86_64.tar.gz",
+    "status": 200,
+    "size": "3701382",
+    "range": "bytes",
+    "location": null,
+    "ip": "87.107.153.51",
+    "tls_verified": true,
+    "elapsed": 0.36
+  }
+]

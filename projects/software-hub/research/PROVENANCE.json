@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "research_snapshot_date": "2026-10-17",
+  "source_repository": "https://github.com/DashSaman/melika",
+  "source_ref": "d77dd9db570b972e41b55a92c08716055009f994",
+  "destination_repository": "https://github.com/DashSaman/TehNet",
+  "destination_base_ref": "a84f46dad515c6151ef06c10dcea6e13dfde05a1",
+  "copy_mode": "exact Git blob bytes; no original deleted; no upstream instructions executed",
+  "files": [
+    {
+      "source_path": "Linux/AGENTS.md",
+      "destination_path": "research/upstream/Linux/AGENTS.md",
+      "git_blob_sha1": "257df3d9ca7cd9fb9d5f5b5cec785673e99e1c08",
+      "sha256": "e68e8a925f131d56d2300bcb7db9ae53bed139e4c25a44989421c8076d6c12ff",
+      "size_bytes": 1990
+    },
+    {
+      "source_path": "Linux/API_CONTRACT.md",
+      "destination_path": "research/upstream/Linux/API_CONTRACT.md",
+      "git_blob_sha1": "0ecd583f74e4c2b99f9c00bf8c98d8fc1b9fef7c",
+      "sha256": "32caf70c9591e20d52f0a785a197d1a151dc3f16b3c0dd63effe4097bd73af53",
+      "size_bytes": 14422
+    },
+    {
+      "source_path": "Linux/ARCHITECTURE.md",
+      "destination_path": "research/upstream/Linux/ARCHITECTURE.md",
+      "git_blob_sha1": "5bd4bdc7c955fb03bd29c65e6fd1d1efc22d9510",
+      "sha256": "a010a038f380ca0e12f2b56c29e008af758fdc068281aaa192caf539d59f09e6",
+      "size_bytes": 12533
+    },
+    {
+      "source_path": "Linux/CODEX_ONE_DAY_PROMPT.md",
+      "destination_path": "research/upstream/Linux/CODEX_ONE_DAY_PROMPT.md",
+      "git_blob_sha1": "e03e4953c32d98af46fbc1933dc1aa8d234bb3c0",
+      "sha256": "59fc8d121db1bf1df95c860c1881ae2d4ec1899dd99844bb6ad7e8d2352cbd2d",
+      "size_bytes": 15244
+    },
+    {
+      "source_path": "Linux/COST_MODEL.md",
+      "destination_path": "research/upstream/Linux/COST_MODEL.md",
+      "git_blob_sha1": "5d5bde54e783654e991bc2a1c3556955b2d7c98a",
+      "sha256": "1e8e96642cbeb039f83a114e6ecbca06691ccb5a212461b90840a1ea0470a19b",
+      "size_bytes": 7525
+    },
+    {
+      "source_path": "Linux/GAP_ANALYSIS.md",
+      "destination_path": "research/upstream/Linux/GAP_ANALYSIS.md",
+      "git_blob_sha1": "b10c088deb9010dfec3c4068671f8652ef63ba84",
+      "sha256": "c579400dcc1096f75d5adc05f4b59411afb3a90b33ec58214a98c95584b899f1",
+      "size_bytes": 13621
+    },
+    {
+      "source_path": "Linux/IMPLEMENTATION_PLAN.md",
+      "destination_path": "research/upstream/Linux/IMPLEMENTATION_PLAN.md",
+      "git_blob_sha1": "d3284a0fc4befb47a1d5e619e418dd848f8fd2be",
+      "sha256": "f268c8682c10cfa10e37ab5250b6af63c2611ceaf279579561b8e7e9f403f203",
+      "size_bytes": 16758
+    },
+    {
+      "source_path": "Linux/MIRROR_INVENTORY.md",
+      "destination_path": "research/upstream/Linux/MIRROR_INVENTORY.md",
+      "git_blob_sha1": "08b08cffe22b60d70bf3af15ad610d0005717155",
+      "sha256": "057400666afc0201c19f86f5c67153a3206f839726b0c8a535c5a55a60dc3b6c",
+      "size_bytes": 10649
+    },
+    {
+      "source_path": "Linux/MIRROR_SOURCES.yaml",
+      "destination_path": "research/upstream/Linux/MIRROR_SOURCES.yaml",
+      "git_blob_sha1": "0238adc1a0df9bef43331cd912e5f82076c67c8f",
+      "sha256": "2d92247423bac0ba1ae0cfcc8528d31d44d0192098eb8b720a873567c22c7502",
+      "size_bytes": 13042
+    },
+    {
+      "source_path": "Linux/README.md",
+      "destination_path": "research/upstream/Linux/README.md",
+      "git_blob_sha1": "c85559acca1c77c8546683ac069230aa4f0eb1a9",
+      "sha256": "36147d4626b174e2e36930eeaaa61ed351508f1b8ee9254d9afdbdb25e0e9384",
+      "size_bytes": 2003
+    },
+    {
+      "source_path": "Linux/RELATED_PROJECTS.md",
+      "destination_path": "research/upstream/Linux/RELATED_PROJECTS.md",
+      "git_blob_sha1": "c2d8d792a2cf6e8dd1ff0d7ff9eab30f0604a55c",
+      "sha256": "4a778ab656dbd1361afe290504317602cae066dd9d05f4989067f82292cfd7ec",
+      "size_bytes": 10853
+    },
+    {
+      "source_path": "Linux/RESEARCH.md",
+      "destination_path": "research/upstream/Linux/RESEARCH.md",
+      "git_blob_sha1": "f6f8bbe5f4076f872dcada3131a5b3ca8e491b63",
+      "sha256": "160ab28ec488db70377a0ea08589723e396abae81303d4369e60ff9099d282da",
+      "size_bytes": 16013
+    },
+    {
+      "source_path": "Linux/RUBIKA_FEASIBILITY.md",
+      "destination_path": "research/upstream/Linux/RUBIKA_FEASIBILITY.md",
+      "git_blob_sha1": "b87b29720bb7d8d9f3f2e3065d7d4d812ecf3f99",
+      "sha256": "8a7dc74161f8c3e3dbf9232783fee55ce5612864da329209357fcb729f7f9313",
+      "size_bytes": 10275
+    },
+    {
+      "source_path": "Linux/SECURITY_AND_OFFLINE.md",
+      "destination_path": "research/upstream/Linux/SECURITY_AND_OFFLINE.md",
+      "git_blob_sha1": "239b13780e06bcf19b655fa20a646f90dc9d7d02",
+      "sha256": "432f30ddf5c5daad819f08deb837f2087325ff95104e86de5011db0108265205",
+      "size_bytes": 12387
+    },
+    {
+      "source_path": "Linux/SOURCES.md",
+      "destination_path": "research/upstream/Linux/SOURCES.md",
+      "git_blob_sha1": "e45a3161113a6427a10a7714fd2ec13b23478e26",
+      "sha256": "447b34bcad0677990e7472bfd3c7a89b805faa5e2854258157ff5c8e18d740cd",
+      "size_bytes": 7443
+    },
+    {
+      "source_path": "Linux/evidence/RESEARCH_LOG.md",
+      "destination_path": "research/upstream/Linux/evidence/RESEARCH_LOG.md",
+      "git_blob_sha1": "3c67ebb7755f004d95eac0db2c657e3fd04a55b6",
+      "sha256": "e0e35ae2208de1f17b6059e3d333d51e5ea785e999c16f2be9e2e087665b3625",
+      "size_bytes": 4853
+    },
+    {
+      "source_path": "Linux/evidence/probe-tests.txt",
+      "destination_path": "research/upstream/Linux/evidence/probe-tests.txt",
+      "git_blob_sha1": "b5bc517879c20d20773afd23578131d0d8624ea5",
+      "sha256": "e8683a3f20a286d0c70affdf66cc9574b24db39092ea0e2e55fecb9c62358d6c",
+      "size_bytes": 1747
+    },
+    {
+      "source_path": "Linux/evidence/sandbox-probes.json",
+      "destination_path": "research/upstream/Linux/evidence/sandbox-probes.json",
+      "git_blob_sha1": "e3dfe22d22d8c630877459fbe508e2a34505a3ed",
+      "sha256": "7f8117f2a7db25cfdab8738c3fc018f267b60e648c9a335598a92baf591ab4af",
+      "size_bytes": 3086
+    },
+    {
+      "source_path": "Linux/scripts/PROBE_TARGETS.json",
+      "destination_path": "research/upstream/Linux/scripts/PROBE_TARGETS.json",
+      "git_blob_sha1": "f97823d5ca42093e4ccd2aae664ce1cc2345349f",
+      "sha256": "7c50840fd0eb86329c8f1c73c1795ef71e7bcea9ff3719816122a7ea02c79def",
+      "size_bytes": 672
+    },
+    {
+      "source_path": "Linux/scripts/README.md",
+      "destination_path": "research/upstream/Linux/scripts/README.md",
+      "git_blob_sha1": "d1329c7b798d33c8c31b08f813fcf286a2373317",
+      "sha256": "35268272529161d806d7d33e7898e2202446f564a584016eabc858ff3b74ff25",
+      "size_bytes": 1937
+    },
+    {
+      "source_path": "Linux/scripts/probe_sources.py",
+      "destination_path": "research/upstream/Linux/scripts/probe_sources.py",
+      "git_blob_sha1": "0ae8f084474d0bccc1f6165ebcfacc8d7abbcaa7",
+      "sha256": "68744e0fefb746fdf716c3d7d9d5d9571398ddfac3e5298b417b12943657dc38",
+      "size_bytes": 7779
+    },
+    {
+      "source_path": "Linux/tests/test_probe_sources.py",
+      "destination_path": "research/upstream/Linux/tests/test_probe_sources.py",
+      "git_blob_sha1": "cd97406bd399eaa326d87048091600b63c131a7e",
+      "sha256": "f59855477cc20ddba2e8fbbfc507a5e5cda1101a03806e1a4896f60f33d1b30e",
+      "size_bytes": 4902
+    }
+  ],
+  "missing_material": [
+    {
+      "path": "Linux/OFFLINE_SOFTWARE_CATALOG/",
+      "status": "not_in_inspected_git_history_or_local_files",
+      "reported_delivery": "Prior ChatGPT conversation reports ZIP/patch delivery without publication",
+      "conversation_id": "6ad2c079-55f8-83e9-8383-fd52a8956cd6",
+      "required_input": "melika-offline-catalog-2026-10-17.zip or matching patch plus SHA256SUMS"
+    }
+  ]
+}

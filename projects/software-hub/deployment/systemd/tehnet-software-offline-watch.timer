@@ -1,0 +1,11 @@
+[Unit]
+Description=Sample TehNet offline refresh every half hour for its finite48h window
+
+[Timer]
+OnActiveSec=30min
+OnUnitActiveSec=30min
+AccuracySec=30s
+Unit=tehnet-software-offline-watch.service
+
+[Install]
+WantedBy=timers.target

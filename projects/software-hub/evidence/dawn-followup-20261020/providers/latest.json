@@ -1,0 +1,11 @@
+{
+  "stage": "complete",
+  "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724",
+  "providers": {
+    "arvan": "pass",
+    "linuxmirrors": "pass",
+    "liara": "pass",
+    "hamravesh": "pass"
+  },
+  "checked_at": "2026-10-20T10:52:08.698569+00:00"
+}

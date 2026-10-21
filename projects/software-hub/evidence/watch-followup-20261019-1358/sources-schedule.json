@@ -1,0 +1,14 @@
+{
+  "watcher_source_files_match": 4,
+  "installed_units_match_source": true,
+  "watch_timer_properties": {
+    "TimersMonotonic": "{ OnActiveUSec=30min ; next_elapse=1month 2d 3h 10min 21.311887s }",
+    "NextElapseUSecMonotonic": "1month 2d 3h 10min 15.245893s",
+    "ActiveState": "active",
+    "UnitFileState": "enabled"
+  },
+  "checked_at_utc": "2026-10-19T14:02:02.514649+00:00",
+  "thread_followup_schedule_active": true,
+  "thread_followup_limit": "finite existing schedule; no duplicate,reset or extension",
+  "scope": "Source/unit and local schedule configuration; does not prove future executions"
+}

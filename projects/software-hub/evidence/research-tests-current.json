@@ -1,0 +1,15 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "research/upstream/Linux/tests",
+    "-v"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "test_probe_implementation_exists (test_probe_sources.DeliveryTest.test_probe_implementation_exists) ... ok\ntest_absent_vs_unknown (test_probe_sources.ProbeTests.test_absent_vs_unknown) ... ok\ntest_credentials_rejected (test_probe_sources.ProbeTests.test_credentials_rejected) ... ok\ntest_disallowed_host (test_probe_sources.ProbeTests.test_disallowed_host) ... ok\ntest_dns_public_result (test_probe_sources.ProbeTests.test_dns_public_result) ... ok\ntest_html_is_not_artifact (test_probe_sources.ProbeTests.test_html_is_not_artifact) ... ok\ntest_http_requires_opt_in (test_probe_sources.ProbeTests.test_http_requires_opt_in) ... ok\ntest_invalid_range (test_probe_sources.ProbeTests.test_invalid_range) ... ok\ntest_mixed_dns_rejected (test_probe_sources.ProbeTests.test_mixed_dns_rejected) ... ok\ntest_nonstandard_port_rejected (test_probe_sources.ProbeTests.test_nonstandard_port_rejected) ... ok\ntest_pgp_prefix_is_not_signature_verification (test_probe_sources.ProbeTests.test_pgp_prefix_is_not_signature_verification) ... ok\ntest_private_and_special_addresses (test_probe_sources.ProbeTests.test_private_and_special_addresses) ... ok\ntest_query_rejected (test_probe_sources.ProbeTests.test_query_rejected) ... ok\ntest_range_ignored (test_probe_sources.ProbeTests.test_range_ignored) ... ok\ntest_redirect_is_not_followed_or_verified (test_probe_sources.ProbeTests.test_redirect_is_not_followed_or_verified) ... ok\ntest_traversal_rejected (test_probe_sources.ProbeTests.test_traversal_rejected) ... ok\ntest_valid_https (test_probe_sources.ProbeTests.test_valid_https) ... ok\ntest_valid_range (test_probe_sources.ProbeTests.test_valid_range) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 0.002s\n\nOK\n",
+  "tested_at_utc": "2026-10-17T14:44:00.144677+00:00"
+}

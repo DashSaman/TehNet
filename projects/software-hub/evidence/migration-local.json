@@ -1,0 +1,97 @@
+{
+  "runs": [
+    {
+      "schema_version": 1,
+      "tested_at_utc": "2026-10-17T13:32:22.772989+00:00",
+      "scope": "synthetic-local-filesystem-only",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "python": "3.12.10",
+      "payload_bytes": 16777216,
+      "bundle_bytes": 16822905,
+      "timings": {
+        "fixture_and_snapshot_seconds": 0.051224299997556955,
+        "bundle_and_local_copy_seconds": 0.08393579997937195,
+        "restore_and_verify_seconds": 0.05904669998562895,
+        "synthetic_cutover_seconds": 0.0020093999919481575,
+        "rollback_and_source_verify_seconds": 0.025683100015157834
+      },
+      "restore_verified": true,
+      "rollback_verified": true,
+      "production_migration_accepted": false,
+      "not_tested": [
+        "Linux permissions",
+        "Docker",
+        "Nginx",
+        "TLS",
+        "DNS",
+        "WAN transfer",
+        "real catalog",
+        "VPN authentication",
+        "foreign-to-Iran cutover"
+      ],
+      "total_seconds": 0.2996819000109099
+    },
+    {
+      "schema_version": 1,
+      "tested_at_utc": "2026-10-17T13:32:23.059615+00:00",
+      "scope": "synthetic-local-filesystem-only",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "python": "3.12.10",
+      "payload_bytes": 16777216,
+      "bundle_bytes": 16822905,
+      "timings": {
+        "fixture_and_snapshot_seconds": 0.045309500012081116,
+        "bundle_and_local_copy_seconds": 0.07840429997304454,
+        "restore_and_verify_seconds": 0.055334200005745515,
+        "synthetic_cutover_seconds": 0.0023299999884329736,
+        "rollback_and_source_verify_seconds": 0.02737130000605248
+      },
+      "restore_verified": true,
+      "rollback_verified": true,
+      "production_migration_accepted": false,
+      "not_tested": [
+        "Linux permissions",
+        "Docker",
+        "Nginx",
+        "TLS",
+        "DNS",
+        "WAN transfer",
+        "real catalog",
+        "VPN authentication",
+        "foreign-to-Iran cutover"
+      ],
+      "total_seconds": 0.2152907999989111
+    },
+    {
+      "schema_version": 1,
+      "tested_at_utc": "2026-10-17T13:32:23.277151+00:00",
+      "scope": "synthetic-local-filesystem-only",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "python": "3.12.10",
+      "payload_bytes": 16777216,
+      "bundle_bytes": 16822905,
+      "timings": {
+        "fixture_and_snapshot_seconds": 0.045745400013402104,
+        "bundle_and_local_copy_seconds": 0.07794119999743998,
+        "restore_and_verify_seconds": 0.0577103000250645,
+        "synthetic_cutover_seconds": 0.002168500010157004,
+        "rollback_and_source_verify_seconds": 0.02786579998792149
+      },
+      "restore_verified": true,
+      "rollback_verified": true,
+      "production_migration_accepted": false,
+      "not_tested": [
+        "Linux permissions",
+        "Docker",
+        "Nginx",
+        "TLS",
+        "DNS",
+        "WAN transfer",
+        "real catalog",
+        "VPN authentication",
+        "foreign-to-Iran cutover"
+      ],
+      "total_seconds": 0.21905080002034083
+    }
+  ]
+}

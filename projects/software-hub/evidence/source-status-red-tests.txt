@@ -1,0 +1,27 @@
+C:\Users\amirreza\AppData\Roaming\Python\Python312\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+test_api_pagination_limits_and_markup_are_safe (test_preview.PreviewTests.test_api_pagination_limits_and_markup_are_safe) ... ok
+test_easy_install_has_explained_copyable_online_commands (test_preview.PreviewTests.test_easy_install_has_explained_copyable_online_commands) ... ok
+test_health_does_not_claim_real_apt_or_private_acceptance (test_preview.PreviewTests.test_health_does_not_claim_real_apt_or_private_acceptance) ... ok
+test_home_distinguishes_research_and_live_downloads_without_obsolete_claims (test_preview.PreviewTests.test_home_distinguishes_research_and_live_downloads_without_obsolete_claims) ... FAIL
+test_preview_does_not_capture_wordpress_root_paths (test_preview.PreviewTests.test_preview_does_not_capture_wordpress_root_paths) ... ok
+test_private_and_unimplemented_surfaces_deny_all_methods (test_preview.PreviewTests.test_private_and_unimplemented_surfaces_deny_all_methods) ... ok
+test_profile_is_plan_only_and_openapi_is_local (test_preview.PreviewTests.test_profile_is_plan_only_and_openapi_is_local) ... ok
+test_public_ui_has_tehnet_brand_prefix_and_no_private_data (test_preview.PreviewTests.test_public_ui_has_tehnet_brand_prefix_and_no_private_data) ... ok
+test_reseed_keeps_disabled_sources_and_private_rows (test_preview.PreviewTests.test_reseed_keeps_disabled_sources_and_private_rows) ... ok
+test_source_search_and_counts_exclude_private_records (test_preview.PreviewTests.test_source_search_and_counts_exclude_private_records) ... ok
+test_theme_and_copy_assets_are_local_and_csp_allows_only_self_script (test_preview.PreviewTests.test_theme_and_copy_assets_are_local_and_csp_allows_only_self_script) ... ok
+test_unregistered_downloads_do_not_redirect_or_probe (test_preview.PreviewTests.test_unregistered_downloads_do_not_redirect_or_probe) ... ok
+
+======================================================================
+FAIL: test_home_distinguishes_research_and_live_downloads_without_obsolete_claims (test_preview.PreviewTests.test_home_distinguishes_research_and_live_downloads_without_obsolete_claims)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amirreza\Documents\Codex\2026-10-17\referenced-chatgpt-conversation-this-is-an\work\TehNet\projects\software-hub\tests\test_preview.py", line 117, in test_home_distinguishes_research_and_live_downloads_without_obsolete_claims
+    self.assertFalse('نیازمند آزمون' in page,'Home still renders the same untested badge on every research card')
+AssertionError: True is not false : Home still renders the same untested badge on every research card
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.550s
+
+FAILED (failures=1)

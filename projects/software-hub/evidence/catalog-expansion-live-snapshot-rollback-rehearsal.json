@@ -1,0 +1,13 @@
+{
+  "scope": "Disposable copies of actual before/after public production metadata only; no live rollback or server migration",
+  "round_trip_counts": [
+    11,
+    3,
+    11
+  ],
+  "concurrent_metadata_refused": true,
+  "live_public_registry_unchanged": true,
+  "live_network_budget_unchanged": true,
+  "software_payload_files": 0,
+  "elapsed_seconds": 0.02
+}

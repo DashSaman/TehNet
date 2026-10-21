@@ -1,0 +1,33 @@
+[Unit]
+Description=Finite TehNet offline refresh observation without payload downloads
+After=network-online.target
+Wants=network-online.target
+ConditionPathExists=!/opt/tehnet-software/operations/offline-watch-state-20261019/completed.json
+
+[Service]
+Type=oneshot
+UMask=0077
+WorkingDirectory=/opt/tehnet-software/operations/offline-watch-20261019-v2
+Environment=PYTHONPATH=/opt/tehnet-software/operations/offline-watch-20261019-v2:/opt/tehnet-software/releases/engine-active-20261018/host-site
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/usr/bin/python3 -m tools.offline_watch --state /opt/tehnet-software/operations/offline-watch-state-20261019
+SuccessExitStatus=75
+TimeoutStartSec=90
+TimeoutStopSec=10
+KillMode=control-group
+MemoryMax=128M
+MemorySwapMax=0
+CPUQuota=20%
+TasksMax=32
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX AF_NETLINK
+ReadWritePaths=/opt/tehnet-software/operations/offline-watch-state-20261019 /run
+InaccessiblePaths=/srv/tehnet-software
+StandardOutput=journal
+StandardError=journal

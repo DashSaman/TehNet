@@ -1,0 +1,6 @@
+{
+  "recovery": "RECOVERY_PASS elapsed_seconds=5\n",
+  "rollback": "ROLLBACK_PASS state_preserved=true elapsed_seconds=13 backup=/root/tehnet-backups/20261019-152540-software-engine-rehearse\n",
+  "final_rehearsal_accepted": false,
+  "reason": "Owner concurrent TunnelPannel recreation changed preservation fingerprint; owned engine restored to original image"
+}

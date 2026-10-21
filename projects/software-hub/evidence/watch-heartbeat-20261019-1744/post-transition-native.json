@@ -1,0 +1,56 @@
+{
+  "retrieved_at_utc": "2026-10-19T17:50:48.933012+00:00",
+  "original_watch_failure_journal": "Starting tehnet-software-offline-watch.service - Finite TehNet offline refresh observation without payload downloads...\n{\"phase\": \"observing\", \"started_at\": \"2026-10-19T13:39:28.226058+00:00\", \"deadline\": \"2026-10-21T13:39:28.226058+00:00\", \"elapsed_hours\": 3.6747, \"samples\": 10, \"failed_samples\": 1, \"new_publications\": 0, \"maximum_observation_gap_seconds\": 1826.655983, \"limitations\": [\"no_new_publication\", \"last_sample_not_healthy\"], \"latest\": {\"checked_at\": \"2026-10-19T17:19:57.191325+00:00\", \"outcome\": \"error\", \"errors\": [\"ValueError: Existing container fingerprints changed\"], \"refresh_timer\": {\"NextElapseUSecRealtime\": \"Mon 2026-10-19 18:20:25 UTC\", \"LastTriggerUSec\": \"Mon 2026-10-19 12:20:53 UTC\", \"Result\": \"success\", \"Persistent\": \"yes\", \"ActiveState\": \"active\", \"UnitFileState\": \"enabled\"}, \"refresh_service\": {\"Result\": \"success\", \"ExecMainStatus\": \"0\", \"ActiveState\": \"inactive\", \"UnitFileState\": \"disabled\"}, \"refresh_stage\": \"not_due\", \"profile_sha256\": \"433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca\", \"accepted_at\": \"2026-10-19T06:26:39.147044+00:00\", \"packages\": 58, \"signature_and_exact_install_binding\": true, \"main_private_origin_checks\": true, \"swap_bytes\": 0, \"accepted_run\": \"run-20261019-062320-a1195755\"}}\ntehnet-software-offline-watch.service: Main process exited, code=exited, status=1/FAILURE\ntehnet-software-offline-watch.service: Failed with result 'exit-code'.\nFailed to start tehnet-software-offline-watch.service - Finite TehNet offline refresh observation without payload downloads.\ntehnet-software-offline-watch.service: Consumed 1.099s CPU time.\n",
+  "stored_native_latest": {
+    "phase": "observing",
+    "started_at": "2026-10-19T13:39:28.226058+00:00",
+    "deadline": "2026-10-21T13:39:28.226058+00:00",
+    "elapsed_hours": 4.1773,
+    "samples": 11,
+    "failed_samples": 1,
+    "new_publications": 0,
+    "maximum_observation_gap_seconds": 1826.655983,
+    "limitations": [
+      "no_new_publication"
+    ],
+    "latest": {
+      "checked_at": "2026-10-19T17:50:06.578938+00:00",
+      "outcome": "healthy",
+      "errors": [],
+      "refresh_timer": {
+        "NextElapseUSecRealtime": "Mon 2026-10-19 18:20:25 UTC",
+        "LastTriggerUSec": "Mon 2026-10-19 12:20:53 UTC",
+        "Result": "success",
+        "Persistent": "yes",
+        "ActiveState": "active",
+        "UnitFileState": "enabled"
+      },
+      "refresh_service": {
+        "Result": "success",
+        "ExecMainStatus": "0",
+        "ActiveState": "inactive",
+        "UnitFileState": "disabled"
+      },
+      "refresh_stage": "not_due",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+      "accepted_at": "2026-10-19T06:26:39.147044+00:00",
+      "packages": 58,
+      "signature_and_exact_install_binding": true,
+      "main_private_origin_checks": true,
+      "swap_bytes": 0,
+      "accepted_run": "run-20261019-062320-a1195755",
+      "producer_hashes_preserved": true,
+      "site_research_containers_preserved": true,
+      "catalog_payload_files_in_scanned_opt_tree": 0,
+      "private_engine_state": "inaccessible; not read",
+      "preexisting_app_wheels": "preserved as application build code; not catalog payloads"
+    }
+  },
+  "stored_scheduled_events": {
+    "events": [],
+    "source": "native refresh service journal; host/credentials omitted",
+    "query_limit_lines": 512
+  },
+  "completed": null,
+  "collector_or_refresh_started": false
+}

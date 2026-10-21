@@ -1,0 +1,123 @@
+{
+  "tested_at_utc": "2026-10-18T16:58:15.242706+00:00",
+  "vantage": "independent Windows public HTTPS",
+  "checks": [
+    {
+      "path": "/software/offline/",
+      "method": "GET",
+      "status": 200,
+      "complete_sha256": "62c7e2547ff35d4ebedb7f9393d6676e3cfc5f0c9821afedfba5b2e1d738ee01",
+      "edge_beacon_removed_for_html_comparison": true
+    },
+    {
+      "path": "/software/offline/",
+      "method": "HEAD",
+      "status": 200,
+      "complete_sha256": null,
+      "edge_beacon_removed_for_html_comparison": false
+    },
+    {
+      "path": "/software/offline/profile.json",
+      "method": "GET",
+      "status": 200,
+      "complete_sha256": "5088e4a875b7b9bb31884787629dde20ef8b6f38d08d5603f9a53ee07f8f3abb",
+      "edge_beacon_removed_for_html_comparison": false
+    },
+    {
+      "path": "/software/offline/profile.json",
+      "method": "HEAD",
+      "status": 200,
+      "complete_sha256": null,
+      "edge_beacon_removed_for_html_comparison": false
+    },
+    {
+      "path": "/software/offline/offline_kit.py",
+      "method": "GET",
+      "status": 200,
+      "complete_sha256": "fd35d9874932bc35fa8ff026c8608c61ed86533fc46d9ac56d00387e710e0fc9",
+      "edge_beacon_removed_for_html_comparison": false
+    },
+    {
+      "path": "/software/offline/offline_kit.py",
+      "method": "HEAD",
+      "status": 200,
+      "complete_sha256": null,
+      "edge_beacon_removed_for_html_comparison": false
+    },
+    {
+      "path": "/software/offline/acceptance.json",
+      "method": "GET",
+      "status": 200,
+      "complete_sha256": "33082f67111238768469a20a0819a66fb575c55a46613a66edf0ffd06fcddcc5",
+      "edge_beacon_removed_for_html_comparison": false
+    },
+    {
+      "path": "/software/offline/acceptance.json",
+      "method": "HEAD",
+      "status": 200,
+      "complete_sha256": null,
+      "edge_beacon_removed_for_html_comparison": false
+    },
+    {
+      "path": "/software/offline/unknown",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/software/offline/unknown",
+      "method": "HEAD",
+      "status": 404
+    },
+    {
+      "path": "/software/offline/unknown",
+      "method": "POST",
+      "status": 404
+    },
+    {
+      "path": "/software/offline/private/fixture",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/software/offline/private/fixture",
+      "method": "HEAD",
+      "status": 404
+    },
+    {
+      "path": "/software/offline/private/fixture",
+      "method": "POST",
+      "status": 404
+    },
+    {
+      "path": "/software/offline/archives/example.deb",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/software/offline/archives/example.deb",
+      "method": "HEAD",
+      "status": 404
+    },
+    {
+      "path": "/software/offline/archives/example.deb",
+      "method": "POST",
+      "status": 404
+    },
+    {
+      "path": "/software/private/fixture",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/software/private/fixture",
+      "method": "HEAD",
+      "status": 404
+    },
+    {
+      "path": "/software/private/fixture",
+      "method": "POST",
+      "status": 404
+    }
+  ],
+  "existing_main_and_private_acceptance": true
+}

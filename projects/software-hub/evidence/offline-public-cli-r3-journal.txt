@@ -1,0 +1,65 @@
+Starting tehnet-offline-public-client-20261018-r3.service - /usr/bin/unshare --mount --propagation private /bin/bash /opt/tehnet-software/operations/offline-devtools-20261018/public-client-cli.sh...
+Started tehnet-offline-public-client-20261018-r3.service - /usr/bin/unshare --mount --propagation private /bin/bash /opt/tehnet-software/operations/offline-devtools-20261018/public-client-cli.sh.
+offline_kit.py: OK
+Verified 1/58: perl-base
+Verified 2/58: libssl3t64
+Verified 3/58: libpython3.12-minimal
+Verified 4/58: libexpat1
+Verified 5/58: python3.12-minimal
+Verified 6/58: python3-minimal
+Verified 7/58: media-types
+Verified 8/58: netbase
+Verified 9/58: tzdata
+Verified 10/58: readline-common
+Verified 11/58: libreadline8t64
+Verified 12/58: libsqlite3-0
+Verified 13/58: libpython3.12-stdlib
+Verified 14/58: python3.12
+Verified 15/58: libpython3-stdlib
+Verified 16/58: python3
+Verified 17/58: libpopt0
+Verified 18/58: rsync
+Verified 19/58: perl-modules-5.38
+Verified 20/58: libgdbm6t64
+Verified 21/58: libgdbm-compat4t64
+Verified 22/58: libperl5.38t64
+Verified 23/58: perl
+Verified 24/58: adduser
+Verified 25/58: openssl
+Verified 26/58: ca-certificates
+Verified 27/58: libbsd0
+Verified 28/58: libkrb5support0
+Verified 29/58: libk5crypto3
+Verified 30/58: libkeyutils1
+Verified 31/58: libkrb5-3
+Verified 32/58: libgssapi-krb5-2
+Verified 33/58: python3-pkg-resources
+Verified 34/58: libcbor0.10
+Verified 35/58: libedit2
+Verified 36/58: libfido2-1
+Verified 37/58: libnghttp2-14
+Verified 38/58: libpsl5t64
+Verified 39/58: openssh-client
+Verified 40/58: wget
+Verified 41/58: libbrotli1
+Verified 42/58: libsasl2-modules-db
+Verified 43/58: libsasl2-2
+Verified 44/58: libldap2
+Verified 45/58: librtmp1
+Verified 46/58: libssh-4
+Verified 47/58: libcurl4t64
+Verified 48/58: curl
+Verified 49/58: libcurl3t64-gnutls
+Verified 50/58: liberror-perl
+Verified 51/58: git-man
+Verified 52/58: git
+Verified 53/58: libonig5
+Verified 54/58: libjq1
+Verified 55/58: jq
+Verified 56/58: python3-setuptools
+Verified 57/58: python3-wheel
+Verified 58/58: python3-pip
+{"packages": 58, "package_bytes": 32139756, "signed_indices": [{"suite": "noble-security", "index": "main/binary-amd64/Packages.xz", "sha256": "b7be9a8de79bb585c392b22793d20c1e13eca0db3257c031823142c896d76228"}, {"suite": "noble-security", "index": "universe/binary-amd64/Packages.xz", "sha256": "7892448047733ebd8e5d5bf42a4b3cd1f3f5c86d0b08a12beffc654bbb1072be"}, {"suite": "noble-updates", "index": "main/binary-amd64/Packages.xz", "sha256": "2c5d24165355a5192ba76e2dcc77b1aedecf4cb610d04cbf1f054293ca161159"}, {"suite": "noble-updates", "index": "universe/binary-amd64/Packages.xz", "sha256": "8ce56e50afdcba48a6f55292cccadd4136f08a443125b0394ac62c3b9ba3e5df"}, {"suite": "noble", "index": "main/binary-amd64/Packages.xz", "sha256": "2a6a199e1031a5c279cb346646d594993f35b1c03dd4a82aaa0323980dd92451"}, {"suite": "noble", "index": "universe/binary-amd64/Packages.xz", "sha256": "ba9057fa1b91438cc8a1d26808d00c85389fe101d0c1496254df97236405599a"}], "payload_location": "user-selected kit directory; external mirror originals", "complete_hashes": true}
+PUBLIC_CLIENT_CLI_FULL_PREPARATION_PASS
+tehnet-offline-public-client-20261018-r3.service: Deactivated successfully.
+tehnet-offline-public-client-20261018-r3.service: Consumed 5.733s CPU time, 82.3M memory peak, 0B memory swap peak.

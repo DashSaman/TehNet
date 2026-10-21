@@ -1,0 +1,10 @@
+{
+  "checked_at_utc": "2026-10-19T15:28:53.902822+00:00",
+  "verified_changes": [
+    "owned software ID from successful rollback to original image",
+    "owner-authorized concurrent TunnelPannel recreation after its health-wait repair"
+  ],
+  "protected_hashes_and_all_other_container_fingerprints_preserved": true,
+  "watch_start_deadline_history_sources_budgets_preserved": true,
+  "new_software_activation_not_yet_accepted": true
+}

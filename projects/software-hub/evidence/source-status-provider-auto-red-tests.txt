@@ -1,0 +1,21 @@
+test_provider_auto (unittest.loader._FailedTest.test_provider_auto) ... ERROR
+
+======================================================================
+ERROR: test_provider_auto (unittest.loader._FailedTest.test_provider_auto)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_provider_auto
+Traceback (most recent call last):
+  File "C:\Users\amirreza\AppData\Local\Programs\Python\Python312\Lib\unittest\loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\amirreza\AppData\Local\Programs\Python\Python312\Lib\unittest\loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "C:\Users\amirreza\Documents\Codex\2026-10-17\referenced-chatgpt-conversation-this-is-an\work\TehNet\projects\software-hub\tests\test_provider_auto.py", line 5, in <module>
+    from tools import provider_auto as auto
+ImportError: cannot import name 'provider_auto' from 'tools' (unknown location)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

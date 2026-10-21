@@ -1,0 +1,54 @@
+{
+  "scope": "Sanitized operational result summary; original logs and private snapshots remain off public Git",
+  "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808",
+  "canonical_accepted_at_utc": "2026-10-20T12:28:34.875382+00:00",
+  "canonical_published_at_utc": "2026-10-20T12:28:37Z",
+  "provider_results": {
+    "arvan": {
+      "outcome": "pass",
+      "accepted_at_utc": "2026-10-20T12:32:31.730708+00:00",
+      "public_install_evidence_sha256": "e84b3df209ca7626a12bef6ba8f665cd7a249d11fb699d32826a875795415560"
+    },
+    "linuxmirrors": {
+      "outcome": "pass",
+      "accepted_at_utc": "2026-10-20T12:43:43.868553+00:00",
+      "public_install_evidence_sha256": "e6f6354d78cce1ac5ac608954b8cdffd94f7744a12740586fb7fdb3af43e4f36"
+    },
+    "liara": {
+      "outcome": "pass",
+      "accepted_at_utc": "2026-10-20T12:46:56.833940+00:00",
+      "public_install_evidence_sha256": "88dee0f93767aa41227502f0c5f65675562c461e669ccb4ea26a65bc77fef540"
+    },
+    "hamravesh": {
+      "outcome": "failed",
+      "failure_category": "environment_preservation_changed",
+      "selectable": false
+    }
+  },
+  "passing_provider_complete_downloads": 64,
+  "packages": 58,
+  "package_archive_bytes": 32141260,
+  "functional_tools_per_passing_source": 8,
+  "negative_checks_per_passing_source": 4,
+  "original_signature_chains_verified": 3,
+  "public_https_checks_passed": 36,
+  "live_runtime_file_hashes_verified": 160,
+  "runtime_source_unit_website_changes": 0,
+  "samples": 49,
+  "retained_failed_samples": 38,
+  "historical_sample_files_byte_preserved": 49,
+  "actual_accepted_in_window_publications": 2,
+  "watch_healthy_publication_counter": 1,
+  "latest_stored_sample_at_utc": "2026-10-20T12:53:45.817368Z",
+  "latest_stored_sample_outcome": "error before narrow inventory correction",
+  "post_correction_natural_sample": "pending",
+  "charged_daily_attempts": 8,
+  "daily_reserved_mib": 1536,
+  "original_window_start_utc": "2026-10-19T13:39:28.226058Z",
+  "original_window_end_utc": "2026-10-21T13:39:28.226058Z",
+  "all_three_native_timers_enabled_active": true,
+  "final48h_acceptance": "ongoing;not certified",
+  "original_failure_evidence_retained_privately": true,
+  "extra_payload_lab_or_collector_execution": false,
+  "qualification_limit": "Clean signed Ubuntu24.04.5amd64 Base userspace,not a booted VM"
+}

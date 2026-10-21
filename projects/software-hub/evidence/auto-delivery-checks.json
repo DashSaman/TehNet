@@ -1,0 +1,31 @@
+{
+  "tested_at_utc": "2026-10-18T18:00:57.757851+00:00",
+  "changed_paths": 147,
+  "only_scoped_project_and_three_root_coordination_docs": true,
+  "original_research_changes": 0,
+  "credential_shape_heuristic_findings": 0,
+  "heuristic_is_not_an_exhaustive_secret_audit": true,
+  "maximum_new_evidence_file_bytes": 2097152,
+  "runtime_code_hashes_match_current_source": 44,
+  "linux_tests": {
+    "passed": 163,
+    "seconds": 27.962
+  },
+  "windows_tests": {
+    "passed": 132,
+    "skipped_linux_specific": 31,
+    "seconds": 9.964
+  },
+  "original_probe_tests": {
+    "passed": 18,
+    "seconds": 0.002
+  },
+  "provenance_blobs": 22,
+  "provenance_bytes": 189734,
+  "markdown_links": 383,
+  "main_site_source_changes": 0,
+  "remote_before_push": {
+    "review": "c1d4bceae41167b084244c2686167dba0c5fca29",
+    "main": "a84f46dad515c6151ef06c10dcea6e13dfde05a1"
+  }
+}

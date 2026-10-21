@@ -1,0 +1,57 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "1.0",
+      "default": "1.0",
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "title": "Commit",
+      "type": "string"
+    },
+    "architecture": {
+      "enum": [
+        "amd64",
+        "arm64"
+      ],
+      "title": "Architecture",
+      "type": "string"
+    },
+    "base_path": {
+      "const": "/software",
+      "default": "/software",
+      "title": "Base Path",
+      "type": "string"
+    },
+    "image_digests": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Image Digests",
+      "type": "array"
+    },
+    "restricted_enabled": {
+      "const": false,
+      "default": false,
+      "title": "Restricted Enabled",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "commit",
+    "architecture",
+    "image_digests"
+  ],
+  "title": "ReleaseManifest",
+  "type": "object"
+}

@@ -1,0 +1,7 @@
+Result=exit-code
+ExecMainStartTimestamp=Sun 2026-10-18 17:38:56 UTC
+ExecMainExitTimestamp=Sun 2026-10-18 17:39:10 UTC
+ExecMainStatus=1
+MemoryPeak=[not set]
+MemorySwapPeak=[not set]
+CPUUsageNSec=2518545000

@@ -1,0 +1,16 @@
+{
+  "installed_at_utc": "2026-10-19T16:25:03.780078+00:00",
+  "runtime": "/opt/tehnet-software/operations/provider-auto-20261019-v2",
+  "current_profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+  "canonical_publication_forced": false,
+  "canonical_routes_changed": false,
+  "producer_watch_units_or_daily_budgets_changed": false,
+  "new_units": [
+    "/etc/systemd/system/tehnet-software-provider-auto.service",
+    "/etc/systemd/system/tehnet-software-provider-auto.timer",
+    "/etc/systemd/system/tehnet-software-provider-lab@.service"
+  ],
+  "systemd_analyze_verify": "pass",
+  "initial_automatic_dispatcher_started": true,
+  "old_web_still_serves_historical_same_profile_until_scoped_upgrade": true
+}

@@ -1,0 +1,31 @@
+[Unit]
+Description=TehNet bounded public mirror metadata refresh (no payload storage)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+UMask=0077
+ExecStart=/bin/bash /opt/tehnet-software/operations/catalog-expanded-20261018/deployment/scripts/refresh-public.sh
+SuccessExitStatus=75
+TimeoutStartSec=150
+MemoryMax=192M
+CPUQuota=50%
+TasksMax=32
+NoNewPrivileges=true
+CapabilityBoundingSet=CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+ReadWritePaths=/srv/tehnet-software/metadata/public /srv/tehnet-software/ops /run/lock
+InaccessiblePaths=/srv/tehnet-software/auth /srv/tehnet-software/metadata/restricted /srv/tehnet-software/data
+
+[Install]
+WantedBy=multi-user.target

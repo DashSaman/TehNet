@@ -1,0 +1,58 @@
+{
+  "tested_at_utc": "2026-10-19T15:32:15.699Z",
+  "url": "https://tehnet.ir/software/offline/sources/",
+  "copy": [
+    {
+      "provider": "arvan",
+      "exactClipboardMatch": true,
+      "successStatus": true,
+      "verifiedAfterAsyncCompletion": true
+    },
+    {
+      "provider": "linuxmirrors",
+      "exactClipboardMatch": true,
+      "successStatus": true
+    },
+    {
+      "provider": "liara",
+      "exactClipboardMatch": true,
+      "successStatus": true
+    },
+    {
+      "provider": "hamravesh",
+      "exactClipboardMatch": true,
+      "successStatus": true
+    }
+  ],
+  "desktop": {
+    "providers": 4,
+    "duplicateIds": 0,
+    "documentOverflow": false
+  },
+  "consoleErrors": [],
+  "screenshot": "outputs/provider-kits-20261019.png",
+  "mobile": "not separately exercised in this task",
+  "initialCopyObservation": [
+    {
+      "provider": "arvan",
+      "exactClipboardMatch": false,
+      "successStatus": true
+    },
+    {
+      "provider": "linuxmirrors",
+      "exactClipboardMatch": true,
+      "successStatus": true
+    },
+    {
+      "provider": "liara",
+      "exactClipboardMatch": true,
+      "successStatus": true
+    },
+    {
+      "provider": "hamravesh",
+      "exactClipboardMatch": true,
+      "successStatus": true
+    }
+  ],
+  "note": "First immediate Arvan clipboard read preceded completion; separate call after fresh UI state matched exact command. Initial observation retained."
+}

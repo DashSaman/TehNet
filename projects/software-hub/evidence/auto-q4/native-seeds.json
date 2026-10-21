@@ -1,0 +1,38 @@
+[
+  {
+    "package": "git",
+    "version": "1:2.43.0-1ubuntu7.3"
+  },
+  {
+    "package": "curl",
+    "version": "8.5.0-2ubuntu10.16"
+  },
+  {
+    "package": "jq",
+    "version": "1.7.1-3ubuntu0.24.04.2"
+  },
+  {
+    "package": "python3.12-minimal",
+    "version": "3.12.3-1ubuntu0.17"
+  },
+  {
+    "package": "python3-pip",
+    "version": "24.0+dfsg-1ubuntu1.3"
+  },
+  {
+    "package": "wget",
+    "version": "1.21.4-1ubuntu4.5"
+  },
+  {
+    "package": "rsync",
+    "version": "3.2.7-1ubuntu1.5"
+  },
+  {
+    "package": "openssh-client",
+    "version": "1:9.6p1-3ubuntu13.20"
+  },
+  {
+    "package": "ca-certificates",
+    "version": "20260601~24.04.1"
+  }
+]

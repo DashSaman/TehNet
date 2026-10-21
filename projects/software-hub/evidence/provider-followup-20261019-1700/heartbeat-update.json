@@ -1,0 +1,15 @@
+{
+  "verified_at_utc": "2026-10-19T17:02:11.378925+00:00",
+  "id": "automation-4",
+  "kind": "heartbeat",
+  "status": "ACTIVE",
+  "target_thread_id": "01a14a05-cb3f-78e1-904e-219690157647",
+  "created_at": 1792417314031,
+  "prompt_sha256": "08f086511b50a3f96088f4ffcbfe927d42bcd304d5640e7bfb93171b06ee4e66",
+  "original_two_hour_finite_25_occurrence_rule_preserved": true,
+  "provider_followup_in_prompt": true,
+  "no_duplicate_automation_created": true,
+  "only_prompt_and_updated_at_changed": true,
+  "local_followup_requires_available_desktop_and_computer": "https://developers.openai.com/training/walkthroughs/scheduled-tasks",
+  "server_sampling_and_provider_units_independent": true
+}

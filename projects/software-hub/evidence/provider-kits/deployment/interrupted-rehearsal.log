@@ -1,0 +1,19 @@
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+ Container tehnet-software Recreate
+ Container tehnet-software Recreated
+ Container tehnet-software Starting
+ Container tehnet-software Started
+curl: (22) The requested URL returned error: 502
+curl: (22) The requested URL returned error: 502
+/root/tehnet-backups/20261019-152540-software-engine-rehearse/containers.before /root/tehnet-backups/20261019-152540-software-engine-rehearse/containers.after differ: byte 1808, line 14
+ Container tehnet-software Recreate
+ Container tehnet-software Recreated
+ Container tehnet-software Starting
+ Container tehnet-software Started
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+curl: (22) The requested URL returned error: 502
+curl: (22) The requested URL returned error: 502
+/root/tehnet-backups/20261019-152540-software-engine-rehearse/containers.before /root/tehnet-backups/20261019-152540-software-engine-rehearse/containers.after differ: byte 1808, line 14
+ROLLBACK_PASS state_preserved=true elapsed_seconds=13 backup=/root/tehnet-backups/20261019-152540-software-engine-rehearse

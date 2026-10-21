@@ -1,0 +1,28 @@
+{
+  "started_at": "2026-10-19T14:55:37.638785+00:00",
+  "limit": 805306368,
+  "reserved": 805306368,
+  "attempts": [
+    {
+      "provider": "arvan",
+      "reserved_bytes": 201326592,
+      "started_at": "2026-10-19T14:55:48.667106+00:00"
+    },
+    {
+      "provider": "linuxmirrors",
+      "reserved_bytes": 201326592,
+      "started_at": "2026-10-19T14:59:13.960448+00:00"
+    },
+    {
+      "provider": "liara",
+      "reserved_bytes": 201326592,
+      "started_at": "2026-10-19T15:01:02.951382+00:00"
+    },
+    {
+      "provider": "hamravesh",
+      "reserved_bytes": 201326592,
+      "started_at": "2026-10-19T15:04:18.712891+00:00"
+    }
+  ],
+  "scope": "Separate finite owner-requested qualification; production ledgers untouched"
+}

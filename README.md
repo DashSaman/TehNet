@@ -61,3 +61,7 @@ This repository is the canonical source of truth for TehNet product, implementat
 - `HANDOFF.md` / `PROGRESS.md` / `TASKS.md` — continuation state, verified progress and backlog
 
 See `PROGRESS.md` and `HANDOFF.md` for the current implementation state.
+
+## آرشیو نرم‌افزار تهران نتورک — پژوهش و برنامه مستقل / TehNet Software Archive
+
+[Start here: projects/software-hub/README.md](projects/software-hub/README.md) — isolated research copy, roadmap, agent workstreams, privacy and portable migration design. This is not a deployed service; original TehNet site/runtime is unchanged.

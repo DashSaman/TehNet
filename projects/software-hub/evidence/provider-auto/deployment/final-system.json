@@ -1,0 +1,124 @@
+{
+  "checked_at_utc": "2026-10-19T16:52:29.867969+00:00",
+  "timers": {
+    "provider-auto": {
+      "NextElapseUSecRealtime": "",
+      "NextElapseUSecMonotonic": "1month 2d 5h 44min 32.772563s",
+      "LastTriggerUSec": "Mon 2026-10-19 16:51:38 UTC",
+      "ActiveState": "active",
+      "UnitFileState": "enabled"
+    },
+    "offline-refresh": {
+      "NextElapseUSecRealtime": "Mon 2026-10-19 18:20:25 UTC",
+      "NextElapseUSecMonotonic": "0",
+      "LastTriggerUSec": "Mon 2026-10-19 12:20:53 UTC",
+      "ActiveState": "active",
+      "UnitFileState": "enabled"
+    },
+    "offline-watch": {
+      "NextElapseUSecRealtime": "",
+      "NextElapseUSecMonotonic": "1month 2d 6h 10min 47.988403s",
+      "LastTriggerUSec": "Mon 2026-10-19 16:49:53 UTC",
+      "ActiveState": "active",
+      "UnitFileState": "enabled"
+    }
+  },
+  "latest_controller": {
+    "stage": "complete",
+    "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+    "providers": {
+      "arvan": "pass",
+      "linuxmirrors": "pass",
+      "liara": "pass",
+      "hamravesh": "pass"
+    },
+    "checked_at": "2026-10-19T16:51:38.765384+00:00"
+  },
+  "durable_budget": {
+    "attempts": 4,
+    "reserved_bytes": 805306368,
+    "intents": 4
+  },
+  "owned_public_metadata_mounts": [
+    {
+      "source": "/srv/tehnet-software/data",
+      "destination": "/data",
+      "rw": false
+    },
+    {
+      "source": "/srv/tehnet-software/metadata",
+      "destination": "/metadata",
+      "rw": false
+    },
+    {
+      "source": "/srv/tehnet-software/auth",
+      "destination": "/auth",
+      "rw": true
+    },
+    {
+      "source": "/opt/tehnet-software/public",
+      "destination": "/offline-public",
+      "rw": false
+    }
+  ],
+  "recovery_measurements": {
+    "rehearse": "RECOVERY_PASS elapsed_seconds=4",
+    "activate": "RECOVERY_PASS elapsed_seconds=5"
+  },
+  "transient_software_502_count_in_retained_deployment_logs": 6,
+  "stored_watch_latest": {
+    "phase": "observing",
+    "started_at": "2026-10-19T13:39:28.226058+00:00",
+    "deadline": "2026-10-21T13:39:28.226058+00:00",
+    "elapsed_hours": 3.174,
+    "samples": 9,
+    "failed_samples": 0,
+    "new_publications": 0,
+    "maximum_observation_gap_seconds": 1826.655983,
+    "limitations": [
+      "no_new_publication"
+    ],
+    "latest": {
+      "checked_at": "2026-10-19T16:49:54.594748+00:00",
+      "outcome": "healthy",
+      "errors": [],
+      "refresh_timer": {
+        "NextElapseUSecRealtime": "Mon 2026-10-19 18:20:25 UTC",
+        "LastTriggerUSec": "Mon 2026-10-19 12:20:53 UTC",
+        "Result": "success",
+        "Persistent": "yes",
+        "ActiveState": "active",
+        "UnitFileState": "enabled"
+      },
+      "refresh_service": {
+        "Result": "success",
+        "ExecMainStatus": "0",
+        "ActiveState": "inactive",
+        "UnitFileState": "disabled"
+      },
+      "refresh_stage": "not_due",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+      "accepted_at": "2026-10-19T06:26:39.147044+00:00",
+      "packages": 58,
+      "signature_and_exact_install_binding": true,
+      "main_private_origin_checks": true,
+      "swap_bytes": 0,
+      "accepted_run": "run-20261019-062320-a1195755",
+      "producer_hashes_preserved": true,
+      "site_research_containers_preserved": true,
+      "catalog_payload_files_in_scanned_opt_tree": 0,
+      "private_engine_state": "inaccessible; not read",
+      "preexisting_app_wheels": "preserved as application build code; not catalog payloads"
+    }
+  },
+  "stored_scheduled_events": {
+    "events": [],
+    "source": "native refresh service journal; host/credentials omitted",
+    "query_limit_lines": 512
+  },
+  "watch_completed_file_present": false,
+  "canonical_helper_sha256": "fd35d9874932bc35fa8ff026c8608c61ed86533fc46d9ac56d00387e710e0fc9",
+  "original_four_watcher_source_hashes_preserved": true,
+  "private_or_payload_data_exported": false,
+  "extra_payload_attempt_or_watch_sample_requested": false
+}

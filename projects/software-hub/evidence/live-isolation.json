@@ -1,0 +1,13 @@
+{
+  "command": [
+    "ssh",
+    "-o",
+    "BatchMode=yes",
+    "netauto-main",
+    "python3 /tmp/tehnet-software-audit.py"
+  ],
+  "exit_code": 0,
+  "stdout": "{\n  \"existing_menu_items_unchanged\": true,\n  \"previous_menu_items\": 8,\n  \"current_menu_items\": 9,\n  \"added_menu_id\": 189,\n  \"existing_container_ids_images_ports_unchanged\": true,\n  \"backup_validated\": true,\n  \"backup_path\": \"/root/tehnet-backups/20261017-141739-software-preview\",\n  \"image_id\": \"sha256:54f507b987e5a252a6f207478ddd5bb6251c8889c1ed45657857be017e314352\",\n  \"health\": \"healthy\",\n  \"deployment_sha256\": {\n    \"compose.yaml\": \"0504faa4f2a556da191fe06502fb7767c60c09a25ca0e588a79fd6b050ae7e64\",\n    \"deployment/scripts/deploy-preview.sh\": \"14590f9e18418016bfd898aef882ab4f09c4140ab96ee032ead59155ca0d9021\",\n    \"software-menu.php\": \"a78daa62bb0b152481e5e5ee665d3406bcaa851a76eaa472a4e9bda1d837504d\",\n    \"software-menu-lib.php\": \"0da0fb5484b811b617384f0fe89293f1b000feea505e2878994d982d0e2115ca\"\n  },\n  \"edge_first_errors\": \"curl: (22) The requested URL returned error: 404\",\n  \"update_backup\": {\n    \"path\": \"/root/tehnet-backups/20261017-143634-software-update\",\n    \"validated\": true,\n    \"nginx_unchanged\": true,\n    \"previous_image\": \"sha256:8889969aff3f9889bd8e61809424d81fc6ee3485b6223468cf150af90f4fcceb\",\n    \"new_image\": \"sha256:54f507b987e5a252a6f207478ddd5bb6251c8889c1ed45657857be017e314352\"\n  },\n  \"runtime\": {\n    \"readonly_root\": true,\n    \"user\": \"10001:10001\",\n    \"memory_limit\": 201326592,\n    \"ports\": {\n      \"8000/tcp\": [\n        {\n          \"HostIp\": \"127.0.0.1\",\n          \"HostPort\": \"18083\"\n        }\n      ]\n    },\n    \"data_mounts\": [\n      {\n        \"destination\": \"/data\",\n        \"rw\": false\n      }\n    ]\n  }\n}\n",
+  "stderr": "",
+  "tested_at_utc": "2026-10-17T14:43:36.510753+00:00"
+}

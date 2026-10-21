@@ -1,0 +1,172 @@
+{
+  "tested_at_utc": "2026-10-18T14:43:04.221439+00:00",
+  "vantage": "independent-public-TLS",
+  "providers_only": false,
+  "payload_files_written": 0,
+  "items": [
+    {
+      "filename": "alpine-minirootfs-3.24.2-x86_64.tar.gz",
+      "sha256": "c5ca053cfe1d85c5b96dff8b9bc57045f7f184a30ffb6b65776409ca90388677",
+      "bytes": 3701382,
+      "full_hash_verified": true,
+      "tls_verified": true,
+      "provider": "mirror.mobinhost.com",
+      "head": 200,
+      "range": 206,
+      "conditional": 304,
+      "tehnet_redirect_verified": true,
+      "elapsed_seconds": 2.844
+    },
+    {
+      "filename": "alpine-minirootfs-3.24.2-aarch64.tar.gz",
+      "sha256": "9bf70a7f18ea44094cbb5f70c58f9af129c8214745743db0e68e5502cc2ce773",
+      "bytes": 4028030,
+      "full_hash_verified": true,
+      "tls_verified": true,
+      "provider": "mirror.mobinhost.com",
+      "head": 200,
+      "range": 206,
+      "conditional": 304,
+      "tehnet_redirect_verified": true,
+      "elapsed_seconds": 8.687
+    },
+    {
+      "filename": "hello_2.10-3build1_amd64.deb",
+      "sha256": "e68cf4365b7aa9c4e2af4af6eee1710d6f967059b7b4af62786e8870d7366333",
+      "bytes": 26006,
+      "full_hash_verified": true,
+      "tls_verified": true,
+      "provider": "mirror.arvancloud.ir",
+      "head": 200,
+      "range": 206,
+      "conditional": 304,
+      "tehnet_redirect_verified": true,
+      "elapsed_seconds": 0.546
+    }
+  ],
+  "site_checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "h1": 1,
+      "canonical": [
+        "https://tehnet.ir/"
+      ],
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "software_links": 1
+    },
+    {
+      "path": "/learn/",
+      "status": 200,
+      "h1": 1,
+      "canonical": [
+        "https://tehnet.ir/learn/"
+      ],
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "software_links": 1
+    },
+    {
+      "path": "/services/",
+      "status": 200,
+      "h1": 1,
+      "canonical": [
+        "https://tehnet.ir/services/"
+      ],
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "software_links": 1
+    },
+    {
+      "path": "/shop/",
+      "status": 200,
+      "h1": 1,
+      "canonical": [
+        "https://tehnet.ir/shop/"
+      ],
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "software_links": 1
+    },
+    {
+      "path": "/contact/",
+      "status": 200,
+      "h1": 1,
+      "canonical": [
+        "https://tehnet.ir/contact/"
+      ],
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "software_links": 1
+    },
+    {
+      "path": "/software/",
+      "status": 200,
+      "h1": 1,
+      "canonical": [],
+      "robots": [
+        "noindex,nofollow"
+      ],
+      "software_links": 0
+    },
+    {
+      "path": "/software/readyz",
+      "status": 200,
+      "cache_control": "private, no-store"
+    },
+    {
+      "path": "/software/v1/sources",
+      "status": 200,
+      "cache_control": "private, no-store"
+    },
+    {
+      "path": "/software/static/style.css",
+      "status": 200,
+      "cache_control": "private, no-store"
+    },
+    {
+      "path": "/software/openapi.json",
+      "status": 200,
+      "cache_control": "private, no-store"
+    },
+    {
+      "path": "/software/private/fixture",
+      "method": "GET",
+      "status": 404,
+      "cache_control": "private, no-store"
+    },
+    {
+      "path": "/software/private/fixture",
+      "method": "HEAD",
+      "status": 404,
+      "cache_control": "private, no-store"
+    },
+    {
+      "path": "/software/private/fixture",
+      "method": "POST",
+      "status": 404,
+      "cache_control": "private, no-store"
+    },
+    {
+      "path": "/software/static/ui.js",
+      "status": 200,
+      "bytes": 1823
+    },
+    {
+      "path": "/software/static/fonts/Vazirmatn-Regular.woff2",
+      "status": 200,
+      "bytes": 50684
+    },
+    {
+      "path": "/software/static/fonts/Vazirmatn-ExtraBold.woff2",
+      "status": 200,
+      "bytes": 51120
+    }
+  ]
+}
