@@ -500,9 +500,13 @@
     "Real Iranian cutover/reachability/tariffs and missing original OFFLINE_SOFTWARE_CATALOG remain unproven"
   ],
   "retirement": {
-    "finite_watch": "already inactive after native terminal; disable pending after report publication",
-    "thread_automation": "delete existing automation-4 after registered report and timer verification",
-    "offline_refresh_and_provider_auto": "enabled/active verified; must remain enabled/active"
+    "registered_report_ref": "750513c35f30dfe79f37cd1a59857ec3a088664f",
+    "finite_watch": "inactive and disabled after registered final report",
+    "retired_at_utc": "2026-10-21T20:28:31.377058+00:00",
+    "thread_automation": "existing automation-4 deleted; local config absent",
+    "offline_refresh_and_provider_auto": "both enabled/active verified after finite retirement",
+    "all_native_evidence_budgets_and_status_unchanged": true,
+    "new_window_or_followup": false
   },
   "verified_predecessor_ref": "350dff9698233c485751d0d262ab625d605d8f39",
   "authorized_branch": "docs/melika-consolidation-2026-10-17",

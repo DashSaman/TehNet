@@ -1,6 +1,6 @@
 # Finite48h offline refresh observation
 
-21October final: [completed with preserved incidents](../evidence/OFFLINE_WATCH_FINAL_20261021.md).98inside-window records plus one later healthy terminal;42errors and2deferred retained. Three verified publications; current Arvan/Liara/Hamravesh active, LinuxMirrors failed/inactive. Retirement follows report registration; long-lived timers remain active.
+21October final: [completed with preserved incidents](../evidence/OFFLINE_WATCH_FINAL_20261021.md).98inside-window records plus one later healthy terminal;42errors and2deferred retained. Three verified publications; current Arvan/Liara/Hamravesh active, LinuxMirrors failed/inactive. Finite timer inactive/disabled and existing follow-up deleted after registered report; long-lived refresh/provider timers verified enabled/active.
 
 20 October 19:04 UTC: [natural recovery confirmed](../evidence/NATURAL_RECOVERY_20261020_1902.md). Four natural healthy samples; 61 total/19 healthy/42 retained failures. Previous 57 sample hashes unchanged; scheduled refresh not_due, no new publication. Three timers active, original deadline unchanged; 48h ongoing.
 

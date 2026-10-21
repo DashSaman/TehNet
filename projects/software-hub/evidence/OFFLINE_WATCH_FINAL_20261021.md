@@ -68,7 +68,7 @@ Payloads remain on external sources; existing independent labs used only transie
 
 ## Retirement and references
 
-The native finite timer is already inactive after completion. After this report is registered, disable only that finite timer and delete the existing automation-4; confirm offline-refresh and provider-auto stay enabled/active. Record the actual retirement receipt separately. No new window, schedule or follow-up will be created.
+After the final report was registered at commit 750513c35f30dfe79f37cd1a59857ec3a088664f, only the finite timer was disabled at 2026-10-21T20:28:31.377058+00:00. It is inactive/disabled. The existing automation-4 was then deleted and absence of its local configuration verified. Both offline-refresh and provider-auto remain enabled/active. All99original sample files, completion/configuration, budgets and refresh status retain exactly the same bytes. No new window or follow-up was created. [Verified retirement receipt](OFFLINE_WATCH_RETIREMENT_20261021.json).
 
 Verified predecessor: 350dff9698233c485751d0d262ab625d605d8f39. Authorized branch: docs/melika-consolidation-2026-10-17; main remains unmerged. Final publication refs are recorded by the closing receipt and chat. [Sanitized machine-readable report](OFFLINE_WATCH_FINAL_20261021.json).
 
