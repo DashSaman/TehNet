@@ -1,0 +1,1247 @@
+{
+  "reported_at_utc": "2026-10-21T20:24:00.360997Z",
+  "classification": "completed_with_incidents",
+  "native_watch_limitations": [],
+  "window_start_utc": "2026-10-19T13:39:28.226058Z",
+  "window_end_utc": "2026-10-21T13:39:28.226058Z",
+  "fixed_window_seconds": 172800,
+  "first_sample_utc": "2026-10-19T13:39:28.226058Z",
+  "last_inside_window_sample_utc": "2026-10-21T13:30:17.893938Z",
+  "terminal_sample_utc": "2026-10-21T14:00:18.585601Z",
+  "actual_collection_span_seconds": 174050.359543,
+  "terminal_after_deadline_seconds": 1250.359543,
+  "inside_window_counts": {
+    "total": 98,
+    "healthy": 54,
+    "error": 42,
+    "deferred": 2
+  },
+  "all_native_counts": {
+    "total": 99,
+    "healthy": 55,
+    "error": 42,
+    "deferred": 2
+  },
+  "previous61_original_sample_hashes_unchanged": true,
+  "maximum_adjacent_sample_gap_seconds": 1830.014909,
+  "maximum_nondeferred_sample_gap_seconds": 3605.521443,
+  "maximum_healthy_confirmation_gap_seconds": 63196.200659,
+  "observation_gap_threshold_seconds": 4500,
+  "nondeferred_gaps_over35minutes": [
+    {
+      "from_utc": "2026-10-21T04:58:22.078378Z",
+      "to_utc": "2026-10-21T05:58:27.599821Z",
+      "seconds": 3605.521443
+    },
+    {
+      "from_utc": "2026-10-21T05:58:27.599821Z",
+      "to_utc": "2026-10-21T06:58:28.374635Z",
+      "seconds": 3600.774814
+    }
+  ],
+  "nonhealthy_periods": [
+    {
+      "first_nonhealthy_sample_utc": "2026-10-19T17:19:57.191325Z",
+      "last_nonhealthy_sample_utc": "2026-10-19T17:19:57.191325Z",
+      "counts": {
+        "error": 1
+      },
+      "recorded_nonhealthy_sample_span_seconds": 0.0,
+      "previous_healthy_utc": "2026-10-19T16:49:54.594748Z",
+      "next_healthy_utc": "2026-10-19T17:50:06.578938Z",
+      "health_confirmation_gap_seconds": 3611.98419,
+      "category": "strict inventory expectation stale after independent owner-authorized deployment",
+      "correction": "only exact verified external inventory expectation reconciled under locks with private backup; no runtime/site changes",
+      "correction_utc": "2026-10-19T17:47:36.609669Z",
+      "recovery_evidence": "next listed original natural healthy sample"
+    },
+    {
+      "first_nonhealthy_sample_utc": "2026-10-19T18:20:07.246921Z",
+      "last_nonhealthy_sample_utc": "2026-10-20T10:53:19.442526Z",
+      "counts": {
+        "error": 34
+      },
+      "recorded_nonhealthy_sample_span_seconds": 59592.195605,
+      "previous_healthy_utc": "2026-10-19T17:50:06.578938Z",
+      "next_healthy_utc": "2026-10-20T11:23:22.779597Z",
+      "health_confirmation_gap_seconds": 63196.200659,
+      "category": "strict inventory expectation stale after independent owner-authorized deployment",
+      "correction": "only exact verified external inventory expectation reconciled under locks with private backup; no runtime/site changes",
+      "correction_utc": "2026-10-20T10:54:06.620818Z",
+      "recovery_evidence": "next listed original natural healthy sample"
+    },
+    {
+      "first_nonhealthy_sample_utc": "2026-10-20T11:53:28.500523Z",
+      "last_nonhealthy_sample_utc": "2026-10-20T12:53:45.817368Z",
+      "counts": {
+        "error": 3
+      },
+      "recorded_nonhealthy_sample_span_seconds": 3617.316845,
+      "previous_healthy_utc": "2026-10-20T11:23:22.779597Z",
+      "next_healthy_utc": "2026-10-20T13:23:46.402135Z",
+      "health_confirmation_gap_seconds": 7223.622538,
+      "category": "strict inventory expectation stale after independent owner-authorized deployment",
+      "correction": "only exact verified external inventory expectation reconciled under locks with private backup; no runtime/site changes",
+      "correction_utc": "2026-10-20T12:56:46.003656Z",
+      "recovery_evidence": "next listed original natural healthy sample"
+    },
+    {
+      "first_nonhealthy_sample_utc": "2026-10-20T14:23:48.536301Z",
+      "last_nonhealthy_sample_utc": "2026-10-20T14:54:18.551210Z",
+      "counts": {
+        "error": 2
+      },
+      "recorded_nonhealthy_sample_span_seconds": 1830.014909,
+      "previous_healthy_utc": "2026-10-20T13:53:47.420779Z",
+      "next_healthy_utc": "2026-10-20T15:24:28.533770Z",
+      "health_confirmation_gap_seconds": 5441.112991,
+      "category": "strict inventory expectation stale after independent owner-authorized deployment",
+      "correction": "only exact verified external inventory expectation reconciled under locks with private backup; no runtime/site changes",
+      "correction_utc": "2026-10-20T14:59:19.576210Z",
+      "recovery_evidence": "next listed original natural healthy sample"
+    },
+    {
+      "first_nonhealthy_sample_utc": "2026-10-20T16:24:50.944754Z",
+      "last_nonhealthy_sample_utc": "2026-10-20T16:55:09.216198Z",
+      "counts": {
+        "error": 2
+      },
+      "recorded_nonhealthy_sample_span_seconds": 1818.271444,
+      "previous_healthy_utc": "2026-10-20T15:54:48.544045Z",
+      "next_healthy_utc": "2026-10-20T17:25:12.162603Z",
+      "health_confirmation_gap_seconds": 5423.618558,
+      "category": "strict inventory expectation stale after independent owner-authorized deployment",
+      "correction": "only exact verified external inventory expectation reconciled under locks with private backup; no runtime/site changes",
+      "correction_utc": "2026-10-20T17:03:04.462231Z",
+      "recovery_evidence": "next listed original natural healthy sample"
+    },
+    {
+      "first_nonhealthy_sample_utc": "2026-10-21T05:28:22.476079Z",
+      "last_nonhealthy_sample_utc": "2026-10-21T05:28:22.476079Z",
+      "counts": {
+        "deferred": 1
+      },
+      "recorded_nonhealthy_sample_span_seconds": 0.0,
+      "previous_healthy_utc": "2026-10-21T04:58:22.078378Z",
+      "next_healthy_utc": "2026-10-21T05:58:27.599821Z",
+      "health_confirmation_gap_seconds": 3605.521443,
+      "category": "existing worker/publication lock held",
+      "lock_holder_identity": "not recorded; not inferred",
+      "manual_replacement_or_forced_sample": false
+    },
+    {
+      "first_nonhealthy_sample_utc": "2026-10-21T06:28:27.801473Z",
+      "last_nonhealthy_sample_utc": "2026-10-21T06:28:27.801473Z",
+      "counts": {
+        "deferred": 1
+      },
+      "recorded_nonhealthy_sample_span_seconds": 0.0,
+      "previous_healthy_utc": "2026-10-21T05:58:27.599821Z",
+      "next_healthy_utc": "2026-10-21T06:58:28.374635Z",
+      "health_confirmation_gap_seconds": 3600.774814,
+      "category": "existing worker/publication lock held",
+      "lock_holder_identity": "not recorded; not inferred",
+      "manual_replacement_or_forced_sample": false
+    }
+  ],
+  "native_healthy_observed_publication_count": 3,
+  "actual_scheduled_published_event_count": 3,
+  "unique_new_publication_shas": 3,
+  "unique_sample_profile_shas_including_pre_window_baseline": 4,
+  "scheduled_refresh_outcomes_inside_window": [
+    {
+      "journal_utc": "2026-10-19T18:20:37.218965+00:00",
+      "stage": "not_due",
+      "run": "run-20261019-062320-a1195755",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+      "accepted_at": "2026-10-19T06:26:39.147044+00:00",
+      "checked_at": "2026-10-19T18:20:37.207058+00:00"
+    },
+    {
+      "journal_utc": "2026-10-20T00:23:55.567955+00:00",
+      "stage": "published",
+      "run": "run-20261020-002025-75be29d8",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724",
+      "accepted_at": "2026-10-20T00:23:53.116922+00:00",
+      "checked_at": "2026-10-20T00:23:53.122263+00:00"
+    },
+    {
+      "journal_utc": "2026-10-20T06:23:34.384204+00:00",
+      "stage": "not_due",
+      "run": "run-20261020-002025-75be29d8",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724",
+      "accepted_at": "2026-10-20T00:23:53.116922+00:00",
+      "checked_at": "2026-10-20T06:23:34.371579+00:00"
+    },
+    {
+      "journal_utc": "2026-10-20T12:28:37.346995+00:00",
+      "stage": "published",
+      "run": "run-20261020-122501-3aeeac00",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808",
+      "accepted_at": "2026-10-20T12:28:34.875382+00:00",
+      "checked_at": "2026-10-20T12:28:34.879824+00:00"
+    },
+    {
+      "journal_utc": "2026-10-20T18:22:24.890589+00:00",
+      "stage": "not_due",
+      "run": "run-20261020-122501-3aeeac00",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808",
+      "accepted_at": "2026-10-20T12:28:34.875382+00:00",
+      "checked_at": "2026-10-20T18:22:24.878367+00:00"
+    },
+    {
+      "journal_utc": "2026-10-21T00:21:42.370452+00:00",
+      "stage": "not_due",
+      "run": "run-20261020-122501-3aeeac00",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808",
+      "accepted_at": "2026-10-20T12:28:34.875382+00:00",
+      "checked_at": "2026-10-21T00:21:42.360731+00:00"
+    },
+    {
+      "journal_utc": "2026-10-21T06:27:22.108766+00:00",
+      "stage": "published",
+      "run": "run-20261021-062356-9f2df70c",
+      "profile_sha256": "be34b7d12a2a77479c8846179aae95636c64b46701655fbe730605f57b7ee4f3",
+      "accepted_at": "2026-10-21T06:27:19.581939+00:00",
+      "checked_at": "2026-10-21T06:27:19.587209+00:00"
+    },
+    {
+      "journal_utc": "2026-10-21T12:24:42.386042+00:00",
+      "stage": "not_due",
+      "run": "run-20261021-062356-9f2df70c",
+      "profile_sha256": "be34b7d12a2a77479c8846179aae95636c64b46701655fbe730605f57b7ee4f3",
+      "accepted_at": "2026-10-21T06:27:19.581939+00:00",
+      "checked_at": "2026-10-21T12:24:42.373393+00:00"
+    }
+  ],
+  "publications": [
+    {
+      "run": "run-20261020-002025-75be29d8",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724",
+      "accepted_at_utc": "2026-10-20T00:23:53.116922+00:00",
+      "published_event_utc": "2026-10-20T00:23:55.567955+00:00",
+      "published_files_sha256": {
+        "index.html": "dc8dfe9fe9c310dc50d772a19056f8bf6a871d1d397d844f3e7184f5d9a2cfe9",
+        "profile.json": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724",
+        "offline_kit.py": "fd35d9874932bc35fa8ff026c8608c61ed86533fc46d9ac56d00387e710e0fc9",
+        "acceptance.json": "8d50041239cf898b154c73e98831f1b8f97c47936102c8d7efb81f21dd910610"
+      },
+      "original_signatures": [
+        {
+          "suite": "noble-security",
+          "inrelease_sha256": "7f81a77abbf23458062d0bc98e868e00b4392de0c78d339e58f548e8ff64245b",
+          "signature_and_date_at_acceptance": "pass"
+        },
+        {
+          "suite": "noble-updates",
+          "inrelease_sha256": "52bb7e89f40f411a401f8b1954098b5775a7d0d497dec182f323f4bc009612d0",
+          "signature_and_date_at_acceptance": "pass"
+        },
+        {
+          "suite": "noble",
+          "inrelease_sha256": "cdb2f31d809f589719a53c6ad15f255b27569c4059542ada282aaa21b8e164b0",
+          "signature_and_date_at_acceptance": "pass"
+        }
+      ],
+      "canonical_original_signed_install_proof": "validated and rehashed; original bytes retained privately",
+      "canonical_isolation_and_preservation": "noswap/swap0/noOOM/networkless/preservation pass",
+      "providers": [
+        {
+          "provider": "arvan",
+          "outcome": "pass",
+          "accepted_at": "2026-10-20T00:28:04.916933+00:00",
+          "finished_at": "2026-10-20T00:28:04.916979+00:00",
+          "charged_intent_retained": true,
+          "install_evidence_sha256": "e45251d8bd9e31b1622de2fb984dec958c88ac918fbeee13e2589d8972d2f299",
+          "packages": 58,
+          "complete_hash_downloads": 64,
+          "networkless_exact_install": "pass",
+          "full_isolation_and_preservation": "pass"
+        },
+        {
+          "provider": "linuxmirrors",
+          "outcome": "pass",
+          "accepted_at": "2026-10-20T00:39:10.993725+00:00",
+          "finished_at": "2026-10-20T00:39:10.993772+00:00",
+          "charged_intent_retained": true,
+          "install_evidence_sha256": "3b135d0ed9b1218fb5c8ae2d363f126873f332a6d771dc330da5e3af445f0383",
+          "packages": 58,
+          "complete_hash_downloads": 64,
+          "networkless_exact_install": "pass",
+          "full_isolation_and_preservation": "pass"
+        },
+        {
+          "provider": "liara",
+          "outcome": "pass",
+          "accepted_at": "2026-10-20T00:42:32.362800+00:00",
+          "finished_at": "2026-10-20T00:42:32.362866+00:00",
+          "charged_intent_retained": true,
+          "install_evidence_sha256": "0b29cd5c198816ea5a947b9b7f273d7fd5055566b919d962a6fad944700ead2d",
+          "packages": 58,
+          "complete_hash_downloads": 64,
+          "networkless_exact_install": "pass",
+          "full_isolation_and_preservation": "pass"
+        },
+        {
+          "provider": "hamravesh",
+          "outcome": "pass",
+          "accepted_at": "2026-10-20T00:45:42.955487+00:00",
+          "finished_at": "2026-10-20T00:45:42.955532+00:00",
+          "charged_intent_retained": true,
+          "install_evidence_sha256": "d1c30a796473abc29ce7edf026fe571310fb8925b8d3a41b0a5ab55873fe8d8f",
+          "packages": 58,
+          "complete_hash_downloads": 64,
+          "networkless_exact_install": "pass",
+          "full_isolation_and_preservation": "pass"
+        }
+      ]
+    },
+    {
+      "run": "run-20261020-122501-3aeeac00",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808",
+      "accepted_at_utc": "2026-10-20T12:28:34.875382+00:00",
+      "published_event_utc": "2026-10-20T12:28:37.346995+00:00",
+      "published_files_sha256": {
+        "index.html": "dc8dfe9fe9c310dc50d772a19056f8bf6a871d1d397d844f3e7184f5d9a2cfe9",
+        "profile.json": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808",
+        "offline_kit.py": "fd35d9874932bc35fa8ff026c8608c61ed86533fc46d9ac56d00387e710e0fc9",
+        "acceptance.json": "86252e6495c88fc9128044b6969c2276bedbc18ff65201a41fed64adf9bfc39f"
+      },
+      "original_signatures": [
+        {
+          "suite": "noble-security",
+          "inrelease_sha256": "02688fbf18e38d394945f3f11f65c7c8616a05e8f7520996f8a5e17b1757afde",
+          "signature_and_date_at_acceptance": "pass"
+        },
+        {
+          "suite": "noble-updates",
+          "inrelease_sha256": "07dd2ada4e24e5aad3744ee9f0722fdf35191d9911f81916d126a1f8b5d4b933",
+          "signature_and_date_at_acceptance": "pass"
+        },
+        {
+          "suite": "noble",
+          "inrelease_sha256": "cdb2f31d809f589719a53c6ad15f255b27569c4059542ada282aaa21b8e164b0",
+          "signature_and_date_at_acceptance": "pass"
+        }
+      ],
+      "canonical_original_signed_install_proof": "validated and rehashed; original bytes retained privately",
+      "canonical_isolation_and_preservation": "noswap/swap0/noOOM/networkless/preservation pass",
+      "providers": [
+        {
+          "provider": "arvan",
+          "outcome": "pass",
+          "accepted_at": "2026-10-20T12:32:31.730708+00:00",
+          "finished_at": "2026-10-20T12:32:31.730755+00:00",
+          "charged_intent_retained": true,
+          "install_evidence_sha256": "e84b3df209ca7626a12bef6ba8f665cd7a249d11fb699d32826a875795415560",
+          "packages": 58,
+          "complete_hash_downloads": 64,
+          "networkless_exact_install": "pass",
+          "full_isolation_and_preservation": "pass"
+        },
+        {
+          "provider": "linuxmirrors",
+          "outcome": "pass",
+          "accepted_at": "2026-10-20T12:43:43.868553+00:00",
+          "finished_at": "2026-10-20T12:43:43.868608+00:00",
+          "charged_intent_retained": true,
+          "install_evidence_sha256": "e6f6354d78cce1ac5ac608954b8cdffd94f7744a12740586fb7fdb3af43e4f36",
+          "packages": 58,
+          "complete_hash_downloads": 64,
+          "networkless_exact_install": "pass",
+          "full_isolation_and_preservation": "pass"
+        },
+        {
+          "provider": "liara",
+          "outcome": "pass",
+          "accepted_at": "2026-10-20T12:46:56.833940+00:00",
+          "finished_at": "2026-10-20T12:46:56.834001+00:00",
+          "charged_intent_retained": true,
+          "install_evidence_sha256": "88dee0f93767aa41227502f0c5f65675562c461e669ccb4ea26a65bc77fef540",
+          "packages": 58,
+          "complete_hash_downloads": 64,
+          "networkless_exact_install": "pass",
+          "full_isolation_and_preservation": "pass"
+        },
+        {
+          "provider": "hamravesh",
+          "outcome": "failed",
+          "accepted_at": null,
+          "finished_at": "2026-10-20T12:50:13.363693+00:00",
+          "charged_intent_retained": true,
+          "cause": "historical final environment-preservation assertion failed during separate authorized deployment; partial installation never promoted"
+        }
+      ]
+    },
+    {
+      "run": "run-20261021-062356-9f2df70c",
+      "profile_sha256": "be34b7d12a2a77479c8846179aae95636c64b46701655fbe730605f57b7ee4f3",
+      "accepted_at_utc": "2026-10-21T06:27:19.581939+00:00",
+      "published_event_utc": "2026-10-21T06:27:22.108766+00:00",
+      "published_files_sha256": {
+        "index.html": "a246ba4da66cbb6cb855d4ea62cb4df2f80f4feabd28a1b32a9d9aae59dc9965",
+        "profile.json": "be34b7d12a2a77479c8846179aae95636c64b46701655fbe730605f57b7ee4f3",
+        "offline_kit.py": "fd35d9874932bc35fa8ff026c8608c61ed86533fc46d9ac56d00387e710e0fc9",
+        "acceptance.json": "b6be518b53968cd75f749164e95b96c87be4a51e087a72cf5ff4159f518cd9a3"
+      },
+      "original_signatures": [
+        {
+          "suite": "noble-security",
+          "inrelease_sha256": "826c3f4d726403049ded8dabbb09ea76373bc4170b6b6178cff7d944e47b0614",
+          "signature_and_date_at_acceptance": "pass"
+        },
+        {
+          "suite": "noble-updates",
+          "inrelease_sha256": "8ae2df3620756815fbcaf2e3cf02655ed6ff94d53211e5c802182dc2f9fae186",
+          "signature_and_date_at_acceptance": "pass"
+        },
+        {
+          "suite": "noble",
+          "inrelease_sha256": "cdb2f31d809f589719a53c6ad15f255b27569c4059542ada282aaa21b8e164b0",
+          "signature_and_date_at_acceptance": "pass"
+        }
+      ],
+      "canonical_original_signed_install_proof": "validated and rehashed; original bytes retained privately",
+      "canonical_isolation_and_preservation": "noswap/swap0/noOOM/networkless/preservation pass",
+      "providers": [
+        {
+          "provider": "arvan",
+          "outcome": "pass",
+          "accepted_at": "2026-10-21T06:32:02.757323+00:00",
+          "finished_at": "2026-10-21T06:32:02.757388+00:00",
+          "charged_intent_retained": true,
+          "install_evidence_sha256": "b44cbbd7a7e3e5bb44229c3e3dce0f80900affc63b6bef184c8cc53a70b6b745",
+          "packages": 58,
+          "complete_hash_downloads": 64,
+          "networkless_exact_install": "pass",
+          "full_isolation_and_preservation": "pass"
+        },
+        {
+          "provider": "linuxmirrors",
+          "outcome": "failed",
+          "accepted_at": null,
+          "finished_at": "2026-10-21T06:32:34.282345+00:00",
+          "charged_intent_retained": true,
+          "cause": "original HTTP status/encoding refusal; exact response status/header not retained, no fabricated attribution"
+        },
+        {
+          "provider": "liara",
+          "outcome": "pass",
+          "accepted_at": "2026-10-21T06:35:46.193947+00:00",
+          "finished_at": "2026-10-21T06:35:46.193993+00:00",
+          "charged_intent_retained": true,
+          "install_evidence_sha256": "1f0bf2c5d571e09fe34f87261bc2e76b5bb1192f1f2eaa21033d2506b8f8bfb3",
+          "packages": 58,
+          "complete_hash_downloads": 64,
+          "networkless_exact_install": "pass",
+          "full_isolation_and_preservation": "pass"
+        },
+        {
+          "provider": "hamravesh",
+          "outcome": "pass",
+          "accepted_at": "2026-10-21T06:39:00.870408+00:00",
+          "finished_at": "2026-10-21T06:39:00.870459+00:00",
+          "charged_intent_retained": true,
+          "install_evidence_sha256": "70a7cde218b703512b9d659451bb369bd352bce7e2f9963fb044ea082f048272",
+          "packages": 58,
+          "complete_hash_downloads": 64,
+          "networkless_exact_install": "pass",
+          "full_isolation_and_preservation": "pass"
+        }
+      ]
+    }
+  ],
+  "current_profile_sha256": "be34b7d12a2a77479c8846179aae95636c64b46701655fbe730605f57b7ee4f3",
+  "current_active_sources": [
+    "arvan",
+    "hamravesh",
+    "liara"
+  ],
+  "current_inactive_source": "linuxmirrors",
+  "current_provider_budget": {
+    "day": "2026-10-21",
+    "attempts": 4,
+    "reserved_bytes": 805306368
+  },
+  "historical_provider_budget_days": {
+    "2026-10-19": {
+      "attempts": 4,
+      "reserved_bytes": 805306368
+    },
+    "2026-10-20": {
+      "attempts": 8,
+      "reserved_bytes": 1610612736
+    }
+  },
+  "total_durable_provider_intents": 16,
+  "budget_values_are_reservations_not_measured_wire_traffic": true,
+  "signatures_verified_at_original_acceptance": 9,
+  "current_time_freshness_independently_passes": true,
+  "passing_original_provider_proofs_verified": 10,
+  "immutable_runtime_hashes_verified": 160,
+  "independent_public_https_checks": 23,
+  "targeted_local_tests": {
+    "initial_global_interpreter_passed": 16,
+    "initial_global_interpreter_import_errors": 1,
+    "cause": "global pwdlib dependency absent; existing project virtualenv used",
+    "existing_project_virtualenv_passed": 23,
+    "failed": 0,
+    "same_guard_network_free_reproductions": 4
+  },
+  "production_source_or_policy_changes": 0,
+  "new_payload_tests_forced_publications_or_intent_replays": 0,
+  "private_evidence": "original bytes/journals/metadata retained privately; not exported",
+  "scope_limits": [
+    "Sampled checks, not continuous uptime or an SLA; failed inventory checks stopped before final engine-health predicate",
+    "Ubuntu24.04.5 Base userspace in network-isolated labs, not a booted VM",
+    "Two deferred samples identify lock contention but not the exact holder",
+    "Failed LinuxMirrors response status/header not retained; exact upstream cause unproven",
+    "Historical signatures/date verified at original acceptance; old generations are not current download eligibility",
+    "Real Iranian cutover/reachability/tariffs and missing original OFFLINE_SOFTWARE_CATALOG remain unproven"
+  ],
+  "retirement": {
+    "finite_watch": "already inactive after native terminal; disable pending after report publication",
+    "thread_automation": "delete existing automation-4 after registered report and timer verification",
+    "offline_refresh_and_provider_auto": "enabled/active verified; must remain enabled/active"
+  },
+  "verified_predecessor_ref": "350dff9698233c485751d0d262ab625d605d8f39",
+  "authorized_branch": "docs/melika-consolidation-2026-10-17",
+  "main_merged": false,
+  "samples": [
+    {
+      "number": 1,
+      "checked_at_utc": "2026-10-19T13:39:28.226058Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 2,
+      "checked_at_utc": "2026-10-19T13:39:34.380720Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 3,
+      "checked_at_utc": "2026-10-19T13:49:21.802980Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 4,
+      "checked_at_utc": "2026-10-19T14:19:21.796941Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 5,
+      "checked_at_utc": "2026-10-19T14:49:48.452924Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 6,
+      "checked_at_utc": "2026-10-19T15:19:49.023985Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 7,
+      "checked_at_utc": "2026-10-19T15:49:50.844724Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 8,
+      "checked_at_utc": "2026-10-19T16:19:54.190397Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 9,
+      "checked_at_utc": "2026-10-19T16:49:54.594748Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 10,
+      "checked_at_utc": "2026-10-19T17:19:57.191325Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 11,
+      "checked_at_utc": "2026-10-19T17:50:06.578938Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 12,
+      "checked_at_utc": "2026-10-19T18:20:07.246921Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 13,
+      "checked_at_utc": "2026-10-19T18:50:18.580008Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 14,
+      "checked_at_utc": "2026-10-19T19:20:25.122739Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 15,
+      "checked_at_utc": "2026-10-19T19:50:26.464657Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 16,
+      "checked_at_utc": "2026-10-19T20:20:27.115777Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 17,
+      "checked_at_utc": "2026-10-19T20:50:29.944756Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 18,
+      "checked_at_utc": "2026-10-19T21:20:31.427859Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 19,
+      "checked_at_utc": "2026-10-19T21:50:31.538601Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 20,
+      "checked_at_utc": "2026-10-19T22:20:36.599845Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 21,
+      "checked_at_utc": "2026-10-19T22:50:38.016894Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 22,
+      "checked_at_utc": "2026-10-19T23:20:39.412805Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 23,
+      "checked_at_utc": "2026-10-19T23:50:43.819401Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 24,
+      "checked_at_utc": "2026-10-20T00:20:44.222422Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    },
+    {
+      "number": 25,
+      "checked_at_utc": "2026-10-20T00:50:45.203401Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 26,
+      "checked_at_utc": "2026-10-20T01:20:45.945410Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 27,
+      "checked_at_utc": "2026-10-20T01:50:46.527960Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 28,
+      "checked_at_utc": "2026-10-20T02:20:48.598814Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 29,
+      "checked_at_utc": "2026-10-20T02:50:52.707164Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 30,
+      "checked_at_utc": "2026-10-20T03:20:54.757978Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 31,
+      "checked_at_utc": "2026-10-20T03:51:18.463661Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 32,
+      "checked_at_utc": "2026-10-20T04:21:22.471857Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 33,
+      "checked_at_utc": "2026-10-20T04:51:25.367358Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 34,
+      "checked_at_utc": "2026-10-20T05:21:27.838212Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 35,
+      "checked_at_utc": "2026-10-20T05:51:28.828470Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 36,
+      "checked_at_utc": "2026-10-20T06:21:30.935311Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 37,
+      "checked_at_utc": "2026-10-20T06:51:33.086173Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 38,
+      "checked_at_utc": "2026-10-20T07:21:48.617476Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 39,
+      "checked_at_utc": "2026-10-20T07:52:08.527730Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 40,
+      "checked_at_utc": "2026-10-20T08:22:18.616062Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 41,
+      "checked_at_utc": "2026-10-20T08:52:26.178846Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 42,
+      "checked_at_utc": "2026-10-20T09:22:48.531881Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 43,
+      "checked_at_utc": "2026-10-20T09:53:13.623884Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 44,
+      "checked_at_utc": "2026-10-20T10:23:18.517841Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 45,
+      "checked_at_utc": "2026-10-20T10:53:19.442526Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 46,
+      "checked_at_utc": "2026-10-20T11:23:22.779597Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 47,
+      "checked_at_utc": "2026-10-20T11:53:28.500523Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 48,
+      "checked_at_utc": "2026-10-20T12:23:28.540361Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724"
+    },
+    {
+      "number": 49,
+      "checked_at_utc": "2026-10-20T12:53:45.817368Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 50,
+      "checked_at_utc": "2026-10-20T13:23:46.402135Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 51,
+      "checked_at_utc": "2026-10-20T13:53:47.420779Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 52,
+      "checked_at_utc": "2026-10-20T14:23:48.536301Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 53,
+      "checked_at_utc": "2026-10-20T14:54:18.551210Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 54,
+      "checked_at_utc": "2026-10-20T15:24:28.533770Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 55,
+      "checked_at_utc": "2026-10-20T15:54:48.544045Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 56,
+      "checked_at_utc": "2026-10-20T16:24:50.944754Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 57,
+      "checked_at_utc": "2026-10-20T16:55:09.216198Z",
+      "in_fixed_window": true,
+      "outcome": "error",
+      "category": "container_inventory_changed",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 58,
+      "checked_at_utc": "2026-10-20T17:25:12.162603Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 59,
+      "checked_at_utc": "2026-10-20T17:55:38.555635Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 60,
+      "checked_at_utc": "2026-10-20T18:25:45.956899Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 61,
+      "checked_at_utc": "2026-10-20T18:55:48.535859Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 62,
+      "checked_at_utc": "2026-10-20T19:26:00.216171Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 63,
+      "checked_at_utc": "2026-10-20T19:56:28.467196Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 64,
+      "checked_at_utc": "2026-10-20T20:26:31.650018Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 65,
+      "checked_at_utc": "2026-10-20T20:56:32.476423Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 66,
+      "checked_at_utc": "2026-10-20T21:26:37.987561Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 67,
+      "checked_at_utc": "2026-10-20T21:56:38.228772Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 68,
+      "checked_at_utc": "2026-10-20T22:26:48.541017Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 69,
+      "checked_at_utc": "2026-10-20T22:57:05.002525Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 70,
+      "checked_at_utc": "2026-10-20T23:27:05.127852Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 71,
+      "checked_at_utc": "2026-10-20T23:57:13.762394Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 72,
+      "checked_at_utc": "2026-10-21T00:27:15.226131Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 73,
+      "checked_at_utc": "2026-10-21T00:57:21.956610Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 74,
+      "checked_at_utc": "2026-10-21T01:27:32.770989Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 75,
+      "checked_at_utc": "2026-10-21T01:57:33.066256Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 76,
+      "checked_at_utc": "2026-10-21T02:27:46.096388Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 77,
+      "checked_at_utc": "2026-10-21T02:57:48.656989Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 78,
+      "checked_at_utc": "2026-10-21T03:27:56.982041Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 79,
+      "checked_at_utc": "2026-10-21T03:58:18.461716Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 80,
+      "checked_at_utc": "2026-10-21T04:28:19.118107Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 81,
+      "checked_at_utc": "2026-10-21T04:58:22.078378Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 82,
+      "checked_at_utc": "2026-10-21T05:28:22.476079Z",
+      "in_fixed_window": true,
+      "outcome": "deferred",
+      "category": "existing_worker_publication_lock_held"
+    },
+    {
+      "number": 83,
+      "checked_at_utc": "2026-10-21T05:58:27.599821Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "a07664bf5543e8e159bd96e3a49b2c91ea3977a00b29264191eae3720d6c0808"
+    },
+    {
+      "number": 84,
+      "checked_at_utc": "2026-10-21T06:28:27.801473Z",
+      "in_fixed_window": true,
+      "outcome": "deferred",
+      "category": "existing_worker_publication_lock_held"
+    },
+    {
+      "number": 85,
+      "checked_at_utc": "2026-10-21T06:58:28.374635Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "be34b7d12a2a77479c8846179aae95636c64b46701655fbe730605f57b7ee4f3"
+    },
+    {
+      "number": 86,
+      "checked_at_utc": "2026-10-21T07:28:28.470753Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "be34b7d12a2a77479c8846179aae95636c64b46701655fbe730605f57b7ee4f3"
+    },
+    {
+      "number": 87,
+      "checked_at_utc": "2026-10-21T07:58:30.855980Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "be34b7d12a2a77479c8846179aae95636c64b46701655fbe730605f57b7ee4f3"
+    },
+    {
+      "number": 88,
+      "checked_at_utc": "2026-10-21T08:28:36.397788Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "be34b7d12a2a77479c8846179aae95636c64b46701655fbe730605f57b7ee4f3"
+    },
+    {
+      "number": 89,
+      "checked_at_utc": "2026-10-21T08:58:37.747216Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "be34b7d12a2a77479c8846179aae95636c64b46701655fbe730605f57b7ee4f3"
+    },
+    {
+      "number": 90,
+      "checked_at_utc": "2026-10-21T09:28:40.371321Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "be34b7d12a2a77479c8846179aae95636c64b46701655fbe730605f57b7ee4f3"
+    },
+    {
+      "number": 91,
+      "checked_at_utc": "2026-10-21T09:58:48.532359Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "be34b7d12a2a77479c8846179aae95636c64b46701655fbe730605f57b7ee4f3"
+    },
+    {
+      "number": 92,
+      "checked_at_utc": "2026-10-21T10:29:06.526151Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "be34b7d12a2a77479c8846179aae95636c64b46701655fbe730605f57b7ee4f3"
+    },
+    {
+      "number": 93,
+      "checked_at_utc": "2026-10-21T10:59:08.583638Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "be34b7d12a2a77479c8846179aae95636c64b46701655fbe730605f57b7ee4f3"
+    },
+    {
+      "number": 94,
+      "checked_at_utc": "2026-10-21T11:29:12.438296Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "be34b7d12a2a77479c8846179aae95636c64b46701655fbe730605f57b7ee4f3"
+    },
+    {
+      "number": 95,
+      "checked_at_utc": "2026-10-21T11:59:17.192566Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "be34b7d12a2a77479c8846179aae95636c64b46701655fbe730605f57b7ee4f3"
+    },
+    {
+      "number": 96,
+      "checked_at_utc": "2026-10-21T12:29:28.539725Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "be34b7d12a2a77479c8846179aae95636c64b46701655fbe730605f57b7ee4f3"
+    },
+    {
+      "number": 97,
+      "checked_at_utc": "2026-10-21T12:59:48.514324Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "be34b7d12a2a77479c8846179aae95636c64b46701655fbe730605f57b7ee4f3"
+    },
+    {
+      "number": 98,
+      "checked_at_utc": "2026-10-21T13:30:17.893938Z",
+      "in_fixed_window": true,
+      "outcome": "healthy",
+      "profile_sha256": "be34b7d12a2a77479c8846179aae95636c64b46701655fbe730605f57b7ee4f3"
+    },
+    {
+      "number": 99,
+      "checked_at_utc": "2026-10-21T14:00:18.585601Z",
+      "in_fixed_window": false,
+      "outcome": "healthy",
+      "profile_sha256": "be34b7d12a2a77479c8846179aae95636c64b46701655fbe730605f57b7ee4f3"
+    }
+  ]
+}

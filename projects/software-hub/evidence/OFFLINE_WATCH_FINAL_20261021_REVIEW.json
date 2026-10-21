@@ -1,0 +1,39 @@
+{
+  "verified_at_utc": "2026-10-21T20:26:03.978118+00:00",
+  "scope": "Allowlisted sanitized final report and coordination documents only",
+  "private_raw_paths_ids_or_credentials_added": false,
+  "native_classification_recomputed_from_original_function": "completed_with_incidents",
+  "all99_outcomes_and_previous61_hashes_match_original": true,
+  "inside98_and_later_terminal_counts_separated": true,
+  "observation_gaps_and_health_confirmation_gaps_separated": true,
+  "three_events_three_new_shas_and_native_counter_verified_separately": true,
+  "original_signature_chains_at_acceptance": 9,
+  "original_passing_provider_proofs": 10,
+  "all_four_current_results_and_failed_intents_retained": true,
+  "current_public_https_checks": 23,
+  "runtime_hashes_verified": 160,
+  "targeted_local_tests_passed": 23,
+  "network_free_guard_reproductions": 4,
+  "production_or_payload_changes": 0,
+  "same_window_main_unmerged_and_private_commit_not_ancestor": true,
+  "consolidation": {
+    "result": "PASS",
+    "source_blobs_verified": 22,
+    "copied_bytes": 189734,
+    "local_markdown_links_checked": 555,
+    "existing_site_files_changed": 0,
+    "authorized_new_menu_scripts": [
+      "ops/lib/software-menu.php",
+      "ops/software-menu.php",
+      "tests/software-menu-logic.php"
+    ],
+    "root_docs_append_only": [
+      "HANDOFF.md",
+      "PROGRESS.md",
+      "README.md",
+      "TASKS.md"
+    ]
+  },
+  "scope_privacy_json_whitespace_checks": "pass",
+  "retirement": "pending registered report; long-lived timers verified enabled-active"
+}
