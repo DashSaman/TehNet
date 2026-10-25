@@ -1,0 +1,1050 @@
+{
+  "schema": 1,
+  "review_date": "2026-10-18",
+  "status": "researched-no-qualified-exact-assets-to-publish",
+  "scope": "All25 source records rechecked via public API; all23 unique existing source image files visually inspected. Manufacturer/category candidates researched; not an exhaustive claim that no 3D file exists anywhere.",
+  "physical_stock_identity_verified": 0,
+  "qualified_exact_models_obtained": 0,
+  "new_models_published": 0,
+  "source_images_modified": false,
+  "production_writes": false,
+  "sources": [
+    {
+      "id": "legrand-076561",
+      "url": "https://www.legrand.fr/pro/catalogue/prise-rj45-categorie-6-utp-mosaic-1-module-blanc",
+      "access": "opened-product-page",
+      "finding": "076561: white Mosaic RJ45 Cat6 UTP, one module; not proof of TehNet stock identity.",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "legrand-cat6-sheet",
+      "url": "https://assets.legrand.com/pim/NP-FT-GT/F00949EN-09.pdf",
+      "access": "opened-pdf-text",
+      "finding": "076561/564 UTP; 076562/565 FTP; 076563/566 STP. Page2 contact gold thickness >0.8 micrometre is a lower bound, not an exact value. No complete internal manufacturing CAD obtained.",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "legrand-cat6-install",
+      "url": "https://assets.legrand.com/pim/NP-FT-GT/LE01557AK.pdf",
+      "access": "opened-pdf-text",
+      "finding": "Connection/installation sequence; not a licensed fully separated internal 3D assembly.",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "legrand-078731",
+      "url": "https://www.legrand.fr/pro/catalogue/prise-rj11-4-contacts-mosaic-2-modules-blanc",
+      "access": "opened-product-page",
+      "finding": "078731: white two-module RJ11 four contacts; source photo is consistent with that label, not Cat6 RJ45.",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "legrand-078730",
+      "url": "https://www.legrand.ma/fr/catalogue/produits/prise-rj11-4-contacts-mosaic-1-module-blanc-078730",
+      "access": "indexed-product-page",
+      "finding": "078730: white one-module RJ11 four contacts. Similar category only; number not legible on catalogue photo.",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "legrand-plug-utp",
+      "url": "https://www.legrand.fr/pro/catalogue/fiche-rj45-categorie-6-utp-a-sertir-pour-cable-rond",
+      "access": "opened-product-page",
+      "finding": "051710: Cat6 UTP crimp plug; manufacturer identity of the source100-pack remains unknown.",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "legrand-plug-ftp",
+      "url": "https://www.legrand.fr/pro/catalogue/fiche-rj45-categorie-6-ftp-a-sertir-pour-cable-rond",
+      "access": "opened-product-page",
+      "finding": "051711: Cat6 FTP crimp plug; cannot assign to an unbranded source connector by appearance.",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "legrand-socket-cert",
+      "url": "https://assets.legrand.com/pim/Certif/LGUQBNQQRY.PDF",
+      "access": "indexed-primary-pdf",
+      "finding": "Manufacturer VDE certificate distinguishes077210 white screw/no shutter,077211 white screwless/shutter,077218 red screwless/shutter.",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "legrand-socket-catalog",
+      "url": "https://assets.legrand.com/pim/DOCUMENT/CB2022_2023FR_lr-p1110.pdf",
+      "access": "indexed-primary-pdf",
+      "finding": "077214 red coded/tamperproof is distinct from077218. Colour alone cannot reconcile the retailer codes.",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "legrand-032754",
+      "url": "https://www.legrand.fr/pro/catalogue/cable-pour-reseaux-locaux-lcs3-categorie-6-uutp-4-paires-torsadees-100ohms-dca-longueur-305m",
+      "access": "opened-product-page",
+      "finding": "Current French032754 page says U/UTP305m Dca, LSOH; cannot use it as proof of source PVC305 cable. Revision/region matters.",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "nexans-617",
+      "url": "https://www.nexans.no/en/products/Data-Network-Solutions/Copper-LAN-Systems/Copper-cables/LANmark-6-37397/product~N100.617-DE~.html",
+      "access": "search-result-product-text",
+      "finding": "N100.617-DE: U/UTP Cat6 PVC grey305m. Candidate category comparison, not an identified TehNet model.",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "nexans-10518302",
+      "url": "https://www.nexans.no/en/products/Data-Network-Solutions/Copper-LAN-Systems/Copper-cables/U-UTP-Cate30331/product~10518302~.html",
+      "access": "opened-product-page",
+      "finding": "10518302: another U/UTP Cat6 PVC305m reference; same broad description does not identify one factory article.",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "nexans-624",
+      "url": "https://www.nexans.no/en/products/Data-Network-Solutions/Copper-LAN-Systems/Copper-cables/LANmark-6-37319/product~N100.624-OD~.html",
+      "access": "opened-product-page",
+      "finding": "N100.624-OD is F1/UTP LSZH orange500m Indoor. OD suffix must not be interpreted as Outdoor; not a match for S/FTP.",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "legrand-bim-family",
+      "url": "https://www.bimobject.com/en/legrand/product/lg-gamme-appareillage-mosaic",
+      "access": "opened-family-page",
+      "finding": "Manufacturer Mosaic family; broad family/object dimensions are not exact internal geometry for each catalogue SKU. No file imported.",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "legrand-bim-download",
+      "url": "https://assets.legrand.com/pim/AUTRE/BIM-LEGRAND-MOSAIC-2026-FRANCAIS.rvt",
+      "access": "linked-from-076561-page-format-unsupported-by-web-tool",
+      "finding": "Actual official RVT link located. Binary not downloaded/parsed; node inventory, exact member coverage and exploded internal geometry unverified.",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "legrand-bim-policy",
+      "url": "https://www.legrand.fr/mentions-legales",
+      "access": "opened-terms",
+      "finding": "BIM Geometry Details says functional simplified geometry may omit fixings/details. Respect of rights section requires prior written approval to upload BIM content to another website/server. No such approval for this file is recorded.",
+      "observed_date": "2026-10-18"
+    },
+    {
+      "id": "bimobject-terms",
+      "url": "https://business.bimobject.com/terms-of-service-eula",
+      "access": "opened-terms",
+      "finding": "Platform terms inspected; no account created, authenticated model download, or TehNet redistribution grant obtained.",
+      "observed_date": "2026-10-18"
+    }
+  ],
+  "products": [
+    {
+      "sku": "TN-SN-18002",
+      "source_id": 18002,
+      "live_product_id": 82,
+      "catalogue_name": "سوکت شبکه Cat6 SFTP",
+      "source_url": "https://saieedshabake.ir/product/%d8%b3%d9%88%da%a9%d8%aa-%d8%b4%d8%a8%da%a9%d9%87-cat6-sftp-%d8%b4%db%8c%d9%84%d8%af%d8%af%d8%a7%d8%b1-rj45/",
+      "live_url": "https://tehnet.ir/product/tn-sn-18002/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "legrand-plug-ftp"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/52019247f419567234562c9a28919d669962f68138d8f51b88d7f549203b68ad.jpg",
+          "sha256": "52019247f419567234562c9a28919d669962f68138d8f51b88d7f549203b68ad"
+        },
+        {
+          "file": "content/media/saieedshabake-2026-10-16/4f5490263e977da1f07804e92f8ec51e443528c2c2baebfbb44068c12ea46671.png",
+          "sha256": "4f5490263e977da1f07804e92f8ec51e443528c2c2baebfbb44068c12ea46671"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "بدون برند/MPN خوانا؛ مدل051711 فقط هم‌رده است و قابل انتساب نیست.",
+      "blockers": [
+        "manufacturer-identity-missing",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17991",
+      "source_id": 17991,
+      "live_product_id": 83,
+      "catalogue_name": "سوکت شبکه لگراند UTP Cat6 بسته ۱۰۰ عددی",
+      "source_url": "https://saieedshabake.ir/product/%d8%b3%d9%88%da%a9%d8%aa-%d8%b4%d8%a8%da%a9%d9%87-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-utp-cat6-%d8%a8%d8%b3%d8%aa%d9%87-%db%b1%db%b0%db%b0-%d8%b9%d8%af%d8%af%db%8c/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17991/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [
+        "051710"
+      ],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "legrand-plug-utp"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/4cf83fd97f812b1d0ef5c25844a10439f5194c7ba05a0b5d43cbe411c2ffa2a9.jpg",
+          "sha256": "4cf83fd97f812b1d0ef5c25844a10439f5194c7ba05a0b5d43cbe411c2ffa2a9"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "بسته100تایی منبع شماره فنی سازنده ندارد؛ تصویر سوکت، بسته و MPN را اثبات نمی‌کند.",
+      "blockers": [
+        "manufacturer-identity-missing",
+        "packaging-unverified",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17989",
+      "source_id": 17989,
+      "live_product_id": 84,
+      "catalogue_name": "پریز برق قرمز لگراند (شماره فنی 77214)",
+      "source_url": "https://saieedshabake.ir/product/%d9%be%d8%b1%db%8c%d8%b2-%d8%a8%d8%b1%d9%82-%d9%82%d8%b1%d9%85%d8%b2-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-%d8%b4%d9%85%d8%a7%d8%b1%d9%87-%d9%81%d9%86%db%8c-77214/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17989/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [
+        "077214",
+        "077211",
+        "077218"
+      ],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "legrand-socket-cert",
+        "legrand-socket-catalog",
+        "legrand-bim-family"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/a4b1d26b8aa160bd724de5c7774f4d109898ae94c5b6369bafe21dc5dec1ac83.png",
+          "sha256": "a4b1d26b8aa160bd724de5c7774f4d109898ae94c5b6369bafe21dc5dec1ac83"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "عنوان77214،SKU77211 و متن77218 متناقض؛ عکس کد کارخانه خوانا ندارد. فروش در دسترس نیست؛ مستقل ادامه داده شد.",
+      "blockers": [
+        "conflicting-manufacturer-identity",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17982",
+      "source_id": 17982,
+      "live_product_id": 85,
+      "catalogue_name": "پریز برق سفید لگراند (شماره فنی 77210)",
+      "source_url": "https://saieedshabake.ir/product/%d9%be%d8%b1%db%8c%d8%b2-%d8%a8%d8%b1%d9%82-%d8%b3%d9%81%db%8c%d8%af-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-%d8%b4%d9%85%d8%a7%d8%b1%d9%87-%d9%81%d9%86%db%8c-77210/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17982/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [
+        "077210"
+      ],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "legrand-socket-cert",
+        "legrand-bim-family"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/ab82eea17c2daaeb2e815a6f3f52b426fb045e838c4233250d307f8f584cbcc6.png",
+          "sha256": "ab82eea17c2daaeb2e815a6f3f52b426fb045e838c4233250d307f8f584cbcc6"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "عنوان/SKU به77210 اشاره می‌کند؛ عکس نمای جلو برای نوع ترمینال و شاتر کافی نیست.",
+      "blockers": [
+        "stock-identity-unverified",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17941",
+      "source_id": 17941,
+      "live_product_id": 86,
+      "catalogue_name": "کیستون تلفن لگراند Cat6 UTP پهن",
+      "source_url": "https://saieedshabake.ir/product/%d8%aa%d9%84%d9%81%d9%86-%d9%be%d9%87%d9%86-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-cat6-utp/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17941/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [
+        "078731"
+      ],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "legrand-078731",
+        "legrand-bim-family"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/bb925d0c3989548e74abdbf308a5d2c9f45cc0d7ad27e17d518f70b94762cab9.jpg",
+          "sha256": "bb925d0c3989548e74abdbf308a5d2c9f45cc0d7ad27e17d518f70b94762cab9"
+        },
+        {
+          "file": "content/media/saieedshabake-2026-10-16/efbda3232f8082d0725c8a577042e24c1e41ab05da6b16b70451b13851a4b5e4.jpg",
+          "sha256": "efbda3232f8082d0725c8a577042e24c1e41ab05da6b16b70451b13851a4b5e4"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "در تصویر پشت،RJ11 و78731 خواناست؛ با ادعایCat6/RJ45 منبع تضاد دارد. تطبیق با کالای قابل‌تأمین هنوز ثبت نشده.",
+      "blockers": [
+        "source-title-photo-conflict",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17935",
+      "source_id": 17935,
+      "live_product_id": 87,
+      "catalogue_name": "کیستون تلفن لگراند Cat6 UTP باریک",
+      "source_url": "https://saieedshabake.ir/product/legrand-cat6-utp-slim-keystone/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17935/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [
+        "078730"
+      ],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "legrand-078730",
+        "legrand-bim-family"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/a7a9e2bd0683409d25484e0e11eb050a8b9c6d1773759e9e5b71be0547ae29af.jpg",
+          "sha256": "a7a9e2bd0683409d25484e0e11eb050a8b9c6d1773759e9e5b71be0547ae29af"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "نشان تلفن دیده می‌شود؛ شماره فنی خوانا نیست.078730 فقط هم‌رده است؛Cat6 تأیید نمی‌شود.",
+      "blockers": [
+        "telephone-category-conflict",
+        "manufacturer-identity-missing",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17929",
+      "source_id": 17929,
+      "live_product_id": 88,
+      "catalogue_name": "کیستون شبکه لگراند Cat6 UTP باریک",
+      "source_url": "https://saieedshabake.ir/product/%da%a9%db%8c%d8%b3%d8%aa%d9%88%d9%86-%d8%b4%d8%a8%da%a9%d9%87-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-cat6-utp-%d8%a8%d8%a7%d8%b1%db%8c%da%a9/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17929/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [
+        "076561"
+      ],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "legrand-076561",
+        "legrand-cat6-sheet",
+        "legrand-cat6-install",
+        "legrand-bim-download",
+        "legrand-bim-policy"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/558b905defd7bb7b507cd79bf93d5c6e161efa0b0b8bc498bc1b23bbf502eb37.jpg",
+          "sha256": "558b905defd7bb7b507cd79bf93d5c6e161efa0b0b8bc498bc1b23bbf502eb37"
+        },
+        {
+          "file": "content/media/saieedshabake-2026-10-16/5d9a1a58e85af4d27a3951ba721f06aef1169dbad956f8ff9fb52eacb66cac1c.png",
+          "sha256": "5d9a1a58e85af4d27a3951ba721f06aef1169dbad956f8ff9fb52eacb66cac1c"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "روی جعبهٔ گالری0 76561 و1M UTP دیده می‌شود؛ قوی‌ترین نامزد. منشأ عکس/تعلق بسته به نمونه قابل‌تأمین و هندسه داخلی هنوز تأیید نشده.",
+      "blockers": [
+        "photo-mpn-candidate-only",
+        "bim-not-internal-assembly",
+        "bim-rehosting-permission-missing",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17927",
+      "source_id": 17927,
+      "live_product_id": 89,
+      "catalogue_name": "کیستون پهن UTP شبکه",
+      "source_url": "https://saieedshabake.ir/product/%da%a9%db%8c%d8%b3%d8%aa%d9%88%d9%86-%d8%b4%d8%a8%da%a9%d9%87-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-cat6-utp-%d9%be%d9%87%d9%86/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17927/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [
+        "076564"
+      ],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "legrand-cat6-sheet",
+        "legrand-bim-family"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/4c69aba5c3985e284a5c609d19dc01d2ee46b97dccc9e6a3a79daa812a26fad5.png",
+          "sha256": "4c69aba5c3985e284a5c609d19dc01d2ee46b97dccc9e6a3a79daa812a26fad5"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "نامزد از خانوادهٔUTP دوماژول انتخاب شده؛ تصویر خودشMPN خوانا ندارد و این تطبیق قطعی نیست.",
+      "blockers": [
+        "manufacturer-identity-missing",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17920",
+      "source_id": 17920,
+      "live_product_id": 90,
+      "catalogue_name": "کیستون شبکه لگراند Cat6 SFTP باریک",
+      "source_url": "https://saieedshabake.ir/product/%da%a9%db%8c%d8%b3%d8%aa%d9%88%d9%86-%d8%b4%d8%a8%da%a9%d9%87-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-cat6-sftp-%d8%a8%d8%a7%d8%b1%db%8c%da%a9/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17920/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [
+        "076562",
+        "076563"
+      ],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "legrand-cat6-sheet",
+        "legrand-bim-family"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/b1cac31686abec60daca9faae6832efb1d07c24f19684574259ade3aacd6245c.png",
+          "sha256": "b1cac31686abec60daca9faae6832efb1d07c24f19684574259ade3aacd6245c"
+        },
+        {
+          "file": "content/media/saieedshabake-2026-10-16/4792fe02e7789590d7287ecc48fe22ddffcec0c27d0ebc3bfc91a722704c9d0f.png",
+          "sha256": "4792fe02e7789590d7287ecc48fe22ddffcec0c27d0ebc3bfc91a722704c9d0f"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "عنوانSFTP و ویژگیSTP بدون کدخوانا؛FTP/STP دو شماره متفاوت‌اند. عکس قطعات جدا، مدل سه‌بعدی نیست.",
+      "blockers": [
+        "shielding-identity-ambiguous",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17888",
+      "source_id": 17888,
+      "live_product_id": 91,
+      "catalogue_name": "کیستون شبکه لگراند Cat6 SFTP پهن",
+      "source_url": "https://saieedshabake.ir/product/%da%a9%db%8c%d8%b3%d8%aa%d9%88%d9%86-%d8%b4%d8%a8%da%a9%d9%87-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-cat6-sftp-%d9%be%d9%87%d9%86/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17888/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [
+        "076565",
+        "076566"
+      ],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "legrand-cat6-sheet",
+        "legrand-bim-family"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/9bce2ca05ddc5909ed876cb28211c79541badc9a6b363d1580b36a0226048fc5.jpg",
+          "sha256": "9bce2ca05ddc5909ed876cb28211c79541badc9a6b363d1580b36a0226048fc5"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "مدل پهنFTP/STP بدون کدخوانا؛ از ظاهر فلزی نمی‌توان نوع شیلد دقیق را تعیین کرد.",
+      "blockers": [
+        "shielding-identity-ambiguous",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17873",
+      "source_id": 17873,
+      "live_product_id": 92,
+      "catalogue_name": "کابل شبکه نگزنس LSZH Cat6 SFTP اوت دور قرقره 305 متری (Nexans Outdoor)",
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%86%da%af%d8%b2%d9%86%d8%b3-cat6-sftp-%d8%a7%d9%88%d8%aa-%d8%af%d9%88%d8%b1-%d8%aa%d8%b3%d8%aa-%d9%81%d9%84%d9%88%da%a9-%d9%be%d8%b1%d9%85%d9%86/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17873/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "nexans-624"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/ab1863c055bb66d8823ca06478594033f5414568ede9b4639b3624b05de8eddb.jpg",
+          "sha256": "ab1863c055bb66d8823ca06478594033f5414568ede9b4639b3624b05de8eddb"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "عنوانLSZH،ویژگی/SKUمنبعPVC؛ مدل رسمیF1/UTP500داخلی با اینSFTP305بیرونی مطابق نیست.",
+      "blockers": [
+        "jacket-conflict",
+        "manufacturer-identity-missing",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17871",
+      "source_id": 17871,
+      "live_product_id": 93,
+      "catalogue_name": "کابل شبکه نگزنس InDoor Cat6 SFTP روکش PVC حلقه 500 متری",
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%86%da%af%d8%b2%d9%86%d8%b3-cat6-sftp-%d8%b1%d9%88%da%a9%d8%b4-pvc-%d8%ad%d9%84%d9%82%d9%87-500-%d9%85%d8%aa%d8%b1%db%8c-%d9%be%d8%b1%d9%85%d9%86/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17871/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "nexans-624"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/020a31d98c6df47ecf83568eb50a9c144d22866e49998085641ed255339b54aa.png",
+          "sha256": "020a31d98c6df47ecf83568eb50a9c144d22866e49998085641ed255339b54aa"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "برند عنوانNexans وSKUمنبعLegrand؛ روی عکسSF/UTP500 نوشته شده، نه تأییدS/FTP؛MPNخوانا نیست.",
+      "blockers": [
+        "brand-conflict",
+        "shielding-notation-conflict",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17868",
+      "source_id": 17868,
+      "live_product_id": 94,
+      "catalogue_name": "کابل شبکه نگزنس Cat6 SFTP روکش PVC حلقه 500 متری",
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%86%da%af%d8%b2%d9%86%d8%b3-cat6-sftp-%d8%b1%d9%88%da%a9%d8%b4-pvc-%d8%ad%d9%84%d9%82%d9%87-500-%d9%85%d8%aa%d8%b1%db%8c-%d8%aa%d8%b3%d8%aa-%da%86/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17868/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "nexans-624"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/020a31d98c6df47ecf83568eb50a9c144d22866e49998085641ed255339b54aa.png",
+          "sha256": "020a31d98c6df47ecf83568eb50a9c144d22866e49998085641ed255339b54aa"
+        },
+        {
+          "file": "content/media/saieedshabake-2026-10-16/328f394963fd456521664fc1cbb77b775bbe2f01da29f6f609e44601ccaa252d.png",
+          "sha256": "328f394963fd456521664fc1cbb77b775bbe2f01da29f6f609e44601ccaa252d"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "برند عنوانNexans وSKUمنبعLegrand؛ عکسLAN CABLE,SF/UTP,500 فاقد کد کارخانه است.",
+      "blockers": [
+        "brand-conflict",
+        "shielding-notation-conflict",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17866",
+      "source_id": 17866,
+      "live_product_id": 95,
+      "catalogue_name": "کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر",
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-legrand-cat6-sftp-pvc-%d9%85%d8%aa%d8%b1%d8%a7%da%98-500-%d9%85%d8%aa%d8%b1-%d8%aa%d8%b3%d8%aa-%da%86%d9%86%d9%84/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17866/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "legrand-032754"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/7b0356edfc40616185624e440f9776cf2f00d66e25055bc57b2dfbc3ee240260.png",
+          "sha256": "7b0356edfc40616185624e440f9776cf2f00d66e25055bc57b2dfbc3ee240260"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "برندLegrand/500PVC بدونMPN؛ برچسب ریز عکس برای کد دقیق خوانا نیست.032754305LSOH جایگزین نیست.",
+      "blockers": [
+        "manufacturer-identity-missing",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17863",
+      "source_id": 17863,
+      "live_product_id": 96,
+      "catalogue_name": "کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر",
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-legrand-cat6-sftp-pvc-%d9%85%d8%aa%d8%b1%d8%a7%da%98-500-%d9%85%d8%aa%d8%b1-%d8%aa%d8%b3%d8%aa-%d9%81%d9%84%d9%88%da%a9-%d9%be%d8%b1%d9%85%d9%86%d9%86/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17863/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "legrand-032754"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/d601c7cc1c1cd6967fdb551ab3964b2a24ef35e42299e5a87e221d50108e23e5.jpg",
+          "sha256": "d601c7cc1c1cd6967fdb551ab3964b2a24ef35e42299e5a87e221d50108e23e5"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "برندLegrand/500PVC بدونMPN؛ ادعای آزمون منبع شماره محصول مستقلی را اثبات نمی‌کند.",
+      "blockers": [
+        "manufacturer-identity-missing",
+        "test-claim-unverified",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17860",
+      "source_id": 17860,
+      "live_product_id": 97,
+      "catalogue_name": "کابل شبکه نگزنس Cat6 UTP روکش PVC حلقه 305 متری",
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%86%da%af%d8%b2%d9%86%d8%b3-cat6-utp-%d8%b1%d9%88%da%a9%d8%b4-pvc-%d8%ad%d9%84%d9%82%d9%87-305-%d9%85%d8%aa%d8%b1%db%8c-%d8%aa%d8%b3%d8%aa-%d9%81/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17860/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [
+        "N100.617-DE",
+        "10518302"
+      ],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "nexans-617",
+        "nexans-10518302"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/15b41891aa75ca17e4c5d2e7505e68fe52ae74d9d2bb4e9430a46d4b0519ff71.png",
+          "sha256": "15b41891aa75ca17e4c5d2e7505e68fe52ae74d9d2bb4e9430a46d4b0519ff71"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "عنوانNexans وSKUمنبعLegrand؛ کد کوچک عکس مبهم است. دو مدل رسمی هم‌رده وجود دارد؛ انتخاب از رویCat6/PVC/305 ممکن نیست.",
+      "blockers": [
+        "brand-conflict",
+        "photo-label-unreadable",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17857",
+      "source_id": 17857,
+      "live_product_id": 98,
+      "catalogue_name": "کابل شبکه نگزنس Cat6 UTP روکش PVC حلقه 305 متری",
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%86%da%af%d8%b2%d9%86%d8%b3-cat6-utp-%d8%b1%d9%88%da%a9%d8%b4-pvc-%d8%ad%d9%84%d9%82%d9%87-305-%d9%85%d8%aa%d8%b1%db%8c-%d8%aa%d8%b3%d8%aa-%da%86/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17857/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [
+        "N100.617-DE",
+        "10518302"
+      ],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "nexans-617",
+        "nexans-10518302"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/15b41891aa75ca17e4c5d2e7505e68fe52ae74d9d2bb4e9430a46d4b0519ff71.png",
+          "sha256": "15b41891aa75ca17e4c5d2e7505e68fe52ae74d9d2bb4e9430a46d4b0519ff71"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "همان تصویر17860؛ برندSKUبا عنوان متفاوت است و گزارش تست فیزیکی مستقل موجود نیست.",
+      "blockers": [
+        "brand-conflict",
+        "test-claim-unverified",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17855",
+      "source_id": 17855,
+      "live_product_id": 99,
+      "catalogue_name": "کابل شبکه لگراند Cat6 UTP روکش PVC حلقه 305 متری",
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-cat6-utp-%d8%b1%d9%88%da%a9%d8%b4-pvc-%d8%ad%d9%84%d9%82%d9%87-305-%d9%85%d8%aa%d8%b1%db%8c-%d8%aa%d8%b3%d8%aa/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17855/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "legrand-032754"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/4695c03d8db785e3c9435b406a484e42e0749224ff8b44b173888d601545c42e.jpg",
+          "sha256": "4695c03d8db785e3c9435b406a484e42e0749224ff8b44b173888d601545c42e"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "جعبه عمومیLegrand فاقدکد؛032754صفحه فعلیLSOHاست وPVC را اثبات نمی‌کند.",
+      "blockers": [
+        "manufacturer-identity-missing",
+        "candidate-jacket-mismatch",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17851",
+      "source_id": 17851,
+      "live_product_id": 100,
+      "catalogue_name": "کابل شبکه لگراند Cat6 UTP روکش 052 PVC حلقه 305 متری",
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-cat6-utp-%d8%b1%d9%88%da%a9%d8%b4-052-pvc-%d8%ad%d9%84%d9%82%d9%87-305-%d9%85%d8%aa%d8%b1%db%8c-%d8%aa%d8%b3/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17851/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "legrand-032754"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/4695c03d8db785e3c9435b406a484e42e0749224ff8b44b173888d601545c42e.jpg",
+          "sha256": "4695c03d8db785e3c9435b406a484e42e0749224ff8b44b173888d601545c42e"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "052درعنوان کد کامل کارخانه نیست؛ جعبه مشترک17855 شماره فنی ندارد.",
+      "blockers": [
+        "manufacturer-identity-missing",
+        "candidate-jacket-mismatch",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17831",
+      "source_id": 17831,
+      "live_product_id": 101,
+      "catalogue_name": "کابل شبکه نگزنس Cat6 SFTP LSZH Indoor 500m",
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%86%da%af%d8%b2%d9%86%d8%b3-cat6-sftp-lszh-indoor-500m-%da%86%d9%86%d9%84-%d9%82%db%8c%d9%85%d8%aa-%d9%88-%d8%ae%d8%b1%db%8c%d8%af/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17831/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "nexans-624"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/85dd4de82e92913577b3f61c2a8be4859b7b6a1b3e4c09ecc1ed0929082346de.png",
+          "sha256": "85dd4de82e92913577b3f61c2a8be4859b7b6a1b3e4c09ecc1ed0929082346de"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "عنوانNexans/Indoor500 اما تصویر مشترکLegrand/Outdoor305؛ نهMPNنه برش لایه‌ها برای این کالا معتبر نیست.",
+      "blockers": [
+        "brand-conflict",
+        "source-image-product-conflict",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17829",
+      "source_id": 17829,
+      "live_product_id": 102,
+      "catalogue_name": "کابل شبکه نگزنس Cat6 SFTP LSZH Indoor 500m",
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%86%da%af%d8%b2%d9%86%d8%b3-cat6-sftp-lszh-indoor-500m-%d9%be%d8%b1%d9%85%d9%86%d9%86%d8%aa-%d9%82%db%8c%d9%85%d8%aa-%d9%88-%d8%ae%d8%b1%db%8c/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17829/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "nexans-624"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/85dd4de82e92913577b3f61c2a8be4859b7b6a1b3e4c09ecc1ed0929082346de.png",
+          "sha256": "85dd4de82e92913577b3f61c2a8be4859b7b6a1b3e4c09ecc1ed0929082346de"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "همان تصویرLegrand/Outdoor305 برایNexans/Indoor500؛ ادعایPermanent هویت یا ساختار واقعی را اثبات نمی‌کند.",
+      "blockers": [
+        "brand-conflict",
+        "source-image-product-conflict",
+        "test-claim-unverified",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17827",
+      "source_id": 17827,
+      "live_product_id": 103,
+      "catalogue_name": "کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m",
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-cat6-sftp-lszh-indoor-500m-%da%86%d9%86%d9%84-%d9%82%db%8c%d9%85%d8%aa-%d9%88-%d8%ae%d8%b1%db%8c%d8%af/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17827/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "legrand-032754"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/85dd4de82e92913577b3f61c2a8be4859b7b6a1b3e4c09ecc1ed0929082346de.png",
+          "sha256": "85dd4de82e92913577b3f61c2a8be4859b7b6a1b3e4c09ecc1ed0929082346de"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "کالایIndoor500؛ در تصویر مشترکOutdoor305 دیده می‌شود. برش داخلی تصویر مدرک این مدل نیست.",
+      "blockers": [
+        "source-image-product-conflict",
+        "manufacturer-identity-missing",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-17824",
+      "source_id": 17824,
+      "live_product_id": 104,
+      "catalogue_name": "کابل شبکه نگزنس Cat6 SFTP PVC Outdoor 305m",
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%86%da%af%d8%b2%d9%86%d8%b3-cat6-sftp-pvc-outdoor-305m-%d8%aa%d8%b3%d8%aa-%da%86%d9%86%d9%84-%d9%82%db%8c%d9%85%d8%aa-%d9%88-%d8%ae%d8%b1%db%8c/",
+      "live_url": "https://tehnet.ir/product/tn-sn-17824/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "nexans-624"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/f68e4cf522b57a82f9d75f16580a9601e3ed30ebc3c6f1e369fe699f4315277f.png",
+          "sha256": "f68e4cf522b57a82f9d75f16580a9601e3ed30ebc3c6f1e369fe699f4315277f"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "تصویر قرقره سیاه بدون برند/MPNخوانا؛ نوعS/FTP،PVC،Outdoor305 از عکس تنها قابل تأیید نیست.",
+      "blockers": [
+        "manufacturer-identity-missing",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-16585",
+      "source_id": 16585,
+      "live_product_id": 105,
+      "catalogue_name": "کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m",
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-cat6-sftp-lszh-outdoor-305m/",
+      "live_url": "https://tehnet.ir/product/tn-sn-16585/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "legrand-032754"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/85dd4de82e92913577b3f61c2a8be4859b7b6a1b3e4c09ecc1ed0929082346de.png",
+          "sha256": "85dd4de82e92913577b3f61c2a8be4859b7b6a1b3e4c09ecc1ed0929082346de"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "تصویر مشترکOutdoor305 برایعنوانIndoor500؛ شماره محصول یا سند آزمونPermanent وجود ندارد.",
+      "blockers": [
+        "source-image-product-conflict",
+        "test-claim-unverified",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    },
+    {
+      "sku": "TN-SN-16584",
+      "source_id": 16584,
+      "live_product_id": 106,
+      "catalogue_name": "کابل شبکه نگزنس Cat6 SFTP PVC Outdoor 305m",
+      "source_url": "https://saieedshabake.ir/product/%da%a9%d8%a7%d8%a8%d9%84-%d8%b4%d8%a8%da%a9%d9%87-%d9%84%da%af%d8%b1%d8%a7%d9%86%d8%af-cat6-sftp-pvc-outdoor-305m/",
+      "live_url": "https://tehnet.ir/product/tn-sn-16584/",
+      "supplier_record_rechecked": true,
+      "candidate_mpns": [],
+      "candidate_is_verified_stock_identity": false,
+      "manufacturer_source_ids": [
+        "nexans-624"
+      ],
+      "image_evidence": [
+        {
+          "file": "content/media/saieedshabake-2026-10-16/f68e4cf522b57a82f9d75f16580a9601e3ed30ebc3c6f1e369fe699f4315277f.png",
+          "sha256": "f68e4cf522b57a82f9d75f16580a9601e3ed30ebc3c6f1e369fe699f4315277f"
+        }
+      ],
+      "visual_review": "original catalogue references visually inspected; photographic origin and exact physical-stock identity unverified",
+      "finding_fa": "عنوانNexans/SFTP/Outdoor305 وSKUمنبعLegrand/UTP؛ تصویر مشترک17824بدونMPNاست.",
+      "blockers": [
+        "brand-conflict",
+        "shielding-identity-ambiguous",
+        "no-qualified-licensed-exploded-model-obtained"
+      ],
+      "web_model_approved": false,
+      "model_file": null,
+      "real_spin_frames": [],
+      "native_model_available": false,
+      "native_parts_available": false,
+      "native_spin_frame_count": 0,
+      "next_step_fa": "تطبیق کد کامل روی کالا/بسته با مدرک سازنده؛ سپس دریافت فایل همان مدل با مجوز نمایش وب، بررسی اجزا و انتشار رسانه‌ای قابل بازگشت."
+    }
+  ],
+  "measurement_caveat": {
+    "source_id": "legrand-cat6-sheet",
+    "reported": ">0.8 micrometre",
+    "meaning": "minimum gold-contact thickness; not exact foil/jacket thickness and not approved for a TehNet SKU"
+  },
+  "priority": [
+    "TN-SN-17929",
+    "TN-SN-17941",
+    "TN-SN-17982"
+  ],
+  "user_steering": "Sales unavailable for red socket; continue independent work without inferring its MPN."
+}

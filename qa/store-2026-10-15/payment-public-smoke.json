@@ -1,0 +1,7 @@
+{
+  "http": 200,
+  "items_count": 0,
+  "needs_payment": false,
+  "payment_methods": [],
+  "scope": "Fresh public native Woo Store API smoke; no checkout order or gateway activation"
+}

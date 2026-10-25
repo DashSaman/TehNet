@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "utc": "2026-10-16T16:38:16.570Z",
+  "scope": "Public read-only acceptance, no form submission",
+  "checks": [
+    "HTTP200 and exactly one description/OG image /",
+    "mobile width /",
+    "HTTP200 and exactly one description/OG image /learn/",
+    "mobile width /learn/",
+    "HTTP200 and exactly one description/OG image /lab/",
+    "mobile width /lab/",
+    "HTTP200 and exactly one description/OG image /technical-methodology/",
+    "mobile width /technical-methodology/",
+    "HTTP200 and exactly one description/OG image /lab/wireguard-mtu/",
+    "mobile width /lab/wireguard-mtu/",
+    "HTTP200 and exactly one description/OG image /product/tn-sn-17929/",
+    "mobile width /product/tn-sn-17929/",
+    "HTTP200 and exactly one description/OG image /amirreza-golavar/",
+    "mobile width /amirreza-golavar/",
+    "reported contrast/visible-name rules pass on home/product/tool in both themes",
+    "live tool 1500/IPv4=1440",
+    "live tool 1500/IPv6=1420",
+    "live tool 1492/IPv4=1432",
+    "live tool 1492/IPv6=1412",
+    "Article date matches visible editorial attribution",
+    "offline calculation source HTTP200",
+    "self-hosted model renderer HEAD HTTP200; deployed bytes verified by release SHA",
+    "Sample Page draft is absent publicly",
+    "Safe Mode absolute claim replaced with limitations",
+    "no page JavaScript errors"
+  ],
+  "js_errors": []
+}

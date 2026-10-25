@@ -1,0 +1,17 @@
+{
+  "status": "prepared",
+  "scope": "Fresh private clone; no production writes",
+  "directory": "/root/tehnet-ux-preview-20261016",
+  "web_container": "tehnet-ux-preview-wordpress",
+  "db_container": "tehnet-ux-preview-db",
+  "web_id": "20615696cdc4853f9203eb6e2544806d1bac4b8918db31451638c87e89230420",
+  "db_id": "344995e056775b374a12d68a1714194b7826a9ca5987360afc1561890e68c97c",
+  "network": "tehnet-ux-preview-20261016",
+  "url": "http://localhost:18085",
+  "external_network": false,
+  "cron_mail_http_disabled": true,
+  "database_storage": "ephemeral tmpfs; recreate only after explicit inspection if stopped",
+  "forward_target": "172.18.0.3:80",
+  "permissions_normalized": true,
+  "http_status": 200
+}

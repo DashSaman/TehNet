@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-16T16:18:36.240Z",
+  "status": "passed",
+  "scope": "Read-only production public browsing; no order/payment/customer message or setting mutation",
+  "checks": [
+    "Original services/education homepage renders",
+    "Existing main menu opens public /shop/ catalog without login or coming-soon gate",
+    "25 public inquiry products, no purchasable offer; Woo Store API serializes unset numeric amounts as zero, native stored prices remain blank",
+    "Public exact SKU search accepts Persian digits",
+    "Empty product search retains controls and a working reset link",
+    "Guest technical comparison uses reviewed/unknown specs and persists without registration",
+    "Public product has native source catalogue image and inquiry form; no checkout action",
+    "Catalogue photo has website overlay; no schematic or unsupported 360 claim",
+    "Shop/product mobile pages and full-page capture are 390px; anti-spam input remains present and visually clipped",
+    "Invoice stamp SVG is publicly loadable",
+    "shop native public page HTTP 200",
+    "cart native public page HTTP 200",
+    "checkout native public page HTTP 200",
+    "myaccount native public page HTTP 200"
+  ],
+  "js_errors": []
+}

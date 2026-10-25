@@ -1,0 +1,413 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-10-18T13:45:49.122377+00:00",
+  "mode": "public-read-only",
+  "source_responses": [
+    {
+      "url": "https://saieedshabake.ir/wp-json/wc/store/v1/products?per_page=100&include=18002,17991,17989,17982,17941,17935,17929,17927,17920,17888,17873,17871,17868,17866,17863,17860,17857,17855,17851,17831,17829,17827,17824,16585,16584",
+      "final_url": "https://saieedshabake.ir/wp-json/wc/store/v1/products?per_page=100&include=18002,17991,17989,17982,17941,17935,17929,17927,17920,17888,17873,17871,17868,17866,17863,17860,17857,17855,17851,17831,17829,17827,17824,16585,16584",
+      "status": 200,
+      "sha256": "c9e95919a2bf58ecf9b6374de6fdd4162bf4c865467e4849b9a9855dd30ae2de",
+      "key": "supplier",
+      "products": 25
+    },
+    {
+      "url": "https://tehnet.ir/wp-json/wc/store/v1/products?per_page=100",
+      "final_url": "https://tehnet.ir/wp-json/wc/store/v1/products?per_page=100",
+      "status": 200,
+      "sha256": "672264223f5244c2542699cb9fb41f76bb4a91ec9e920dfca330d22bcfeab885",
+      "key": "tehnet",
+      "products": 25
+    }
+  ],
+  "catalogue_sha256": "03cc4da8ce057cf99642a158d0fcc02f3964c8c3e86518189359105a0854f19b",
+  "products": [
+    {
+      "sku": "TN-SN-18002",
+      "source_id": 18002,
+      "supplier_present": true,
+      "tehnet_product_id": 82,
+      "supplier_title_sha256": "9d91a6ec522e1b3ff69e2a7b86faeb7977c931f2890ac861910b17a31dbc20bc",
+      "supplier_description_sha256": "feab12ff35f94d5cae554359c260d3bab8a93294185ea9a66d09ffd7b1d368b6",
+      "supplier_sku": "",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/08/RDCxHdnVudDj9haxKyXBJcULHKc-D9UNhmkIQY6T3J_iuo3W6w.jpg",
+        "https://saieedshabake.ir/wp-content/uploads/2026/08/cCs9azU_rg6wzs5d5L-4sK29_A4-WlSx5NkGSlWvtbf44WN2EA.png"
+      ],
+      "tehnet_image_ids": [
+        144,
+        145
+      ]
+    },
+    {
+      "sku": "TN-SN-17991",
+      "source_id": 17991,
+      "supplier_present": true,
+      "tehnet_product_id": 83,
+      "supplier_title_sha256": "ae5d8958cc61b6f27ca04481609202caebddaea2651231e65a9cc42acd0ab423",
+      "supplier_description_sha256": "6267db25f027d7533de8d71788de71bae55f0c70fa12adea5affaf0443003699",
+      "supplier_sku": "",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/08/س.jpg"
+      ],
+      "tehnet_image_ids": [
+        146
+      ]
+    },
+    {
+      "sku": "TN-SN-17989",
+      "source_id": 17989,
+      "supplier_present": true,
+      "tehnet_product_id": 84,
+      "supplier_title_sha256": "4d5ae73ca9a1de89d0cd0fa0943946103e36801b41fa2aa433a91fca573b5598",
+      "supplier_description_sha256": "fe0f2efe9e37f0cac6434fd48aa5e5c922cd16e7a80b388215765554d5929252",
+      "supplier_sku": "PWR-WHT-77211",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/08/کابل-شبکه-Legrand-Cat6-SFTP-PVC-متراژ-500-متر-تست-فلوک-پرمننت.png"
+      ],
+      "tehnet_image_ids": [
+        147
+      ]
+    },
+    {
+      "sku": "TN-SN-17982",
+      "source_id": 17982,
+      "supplier_present": true,
+      "tehnet_product_id": 85,
+      "supplier_title_sha256": "5bff06c1af8a1270b73fa25341cdc9da22a8bef1f732c71f4852f21f771b61c4",
+      "supplier_description_sha256": "fe0f2efe9e37f0cac6434fd48aa5e5c922cd16e7a80b388215765554d5929252",
+      "supplier_sku": "PWR-WHT-77210",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/08/ffba6d62-acc4-43f9-9bbc-fc9c97afea90.png"
+      ],
+      "tehnet_image_ids": [
+        148
+      ]
+    },
+    {
+      "sku": "TN-SN-17941",
+      "source_id": 17941,
+      "supplier_present": true,
+      "tehnet_product_id": 86,
+      "supplier_title_sha256": "9c6cc55f20b45b3072e5a883c1cb2a99f80e97e36f992102a17b69bc8c90af52",
+      "supplier_description_sha256": "c5d58afcd8e38ae0f383bf88f3a18236fbf5cb1771b3dce47f1ddbad9326d726",
+      "supplier_sku": "",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/07/b22308bc-4670-4c10-a335-76f01bf36c9b.jpg",
+        "https://saieedshabake.ir/wp-content/uploads/2026/07/8f357c25-b38d-498f-a503-d15a07f57ea5.jpg"
+      ],
+      "tehnet_image_ids": [
+        149,
+        150
+      ]
+    },
+    {
+      "sku": "TN-SN-17935",
+      "source_id": 17935,
+      "supplier_present": true,
+      "tehnet_product_id": 87,
+      "supplier_title_sha256": "5d2d422dc2eb8007b0e07b6add8bfc2b82ed530554273142006dce3bd89c2eaa",
+      "supplier_description_sha256": "396a2fbe8031c548247c35d8f61a4809f0bbe4f39b1e0e25943f968a893ea382",
+      "supplier_sku": "",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/07/84ee2c99-69f6-4032-86d2-1bc102de0373.jpg"
+      ],
+      "tehnet_image_ids": [
+        151
+      ]
+    },
+    {
+      "sku": "TN-SN-17929",
+      "source_id": 17929,
+      "supplier_present": true,
+      "tehnet_product_id": 88,
+      "supplier_title_sha256": "47bd7bfc0deecb962ba5873a9bb75164f7421a6441cb168d40338a7f254a9704",
+      "supplier_description_sha256": "369cecc24685570057a9524ac9d8b567f52d65da8f2b3ad2c1b4adec34018849",
+      "supplier_sku": "",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/07/fde14b45-5b8c-422f-9684-cff146e3d2cb.jpg",
+        "https://saieedshabake.ir/wp-content/uploads/2026/07/b8853bee-6017-420d-a5fd-b88f9a5d88a5-1.png"
+      ],
+      "tehnet_image_ids": [
+        152,
+        153
+      ]
+    },
+    {
+      "sku": "TN-SN-17927",
+      "source_id": 17927,
+      "supplier_present": true,
+      "tehnet_product_id": 89,
+      "supplier_title_sha256": "7c35b775a054becbd651d1bddf9139a5730a370bac97825ac03c362e4b2ecd97",
+      "supplier_description_sha256": "1c6bf082938478726b15c423a3f3a30f45bca1f825a1f616d89033ac3b00f2c4",
+      "supplier_sku": "",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/07/HooshaAI_2026_07_23_020415.png"
+      ],
+      "tehnet_image_ids": [
+        154
+      ]
+    },
+    {
+      "sku": "TN-SN-17920",
+      "source_id": 17920,
+      "supplier_present": true,
+      "tehnet_product_id": 90,
+      "supplier_title_sha256": "2a6e261d051977781f6d9a32c90a78041344638066920788bf5e8047d5dbd296",
+      "supplier_description_sha256": "b704bd21863bea9d7afacf3f301980d3c1348f348311bbf30cdde5fe914f2e86",
+      "supplier_sku": "",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/07/edited.png",
+        "https://saieedshabake.ir/wp-content/uploads/2026/07/edited.png",
+        "https://saieedshabake.ir/wp-content/uploads/2026/07/79d7a9d178a9f2ba7fd7f5ebd0bde993.png"
+      ],
+      "tehnet_image_ids": [
+        155,
+        156
+      ]
+    },
+    {
+      "sku": "TN-SN-17888",
+      "source_id": 17888,
+      "supplier_present": true,
+      "tehnet_product_id": 91,
+      "supplier_title_sha256": "6d4f5d5b2a36b440d869bb861f540747ed57c9d613e4b315df902d438daa44fd",
+      "supplier_description_sha256": "d98734c86f1579e7d324df6b8e8aabcad838628c770d73fa58909eeedc8c4061",
+      "supplier_sku": "",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/07/927f4d63-bdd2-45b8-8e49-e35f4ce0602a.jpg"
+      ],
+      "tehnet_image_ids": [
+        157
+      ]
+    },
+    {
+      "sku": "TN-SN-17873",
+      "source_id": 17873,
+      "supplier_present": true,
+      "tehnet_product_id": 92,
+      "supplier_title_sha256": "72c916aff473fd76d36bb0fed72b6a1b7bea063d3e1c76c7c60ff15ffcca4fd6",
+      "supplier_description_sha256": "fd1256e1d7fdd4b4eea1616062ece98c3cd9505f73dc458afa643b9f88c37593",
+      "supplier_sku": "کابل شبکه نگزنس Cat6 SFTP PVC Outdoor 305m تست چنل-2",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/06/کابل-شبکه-نگزنس-Cat6-SFTP-اوت-دور-تست-فلوک-پرمننت-قرقره-305-متری.jpg"
+      ],
+      "tehnet_image_ids": [
+        127
+      ]
+    },
+    {
+      "sku": "TN-SN-17871",
+      "source_id": 17871,
+      "supplier_present": true,
+      "tehnet_product_id": 93,
+      "supplier_title_sha256": "236414c997d0cba6117630dacb56cb75207ed6a4091888f3c323a4f75fec9925",
+      "supplier_description_sha256": "379fbcdd2feea79e3a567bf9972320d02678a7953b58e6becd2f116e8e8b91b3",
+      "supplier_sku": "کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر تست چنل-2",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/06/کابل-شبکه-نگزنس-Cat6-SFTP-PVC-متراژ-500-متر-تست-چنل-نام.png"
+      ],
+      "tehnet_image_ids": [
+        128
+      ]
+    },
+    {
+      "sku": "TN-SN-17868",
+      "source_id": 17868,
+      "supplier_present": true,
+      "tehnet_product_id": 94,
+      "supplier_title_sha256": "a3f4aac6f3b01ccaaa110ae125a531013adaeda135cf1b4df7b46289da4c5e23",
+      "supplier_description_sha256": "5470da309ecfdaec9c130e38a33543201616080993b3f31359b498f63b4abe61",
+      "supplier_sku": "کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر تست چنل-1",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/06/کابل-شبکه-نگزنس-Cat6-SFTP-PVC-متراژ-500-متر-تست-چنل-نام.png",
+        "https://saieedshabake.ir/wp-content/uploads/2026/06/b08e04bd-08be-44e6-9224-3ad438e3bf6c.png"
+      ],
+      "tehnet_image_ids": [
+        129,
+        130
+      ]
+    },
+    {
+      "sku": "TN-SN-17866",
+      "source_id": 17866,
+      "supplier_present": true,
+      "tehnet_product_id": 95,
+      "supplier_title_sha256": "2b5c99b81b14e0d6ed91aeae8c866b3e2139c653c600250fc1f1f0fedc9f5b9c",
+      "supplier_description_sha256": "ad0cb587a443fd54018c1350c42b744528e81db99f9a93b971d9276e66f2cb9b",
+      "supplier_sku": "کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر تست چنل",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/06/کابل-شبکه-Legrand-Cat6-SFTP-PVC-متراژ-500-متر-تست-فلوک-پرمننت.png"
+      ],
+      "tehnet_image_ids": [
+        131
+      ]
+    },
+    {
+      "sku": "TN-SN-17863",
+      "source_id": 17863,
+      "supplier_present": true,
+      "tehnet_product_id": 96,
+      "supplier_title_sha256": "013b73f998f66fb046b1711eb857ff40c9f8a5626cf853cdf7d8482efc348186",
+      "supplier_description_sha256": "463ab9f89d3b13c764b0ebd6084aadb16f8088e1f1ec08b9846faa616599afcb",
+      "supplier_sku": "کابل شبکه Legrand Cat6 SFTP PVC متراژ 500 متر تست فلوک پرمننت",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/06/کابل-شبکه-Legrand-Cat6-SFTP-PVC-متراژ-500-متر-تست-فلوک-پرمننت.jpg"
+      ],
+      "tehnet_image_ids": [
+        143
+      ]
+    },
+    {
+      "sku": "TN-SN-17860",
+      "source_id": 17860,
+      "supplier_present": true,
+      "tehnet_product_id": 97,
+      "supplier_title_sha256": "213396b60ca3406f03320e8fe3012f35f430d2e766271e53014efc7b2de5cb5d",
+      "supplier_description_sha256": "352507513bb144e0349609b64b3adff1298e683e762ed43ffbdb5dfcdb8f4914",
+      "supplier_sku": "عنوان بهینه حدود ۶۰ کاراکتر: **کابل شبکه لگراند Cat6 UTP روکش PVC حلقه 305 متری تست فلوک**-1",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/06/کابل-شبکه-نگزنس-Cat6-UTP-روکش-PVC-حلقه-305-متری-تست-چنل.png"
+      ],
+      "tehnet_image_ids": [
+        133
+      ]
+    },
+    {
+      "sku": "TN-SN-17857",
+      "source_id": 17857,
+      "supplier_present": true,
+      "tehnet_product_id": 98,
+      "supplier_title_sha256": "e9bed8e6d39697f0e323bb24f2ed3b14c21b027ea895a5c7fbcbc3814dc1de9c",
+      "supplier_description_sha256": "b5724bc6110735cdde064fe2445d09041d1909e6d0e39d2d05a11f013434b787",
+      "supplier_sku": "کابل شبکه لگراند Cat6 UTP روکش PVC حلقه 305 متری تست چنل-1",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/06/کابل-شبکه-نگزنس-Cat6-UTP-روکش-PVC-حلقه-305-متری-تست-چنل.png"
+      ],
+      "tehnet_image_ids": [
+        134
+      ]
+    },
+    {
+      "sku": "TN-SN-17855",
+      "source_id": 17855,
+      "supplier_present": true,
+      "tehnet_product_id": 99,
+      "supplier_title_sha256": "6e31e8806734a0b94144d1791007d3823c2185362abe8610d2e6a3f3d2146e6d",
+      "supplier_description_sha256": "2a30cb8f63e485b29fba87871acbfec85acf805f8a7ecd996fc9c91a39631915",
+      "supplier_sku": "کابل شبکه لگراند Cat6 UTP روکش PVC حلقه 305 متری تست چنل",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/06/کابل-شبکه-لگراند-Cat6-UTP-روکش-PVC-حلقه-305-متری-تست-فلوک-پرمننت-این-نام-محصول-رو-سئو-شده-اما-با-کمی-تغییر-برای-وبسایتم-بده.jpg"
+      ],
+      "tehnet_image_ids": [
+        135
+      ]
+    },
+    {
+      "sku": "TN-SN-17851",
+      "source_id": 17851,
+      "supplier_present": true,
+      "tehnet_product_id": 100,
+      "supplier_title_sha256": "9575b720e6f4dbf2db3a439af4cec6c6b31dba61c6b0357cdbc599dd1db87e17",
+      "supplier_description_sha256": "fa37d76f61f4d0d051067eb8fda712a0e4ac727d8aacf05ecab92d54ec8793f9",
+      "supplier_sku": "عنوان بهینه حدود ۶۰ کاراکتر: **کابل شبکه لگراند Cat6 UTP روکش PVC حلقه 305 متری تست فلوک**",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/06/کابل-شبکه-لگراند-Cat6-UTP-روکش-PVC-حلقه-305-متری-تست-فلوک-پرمننت-این-نام-محصول-رو-سئو-شده-اما-با-کمی-تغییر-برای-وبسایتم-بده.jpg"
+      ],
+      "tehnet_image_ids": [
+        136
+      ]
+    },
+    {
+      "sku": "TN-SN-17831",
+      "source_id": 17831,
+      "supplier_present": true,
+      "tehnet_product_id": 101,
+      "supplier_title_sha256": "05bea61633f00a456b35bcdd0fa4bded3ab0a2f8eefeab965a670c61204cac91",
+      "supplier_description_sha256": "918992cbd8b2bab2bc77bb0a133b00c86475dfb3e5f79a067b38e7619dc9093a",
+      "supplier_sku": "کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m پرمننت &#8211; قیمت و خرید-3",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/06/de709dad-6a2d-4e20-ba0c-8017605555ae.png"
+      ],
+      "tehnet_image_ids": [
+        137
+      ]
+    },
+    {
+      "sku": "TN-SN-17829",
+      "source_id": 17829,
+      "supplier_present": true,
+      "tehnet_product_id": 102,
+      "supplier_title_sha256": "aca66dfd1f4708c683653ac2e35fd066bb3063c94671d6a1a0224af5c61000c4",
+      "supplier_description_sha256": "918992cbd8b2bab2bc77bb0a133b00c86475dfb3e5f79a067b38e7619dc9093a",
+      "supplier_sku": "کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m پرمننت &#8211; قیمت و خرید-2",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/06/de709dad-6a2d-4e20-ba0c-8017605555ae.png"
+      ],
+      "tehnet_image_ids": [
+        138
+      ]
+    },
+    {
+      "sku": "TN-SN-17827",
+      "source_id": 17827,
+      "supplier_present": true,
+      "tehnet_product_id": 103,
+      "supplier_title_sha256": "317b3a54757cf1b9711a97d2d676d31c0eb46595b5d7d411e72c74cdfb2cea52",
+      "supplier_description_sha256": "d77bef032385ae2da039e9cfa9309b86856c4cee0b659ec2d0d90c8d9826d885",
+      "supplier_sku": "کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m پرمننت &#8211; قیمت و خرید-1",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/06/de709dad-6a2d-4e20-ba0c-8017605555ae.png"
+      ],
+      "tehnet_image_ids": [
+        139
+      ]
+    },
+    {
+      "sku": "TN-SN-17824",
+      "source_id": 17824,
+      "supplier_present": true,
+      "tehnet_product_id": 104,
+      "supplier_title_sha256": "88c72cf0f4ed3eb78cab079255694d08a72ea2c7bc39644711e3ad979a7daa07",
+      "supplier_description_sha256": "a8a3ff4338ae4a8ae953a919d496cdbd8ebfd65e531daf6cf972c273c0000936",
+      "supplier_sku": "کابل شبکه نگزنس Cat6 SFTP PVC Outdoor 305m تست چنل-1",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/06/1f81da61-9bb6-4e5e-9f92-a79f5281d3ff.png"
+      ],
+      "tehnet_image_ids": [
+        140
+      ]
+    },
+    {
+      "sku": "TN-SN-16585",
+      "source_id": 16585,
+      "supplier_present": true,
+      "tehnet_product_id": 105,
+      "supplier_title_sha256": "a6b19a4beacad24926afcb601374c26dd7ee9301762cd75ade984445f1e8eedb",
+      "supplier_description_sha256": "7cc273fcbb627c17e79e5278865ee30590d75f5890098842e76ebc78b65ee9f6",
+      "supplier_sku": "کابل شبکه لگراند Cat6 SFTP LSZH Indoor 500m پرمننت &#8211; قیمت و خرید",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/06/de709dad-6a2d-4e20-ba0c-8017605555ae.png"
+      ],
+      "tehnet_image_ids": [
+        141
+      ]
+    },
+    {
+      "sku": "TN-SN-16584",
+      "source_id": 16584,
+      "supplier_present": true,
+      "tehnet_product_id": 106,
+      "supplier_title_sha256": "eddfe4d5b3e36b6f0ee80d7bd4d6493ad616113f74cf6f6d8ebdd1ccca77490c",
+      "supplier_description_sha256": "a8a3ff4338ae4a8ae953a919d496cdbd8ebfd65e531daf6cf972c273c0000936",
+      "supplier_sku": "کابل شبکه Cat 6 UTP لگرند تست فلوک به طول 305 متر &#8211; سعید شبکه",
+      "source_image_urls": [
+        "https://saieedshabake.ir/wp-content/uploads/2026/06/1f81da61-9bb6-4e5e-9f92-a79f5281d3ff.png"
+      ],
+      "tehnet_image_ids": [
+        142
+      ]
+    }
+  ],
+  "raw_response_storage": "Private local outputs/exact-media-2026-10-18; full public descriptions not committed; response-body SHA256 is recorded above."
+}

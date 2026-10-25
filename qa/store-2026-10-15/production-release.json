@@ -1,0 +1,273 @@
+{
+  "status": "deployed-review-only",
+  "directory": "/root/tehnet-releases/store-review-5bfc39fa87c943f0",
+  "backup": "/root/tehnet-backups/20261015-184219-store-review",
+  "manifest_sha256": "03cc4da8ce057cf99642a158d0fcc02f3964c8c3e86518189359105a0854f19b",
+  "run_id": "3fdcd9d4-e66e-457a-b626-7fcfad7ae9f5",
+  "repeat_import_skipped": 25,
+  "pages": {
+    "shop": {
+      "id": 9,
+      "url": "https://tehnet.ir/shop/"
+    },
+    "cart": {
+      "id": 107,
+      "url": "https://tehnet.ir/cart-2/",
+      "status": "publish"
+    },
+    "checkout": {
+      "id": 109,
+      "url": "https://tehnet.ir/tn-checkout/",
+      "status": "publish"
+    },
+    "myaccount": {
+      "id": 110,
+      "url": "https://tehnet.ir/tn-account/",
+      "status": "publish"
+    }
+  },
+  "audit": {
+    "products": [
+      {
+        "id": 82,
+        "source_id": "18002",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 83,
+        "source_id": "17991",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 84,
+        "source_id": "17989",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 85,
+        "source_id": "17982",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 86,
+        "source_id": "17941",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 87,
+        "source_id": "17935",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 88,
+        "source_id": "17929",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 89,
+        "source_id": "17927",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 90,
+        "source_id": "17920",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 91,
+        "source_id": "17888",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 92,
+        "source_id": "17873",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 93,
+        "source_id": "17871",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 94,
+        "source_id": "17868",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 95,
+        "source_id": "17866",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 96,
+        "source_id": "17863",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 97,
+        "source_id": "17860",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 98,
+        "source_id": "17857",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 99,
+        "source_id": "17855",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 100,
+        "source_id": "17851",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 101,
+        "source_id": "17831",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 102,
+        "source_id": "17829",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 103,
+        "source_id": "17827",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 104,
+        "source_id": "17824",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 105,
+        "source_id": "16585",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      },
+      {
+        "id": 106,
+        "source_id": "16584",
+        "draft": true,
+        "blank_price": true,
+        "stock_zero": true,
+        "no_backorders": true,
+        "can_buy": false
+      }
+    ],
+    "orders": 0,
+    "blog_public": "0",
+    "erp_ready": false,
+    "gateways": {
+      "bacs": "no",
+      "cheque": "no",
+      "cod": "no",
+      "tn_zarinpal_sandbox": "no"
+    },
+    "original_posts_hash": "193c2260d58e88b50c568e86c946857ed2a3b0d712bcf7df7bafdc7fb7db0a84"
+  },
+  "original_content_unchanged": true,
+  "unrelated_runtime_unchanged": true,
+  "port_unchanged": true,
+  "utc": "2026-10-15T15:42:03.060696+00:00",
+  "release_sha256": "5bfc39fa87c943f0a5f29f66abd27900aae66f9ec3aeb7dc3cc840e8bb856153"
+}

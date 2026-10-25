@@ -1,0 +1,48 @@
+const fs=require('fs');
+const path=require('path');
+const assert=require('assert/strict');
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
+const root=path.resolve(__dirname,'../..');
+const out=path.join(root,'qa/store-2026-10-15');fs.mkdirSync(out,{recursive:true});
+const env=Object.fromEntries(fs.readFileSync(path.join(root,'ops/staging/.env'),'utf8').trim().split(/\r?\n/).map(l=>{const i=l.indexOf('=');return [l.slice(0,i),l.slice(i+1)];}));
+(async()=>{
+ const browser=await chromium.launch({headless:true,channel:'msedge'});
+ const page=await browser.newPage({viewport:{width:1440,height:1000}});
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ try{
+  await page.goto('http://localhost:18083/shop/');await page.waitForLoadState('networkidle');
+  assert.equal(await page.locator('.products li.product').count(),0,'public must not expose drafts');
+  await page.goto('http://localhost:18083/wp-login.php');await page.waitForLoadState('networkidle');
+  await page.locator('#user_login').fill('tehnet-stage');await page.locator('#user_pass').fill(env.WP_ADMIN_PASSWORD);
+  await Promise.all([page.waitForURL(/wp-admin/),page.locator('#wp-submit').click()]);
+  await page.goto('http://localhost:18083/wp-admin/edit.php?post_type=product');await page.waitForLoadState('networkidle');
+  await page.screenshot({path:path.join(out,'admin-products.png'),fullPage:true});
+  await page.goto('http://localhost:18083/shop/?tn_preview=1');await page.waitForLoadState('networkidle');
+  const count=await page.locator('.products li.product').count();
+  console.log(JSON.stringify({previewProductCards:count,h1:await page.locator('h1').allTextContents(),notices:await page.locator('.woocommerce-info').allTextContents()}));
+  await page.screenshot({path:path.join(out,'catalog-desktop.png'),fullPage:true});
+  assert(count>0,'manager local preview must render draft catalog');
+  await page.locator('img[loading="lazy"]').evaluateAll(images=>images.forEach(img=>{img.loading='eager'}));
+  await page.waitForLoadState('networkidle');
+  assert.equal(await page.locator('html').getAttribute('dir'),'rtl');
+  await page.locator('[data-tn-add="compare"]').first().click();
+  await page.locator('[data-tn-open="compare"]').click();
+  assert(await page.locator('#tn-store-dialog').isVisible());
+  assert.equal(await page.locator('#tn-store-dialog article').count(),1);
+  await page.screenshot({path:path.join(out,'compare.png'),fullPage:true});
+  await page.keyboard.press('Escape');assert(!(await page.locator('#tn-store-dialog').isVisible()));
+  await page.reload();await page.waitForLoadState('networkidle');
+  assert.equal(await page.locator('[data-tn-count="compare"]').innerText(),'۱');
+  await page.locator('[data-tn-add="wishlist"]').first().click();
+  await page.locator('[data-tn-open="wishlist"]').click();assert.equal(await page.locator('#tn-store-dialog article').count(),1);
+  await page.locator('[data-tn-close]').click();
+  await page.setViewportSize({width:390,height:844});await page.reload();await page.waitForLoadState('networkidle');
+  const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1);
+  await page.locator('img[loading="lazy"]').evaluateAll(images=>images.forEach(img=>{img.loading='eager'}));await page.waitForLoadState('networkidle');
+  await page.screenshot({path:path.join(out,'catalog-mobile.png'),fullPage:true});
+  assert(!overflow,'mobile must not horizontally overflow');
+  assert.deepEqual(errors,[],'no runtime JavaScript errors');
+  fs.writeFileSync(path.join(out,'browser-results.json'),JSON.stringify({publicDraftProtection:true,managerDraftPreview:true,rtl:true,compare:true,persistence:true,wishlist:true,escape:true,mobileNoOverflow:true,pageErrors:errors,scope:'Real local WordPress/WooCommerce. No purchase/payment/ERP claim.'},null,2));
+  console.log('STORE_BROWSER=PASSED');
+ }finally{await browser.close();}
+})().catch(e=>{console.error(e.message);process.exit(1)});

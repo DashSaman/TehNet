@@ -1,0 +1,82 @@
+[
+  {
+    "test": "commerce-bootstrap-contract.sh",
+    "exit_code": 0,
+    "output": "COMMERCE_BOOTSTRAP_CONTRACT=PASSED\n"
+  },
+  {
+    "test": "commerce-inquiry-contract.sh",
+    "exit_code": 0,
+    "output": "COMMERCE_INQUIRY_CONTRACT=PASSED\n"
+  },
+  {
+    "test": "core-plugin-contract.sh",
+    "exit_code": 0,
+    "output": "CORE_PLUGIN_CONTRACT=PASSED\n"
+  },
+  {
+    "test": "deploy-contract.sh",
+    "exit_code": 0,
+    "output": "DEPLOY_CONTRACT=PASSED\n"
+  },
+  {
+    "test": "gutenberg-foundation-contract.sh",
+    "exit_code": 0,
+    "output": "GUTENBERG_FOUNDATION_CONTRACT=PASSED\n"
+  },
+  {
+    "test": "learn-mikrotik-contract.sh",
+    "exit_code": 0,
+    "output": "LEARN_MIKROTIK_CONTRACT=PASSED\n"
+  },
+  {
+    "test": "localbusiness-schema-contract.sh",
+    "exit_code": 0,
+    "output": "LOCALBUSINESS_SETTINGS_CONTRACT=PASSED\nLOCALBUSINESS_RENDERER_CONTRACT=PASSED\n"
+  },
+  {
+    "test": "mtcna-owner-contract.sh",
+    "exit_code": 0,
+    "output": "MTCNA_OWNER_CONTRACT=PASSED\n"
+  },
+  {
+    "test": "production-isolation-contract.sh",
+    "exit_code": 0,
+    "output": "PRODUCTION_ISOLATION_CONTRACT=PASSED\n"
+  },
+  {
+    "test": "seo-architecture-contract.sh",
+    "exit_code": 0,
+    "output": "SEO_ARCHITECTURE_RESEARCH_CONTRACT=PASSED\n"
+  },
+  {
+    "test": "seo-technical-contract.sh",
+    "exit_code": 0,
+    "output": "SEO_TECHNICAL_CONTRACT=PASSED\n"
+  },
+  {
+    "test": "service-owner-contract.sh",
+    "exit_code": 0,
+    "output": "SERVICE_OWNER_CONTENT_CONTRACT=PASSED\nSERVICE_OWNER_HIERARCHY_CONTRACT=PASSED\nSERVICE_OWNER_REWRITE_CONTRACT=PASSED\n"
+  },
+  {
+    "test": "shop-commerce-content-contract.sh",
+    "exit_code": 0,
+    "output": "SHOP_COMMERCE_CONTENT_CONTRACT=PASSED\n"
+  },
+  {
+    "test": "theme-contract.sh",
+    "exit_code": 0,
+    "output": "THEME_CONTRACT=PASSED\n"
+  },
+  {
+    "test": "wp-bootstrap-contract.sh",
+    "exit_code": 0,
+    "output": "WP_BOOTSTRAP_CONTRACT=PASSED\n"
+  },
+  {
+    "test": "youtube-content-contract.sh",
+    "exit_code": 0,
+    "output": "YOUTUBE_CONTENT_CONTRACT=PASSED\n"
+  }
+]

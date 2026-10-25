@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily TehNet backup at 03:40 Tehran time
+
+[Timer]
+OnCalendar=*-*-* 03:40:00 Asia/Tehran
+Persistent=true
+Unit=tehnet-store-backup.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,1635 @@
+{
+  "schema": 1,
+  "operation": "owner-authorized-retailer-mark-cleanup",
+  "owner_authorized": true,
+  "reviewed": true,
+  "products": [
+    {
+      "sku": "TN-SN-17863",
+      "id": 96,
+      "before": {
+        "image": 132,
+        "gallery": []
+      },
+      "images": [
+        {
+          "old_attachment_id": 132,
+          "old_sha256": "d601c7cc1c1cd6967fdb551ab3964b2a24ef35e42299e5a87e221d50108e23e5",
+          "replacement": {
+            "id": 17863,
+            "index": 0,
+            "source_file": "d601c7cc1c1cd6967fdb551ab3964b2a24ef35e42299e5a87e221d50108e23e5.jpg",
+            "source_sha256": "d601c7cc1c1cd6967fdb551ab3964b2a24ef35e42299e5a87e221d50108e23e5",
+            "file": "0fdf37f0bd9838588199809c3df75a6d2b400ea2616632a7b88f767eee51df5a.webp",
+            "sha256": "0fdf37f0bd9838588199809c3df75a6d2b400ea2616632a7b88f767eee51df5a",
+            "dimensions": [
+              1024,
+              1024
+            ],
+            "bytes": 941858,
+            "patch_file": "patches/d601c7cc1c1cd6967fdb551ab3964b2a24ef35e42299e5a87e221d50108e23e5.png",
+            "patch_sha256": "c211d612d2cca31f8678d54ef3fc1a4fd9a80ae816fd02f657957eda1d189682",
+            "regions": [
+              [
+                20,
+                880,
+                1015,
+                880,
+                1015,
+                1015,
+                20,
+                1015
+              ]
+            ],
+            "protect": [],
+            "hard_protect": false,
+            "feather_inward_px": 10,
+            "edited_pixels": 134325,
+            "total_pixels": 1048576,
+            "changed_pixels_outside_mask": 0,
+            "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+            "prompt": "Use case: precise-object-edit. This user owns the supplied image and authorizes removing their former retailer branding. Remove ONLY engraved Saieedshabake.ir retailer lettering on the foreground floor BELOW the cable spool. Reconstruct the surrounding background surface naturally. Keep every product unchanged, including position, geometry, count, edges, colors, manufacturer's logos, cable windings, wooden spool label and barcode, metal shielding, connector ports, colored wiring numbers, loose metal shells, latches, and reflected lighting on product edges. No new product or replacement model; no new angle; no crop or composition change; no new lettering. Same aspect ratio and lighting. Only retailer Saieed/SaeedShabake lettering and its background letter-shaped glow/reflection may change. Preserve all Legrand/Nexans manufacturer marks."
+          }
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17860",
+      "id": 97,
+      "before": {
+        "image": 133,
+        "gallery": []
+      },
+      "images": [
+        {
+          "old_attachment_id": 133,
+          "old_sha256": "15b41891aa75ca17e4c5d2e7505e68fe52ae74d9d2bb4e9430a46d4b0519ff71",
+          "replacement": null
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-18002",
+      "id": 82,
+      "before": {
+        "image": 113,
+        "gallery": [
+          114
+        ]
+      },
+      "images": [
+        {
+          "old_attachment_id": 113,
+          "old_sha256": "52019247f419567234562c9a28919d669962f68138d8f51b88d7f549203b68ad",
+          "replacement": {
+            "id": 18002,
+            "index": 0,
+            "source_file": "52019247f419567234562c9a28919d669962f68138d8f51b88d7f549203b68ad.jpg",
+            "source_sha256": "52019247f419567234562c9a28919d669962f68138d8f51b88d7f549203b68ad",
+            "file": "74463c81429bfaafee5dc1828deb68905ea666b740861b483d6d4e02ca2b3a24.webp",
+            "sha256": "74463c81429bfaafee5dc1828deb68905ea666b740861b483d6d4e02ca2b3a24",
+            "dimensions": [
+              1024,
+              1024
+            ],
+            "bytes": 666958,
+            "patch_file": "patches/52019247f419567234562c9a28919d669962f68138d8f51b88d7f549203b68ad.png",
+            "patch_sha256": "92b9521c08fb429d379afcf0e5dd6fb4902b0ed16d7d4c65fe9e22527890ca62",
+            "regions": [
+              [
+                260,
+                175,
+                800,
+                175,
+                800,
+                335,
+                260,
+                335
+              ]
+            ],
+            "protect": [],
+            "hard_protect": false,
+            "feather_inward_px": 10,
+            "edited_pixels": 86400,
+            "total_pixels": 1048576,
+            "changed_pixels_outside_mask": 0,
+            "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+            "prompt": "Use case: precise-object-edit. Edit the supplied user-owned catalogue image. The owner authorizes removal of their former retailer watermark. Remove ONLY small dark 'Saieed Shabake' retailer lettering on the rear charcoal wall, above the connectors. Inpaint that lettering with the surrounding original wall/table/background texture and lighting. Keep the photographed product(s) UNCHANGED: same exact count, position, camera angle, proportions, silhouette, transparent plastic/metal surfaces, all gold contact pins and their count, clips, ports, openings, manufacturer logos and labels, shadows, focus and colors. Do not invent or improve product geometry. Preserve composition, full framing, and aspect ratio. No replacement product, no new angle, no crop, no new text. Keep manufacturer product marks; erase only retailer Saieed/Saeed Shabake lettering. Shop overlays tehnet.ir separately."
+          }
+        },
+        {
+          "old_attachment_id": 114,
+          "old_sha256": "4f5490263e977da1f07804e92f8ec51e443528c2c2baebfbb44068c12ea46671",
+          "replacement": {
+            "id": 18002,
+            "index": 1,
+            "source_file": "4f5490263e977da1f07804e92f8ec51e443528c2c2baebfbb44068c12ea46671.png",
+            "source_sha256": "4f5490263e977da1f07804e92f8ec51e443528c2c2baebfbb44068c12ea46671",
+            "file": "0c9f0cc6b2fd4650b7e6264433715a3559be66a97db3373dc0c9efb02de5dff2.webp",
+            "sha256": "0c9f0cc6b2fd4650b7e6264433715a3559be66a97db3373dc0c9efb02de5dff2",
+            "dimensions": [
+              1024,
+              1024
+            ],
+            "bytes": 594824,
+            "patch_file": "patches/4f5490263e977da1f07804e92f8ec51e443528c2c2baebfbb44068c12ea46671.png",
+            "patch_sha256": "36edb87adab2aa7540d3f95ffd3dea07d1f48fe3a1664ca36b4fc0c87d7a3a0f",
+            "regions": [
+              [
+                275,
+                130,
+                745,
+                130,
+                745,
+                285,
+                275,
+                285
+              ]
+            ],
+            "protect": [],
+            "hard_protect": false,
+            "feather_inward_px": 10,
+            "edited_pixels": 72850,
+            "total_pixels": 1048576,
+            "changed_pixels_outside_mask": 0,
+            "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+            "prompt": "Use case: precise-object-edit. Edit the supplied user-owned catalogue image. The owner authorizes removal of their former retailer watermark. Remove ONLY small dark 'Saieed Shabake' retailer lettering on the rear charcoal wall, above the connectors. Inpaint that lettering with the surrounding original wall/table/background texture and lighting. Keep the photographed product(s) UNCHANGED: same exact count, position, camera angle, proportions, silhouette, transparent plastic/metal surfaces, all gold contact pins and their count, clips, ports, openings, manufacturer logos and labels, shadows, focus and colors. Do not invent or improve product geometry. Preserve composition, full framing, and aspect ratio. No replacement product, no new angle, no crop, no new text. Keep manufacturer product marks; erase only retailer Saieed/Saeed Shabake lettering. Shop overlays tehnet.ir separately."
+          }
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17857",
+      "id": 98,
+      "before": {
+        "image": 134,
+        "gallery": []
+      },
+      "images": [
+        {
+          "old_attachment_id": 134,
+          "old_sha256": "15b41891aa75ca17e4c5d2e7505e68fe52ae74d9d2bb4e9430a46d4b0519ff71",
+          "replacement": null
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17991",
+      "id": 83,
+      "before": {
+        "image": 115,
+        "gallery": []
+      },
+      "images": [
+        {
+          "old_attachment_id": 115,
+          "old_sha256": "4cf83fd97f812b1d0ef5c25844a10439f5194c7ba05a0b5d43cbe411c2ffa2a9",
+          "replacement": {
+            "id": 17991,
+            "index": 0,
+            "source_file": "4cf83fd97f812b1d0ef5c25844a10439f5194c7ba05a0b5d43cbe411c2ffa2a9.jpg",
+            "source_sha256": "4cf83fd97f812b1d0ef5c25844a10439f5194c7ba05a0b5d43cbe411c2ffa2a9",
+            "file": "95319041c056d9962e1e3063ed9512522c1a5c65d3b6b263f99ac1d80cae6185.webp",
+            "sha256": "95319041c056d9962e1e3063ed9512522c1a5c65d3b6b263f99ac1d80cae6185",
+            "dimensions": [
+              1024,
+              1024
+            ],
+            "bytes": 723070,
+            "patch_file": "patches/4cf83fd97f812b1d0ef5c25844a10439f5194c7ba05a0b5d43cbe411c2ffa2a9.png",
+            "patch_sha256": "72de50d13820ed2f527db3a1d85dbf0e76a9d0ec7c42b075d03dbfa4d2c0ce07",
+            "regions": [
+              [
+                40,
+                125,
+                990,
+                125,
+                990,
+                277,
+                480,
+                277,
+                480,
+                287,
+                40,
+                287
+              ]
+            ],
+            "protect": [],
+            "hard_protect": false,
+            "feather_inward_px": 10,
+            "edited_pixels": 148800,
+            "total_pixels": 1048576,
+            "changed_pixels_outside_mask": 0,
+            "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+            "prompt": "Use case: precise-object-edit. Edit the supplied user-owned catalogue image. The owner authorizes removal of their former retailer watermark. Remove ONLY large pale 'Saieed shabake' retailer lettering across the upper dark background. Inpaint that lettering with the surrounding original wall/table/background texture and lighting. Keep the photographed product(s) UNCHANGED: same exact count, position, camera angle, proportions, silhouette, transparent plastic/metal surfaces, all gold contact pins and their count, clips, ports, openings, manufacturer logos and labels, shadows, focus and colors. Do not invent or improve product geometry. Preserve composition, full framing, and aspect ratio. No replacement product, no new angle, no crop, no new text. Keep manufacturer product marks; erase only retailer Saieed/Saeed Shabake lettering. Shop overlays tehnet.ir separately."
+          }
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17855",
+      "id": 99,
+      "before": {
+        "image": 135,
+        "gallery": []
+      },
+      "images": [
+        {
+          "old_attachment_id": 135,
+          "old_sha256": "4695c03d8db785e3c9435b406a484e42e0749224ff8b44b173888d601545c42e",
+          "replacement": null
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17989",
+      "id": 84,
+      "before": {
+        "image": 116,
+        "gallery": []
+      },
+      "images": [
+        {
+          "old_attachment_id": 116,
+          "old_sha256": "a4b1d26b8aa160bd724de5c7774f4d109898ae94c5b6369bafe21dc5dec1ac83",
+          "replacement": {
+            "id": 17989,
+            "index": 0,
+            "source_file": "a4b1d26b8aa160bd724de5c7774f4d109898ae94c5b6369bafe21dc5dec1ac83.png",
+            "source_sha256": "a4b1d26b8aa160bd724de5c7774f4d109898ae94c5b6369bafe21dc5dec1ac83",
+            "file": "69a219e0d7297938ae1876fe44e29aafecf498230fa31983394fe368a9e59aea.webp",
+            "sha256": "69a219e0d7297938ae1876fe44e29aafecf498230fa31983394fe368a9e59aea",
+            "dimensions": [
+              1024,
+              1024
+            ],
+            "bytes": 377224,
+            "patch_file": "patches/a4b1d26b8aa160bd724de5c7774f4d109898ae94c5b6369bafe21dc5dec1ac83.png",
+            "patch_sha256": "429ce9fc0ba373f76fdfebd761174fd46e1de0fb3d5c862cfff22b2b9271d52f",
+            "regions": [
+              [
+                160,
+                725,
+                890,
+                725,
+                890,
+                900,
+                160,
+                900
+              ]
+            ],
+            "protect": [],
+            "hard_protect": false,
+            "feather_inward_px": 10,
+            "edited_pixels": 127750,
+            "total_pixels": 1048576,
+            "changed_pixels_outside_mask": 0,
+            "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+            "prompt": "Owner-authorized removal of only white retailer lettering and reflection on tabletop below red sockets; retain all product details and manufacturer marks."
+          }
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17851",
+      "id": 100,
+      "before": {
+        "image": 136,
+        "gallery": []
+      },
+      "images": [
+        {
+          "old_attachment_id": 136,
+          "old_sha256": "4695c03d8db785e3c9435b406a484e42e0749224ff8b44b173888d601545c42e",
+          "replacement": null
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17982",
+      "id": 85,
+      "before": {
+        "image": 117,
+        "gallery": []
+      },
+      "images": [
+        {
+          "old_attachment_id": 117,
+          "old_sha256": "ab82eea17c2daaeb2e815a6f3f52b426fb045e838c4233250d307f8f584cbcc6",
+          "replacement": {
+            "id": 17982,
+            "index": 0,
+            "source_file": "ab82eea17c2daaeb2e815a6f3f52b426fb045e838c4233250d307f8f584cbcc6.png",
+            "source_sha256": "ab82eea17c2daaeb2e815a6f3f52b426fb045e838c4233250d307f8f584cbcc6",
+            "file": "ee61eb657af25fad36f52ff02762ce530969ab4582be18535cdd6eb33f218523.webp",
+            "sha256": "ee61eb657af25fad36f52ff02762ce530969ab4582be18535cdd6eb33f218523",
+            "dimensions": [
+              1024,
+              1024
+            ],
+            "bytes": 563924,
+            "patch_file": "patches/ab82eea17c2daaeb2e815a6f3f52b426fb045e838c4233250d307f8f584cbcc6.png",
+            "patch_sha256": "cd9c30ab3ec418dba4365d68b62c9b22a586904e7c1bd0cc1a520565e34019e7",
+            "regions": [
+              [
+                28,
+                115,
+                992,
+                115,
+                992,
+                286,
+                28,
+                286
+              ]
+            ],
+            "protect": [
+              [
+                224,
+                286,
+                224,
+                253,
+                226,
+                248,
+                229,
+                245,
+                234,
+                243,
+                792,
+                243,
+                797,
+                245,
+                800,
+                249,
+                802,
+                256,
+                802,
+                286
+              ]
+            ],
+            "hard_protect": true,
+            "feather_inward_px": 10,
+            "edited_pixels": 140039,
+            "total_pixels": 1048576,
+            "changed_pixels_outside_mask": 0,
+            "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+            "prompt": "Owner-authorized removal of only pale upper background lettering, preserve socket silhouette; retain all product details and manufacturer marks."
+          }
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17831",
+      "id": 101,
+      "before": {
+        "image": 137,
+        "gallery": []
+      },
+      "images": [
+        {
+          "old_attachment_id": 137,
+          "old_sha256": "85dd4de82e92913577b3f61c2a8be4859b7b6a1b3e4c09ecc1ed0929082346de",
+          "replacement": null
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17941",
+      "id": 86,
+      "before": {
+        "image": 118,
+        "gallery": [
+          119
+        ]
+      },
+      "images": [
+        {
+          "old_attachment_id": 118,
+          "old_sha256": "bb925d0c3989548e74abdbf308a5d2c9f45cc0d7ad27e17d518f70b94762cab9",
+          "replacement": {
+            "id": 17941,
+            "index": 0,
+            "source_file": "bb925d0c3989548e74abdbf308a5d2c9f45cc0d7ad27e17d518f70b94762cab9.jpg",
+            "source_sha256": "bb925d0c3989548e74abdbf308a5d2c9f45cc0d7ad27e17d518f70b94762cab9",
+            "file": "46f997a63c54ba3ec95b67ff76335d072537450aa1185f228690d70afed1f84e.webp",
+            "sha256": "46f997a63c54ba3ec95b67ff76335d072537450aa1185f228690d70afed1f84e",
+            "dimensions": [
+              1024,
+              1024
+            ],
+            "bytes": 638204,
+            "patch_file": "patches/bb925d0c3989548e74abdbf308a5d2c9f45cc0d7ad27e17d518f70b94762cab9.png",
+            "patch_sha256": "0deab4a5da40fb162868acf21212c26f14ab2341d7df92c273f279917845f448",
+            "regions": [
+              [
+                440,
+                697,
+                990,
+                697,
+                990,
+                875,
+                440,
+                875
+              ]
+            ],
+            "protect": [],
+            "hard_protect": false,
+            "feather_inward_px": 10,
+            "edited_pixels": 97900,
+            "total_pixels": 1048576,
+            "changed_pixels_outside_mask": 0,
+            "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+            "prompt": "Owner-authorized removal of only diagonal retailer lettering on tabletop below two telephone modules; retain all product details and manufacturer marks."
+          }
+        },
+        {
+          "old_attachment_id": 119,
+          "old_sha256": "efbda3232f8082d0725c8a577042e24c1e41ab05da6b16b70451b13851a4b5e4",
+          "replacement": {
+            "id": 17941,
+            "index": 1,
+            "source_file": "efbda3232f8082d0725c8a577042e24c1e41ab05da6b16b70451b13851a4b5e4.jpg",
+            "source_sha256": "efbda3232f8082d0725c8a577042e24c1e41ab05da6b16b70451b13851a4b5e4",
+            "file": "5de636f9455c7bc50cb13d725d93adf8afc9dde416ef11cda0b523908cf85091.webp",
+            "sha256": "5de636f9455c7bc50cb13d725d93adf8afc9dde416ef11cda0b523908cf85091",
+            "dimensions": [
+              1024,
+              1024
+            ],
+            "bytes": 676296,
+            "patch_file": "patches/efbda3232f8082d0725c8a577042e24c1e41ab05da6b16b70451b13851a4b5e4.png",
+            "patch_sha256": "eebda93da1ea8cdeaebc6b8fb6c480adb65a313d1adda3f65badc0d9168e2d10",
+            "regions": [
+              [
+                65,
+                625,
+                965,
+                735,
+                965,
+                920,
+                65,
+                785
+              ]
+            ],
+            "protect": [
+              [
+                250,
+                130,
+                770,
+                195,
+                755,
+                635,
+                692,
+                692,
+                244,
+                610
+              ]
+            ],
+            "hard_protect": false,
+            "feather_inward_px": 10,
+            "edited_pixels": 155245,
+            "total_pixels": 1048576,
+            "changed_pixels_outside_mask": 0,
+            "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+            "prompt": "Owner-authorized removal of only diagonal retailer lettering on tabletop below telephone module; retain all product details and manufacturer marks."
+          }
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17829",
+      "id": 102,
+      "before": {
+        "image": 138,
+        "gallery": []
+      },
+      "images": [
+        {
+          "old_attachment_id": 138,
+          "old_sha256": "85dd4de82e92913577b3f61c2a8be4859b7b6a1b3e4c09ecc1ed0929082346de",
+          "replacement": null
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17935",
+      "id": 87,
+      "before": {
+        "image": 120,
+        "gallery": []
+      },
+      "images": [
+        {
+          "old_attachment_id": 120,
+          "old_sha256": "a7a9e2bd0683409d25484e0e11eb050a8b9c6d1773759e9e5b71be0547ae29af",
+          "replacement": {
+            "id": 17935,
+            "index": 0,
+            "source_file": "a7a9e2bd0683409d25484e0e11eb050a8b9c6d1773759e9e5b71be0547ae29af.jpg",
+            "source_sha256": "a7a9e2bd0683409d25484e0e11eb050a8b9c6d1773759e9e5b71be0547ae29af",
+            "file": "01e25b2169fc0fed92b9ca26e47c30f345c78915d4174491a684f18626de93a7.webp",
+            "sha256": "01e25b2169fc0fed92b9ca26e47c30f345c78915d4174491a684f18626de93a7",
+            "dimensions": [
+              1024,
+              1024
+            ],
+            "bytes": 691344,
+            "patch_file": "patches/a7a9e2bd0683409d25484e0e11eb050a8b9c6d1773759e9e5b71be0547ae29af.png",
+            "patch_sha256": "bcecabf45d02ddc6ad64dd6f3512c65d2f158128a88d30c5dd2f418c49978a8c",
+            "regions": [
+              [
+                165,
+                880,
+                690,
+                835,
+                990,
+                745,
+                1008,
+                845,
+                190,
+                995
+              ],
+              [
+                520,
+                846,
+                655,
+                817,
+                655,
+                775,
+                850,
+                775,
+                850,
+                885,
+                520,
+                885
+              ]
+            ],
+            "protect": [],
+            "hard_protect": false,
+            "feather_inward_px": 8,
+            "edited_pixels": 84442,
+            "total_pixels": 1048576,
+            "changed_pixels_outside_mask": 0,
+            "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+            "prompt": "Owner-authorized removal of only retailer lettering on tabletop beneath slim module; retain all product details and manufacturer marks."
+          }
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17827",
+      "id": 103,
+      "before": {
+        "image": 139,
+        "gallery": []
+      },
+      "images": [
+        {
+          "old_attachment_id": 139,
+          "old_sha256": "85dd4de82e92913577b3f61c2a8be4859b7b6a1b3e4c09ecc1ed0929082346de",
+          "replacement": null
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17929",
+      "id": 88,
+      "before": {
+        "image": 121,
+        "gallery": [
+          122
+        ]
+      },
+      "images": [
+        {
+          "old_attachment_id": 121,
+          "old_sha256": "558b905defd7bb7b507cd79bf93d5c6e161efa0b0b8bc498bc1b23bbf502eb37",
+          "replacement": {
+            "id": 17929,
+            "index": 0,
+            "source_file": "558b905defd7bb7b507cd79bf93d5c6e161efa0b0b8bc498bc1b23bbf502eb37.jpg",
+            "source_sha256": "558b905defd7bb7b507cd79bf93d5c6e161efa0b0b8bc498bc1b23bbf502eb37",
+            "file": "90d3518f0619b942ee4dd388aa500af0c265ed2a09a7770698b2ee5cde530506.webp",
+            "sha256": "90d3518f0619b942ee4dd388aa500af0c265ed2a09a7770698b2ee5cde530506",
+            "dimensions": [
+              1024,
+              1024
+            ],
+            "bytes": 770228,
+            "patch_file": "patches/558b905defd7bb7b507cd79bf93d5c6e161efa0b0b8bc498bc1b23bbf502eb37.png",
+            "patch_sha256": "271a651bb998b84ba449bfab6253235a17dc5c1d0e6a35bff4732d38adffb0f6",
+            "regions": [
+              [
+                60,
+                100,
+                970,
+                100,
+                970,
+                280,
+                60,
+                280
+              ]
+            ],
+            "protect": [],
+            "hard_protect": false,
+            "feather_inward_px": 10,
+            "edited_pixels": 163800,
+            "total_pixels": 1048576,
+            "changed_pixels_outside_mask": 0,
+            "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+            "prompt": "Owner-authorized removal of only luminous blue upper wall retailer lettering; retain all product details and manufacturer marks."
+          }
+        },
+        {
+          "old_attachment_id": 122,
+          "old_sha256": "5d9a1a58e85af4d27a3951ba721f06aef1169dbad956f8ff9fb52eacb66cac1c",
+          "replacement": {
+            "id": 17929,
+            "index": 1,
+            "source_file": "5d9a1a58e85af4d27a3951ba721f06aef1169dbad956f8ff9fb52eacb66cac1c.png",
+            "source_sha256": "5d9a1a58e85af4d27a3951ba721f06aef1169dbad956f8ff9fb52eacb66cac1c",
+            "file": "ca4cfedeb13aaba206492b7efbb73cce4e0854266291fbd767fa824b99bd9d7a.webp",
+            "sha256": "ca4cfedeb13aaba206492b7efbb73cce4e0854266291fbd767fa824b99bd9d7a",
+            "dimensions": [
+              1194,
+              896
+            ],
+            "bytes": 693712,
+            "patch_file": "patches/5d9a1a58e85af4d27a3951ba721f06aef1169dbad956f8ff9fb52eacb66cac1c.png",
+            "patch_sha256": "ccf4c13188779edd075485e822644e7c0a48e5faef1f4ca78ecd1d51a3265843",
+            "regions": [
+              [
+                95,
+                45,
+                1120,
+                45,
+                1120,
+                225,
+                95,
+                225
+              ]
+            ],
+            "protect": [],
+            "hard_protect": false,
+            "feather_inward_px": 10,
+            "edited_pixels": 184500,
+            "total_pixels": 1069824,
+            "changed_pixels_outside_mask": 0,
+            "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+            "prompt": "Use case: precise-object-edit. Edit target: the supplied product catalogue image, owned by the user, who explicitly authorizes removing their former retailer watermark. Remove ONLY the large luminous blue retailer text 'Saieedshabake' on the upper background wall, including its letter-shaped glow. Reconstruct the same dark blue blurred warehouse background in that area. Keep the product box and all its pixels/appearance as unchanged as possible: exact pose, red/white colors, dimensions, corrugation, edges, lighting, shadow, barcode, Legrand manufacturer logos, and every existing package label including 0 765 61 and 1M UTP. Do not replace any manufacturer brand or part number. No new product, no new angle, no crop, no extra text or watermark. Same composition and aspect ratio as input. The shop adds tehnet.ir separately. Product identity and package typography are critical invariants."
+          }
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17824",
+      "id": 104,
+      "before": {
+        "image": 140,
+        "gallery": []
+      },
+      "images": [
+        {
+          "old_attachment_id": 140,
+          "old_sha256": "f68e4cf522b57a82f9d75f16580a9601e3ed30ebc3c6f1e369fe699f4315277f",
+          "replacement": null
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17927",
+      "id": 89,
+      "before": {
+        "image": 123,
+        "gallery": []
+      },
+      "images": [
+        {
+          "old_attachment_id": 123,
+          "old_sha256": "4c69aba5c3985e284a5c609d19dc01d2ee46b97dccc9e6a3a79daa812a26fad5",
+          "replacement": {
+            "id": 17927,
+            "index": 0,
+            "source_file": "4c69aba5c3985e284a5c609d19dc01d2ee46b97dccc9e6a3a79daa812a26fad5.png",
+            "source_sha256": "4c69aba5c3985e284a5c609d19dc01d2ee46b97dccc9e6a3a79daa812a26fad5",
+            "file": "c0cf99f8b26fdca96dec1169c2627f770e9e2b1eff6c936eb9ffef02f07d7fed.webp",
+            "sha256": "c0cf99f8b26fdca96dec1169c2627f770e9e2b1eff6c936eb9ffef02f07d7fed",
+            "dimensions": [
+              1024,
+              1024
+            ],
+            "bytes": 474370,
+            "patch_file": "patches/4c69aba5c3985e284a5c609d19dc01d2ee46b97dccc9e6a3a79daa812a26fad5.png",
+            "patch_sha256": "158d4e8ddd2a157d7322d5f04d9fd511b27cddcc2f394a6fa4c0bfd0fe2e5d22",
+            "regions": [
+              [
+                535,
+                905,
+                1010,
+                905,
+                1010,
+                1010,
+                535,
+                1010
+              ]
+            ],
+            "protect": [],
+            "hard_protect": false,
+            "feather_inward_px": 10,
+            "edited_pixels": 49875,
+            "total_pixels": 1048576,
+            "changed_pixels_outside_mask": 0,
+            "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+            "prompt": "Owner-authorized removal of only large lower-right retailer text; retain all product details and manufacturer marks."
+          }
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-16585",
+      "id": 105,
+      "before": {
+        "image": 141,
+        "gallery": []
+      },
+      "images": [
+        {
+          "old_attachment_id": 141,
+          "old_sha256": "85dd4de82e92913577b3f61c2a8be4859b7b6a1b3e4c09ecc1ed0929082346de",
+          "replacement": null
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17920",
+      "id": 90,
+      "before": {
+        "image": 124,
+        "gallery": [
+          125
+        ]
+      },
+      "images": [
+        {
+          "old_attachment_id": 124,
+          "old_sha256": "b1cac31686abec60daca9faae6832efb1d07c24f19684574259ade3aacd6245c",
+          "replacement": {
+            "id": 17920,
+            "index": 0,
+            "source_file": "b1cac31686abec60daca9faae6832efb1d07c24f19684574259ade3aacd6245c.png",
+            "source_sha256": "b1cac31686abec60daca9faae6832efb1d07c24f19684574259ade3aacd6245c",
+            "file": "53174eec8eaaaf7709f0230f0843a244f4b7cd20b1d3e6bad0f8094c0a1b1a66.webp",
+            "sha256": "53174eec8eaaaf7709f0230f0843a244f4b7cd20b1d3e6bad0f8094c0a1b1a66",
+            "dimensions": [
+              1024,
+              1024
+            ],
+            "bytes": 786238,
+            "patch_file": "patches/b1cac31686abec60daca9faae6832efb1d07c24f19684574259ade3aacd6245c.png",
+            "patch_sha256": "cd70f8cc7cba4c4339a28845ca4ec0a159e9b52e7b3e1ee81499e58795eacb59",
+            "regions": [
+              [
+                715,
+                952,
+                1024,
+                952,
+                1024,
+                1024,
+                715,
+                1024
+              ]
+            ],
+            "protect": [],
+            "hard_protect": false,
+            "feather_inward_px": 8,
+            "edited_pixels": 22248,
+            "total_pixels": 1048576,
+            "changed_pixels_outside_mask": 0,
+            "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+            "prompt": "Use case: precise-object-edit. Owner-authorized edit: remove ONLY the small, faint Saieedshabake.ir retailer watermark in the lower-right corner of this user-owned catalogue image. Fill only that background corner naturally to match its existing texture. Preserve the connector and all other pixels as faithfully as possible: exact metal shielding, seam, white housing, yellow/blue internals, wire-number strip, clips, ports, pose, colors, lighting and all background network equipment. No redesigned product, no new viewpoint, no crop, no new lettering or watermark. Same full composition/aspect ratio."
+          }
+        },
+        {
+          "old_attachment_id": 125,
+          "old_sha256": "4792fe02e7789590d7287ecc48fe22ddffcec0c27d0ebc3bfc91a722704c9d0f",
+          "replacement": {
+            "id": 17920,
+            "index": 1,
+            "source_file": "4792fe02e7789590d7287ecc48fe22ddffcec0c27d0ebc3bfc91a722704c9d0f.png",
+            "source_sha256": "4792fe02e7789590d7287ecc48fe22ddffcec0c27d0ebc3bfc91a722704c9d0f",
+            "file": "db449f4a56a1f10569215f2040b75a1b396154346a174c540de9c6c832a862ed.webp",
+            "sha256": "db449f4a56a1f10569215f2040b75a1b396154346a174c540de9c6c832a862ed",
+            "dimensions": [
+              1024,
+              1024
+            ],
+            "bytes": 1031506,
+            "patch_file": "patches/4792fe02e7789590d7287ecc48fe22ddffcec0c27d0ebc3bfc91a722704c9d0f.png",
+            "patch_sha256": "2dabfc9868549f315478ff99eadcb034c12a61c6da2d3d695ecae5370537a22d",
+            "regions": [
+              [
+                716,
+                446,
+                945,
+                531,
+                945,
+                575,
+                716,
+                490
+              ]
+            ],
+            "protect": [],
+            "hard_protect": false,
+            "feather_inward_px": 10,
+            "edited_pixels": 10083,
+            "total_pixels": 1048576,
+            "changed_pixels_outside_mask": 0,
+            "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+            "prompt": "Use case: precise-object-edit. This user owns the supplied image and authorizes removing their former retailer branding. Remove ONLY gray Saieedshabake.ir lettering across the background switch face, mid-right behind the loose metal connector shells. Reconstruct the surrounding background surface naturally. Keep every product unchanged, including position, geometry, count, edges, colors, manufacturer's logos, cable windings, wooden spool label and barcode, metal shielding, connector ports, colored wiring numbers, loose metal shells, latches, and reflected lighting on product edges. No new product or replacement model; no new angle; no crop or composition change; no new lettering. Same aspect ratio and lighting. Only retailer Saieed/SaeedShabake lettering and its background letter-shaped glow/reflection may change. Preserve all Legrand/Nexans manufacturer marks."
+          }
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-16584",
+      "id": 106,
+      "before": {
+        "image": 142,
+        "gallery": []
+      },
+      "images": [
+        {
+          "old_attachment_id": 142,
+          "old_sha256": "f68e4cf522b57a82f9d75f16580a9601e3ed30ebc3c6f1e369fe699f4315277f",
+          "replacement": null
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17888",
+      "id": 91,
+      "before": {
+        "image": 126,
+        "gallery": []
+      },
+      "images": [
+        {
+          "old_attachment_id": 126,
+          "old_sha256": "9bce2ca05ddc5909ed876cb28211c79541badc9a6b363d1580b36a0226048fc5",
+          "replacement": {
+            "id": 17888,
+            "index": 0,
+            "source_file": "9bce2ca05ddc5909ed876cb28211c79541badc9a6b363d1580b36a0226048fc5.jpg",
+            "source_sha256": "9bce2ca05ddc5909ed876cb28211c79541badc9a6b363d1580b36a0226048fc5",
+            "file": "61015abe83649142e5081858646603556bfb0e79c3d95bc0eab82a9c3a7cc10f.webp",
+            "sha256": "61015abe83649142e5081858646603556bfb0e79c3d95bc0eab82a9c3a7cc10f",
+            "dimensions": [
+              1047,
+              1024
+            ],
+            "bytes": 755306,
+            "patch_file": "patches/9bce2ca05ddc5909ed876cb28211c79541badc9a6b363d1580b36a0226048fc5.png",
+            "patch_sha256": "22a2c231164823c6853b92f9803613b2b2a7a3cb3b3195556fdaa70b582f5fac",
+            "regions": [
+              [
+                45,
+                145,
+                1032,
+                145,
+                1032,
+                335,
+                45,
+                335
+              ]
+            ],
+            "protect": [
+              [
+                628,
+                335,
+                632,
+                297,
+                639,
+                269,
+                642,
+                251,
+                650,
+                242,
+                686,
+                233,
+                718,
+                230,
+                734,
+                232,
+                740,
+                243,
+                750,
+                274,
+                756,
+                299,
+                768,
+                335
+              ]
+            ],
+            "hard_protect": true,
+            "feather_inward_px": 10,
+            "edited_pixels": 175661,
+            "total_pixels": 1072128,
+            "changed_pixels_outside_mask": 0,
+            "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+            "prompt": "Use case: precise-object-edit. This user owns the supplied image and authorizes removing their former retailer branding. Remove ONLY luminous blue Saieedshabake lettering across the upper background, partially behind the top of the white module. Reconstruct the surrounding background surface naturally. Keep every product unchanged, including position, geometry, count, edges, colors, manufacturer's logos, cable windings, wooden spool label and barcode, metal shielding, connector ports, colored wiring numbers, loose metal shells, latches, and reflected lighting on product edges. No new product or replacement model; no new angle; no crop or composition change; no new lettering. Same aspect ratio and lighting. Only retailer Saieed/SaeedShabake lettering and its background letter-shaped glow/reflection may change. Preserve all Legrand/Nexans manufacturer marks."
+          }
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17873",
+      "id": 92,
+      "before": {
+        "image": 127,
+        "gallery": []
+      },
+      "images": [
+        {
+          "old_attachment_id": 127,
+          "old_sha256": "ab1863c055bb66d8823ca06478594033f5414568ede9b4639b3624b05de8eddb",
+          "replacement": null
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17871",
+      "id": 93,
+      "before": {
+        "image": 128,
+        "gallery": []
+      },
+      "images": [
+        {
+          "old_attachment_id": 128,
+          "old_sha256": "020a31d98c6df47ecf83568eb50a9c144d22866e49998085641ed255339b54aa",
+          "replacement": null
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17868",
+      "id": 94,
+      "before": {
+        "image": 129,
+        "gallery": [
+          130
+        ]
+      },
+      "images": [
+        {
+          "old_attachment_id": 129,
+          "old_sha256": "020a31d98c6df47ecf83568eb50a9c144d22866e49998085641ed255339b54aa",
+          "replacement": null
+        },
+        {
+          "old_attachment_id": 130,
+          "old_sha256": "328f394963fd456521664fc1cbb77b775bbe2f01da29f6f609e44601ccaa252d",
+          "replacement": null
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17866",
+      "id": 95,
+      "before": {
+        "image": 131,
+        "gallery": []
+      },
+      "images": [
+        {
+          "old_attachment_id": 131,
+          "old_sha256": "7b0356edfc40616185624e440f9776cf2f00d66e25055bc57b2dfbc3ee240260",
+          "replacement": null
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "id": 18002,
+      "index": 0,
+      "source_file": "52019247f419567234562c9a28919d669962f68138d8f51b88d7f549203b68ad.jpg",
+      "source_sha256": "52019247f419567234562c9a28919d669962f68138d8f51b88d7f549203b68ad",
+      "file": "74463c81429bfaafee5dc1828deb68905ea666b740861b483d6d4e02ca2b3a24.webp",
+      "sha256": "74463c81429bfaafee5dc1828deb68905ea666b740861b483d6d4e02ca2b3a24",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bytes": 666958,
+      "patch_file": "patches/52019247f419567234562c9a28919d669962f68138d8f51b88d7f549203b68ad.png",
+      "patch_sha256": "92b9521c08fb429d379afcf0e5dd6fb4902b0ed16d7d4c65fe9e22527890ca62",
+      "regions": [
+        [
+          260,
+          175,
+          800,
+          175,
+          800,
+          335,
+          260,
+          335
+        ]
+      ],
+      "protect": [],
+      "hard_protect": false,
+      "feather_inward_px": 10,
+      "edited_pixels": 86400,
+      "total_pixels": 1048576,
+      "changed_pixels_outside_mask": 0,
+      "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+      "prompt": "Use case: precise-object-edit. Edit the supplied user-owned catalogue image. The owner authorizes removal of their former retailer watermark. Remove ONLY small dark 'Saieed Shabake' retailer lettering on the rear charcoal wall, above the connectors. Inpaint that lettering with the surrounding original wall/table/background texture and lighting. Keep the photographed product(s) UNCHANGED: same exact count, position, camera angle, proportions, silhouette, transparent plastic/metal surfaces, all gold contact pins and their count, clips, ports, openings, manufacturer logos and labels, shadows, focus and colors. Do not invent or improve product geometry. Preserve composition, full framing, and aspect ratio. No replacement product, no new angle, no crop, no new text. Keep manufacturer product marks; erase only retailer Saieed/Saeed Shabake lettering. Shop overlays tehnet.ir separately."
+    },
+    {
+      "id": 18002,
+      "index": 1,
+      "source_file": "4f5490263e977da1f07804e92f8ec51e443528c2c2baebfbb44068c12ea46671.png",
+      "source_sha256": "4f5490263e977da1f07804e92f8ec51e443528c2c2baebfbb44068c12ea46671",
+      "file": "0c9f0cc6b2fd4650b7e6264433715a3559be66a97db3373dc0c9efb02de5dff2.webp",
+      "sha256": "0c9f0cc6b2fd4650b7e6264433715a3559be66a97db3373dc0c9efb02de5dff2",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bytes": 594824,
+      "patch_file": "patches/4f5490263e977da1f07804e92f8ec51e443528c2c2baebfbb44068c12ea46671.png",
+      "patch_sha256": "36edb87adab2aa7540d3f95ffd3dea07d1f48fe3a1664ca36b4fc0c87d7a3a0f",
+      "regions": [
+        [
+          275,
+          130,
+          745,
+          130,
+          745,
+          285,
+          275,
+          285
+        ]
+      ],
+      "protect": [],
+      "hard_protect": false,
+      "feather_inward_px": 10,
+      "edited_pixels": 72850,
+      "total_pixels": 1048576,
+      "changed_pixels_outside_mask": 0,
+      "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+      "prompt": "Use case: precise-object-edit. Edit the supplied user-owned catalogue image. The owner authorizes removal of their former retailer watermark. Remove ONLY small dark 'Saieed Shabake' retailer lettering on the rear charcoal wall, above the connectors. Inpaint that lettering with the surrounding original wall/table/background texture and lighting. Keep the photographed product(s) UNCHANGED: same exact count, position, camera angle, proportions, silhouette, transparent plastic/metal surfaces, all gold contact pins and their count, clips, ports, openings, manufacturer logos and labels, shadows, focus and colors. Do not invent or improve product geometry. Preserve composition, full framing, and aspect ratio. No replacement product, no new angle, no crop, no new text. Keep manufacturer product marks; erase only retailer Saieed/Saeed Shabake lettering. Shop overlays tehnet.ir separately."
+    },
+    {
+      "id": 17991,
+      "index": 0,
+      "source_file": "4cf83fd97f812b1d0ef5c25844a10439f5194c7ba05a0b5d43cbe411c2ffa2a9.jpg",
+      "source_sha256": "4cf83fd97f812b1d0ef5c25844a10439f5194c7ba05a0b5d43cbe411c2ffa2a9",
+      "file": "95319041c056d9962e1e3063ed9512522c1a5c65d3b6b263f99ac1d80cae6185.webp",
+      "sha256": "95319041c056d9962e1e3063ed9512522c1a5c65d3b6b263f99ac1d80cae6185",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bytes": 723070,
+      "patch_file": "patches/4cf83fd97f812b1d0ef5c25844a10439f5194c7ba05a0b5d43cbe411c2ffa2a9.png",
+      "patch_sha256": "72de50d13820ed2f527db3a1d85dbf0e76a9d0ec7c42b075d03dbfa4d2c0ce07",
+      "regions": [
+        [
+          40,
+          125,
+          990,
+          125,
+          990,
+          277,
+          480,
+          277,
+          480,
+          287,
+          40,
+          287
+        ]
+      ],
+      "protect": [],
+      "hard_protect": false,
+      "feather_inward_px": 10,
+      "edited_pixels": 148800,
+      "total_pixels": 1048576,
+      "changed_pixels_outside_mask": 0,
+      "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+      "prompt": "Use case: precise-object-edit. Edit the supplied user-owned catalogue image. The owner authorizes removal of their former retailer watermark. Remove ONLY large pale 'Saieed shabake' retailer lettering across the upper dark background. Inpaint that lettering with the surrounding original wall/table/background texture and lighting. Keep the photographed product(s) UNCHANGED: same exact count, position, camera angle, proportions, silhouette, transparent plastic/metal surfaces, all gold contact pins and their count, clips, ports, openings, manufacturer logos and labels, shadows, focus and colors. Do not invent or improve product geometry. Preserve composition, full framing, and aspect ratio. No replacement product, no new angle, no crop, no new text. Keep manufacturer product marks; erase only retailer Saieed/Saeed Shabake lettering. Shop overlays tehnet.ir separately."
+    },
+    {
+      "id": 17989,
+      "index": 0,
+      "source_file": "a4b1d26b8aa160bd724de5c7774f4d109898ae94c5b6369bafe21dc5dec1ac83.png",
+      "source_sha256": "a4b1d26b8aa160bd724de5c7774f4d109898ae94c5b6369bafe21dc5dec1ac83",
+      "file": "69a219e0d7297938ae1876fe44e29aafecf498230fa31983394fe368a9e59aea.webp",
+      "sha256": "69a219e0d7297938ae1876fe44e29aafecf498230fa31983394fe368a9e59aea",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bytes": 377224,
+      "patch_file": "patches/a4b1d26b8aa160bd724de5c7774f4d109898ae94c5b6369bafe21dc5dec1ac83.png",
+      "patch_sha256": "429ce9fc0ba373f76fdfebd761174fd46e1de0fb3d5c862cfff22b2b9271d52f",
+      "regions": [
+        [
+          160,
+          725,
+          890,
+          725,
+          890,
+          900,
+          160,
+          900
+        ]
+      ],
+      "protect": [],
+      "hard_protect": false,
+      "feather_inward_px": 10,
+      "edited_pixels": 127750,
+      "total_pixels": 1048576,
+      "changed_pixels_outside_mask": 0,
+      "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+      "prompt": "Owner-authorized removal of only white retailer lettering and reflection on tabletop below red sockets; retain all product details and manufacturer marks."
+    },
+    {
+      "id": 17982,
+      "index": 0,
+      "source_file": "ab82eea17c2daaeb2e815a6f3f52b426fb045e838c4233250d307f8f584cbcc6.png",
+      "source_sha256": "ab82eea17c2daaeb2e815a6f3f52b426fb045e838c4233250d307f8f584cbcc6",
+      "file": "ee61eb657af25fad36f52ff02762ce530969ab4582be18535cdd6eb33f218523.webp",
+      "sha256": "ee61eb657af25fad36f52ff02762ce530969ab4582be18535cdd6eb33f218523",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bytes": 563924,
+      "patch_file": "patches/ab82eea17c2daaeb2e815a6f3f52b426fb045e838c4233250d307f8f584cbcc6.png",
+      "patch_sha256": "cd9c30ab3ec418dba4365d68b62c9b22a586904e7c1bd0cc1a520565e34019e7",
+      "regions": [
+        [
+          28,
+          115,
+          992,
+          115,
+          992,
+          286,
+          28,
+          286
+        ]
+      ],
+      "protect": [
+        [
+          224,
+          286,
+          224,
+          253,
+          226,
+          248,
+          229,
+          245,
+          234,
+          243,
+          792,
+          243,
+          797,
+          245,
+          800,
+          249,
+          802,
+          256,
+          802,
+          286
+        ]
+      ],
+      "hard_protect": true,
+      "feather_inward_px": 10,
+      "edited_pixels": 140039,
+      "total_pixels": 1048576,
+      "changed_pixels_outside_mask": 0,
+      "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+      "prompt": "Owner-authorized removal of only pale upper background lettering, preserve socket silhouette; retain all product details and manufacturer marks."
+    },
+    {
+      "id": 17941,
+      "index": 0,
+      "source_file": "bb925d0c3989548e74abdbf308a5d2c9f45cc0d7ad27e17d518f70b94762cab9.jpg",
+      "source_sha256": "bb925d0c3989548e74abdbf308a5d2c9f45cc0d7ad27e17d518f70b94762cab9",
+      "file": "46f997a63c54ba3ec95b67ff76335d072537450aa1185f228690d70afed1f84e.webp",
+      "sha256": "46f997a63c54ba3ec95b67ff76335d072537450aa1185f228690d70afed1f84e",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bytes": 638204,
+      "patch_file": "patches/bb925d0c3989548e74abdbf308a5d2c9f45cc0d7ad27e17d518f70b94762cab9.png",
+      "patch_sha256": "0deab4a5da40fb162868acf21212c26f14ab2341d7df92c273f279917845f448",
+      "regions": [
+        [
+          440,
+          697,
+          990,
+          697,
+          990,
+          875,
+          440,
+          875
+        ]
+      ],
+      "protect": [],
+      "hard_protect": false,
+      "feather_inward_px": 10,
+      "edited_pixels": 97900,
+      "total_pixels": 1048576,
+      "changed_pixels_outside_mask": 0,
+      "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+      "prompt": "Owner-authorized removal of only diagonal retailer lettering on tabletop below two telephone modules; retain all product details and manufacturer marks."
+    },
+    {
+      "id": 17941,
+      "index": 1,
+      "source_file": "efbda3232f8082d0725c8a577042e24c1e41ab05da6b16b70451b13851a4b5e4.jpg",
+      "source_sha256": "efbda3232f8082d0725c8a577042e24c1e41ab05da6b16b70451b13851a4b5e4",
+      "file": "5de636f9455c7bc50cb13d725d93adf8afc9dde416ef11cda0b523908cf85091.webp",
+      "sha256": "5de636f9455c7bc50cb13d725d93adf8afc9dde416ef11cda0b523908cf85091",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bytes": 676296,
+      "patch_file": "patches/efbda3232f8082d0725c8a577042e24c1e41ab05da6b16b70451b13851a4b5e4.png",
+      "patch_sha256": "eebda93da1ea8cdeaebc6b8fb6c480adb65a313d1adda3f65badc0d9168e2d10",
+      "regions": [
+        [
+          65,
+          625,
+          965,
+          735,
+          965,
+          920,
+          65,
+          785
+        ]
+      ],
+      "protect": [
+        [
+          250,
+          130,
+          770,
+          195,
+          755,
+          635,
+          692,
+          692,
+          244,
+          610
+        ]
+      ],
+      "hard_protect": false,
+      "feather_inward_px": 10,
+      "edited_pixels": 155245,
+      "total_pixels": 1048576,
+      "changed_pixels_outside_mask": 0,
+      "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+      "prompt": "Owner-authorized removal of only diagonal retailer lettering on tabletop below telephone module; retain all product details and manufacturer marks."
+    },
+    {
+      "id": 17935,
+      "index": 0,
+      "source_file": "a7a9e2bd0683409d25484e0e11eb050a8b9c6d1773759e9e5b71be0547ae29af.jpg",
+      "source_sha256": "a7a9e2bd0683409d25484e0e11eb050a8b9c6d1773759e9e5b71be0547ae29af",
+      "file": "01e25b2169fc0fed92b9ca26e47c30f345c78915d4174491a684f18626de93a7.webp",
+      "sha256": "01e25b2169fc0fed92b9ca26e47c30f345c78915d4174491a684f18626de93a7",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bytes": 691344,
+      "patch_file": "patches/a7a9e2bd0683409d25484e0e11eb050a8b9c6d1773759e9e5b71be0547ae29af.png",
+      "patch_sha256": "bcecabf45d02ddc6ad64dd6f3512c65d2f158128a88d30c5dd2f418c49978a8c",
+      "regions": [
+        [
+          165,
+          880,
+          690,
+          835,
+          990,
+          745,
+          1008,
+          845,
+          190,
+          995
+        ],
+        [
+          520,
+          846,
+          655,
+          817,
+          655,
+          775,
+          850,
+          775,
+          850,
+          885,
+          520,
+          885
+        ]
+      ],
+      "protect": [],
+      "hard_protect": false,
+      "feather_inward_px": 8,
+      "edited_pixels": 84442,
+      "total_pixels": 1048576,
+      "changed_pixels_outside_mask": 0,
+      "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+      "prompt": "Owner-authorized removal of only retailer lettering on tabletop beneath slim module; retain all product details and manufacturer marks."
+    },
+    {
+      "id": 17929,
+      "index": 0,
+      "source_file": "558b905defd7bb7b507cd79bf93d5c6e161efa0b0b8bc498bc1b23bbf502eb37.jpg",
+      "source_sha256": "558b905defd7bb7b507cd79bf93d5c6e161efa0b0b8bc498bc1b23bbf502eb37",
+      "file": "90d3518f0619b942ee4dd388aa500af0c265ed2a09a7770698b2ee5cde530506.webp",
+      "sha256": "90d3518f0619b942ee4dd388aa500af0c265ed2a09a7770698b2ee5cde530506",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bytes": 770228,
+      "patch_file": "patches/558b905defd7bb7b507cd79bf93d5c6e161efa0b0b8bc498bc1b23bbf502eb37.png",
+      "patch_sha256": "271a651bb998b84ba449bfab6253235a17dc5c1d0e6a35bff4732d38adffb0f6",
+      "regions": [
+        [
+          60,
+          100,
+          970,
+          100,
+          970,
+          280,
+          60,
+          280
+        ]
+      ],
+      "protect": [],
+      "hard_protect": false,
+      "feather_inward_px": 10,
+      "edited_pixels": 163800,
+      "total_pixels": 1048576,
+      "changed_pixels_outside_mask": 0,
+      "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+      "prompt": "Owner-authorized removal of only luminous blue upper wall retailer lettering; retain all product details and manufacturer marks."
+    },
+    {
+      "id": 17929,
+      "index": 1,
+      "source_file": "5d9a1a58e85af4d27a3951ba721f06aef1169dbad956f8ff9fb52eacb66cac1c.png",
+      "source_sha256": "5d9a1a58e85af4d27a3951ba721f06aef1169dbad956f8ff9fb52eacb66cac1c",
+      "file": "ca4cfedeb13aaba206492b7efbb73cce4e0854266291fbd767fa824b99bd9d7a.webp",
+      "sha256": "ca4cfedeb13aaba206492b7efbb73cce4e0854266291fbd767fa824b99bd9d7a",
+      "dimensions": [
+        1194,
+        896
+      ],
+      "bytes": 693712,
+      "patch_file": "patches/5d9a1a58e85af4d27a3951ba721f06aef1169dbad956f8ff9fb52eacb66cac1c.png",
+      "patch_sha256": "ccf4c13188779edd075485e822644e7c0a48e5faef1f4ca78ecd1d51a3265843",
+      "regions": [
+        [
+          95,
+          45,
+          1120,
+          45,
+          1120,
+          225,
+          95,
+          225
+        ]
+      ],
+      "protect": [],
+      "hard_protect": false,
+      "feather_inward_px": 10,
+      "edited_pixels": 184500,
+      "total_pixels": 1069824,
+      "changed_pixels_outside_mask": 0,
+      "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+      "prompt": "Use case: precise-object-edit. Edit target: the supplied product catalogue image, owned by the user, who explicitly authorizes removing their former retailer watermark. Remove ONLY the large luminous blue retailer text 'Saieedshabake' on the upper background wall, including its letter-shaped glow. Reconstruct the same dark blue blurred warehouse background in that area. Keep the product box and all its pixels/appearance as unchanged as possible: exact pose, red/white colors, dimensions, corrugation, edges, lighting, shadow, barcode, Legrand manufacturer logos, and every existing package label including 0 765 61 and 1M UTP. Do not replace any manufacturer brand or part number. No new product, no new angle, no crop, no extra text or watermark. Same composition and aspect ratio as input. The shop adds tehnet.ir separately. Product identity and package typography are critical invariants."
+    },
+    {
+      "id": 17927,
+      "index": 0,
+      "source_file": "4c69aba5c3985e284a5c609d19dc01d2ee46b97dccc9e6a3a79daa812a26fad5.png",
+      "source_sha256": "4c69aba5c3985e284a5c609d19dc01d2ee46b97dccc9e6a3a79daa812a26fad5",
+      "file": "c0cf99f8b26fdca96dec1169c2627f770e9e2b1eff6c936eb9ffef02f07d7fed.webp",
+      "sha256": "c0cf99f8b26fdca96dec1169c2627f770e9e2b1eff6c936eb9ffef02f07d7fed",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bytes": 474370,
+      "patch_file": "patches/4c69aba5c3985e284a5c609d19dc01d2ee46b97dccc9e6a3a79daa812a26fad5.png",
+      "patch_sha256": "158d4e8ddd2a157d7322d5f04d9fd511b27cddcc2f394a6fa4c0bfd0fe2e5d22",
+      "regions": [
+        [
+          535,
+          905,
+          1010,
+          905,
+          1010,
+          1010,
+          535,
+          1010
+        ]
+      ],
+      "protect": [],
+      "hard_protect": false,
+      "feather_inward_px": 10,
+      "edited_pixels": 49875,
+      "total_pixels": 1048576,
+      "changed_pixels_outside_mask": 0,
+      "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+      "prompt": "Owner-authorized removal of only large lower-right retailer text; retain all product details and manufacturer marks."
+    },
+    {
+      "id": 17920,
+      "index": 0,
+      "source_file": "b1cac31686abec60daca9faae6832efb1d07c24f19684574259ade3aacd6245c.png",
+      "source_sha256": "b1cac31686abec60daca9faae6832efb1d07c24f19684574259ade3aacd6245c",
+      "file": "53174eec8eaaaf7709f0230f0843a244f4b7cd20b1d3e6bad0f8094c0a1b1a66.webp",
+      "sha256": "53174eec8eaaaf7709f0230f0843a244f4b7cd20b1d3e6bad0f8094c0a1b1a66",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bytes": 786238,
+      "patch_file": "patches/b1cac31686abec60daca9faae6832efb1d07c24f19684574259ade3aacd6245c.png",
+      "patch_sha256": "cd70f8cc7cba4c4339a28845ca4ec0a159e9b52e7b3e1ee81499e58795eacb59",
+      "regions": [
+        [
+          715,
+          952,
+          1024,
+          952,
+          1024,
+          1024,
+          715,
+          1024
+        ]
+      ],
+      "protect": [],
+      "hard_protect": false,
+      "feather_inward_px": 8,
+      "edited_pixels": 22248,
+      "total_pixels": 1048576,
+      "changed_pixels_outside_mask": 0,
+      "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+      "prompt": "Use case: precise-object-edit. Owner-authorized edit: remove ONLY the small, faint Saieedshabake.ir retailer watermark in the lower-right corner of this user-owned catalogue image. Fill only that background corner naturally to match its existing texture. Preserve the connector and all other pixels as faithfully as possible: exact metal shielding, seam, white housing, yellow/blue internals, wire-number strip, clips, ports, pose, colors, lighting and all background network equipment. No redesigned product, no new viewpoint, no crop, no new lettering or watermark. Same full composition/aspect ratio."
+    },
+    {
+      "id": 17920,
+      "index": 1,
+      "source_file": "4792fe02e7789590d7287ecc48fe22ddffcec0c27d0ebc3bfc91a722704c9d0f.png",
+      "source_sha256": "4792fe02e7789590d7287ecc48fe22ddffcec0c27d0ebc3bfc91a722704c9d0f",
+      "file": "db449f4a56a1f10569215f2040b75a1b396154346a174c540de9c6c832a862ed.webp",
+      "sha256": "db449f4a56a1f10569215f2040b75a1b396154346a174c540de9c6c832a862ed",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bytes": 1031506,
+      "patch_file": "patches/4792fe02e7789590d7287ecc48fe22ddffcec0c27d0ebc3bfc91a722704c9d0f.png",
+      "patch_sha256": "2dabfc9868549f315478ff99eadcb034c12a61c6da2d3d695ecae5370537a22d",
+      "regions": [
+        [
+          716,
+          446,
+          945,
+          531,
+          945,
+          575,
+          716,
+          490
+        ]
+      ],
+      "protect": [],
+      "hard_protect": false,
+      "feather_inward_px": 10,
+      "edited_pixels": 10083,
+      "total_pixels": 1048576,
+      "changed_pixels_outside_mask": 0,
+      "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+      "prompt": "Use case: precise-object-edit. This user owns the supplied image and authorizes removing their former retailer branding. Remove ONLY gray Saieedshabake.ir lettering across the background switch face, mid-right behind the loose metal connector shells. Reconstruct the surrounding background surface naturally. Keep every product unchanged, including position, geometry, count, edges, colors, manufacturer's logos, cable windings, wooden spool label and barcode, metal shielding, connector ports, colored wiring numbers, loose metal shells, latches, and reflected lighting on product edges. No new product or replacement model; no new angle; no crop or composition change; no new lettering. Same aspect ratio and lighting. Only retailer Saieed/SaeedShabake lettering and its background letter-shaped glow/reflection may change. Preserve all Legrand/Nexans manufacturer marks."
+    },
+    {
+      "id": 17888,
+      "index": 0,
+      "source_file": "9bce2ca05ddc5909ed876cb28211c79541badc9a6b363d1580b36a0226048fc5.jpg",
+      "source_sha256": "9bce2ca05ddc5909ed876cb28211c79541badc9a6b363d1580b36a0226048fc5",
+      "file": "61015abe83649142e5081858646603556bfb0e79c3d95bc0eab82a9c3a7cc10f.webp",
+      "sha256": "61015abe83649142e5081858646603556bfb0e79c3d95bc0eab82a9c3a7cc10f",
+      "dimensions": [
+        1047,
+        1024
+      ],
+      "bytes": 755306,
+      "patch_file": "patches/9bce2ca05ddc5909ed876cb28211c79541badc9a6b363d1580b36a0226048fc5.png",
+      "patch_sha256": "22a2c231164823c6853b92f9803613b2b2a7a3cb3b3195556fdaa70b582f5fac",
+      "regions": [
+        [
+          45,
+          145,
+          1032,
+          145,
+          1032,
+          335,
+          45,
+          335
+        ]
+      ],
+      "protect": [
+        [
+          628,
+          335,
+          632,
+          297,
+          639,
+          269,
+          642,
+          251,
+          650,
+          242,
+          686,
+          233,
+          718,
+          230,
+          734,
+          232,
+          740,
+          243,
+          750,
+          274,
+          756,
+          299,
+          768,
+          335
+        ]
+      ],
+      "hard_protect": true,
+      "feather_inward_px": 10,
+      "edited_pixels": 175661,
+      "total_pixels": 1072128,
+      "changed_pixels_outside_mask": 0,
+      "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+      "prompt": "Use case: precise-object-edit. This user owns the supplied image and authorizes removing their former retailer branding. Remove ONLY luminous blue Saieedshabake lettering across the upper background, partially behind the top of the white module. Reconstruct the surrounding background surface naturally. Keep every product unchanged, including position, geometry, count, edges, colors, manufacturer's logos, cable windings, wooden spool label and barcode, metal shielding, connector ports, colored wiring numbers, loose metal shells, latches, and reflected lighting on product edges. No new product or replacement model; no new angle; no crop or composition change; no new lettering. Same aspect ratio and lighting. Only retailer Saieed/SaeedShabake lettering and its background letter-shaped glow/reflection may change. Preserve all Legrand/Nexans manufacturer marks."
+    },
+    {
+      "id": 17863,
+      "index": 0,
+      "source_file": "d601c7cc1c1cd6967fdb551ab3964b2a24ef35e42299e5a87e221d50108e23e5.jpg",
+      "source_sha256": "d601c7cc1c1cd6967fdb551ab3964b2a24ef35e42299e5a87e221d50108e23e5",
+      "file": "0fdf37f0bd9838588199809c3df75a6d2b400ea2616632a7b88f767eee51df5a.webp",
+      "sha256": "0fdf37f0bd9838588199809c3df75a6d2b400ea2616632a7b88f767eee51df5a",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "bytes": 941858,
+      "patch_file": "patches/d601c7cc1c1cd6967fdb551ab3964b2a24ef35e42299e5a87e221d50108e23e5.png",
+      "patch_sha256": "c211d612d2cca31f8678d54ef3fc1a4fd9a80ae816fd02f657957eda1d189682",
+      "regions": [
+        [
+          20,
+          880,
+          1015,
+          880,
+          1015,
+          1015,
+          20,
+          1015
+        ]
+      ],
+      "protect": [],
+      "hard_protect": false,
+      "feather_inward_px": 10,
+      "edited_pixels": 134325,
+      "total_pixels": 1048576,
+      "changed_pixels_outside_mask": 0,
+      "provider": "built-in imagegen for background inpainting; deterministic original-pixel restoration",
+      "prompt": "Use case: precise-object-edit. This user owns the supplied image and authorizes removing their former retailer branding. Remove ONLY engraved Saieedshabake.ir retailer lettering on the foreground floor BELOW the cable spool. Reconstruct the surrounding background surface naturally. Keep every product unchanged, including position, geometry, count, edges, colors, manufacturer's logos, cable windings, wooden spool label and barcode, metal shielding, connector ports, colored wiring numbers, loose metal shells, latches, and reflected lighting on product edges. No new product or replacement model; no new angle; no crop or composition change; no new lettering. Same aspect ratio and lighting. Only retailer Saieed/SaeedShabake lettering and its background letter-shaped glow/reflection may change. Preserve all Legrand/Nexans manufacturer marks."
+    }
+  ],
+  "visual_review": {
+    "utc": "2026-10-16T15:05:43.071Z",
+    "reviewer": "Primary agent final visual inspection",
+    "scope": "All15 before/after comparisons; native17982/17888 edge inspection. Earlier focused assistant found residuals in5; corrected masks verified by primary agent.",
+    "retailer_lettering_remaining": false,
+    "manufacturer_details_preserved": true,
+    "corrections": [
+      17991,
+      17982,
+      17935,
+      17888,
+      17920
+    ]
+  }
+}

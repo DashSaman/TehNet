@@ -1,0 +1,10 @@
+{
+  "source": "https://raw.githubusercontent.com/rastikerdar/vazirmatn/v33.003/",
+  "license": "SIL OFL 1.1",
+  "sha256": {
+    "Vazirmatn-Regular.woff2": "e382101336c6eb32cfb31381c027d02d2e0354bad08f6a395d4088beb3db3d91",
+    "Vazirmatn-Medium.woff2": "3333e31188a2b628db8780ca22fd5aad85bc083ccee9beb8d4d52db18cb98d48",
+    "Vazirmatn-SemiBold.woff2": "6a39a3c25eb18503cad590527b95bb5d4062b889a7ebbd3f01b0488d239e0499",
+    "Vazirmatn-ExtraBold.woff2": "cd67558bbca0ad319b89e3b2edb8a914f87f864951d7a9d24e1404cbf3b45b02"
+  }
+}

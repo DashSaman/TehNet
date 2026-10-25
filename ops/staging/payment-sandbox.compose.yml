@@ -1,0 +1,12 @@
+# Explicit LOCAL synthetic-payment overlay. Never include in production.
+# Not applied by prepare-local.py. Uses the existing isolated ERP sandbox only.
+services:
+  woo:
+    environment:
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_ENVIRONMENT_TYPE', 'local');
+        define('DISALLOW_FILE_EDIT', true);
+        define('TEHNET_PAYMENT_SANDBOX_ENABLED', true);
+        define('TEHNET_ERP_SANDBOX', true);
+        define('TEHNET_ERP_RESERVATIONS_ENABLED', true);
+        define('TEHNET_VERIFIED_GATEWAYS', 'tn_zarinpal_sandbox');

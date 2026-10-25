@@ -1,0 +1,22 @@
+{
+  "checked_date": "2026-10-16",
+  "gsc": {"tool": "gsc_wizard_list_sites", "result": "payment_required: trial ended or no active subscription", "property_data_read": false},
+  "ahrefs": {"tool": "site_explorer_ai_responses_count", "target": "https://tehnet.ir", "result": "Insufficient plan", "citation_counts_available": false},
+  "brand_search": {"queries": ["\"tehnet.ir\"", "\"tehnet.ir\" -site:tehnet.ir -site:mytel.one", "\"tehnet.ir\" site:github.com", "\"tehran.network021\" \"تهران نتورک\""], "result": "No unambiguous independent TehNet business citation confirmed in these bounded searches. Some searches returned irrelevant name matches; final two returned empty results.", "is_exhaustive": false, "not_evidence_of_zero_mentions": true},
+  "guidance": [
+    {"url":"https://developers.google.com/search/docs/appearance/ai-features","use":"Google AI search eligibility requires index/snippet eligibility; no special AI text file or schema is required; inclusion is not guaranteed."},
+    {"url":"https://developers.openai.com/api/docs/bots","use":"OAI-SearchBot search, GPTBot training and user-requested ChatGPT-User retrieval have distinct roles. Current robots file does not disallow OAI-SearchBot; real crawler/WAF access not established by normal browser requests."},
+    {"url":"https://support.google.com/merchants/answer/13675100?hl=en","use":"Current documented Google3D/AR country/category limitations do not cover Iran networking products. On-site product inspection remains a separate UX use."},
+    {"url":"https://developers.google.com/search/docs/appearance/structured-data/product-snippet","use":"Product rich snippets require genuine review/aggregateRating/offers in addition to name; do not fabricate price or reviews for inquiry catalogue."},
+    {"url":"https://modelviewer.dev/examples/loading/","use":"GLB/glTF loading, poster and lazy/on-demand loading; real models require a separate renderer path beyond current generic canvas."},
+    {"url":"https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/","use":"AI citation/page/grounding-query reporting is a possible measurement source; actual TehNet property access/data was not verified."},
+    {"url":"https://blogs.bing.com/webmaster/2026/10/introducing-topics-portfolio-beta-in-ai-performance/","use":"New Topics Portfolio is beta and requires sufficient site activity; do not claim available on TehNet."},
+    {"url":"https://networkengineering.stackexchange.com/help/promotion","use":"Genuine problem-solving contributions, relevant supporting links, affiliation disclosure; no promotional posting performed."},
+    {"url":"https://networkengineering.stackexchange.com/help/on-topic","use":"Community participation must fit the actual professional networking topic scope."},
+    {"url":"https://forum.mikrotik.com/t/mtu-optimization-on-vlan-over-eoip-over-wireguard-over-vlan-over-ethernet-site-to-site/265520","use":"A real community problem can inform an independently tested Persian MTU diagnostic asset. It is not a TehNet mention or an unanswered new outreach opportunity."},
+    {"url":"https://developers.google.com/search/docs/essentials/spam-policies","use":"Avoid link manipulation, scaled low-value content and manufactured authority."},
+    {"url":"https://help.mikrotik.com/docs/spaces/ROS/pages/8978498/Console","use":"Safe Mode has history-limit and reboot/reset/restore limitations; current absolute safety wording needs editorial correction."}
+  ],
+  "external_messages_or_posts_sent": false,
+  "paid_upgrade_or_new_api_started": false
+}

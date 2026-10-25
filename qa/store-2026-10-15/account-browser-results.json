@@ -1,0 +1,10 @@
+{
+  "adminOperations": true,
+  "customerOwnInvoice": true,
+  "otherInvoiceDenied": true,
+  "csrfDenied": true,
+  "returnRequest": true,
+  "mobileNoOverflow": true,
+  "jsErrors": [],
+  "scope": "Real local Woo account and ERP invoice. Synthetic completed/refunded order; no provider payment or message."
+}

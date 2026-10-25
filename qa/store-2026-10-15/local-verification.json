@@ -1,0 +1,56 @@
+{
+  "utc": "2026-10-15T20:05:56.204822+00:00",
+  "scope": "Local synthetic fixtures only",
+  "checks": [
+    {
+      "name": "python-contracts",
+      "exit_code": 0,
+      "output": "test_duplicate_ids_rejected_before_any_import (test_catalog.CatalogTests.test_duplicate_ids_rejected_before_any_import) ... ok\r\ntest_external_source_url_rejected (test_catalog.CatalogTests.test_external_source_url_rejected) ... ok\r\ntest_manifest_is_deterministic_and_does_not_mutate_input (test_catalog.CatalogTests.test_manifest_is_deterministic_and_does_not_mutate_input) ... ok\r\ntest_media_reviews_and_copyrighted_prose_are_excluded (test_catalog.CatalogTests.test_media_reviews_and_copyrighted_prose_are_excluded) ... ok\r\ntest_official_category_parentage_is_preserved (test_catalog.CatalogTests.test_official_category_parentage_is_preserved) ... ok\r\ntest_source_prices_and_stock_never_become_sale_data (test_catalog.CatalogTests.test_source_prices_and_stock_never_become_sale_data) ... ok\r\ntest_source_technical_claim_does_not_become_verified_title (test_catalog.CatalogTests.test_source_technical_claim_does_not_become_verified_title) ... ok\r\ntest_telephone_cat6_is_quarantined_for_review (test_catalog.CatalogTests.test_telephone_cat6_is_quarantined_for_review) ... ok\r\ntest_unknown_category_is_not_silently_dropped (test_catalog.CatalogTests.test_unknown_category_is_not_silently_dropped) ... ok\r\ntest_unsupported_variation_type_is_not_lost (test_catalog.CatalogTests.test_unsupported_variation_type_is_not_lost) ... ok\r\ntest_conflicting_payload_hash_differs (test_erp_contracts.ERPContracts.test_conflicting_payload_hash_differs) ... ok\r\ntest_event_hash_ignores_json_key_order (test_erp_contracts.ERPContracts.test_event_hash_ignores_json_key_order) ... ok\r\ntest_exact_meter_total (test_erp_contracts.ERPContracts.test_exact_meter_total) ... ok\r\ntest_exponent_input_rejected (test_erp_contracts.ERPContracts.test_exponent_input_rejected) ... ok\r\ntest_float_input_rejected (test_erp_contracts.ERPContracts.test_float_input_rejected) ... ok\r\ntest_fractional_rial_rejected (test_erp_contracts.ERPContracts.test_fractional_rial_rejected) ... ok\r\ntest_negative_money_rejected (test_erp_contracts.ERPContracts.test_negative_money_rejected) ... ok\r\ntest_payment_amount_mismatch_rejected (test_erp_contracts.ERPContracts.test_payment_amount_mismatch_rejected) ... ok\r\ntest_payment_currency_mismatch_rejected (test_erp_contracts.ERPContracts.test_payment_currency_mismatch_rejected) ... ok\r\ntest_quantity_precision_rejected (test_erp_contracts.ERPContracts.test_quantity_precision_rejected) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 20 tests in 0.024s\r\n\r\nOK\r\n"
+    },
+    {
+      "name": "visual-regression",
+      "exit_code": 0,
+      "output": "test_accessible_navigation (__main__.RefreshTests.test_accessible_navigation) ... ok\r\ntest_design_tokens (__main__.RefreshTests.test_design_tokens) ... ok\r\ntest_home_preserves_journeys (__main__.RefreshTests.test_home_preserves_journeys) ... ok\r\ntest_js_no_secret_or_tracking (__main__.RefreshTests.test_js_no_secret_or_tracking) ... ok\r\ntest_native_profile (__main__.RefreshTests.test_native_profile) ... ok\r\ntest_public_privacy (__main__.RefreshTests.test_public_privacy) ... ok\r\ntest_svg_valid (__main__.RefreshTests.test_svg_valid) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 7 tests in 0.020s\r\n\r\nOK\r\n"
+    },
+    {
+      "name": "store-policy",
+      "exit_code": 0,
+      "output": "PASS: exact fractional toman conversion\nPASS: Persian rial digits\nPASS: Woo decimal money string\nPASS: invalid rial rejected\nPASS: invalid rial rejected\nPASS: invalid rial rejected\nPASS: invalid rial rejected\nPASS: invalid rial rejected\nPASS: binary float rejected\nPASS: overflow rejected\nPASS: verified own stock available\nPASS: fail closed approved\nPASS: fail closed price\nPASS: fail closed stock\nPASS: fail closed unit\nPASS: fail closed erp_fresh_until\nPASS: fail closed erp_ready\nPASS: cable quantity to exact millimeters\nPASS: meter line total exact IRR\nPASS: fractional rial requires repricing\nSTORE_POLICY=PASSED\n"
+    },
+    {
+      "name": "catalog-integration",
+      "exit_code": 0,
+      "output": "PASS: import covers exactly 25 draft products\nPASS: repeat import creates no duplicates\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: safe catalog state\nPASS: rollback refuses human edits before changing any product\nPASS: refused rollback has no partial changes\nPASS: rollback soft-trashes only products created by its run\nPASS: rollback is idempotent\nCATALOG_INTEGRATION=PASSED\n"
+    },
+    {
+      "name": "commerce-capabilities",
+      "exit_code": 0,
+      "output": "PASS: administrator can manage WooCommerce\nPASS: staff/customer isolation tn_inquiry\nPASS: staff/customer isolation tn_quote\nPASS: staff/customer isolation tn_invoice\nCOMMERCE_CAPABILITIES=PASSED\n"
+    },
+    {
+      "name": "store-roles",
+      "exit_code": 0,
+      "output": "PASS: tn_store_sales least-privilege operation boundary\nPASS: tn_store_warehouse least-privilege operation boundary\nPASS: tn_store_finance least-privilege operation boundary\nPASS: tn_store_support least-privilege operation boundary\nSTORE_ROLES=PASSED\n"
+    },
+    {
+      "name": "erp-bridge",
+      "exit_code": 0,
+      "output": "PASS: server-only ERP configuration is present\nPASS: ERP snapshot refreshes verified price/availability\nPASS: transport failure is explicit\nPASS: network failure retains a durable pending event\nPASS: actual Woo order reserves exactly one native ERP sales order\nPASS: 2.5m is calculated as exactly 2500 IRR\nPASS: Woo cancellation releases the native reservation\nPASS: durable outbox retains both acknowledged event records\nPASS: late retry cannot resurrect a canceled order reservation\nERP_BRIDGE=PASSED\n"
+    },
+    {
+      "name": "erp-lifecycle",
+      "exit_code": 0,
+      "output": "PASS: ERP state reaches the actual Woo order\nPASS: carrier tracking reaches the customer order\nPASS: native Woo refund includes the allocated discount/shipping\nPASS: one ERP credit creates one native Woo refund\nPASS: repeated reconciliation creates no duplicate refund\nPASS: remaining return completes the native Woo refund\nPASS: account invoice uses the authoritative numbered ERP invoice\nERP_LIFECYCLE=PASSED\n"
+    },
+    {
+      "name": "online-release",
+      "exit_code": 0,
+      "output": "PASS: anonymous release rejected\nPASS: mismatched release hash rejected\nPASS: release dry run makes no catalog changes\nPASS: authorized staff can preview drafts\nPASS: anonymous query never expands draft visibility\nPASS: staff default shop remains public-only\nONLINE_RELEASE=PASSED\n"
+    },
+    {
+      "name": "store-discovery",
+      "exit_code": 0,
+      "output": "PASS: search normalizer exists\nPASS: Persian/Arabic letters and numerals normalize\nPASS: product request normalizes letters\nPASS: blog requests are unchanged\nPASS: review catalog fixture exists\nPASS: SKU lookup never publishes an existing draft to anonymous search\nPASS: staff exact SKU search accepts Persian digits\nPASS: unverified source attributes never enter technical comparison\nPASS: reviewed specs are compared\nPASS: SKU identity and inquiry price are explicit\nPASS: unsupported technical values remain unknown\nSTORE_DISCOVERY=PASSED\n"
+    }
+  ]
+}

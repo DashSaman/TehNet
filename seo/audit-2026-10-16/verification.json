@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "utc": "2026-10-16T15:34:02.724Z",
+  "checks": [
+    "Every54 native published URL was visited; no crawl errors or limit truncation",
+    "69 unique successful pages,68 missing descriptions and69 intentional noindex observations reconcile",
+    "25 identical stored product bodies and zero registered/reviewed spin sequences confirmed",
+    "Prepared/deployed and measured/unknown boundaries explicitly preserved",
+    "Interactive mobile report:69 page rows,14 findings, filters/search, no horizontal overflow or JS errors"
+  ],
+  "production_mutations": false,
+  "metadata_unit_tests": {
+    "passed": 33,
+    "evidence": "qa/search-metadata-unit.json"
+  },
+  "product_visual_contracts": {
+    "passed": 16,
+    "evidence": "native tool transcript2026-10-16"
+  },
+  "spin_browser": {
+    "scope": "Synthetic only",
+    "evidence": "qa/store-2026-10-16/spin-browser.json"
+  }
+}

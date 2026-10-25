@@ -1,12 +1,73 @@
 # TehNet Execution Progress
 
-## Current phase / فاز فعلی
-- **FA:** زیرساخت WooCommerce، کاتالوگ Shop و جریان استعلام محصولات فیزیکی در production پیاده‌سازی و live-verified شده‌اند؛ سایت همچنان عمداً noindex است. فاز بعدی پیشنهادی، چرخه دستی Quote/Invoice برای همین inquiryهاست.
-- **EN:** WooCommerce catalog foundations and the physical-product inquiry flow are implemented and live-verified in production while the site intentionally remains noindex. The next proposed phase is the manual Quote/Invoice lifecycle for these inquiries.
+## Latest — 2026-10-25 cross-agent handoff
+
+- Added `docs/agent-continuation.fa.md`, a single Persian/English entry point mapping the full in-repo requirements, owner decisions, implementation/evidence paths, historical versus current recorded state, real3D blockers, test limits, environment/backup references and concrete next acceptance criteria.
+- Linked it from README, AGENTS and HANDOFF; preserved original dated receipts. Scope is documentation only: no new source/media research, live-state verification, runtime/data changes or replayed deployment. Latest native evidence remains18Oct and runtime release16Oct. Documentation integrity results belong in `qa/agent-handoff-2026-10-25/verification.json`.
+
+## Latest — 2026-10-18 exact-model source matching
+
+- Rechecked both public APIs:25 source IDs/25 live products; visually inspected all23 unique existing source images. Curated per-SKU candidates, conflicts,17 primary/platform sources and explicit access limits in `content/media/exact-product-review-2026-10-18/manifest.json`; Persian report in `docs/research/exact-product-models-2026-10-18.fa.md`.
+- Located076561 code on gallery packaging andRJ11/78731 on a telephone image; manufacturer pages corroborate those candidate identities, not physical stock. Detected shared Legrand/Outdoor305 image across four Indoor500/cross-brand cables. Red socket code remains conflicting; sales unavailable, other work continued.
+- Found official MosaicRVT link; not downloaded/parsed. Manufacturer explicitly documents simplified BIM geometry and prior written approval for upload to another website/server. No licensed exact internal assembly obtained;0 new models/photos published and no source image edits.
+- New read-only native audit confirms0 reviewed identities/GLB/parts/spins,25 inquiry-only products, noindex and unchanged protected native before/after hashes. Fresh31 model+23photo contracts, auditPHP lint and packet/file-hash integrity pass. Receipts: `qa/exact-media-2026-10-18/`. No production content/runtime/payment writes or new browser acceptance claim. Exact25-model publication remains OPEN.
+
+## Latest — 2026-10-16 universal shop experience published
+
+- Published Store0.4.0: current/future Woo templates, dynamic graphic categories, search/expandable technical filters, consistent image/SKU cards, selected-state comparison/wishlist, responsive gallery/inquiry and shared reviewed3D inspection controls.
+- Removed imported-source dependency for reviewed spin and approved-photo overlays. Fixed actual WordPress JSON escaping of Persian part text with a native roundtrip and red/green regressions.23photo/31evidence/43metadata/11MTU contracts and19 synthetic browser checks passed; native clone27shop/20future-product controls passed.
+- Nine files changed; fresh full backup checksums verified; native product/home/menu/order/settings hashes unchanged. Latest22-path runtime receipt: `qa/shop-ux-2026-10-16/release.json`; final verification/public read-only acceptance is in that directory. Noindex/payment/ERP gates preserved; zero real-product CAD/spin approved.
+- Compared actual Ubiquiti/Digikala/NetRan/Technolife public screens; documented B&H403 and limits. Private isolated clone and future synthetic product retained for review. No real orders, inquiries, payments or external posts; no GLM/new paid API. See the research and operator guide linked in HANDOFF.
+- Final scope: public HTTP/API/HTML passes for25 products,shop,home and Persian-SKU redirect; public browser completes12 checks then transport navigation timeout. Full27 public browser acceptance is incomplete, not passed. Fresh local verifier records this limitation and reconciles all22 runtime paths; earlier70-page crawl remains historical.
+
+## Latest — 2026-10-16 explicit3D inspection
+
+- LOCAL: prominent3D button/direct URL `?view=3d`, drag/pinch/pan instructions, zoom, opt-in auto-rotation/stop, fullscreen and full reset. The photo-first default remains; production shared renderer, product assignments and business settings were not edited.
+- Fixed portrait reset after pinch: restore aspect-aware declarative FoV, force its update and await the asynchronous native camera jump before fitting. Gesture zoom may change FoV as well as radius; tests measure actual projected scale.
+- Fresh26 interaction checks pass, including physical mouse events and emulated touch/CDP gestures, native fullscreen and auto-rotation yaw. Fresh30 base browser and12 structural/photo checks also pass. Screenshots inspected in `qa/product-visuals-2026-10-16/interaction/`; no physical handset test claimed.
+- One focused native read-only API mapper used; no GLM/new paid API. Educational geometry remains separate from exact-product assets.
+
+## Latest — 2026-10-16 natural educational product visuals
+
+- Local localhost18084 preview now starts with two real, original-byte public-domain Cat7 photographs with source/credit/download. They are clearly separate educational samples and not exact TehNet product images or a360 sequence.
+- Original cable GLB improved with48 illustrative woven filaments, rippled foil, curved/capped tubes, four pair colours and white stripes, separate matte/metal PBR response, soft studio lighting and pose-bound framing. Five-part explode/assemble, slider and explanation remain; no real physical values asserted.
+- Fresh30 browser checks and12 independent binary/photo checks pass. Desktop/mobile screenshots actually inspected; original SHA-1/SHA-256 provenance recorded. Full one-shot animation end/hold verified instead of assuming the renderer's paused property. No JS/HTTP asset errors; all requests local.
+- Read `docs/research/product-visuals-2026-10-16.fa.md` and `qa/product-visuals-2026-10-16/`. Public Sketchfab poster used only as visual inspiration; full model could not render, geometry/textures not copied. Existing source-catalog photos remain origin/model-unverified.
+- Scope is the local teaching preview; no production product/runtime/settings or existing live release changed. Real exact-SKU media evidence remains open. One focused native read-only assistant was used; no GLM or new paid API.
+
+## Latest — 2026-10-16 remediation and exploded inspection
+
+- Published guarded SEO/content release and follow-ups with verified full backups, field/hash drift guards, actual-container lint, repeat0 and unchanged native product metadata/home/menu/orders/commerce gates.
+- Fresh full crawl:70 unique successful public pages,0 missing/duplicate descriptions,0 missing OG images,oneH1/canonical each; intentional noindex retained.55 native items,25 unique product titles/bodies;12 term descriptions. Sample Page draft,account/checkout UTF8 fixed,Learn/Lab/About/Contact/methodology and Safe Mode updated.
+- Fresh checks:43 metadata,30 media/parts authorization contracts,11 PHP MTU cases,2 Python tests with9 subcases,19 synthetic renderer/tool browser checks,25 public remediation checks,14 shop checks,18 photo checks and11 educational exploded-demo checks. Two axe rules pass on home/product/tool in both color themes. No claim of full accessibility certification or a fresh Lighthouse/field-CWV score.
+- Owner's added exploded-view request implemented through native model animation,per-part names/material/source/measurements with explicit units,exact MPN/node/animation/SHA guards,assemble/explode/slider/selection and reduced-motion support. Original educational five-layer cable demo is separate from catalogue and carries no real material or micron claims.
+- Open dependencies: physical model identity/licensed exact-model CAD or true photo sequences; separate indexing launch approval; existing paid-plan analytics access; production ERP/payment prerequisites. No new GLM advice or paid API was used for this remediation.
+- Evidence/report: `seo/SITE_REMEDIATION_2026-10-16.fa.md`, `seo/remediation-2026-10-16`, `docs/site-remediation-operations.fa.md`. Historical baseline below is superseded, not rewritten.
+
+## Current audit — 2026-10-16 SEO, AI visibility and product inspection
+
+- Read-only audit completed:54 native published items/12 terms,74 URL records/69 unique successful pages,7 mobile templates,2 Lighthouse samples, source/runtime comparison and MyTel/-SEO evidence. Report: `seo/SITE_AUDIT_2026-10-16.fa.md`;14 prioritized findings and evidence in `seo/audit-2026-10-16`.
+- Confirmed intentional noindex on69 pages, descriptions missing on68, metadata module not deployed, one shared stored body on25 products,6 duplicate-title pairs and zero real360 frame sets. GSC/Ahrefs AI reporting unavailable; no invented citation or ranking counts.
+- 33 prepared-metadata tests, 16 media contracts, synthetic spin browser test and 5 audit/report verification groups passed. Live indexing, content, WAF, payment and external conversations untouched. Next: coverage-aware metadata/content plan and a verified 360 pilot for one model, preserving the launch gate.
+
+## Current release — 2026-10-16 owner-authorized media cleanup
+
+- LIVE:15 background-lettering cleanups on11 products; original23 source assets and all prior attachments retained. Owner explicitly authorized this change after confirming ownership.30 references/25 inquiry-only products remain.
+- VERIFIED: exact RGB reconstruction of15 lossless images from original+transparent patch, zero changes outside reviewed masks; product/manufacturer details preserved visually. Native dry run, full backup/checksum, apply11/skip14, repeat0/skip25 and unchanged business/home snapshot recorded in `qa/store-2026-10-16`.
+- Scoped checks include PHP renderer/import/cleanup contracts, native WebP support, human-edit/rollback safeguards, PHP lint and read-only public browser gallery/mobile/lightbox checks. Real360 frames remain missing; no generated rear views or invented models were published. Production ERP/payment not activated. Current handoff and `PROJECT_STATUS.md` supersede historical readiness text below.
+
+## Active store mission — 2026-10-15
+وضعیت نسخه محلی: اتصال ERP و عملیات Woo، نقش‌ها، فاکتور و درخواست مرجوعی پیاده‌سازی و آزموده شده‌اند. docs/acceptance-matrix-fa.md، docs/testing.md و docs/user-guide-fa.md مبنای ادامه‌اند. همه ۲۵ قلم draft و بدون قیمت/موجودی واقعی‌اند. شاخه audit/store-readiness-20261015 از visual واقعی شروع شده؛ main و production تغییر نکرده‌اند. زرین‌پال انتخاب و پروتکل sandbox واقعی آزموده شد؛ آداپتور آزمایشی با 49 بررسی mock آماده ولی خاموش است. docs/payment-sandbox-fa.md شواهد و محدودیت Docker را ثبت می‌کند. هدف بعدی آزمون native gateway→ERP و checkout موبایل پس از رفع دسترسی Docker، مدارک و قیمت/stock واقعی، مالیات و credential تولید، سپس release دارای backup/restore تولید و تأیید صریح مالک است. ثبت یا ادعای پرداخت واقعی مجاز نیست.
+
+
+
+## Current phase / فاز فعلی — 2026-10-13
+- **FA:** بازطراحی TehNet 0.5.1 و رزومه مستقل امیررضا منتشر شده‌اند. ممیزی زنده و انتقال درس‌های SEO/AEO/GEO مایتل ثبت شد. اصلاح متادیتای تازه با ۳۳ آزمون واحد آماده است، اما به علت بی‌پاسخ‌بودن اتصال ریموت هنوز منتشر نشده است.
+- **EN:** Visual release LIVE; SEO follow-up PREPARED / UNIT-TESTED / NOT DEPLOYED. Read `seo/SEO_AI_READINESS_2026-10-13.md` and `qa/SEARCH_METADATA_TESTS_2026-10-13.md`. Noindex remains intentional. Restore the management connection and finish guarded integration/live checks before claiming this follow-up complete.
 
 ## Product decisions locked
 - Brand/domain: TehNet / تهران نتورک / `https://tehnet.ir`
-- Primary market/language: Iran / Persian
+- Primary market/language: Iran, Persian-first.
 - On-site services: Tehran; Remote Support: nationwide Iran
 - Current address: تهران، آیت‌الله کاشانی، شاهین جنوبی
 - Current phone: 021-91018746
@@ -21,7 +82,7 @@
 - Crypto target: NoPayments after official integration verification
 - SEO evidence framework: `DashSaman/-SEO`
 
-## Completed and verified
+## Completed and verified — historical phase evidence
 - Product discovery, architecture spec, agent contract, roadmap and backlog.
 - Safe production baseline, backup/recovery policy and isolated branch/worktree workflow.
 - Persian RTL TehNet theme and `tehnet-core` settings/content-model foundation.
@@ -62,21 +123,39 @@
 - **FA/EN:** Shop recovery point / نقطه بازیابی فروشگاه: `/root/tehnet-backups/20260921-021149`; non-TehNet runtime topology remained unchanged.
 
 ## Current production state
-- Active theme: `tehnet`; active plugins: `tehnet-core` + WooCommerce `11.1.1`.
-- Static editable homepage and primary navigation are live.
+- Active theme: `tehnet` 0.5.1; live WPVibe reports TehNet Core 0.3.1 and WooCommerce 11.1.1.
+- Static editable homepage, primary navigation and profile page ID 80 are live.
 - Canonical host is `https://tehnet.ir`.
 - Search indexing remains deliberately disabled until launch gates pass.
 - No secret values are stored in Git.
+- New `site/mu-plugins/tehnet-search-metadata.php` is repository-prepared only; no production installation is claimed.
 
 ## Next execution order
-1. Design and implement the manual Quote/Invoice lifecycle for physical inquiries / طراحی و پیاده‌سازی چرخه دستی پیش‌فاکتور و فاکتور.
-2. Implement account/support/ticket flows and Telegram bridge in separate tested branches.
-3. Implement digital delivery/licensing and payment adapters only after provider requirements are verified.
-4. Revisit VPN/Linux owner hubs only with independent intent evidence and substantial content.
-5. Complete launch technical/content/measurement gates before enabling indexing.
+1. Restore remote management, inspect runtime metadata ownership, deploy the tested metadata allowlist after backup, and perform live retest.
+2. Resolve prelaunch content and accessible-name findings; verify metadata coverage on lesson/term routes without changing stable URLs.
+3. Design and implement the manual Quote/Invoice lifecycle for physical inquiries / طراحی و پیاده‌سازی چرخه دستی پیش‌فاکتور و فاکتور.
+4. Implement account/support/ticket flows and Telegram bridge in separate tested branches.
+5. Implement digital delivery/licensing and payment adapters only after provider requirements are verified.
+6. Revisit VPN/Linux owner hubs only with independent intent evidence and substantial content.
+7. Complete launch technical/content/measurement gates and obtain explicit indexing approval before enabling indexing.
 
 ## Rules for all agents
-Read `AGENTS.md` and `HANDOFF.md` first, preserve locked decisions and verified work, use evidence before SEO claims, keep indexing disabled until an explicit launch gate, and never change unrelated project ports/containers during TehNet work.
+Read `AGENTS.md` and `HANDOFF.md` first, preserve locked decisions and verified work, use evidence before SEO claims, keep indexing disabled until an explicit launch gate, and never change unrelated project ports/containers during TehNet work. Report each phase boundary to the owner and distinguish prepared, deployed and live-verified results.
+
+## 2026-10-13 — Portfolio-derived visual refresh / بازطراحی ظاهری
+
+**FA:** بازطراحی قالب 0.5.1 و رزومه مستقل امیررضا روی سایت زنده منتشر شدند. نتیجه و محدودیت‌ها در `ops/VISUAL_REFRESH_2026-10-13.md` ثبت شده‌اند. محتوای سایر برگه‌ها، تنظیمات پرداخت و noindex تغییر نکردند. باگ قدیمی عنوان H1 و canonical بلاگ نیز اصلاح شد.
+
+**EN:** Preserved live theme drift first, then deployed the approved navy/cyan design and conceptual network SVG through a guarded file allowlist. Native profile page ID 80; live browser and public route/download checks passed. Source branch: `feat/portfolio-visual-20261013`, retained for review rather than automatically merging main. No unrelated runtime, core-plugin, font or service-restart changes on the TehNet host.
+
+## 2026-10-13 — SEO/AEO/GEO continuation / ادامه اصولی سئو
+
+- Read `DashSaman/-SEO` methodology and MyTel's dated authority/AI execution evidence; reused URL stability, entity ownership, source-quality content and real before/after verification, not private data or ranking claims.
+- Fresh homepage mobile lab audit: Performance 93, Accessibility 100, Best Practices 100, SEO 61; LCP 2.7 s, CLS 0.02, TBT 110 ms. No CrUX field data. Missing home description is an open defect; noindex is deliberate; accessible-name mismatch remains to diagnose.
+- Created bounded page descriptions/Open Graph/ProfilePage module; 33 isolated PHP checks PASS and syntax PASS. Test stubs are not WordPress integration proof.
+- Published-page REST read confirmed raw excerpts empty, Sample Page still published and prelaunch Learn wording. No silent content deletion or indexing change.
+- Remote Desktop Commander connection timed out on multiple read-only checks. WPVibe reads work. GSC Wizard subscription expired; no upgrade or measurements claimed.
+- Evidence and exact deployment gate: `seo/SEO_AI_READINESS_2026-10-13.md`, `qa/SEARCH_METADATA_TESTS_2026-10-13.md`.
 
 ## 2026-10-17 — Isolated TehNet Software Archive research/design handoff
 

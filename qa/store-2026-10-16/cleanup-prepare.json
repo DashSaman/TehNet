@@ -1,0 +1,13 @@
+{
+  "mode": "prepare",
+  "directory": "/root/tehnet-releases/catalog-cleanup-5918db794d83f97e",
+  "dry_run": {
+    "mode": "dry",
+    "products": 25,
+    "create": 11,
+    "skip": 14,
+    "replacement_images": 15,
+    "sha256": "5918db794d83f97e0afdec0d36a08589a21ab946eeb4f4e845a036749d0a55e4"
+  },
+  "utc": "2026-10-16T15:05:56.995960+00:00"
+}

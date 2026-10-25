@@ -1,0 +1,387 @@
+{
+  "mode": "apply",
+  "directory": "/root/tehnet-releases/catalog-photos-7f5891d30ab771d1",
+  "dry_run": {
+    "mode": "dry",
+    "products": 25,
+    "create": 25,
+    "skip": 0,
+    "sha256": "7f5891d30ab771d19be3f4bab49dba030eb918b4164b17f1230c9eaea1f741a9"
+  },
+  "utc": "2026-10-16T12:47:13.380483+00:00",
+  "backup": "/root/tehnet-backups/20261016-124713-store-review",
+  "backup_checksums_verified": true,
+  "migration": {
+    "mode": "apply",
+    "products_changed": 25,
+    "skipped": 0,
+    "receipt_option": "tn_photo_release_7f5891d30ab771d1",
+    "sha256": "7f5891d30ab771d19be3f4bab49dba030eb918b4164b17f1230c9eaea1f741a9"
+  },
+  "business_fields_unchanged": true,
+  "repeat": {
+    "mode": "apply",
+    "products_changed": 0,
+    "skipped": 25,
+    "receipt_option": "tn_photo_release_7f5891d30ab771d1",
+    "sha256": "7f5891d30ab771d19be3f4bab49dba030eb918b4164b17f1230c9eaea1f741a9"
+  },
+  "products": [
+    {
+      "sku": "TN-SN-17863",
+      "product_id": 96,
+      "url": "https://tehnet.ir/product/tn-sn-17863/",
+      "photos": [
+        {
+          "attachment_id": "132",
+          "sha256": "d601c7cc1c1cd6967fdb551ab3964b2a24ef35e42299e5a87e221d50108e23e5",
+          "original_sha256": "d601c7cc1c1cd6967fdb551ab3964b2a24ef35e42299e5a87e221d50108e23e5",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17863-0-d601c7cc1c1c.jpg"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17860",
+      "product_id": 97,
+      "url": "https://tehnet.ir/product/tn-sn-17860/",
+      "photos": [
+        {
+          "attachment_id": "133",
+          "sha256": "15b41891aa75ca17e4c5d2e7505e68fe52ae74d9d2bb4e9430a46d4b0519ff71",
+          "original_sha256": "15b41891aa75ca17e4c5d2e7505e68fe52ae74d9d2bb4e9430a46d4b0519ff71",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17860-0-15b41891aa75.png"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-18002",
+      "product_id": 82,
+      "url": "https://tehnet.ir/product/tn-sn-18002/",
+      "photos": [
+        {
+          "attachment_id": "113",
+          "sha256": "52019247f419567234562c9a28919d669962f68138d8f51b88d7f549203b68ad",
+          "original_sha256": "52019247f419567234562c9a28919d669962f68138d8f51b88d7f549203b68ad",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-18002-0-52019247f419.jpg"
+        },
+        {
+          "attachment_id": 114,
+          "sha256": "4f5490263e977da1f07804e92f8ec51e443528c2c2baebfbb44068c12ea46671",
+          "original_sha256": "4f5490263e977da1f07804e92f8ec51e443528c2c2baebfbb44068c12ea46671",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-18002-1-4f5490263e97.png"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17857",
+      "product_id": 98,
+      "url": "https://tehnet.ir/product/tn-sn-17857/",
+      "photos": [
+        {
+          "attachment_id": "134",
+          "sha256": "15b41891aa75ca17e4c5d2e7505e68fe52ae74d9d2bb4e9430a46d4b0519ff71",
+          "original_sha256": "15b41891aa75ca17e4c5d2e7505e68fe52ae74d9d2bb4e9430a46d4b0519ff71",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17857-0-15b41891aa75.png"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17991",
+      "product_id": 83,
+      "url": "https://tehnet.ir/product/tn-sn-17991/",
+      "photos": [
+        {
+          "attachment_id": "115",
+          "sha256": "4cf83fd97f812b1d0ef5c25844a10439f5194c7ba05a0b5d43cbe411c2ffa2a9",
+          "original_sha256": "4cf83fd97f812b1d0ef5c25844a10439f5194c7ba05a0b5d43cbe411c2ffa2a9",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17991-0-4cf83fd97f81.jpg"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17855",
+      "product_id": 99,
+      "url": "https://tehnet.ir/product/tn-sn-17855/",
+      "photos": [
+        {
+          "attachment_id": "135",
+          "sha256": "4695c03d8db785e3c9435b406a484e42e0749224ff8b44b173888d601545c42e",
+          "original_sha256": "4695c03d8db785e3c9435b406a484e42e0749224ff8b44b173888d601545c42e",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17855-0-4695c03d8db7.jpg"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17989",
+      "product_id": 84,
+      "url": "https://tehnet.ir/product/tn-sn-17989/",
+      "photos": [
+        {
+          "attachment_id": "116",
+          "sha256": "a4b1d26b8aa160bd724de5c7774f4d109898ae94c5b6369bafe21dc5dec1ac83",
+          "original_sha256": "a4b1d26b8aa160bd724de5c7774f4d109898ae94c5b6369bafe21dc5dec1ac83",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17989-0-a4b1d26b8aa1.png"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17851",
+      "product_id": 100,
+      "url": "https://tehnet.ir/product/tn-sn-17851/",
+      "photos": [
+        {
+          "attachment_id": "136",
+          "sha256": "4695c03d8db785e3c9435b406a484e42e0749224ff8b44b173888d601545c42e",
+          "original_sha256": "4695c03d8db785e3c9435b406a484e42e0749224ff8b44b173888d601545c42e",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17851-0-4695c03d8db7.jpg"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17982",
+      "product_id": 85,
+      "url": "https://tehnet.ir/product/tn-sn-17982/",
+      "photos": [
+        {
+          "attachment_id": "117",
+          "sha256": "ab82eea17c2daaeb2e815a6f3f52b426fb045e838c4233250d307f8f584cbcc6",
+          "original_sha256": "ab82eea17c2daaeb2e815a6f3f52b426fb045e838c4233250d307f8f584cbcc6",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17982-0-ab82eea17c2d.png"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17831",
+      "product_id": 101,
+      "url": "https://tehnet.ir/product/tn-sn-17831/",
+      "photos": [
+        {
+          "attachment_id": "137",
+          "sha256": "85dd4de82e92913577b3f61c2a8be4859b7b6a1b3e4c09ecc1ed0929082346de",
+          "original_sha256": "85dd4de82e92913577b3f61c2a8be4859b7b6a1b3e4c09ecc1ed0929082346de",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17831-0-85dd4de82e92.png"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17941",
+      "product_id": 86,
+      "url": "https://tehnet.ir/product/tn-sn-17941/",
+      "photos": [
+        {
+          "attachment_id": "118",
+          "sha256": "bb925d0c3989548e74abdbf308a5d2c9f45cc0d7ad27e17d518f70b94762cab9",
+          "original_sha256": "bb925d0c3989548e74abdbf308a5d2c9f45cc0d7ad27e17d518f70b94762cab9",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17941-0-bb925d0c3989.jpg"
+        },
+        {
+          "attachment_id": 119,
+          "sha256": "efbda3232f8082d0725c8a577042e24c1e41ab05da6b16b70451b13851a4b5e4",
+          "original_sha256": "efbda3232f8082d0725c8a577042e24c1e41ab05da6b16b70451b13851a4b5e4",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17941-1-efbda3232f80.jpg"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17829",
+      "product_id": 102,
+      "url": "https://tehnet.ir/product/tn-sn-17829/",
+      "photos": [
+        {
+          "attachment_id": "138",
+          "sha256": "85dd4de82e92913577b3f61c2a8be4859b7b6a1b3e4c09ecc1ed0929082346de",
+          "original_sha256": "85dd4de82e92913577b3f61c2a8be4859b7b6a1b3e4c09ecc1ed0929082346de",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17829-0-85dd4de82e92.png"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17935",
+      "product_id": 87,
+      "url": "https://tehnet.ir/product/tn-sn-17935/",
+      "photos": [
+        {
+          "attachment_id": "120",
+          "sha256": "a7a9e2bd0683409d25484e0e11eb050a8b9c6d1773759e9e5b71be0547ae29af",
+          "original_sha256": "a7a9e2bd0683409d25484e0e11eb050a8b9c6d1773759e9e5b71be0547ae29af",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17935-0-a7a9e2bd0683.jpg"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17827",
+      "product_id": 103,
+      "url": "https://tehnet.ir/product/tn-sn-17827/",
+      "photos": [
+        {
+          "attachment_id": "139",
+          "sha256": "85dd4de82e92913577b3f61c2a8be4859b7b6a1b3e4c09ecc1ed0929082346de",
+          "original_sha256": "85dd4de82e92913577b3f61c2a8be4859b7b6a1b3e4c09ecc1ed0929082346de",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17827-0-85dd4de82e92.png"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17929",
+      "product_id": 88,
+      "url": "https://tehnet.ir/product/tn-sn-17929/",
+      "photos": [
+        {
+          "attachment_id": "121",
+          "sha256": "558b905defd7bb7b507cd79bf93d5c6e161efa0b0b8bc498bc1b23bbf502eb37",
+          "original_sha256": "558b905defd7bb7b507cd79bf93d5c6e161efa0b0b8bc498bc1b23bbf502eb37",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17929-0-558b905defd7.jpg"
+        },
+        {
+          "attachment_id": 122,
+          "sha256": "5d9a1a58e85af4d27a3951ba721f06aef1169dbad956f8ff9fb52eacb66cac1c",
+          "original_sha256": "5d9a1a58e85af4d27a3951ba721f06aef1169dbad956f8ff9fb52eacb66cac1c",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17929-1-5d9a1a58e85a.png"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17824",
+      "product_id": 104,
+      "url": "https://tehnet.ir/product/tn-sn-17824/",
+      "photos": [
+        {
+          "attachment_id": "140",
+          "sha256": "f68e4cf522b57a82f9d75f16580a9601e3ed30ebc3c6f1e369fe699f4315277f",
+          "original_sha256": "f68e4cf522b57a82f9d75f16580a9601e3ed30ebc3c6f1e369fe699f4315277f",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17824-0-f68e4cf522b5.png"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17927",
+      "product_id": 89,
+      "url": "https://tehnet.ir/product/tn-sn-17927/",
+      "photos": [
+        {
+          "attachment_id": "123",
+          "sha256": "4c69aba5c3985e284a5c609d19dc01d2ee46b97dccc9e6a3a79daa812a26fad5",
+          "original_sha256": "4c69aba5c3985e284a5c609d19dc01d2ee46b97dccc9e6a3a79daa812a26fad5",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17927-0-4c69aba5c398.png"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-16585",
+      "product_id": 105,
+      "url": "https://tehnet.ir/product/tn-sn-16585/",
+      "photos": [
+        {
+          "attachment_id": "141",
+          "sha256": "85dd4de82e92913577b3f61c2a8be4859b7b6a1b3e4c09ecc1ed0929082346de",
+          "original_sha256": "85dd4de82e92913577b3f61c2a8be4859b7b6a1b3e4c09ecc1ed0929082346de",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-16585-0-85dd4de82e92.png"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17920",
+      "product_id": 90,
+      "url": "https://tehnet.ir/product/tn-sn-17920/",
+      "photos": [
+        {
+          "attachment_id": "124",
+          "sha256": "b1cac31686abec60daca9faae6832efb1d07c24f19684574259ade3aacd6245c",
+          "original_sha256": "b1cac31686abec60daca9faae6832efb1d07c24f19684574259ade3aacd6245c",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17920-0-b1cac31686ab.png"
+        },
+        {
+          "attachment_id": 125,
+          "sha256": "4792fe02e7789590d7287ecc48fe22ddffcec0c27d0ebc3bfc91a722704c9d0f",
+          "original_sha256": "4792fe02e7789590d7287ecc48fe22ddffcec0c27d0ebc3bfc91a722704c9d0f",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17920-1-4792fe02e778.png"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-16584",
+      "product_id": 106,
+      "url": "https://tehnet.ir/product/tn-sn-16584/",
+      "photos": [
+        {
+          "attachment_id": "142",
+          "sha256": "f68e4cf522b57a82f9d75f16580a9601e3ed30ebc3c6f1e369fe699f4315277f",
+          "original_sha256": "f68e4cf522b57a82f9d75f16580a9601e3ed30ebc3c6f1e369fe699f4315277f",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-16584-0-f68e4cf522b5.png"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17888",
+      "product_id": 91,
+      "url": "https://tehnet.ir/product/tn-sn-17888/",
+      "photos": [
+        {
+          "attachment_id": "126",
+          "sha256": "9bce2ca05ddc5909ed876cb28211c79541badc9a6b363d1580b36a0226048fc5",
+          "original_sha256": "9bce2ca05ddc5909ed876cb28211c79541badc9a6b363d1580b36a0226048fc5",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17888-0-9bce2ca05ddc.jpg"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17873",
+      "product_id": 92,
+      "url": "https://tehnet.ir/product/tn-sn-17873/",
+      "photos": [
+        {
+          "attachment_id": "127",
+          "sha256": "ab1863c055bb66d8823ca06478594033f5414568ede9b4639b3624b05de8eddb",
+          "original_sha256": "ab1863c055bb66d8823ca06478594033f5414568ede9b4639b3624b05de8eddb",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17873-0-ab1863c055bb.jpg"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17871",
+      "product_id": 93,
+      "url": "https://tehnet.ir/product/tn-sn-17871/",
+      "photos": [
+        {
+          "attachment_id": "128",
+          "sha256": "020a31d98c6df47ecf83568eb50a9c144d22866e49998085641ed255339b54aa",
+          "original_sha256": "020a31d98c6df47ecf83568eb50a9c144d22866e49998085641ed255339b54aa",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17871-0-020a31d98c6d.png"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17868",
+      "product_id": 94,
+      "url": "https://tehnet.ir/product/tn-sn-17868/",
+      "photos": [
+        {
+          "attachment_id": "129",
+          "sha256": "020a31d98c6df47ecf83568eb50a9c144d22866e49998085641ed255339b54aa",
+          "original_sha256": "020a31d98c6df47ecf83568eb50a9c144d22866e49998085641ed255339b54aa",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17868-0-020a31d98c6d.png"
+        },
+        {
+          "attachment_id": 130,
+          "sha256": "328f394963fd456521664fc1cbb77b775bbe2f01da29f6f609e44601ccaa252d",
+          "original_sha256": "328f394963fd456521664fc1cbb77b775bbe2f01da29f6f609e44601ccaa252d",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17868-1-328f394963fd.png"
+        }
+      ]
+    },
+    {
+      "sku": "TN-SN-17866",
+      "product_id": 95,
+      "url": "https://tehnet.ir/product/tn-sn-17866/",
+      "photos": [
+        {
+          "attachment_id": "131",
+          "sha256": "7b0356edfc40616185624e440f9776cf2f00d66e25055bc57b2dfbc3ee240260",
+          "original_sha256": "7b0356edfc40616185624e440f9776cf2f00d66e25055bc57b2dfbc3ee240260",
+          "url": "https://tehnet.ir/wp-content/uploads/2026/10/tn-17866-0-7b0356edfc40.png"
+        }
+      ]
+    }
+  ],
+  "original_media_bytes_unchanged": true
+}

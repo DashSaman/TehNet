@@ -1,0 +1,177 @@
+{
+    "scope": "PHP unit tests with WP stubs; not integration\/live proof",
+    "results": [
+        {
+            "name": "homepage description exactly once",
+            "pass": true
+        },
+        {
+            "name": "homepage description is meaningful Persian",
+            "pass": true
+        },
+        {
+            "name": "title canonical robots owners untouched",
+            "pass": true
+        },
+        {
+            "name": "no organization or fabricated rich-result types",
+            "pass": true
+        },
+        {
+            "name": "no outgoing script or tracking",
+            "pass": true
+        },
+        {
+            "name": "Open Graph URL and locale",
+            "pass": true
+        },
+        {
+            "name": "manual excerpt takes priority",
+            "pass": true
+        },
+        {
+            "name": "HTML and attributes escaped",
+            "pass": true
+        },
+        {
+            "name": "Unicode truncation remains valid and bounded",
+            "pass": true
+        },
+        {
+            "name": "invalid UTF8 safely omitted",
+            "pass": true
+        },
+        {
+            "name": "skip admin",
+            "pass": true
+        },
+        {
+            "name": "skip feed",
+            "pass": true
+        },
+        {
+            "name": "skip 404",
+            "pass": true
+        },
+        {
+            "name": "skip search",
+            "pass": true
+        },
+        {
+            "name": "skip preview",
+            "pass": true
+        },
+        {
+            "name": "skip unpublished object",
+            "pass": true
+        },
+        {
+            "name": "skip password protected even with cookie",
+            "pass": true
+        },
+        {
+            "name": "no interference with product metadata",
+            "pass": true
+        },
+        {
+            "name": "null queried object safely ignored",
+            "pass": true
+        },
+        {
+            "name": "external SEO owner wins",
+            "pass": true
+        },
+        {
+            "name": "no guessed description for unknown empty page",
+            "pass": true
+        },
+        {
+            "name": "future pages work with explicit excerpt",
+            "pass": true
+        },
+        {
+            "name": "sample page is not promoted",
+            "pass": true
+        },
+        {
+            "name": "blog pagination Open Graph matches page URL",
+            "pass": true
+        },
+        {
+            "name": "full route keyed not leaf slug",
+            "pass": true
+        },
+        {
+            "name": "existing profile description not duplicated",
+            "pass": true
+        },
+        {
+            "name": "valid ProfilePage and Person",
+            "pass": true
+        },
+        {
+            "name": "stable profile identity",
+            "pass": true
+        },
+        {
+            "name": "no private telephone or brand social impersonation",
+            "pass": true
+        },
+        {
+            "name": "profile description available without legacy theme callback",
+            "pass": true
+        },
+        {
+            "name": "renamed page does not get false Person schema",
+            "pass": true
+        },
+        {
+            "name": "render does not write state",
+            "pass": true
+        },
+        {
+            "name": "registered only front-end head hook",
+            "pass": true
+        },
+        {
+            "name": "public product gets editable description without fake offers",
+            "pass": true
+        },
+        {
+            "name": "product social image uses native full-size image dimensions",
+            "pass": true
+        },
+        {
+            "name": "private product metadata remains hidden",
+            "pass": true
+        },
+        {
+            "name": "blog category gets one missing canonical and description",
+            "pass": true
+        },
+        {
+            "name": "category pagination canonical points to its own page",
+            "pass": true
+        },
+        {
+            "name": "Woo product category canonical owner remains unchanged",
+            "pass": true
+        },
+        {
+            "name": "visible editorial note permits truthful Article dates",
+            "pass": true
+        },
+        {
+            "name": "article author does not expose account email or phone",
+            "pass": true
+        },
+        {
+            "name": "article attribution is not invented for unmarked content",
+            "pass": true
+        },
+        {
+            "name": "Woo shop archive gets description without duplicate canonical",
+            "pass": true
+        }
+    ]
+}

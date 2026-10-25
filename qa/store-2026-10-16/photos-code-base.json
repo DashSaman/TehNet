@@ -1,0 +1,32 @@
+{
+  "status": "published",
+  "directory": "/root/tehnet-releases/discovery-2d9581d61a21",
+  "files": {
+    "plugins/tehnet-store/tehnet-store.php": "1b6727ec9d110513fb38c74bb8f98323bfba70ef469aefd8d5974ebd8ea0cd50",
+    "plugins/tehnet-store/assets/invoice-stamp.svg": "c52b5c102fe3ab0ea4b6a9d3d8271dbc927fbe1dd056a3fb6c9c794de0502e0d",
+    "plugins/tehnet-store/assets/model-loader.js": "95fbeb6d7ad473d4154f85d895e76ab0df0225ba7da75a908c63c3a3da0eeb0e",
+    "plugins/tehnet-store/assets/model-viewer.js": "54b3d743d49a48c17cced561a03d54ccd0380de1817e2308f109f7df6c5b3b1f",
+    "plugins/tehnet-store/assets/product-placeholder.svg": "da2aadb374236eb6c3b8b13f52f5e2169d246a31f485a60962a627e7e306b8c4",
+    "plugins/tehnet-store/assets/store.css": "8a768ccb3f72d4247502f0de62ec717419872f2ad88b7ab9d6103702a29a6419",
+    "plugins/tehnet-store/assets/store.js": "3b653d7245905da2d00d03ea272cf2bfcb98c0732290a11b9d520e8122a7cca1",
+    "plugins/tehnet-store/assets/zarinpal-blocks.js": "0bf55bf65399bfd7efb675f5f4092c89610bfebf25527715e84bce5191d5ed25",
+    "plugins/tehnet-store/includes/class-account.php": "25fa2702b03e00d70ba10f3f34227f5f9a6b761d1e36755d195cd15b7a0777a1",
+    "plugins/tehnet-store/includes/class-catalog.php": "ef07aed6c9f483dad5e5ec4fe313d71158f7129b9a14dac2bbf5d3635e4e3e2c",
+    "plugins/tehnet-store/includes/class-erp.php": "b6fbdc01b07b5ca0f0acf6bd36c902b08d69a9c6f7bff9f77a275717d11b8a82",
+    "plugins/tehnet-store/includes/class-operations.php": "9ae005d3e58ef00f59cafce247c4a56282fb4b12d0b3a7c396d6fe692432241c",
+    "plugins/tehnet-store/includes/class-policy.php": "ac60f6d5d8b8182d654e2ab6f06dffb6e423f4201ab6c934f1caa872fada074d",
+    "plugins/tehnet-store/includes/class-product-visuals.php": "896a3ad6a4c4c02788cb989f15da352e60e81c5a8071314a5c6d8c89ba0c4fd8",
+    "plugins/tehnet-store/includes/class-storefront.php": "4787143342c47d4c414b1f4cc2792498008b9846f39a78e120ef6876e440595c",
+    "plugins/tehnet-store/includes/class-zarinpal-blocks.php": "699436aec19c97ffe9f547277e7773f088b4ed1f59222ea4ce61f17a563bac53",
+    "plugins/tehnet-store/includes/class-zarinpal-gateway.php": "d24d185f9bd0ebe6393c4711c30ba83d94177da87ec1994844afa6837edac96e",
+    "plugins/tehnet-store/includes/class-zarinpal-sandbox.php": "a9b34f7410c1d99e70b2492487a9465a3c20a950883a3538843e1175fe6a63b0",
+    "plugins/tehnet-store/assets/illustrations/cable.svg": "79a56e6a9fa00c3f416d331075bf5662d9b7012091625ea2420efe3d12bff58d",
+    "plugins/tehnet-store/assets/illustrations/keystone.svg": "27cadbdd1d476bb05ced1ba86b814076ed4c84859e39f55d8516bc19664d1d32",
+    "plugins/tehnet-store/assets/illustrations/plug.svg": "37d8e7fa45bc50518d7c2d8df9e1c0fa71af4c47fc2488f515075ad6f3749865",
+    "plugins/tehnet-store/assets/illustrations/socket.svg": "0e16e7566331b8ca82afa0de055c15a73c364f81a0c1b5f598c77a286a711e41",
+    "plugins/tehnet-core/includes/class-quotes.php": "2480301e532cdd5ee65e8e1e9960d2906d2907dd20f2001853e1cb56a5b3bab5"
+  },
+  "payment_or_inventory_settings_changed": false,
+  "theme_or_homepage_changed": false,
+  "changed_files_backup": "/root/tehnet-releases/store-media-9b596368750a3ec3/changed-files-before.tar.gz"
+}

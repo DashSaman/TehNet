@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-15T16:05:48.589Z",
+  "status": "passed",
+  "original_generic_illustrations": true,
+  "owned_brand_logo_faint": true,
+  "actual_product_photo": false,
+  "exact_product_3d_model": false,
+  "schematic_module_lazy_loaded": true,
+  "keyboard_rotation": true,
+  "slider_rotation": true,
+  "reset": true,
+  "mobile_no_overflow": true,
+  "physical_checkout_closed": true,
+  "stamp_svg_rendered": true,
+  "js_errors": []
+}

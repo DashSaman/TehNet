@@ -1,0 +1,9 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "Performance 95/100  |  Accessibility 97/100  |  Best Practices 100/100  |  SEO 61/100  (mobile) — https://tehnet.ir/product/tn-sn-17929/\n\n## Performance — 95/100\nCore Web Vitals (lab):\n  LCP 1.7 s  |  CLS 0  |  TBT 10 ms  |  FCP 1.7 s  |  Speed Index 5.4 s\n  Lab numbers swing ±5-15 pts run-to-run; act on the lists below (more stable), not small score deltas.\nField data: none (site lacks enough real-user traffic in CrUX). Lab data only.\nOpportunities (1):\n  - [unused-css-rules] Reduce unused CSS — Est savings of 10 KiB\n\n## Accessibility — 97/100\nIssues to fix (2):\n  - [color-contrast] Background and foreground colors do not have a sufficient contrast ratio.\n  - [label-content-name-mismatch] Elements with visible text labels do not have matching accessible names.\n\n## Best Practices — 100/100\nNo issues flagged — this category passes.\n\n## SEO — 61/100\nIssues to fix (2):\n  - [is-crawlable] Page is blocked from indexing\n  - [meta-description] Document does not have a meta description"
+    }
+  ],
+  "isError": false
+}

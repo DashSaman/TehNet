@@ -1,0 +1,40 @@
+{
+  "status": "evidence-verified-publication-incomplete",
+  "verified_utc": "2026-10-18T14:13:00.672458+00:00",
+  "catalogue_products": 25,
+  "public_api_products_each": 25,
+  "original_image_files_sha256_verified": 23,
+  "manufacturer_research_sources": 17,
+  "native_verified_stock_identities": 0,
+  "qualified_exact_models_obtained": 0,
+  "new_models_published": 0,
+  "native_models": 0,
+  "native_parts": 0,
+  "native_spins": 0,
+  "protected_state_unchanged": true,
+  "manifest_sha256": "53ef45b02e737cb18709d763be57cc25783d75151a91c59be3ae9c7645d33d23",
+  "native_receipt_sha256": "f184b64fad1317064144828c7af79e35e7af17976d87443b8d35cad763ef79ed",
+  "public_receipt_sha256": "a90f7900f1aa29da4913b9dd0973638d4c5564a1bcb6f5fe10cc29d02572e8b1",
+  "contracts": [
+    {
+      "command": "php tests/product-evidence-unit.php",
+      "exit_code": 0,
+      "output": "PASS self-contained synthetic GLB accepted\nPASS external rejected\nPASS relative rejected\nPASS decoder rejected\nPASS nested-decoder rejected\nPASS no-mesh rejected\nPASS invalid binary rejected\nPASS nonce failure writes nothing\nPASS capability failure writes nothing\nPASS exact reviewed identity and local model approved\nPASS approved model can render\nPASS documented parts bound to exact model SHA and MPN\nPASS Persian quotes and backslashes survive WordPress request and metadata unslashing\nPASS parts mpn mismatch rejected\nPASS parts animation mismatch rejected\nPASS parts node mismatch rejected\nPASS parts source mismatch rejected\nPASS parts unit mismatch rejected\nPASS parts value mismatch rejected\nPASS parts html mismatch rejected\nPASS parts target mismatch rejected\nPASS parts duplicate mismatch rejected\nPASS parts are hidden without separate documentary approval\nPASS foreign product attachment blocked at render\nPASS model identity mismatch blocked\nPASS replaced model hash blocked\nPASS literal approval required\nPASS identity source requires HTTPS\nPASS twelve distinct owned frames can be reviewed\nPASS identical file hashes cannot fake distinct frames\nPASS no commercial or source fields written\nPRODUCT_EVIDENCE_CONTRACTS=31 PASSED"
+    },
+    {
+      "command": "php tests/product-photos-unit.php",
+      "exit_code": 0,
+      "output": "PASS media-empty fixture keeps clearly labelled fallback\nPASS native photograph preserved with website overlay\nPASS native photo never replaced by generic art\nPASS photo product never presents schematic as 360\nPASS one photo does not produce a spin\nPASS two views do not claim 360\nPASS unreviewed frames rejected\nPASS reviewed same-product photo sequence accepted\nPASS reviewed photos use genuine frame viewer\nPASS another product attachment rejected\nPASS duplicate frames cannot fake a 360 sequence\nPASS unmarked native product preserved\nPASS future approved native photo supports website overlay without imported-source IDs\nPASS future approved native gallery supports website overlay without imported-source IDs\nPASS photo-only product loads no schematic module\nPASS enqueue resolves queried product before the Woo loop\nPASS reviewed sequence selects photo loader only\nPASS future native Woo product supports reviewed spin without imported-source IDs\nPASS future native product renders reviewed sequence\nPASS approved future spin does not depend on a thumbnail or gallery assignment\nPASS missing photo sequence rights fail closed\nPASS unreviewed identity fails closed\nPASS native gallery gets website overlay\nPHOTO_CONTRACTS=23 PASSED"
+    }
+  ],
+  "php_audit_lint": "No syntax errors detected in ops/audit-exact-media.php",
+  "production_writes": false,
+  "limitations": [
+    "No exact physical-stock identity proved",
+    "No new licensed fully separated model obtained or published",
+    "Linked BIM binary not downloaded or parsed",
+    "No new production UI acceptance run; prior browser limitation remains",
+    "No stock, price, payment, order or indexing change",
+    "Research coverage does not prove absence of other models on the Internet"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-15T14:28:09.186045+00:00",
+  "scope": "Actual public provider sandbox, standalone protocol only; no Woo/ERP checkout",
+  "results": [
+    {
+      "amount_irr": 11001,
+      "http": 401,
+      "data": {},
+      "errors": {
+        "message": "Session is not valid, amounts values is not the same.",
+        "code": -50,
+        "validations": []
+      }
+    },
+    {
+      "amount_irr": 11000,
+      "http": 200,
+      "data": {
+        "code": 100,
+        "message": "Paid",
+        "ref_id": 527773601,
+        "fee_type": "Merchant",
+        "fee": 1000
+      },
+      "errors": []
+    },
+    {
+      "amount_irr": 11000,
+      "http": 200,
+      "data": {
+        "code": 101,
+        "message": "Verified",
+        "ref_id": 527773601,
+        "fee_type": "Merchant",
+        "fee": 1000
+      },
+      "errors": []
+    }
+  ],
+  "authority": "S00000000000000000000000000000pze7zz",
+  "merchant_test_uuid": "e6374c3a-e0f0-553f-ae81-32734b0bc0a8"
+}

@@ -1,0 +1,10 @@
+"""Offline WireGuard data-packet MTU arithmetic; never changes a router."""
+import argparse
+def wireguard_mtu(path_mtu,outer_ip):
+    if outer_ip not in (4,6) or not isinstance(path_mtu,int) or not (1280 if outer_ip==6 else 576)<=path_mtu<=9000:
+        raise ValueError('Enter a measured outer path MTU and IP version4 or6')
+    return path_mtu-(80 if outer_ip==6 else 60)
+if __name__=='__main__':
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('path_mtu',type=int);p.add_argument('--outer-ip',type=int,choices=[4,6],default=4);a=p.parse_args()
+    try:print(wireguard_mtu(a.path_mtu,a.outer_ip))
+    except ValueError as e:p.error(str(e))

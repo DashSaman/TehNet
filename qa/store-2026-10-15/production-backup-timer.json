@@ -1,0 +1,27 @@
+{
+  "status": "installed-and-tested",
+  "service": [
+    "Result=success",
+    "ExecMainCode=0",
+    "ExecMainStatus=0"
+  ],
+  "timer": [
+    "NextElapseUSecRealtime=Fri 2026-10-16 00:10:00 UTC",
+    "LastTriggerUSec=",
+    "ActiveState=active"
+  ],
+  "schedule": "03:40 Asia/Tehran daily, persistent after downtime",
+  "latest_backup": "/root/tehnet-backups/20261015-201045-store-review",
+  "latest_sql_bytes": 336322,
+  "latest_files_bytes": 54611714,
+  "checksum_verified": true,
+  "retention_deletion_enabled": false,
+  "minimum_free_bytes": 3221225472,
+  "offsite_transfer_configured": false,
+  "previous_unit_config_backup": "/root/tehnet-backups/scheduler-config-20261015-201045",
+  "installed_file_sha256": {
+    "/opt/tehnet/bin/store-backup.sh": "f6d94093856a6c5c50b10b23f44c960d67932762f73353882924343d05d0d7d3",
+    "/etc/systemd/system/tehnet-store-backup.service": "5093006fcb66d6e041ffb3ea64eef145ccc5f295d7e58ea50585e4dfb2ec8e64",
+    "/etc/systemd/system/tehnet-store-backup.timer": "fdb68839b733f340f020dd07fb4a5d6938e62ce4c17aa71a94c20e7ff60a12df"
+  }
+}

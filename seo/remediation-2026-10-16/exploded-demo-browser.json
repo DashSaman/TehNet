@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "scope": "Original educational schematic, no real product/dimensions asserted",
+  "checks": [
+    "educational/non-product label remains visible",
+    "model deferred before click",
+    "five independently explained schematic layers",
+    "native five-node explode animation loaded",
+    "exploded pose reached without motion",
+    "foil explanation and missing measurement are explicit",
+    "no invented microns or material values",
+    "assemble restores original pose",
+    "mobile has no horizontal overflow",
+    "no JavaScript errors",
+    "all renderer/model requests stay local"
+  ],
+  "js_errors": []
+}

@@ -1,0 +1,63 @@
+{
+  "erp": {
+    "status": "passed",
+    "restored_site": "tehnet-restore-fe3a84e00b3d.local",
+    "tables": {
+      "Company": {
+        "count": 1,
+        "sha256": "96d938c11209620df8061f8c0363ce8f54f5285f0e8c4f74190e86f4b48dce7c"
+      },
+      "Item": {
+        "count": 2,
+        "sha256": "72a10937f4cf5b88e1fa9e81650916c806c272b73b9a934468d3e2b9cb7e3ab7"
+      },
+      "Bin": {
+        "count": 2,
+        "sha256": "2ce6a83858883a040ed2a59432605d6c9079cce75c5e0e14b86dd741778f5a01"
+      },
+      "Sales Order": {
+        "count": 38,
+        "sha256": "5c357ba3ed768f083cf5456b695da9bf9188421bf4304b1d6ecb3bbd2a3266ee"
+      },
+      "Sales Invoice": {
+        "count": 44,
+        "sha256": "bc4d861c429adf040d86ed4fbf26f20ad5fdf6294b2d9d191f95f8a11fd21057"
+      },
+      "GL Entry": {
+        "count": 279,
+        "sha256": "cc9fa97186c100bcff989a21d7f8f68540b7835aa15a07febc71e2dbde414bde"
+      },
+      "TehNet Reservation": {
+        "count": 38,
+        "sha256": "931fed8f8d2e61280fb63b411b7664403149c8f1ce8a7d2a62656c0d359b0b15"
+      },
+      "TehNet Commerce Event": {
+        "count": 118,
+        "sha256": "f6072255d5afdb3f1dce8e0f3cc477ea0358b37c196bdb841e3e8264fa16f367"
+      },
+      "DocPerm": {
+        "count": 1486,
+        "sha256": "d0e427edf52ad357a4b8fe3e55c4242d81ae854c695a7f8f9c14323169860147"
+      }
+    },
+    "files_restored": true,
+    "encryption_key_decryption_verified": true
+  },
+  "woo": {
+    "status": "passed",
+    "restored_database": "tn_restore_7706de79a93e",
+    "restored_files_volume": "tehnet-restore-files-fa6096f094dd",
+    "counts": [
+      "229",
+      "4612",
+      "33",
+      "0"
+    ],
+    "business_values_sha256": "6f5a54d5681c28735948935bf73104b38860f6d08a3def93c6bc3ff94e9b28bd",
+    "archive_contents_compared": true,
+    "sql_sha256": "ef7b0a2d488f2a9045521fe2422206d69b4e4a1a67a0bef2a5f2a641858ab4a3",
+    "files_sha256": "b04aa5803c9e4466bac4b7202219f758b6ca46c976a6d849ede5abc695f942ee"
+  },
+  "scope": "Isolated local synthetic data. Source databases/volumes untouched. Not a production restore rehearsal.",
+  "limitation": "ERP MariaDB client initially failed certificate validity validation after local VM clock movement; this single local backup/restore uses a temporary MYSQL_HOME client option disabling server-certificate verification. No production or application TLS settings changed."
+}

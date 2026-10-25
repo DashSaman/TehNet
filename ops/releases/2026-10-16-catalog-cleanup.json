@@ -1,0 +1,25 @@
+{
+  "operation": "Owner-authorized removal of owned retailer lettering; image references only",
+  "release_sha256": "5918db794d83f97e0afdec0d36a08589a21ab946eeb4f4e845a036749d0a55e4",
+  "backup": "/root/tehnet-backups/20261016-150644-store-review",
+  "backup_checksums_verified": true,
+  "products_changed": 11,
+  "attachments_created": 15,
+  "repeat": {
+    "mode": "apply",
+    "products_changed": 0,
+    "skipped": 25,
+    "attachments_created": 0,
+    "receipt_option": "tn_photo_cleanup_5918db794d83f97e",
+    "sha256": "5918db794d83f97e0afdec0d36a08589a21ab946eeb4f4e845a036749d0a55e4"
+  },
+  "business_fields_unchanged": true,
+  "source_originals_retained": true,
+  "photo_browser_checks": 18,
+  "public_browser_checks": 14,
+  "pixel_proof": "qa/store-2026-10-16/cleanup-pixel-verification.json",
+  "native_evidence": "qa/store-2026-10-16/cleanup-apply.json",
+  "rollback": "python ops/release-catalog-photos.py rollback --cleanup",
+  "real_360_products": 0,
+  "payment_or_erp_enabled": false
+}

@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "utc": "2026-10-16T15:25:23.244Z",
+  "scope": "Synthetic browser sequence only; no real catalogue spin frames exist",
+  "lazy": true,
+  "keyboard": true,
+  "wrap": true,
+  "range": true,
+  "buttons": true,
+  "drag": true,
+  "mobile_no_overflow": true,
+  "js_errors": []
+}

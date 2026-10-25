@@ -1,0 +1,314 @@
+{
+  "mode": "live",
+  "checks": [
+    {
+      "name": "home HTTP",
+      "ok": true,
+      "detail": 200
+    },
+    {
+      "name": "home dark 320",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(8, 15, 24)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "home dark 375",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(8, 15, 24)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "home dark 390",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(8, 15, 24)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "home dark 768",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(8, 15, 24)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "home dark 1024",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(8, 15, 24)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "home dark 1440",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(8, 15, 24)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "home light 320",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(166, 170, 175)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "home light 375",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(243, 246, 249)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "home light 390",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(245, 248, 251)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "home light 768",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(245, 248, 251)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "home light 1024",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(245, 248, 251)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "home light 1440",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(245, 248, 251)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "home mobile menu open",
+      "ok": true
+    },
+    {
+      "name": "home mobile menu Escape",
+      "ok": true
+    },
+    {
+      "name": "home theme toggle",
+      "ok": true
+    },
+    {
+      "name": "home pause animation",
+      "ok": true
+    },
+    {
+      "name": "home browser JavaScript errors",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "profile HTTP",
+      "ok": true,
+      "detail": 200
+    },
+    {
+      "name": "profile dark 320",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(8, 15, 24)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "profile dark 375",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(8, 15, 24)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "profile dark 390",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(8, 15, 24)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "profile dark 768",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(8, 15, 24)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "profile dark 1024",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(8, 15, 24)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "profile dark 1440",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(8, 15, 24)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "profile light 320",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(220, 223, 227)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "profile light 375",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(245, 248, 251)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "profile light 390",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(245, 248, 251)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "profile light 768",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(245, 248, 251)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "profile light 1024",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(245, 248, 251)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "profile light 1440",
+      "ok": true,
+      "detail": {
+        "h1": 1,
+        "dir": "rtl",
+        "bg": "rgb(245, 248, 251)",
+        "overflow": []
+      }
+    },
+    {
+      "name": "profile mobile menu open",
+      "ok": true
+    },
+    {
+      "name": "profile mobile menu Escape",
+      "ok": true
+    },
+    {
+      "name": "profile theme toggle",
+      "ok": true
+    },
+    {
+      "name": "profile pause animation",
+      "ok": true
+    },
+    {
+      "name": "network skill filter",
+      "ok": true
+    },
+    {
+      "name": "all skills restored",
+      "ok": true
+    },
+    {
+      "name": "print state restoration",
+      "ok": true
+    },
+    {
+      "name": "profile privacy",
+      "ok": true
+    },
+    {
+      "name": "profile browser JavaScript errors",
+      "ok": true,
+      "detail": []
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,39 @@
+{
+  "scope": "Synthetic animated two-part GLB; synthetic thickness fixture; not a real product, CAD or network test",
+  "checks": [
+    "GLB and renderer deferred before click",
+    "real renderer loads synthetic triangle and exposes controls",
+    "horizontal orbit works",
+    "vertical orbit works",
+    "reset and reduced motion work",
+    "no external CDN or decoder requests",
+    "part thickness and units use reviewed structured metadata",
+    "reduced-motion explode seeks real native animation to its final pose",
+    "part selection shows explanation without inventing missing dimensions",
+    "assemble resets animation to exact initial pose",
+    "normal-motion explode plays native animation once",
+    "explode slider scrubs real animation timeline",
+    "browser MTU 1500/IPv4=1440",
+    "browser MTU 1500/IPv6=1420",
+    "browser MTU 1492/IPv4=1432",
+    "browser MTU 1492/IPv6=1412",
+    "IPv6 outer minimum rejected",
+    "no page JavaScript errors",
+    "missing GLB exposes retry and fallback message"
+  ],
+  "requests": [
+    "http://127.0.0.1:54811/",
+    "http://127.0.0.1:54811/store.css",
+    "http://127.0.0.1:54811/reviewed-model.js",
+    "http://127.0.0.1:54811/technical-tools.js",
+    "http://127.0.0.1:54811/model-viewer.min.js",
+    "http://127.0.0.1:54811/fixture.glb",
+    "http://127.0.0.1:54811/",
+    "http://127.0.0.1:54811/store.css",
+    "http://127.0.0.1:54811/reviewed-model.js",
+    "http://127.0.0.1:54811/technical-tools.js",
+    "http://127.0.0.1:54811/model-viewer.min.js",
+    "http://127.0.0.1:54811/fixture.glb"
+  ],
+  "errors": []
+}

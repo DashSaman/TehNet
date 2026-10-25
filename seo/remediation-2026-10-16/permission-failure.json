@@ -1,0 +1,7 @@
+{
+  "utc": "2026-10-16T16:17:47.231Z",
+  "crawled": 75,
+  "missing_description": 73,
+  "cause": "New public runtime directories were root-owned mode0700. Native root CLI could read files, HTTP worker could not. Fixed only four release-created directories to0755/www-data; release creator corrected.",
+  "status": "superseded by permissions-repair.json and final public-crawl.json"
+}

@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-15T14:25:51.966961+00:00",
+  "scope": "Actual public provider sandbox, standalone protocol only; no Woo/ERP checkout",
+  "results": [
+    {
+      "http": 200,
+      "data": {
+        "authority": "S00000000000000000000000000000pze7zz",
+        "fee": 1000,
+        "fee_type": "Merchant",
+        "code": 100,
+        "message": "Success"
+      },
+      "errors": []
+    }
+  ],
+  "authority": "S00000000000000000000000000000pze7zz",
+  "merchant_test_uuid": "e6374c3a-e0f0-553f-ae81-32734b0bc0a8"
+}

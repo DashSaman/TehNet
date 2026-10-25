@@ -1,0 +1,12 @@
+{
+  "package": "@google/model-viewer",
+  "version": "4.4.0",
+  "source": "https://registry.npmjs.org/@google/model-viewer/-/model-viewer-4.4.0.tgz",
+  "tarball_sha512": "f33d52079b0f9732a86a4e66771fc3df56eb05a90f626dd08b7d447c0b9c1c052bb6b1c709b69bca990abd2c11798854a4f6b1c89e3aa13e3bb9613f86bb3567",
+  "license": "Apache-2.0",
+  "local_only": true,
+  "files": {
+    "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "model-viewer.min.js": "18b2e711035aa4705ee281530a55dc2338ff05eed3d70ae16d54105282a75ed5"
+  }
+}

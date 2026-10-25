@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "scope": "Local educational GLB; actual headless mouse/touch input, not physical mobile hardware",
+  "checks": [
+    "ordinary URL retains real-photo default",
+    "prominent 360 button opens interactive GLB",
+    "gesture instructions visible",
+    "automatic motion disabled under reduced-motion preference",
+    "zoom-in button increases actual model projection size",
+    "zoom-out button decreases actual model projection size",
+    "left-button drag rotates actual 3D camera",
+    "right-button drag pans actual camera target",
+    "home restores angle and pan target",
+    "home restores fitted zoom",
+    "fullscreen keeps visible toolbar and accurate state",
+    "fullscreen enlarges actual model canvas",
+    "fullscreen exits through its own control",
+    "direct 3D URL opens interactive panel",
+    "explicit interactive canvas receives touch gestures",
+    "one-finger touch drag rotates actual model",
+    "two-finger pinch zoom changes actual model projection size",
+    "two-finger translation pans actual model target",
+    "mobile toolbar has no horizontal overflow",
+    "automatic rotation starts only after opt-in",
+    "automatic rotation changes native model turntable yaw",
+    "stop button disables native automatic rotation",
+    "switching to photo stops hidden motion",
+    "live reduced-motion preference stops automatic rotation",
+    "home clears automatic turntable rotation",
+    "no JavaScript errors across desktop and touch contexts"
+  ],
+  "js_errors": []
+}

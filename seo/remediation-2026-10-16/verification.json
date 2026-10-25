@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "utc": "2026-10-16T19:58:17.108194+00:00",
+  "scope": "Fresh local tests and latest runtime hash reconciliation; recorded70-page crawl, native release invariants and production browser receipts (their own dates apply). No real payment/order/router test or genuine product360 asserted.",
+  "latest_runtime_receipt": "qa\\shop-ux-2026-10-16\\release.json",
+  "local_contracts": [
+    {
+      "command": "search-metadata-test.php",
+      "exit_code": 0,
+      "output": "PASS homepage description exactly once\nPASS homepage description is meaningful Persian\nPASS title canonical robots owners untouched\nPASS no organization or fabricated rich-result types\nPASS no outgoing script or tracking\nPASS Open Graph URL and locale\nPASS manual excerpt takes priority\nPASS HTML and attributes escaped\nPASS Unicode truncation remains valid and bounded\nPASS invalid UTF8 safely omitted\nPASS skip admin\nPASS skip feed\nPASS skip 404\nPASS skip search\nPASS skip preview\nPASS skip unpublished object\nPASS skip password protected even with cookie\nPASS no interference with product metadata\nPASS null queried object safely ignored\nPASS external SEO owner wins\nPASS no guessed description for unknown empty page\nPASS future pages work with explicit excerpt\nPASS sample page is not promoted\nPASS blog pagination Open Graph matches page URL\nPASS full route keyed not leaf slug\nPASS existing profile description not duplicated\nPASS valid ProfilePage and Person\nPASS stable profile identity\nPASS no private telephone or brand social impersonation\nPASS profile description available without legacy theme callback\nPASS renamed page does not get false Person schema\nPASS render does not write state\nPASS registered only front-end head hook\nPASS public product gets editable description without fake offers\nPASS product social image uses native full-size image dimensions\nPASS private product metadata remains hidden\nPASS blog category gets one missing canonical and description\nPASS category pagination canonical points to its own page\nPASS Woo product category canonical owner remains unchanged\nPASS visible editorial note permits truthful Article dates\nPASS article author does not expose account email or phone\nPASS article attribution is not invented for unmarked content\nPASS Woo shop archive gets description without duplicate canonical\nCHECKS=43 FAILURES=0"
+    },
+    {
+      "command": "product-evidence-unit.php",
+      "exit_code": 0,
+      "output": "PASS self-contained synthetic GLB accepted\nPASS external rejected\nPASS relative rejected\nPASS decoder rejected\nPASS nested-decoder rejected\nPASS no-mesh rejected\nPASS invalid binary rejected\nPASS nonce failure writes nothing\nPASS capability failure writes nothing\nPASS exact reviewed identity and local model approved\nPASS approved model can render\nPASS documented parts bound to exact model SHA and MPN\nPASS Persian quotes and backslashes survive WordPress request and metadata unslashing\nPASS parts mpn mismatch rejected\nPASS parts animation mismatch rejected\nPASS parts node mismatch rejected\nPASS parts source mismatch rejected\nPASS parts unit mismatch rejected\nPASS parts value mismatch rejected\nPASS parts html mismatch rejected\nPASS parts target mismatch rejected\nPASS parts duplicate mismatch rejected\nPASS parts are hidden without separate documentary approval\nPASS foreign product attachment blocked at render\nPASS model identity mismatch blocked\nPASS replaced model hash blocked\nPASS literal approval required\nPASS identity source requires HTTPS\nPASS twelve distinct owned frames can be reviewed\nPASS identical file hashes cannot fake distinct frames\nPASS no commercial or source fields written\nPRODUCT_EVIDENCE_CONTRACTS=31 PASSED"
+    },
+    {
+      "command": "technical-resources-unit.php",
+      "exit_code": 0,
+      "output": "MTU_CONTRACTS=11 PASSED"
+    },
+    {
+      "command": "product-photos-unit.php",
+      "exit_code": 0,
+      "output": "PASS media-empty fixture keeps clearly labelled fallback\nPASS native photograph preserved with website overlay\nPASS native photo never replaced by generic art\nPASS photo product never presents schematic as 360\nPASS one photo does not produce a spin\nPASS two views do not claim 360\nPASS unreviewed frames rejected\nPASS reviewed same-product photo sequence accepted\nPASS reviewed photos use genuine frame viewer\nPASS another product attachment rejected\nPASS duplicate frames cannot fake a 360 sequence\nPASS unmarked native product preserved\nPASS future approved native photo supports website overlay without imported-source IDs\nPASS future approved native gallery supports website overlay without imported-source IDs\nPASS photo-only product loads no schematic module\nPASS enqueue resolves queried product before the Woo loop\nPASS reviewed sequence selects photo loader only\nPASS future native Woo product supports reviewed spin without imported-source IDs\nPASS future native product renders reviewed sequence\nPASS approved future spin does not depend on a thumbnail or gallery assignment\nPASS missing photo sequence rights fail closed\nPASS unreviewed identity fails closed\nPASS native gallery gets website overlay\nPHOTO_CONTRACTS=23 PASSED"
+    },
+    {
+      "command": "technical-resources-python.py",
+      "exit_code": 0,
+      "output": "test_invalid_inputs (__main__.MTU.test_invalid_inputs) ... ok\ntest_standard_paths (__main__.MTU.test_standard_paths) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.000s\n\nOK"
+    }
+  ],
+  "public_unique_successful_pages": 70,
+  "published_items": 55,
+  "products": 25,
+  "unique_product_bodies": 25,
+  "unique_product_titles": 25,
+  "single_description_og_h1_canonical": 70,
+  "noindex_preserved_pages": 70,
+  "main_home_menu_product_meta_orders_gates_preserved": true,
+  "browser_checks": 25,
+  "synthetic_renderer_checks": 19,
+  "real_product_models": 0,
+  "real_product_spin_sequences": 0,
+  "limitations": [
+    "GSC/Ahrefs plan access remains unavailable",
+    "Product physical identity and exact-model licensed360 media unverified",
+    "Index activation awaits separate launch approval",
+    "No new live ERP/payment or full local Docker stack test",
+    "Public full renderer download attempt aborted after HTTP200; HEAD200, native file SHA and actual synthetic local rendering verified"
+  ]
+}

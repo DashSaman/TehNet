@@ -1,5 +1,15 @@
 # TehNet Roadmap
 
+## Continuation proposal — 2026-10-13 / نقشه راه پیشنهادی ادامه
+
+Read [the Persian continuation roadmap with English handoff](docs/roadmaps/2026-10-13-site-continuation.fa.md) alongside the current `HANDOFF.md`.
+
+**FA:** پیشنهاد جدید، تثبیت نسخه زنده → تکمیل سئو/محتوا → ثبت درخواست قابل پیگیری → لانچ محدود صفحات آماده → رشد محتوایی → حساب/پیش‌فاکتور/تیکت → فروش دیجیتال و اتوماسیون است. لانچ آموزش و خدمات لازم نیست منتظر تکمیل LMS یا تمام امکانات تجارت باشد؛ اما بازکردن ایندکس همچنان به آزمون‌های لازم و تأیید صریح نیاز دارد. این سند پیشنهاد برنامه‌ریزی است، نه مجوز انتشار، تغییر Production یا ادغام شاخه. نقشه راه اولیه برای حفظ پیشینه در ادامه باقی مانده است.
+
+**EN:** The proposal moves a qualified education/service launch ahead of the full commerce/LMS build while preserving its long-term scope. Existing visual work is not rebuilt. Future features, production writes, branch integration and indexing still require their applicable review/authorization gates. Keep prepared, deployed and live-verified work distinct.
+
+## Original platform roadmap / نقشه راه اولیه پلتفرم
+
 ## Phase 0 — Foundation and safety
 - Validate current TehNet Docker/WordPress/MariaDB/Redis baseline.
 - Capture backup/recovery procedure.
