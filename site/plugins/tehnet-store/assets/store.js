@@ -42,11 +42,26 @@
       const head=document.createElement('tr'),corner=document.createElement('th');corner.textContent='مشخصه';corner.scope='col';head.append(corner);
       for(const item of lists[kind]){const cell=document.createElement('th');cell.scope='col';cell.textContent=item.name;head.append(cell);}const thead=document.createElement('thead');thead.append(head);table.append(thead);
       const body=document.createElement('tbody');
-      for(const [label,value] of [['واحد فروش',p=>p.unit],['حداقل مقدار',p=>p.minimum],['شیلد',p=>p.specs?.shield],['روکش',p=>p.specs?.jacket],['محیط نصب',p=>p.specs?.environment]]){
+      const fa=n=>Number(n).toLocaleString('fa-IR');
+      for(const [label,value] of [['قیمت',p=>p.price_irr>0?fa(p.price_irr)+' ریال':'نیازمند استعلام'],['واحد فروش',p=>p.unit],['حداقل مقدار',p=>p.minimum],['شیلد',p=>p.specs?.shield],['روکش',p=>p.specs?.jacket],['محیط نصب',p=>p.specs?.environment]]){
         const row=document.createElement('tr'),name=document.createElement('th');name.scope='row';name.textContent=label;row.append(name);
         for(const item of lists[kind]){const cell=document.createElement('td');cell.textContent=value(item)||'تأیید نشده';row.append(cell);}body.append(row);
       }
       table.append(body);wrap.append(table);container.append(wrap);
+      const declaredKeys=[];for(const item of lists[kind]){for(const key of Object.keys(item.source_specs||{})){if(!declaredKeys.includes(key))declaredKeys.push(key);}}
+      if(declaredKeys.length){
+        const dwrap=document.createElement('div');dwrap.className='tn-comparison-table';dwrap.tabIndex=0;dwrap.setAttribute('role','region');dwrap.setAttribute('aria-label','جدول مشخصات اعلام‌شدهٔ منبع');
+        const dtable=document.createElement('table'),dcaption=document.createElement('caption');dcaption.textContent='اعلام فروشندهٔ منبع؛ توسط تهران نتورک تأیید نشده و مبنای انتخاب نهایی نیست.';dtable.append(dcaption);
+        const dhead=document.createElement('tr'),dcorner=document.createElement('th');dcorner.textContent='مشخصه (اعلام منبع)';dcorner.scope='col';dhead.append(dcorner);
+        for(const item of lists[kind]){const cell=document.createElement('th');cell.scope='col';cell.textContent=item.name;dhead.append(cell);}
+        const dthead=document.createElement('thead');dthead.append(dhead);dtable.append(dthead);
+        const dbody=document.createElement('tbody');
+        for(const key of declaredKeys.slice(0,10)){
+          const row=document.createElement('tr'),name=document.createElement('th');name.scope='row';name.textContent=key;row.append(name);
+          for(const item of lists[kind]){const cell=document.createElement('td');cell.textContent=item.source_specs?.[key]||'—';row.append(cell);}dbody.append(row);
+        }
+        dtable.append(dbody);dwrap.append(dtable);container.append(dwrap);
+      }
     }
     if (!dialog.open) dialog.showModal();
   }
