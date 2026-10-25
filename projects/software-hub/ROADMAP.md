@@ -1,10 +1,12 @@
 # TehNet Software Archive implementation roadmap
 
+> Status navigation,25October2026: start with [AGENT_HANDOFF](AGENT_HANDOFF.md). Scoped offline/automatic-refresh/provider tasks and the completed finite watch have later acceptance evidence; base W4/W6 plans are not globally complete. Last live verification in this conversation is21October, not today's documentation update.
+
 > Current owner override (2026-10-17): no downloadable payloads on the website VPS. [ADR 0002](decisions/0002-external-payload-storage.md) supersedes historical local-CAS requirements. The engine keeps metadata only, redirects approved public downloads externally, and refuses private redirects. W2/W3/external-W5 engine is active after accepted same-host recovery/code rollback (2026-10-18); owner password setup, external private delivery, provider and Iran migration acceptance remain separate gates. See [external storage](EXTERNAL_STORAGE.md) and [engine operations](deployment/ENGINE_OPERATIONS.md).
 
 **Goal:** consolidate research and build an independently operable offline-continuity service under TehNet without disrupting its current site.
 
-Current provider acceptance is limited to the [three-file live public mirror pilot](evidence/LIVE_MIRRORS.md), with [bounded refresh](deployment/PUBLIC_MIRRORS.md). [Rubika tooling](deployment/RUBIKA_PILOT.md) is prepared, but actual credential/upload/retention/private-delivery acceptance remains open. Research source rows do not inherit pilot approval.
+The [three-file public mirror pilot](evidence/LIVE_MIRRORS.md) is an earlier checkpoint, followed by the [eleven-file catalog](evidence/CATALOG_EXPANSION.md), [bounded offline profile](evidence/OFFLINE_DEVTOOLS.md) and [exact-generation automatic qualification](deployment/PROVIDER_AUTO.md). [Final21October evidence](evidence/OFFLINE_WATCH_FINAL_20261021.md) records three accepted publications and each source's separate result; only current-generation pass may activate a source. [Rubika tooling](deployment/RUBIKA_PILOT.md) is prepared, but actual upload/retention/private-delivery acceptance remains open. Research source rows do not inherit these scoped approvals.
 
 **Architecture:** an isolated engine active under `/software/`, preserving the WordPress/Core boundary, with small local metadata/auth state, externally placed artifacts and explicit restricted access.
 

@@ -1,5 +1,7 @@
 # Independently owned workstreams
 
+> For completed scoped work and remaining gates, first read [AGENT_HANDOFF](AGENT_HANDOFF.md), consolidated25October2026 from evidence through21October. This file defines ownership/dependencies, not a replacement for later task records or evidence of current live status.
+
 > Current owner override (2026-10-17): no downloadable payloads on the website VPS. [ADR 0002](decisions/0002-external-payload-storage.md) supersedes historical local-CAS requirements. The engine keeps metadata only, redirects approved public downloads externally, and refuses private redirects. W2/W3/external-W5 engine is active after accepted same-host recovery/code rollback (2026-10-18); owner password setup, external private delivery, provider and Iran migration acceptance remain separate gates. See [external storage](EXTERNAL_STORAGE.md) and [engine operations](deployment/ENGINE_OPERATIONS.md).
 
 These are work packages, **not agents already launched or tasks already implemented**. One owner per row; manager assigns names when work begins. Follow the user's limit of at most one focused assistant per request; parallelism in this plan does not authorize uncontrolled spawning or external coding CLIs. Different humans/sessions can claim disjoint tasks without overlapping edits.

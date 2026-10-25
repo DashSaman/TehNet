@@ -586,3 +586,14 @@ No source/config/site/container/unit/auth/payload change or forced collector/ref
 ## 2026-10-21T20:30:16.849042Z - finite watch and its existing follow-up retired
 
 Final report was registered and pushed at 750513c35f30dfe79f37cd1a59857ec3a088664f before retirement. Only the already completed finite watch timer was disabled; it is inactive/disabled. Existing automation-4 deleted through the native automation tool, with local configuration absence verified. Both long-lived offline-refresh/provider-auto timers remain enabled/active after the operation. All99original samples, completed record/configuration, budgets and status retain identical bytes;42watch errors/two deferrals and all source failures/intents remain. No new collector, refresh, lab, payload, window or follow-up. No source, website, container, unit definition, authentication or private-data changes. Final class completed_with_incidents; current Arvan/Liara/Hamravesh active and LinuxMirrors inactive for the exact current generation. Public retirement receipt:evidence/OFFLINE_WATCH_RETIREMENT_20261021.json; final report updated with actual retirement. Raw evidence stays private. Closing scope/privacy/provenance/ref checks precede the same authorized branch push; main unmerged.
+
+
+## 2026-10-25T13:38:02Z - consolidated software-archive agent handoff
+
+- Owner: Codex integrator; one focused read-only documentation mapping assistant, no additional execution workers.
+- Scope: completed-work summary and evidence index, corrected entry summaries, safe continuation/ownership rules, mandatory post-task logs, and append-only root coordination notes.
+- Entry: [AGENT_HANDOFF](projects/software-hub/AGENT_HANDOFF.md); [task with checks/publication state](projects/software-hub/tasks/DOCS-AGENT-HANDOFF-20261025.md).
+- Next agent: claim a specific outstanding task after reading the guide and original evidence; do not restart the retired finite watch. Missing original catalog, real Rubika/private delivery and real cross-host Iran migration are not accepted by scoped offline success.
+- Production/runtime/data and original research/evidence are outside this documentation task. Publish only the reviewed Markdown allowlist to the existing authorized review branch; no main merge or raw evidence export.
+
+Documentation gate,2026-10-25T13:41:07Z: PASS for22 original blobs/189734bytes and643 local hub links; PASS for the12-Markdown-path allowlist, five retained historical prefixes,170 changed-document links, added-text privacy patterns and preserved final-report counts/gaps. Whitespace check passes. This is documentation verification only, with zero application/research/evidence/runtime changes; see the handoff task for exact commands and limitations.
