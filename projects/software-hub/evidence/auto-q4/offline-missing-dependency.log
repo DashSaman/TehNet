@@ -1,0 +1,16 @@
+Frozen Ubuntu package snapshot: 2026-10-18T17:47:32.988040+00:00
+The kit proves the recorded versions, not future security freshness.
+Get:1 file:/kit/repo noble InRelease [256 kB]
+Get:1 file:/kit/repo noble InRelease [256 kB]
+Get:2 file:/kit/repo noble-updates InRelease [126 kB]
+Get:3 file:/kit/repo noble-security InRelease [126 kB]
+Get:2 file:/kit/repo noble-updates InRelease [126 kB]
+Get:3 file:/kit/repo noble-security InRelease [126 kB]
+Get:4 file:/kit/repo noble/main amd64 Packages [1401 kB]
+Get:5 file:/kit/repo noble/universe amd64 Packages [15.0 MB]
+Get:6 file:/kit/repo noble-updates/main amd64 Packages [1397 kB]
+Get:7 file:/kit/repo noble-updates/universe amd64 Packages [1704 kB]
+Get:8 file:/kit/repo noble-security/main amd64 Packages [1144 kB]
+Get:9 file:/kit/repo noble-security/universe amd64 Packages [1222 kB]
+Reading package lists...
+W: Download is performed unsandboxed as root as file '/tmp/tehnet-offline-apt.gIZpyM/lists/partial/_kit_repo_dists_noble_InRelease' couldn't be accessed by user '_apt'. - pkgAcquire::Run (13: Permission denied)

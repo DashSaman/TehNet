@@ -1,0 +1,47 @@
+# 48h observation — setup accepted,real window ongoing
+
+## 19October15:44UTC heartbeat
+
+[Existing recorded state and read-only native checks](watch-heartbeat-20261019-1540/read-only-state.json):six native healthy samples through15:19:49UTC,zero failed samples/new in-window publications,no native producer events since original start,completed.json absent. The original19October13:39:28–21October13:39:28UTC window remains ongoing. Producer timer enabled/active,next18:21:14UTC;watch timer enabled/active with monotonic next event. No collector/refresh was forced and no extra health sample was invented.
+
+A manual inventory guard found the owner's independently deployed,healthy TunnelPannel commercial-console release. [Diagnosis](watch-heartbeat-20261019-1540/diagnosis.json),[exact baseline transition](watch-heartbeat-20261019-1540/baseline-transition.json):only its external container fingerprint reconciled under both locks after checking the owner request/current deployment confirmation,GitHub source ref,immutable nginx image,read-only mounts and health. All other config fields,protected hashes,source hashes,original dates,samples/events and budgets preserved;private backup stayed on server. No website/container/code mutation or offline-publisher failure. No original failed observation was removed.
+
+[Independent public20checks and four published hashes](watch-heartbeat-20261019-1540/public-http.json) and [main/private acceptance](watch-heartbeat-20261019-1540/public-main-privacy.json) passed. Current software engine4645434d is healthy/read-only;post-transition inventory/protected hashes pass. Same accepted433c8629profile,not a new publication or new installation/GPG run. Zero payload requests;watcher/producer source and schedules unchanged. Documentation/sanitized receipts only;existing unit suites not rerun for this metadata reconciliation. Continue original48h observation and verify the next natural in-window publication;do not reset ledgers/window or replay completed provider tests.
+
+Latest19October post-deployment observation: [source-status release](SOURCE_STATUS.md), [fourth stored sample and fresh revalidation](source-status/watch-postcheck.json). Current engine changed with explicit owner authority; original deadline/history/producer preserved. The14:19UTC scheduled sample was healthy. No new offline profile or completed48h result is claimed.
+
+Predecessor `cdb01c02b4e1e1af77c4c2aa6dcde9bbae20dfbf`; [task](../tasks/W4-OFFLINE-WATCH-48H.md), [operation](../deployment/OFFLINE_WATCH.md), [stage ledger](OFFLINE_WATCH_LEDGER.md).
+
+Window **2026-10-19T13:39:28.226058Z through2026-10-21T13:39:28.226058Z**. The latter is21October17:09:28 Tehran. Initial state is `observing`,not48h complete. [Activation](watch-activation.json), [latest captured sample](watch-start/latest.json).
+
+## Already observed scheduled successor
+
+After the prior manual activation,the native refresh service started2026-10-19T06:23:20Z and published at06:26:39.147044Z (Tehran09:56). The new profile SHA256 is `433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca`. Stage events show signed discovery,independent builder,clean offline install,qualified and checked publication. Later12:20:53UTC timer check returned `not_due`; timer enabled/active,result0,today one192MiB reservation. [Sanitized native events](watch-start/pre-window-scheduled-events.json), [installed acceptance](watch-start/publication/offline-install-acceptance.json), [lab isolation](watch-start/publication/lab-state.json), [publication receipt](watch-start/publication/publication.json), [current signed profile](watch-start/publication/profile.json).
+
+This real scheduled successor predates the fresh monitoring window and is **not** counted as its required in-window new publication. The old failure timestamp18October17:39 precedes the new successful acceptance and is not a fresh failure. No producer repair was justified by initial evidence; no forced refresh/quota reset or signature relaxation.
+
+## Setup validation
+
+- Policy TDD:4 initial expected assertion failures/1 partial-window pass; implementation5/5 passed. Tests reject early completion,old-only publication,coverage gaps,clock reversal and lost repaired incidents. Exact final Linux suite [168/168 passed29.130s](watch-v1-linux-tests.txt). [Windows](watch-windows-full-tests.txt):137passed/31Linux-specific skips,10.221s.
+- Exact hardened-unit QA [sample](watch-start/qa-latest.json) healthy; it uses separate QA state and does not count as real48h coverage.
+- Real initial and normal watch service executions produced2 healthy samples. Deadline/config remained byte-identical; producer unit files,daily budget and owned Nginx snippet remained byte-identical. [Activation](watch-activation.json), [tested/installed watcher hashes](watch-runtime.json).
+- Server collector validates signatures and exact installed-candidate binding,main/private origin routes,producer/site/research/container preservation and no catalog payloads in the scanned tree. It fetches no package payloads and cannot open private engine DBs. Finite bounds,history and outcome classifications are described in the runbook.
+- One current-thread2h heartbeat created and verified active. Two rejected schedule forms created no automation; the successful form has a finite occurrence limit and explicit deadline/stop instructions. Do not equate its creation with observed future runs. Server sampling is independent of desktop availability.
+
+[Independent public HTTPS](watch-public-http.json):20 checks and all4 complete public hashes pass; [main/private checks](watch-public-main-privacy.json) pass. [Server audit](watch-final-live-state.json) verifies original5stateDB paths,unchanged site/auth/restricted/research/container/runtime/operator fingerprints,original11-file30min timer and no catalog payloads in scanned software trees/no laboratory mounts. The110 old hash-locked application build/rollback wheels20523643bytes remain unchanged. [Follow-up setup](watch-followup.json) exports no personal automation/thread identifier. Provenance/link check:22 blobs/189734bytes and400 links passed before final README links; final link count is recorded in task/ledger.
+
+Future half-hour samples,scheduled successor inside the window,incident repair if needed,and real48h terminal coverage remain pending. No host reboot,bootedVM,Iran access,outage independence or new migration measurement is claimed.
+
+## Observer-only correction before terminal acceptance
+
+Self-review found deferred lock samples were incorrectly filling health-coverage gaps. A new test with healthy endpoints and95deferred samples reproduced false `completed_pass`; the corrected computation uses only actual nondeferred observations. [Final Linux169/169,27.889s](watch-v2-linux-tests.txt); final Windows138passed/31Linux-specific skips9.899s; six policy tests pass. This was a synthetic observer accounting defect,not a producer failure or an actual lost48h observation.
+
+Exact hardened v2 QA passed; [live upgrade](watch-upgrade-v2.json) preserved the original entire config,start/deadline and both previous sample hashes. It produced the third healthy real sample and changed only the watcher service/code. Producer units,budget and owned snippet remained unchanged. [Current four installed/tested hashes](watch-runtime.json); [v1 identity](watch-runtime-v1.json) remains historical. No window reset or forced refresh. Current phase remains `observing`; no in-window successor is claimed yet.
+
+## Follow-up19October14:01UTC — unchanged publication, fresh verification
+
+[Independent read-only revalidation](watch-followup-20261019-1358/revalidation.json) passed original signed releases, exact candidate/install-proof binding, origin bytes and preserved producer/site/container checks. The published profile is still `433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca`, accepted06:26:39UTC (Tehran09:56); no newer version or current producer error was found. Its saved clean Ubuntu Base24.04.5 amd64 acceptance covers58packages,8functional tools and4negative cases. Installation was not rerun during this read-only follow-up.
+
+At14:01:16UTC the window had elapsed0.3635hours:3stored healthy samples,0failed,0new in-window publications and no producer events since the original start. A first manual attempt met the scheduled mirror worker's lock; retry was healthy. Manual attempts do not count as scheduled watch samples, and production observation state remained unchanged. Next producer trigger18:23:39UTC is expected to remain below the12h qualification threshold; next eligible calendar check is around20October00:20–00:25UTC, subject to successful qualification. Original deadline21October13:39:28UTC remains; actual48h completion is pending.
+
+[Public HTTPS20checks and full hashes](watch-followup-20261019-1358/public-http.json), [main/private routes](watch-followup-20261019-1358/public-main-privacy.json), [storage/site audit](watch-followup-20261019-1358/storage-site-state.json) and [watch source/units/schedule configuration](watch-followup-20261019-1358/sources-schedule.json) passed. Zero catalog payloads in scanned software trees; existing110locked application build wheels retained. No production change, forced refresh, schedule reset, new installation, code repair or expanded acceptance claim. Rubika remains disabled without a token. Existing unit suites were not rerun because only evidence/coordination documents changed.

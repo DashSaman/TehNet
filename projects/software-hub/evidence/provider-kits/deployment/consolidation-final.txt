@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "source_blobs_verified": 22,
+  "copied_bytes": 189734,
+  "local_markdown_links_checked": 476,
+  "existing_site_files_changed": 0,
+  "authorized_new_menu_scripts": [
+    "ops/lib/software-menu.php",
+    "ops/software-menu.php",
+    "tests/software-menu-logic.php"
+  ],
+  "root_docs_append_only": [
+    "HANDOFF.md",
+    "PROGRESS.md",
+    "README.md",
+    "TASKS.md"
+  ]
+}
+warning: in the working copy of 'HANDOFF.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'PROGRESS.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TASKS.md', LF will be replaced by CRLF the next time Git touches it

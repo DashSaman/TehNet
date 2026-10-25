@@ -1,0 +1,324 @@
+{
+  "source_repository": "DashSaman/melika",
+  "source_ref": "d77dd9db570b972e41b55a92c08716055009f994",
+  "source_path": "Linux/MIRROR_SOURCES.yaml",
+  "source_sha256": "2d92247423bac0ba1ae0cfcc8528d31d44d0192098eb8b720a873567c22c7502",
+  "status": "research_only_not_operational",
+  "sources": [
+    {
+      "id": "arvan-ubuntu",
+      "provider": "ArvanCloud",
+      "ecosystem": "apt",
+      "evidence_status": "DOCUMENTED",
+      "evidence_urls": [
+        "https://www.arvancloud.ir/fa/dev/linux-repository"
+      ],
+      "coverage": [
+        "ubuntu-jammy",
+        "ubuntu-noble",
+        "ubuntu-resolute"
+      ]
+    },
+    {
+      "id": "iranserver-ubuntu",
+      "provider": "IranServer",
+      "ecosystem": "apt",
+      "evidence_status": "DOCUMENTED",
+      "evidence_urls": [
+        "https://mirror.iranserver.com/"
+      ],
+      "coverage": [
+        "ubuntu-jammy",
+        "ubuntu-noble",
+        "ubuntu-resolute"
+      ]
+    },
+    {
+      "id": "mobinhost-ubuntu",
+      "provider": "MobinHost",
+      "ecosystem": "apt",
+      "evidence_status": "DOCUMENTED",
+      "evidence_urls": [
+        "https://mirror.mobinhost.com/"
+      ],
+      "coverage": [
+        "ubuntu"
+      ]
+    },
+    {
+      "id": "iut-ubuntu",
+      "provider": "Isfahan University of Technology",
+      "ecosystem": "apt",
+      "evidence_status": "DOCUMENTED",
+      "evidence_urls": [
+        "https://repo.iut.ac.ir/repo/"
+      ],
+      "coverage": [
+        "ubuntu"
+      ]
+    },
+    {
+      "id": "shatel-debian",
+      "provider": "Shatel",
+      "ecosystem": "apt",
+      "evidence_status": "DOCUMENTED",
+      "evidence_urls": [
+        "https://mirror.shatel.ir/"
+      ],
+      "coverage": [
+        "debian",
+        "debian-security"
+      ]
+    },
+    {
+      "id": "linuxmirrors-ubuntu",
+      "provider": "LinuxMirrors.ir",
+      "ecosystem": "apt",
+      "evidence_status": "DOCUMENTED",
+      "evidence_urls": [
+        "https://repo.linuxmirrors.ir/ubuntu/",
+        "https://launchpad.net/ubuntu/+archivemirrors"
+      ],
+      "coverage": [
+        "ubuntu"
+      ]
+    },
+    {
+      "id": "liara-ubuntu",
+      "provider": "Liara",
+      "ecosystem": "apt",
+      "evidence_status": "DOCUMENTED",
+      "evidence_urls": [
+        "https://docs.liara.ir/mirrors/ubuntu/"
+      ],
+      "coverage": [
+        "ubuntu",
+        "ubuntu-security"
+      ]
+    },
+    {
+      "id": "chabokan-portal",
+      "provider": "Chabokan",
+      "ecosystem": "catalog",
+      "evidence_status": "DOCUMENTED",
+      "evidence_urls": [
+        "https://mirror2.chabokan.net/"
+      ],
+      "coverage": [
+        "ubuntu",
+        "debian",
+        "pypi",
+        "npm",
+        "docker",
+        "composer",
+        "nuget",
+        "wordpress"
+      ]
+    },
+    {
+      "id": "runflare-portal",
+      "provider": "Runflare",
+      "ecosystem": "catalog",
+      "evidence_status": "DOCUMENTED",
+      "evidence_urls": [
+        "https://runflare.com/mirrors/"
+      ],
+      "coverage": [
+        "developer-packages"
+      ]
+    },
+    {
+      "id": "myket-portal",
+      "provider": "Myket",
+      "ecosystem": "catalog",
+      "evidence_status": "DOCUMENTED",
+      "evidence_urls": [
+        "https://maven.myket.ir/",
+        "https://maven.myket.ir/services/maven.html"
+      ],
+      "coverage": [
+        "maven",
+        "gradle",
+        "android-sdk",
+        "flutter"
+      ]
+    },
+    {
+      "id": "hamravesh-ubuntu",
+      "provider": "Hamravesh",
+      "ecosystem": "apt",
+      "evidence_status": "DOCUMENTED",
+      "evidence_urls": [
+        "https://hamravesh.com/blog/container-registry-mirroring-and-caching/"
+      ],
+      "coverage": [
+        "ubuntu"
+      ]
+    },
+    {
+      "id": "hamdocker-hub",
+      "provider": "Hamravesh",
+      "ecosystem": "oci",
+      "evidence_status": "DOCUMENTED",
+      "evidence_urls": [
+        "https://hamravesh.com/blog/container-registry-mirroring-and-caching/"
+      ],
+      "coverage": [
+        "dockerhub"
+      ]
+    },
+    {
+      "id": "oneplatform-portal",
+      "provider": "1Platform",
+      "ecosystem": "catalog",
+      "evidence_status": "DOCUMENTED",
+      "evidence_urls": [
+        "https://mirror.1platform.net/"
+      ],
+      "coverage": [
+        "linux",
+        "developer-packages"
+      ]
+    },
+    {
+      "id": "aminidc-candidate",
+      "provider": "AminIDC",
+      "ecosystem": "discovery",
+      "evidence_status": "UNVERIFIED",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/MiravaOrg/Mirava/main/mirrors_list.yaml"
+      ],
+      "coverage": []
+    },
+    {
+      "id": "kubarcloud-candidate",
+      "provider": "KubarCloud",
+      "ecosystem": "discovery",
+      "evidence_status": "UNVERIFIED",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/MiravaOrg/Mirava/main/mirrors_list.yaml"
+      ],
+      "coverage": []
+    },
+    {
+      "id": "ito-portal-candidate",
+      "provider": "ITO",
+      "ecosystem": "discovery",
+      "evidence_status": "UNVERIFIED",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/MiravaOrg/Mirava/main/mirrors_list.yaml"
+      ],
+      "coverage": []
+    },
+    {
+      "id": "ito-repo-candidate",
+      "provider": "ITO",
+      "ecosystem": "discovery",
+      "evidence_status": "UNVERIFIED",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/MiravaOrg/Mirava/main/mirrors_list.yaml"
+      ],
+      "coverage": []
+    },
+    {
+      "id": "pardis-candidate",
+      "provider": "Pardis",
+      "ecosystem": "discovery",
+      "evidence_status": "UNVERIFIED",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/MiravaOrg/Mirava/main/mirrors_list.yaml"
+      ],
+      "coverage": []
+    },
+    {
+      "id": "afranet-candidate",
+      "provider": "Afranet",
+      "ecosystem": "discovery",
+      "evidence_status": "UNVERIFIED",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/MiravaOrg/Mirava/main/mirrors_list.yaml"
+      ],
+      "coverage": []
+    },
+    {
+      "id": "pishgaman-candidate",
+      "provider": "Pishgaman",
+      "ecosystem": "discovery",
+      "evidence_status": "UNVERIFIED",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/MiravaOrg/Mirava/main/mirrors_list.yaml"
+      ],
+      "coverage": []
+    },
+    {
+      "id": "ferdowsi-cran-candidate",
+      "provider": "Ferdowsi University",
+      "ecosystem": "discovery",
+      "evidence_status": "UNVERIFIED",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/MiravaOrg/Mirava/main/mirrors_list.yaml"
+      ],
+      "coverage": []
+    },
+    {
+      "id": "zeroone-candidate",
+      "provider": "0-1 Cloud",
+      "ecosystem": "discovery",
+      "evidence_status": "UNVERIFIED",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/MiravaOrg/Mirava/main/mirrors_list.yaml"
+      ],
+      "coverage": []
+    },
+    {
+      "id": "kimiahost-candidate",
+      "provider": "KimiaHost",
+      "ecosystem": "discovery",
+      "evidence_status": "UNVERIFIED",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/MiravaOrg/Mirava/main/mirrors_list.yaml"
+      ],
+      "coverage": []
+    },
+    {
+      "id": "digitalvps-candidate",
+      "provider": "DigitalVPS",
+      "ecosystem": "discovery",
+      "evidence_status": "UNVERIFIED",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/MiravaOrg/Mirava/main/mirrors_list.yaml"
+      ],
+      "coverage": []
+    },
+    {
+      "id": "sindad-candidate",
+      "provider": "Sindad",
+      "ecosystem": "discovery",
+      "evidence_status": "UNVERIFIED",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/MiravaOrg/Mirava/main/mirrors_list.yaml"
+      ],
+      "coverage": []
+    },
+    {
+      "id": "faraso-candidate",
+      "provider": "Faraso",
+      "ecosystem": "discovery",
+      "evidence_status": "UNVERIFIED",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/MiravaOrg/Mirava/main/mirrors_list.yaml"
+      ],
+      "coverage": []
+    },
+    {
+      "id": "parsdev-candidate",
+      "provider": "Parsdev",
+      "ecosystem": "discovery",
+      "evidence_status": "UNVERIFIED",
+      "evidence_urls": [
+        "https://raw.githubusercontent.com/MiravaOrg/Mirava/main/mirrors_list.yaml"
+      ],
+      "coverage": []
+    }
+  ]
+}

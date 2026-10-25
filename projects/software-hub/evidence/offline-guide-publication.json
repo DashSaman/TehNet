@@ -1,0 +1,44 @@
+{
+  "published_files_sha256": {
+    "index.html": "62c7e2547ff35d4ebedb7f9393d6676e3cfc5f0c9821afedfba5b2e1d738ee01",
+    "profile.json": "5088e4a875b7b9bb31884787629dde20ef8b6f38d08d5603f9a53ee07f8f3abb",
+    "offline_kit.py": "fd35d9874932bc35fa8ff026c8608c61ed86533fc46d9ac56d00387e710e0fc9",
+    "acceptance.json": "33082f67111238768469a20a0819a66fb575c55a46613a66edf0ffd06fcddcc5"
+  },
+  "backup": "/root/tehnet-backups/20261018-165701-offline-guide",
+  "owned_snippet_only": true,
+  "container_restart": false,
+  "software_payload_files": 0,
+  "tested_at_utc": "2026-10-18T16:57:03.817564+00:00",
+  "checks": {
+    "/software/offline/acceptance.json": {
+      "status": 200,
+      "sha256": "33082f67111238768469a20a0819a66fb575c55a46613a66edf0ffd06fcddcc5"
+    },
+    "/software/offline/": {
+      "status": 200,
+      "sha256": "62c7e2547ff35d4ebedb7f9393d6676e3cfc5f0c9821afedfba5b2e1d738ee01"
+    },
+    "/software/offline/offline_kit.py": {
+      "status": 200,
+      "sha256": "fd35d9874932bc35fa8ff026c8608c61ed86533fc46d9ac56d00387e710e0fc9"
+    },
+    "/software/offline/profile.json": {
+      "status": 200,
+      "sha256": "5088e4a875b7b9bb31884787629dde20ef8b6f38d08d5603f9a53ee07f8f3abb"
+    },
+    "/software/offline/private/fixture": {
+      "status": 404
+    },
+    "/software/offline/unknown": {
+      "status": 404
+    },
+    "/software/offline/archives/example.deb": {
+      "status": 404
+    }
+  },
+  "all_existing_containers_preserved": true,
+  "protected_site_auth_restricted_research_preserved": true,
+  "original_snippet_prefix_preserved": false,
+  "lab_mounts_cleaned": true
+}

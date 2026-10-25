@@ -1,0 +1,37 @@
+{
+  "tested_at_utc": "2026-10-18T14:05:34.543166+00:00",
+  "image": "sha256:ab4220407e6a35a6e3d4221b44f238f12b25b1081be4b03ce8a92276a60289fa",
+  "release": "/opt/tehnet-software/releases/engine-active-20261018",
+  "health": "healthy",
+  "read_only_root": true,
+  "mounts": {
+    "/data": {
+      "source": "/srv/tehnet-software/data",
+      "writable": false
+    },
+    "/metadata": {
+      "source": "/srv/tehnet-software/metadata",
+      "writable": false
+    },
+    "/auth": {
+      "source": "/srv/tehnet-software/auth",
+      "writable": true
+    }
+  },
+  "software_payload_files": 0,
+  "state_files": [
+    "auth/auth.sqlite",
+    "data/catalog.sqlite",
+    "metadata/public/external.sqlite",
+    "metadata/restricted/external.sqlite",
+    "ops/network.sqlite"
+  ],
+  "owner_password_configured": false,
+  "snippet_sha256": "69ee7f716d52f3aa41eb8cd35fe0d20bf7175f9de2f0c6fe582a6de106ac6ca5",
+  "private_logging_disabled": true,
+  "buffering_disabled": true,
+  "full_linux_tests": 111,
+  "rehearsal_seconds": 12,
+  "activation_seconds": 8,
+  "real_iran_migration_accepted": false
+}

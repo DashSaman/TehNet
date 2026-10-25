@@ -1,0 +1,16 @@
+{
+  "tested_at_utc": "2026-10-18T17:04:42.905970+00:00",
+  "result": "PASS",
+  "predecessor": "ffdabe8b6211dbb8abde99c08458a6d49074fee4",
+  "staged_paths": 65,
+  "site_code_changes": 0,
+  "root_notes_append_only": true,
+  "original_research_blobs_verified_in_index": 22,
+  "python_files_compiled": 11,
+  "accepted_profile_packages": 58,
+  "package_bytes": 32139756,
+  "staged_public_files_equal_actual_live_hashes": true,
+  "staged_duplicate_profile_and_client_code_equal": true,
+  "installer_matches_accepted_profile_and_helper_pin": true,
+  "credential_pattern_scan": "No matches; heuristic,not a full security review"
+}

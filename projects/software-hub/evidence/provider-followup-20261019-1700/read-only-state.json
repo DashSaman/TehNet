@@ -1,0 +1,156 @@
+{
+  "checked_at_utc": "2026-10-19T17:03:51.631675+00:00",
+  "current_profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+  "canonical_accepted_at": "2026-10-19T06:26:39.147044+00:00",
+  "packages": 58,
+  "original_signatures": [
+    {
+      "suite": "noble-security",
+      "inrelease_sha256": "33ca8278ebe6601a9234dcf4ae2474d6c1fa6aa8079776af32686ddbaf9f1add",
+      "original_signature_and_date": "pass"
+    },
+    {
+      "suite": "noble-updates",
+      "inrelease_sha256": "05c2c50a69e01a09541b744202c5267e5cdf0392f9cc5e3668f6771236c9ebd1",
+      "original_signature_and_date": "pass"
+    },
+    {
+      "suite": "noble",
+      "inrelease_sha256": "cdb2f31d809f589719a53c6ad15f255b27569c4059542ada282aaa21b8e164b0",
+      "original_signature_and_date": "pass"
+    }
+  ],
+  "canonical_exact_install_binding": "pass",
+  "provider_receipts": [
+    {
+      "provider": "arvan",
+      "outcome": "pass",
+      "exact_current_proof_sha256": "65f77242238d4b1f4fccd84a83f952abc3507b555e09647b6660e0f2bfbd1ac3",
+      "proof_and_complete_download_binding": "pass",
+      "accepted_at": "2026-10-19T16:29:04.186786+00:00"
+    },
+    {
+      "provider": "linuxmirrors",
+      "outcome": "pass",
+      "exact_current_proof_sha256": "91fd5977ab4b2f862255497be78801d7d141d6d427242df1d80c9c8e85870050",
+      "proof_and_complete_download_binding": "pass",
+      "accepted_at": "2026-10-19T16:40:10.903379+00:00"
+    },
+    {
+      "provider": "liara",
+      "outcome": "pass",
+      "exact_current_proof_sha256": "3316f909f3e78debbb2130be704a737693560b7a9a1097b7d4a980c683898b83",
+      "proof_and_complete_download_binding": "pass",
+      "accepted_at": "2026-10-19T16:43:18.804782+00:00"
+    },
+    {
+      "provider": "hamravesh",
+      "outcome": "pass",
+      "exact_current_proof_sha256": "97e6b735db4387d8649c0a197f927be408eb2385859c5215ebd9d6e299035a74",
+      "proof_and_complete_download_binding": "pass",
+      "accepted_at": "2026-10-19T16:46:31.404667+00:00"
+    }
+  ],
+  "refresh_status": {
+    "stage": "not_due",
+    "accepted_at": "2026-10-19T06:26:39.147044+00:00",
+    "checked_at": "2026-10-19T12:20:53.381975+00:00",
+    "failed_at": "2026-10-18T17:39:10.267195+00:00"
+  },
+  "next_eligibility_utc": "2026-10-19T18:26:39.147044+00:00",
+  "timers": {
+    "offline-refresh": {
+      "NextElapseUSecRealtime": "Mon 2026-10-19 18:20:25 UTC",
+      "NextElapseUSecMonotonic": "0",
+      "LastTriggerUSec": "Mon 2026-10-19 12:20:53 UTC",
+      "ActiveState": "active",
+      "UnitFileState": "enabled"
+    },
+    "provider-auto": {
+      "NextElapseUSecRealtime": "",
+      "NextElapseUSecMonotonic": "1month 2d 5h 55min 5.415075s",
+      "LastTriggerUSec": "Mon 2026-10-19 17:02:10 UTC",
+      "ActiveState": "active",
+      "UnitFileState": "enabled"
+    },
+    "offline-watch": {
+      "NextElapseUSecRealtime": "",
+      "NextElapseUSecMonotonic": "1month 2d 6h 10min 47.988403s",
+      "LastTriggerUSec": "Mon 2026-10-19 16:49:53 UTC",
+      "ActiveState": "active",
+      "UnitFileState": "enabled"
+    }
+  },
+  "stored_watch": {
+    "phase": "observing",
+    "started_at": "2026-10-19T13:39:28.226058+00:00",
+    "deadline": "2026-10-21T13:39:28.226058+00:00",
+    "elapsed_hours": 3.174,
+    "samples": 9,
+    "failed_samples": 0,
+    "new_publications": 0,
+    "maximum_observation_gap_seconds": 1826.655983,
+    "limitations": [
+      "no_new_publication"
+    ],
+    "latest": {
+      "checked_at": "2026-10-19T16:49:54.594748+00:00",
+      "outcome": "healthy",
+      "errors": [],
+      "refresh_timer": {
+        "NextElapseUSecRealtime": "Mon 2026-10-19 18:20:25 UTC",
+        "LastTriggerUSec": "Mon 2026-10-19 12:20:53 UTC",
+        "Result": "success",
+        "Persistent": "yes",
+        "ActiveState": "active",
+        "UnitFileState": "enabled"
+      },
+      "refresh_service": {
+        "Result": "success",
+        "ExecMainStatus": "0",
+        "ActiveState": "inactive",
+        "UnitFileState": "disabled"
+      },
+      "refresh_stage": "not_due",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+      "accepted_at": "2026-10-19T06:26:39.147044+00:00",
+      "packages": 58,
+      "signature_and_exact_install_binding": true,
+      "main_private_origin_checks": true,
+      "swap_bytes": 0,
+      "accepted_run": "run-20261019-062320-a1195755",
+      "producer_hashes_preserved": true,
+      "site_research_containers_preserved": true,
+      "catalog_payload_files_in_scanned_opt_tree": 0,
+      "private_engine_state": "inaccessible; not read",
+      "preexisting_app_wheels": "preserved as application build code; not catalog payloads"
+    }
+  },
+  "stored_scheduled_events": {
+    "events": [],
+    "source": "native refresh service journal; host/credentials omitted",
+    "query_limit_lines": 512
+  },
+  "native_scheduled_refresh_events": [],
+  "completed_file_present": false,
+  "provider_latest": {
+    "stage": "complete",
+    "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+    "providers": {
+      "arvan": "pass",
+      "linuxmirrors": "pass",
+      "liara": "pass",
+      "hamravesh": "pass"
+    },
+    "checked_at": "2026-10-19T17:02:11.331789+00:00"
+  },
+  "provider_budget": {
+    "day": "2026-10-19",
+    "attempts": 4,
+    "reserved_bytes": 805306368
+  },
+  "source_container_and_protected_baselines": "pass",
+  "observation_producer_and_budget_state_unchanged_by_read": true,
+  "catalog_payload_files_in_scanned_opt_srv_trees": 0,
+  "forced_refresh_collector_or_payload_requests": 0
+}

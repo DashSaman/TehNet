@@ -1,0 +1,67 @@
+{
+  "checked_at_utc": "2026-10-20T11:30:19.517590+00:00",
+  "original_start": "2026-10-19T13:39:28.226058+00:00",
+  "original_deadline": "2026-10-21T13:39:28.226058+00:00",
+  "latest_natural_sample": {
+    "checked_at": "2026-10-20T11:23:22.779597+00:00",
+    "outcome": "healthy",
+    "errors": [],
+    "refresh_timer": {
+      "NextElapseUSecRealtime": "Tue 2026-10-20 12:24:51 UTC",
+      "LastTriggerUSec": "Tue 2026-10-20 06:23:33 UTC",
+      "Result": "success",
+      "Persistent": "yes",
+      "ActiveState": "active",
+      "UnitFileState": "enabled"
+    },
+    "refresh_service": {
+      "Result": "success",
+      "ExecMainStatus": "0",
+      "ActiveState": "inactive",
+      "UnitFileState": "disabled"
+    },
+    "refresh_stage": "not_due",
+    "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724",
+    "accepted_at": "2026-10-20T00:23:53.116922+00:00",
+    "packages": 58,
+    "signature_and_exact_install_binding": true,
+    "main_private_origin_checks": true,
+    "swap_bytes": 0,
+    "accepted_run": "run-20261020-002025-75be29d8",
+    "producer_hashes_preserved": true,
+    "site_research_containers_preserved": true,
+    "catalog_payload_files_in_scanned_opt_tree": 0,
+    "private_engine_state": "inaccessible; not read",
+    "preexisting_app_wheels": "preserved as application build code; not catalog payloads"
+  },
+  "samples": 46,
+  "failed_samples": 35,
+  "new_publications": 1,
+  "phase": "observing",
+  "completed_present": false,
+  "native_timers": "Tue 2026-10-20 11:30:19 UTC 277ms Tue 2026-10-20 11:28:19 UTC 2min 0s ago tehnet-software-provider-auto.timer   tehnet-software-provider-auto.service\nTue 2026-10-20 11:53:22 UTC 23min Tue 2026-10-20 11:23:22 UTC    6min ago tehnet-software-offline-watch.timer   tehnet-software-offline-watch.service\nTue 2026-10-20 12:24:51 UTC 54min Tue 2026-10-20 06:23:33 UTC 5h 6min ago tehnet-software-offline-refresh.timer tehnet-software-offline-refresh.service\n",
+  "enabled_active_units": {
+    "offline-watch": {
+      "ActiveState": "active",
+      "UnitFileState": "enabled"
+    },
+    "offline-refresh": {
+      "ActiveState": "active",
+      "UnitFileState": "enabled"
+    },
+    "provider-auto": {
+      "ActiveState": "active",
+      "UnitFileState": "enabled"
+    }
+  },
+  "state_unchanged_by_read": true,
+  "server_source_unit_website_or_payload_mutations": false,
+  "same_existing_finite_followup": {
+    "status": "ACTIVE",
+    "all_fields_except_prompt_and_updated_at_preserved": true,
+    "schedule_and_count": "original two-hour finite cadence/count retained",
+    "new_final_report_contract": "saved and exact persisted prompt verified",
+    "duplicate_created": false
+  },
+  "final_report": "future;only after actual deadline with terminal evidence"
+}

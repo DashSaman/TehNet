@@ -1,0 +1,9 @@
+Starting tehnet-offline-auto-q2.service - /usr/bin/python3 -m tools.offline_refresh --state /opt/tehnet-software/operations/offline-refresh-state-q2 --seed /opt/tehnet-software/operations/offline-devtools-20261018 --host-site /opt/tehnet-software/releases/engine-active-20261018/host-site --force --dry-run...
+Started tehnet-offline-auto-q2.service - /usr/bin/python3 -m tools.offline_refresh --state /opt/tehnet-software/operations/offline-refresh-state-q2 --seed /opt/tehnet-software/operations/offline-devtools-20261018 --host-site /opt/tehnet-software/releases/engine-active-20261018/host-site --force --dry-run.
+{"stage": "signed_discovery", "run": "run-20261018-173337-1129034b"}
+{"stage": "candidate_signature_chain", "run": "run-20261018-173337-1129034b"}
+{"stage": "clean_offline_install", "run": "run-20261018-173337-1129034b"}
+{"stage": "qualified", "run": "run-20261018-173337-1129034b"}
+{"accepted_at": "2026-10-18T16:54:44.583116+00:00", "checked_at": "2026-10-18T17:36:52.653002+00:00", "stage": "qualified_dry_run", "run": "run-20261018-173337-1129034b", "result": "PASS; publication intentionally not performed"}
+tehnet-offline-auto-q2.service: Deactivated successfully.
+tehnet-offline-auto-q2.service: Consumed 47.441s CPU time, 783.4M memory peak, 0B memory swap peak.

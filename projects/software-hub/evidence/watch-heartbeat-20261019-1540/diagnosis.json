@@ -1,0 +1,14 @@
+{
+  "initial_check": "read-only inventory assertion",
+  "initial_error": "AssertionError: Current container baseline drift",
+  "additional_monitor_sample_created": false,
+  "native_publisher_failure": false,
+  "difference": "one externally owned TunnelPannel container ID and its owner-authorized release path",
+  "protected_file_hash_differences": 0,
+  "owner_task_evidence": "Active TunnelPannel task confirms its new interface published and healthy; direct owner request authorized commercial console/paid-plan upgrade",
+  "verified_external_source_commit": "e85b4e660ddd0ae8652cce99e5db753216b7cdc7",
+  "verified_external_source_url": "https://github.com/DashSaman/TunnelPannel/commit/e85b4e660ddd0ae8652cce99e5db753216b7cdc7",
+  "read_only_source_lookup": "Local other-project checkout did not resolve this published ref; GitHub commit endpoint independently confirmed the complete SHA and commercial-console change. No other-project checkout was changed.",
+  "resolution": "Exact verified external container fingerprint reconciled under watch and engine locks; no container/source/website mutation",
+  "private_config_or_credentials_exported": false
+}

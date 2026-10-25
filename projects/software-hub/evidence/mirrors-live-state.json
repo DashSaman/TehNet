@@ -1,0 +1,38 @@
+{
+  "tested_at_utc": "2026-10-18T14:42:06.362961+00:00",
+  "image": "sha256:ab4220407e6a35a6e3d4221b44f238f12b25b1081be4b03ce8a92276a60289fa",
+  "healthy": true,
+  "container_root_read_only": true,
+  "all_container_fingerprints_preserved": true,
+  "nginx_auth_restricted_research_bytes_preserved": true,
+  "software_payload_files": 0,
+  "state_files": [
+    "auth/auth.sqlite",
+    "data/catalog.sqlite",
+    "metadata/public/external.sqlite",
+    "metadata/restricted/external.sqlite",
+    "ops/network.sqlite"
+  ],
+  "lock_conflict_exit_status": 75,
+  "unlocked_service_exit_status": 0,
+  "all_three_verifications_advanced": true,
+  "service": {
+    "Result": "success",
+    "ExecMainStatus": "0",
+    "MemoryPeak": "[not set]",
+    "ReadWritePaths": "/srv/tehnet-software/metadata/public /srv/tehnet-software/ops /run/lock",
+    "InaccessiblePaths": "/srv/tehnet-software/auth /srv/tehnet-software/metadata/restricted /srv/tehnet-software/data",
+    "ProtectSystem": "strict"
+  },
+  "timer": {
+    "TimersMonotonic": [
+      "{ OnUnitActiveUSec=20min ; next_elapse=1month 1d 3h 52min 55.450388s }",
+      "{ OnBootUSec=2min ; next_elapse=2min }"
+    ],
+    "NextElapseUSecMonotonic": "1month 1d 3h 53min 6.869724s",
+    "ActiveState": "active",
+    "UnitFileState": "enabled"
+  },
+  "production_rubika_token_present": false,
+  "backup": "/root/tehnet-backups/20261018-144016-public-mirrors"
+}

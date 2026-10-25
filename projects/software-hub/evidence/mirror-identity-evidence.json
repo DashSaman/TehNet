@@ -1,0 +1,40 @@
+[
+  {
+    "url": "https://rdap.db.ripe.net/ip/87.107.153.51",
+    "country": "IR",
+    "name": "MobinhostInfrastructure",
+    "startAddress": "87.107.152.0",
+    "endAddress": "87.107.153.255",
+    "cidr0_cidrs": [
+      {
+        "v4prefix": "87.107.152.0",
+        "length": 23
+      }
+    ]
+  },
+  {
+    "url": "https://rdap.db.ripe.net/ip/185.143.233.132",
+    "country": "IR",
+    "name": "ANYCAST_185-143-233-0_24",
+    "startAddress": "185.143.233.0",
+    "endAddress": "185.143.233.255",
+    "cidr0_cidrs": [
+      {
+        "v4prefix": "185.143.233.0",
+        "length": 24
+      }
+    ]
+  },
+  {
+    "url": "https://changelogs.ubuntu.com/changelogs/pool/main/h/hello/hello_2.10-3build1/copyright",
+    "text": "This is the Debian GNU prepackaged version of the FSF's GNU hello\nutility.  This package provides the classic greeting to the users of\nDebian, as well as providing Debian's developers with an example of\nhow to package a GNU program. GNU `hello' was written by Mike Haertel,\nDavid MacKenzie, Jan Brittenson, Charles Hannum, Roland McGrath, Noah\nFriedman, Karl Eichwalder, and The King.\n\nThis package was first put together by Ian Jackson and it's currently\nmaintained by Santiago Vila. The source for this release was taken\nfrom:\n\nhttp://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz\n\nThe changes were very minimal:\n\n- Adding support for the Debian package maintenance scheme, by adding\n  various debian/* files.\n\nProgram Copyright 1992, 1995, 1996, 1997, 1998, 1999, 2000, 2001,\n2002, 2005, 2006, 2007, 2008, 2010, 2011, 2012, 2013, 2014 Free Software Foundation, Inc.\n\nModifications for Debian Copyright ("
+  },
+  {
+    "url": "https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/x86_64/alpine-minirootfs-3.24.2-x86_64.tar.gz.sha256",
+    "text": "c5ca053cfe1d85c5b96dff8b9bc57045f7f184a30ffb6b65776409ca90388677  alpine-minirootfs-3.24.2-x86_64.tar.gz\n"
+  },
+  {
+    "url": "https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/aarch64/alpine-minirootfs-3.24.2-aarch64.tar.gz.sha256",
+    "text": "9bf70a7f18ea44094cbb5f70c58f9af129c8214745743db0e68e5502cc2ce773  alpine-minirootfs-3.24.2-aarch64.tar.gz\n"
+  }
+]

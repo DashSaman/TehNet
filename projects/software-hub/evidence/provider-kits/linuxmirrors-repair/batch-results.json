@@ -1,0 +1,64 @@
+{
+  "started_at": "2026-10-19T15:10:16.125386+00:00",
+  "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+  "status": "complete",
+  "providers": [
+    {
+      "provider": "linuxmirrors",
+      "started_at": "2026-10-19T15:10:16.556960+00:00",
+      "outcome": "pass",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+      "finished_at": "2026-10-19T15:21:23.295590+00:00",
+      "unit_start_exit": 0,
+      "network_budget": {
+        "limit": 201326592,
+        "used": 100248384,
+        "requests": 65
+      },
+      "complete_hash_verified_downloads": 64,
+      "packages": 58,
+      "package_bytes": 32139756,
+      "functional_tools": [
+        "git",
+        "curl",
+        "jq",
+        "python",
+        "pip",
+        "wget",
+        "rsync",
+        "ssh"
+      ],
+      "negative_checks": {
+        "corrupt_required_archive": {
+          "exit": 1,
+          "elapsed_seconds": 8.869,
+          "dpkg_unchanged": true
+        },
+        "missing_required_archive": {
+          "exit": 1,
+          "elapsed_seconds": 8.917,
+          "dpkg_unchanged": true
+        },
+        "forged_signed_metadata": {
+          "exit": 100,
+          "elapsed_seconds": 5.496,
+          "dpkg_unchanged": true
+        },
+        "newer_nonseed_dependency": {
+          "exit": 2,
+          "elapsed_seconds": 8.828,
+          "dpkg_unchanged": true
+        },
+        "clean_offline_install": {
+          "exit": 0,
+          "elapsed_seconds": 29.983,
+          "dpkg_audit": "empty"
+        }
+      },
+      "install_evidence_sha256": "26978766afb8c5a580e7b54c9c390a3222d30fe1691d10c213aca8c46b89fba6",
+      "qualified_profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+      "software_payload_disk_files": 0
+    }
+  ],
+  "finished_at": "2026-10-19T15:21:23.302302+00:00"
+}

@@ -1,0 +1,32 @@
+{
+  "checked_at_utc": "2026-10-19T17:51:20.352480+00:00",
+  "predecessor": "8bdf1d06222fef01e5eedb70e0b806c52e83ce28",
+  "documentation_and_small_evidence_files_only": 18,
+  "runtime_source_unit_and_manifest_changes": 0,
+  "web_source_hashes_preserved": 34,
+  "exact_original_provider_proofs_rehashed": 4,
+  "original_signature_chains_rechecked": 3,
+  "public_https_checks": 36,
+  "new_canonical_successor": "pending; zero native events or in-window publications",
+  "credential_shaped_content_heuristic": "pass; not exhaustive audit",
+  "staged_whitespace": "pass",
+  "consolidation": {
+    "result": "PASS",
+    "source_blobs_verified": 22,
+    "copied_bytes": 189734,
+    "local_markdown_links_checked": 523,
+    "existing_site_files_changed": 0,
+    "authorized_new_menu_scripts": [
+      "ops/lib/software-menu.php",
+      "ops/software-menu.php",
+      "tests/software-menu-logic.php"
+    ],
+    "root_docs_append_only": [
+      "HANDOFF.md",
+      "PROGRESS.md",
+      "README.md",
+      "TASKS.md"
+    ]
+  },
+  "full_relevant_documentation_diff_reviewed": true
+}

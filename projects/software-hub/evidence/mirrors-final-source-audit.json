@@ -1,0 +1,10 @@
+{
+  "operator_source_matches_deployed": true,
+  "active_runtime_source_unchanged": true,
+  "image": "sha256:ab4220407e6a35a6e3d4221b44f238f12b25b1081be4b03ce8a92276a60289fa",
+  "healthy": true,
+  "read_only_root": true,
+  "production_rubika_token_configured": false,
+  "software_payload_files": 0,
+  "base_commit": "cbedff35a5efdec3371daf16e4a968326aa9e47e"
+}

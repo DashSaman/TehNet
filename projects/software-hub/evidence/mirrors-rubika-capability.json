@@ -1,0 +1,20 @@
+{
+  "credential_available": false,
+  "live_upload_download_accepted": false,
+  "website_backend_enabled": false,
+  "connection": {
+    "tls_verified": true,
+    "peer_ip": "46.51.38.3",
+    "http_status": 200,
+    "response_bytes": 26,
+    "authenticated": false,
+    "json_object": true,
+    "status_is_ok": false
+  },
+  "hidden_terminal_fixture": {
+    "passed": true,
+    "token_echoed": false,
+    "file_mode": "0600",
+    "production_token_written": false
+  }
+}

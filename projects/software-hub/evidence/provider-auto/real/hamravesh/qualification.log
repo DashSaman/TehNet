@@ -1,0 +1,71 @@
+Starting tehnet-software-provider-lab@433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca-hamravesh.service - TehNet exact-profile selected-provider native offline lab 433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca-hamravesh...
+{"apt_sandbox_uid_probe": "PASS", "uid": 42, "gid": 65534}
+gpgv: Signature made Thu 10 Sep 2026 04:44:43 PM UTC
+gpgv:                using RSA key 843938DF228D22F7B3742BC0D94AA3F0EFE21092
+gpgv: Good signature from "Ubuntu CD Image Automatic Signing Key (2012) <cdimage@ubuntu.com>"
+{"base": "ubuntu-base-24.04.5-base-amd64.tar.gz", "base_sha256": "e77b6f10c2590cef872b33ee9f635a0e3fd1f57fb074c0e52b5c7f56147a0c86", "base_bytes": 30028293, "signature_key": "843938DF228D22F7B3742BC0D94AA3F0EFE21092", "tls_verified": true, "payload_location": "private tmpfs,noswap", "elapsed_seconds": 4.258}
+Verified 1/58: perl-base
+Verified 2/58: libssl3t64
+Verified 3/58: libpython3.12-minimal
+Verified 4/58: libexpat1
+Verified 5/58: python3.12-minimal
+Verified 6/58: python3-minimal
+Verified 7/58: media-types
+Verified 8/58: netbase
+Verified 9/58: tzdata
+Verified 10/58: readline-common
+Verified 11/58: libreadline8t64
+Verified 12/58: libsqlite3-0
+Verified 13/58: libpython3.12-stdlib
+Verified 14/58: python3.12
+Verified 15/58: libpython3-stdlib
+Verified 16/58: python3
+Verified 17/58: libpopt0
+Verified 18/58: rsync
+Verified 19/58: perl-modules-5.38
+Verified 20/58: libgdbm6t64
+Verified 21/58: libgdbm-compat4t64
+Verified 22/58: libperl5.38t64
+Verified 23/58: perl
+Verified 24/58: adduser
+Verified 25/58: openssl
+Verified 26/58: ca-certificates
+Verified 27/58: libbsd0
+Verified 28/58: libkrb5support0
+Verified 29/58: libk5crypto3
+Verified 30/58: libkeyutils1
+Verified 31/58: libkrb5-3
+Verified 32/58: libgssapi-krb5-2
+Verified 33/58: python3-pkg-resources
+Verified 34/58: libcbor0.10
+Verified 35/58: libedit2
+Verified 36/58: libfido2-1
+Verified 37/58: libnghttp2-14
+Verified 38/58: libpsl5t64
+Verified 39/58: openssh-client
+Verified 40/58: wget
+Verified 41/58: libbrotli1
+Verified 42/58: libsasl2-modules-db
+Verified 43/58: libsasl2-2
+Verified 44/58: libldap2
+Verified 45/58: librtmp1
+Verified 46/58: libssh-4
+Verified 47/58: libcurl4t64
+Verified 48/58: curl
+Verified 49/58: libcurl3t64-gnutls
+Verified 50/58: liberror-perl
+Verified 51/58: git-man
+Verified 52/58: git
+Verified 53/58: libonig5
+Verified 54/58: libjq1
+Verified 55/58: jq
+Verified 56/58: python3-setuptools
+Verified 57/58: python3-wheel
+Verified 58/58: python3-pip
+KIT_FULL_SIGNED_CHAIN_AND_BYTES_PASS
+{"offline_installed_packages": 58, "tools": ["git", "curl", "jq", "python", "pip", "wget", "rsync", "ssh"], "negative_checks": {"corrupt_required_archive": {"exit": 1, "elapsed_seconds": 9.079, "dpkg_unchanged": true}, "missing_required_archive": {"exit": 1, "elapsed_seconds": 9.009, "dpkg_unchanged": true}, "forged_signed_metadata": {"exit": 100, "elapsed_seconds": 5.597, "dpkg_unchanged": true}, "newer_nonseed_dependency": {"exit": 2, "elapsed_seconds": 8.91, "dpkg_unchanged": true}, "clean_offline_install": {"exit": 0, "elapsed_seconds": 28.811, "dpkg_audit": "empty"}}}
+{"tmpfs_options": "rw,relatime,size=786432k,mode=700,inode64,noswap", "cgroup": {"memory.peak": "694349824", "memory.swap.current": "0", "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0"}, "all_existing_container_fingerprints_preserved": true, "nginx_and_selected_protected_files_preserved": true, "software_payload_disk_files": 0, "downloaded_archives_location": "private,noswap768MiB tmpfs; destroyed at namespace exit", "baseline_and_kit_source": "official signed Ubuntu Base; exact signed profile bytes from selected hamravesh", "engine_state_read": "intentionally inaccessible", "state_files": null}
+NATIVE_CLEAN_OFFLINE_DEVTOOLS_ACCEPTANCE_PASS
+tehnet-software-provider-lab@433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca-hamravesh.service: Deactivated successfully.
+Finished tehnet-software-provider-lab@433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca-hamravesh.service - TehNet exact-profile selected-provider native offline lab 433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca-hamravesh.
+tehnet-software-provider-lab@433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca-hamravesh.service: Consumed 39.206s CPU time.

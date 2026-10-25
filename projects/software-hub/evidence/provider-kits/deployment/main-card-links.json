@@ -1,0 +1,14 @@
+{
+  "checked_at_utc": "2026-10-19T15:36:35.746375+00:00",
+  "all_four_source_cards_link_to_accepted_choice": {
+    "arvan": true,
+    "linuxmirrors": true,
+    "liara": true,
+    "hamravesh": true
+  },
+  "initial_default_python_user_agent_request": "HTTP403; no page content; original traceback retained in task tool output",
+  "identified_acceptance_user_agent": "TehNet-Selected-Provider-Acceptance/1",
+  "second_status": 200,
+  "network_requests": 2,
+  "payload_downloads": 0
+}

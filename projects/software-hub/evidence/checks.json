@@ -1,0 +1,31 @@
+{
+  "tested_at_utc": "2026-10-17T13:35:13.135315+00:00",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "commands": [
+    {
+      "command": "python -m unittest discover -s projects/melika/tests -v",
+      "exit_code": 0,
+      "output": "test_invalid_db_is_rejected (test_rehearsal.MigrationRehearsalTests.test_invalid_db_is_rejected) ... ok\ntest_manifest_cannot_escape_root (test_rehearsal.MigrationRehearsalTests.test_manifest_cannot_escape_root) ... ok\ntest_restore_and_rollback_preserve_exact_state (test_rehearsal.MigrationRehearsalTests.test_restore_and_rollback_preserve_exact_state) ... ok\ntest_tampered_restored_payload_is_rejected (test_rehearsal.MigrationRehearsalTests.test_tampered_restored_payload_is_rejected) ... ok\ntest_unlisted_restored_file_is_rejected (test_rehearsal.MigrationRehearsalTests.test_unlisted_restored_file_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.163s\n\nOK\n"
+    },
+    {
+      "command": "python -m unittest discover -s projects/melika/research/upstream/Linux/tests -v",
+      "exit_code": 0,
+      "output": "test_probe_implementation_exists (test_probe_sources.DeliveryTest.test_probe_implementation_exists) ... ok\ntest_absent_vs_unknown (test_probe_sources.ProbeTests.test_absent_vs_unknown) ... ok\ntest_credentials_rejected (test_probe_sources.ProbeTests.test_credentials_rejected) ... ok\ntest_disallowed_host (test_probe_sources.ProbeTests.test_disallowed_host) ... ok\ntest_dns_public_result (test_probe_sources.ProbeTests.test_dns_public_result) ... ok\ntest_html_is_not_artifact (test_probe_sources.ProbeTests.test_html_is_not_artifact) ... ok\ntest_http_requires_opt_in (test_probe_sources.ProbeTests.test_http_requires_opt_in) ... ok\ntest_invalid_range (test_probe_sources.ProbeTests.test_invalid_range) ... ok\ntest_mixed_dns_rejected (test_probe_sources.ProbeTests.test_mixed_dns_rejected) ... ok\ntest_nonstandard_port_rejected (test_probe_sources.ProbeTests.test_nonstandard_port_rejected) ... ok\ntest_pgp_prefix_is_not_signature_verification (test_probe_sources.ProbeTests.test_pgp_prefix_is_not_signature_verification) ... ok\ntest_private_and_special_addresses (test_probe_sources.ProbeTests.test_private_and_special_addresses) ... ok\ntest_query_rejected (test_probe_sources.ProbeTests.test_query_rejected) ... ok\ntest_range_ignored (test_probe_sources.ProbeTests.test_range_ignored) ... ok\ntest_redirect_is_not_followed_or_verified (test_probe_sources.ProbeTests.test_redirect_is_not_followed_or_verified) ... ok\ntest_traversal_rejected (test_probe_sources.ProbeTests.test_traversal_rejected) ... ok\ntest_valid_https (test_probe_sources.ProbeTests.test_valid_https) ... ok\ntest_valid_range (test_probe_sources.ProbeTests.test_valid_range) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 0.002s\n\nOK\n"
+    },
+    {
+      "command": "python projects/melika/tools/verify_consolidation.py",
+      "exit_code": 0,
+      "output": "{\n  \"result\": \"PASS\",\n  \"source_blobs_verified\": 22,\n  \"copied_bytes\": 189734,\n  \"local_markdown_links_checked\": 135,\n  \"existing_site_files_changed\": 0,\n  \"root_docs_append_only\": [\n    \"HANDOFF.md\",\n    \"PROGRESS.md\",\n    \"README.md\",\n    \"TASKS.md\"\n  ]\n}\nwarning: in the working copy of 'HANDOFF.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'PROGRESS.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it\nwarning: in the working copy of 'TASKS.md', LF will be replaced by CRLF the next time Git touches it\n"
+    },
+    {
+      "command": "python -m py_compile projects/melika/tools/rehearse_migration.py projects/melika/tools/verify_consolidation.py",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "structured_data": {
+    "json_files": 5,
+    "yaml_files": 1,
+    "yaml_parser_available": true
+  }
+}

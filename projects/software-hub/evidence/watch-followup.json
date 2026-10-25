@@ -1,0 +1,13 @@
+{
+  "native_current_thread_heartbeat": "ACTIVE",
+  "interval_hours": 2,
+  "finite_max_occurrences": 25,
+  "operator_deadline_utc": "2026-10-21T13:39:28.226058Z",
+  "stop_after_terminal_report": true,
+  "quiet_while_unchanged_and_healthy": true,
+  "local_files_ssh_followup_requires_local_host_availability": true,
+  "server_sampling_independent": true,
+  "created_automations": 1,
+  "rejected_prior_forms_created_no_automation": true,
+  "private_automation_identifier_not_exported": true
+}

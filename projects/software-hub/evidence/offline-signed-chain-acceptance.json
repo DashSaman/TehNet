@@ -1,0 +1,71 @@
+{
+  "releases": [
+    {
+      "suite": "noble-security",
+      "inrelease_sha256": "f444994ac2ed9f6a64365d5baee6f9540f2cad3320d7f574b0efd4c0d514c32c",
+      "date": "2026-10-17T23:35:54+00:00",
+      "valid_until": null,
+      "signers": [
+        "F6ECB3762474EDA9D21B7022871920D1991BC93C"
+      ]
+    },
+    {
+      "suite": "noble-updates",
+      "inrelease_sha256": "7b97d54ebc76e0e2f9d39ab66448c677fa82e7adab08b9162bc53a94aa885f91",
+      "date": "2026-10-18T12:26:19+00:00",
+      "valid_until": null,
+      "signers": [
+        "F6ECB3762474EDA9D21B7022871920D1991BC93C"
+      ]
+    },
+    {
+      "suite": "noble",
+      "inrelease_sha256": "cdb2f31d809f589719a53c6ad15f255b27569c4059542ada282aaa21b8e164b0",
+      "date": "2024-04-25T15:10:33+00:00",
+      "valid_until": null,
+      "signers": [
+        "F6ECB3762474EDA9D21B7022871920D1991BC93C"
+      ]
+    }
+  ],
+  "native_index_hashes": [
+    {
+      "file": "mirror.arvancloud.ir_ubuntu_dists_noble-security_main_binary-amd64_Packages",
+      "expanded_bytes": 6232891,
+      "expanded_sha256": "74ff004c27ff9dde4306b6ca5c59274f900994e002eecab717550028be7b3149"
+    },
+    {
+      "file": "mirror.arvancloud.ir_ubuntu_dists_noble-security_universe_binary-amd64_Packages",
+      "expanded_bytes": 7673730,
+      "expanded_sha256": "60460a603428acf672509a333b153de99dc2b880ddbb3d33a659108de28cdcfc"
+    },
+    {
+      "file": "mirror.arvancloud.ir_ubuntu_dists_noble-updates_main_binary-amd64_Packages",
+      "expanded_bytes": 7559833,
+      "expanded_sha256": "7dfdf85aa09e576ef509c78760cc5a5a1f7c75f383247d55fe55f31897fb9c19"
+    },
+    {
+      "file": "mirror.arvancloud.ir_ubuntu_dists_noble-updates_universe_binary-amd64_Packages",
+      "expanded_bytes": 10621974,
+      "expanded_sha256": "37da10f0531b9872d1d87bd06d5b2857359c0ed081189c8e5b41214068fcdc94"
+    },
+    {
+      "file": "mirror.arvancloud.ir_ubuntu_dists_noble_main_binary-amd64_Packages",
+      "expanded_bytes": 7165069,
+      "expanded_sha256": "8f6f71ae839c8cba390a7643fcbbdacddb0bc7d12c1583a2dd80a1f8443a30e5"
+    },
+    {
+      "file": "mirror.arvancloud.ir_ubuntu_dists_noble_universe_binary-amd64_Packages",
+      "expanded_bytes": 73379142,
+      "expanded_sha256": "687ffc969e7700137677b9cfe2f614ee2d638052a91a7c9bf31f3f6a3040a99a"
+    }
+  ],
+  "package_count": 58,
+  "package_bytes": 32139756,
+  "negative_checks": {
+    "tampered-signature": "Ubuntu InRelease signature rejected",
+    "stale-valid-signature": "Stale mutable suite",
+    "signed-date-rollback": "Signed Date rollback"
+  },
+  "payload_disk_files": 0
+}

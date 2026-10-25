@@ -1,0 +1,9 @@
+[Unit]
+Description=Observe new accepted TehNet profiles for provider requalification
+[Timer]
+OnBootSec=2min
+OnUnitInactiveSec=2min
+AccuracySec=15s
+Unit=tehnet-software-provider-auto.service
+[Install]
+WantedBy=timers.target

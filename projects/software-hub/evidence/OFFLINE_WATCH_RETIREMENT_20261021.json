@@ -1,0 +1,49 @@
+{
+  "recorded_at_utc": "2026-10-21T20:30:16.849042Z",
+  "registered_report_ref": "750513c35f30dfe79f37cd1a59857ec3a088664f",
+  "report_registered_before_retirement": true,
+  "finite_watch_retired_at_utc": "2026-10-21T20:28:31.377058+00:00",
+  "finite_watch_after": {
+    "ActiveState": "inactive",
+    "UnitFileState": "disabled"
+  },
+  "long_lived_timers_after": {
+    "offline-refresh": {
+      "ActiveState": "active",
+      "UnitFileState": "enabled"
+    },
+    "provider-auto": {
+      "ActiveState": "active",
+      "UnitFileState": "enabled"
+    }
+  },
+  "existing_finite_thread_automation": "automation-4 deleted; local config absence verified",
+  "no_duplicate_followup_or_new_window": true,
+  "all99_original_samples_completed_config_budgets_and_status_bytes_preserved": true,
+  "native_classification": "completed_with_incidents",
+  "all_native_counts": {
+    "total": 99,
+    "healthy": 55,
+    "error": 42,
+    "deferred": 2
+  },
+  "inside_window_counts": {
+    "total": 98,
+    "healthy": 54,
+    "error": 42,
+    "deferred": 2
+  },
+  "actual_scheduled_publications": 3,
+  "current_active_sources": [
+    "arvan",
+    "hamravesh",
+    "liara"
+  ],
+  "current_inactive_source": "linuxmirrors",
+  "only_finite_timer_and_its_thread_followup_retired": true,
+  "production_source_site_container_private_auth_or_payload_changes": 0,
+  "new_collector_refresh_lab_or_payload_operations": 0,
+  "raw_evidence_exported": false,
+  "authorized_branch": "docs/melika-consolidation-2026-10-17",
+  "main_merged": false
+}

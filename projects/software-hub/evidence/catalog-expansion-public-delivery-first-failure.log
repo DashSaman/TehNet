@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "<software-hub>\tools\verify_mirror_delivery.py", line 60, in <module>
+    args=p.parse_args();report=verify(args.manifest,providers_only=args.providers_only,origin=args.origin)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<software-hub>\tools\verify_mirror_delivery.py", line 46, in verify
+    code,h,body=request('tehnet.ir',local,method,{'Range':'bytes=0-15','If-None-Match':'*'},origin=origin)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<software-hub>\tools\verify_mirror_delivery.py", line 16, in request
+    c.request(method,path,headers={'Accept-Encoding':'identity','User-Agent':'TehNet-Delivery-Acceptance/1',**(headers or {})})
+  File "<python-runtime>\Lib\http\client.py", line 1338, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "<python-runtime>\Lib\http\client.py", line 1384, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "<python-runtime>\Lib\http\client.py", line 1333, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "<python-runtime>\Lib\http\client.py", line 1093, in _send_output
+    self.send(msg)
+  File "<python-runtime>\Lib\http\client.py", line 1037, in send
+    self.connect()
+  File "<software-hub>\app\http_client.py", line 32, in connect
+    self.sock.do_handshake()
+  File "<python-runtime>\Lib\ssl.py", line 1319, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLEOFError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)

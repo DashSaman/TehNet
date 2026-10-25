@@ -1,0 +1,34 @@
+{
+  "tested_at_utc": "2026-10-18T17:54:13.490393+00:00",
+  "published_status_before_not_due": {
+    "accepted_at": "2026-10-18T17:53:33.935720+00:00",
+    "checked_at": "2026-10-18T17:53:33.940565+00:00",
+    "stage": "published",
+    "run": "run-20261018-175032-adab0629",
+    "result": "PASS",
+    "failed_at": "2026-10-18T17:39:10.267195+00:00",
+    "last_failure": "ValueError",
+    "pending": null,
+    "profile_sha256": "a672749cd320b85e008a14d8bb564d650963a12d948fc824d190ee2fd6d012f7",
+    "publication": {
+      "published_files_sha256": {
+        "index.html": "c0eb1f320270d4b5c2520049350c64d2a586750505c32566bf9c30bf22d29385",
+        "profile.json": "a672749cd320b85e008a14d8bb564d650963a12d948fc824d190ee2fd6d012f7",
+        "offline_kit.py": "fd35d9874932bc35fa8ff026c8608c61ed86533fc46d9ac56d00387e710e0fc9",
+        "acceptance.json": "d40b30032ce90868c6a68d27436f6365e29e7c3c1ed988acabbd08fa70324883"
+      },
+      "backup": "/root/tehnet-backups/20261018-175032-adab0629-offline-auto",
+      "owned_snippet_only": true,
+      "container_restart": false,
+      "software_payload_files": 0
+    }
+  },
+  "two_real_due_checks": "not_due; zero additional reservations",
+  "budget": {
+    "day": "2026-10-18",
+    "attempts": 2,
+    "reserved_bytes": 402653184
+  },
+  "timer_restart": "PASS",
+  "timer_properties": "TimersCalendar={ OnCalendar=*-*-* 00,06,12,18:20:00 UTC ; next_elapse=Sun 2026-10-18 18:20:00 UTC }\nNextElapseUSecRealtime=Sun 2026-10-18 18:21:22 UTC\nRandomizedDelayUSec=5min\nPersistent=yes\nActiveState=active\nUnitFileState=enabled\n"
+}
