@@ -157,8 +157,6 @@ Read `AGENTS.md` and `HANDOFF.md` first, preserve locked decisions and verified 
 - Remote Desktop Commander connection timed out on multiple read-only checks. WPVibe reads work. GSC Wizard subscription expired; no upgrade or measurements claimed.
 - Evidence and exact deployment gate: `seo/SEO_AI_READINESS_2026-10-13.md`, `qa/SEARCH_METADATA_TESTS_2026-10-13.md`.
 
-Read `AGENTS.md` and `HANDOFF.md` first, preserve locked decisions and verified work, use evidence before SEO claims, keep indexing disabled until an explicit launch gate, and never change unrelated project ports/containers during TehNet work.
-
 ## 2026-10-17 — Isolated TehNet Software Archive research/design handoff
 
 Added `projects/software-hub/` with 22 provenance-traced Linux research copies, entry guide, roadmap, privacy/agent/task contracts and migration design with a synthetic local rehearsal. OFFLINE_SOFTWARE_CATALOG is missing from inspected source history and awaits its original ZIP/patch. No WordPress/theme/plugin/content/ops/runtime configuration was changed or deployed. Fresh checks and precise limits: `projects/software-hub/evidence/VALIDATION.md`. Existing production statements above are historical and were not revalidated by this work.
