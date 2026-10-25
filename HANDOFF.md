@@ -1,5 +1,9 @@
 # TehNet Agent Handoff
 
+## CURRENT — cross-agent documentation consolidated, 2026-10-25
+
+Owner requested all continuation context in the repository. Start with [docs/agent-continuation.fa.md](docs/agent-continuation.fa.md): original versioned requirements, accepted decisions/owner steering, deployed versus sandbox versus unfinished features, code ownership map, dated verification limits, exact25-product assets, private environment/backup references, dangerous historical replays and acceptance criteria for next work. README and AGENTS link it. Evidence latest dates remain18Oct native/16Oct runtime; this documentation-only pass does not recheck SSH, deployment, live UI or commerce. Read the fresh documentation-integrity receipt at `qa/agent-handoff-2026-10-25/verification.json`. Previous CURRENT sections below retain their own dates and are historical evidence, not a second claim of freshness.
+
 ## CURRENT — exact-product asset research, 2026-10-18
 
 Owner requested exact same-product models/photos for all25 with genuine exploded internals. Read `docs/research/exact-product-models-2026-10-18.fa.md`, `content/media/exact-product-review-2026-10-18/manifest.json` and `qa/exact-media-2026-10-18/verification.json`. Both public APIs freshly returned25 records; all23 unique existing source images visually reviewed and original hashes checked. Native read-only audit found all identity/model/parts approvals empty,0 real GLB/parts/spin; no production writes or new media assignments. Before/after product bodies/all meta/home/menu/orders/options/commerce hashes equal, noindex intact. Fresh31 evidence+23photo contracts and PHP audit lint pass. This proves evidence integrity, not exact model availability or production UI acceptance.

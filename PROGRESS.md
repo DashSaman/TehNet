@@ -1,5 +1,10 @@
 # TehNet Execution Progress
 
+## Latest — 2026-10-25 cross-agent handoff
+
+- Added `docs/agent-continuation.fa.md`, a single Persian/English entry point mapping the full in-repo requirements, owner decisions, implementation/evidence paths, historical versus current recorded state, real3D blockers, test limits, environment/backup references and concrete next acceptance criteria.
+- Linked it from README, AGENTS and HANDOFF; preserved original dated receipts. Scope is documentation only: no new source/media research, live-state verification, runtime/data changes or replayed deployment. Latest native evidence remains18Oct and runtime release16Oct. Documentation integrity results belong in `qa/agent-handoff-2026-10-25/verification.json`.
+
 ## Latest — 2026-10-18 exact-model source matching
 
 - Rechecked both public APIs:25 source IDs/25 live products; visually inspected all23 unique existing source images. Curated per-SKU candidates, conflicts,17 primary/platform sources and explicit access limits in `content/media/exact-product-review-2026-10-18/manifest.json`; Persian report in `docs/research/exact-product-models-2026-10-18.fa.md`.

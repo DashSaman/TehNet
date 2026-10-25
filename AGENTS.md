@@ -58,6 +58,8 @@ Website tickets remain the system of record. Telegram is a notification/reply ch
 ## Coordination
 After meaningful work update `PROGRESS.md`, `HANDOFF.md` and `TASKS.md`. Put deployment evidence under `ops/` and TehNet-specific SEO evidence under `seo/`.
 
+Cross-agent entry point: [docs/agent-continuation.fa.md](docs/agent-continuation.fa.md), consolidated on 2026-10-25. It maps the full versioned user request, code, dated test/release receipts, media decisions, blockers and next actions. Follow the mandatory reading order above; use the guide to retrieve relevant originals. Its latest native evidence is dated 2026-10-18 and is not a new live-state verification. Do not replay historical deployment/import commands or copy private backups/secrets into Git.
+
 ## Definition of done
 A task is done only when implementation/checks are complete, documentation matches reality, and the next exact action is preserved in `HANDOFF.md`.
 

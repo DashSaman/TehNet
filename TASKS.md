@@ -1,5 +1,10 @@
 # TehNet Task Backlog
 
+## CURRENT — agent continuity, 2026-10-25
+
+- DONE/DOCUMENTED — Complete continuation entry point in `docs/agent-continuation.fa.md`, linked from README/AGENTS/HANDOFF. Original requirements, evidence map, authorization history, unfinished work and next acceptance criteria are accessible without this chat.
+- UNCHANGED — All actual commerce, exact-product media and public-browser blockers below remain open. Documentation consolidation is not a new deployment or live acceptance run.
+
 ## CURRENT — exact25 product models, 2026-10-18
 
 - DONE/RESEARCH — Both public25-record inventories rechecked, all23 existing unique source files visually reviewed/SHA checked,17 manufacturer/platform sources and perSKU decisions recorded. Read `docs/research/exact-product-models-2026-10-18.fa.md` and its manifest.
