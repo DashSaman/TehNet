@@ -689,3 +689,16 @@ Documentation gate,2026-10-25T13:41:07Z: PASS for22 original blobs/189734bytes a
 - BLOCKED — Real Zarinpal gateway activation: needs owner-provided merchant credential plus commercial-readiness items (real price/stock seed, legal docs, ERP production company, shipping/notification capacity); sandbox adapter refuses production by design and no real gateway endpoint exists yet.
 - OPEN — Real end-to-end purchase test (cart → checkout → gateway → callback → ERP invoice) after a real gateway exists; native sandbox purchase already passed earlier (order 323, `qa/store-2026-10-15/native-payment.json`).
 - OPEN — Software-archive items per `projects/software-hub/AGENT_HANDOFF.md`: W1 original OFFLINE_SOFTWARE_CATALOG recovery, W4/W6 acceptance, private external provider/Rubika, real timed Iran migration.
+
+## 2026-10-25 — accounting, FX pricing, lightweight services & Iranian providers / حسابداری، نرخ ارز و سرویس‌های سبک
+
+- DONE — `TehNet_Store_Accounting` (plugin 0.5.0): accounting admin page (ERP stays ledger of record), legal-entity profile option, idempotent sequential local invoice numbers `TN-FA-<jalali>-<seq>`, Jalali date conversion (10 contract checks incl. anchors 1357/11/22 and 1405/08/03).
+- DONE — Invoice copy renderer now shows local number, Jalali date and legal-entity profile when filled; ERP document remains the accounting record.
+- DONE — `TehNet_Store_Price_Rate`: per-product USD base price field + FX bulk recompute (ceil to 1000 IRR, dry-run preview, bounded audit log, `wp tehnet price fx <rate> [--dry-run]`); 22 contract checks; sale approval/ERP readiness untouched (preview on live catalog: 0 rows, 25 without base price — expected).
+- DONE — Deployed to live container via file allowlist with pre-deploy backup (`/root/tehnet-backups/.../pre-fx-deploy`); in-container smoke: plugin 0.5.0, classes loaded, site smoke 200; full store test battery re-run green (no regression).
+- DONE — Public NTP service via system chrony (UDP 123, rate-limited, `allow` public; external query verified, Stratum 3) — `ops/LIGHTWEIGHT_SERVICES_2026-10-25.md`.
+- DONE — Zero-upstream HTTP tools `https://tehnet.ir/tools/ip` (Cloudflare-aware) and `/tools/time` via nginx snippet; nginx -t + reload documented with rollback.
+- DONE — Owner decision recorded: software archive will use Iranian external providers (ArvanCloud Object Storage / IranServer and similar); mandatory per-provider gates and owner-provided inputs documented in `projects/software-hub/PROVIDER_ONBOARDING.fa.md` (no provider registered yet — by design).
+- OPEN — Owner inputs to activate FX pricing in practice: per-product base USD prices (product edit field is live), and legal-entity profile fields for official invoices.
+- OPEN — Suggested DNS `time.tehnet.ir` → server IP (needs owner DNS access).
+- OPEN — Iranian provider activation blocked on owner API credentials + operator approval evidence + trusted digests (per PROVIDER_ONBOARDING.fa.md gates).

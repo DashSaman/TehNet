@@ -2,7 +2,7 @@
 /**
  * Plugin Name: TehNet Store
  * Description: Safe catalog imports and ERP-backed commerce for TehNet.
- * Version: 0.4.0
+ * Version: 0.5.0
  * Requires PHP: 8.2
  * License: GPL-2.0-or-later
  */
@@ -16,6 +16,8 @@ require_once __DIR__ . '/includes/class-account.php';
 require_once __DIR__ . '/includes/class-zarinpal-sandbox.php';
 require_once __DIR__ . '/includes/class-product-visuals.php';
 require_once __DIR__ . '/includes/class-product-evidence.php';
+require_once __DIR__ . '/includes/class-accounting.php';
+require_once __DIR__ . '/includes/class-price-rate.php';
 register_activation_hook(__FILE__,['TehNet_Store_Operations','install']);
 add_action('woocommerce_blocks_payment_method_type_registration',static function($registry):void {
     if (class_exists('Automattic\\WooCommerce\\Blocks\\Payments\\Integrations\\AbstractPaymentMethodType')) {
@@ -31,6 +33,8 @@ add_action('plugins_loaded',static function():void {
         (new TehNet_Store_Operations())->register(); (new TehNet_Store_Account())->register();
         (new TehNet_Store_Product_Visuals())->register();
         (new TehNet_Store_Product_Evidence())->register();
+        (new TehNet_Store_Accounting())->register();
+        (new TehNet_Store_Price_Rate())->register();
     }
 });
 
@@ -57,5 +61,12 @@ if (defined('WP_CLI') && WP_CLI) {
         $order=isset($args[0])?wc_get_order(absint($args[0])):false;
         if (!$order) { WP_CLI::error('Order ID required.'); }
         WP_CLI::line(wp_json_encode((new TehNet_Store_ERP())->reconcile_order($order),JSON_PRETTY_PRINT));
+    });
+    WP_CLI::add_command('tehnet price fx',function(array $args,array $assoc): void {
+        if (empty($args[0]) || !is_numeric($args[0])) { WP_CLI::error('FX rate (IRR per USD) required.'); }
+        $rate=(float)$args[0];
+        $tool=new TehNet_Store_Price_Rate();
+        if (isset($assoc['dry-run'])) { WP_CLI::line(wp_json_encode($tool->preview($rate),JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)); return; }
+        WP_CLI::line(wp_json_encode($tool->apply($rate,1000,get_current_user_id()),JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE));
     });
 }
