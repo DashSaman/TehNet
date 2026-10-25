@@ -112,7 +112,7 @@ final class TehNet_Store_Storefront {
     public function assets(): void {
         if (!function_exists('is_woocommerce') || !(is_woocommerce() || is_cart() || is_checkout() || is_account_page())) { return; }
         wp_enqueue_style('tn-store',plugins_url('assets/store.css',dirname(__DIR__).'/tehnet-store.php'),[], '0.4.0');
-        wp_enqueue_script('tn-store',plugins_url('assets/store.js',dirname(__DIR__).'/tehnet-store.php'),[], '0.4.0',true);
+        wp_enqueue_script('tn-store',plugins_url('assets/store.js',dirname(__DIR__).'/tehnet-store.php'),[], '0.5.1',true);
         if(is_shop()||is_product_taxonomy()||is_product())wp_enqueue_style('tn-shop-experience',plugins_url('assets/store-experience.css',dirname(__DIR__).'/tehnet-store.php'),['tn-store','tehnet-visual-refresh'],'0.4.0');
     }
     public function body_classes(array $classes):array {
@@ -216,7 +216,29 @@ final class TehNet_Store_Storefront {
     public function comparison_data(WC_Product $product): array {
         $specs=[];
         foreach(self::SPECS as $key=>$definition){$value=$product->get_meta('_tn_verified_'.$key);$specs[$key]=in_array($value,$definition[1],true)?$value:'تأیید نشده';}
-        return ['id'=>$product->get_id(),'sku'=>$product->get_sku(),'name'=>$product->get_name(),'url'=>$this->preview_link($product->get_permalink(),$product),'unit'=>self::UNITS[$product->get_meta('_tn_sale_unit')]??'تأیید نشده','minimum'=>$product->get_meta('_tn_min_quantity')?:'تأیید نشده','specs'=>$specs,'price'=>$this->eligible($product)?number_format(TehNet_Store_Policy::irr($product->get_price(),'IRR')).' ریال':'نیازمند استعلام'];
+        $price=0;
+        $raw_price=$product->get_price();
+        if (is_string($raw_price) && $raw_price!=='' && is_numeric($raw_price) && (float)$raw_price>0) {
+            try { $price=TehNet_Store_Policy::irr($raw_price,'IRR'); } catch (InvalidArgumentException $e) { $price=0; }
+        }
+        return ['id'=>$product->get_id(),'sku'=>$product->get_sku(),'name'=>$product->get_name(),'url'=>$this->preview_link($product->get_permalink(),$product),'unit'=>self::UNITS[$product->get_meta('_tn_sale_unit')]??'تأیید نشده','minimum'=>$product->get_meta('_tn_min_quantity')?:'تأیید نشده','specs'=>$specs,'price'=>$price>0?number_format($price).' ریال':'نیازمند استعلام','price_irr'=>$price,'source_specs'=>self::source_specs($product->get_meta('_tn_source_attributes'))];
+    }
+    /** Vendor-declared attribute projection for comparison display; never mixed with verified specs. */
+    public static function source_specs($attributes,int $bound = 8): array {
+        if (!is_array($attributes)) { return []; }
+        $out=[];
+        foreach ($attributes as $attribute) {
+            if (!is_array($attribute)) { continue; }
+            if (count($out)>=$bound) { break; }
+            $name=isset($attribute['name']) && is_string($attribute['name']) ? mb_substr(trim($attribute['name']),0,60) : '';
+            $terms=[];
+            foreach (is_array($attribute['terms']??null) ? $attribute['terms'] : [] as $term) {
+                if (is_array($term) && isset($term['name']) && is_string($term['name']) && trim($term['name'])!=='') { $terms[]=mb_substr(trim($term['name']),0,60); }
+                if (count($terms)>=3) { break; }
+            }
+            if ($name!=='' && $terms) { $out[$name]=implode(' / ',$terms); }
+        }
+        return $out;
     }
     public function unit(): void {
         global $product;
