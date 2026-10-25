@@ -1,0 +1,26 @@
+{
+  "tested_at_utc": "2026-10-17T14:39:57.406244+00:00",
+  "scope": "same-host-Linux-preview-cold-process-preloaded-image",
+  "image": "sha256:54f507b987e5a252a6f207478ddd5bb6251c8889c1ed45657857be017e314352",
+  "database_bytes": 110592,
+  "snapshot_sha256": "2c300590b75c8e9823b9b5b5cf8f52186aa43a9aa017406bb37ede281c79405f",
+  "snapshot_seconds": 0.004256543703377247,
+  "total_seconds": 1.764134360011667,
+  "network": "none",
+  "root_filesystem": "read-only",
+  "user": "image default 10001:10001",
+  "result": {
+    "ready": true,
+    "source_rows": 27,
+    "local_assets": true
+  },
+  "production_migration_accepted": false,
+  "not_tested": [
+    "Iran target",
+    "WAN transfer",
+    "DNS or ingress cutover",
+    "private authentication",
+    "verified offline installs",
+    "post-write rollback"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "provider": "linuxmirrors",
+  "observations": [
+    {
+      "url": "https://repo.linuxmirrors.ir/ubuntu/dists/noble-security/main/binary-amd64/by-hash/SHA256/b7be9a8de79bb585c392b22793d20c1e13eca0db3257c031823142c896d76228",
+      "size_bytes": 1143768,
+      "expected_sha256": "b7be9a8de79bb585c392b22793d20c1e13eca0db3257c031823142c896d76228",
+      "complete_hash_verified": true,
+      "elapsed_seconds": 11.357
+    },
+    {
+      "url": "https://repo.linuxmirrors.ir/ubuntu/dists/noble-security/universe/binary-amd64/by-hash/SHA256/7892448047733ebd8e5d5bf42a4b3cd1f3f5c86d0b08a12beffc654bbb1072be",
+      "size_bytes": 1222196,
+      "expected_sha256": "7892448047733ebd8e5d5bf42a4b3cd1f3f5c86d0b08a12beffc654bbb1072be",
+      "complete_hash_verified": true,
+      "elapsed_seconds": 11.4
+    },
+    {
+      "url": "https://repo.linuxmirrors.ir/ubuntu/dists/noble-updates/main/binary-amd64/by-hash/SHA256/1b79de5bbdc9bfffde72130dac32d60ce0a3c12d1c9d4295d9bf840462028c86",
+      "size_bytes": 1397080,
+      "expected_sha256": "1b79de5bbdc9bfffde72130dac32d60ce0a3c12d1c9d4295d9bf840462028c86",
+      "complete_hash_verified": true,
+      "elapsed_seconds": 13.408
+    },
+    {
+      "url": "https://repo.linuxmirrors.ir/ubuntu/dists/noble-updates/universe/binary-amd64/by-hash/SHA256/70a48ab856829fa20d674fdaf81d9bdd71dcfc43f7e33147c47a962dfeee8610",
+      "size_bytes": 1703636,
+      "expected_sha256": "70a48ab856829fa20d674fdaf81d9bdd71dcfc43f7e33147c47a962dfeee8610",
+      "complete_hash_verified": true,
+      "elapsed_seconds": 16.411
+    },
+    {
+      "url": "https://repo.linuxmirrors.ir/ubuntu/dists/noble/main/binary-amd64/by-hash/SHA256/2a6a199e1031a5c279cb346646d594993f35b1c03dd4a82aaa0323980dd92451",
+      "size_bytes": 1401160,
+      "expected_sha256": "2a6a199e1031a5c279cb346646d594993f35b1c03dd4a82aaa0323980dd92451",
+      "complete_hash_verified": true,
+      "elapsed_seconds": 13.343
+    },
+    {
+      "url": "https://repo.linuxmirrors.ir/ubuntu/dists/noble/universe/binary-amd64/by-hash/SHA256/ba9057fa1b91438cc8a1d26808d00c85389fe101d0c1496254df97236405599a",
+      "size_bytes": 15037908,
+      "expected_sha256": "ba9057fa1b91438cc8a1d26808d00c85389fe101d0c1496254df97236405599a",
+      "complete_hash_verified": false,
+      "error": "AttributeError: 'NoneType' object has no attribute 'close'",
+      "elapsed_seconds": 30.025
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+Starting tehnet-software-offline-initial.service - TehNet signed and clean-install-gated offline profile refresh...
+{"stage": "signed_discovery", "run": "run-20261018-173856-e2186e4c"}
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/opt/tehnet-software/operations/offline-refresh-20261018-final/tools/offline_refresh.py", line 249, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/opt/tehnet-software/operations/offline-refresh-20261018-final/tools/offline_refresh.py", line 240, in main
+    try:print(json.dumps(run(args.state,args.seed,args.host_site,force=args.force,dry_run=args.dry_run)))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/tehnet-software/operations/offline-refresh-20261018-final/tools/offline_refresh.py", line 199, in run
+    stage_command(['unshare','--mount','--propagation','private','bash',str(ROOT/'deployment/qualification/discover-devtools.sh')],metadata/'discovery.log',env)
+  File "/opt/tehnet-software/operations/offline-refresh-20261018-final/tools/offline_refresh.py", line 126, in stage_command
+    if process.wait()!=0:raise ValueError('Stage failed: '+Path(log).name+'\n'+Path(log).read_text(errors='replace')[-4000:])
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Stage failed: discovery.log
+gpgv: Signature made Thu 10 Sep 2026 04:44:43 PM UTC
+gpgv:                using RSA key 843938DF228D22F7B3742BC0D94AA3F0EFE21092
+gpgv: Good signature from "Ubuntu CD Image Automatic Signing Key (2012) <cdimage@ubuntu.com>"
+{"base": "ubuntu-base-24.04.5-base-amd64.tar.gz", "base_sha256": "e77b6f10c2590cef872b33ee9f635a0e3fd1f57fb074c0e52b5c7f56147a0c86", "base_bytes": 30028293, "signature_key": "843938DF228D22F7B3742BC0D94AA3F0EFE21092", "tls_verified": true, "payload_location": "private tmpfs,noswap", "elapsed_seconds": 4.229}
+E: seteuid 42 failed - seteuid (1: Operation not permitted)
+Reading package lists...
+E: seteuid 42 failed - seteuid (1: Operation not permitted)
+E: Method gave invalid 400 URI Failure message: Failed to set new user ids - setresuid (1: Operation not permitted)
+E: Method file has died unexpectedly!
+E: Sub-process file returned an error code (112)
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/apport_python_hook.py", line 228, in partial_apport_excepthook
+    return apport_excepthook(binary, exc_type, exc_obj, exc_tb)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/apport_python_hook.py", line 114, in apport_excepthook
+    report["ExecutableTimestamp"] = str(int(os.stat(binary).st_mtime))
+                                            ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/tehnet-software/operations/offline-refresh-20261018-final/-m'
+Original exception was:
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/opt/tehnet-software/operations/offline-refresh-20261018-final/tools/offline_refresh.py", line 249, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/opt/tehnet-software/operations/offline-refresh-20261018-final/tools/offline_refresh.py", line 240, in main
+    try:print(json.dumps(run(args.state,args.seed,args.host_site,force=args.force,dry_run=args.dry_run)))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/tehnet-software/operations/offline-refresh-20261018-final/tools/offline_refresh.py", line 199, in run
+    stage_command(['unshare','--mount','--propagation','private','bash',str(ROOT/'deployment/qualification/discover-devtools.sh')],metadata/'discovery.log',env)
+  File "/opt/tehnet-software/operations/offline-refresh-20261018-final/tools/offline_refresh.py", line 126, in stage_command
+    if process.wait()!=0:raise ValueError('Stage failed: '+Path(log).name+'\n'+Path(log).read_text(errors='replace')[-4000:])
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Stage failed: discovery.log
+gpgv: Signature made Thu 10 Sep 2026 04:44:43 PM UTC
+gpgv:                using RSA key 843938DF228D22F7B3742BC0D94AA3F0EFE21092
+gpgv: Good signature from "Ubuntu CD Image Automatic Signing Key (2012) <cdimage@ubuntu.com>"
+{"base": "ubuntu-base-24.04.5-base-amd64.tar.gz", "base_sha256": "e77b6f10c2590cef872b33ee9f635a0e3fd1f57fb074c0e52b5c7f56147a0c86", "base_bytes": 30028293, "signature_key": "843938DF228D22F7B3742BC0D94AA3F0EFE21092", "tls_verified": true, "payload_location": "private tmpfs,noswap", "elapsed_seconds": 4.229}
+E: seteuid 42 failed - seteuid (1: Operation not permitted)
+Reading package lists...
+E: seteuid 42 failed - seteuid (1: Operation not permitted)
+E: Method gave invalid 400 URI Failure message: Failed to set new user ids - setresuid (1: Operation not permitted)
+E: Method file has died unexpectedly!
+E: Sub-process file returned an error code (112)
+tehnet-software-offline-initial.service: Main process exited, code=exited, status=1/FAILURE
+tehnet-software-offline-initial.service: Failed with result 'exit-code'.
+Failed to start tehnet-software-offline-initial.service - TehNet signed and clean-install-gated offline profile refresh.
+tehnet-software-offline-initial.service: Consumed 2.518s CPU time.
+Starting tehnet-software-offline-initial.service - TehNet signed and clean-install-gated offline profile refresh...
+{"apt_sandbox_uid_probe": "PASS", "uid": 42, "gid": 65534}
+{"stage": "signed_discovery", "run": "run-20261018-175032-adab0629"}
+{"stage": "candidate_signature_chain", "run": "run-20261018-175032-adab0629"}
+{"stage": "clean_offline_install", "run": "run-20261018-175032-adab0629"}
+{"stage": "qualified", "run": "run-20261018-175032-adab0629"}
+{"stage": "publishing", "run": "run-20261018-175032-adab0629"}
+{"accepted_at": "2026-10-18T17:53:33.935720+00:00", "checked_at": "2026-10-18T17:53:33.940565+00:00", "stage": "published", "run": "run-20261018-175032-adab0629", "result": "PASS", "failed_at": "2026-10-18T17:39:10.267195+00:00", "last_failure": "ValueError", "pending": null, "profile_sha256": "a672749cd320b85e008a14d8bb564d650963a12d948fc824d190ee2fd6d012f7", "publication": {"published_files_sha256": {"index.html": "c0eb1f320270d4b5c2520049350c64d2a586750505c32566bf9c30bf22d29385", "profile.json": "a672749cd320b85e008a14d8bb564d650963a12d948fc824d190ee2fd6d012f7", "offline_kit.py": "fd35d9874932bc35fa8ff026c8608c61ed86533fc46d9ac56d00387e710e0fc9", "acceptance.json": "d40b30032ce90868c6a68d27436f6365e29e7c3c1ed988acabbd08fa70324883"}, "backup": "/root/tehnet-backups/20261018-175032-adab0629-offline-auto", "owned_snippet_only": true, "container_restart": false, "software_payload_files": 0}}
+tehnet-software-offline-initial.service: Deactivated successfully.
+Finished tehnet-software-offline-initial.service - TehNet signed and clean-install-gated offline profile refresh.
+tehnet-software-offline-initial.service: Consumed 48.694s CPU time, 782.5M memory peak, 0B memory swap peak.

@@ -1,0 +1,9 @@
+{
+  "accepted_at": "2026-10-18T16:54:44.583116+00:00",
+  "checked_at": "2026-10-18T17:50:32.402216+00:00",
+  "stage": "signed_discovery",
+  "run": "run-20261018-175032-adab0629",
+  "result": "in_progress",
+  "failed_at": "2026-10-18T17:39:10.267195+00:00",
+  "last_failure": "ValueError"
+}

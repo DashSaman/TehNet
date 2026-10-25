@@ -1,0 +1,539 @@
+{
+  "functional_tools": [
+    "git",
+    "curl",
+    "jq",
+    "python",
+    "pip",
+    "wget",
+    "rsync",
+    "ssh"
+  ],
+  "versions": {
+    "git": "git version 2.43.0",
+    "curl": "curl 8.5.0 (x86_64-pc-linux-gnu) libcurl/8.5.0 OpenSSL/3.0.13 zlib/1.3 brotli/1.1.0 zstd/1.5.5 libidn2/2.3.7 libpsl/0.21.2 (+libidn2/2.3.7) libssh/0.10.6/openssl/zlib nghttp2/1.59.0 librtmp/2.3 OpenLDAP/2.6.10\nRelease-Date: 2023-12-06, security patched: 8.5.0-2ubuntu10.16\nProtocols: dict file ftp ftps gopher gophers http https imap imaps ldap ldaps mqtt pop3 pop3s rtmp rtsp scp sftp smb smbs smtp smtps telnet tftp\nFeatures: alt-svc AsynchDNS brotli GSS-API HSTS HTTP2 HTTPS-proxy IDN IPv6 Kerberos Largefile libz NTLM PSL SPNEGO SSL threadsafe TLS-SRP UnixSockets zstd",
+    "jq": "jq-1.7",
+    "python": "Python 3.12.3",
+    "pip": "pip 24.0 from /usr/lib/python3/dist-packages/pip (python 3.12)",
+    "wget": "GNU Wget 1.21.4 built on linux-gnu.\n\n-cares +digest -gpgme +https +ipv6 +iri +large-file -metalink +nls \n+ntlm +opie +psl +ssl/openssl \n\nWgetrc: \n    /etc/wgetrc (system)\nLocale: \n    /usr/share/locale \nCompile: \n    gcc -DHAVE_CONFIG_H -DSYSTEM_WGETRC=\"/etc/wgetrc\" \n    -DLOCALEDIR=\"/usr/share/locale\" -I. -I../../src -I../lib \n    -I../../lib -Wdate-time -D_FORTIFY_SOURCE=3 -DHAVE_LIBSSL -DNDEBUG \n    -g -O2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer \n    -ffile-prefix-map=/build/wget-JgCXcc/wget-1.21.4=. -flto=auto \n    -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection \n    -Wformat -Werror=format-security -fcf-protection \n    -fdebug-prefix-map=/build/wget-JgCXcc/wget-1.21.4=/usr/src/wget-1.21.4-1ubuntu4.5 \n    -DNO_SSLv2 -D_FILE_OFFSET_BITS=64 -g -Wall \nLink: \n    gcc -DHAVE_LIBSSL -DNDEBUG -g -O2 -fno-omit-frame-pointer \n    -mno-omit-leaf-frame-pointer \n    -ffile-prefix-map=/build/wget-JgCXcc/wget-1.21.4=. -flto=auto \n    -ffat-lto-objects -fstack-protector-strong -fstack-clash-protection \n    -Wformat -Werror=format-security -fcf-protection \n    -fdebug-prefix-map=/build/wget-JgCXcc/wget-1.21.4=/usr/src/wget-1.21.4-1ubuntu4.5 \n    -DNO_SSLv2 -D_FILE_OFFSET_BITS=64 -g -Wall -Wl,-Bsymbolic-functions \n    -flto=auto -ffat-lto-objects -Wl,-z,relro -Wl,-z,now -lpcre2-8 \n    -luuid -lidn2 -lssl -lcrypto -lz -lpsl ../lib/libgnu.a \n\nCopyright (C) 2015 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later\n<http://www.gnu.org/licenses/gpl.html>.\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n\nOriginally written by Hrvoje Niksic <hniksic@xemacs.org>.\nPlease send bug reports and questions to <bug-wget@gnu.org>.",
+    "rsync": "rsync  version 3.2.7  protocol version 31\nCopyright (C) 1996-2022 by Andrew Tridgell, Wayne Davison, and others.\nWeb site: https://rsync.samba.org/\nCapabilities:\n    64-bit files, 64-bit inums, 64-bit timestamps, 64-bit long ints,\n    socketpairs, symlinks, symtimes, hardlinks, hardlink-specials,\n    hardlink-symlinks, IPv6, atimes, batchfiles, inplace, append, ACLs,\n    xattrs, optional secluded-args, iconv, prealloc, stop-at, no crtimes\nOptimizations:\n    SIMD-roll, no asm-roll, openssl-crypto, no asm-MD5\nChecksum list:\n    xxh128 xxh3 xxh64 (xxhash) md5 md4 sha1 none\nCompress list:\n    zstd lz4 zlibx zlib none\nDaemon auth list:\n    sha512 sha256 sha1 md5 md4\n\nrsync comes with ABSOLUTELY NO WARRANTY.  This is free software, and you\nare welcome to redistribute it under certain conditions.  See the GNU\nGeneral Public Licence for details.",
+    "ssh": "OpenSSH_9.6p1 Ubuntu-3ubuntu13.20, OpenSSL 3.0.13 30 Jan 2024"
+  },
+  "installed_packages": 58,
+  "copyrights": [
+    {
+      "package": "perl-base",
+      "bytes": 108292,
+      "sha256": "657ac19622868be1f2bf8ac3823a952b28c7a2a467f61353743e9c9d89291921"
+    },
+    {
+      "package": "libssl3t64",
+      "bytes": 2543,
+      "sha256": "6a7da622fe0637a334d2a8fc470852d2ffb77d9a2b2f930f854e32a41ad6ef35"
+    },
+    {
+      "package": "libpython3.12-minimal",
+      "bytes": 49855,
+      "sha256": "f1cbf908e1daa8789b389fdcf17811ed36b675d736b39a103591399861350382"
+    },
+    {
+      "package": "libexpat1",
+      "bytes": 1756,
+      "sha256": "60919fe1a156395ff14511bb6ff79756c50ade2fff59ac60c9bae1d8a7fe6292"
+    },
+    {
+      "package": "python3.12-minimal",
+      "bytes": 49855,
+      "sha256": "f1cbf908e1daa8789b389fdcf17811ed36b675d736b39a103591399861350382"
+    },
+    {
+      "package": "python3-minimal",
+      "bytes": 16122,
+      "sha256": "5b274dbb44b28a54b795b9471c07ab045054d6b8a86273cb9feb632b6fd2760d"
+    },
+    {
+      "package": "media-types",
+      "bytes": 268,
+      "sha256": "5ded7c53199b6a1d089b0b7e231d77e5c84081c7156b372b3f11ad9c1c2c5cc7"
+    },
+    {
+      "package": "netbase",
+      "bytes": 1234,
+      "sha256": "795b66147ea5ad692991caa7008ece551fb0fa88b9c53656223bd1518dc58ab2"
+    },
+    {
+      "package": "tzdata",
+      "bytes": 3794,
+      "sha256": "97fad960bf4aea7cb5faf6dc8a536bf91bf85a69a7869cfa8254a0162134c1d8"
+    },
+    {
+      "package": "readline-common",
+      "bytes": 4314,
+      "sha256": "854c6f5f249a109a913e1e58528445c4fec96f063ae8ba496bfb2b460bcc6866"
+    },
+    {
+      "package": "libreadline8t64",
+      "bytes": 4314,
+      "sha256": "854c6f5f249a109a913e1e58528445c4fec96f063ae8ba496bfb2b460bcc6866"
+    },
+    {
+      "package": "libsqlite3-0",
+      "bytes": 1833,
+      "sha256": "78e9df8f8153c91c762ec970b82d224ac4d30f05aa7773e7e17e268141e53873"
+    },
+    {
+      "package": "libpython3.12-stdlib",
+      "bytes": 49855,
+      "sha256": "f1cbf908e1daa8789b389fdcf17811ed36b675d736b39a103591399861350382"
+    },
+    {
+      "package": "python3.12",
+      "bytes": 49855,
+      "sha256": "f1cbf908e1daa8789b389fdcf17811ed36b675d736b39a103591399861350382"
+    },
+    {
+      "package": "libpython3-stdlib",
+      "bytes": 16122,
+      "sha256": "5b274dbb44b28a54b795b9471c07ab045054d6b8a86273cb9feb632b6fd2760d"
+    },
+    {
+      "package": "python3",
+      "bytes": 16122,
+      "sha256": "5b274dbb44b28a54b795b9471c07ab045054d6b8a86273cb9feb632b6fd2760d"
+    },
+    {
+      "package": "libpopt0",
+      "bytes": 2575,
+      "sha256": "46bf8fceccc1c186fe9e67b21a8670e2fef58989093ef65c377307c974e3c733"
+    },
+    {
+      "package": "rsync",
+      "bytes": 1704,
+      "sha256": "240afc05aff098e53dafe0def34030b2ef7848b78b9ebabf2c157713b9f975c5"
+    },
+    {
+      "package": "perl-modules-5.38",
+      "bytes": 108292,
+      "sha256": "657ac19622868be1f2bf8ac3823a952b28c7a2a467f61353743e9c9d89291921"
+    },
+    {
+      "package": "libgdbm6t64",
+      "bytes": 2701,
+      "sha256": "8bea8cf2f94cd8b37a0b8b3a2b974122b9194c1165e6ad508e366c74679e8817"
+    },
+    {
+      "package": "libgdbm-compat4t64",
+      "bytes": 2701,
+      "sha256": "8bea8cf2f94cd8b37a0b8b3a2b974122b9194c1165e6ad508e366c74679e8817"
+    },
+    {
+      "package": "libperl5.38t64",
+      "bytes": 108292,
+      "sha256": "657ac19622868be1f2bf8ac3823a952b28c7a2a467f61353743e9c9d89291921"
+    },
+    {
+      "package": "perl",
+      "bytes": 108292,
+      "sha256": "657ac19622868be1f2bf8ac3823a952b28c7a2a467f61353743e9c9d89291921"
+    },
+    {
+      "package": "adduser",
+      "bytes": 13398,
+      "sha256": "92e5c09d4194cf3474b617d493613717c82c7f067c017bc6f1b6469124c5c731"
+    },
+    {
+      "package": "openssl",
+      "bytes": 2543,
+      "sha256": "6a7da622fe0637a334d2a8fc470852d2ffb77d9a2b2f930f854e32a41ad6ef35"
+    },
+    {
+      "package": "ca-certificates",
+      "bytes": 18940,
+      "sha256": "e85e1bcad3a915dc7e6f41412bc5bdeba275cadd817896ea0451f2140a93967c"
+    },
+    {
+      "package": "libbsd0",
+      "bytes": 22396,
+      "sha256": "978426553ab7b9cfb4503d98e578a77b8c3142c099100aa9791fd21be5a95f97"
+    },
+    {
+      "package": "libkrb5support0",
+      "bytes": 63047,
+      "sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816"
+    },
+    {
+      "package": "libk5crypto3",
+      "bytes": 63047,
+      "sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816"
+    },
+    {
+      "package": "libkeyutils1",
+      "bytes": 2104,
+      "sha256": "c62fe37d22203046611112bc10a9e03a39a7f73bec1b061e7c615326166d9ff5"
+    },
+    {
+      "package": "libkrb5-3",
+      "bytes": 63047,
+      "sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816"
+    },
+    {
+      "package": "libgssapi-krb5-2",
+      "bytes": 63047,
+      "sha256": "936728f4181718f42951b881c1e8f1386bf6b2723c4fbc533c374d6f42c71816"
+    },
+    {
+      "package": "python3-pkg-resources",
+      "bytes": 3706,
+      "sha256": "b667d4e1f17b94a30d1398150ee53cfbe65e2c71b9fc12509d641612233abe97"
+    },
+    {
+      "package": "libcbor0.10",
+      "bytes": 1526,
+      "sha256": "1745c3131e3594b3dab29db61e65b9efa0d654cbf2e4bad9f6b446caeb454b8f"
+    },
+    {
+      "package": "libedit2",
+      "bytes": 1840,
+      "sha256": "2b53671050f6319be6fcdcafa434e8ccb8af629359b4afc83185867204f3927d"
+    },
+    {
+      "package": "libfido2-1",
+      "bytes": 3626,
+      "sha256": "c05201a77c4ac0cab4b8abd8daded4dbaeb460b393d44fed45da7fd4e5ad8652"
+    },
+    {
+      "package": "libnghttp2-14",
+      "bytes": 6535,
+      "sha256": "a34ae32a5eba61e535835a8de7c398f47e420247d339bc400a3b9c618ba29a3d"
+    },
+    {
+      "package": "libpsl5t64",
+      "bytes": 3310,
+      "sha256": "bbafb0cf52d34465fc69f5ffd22d724224f6a2f28402c88b045c69d88af06aaf"
+    },
+    {
+      "package": "openssh-client",
+      "bytes": 10941,
+      "sha256": "b6be93136b065505bf4fa315914a8c31c2a07865e7b5152dc1cbca324d86c860"
+    },
+    {
+      "package": "wget",
+      "bytes": 1420,
+      "sha256": "c58cb5a2d94f35f0e9b0f1a038d48b73477aa12782ff17328c21d8a86f5f99d5"
+    },
+    {
+      "package": "libbrotli1",
+      "bytes": 1354,
+      "sha256": "24a64e5bb83d0960d1835696a1e23c0896ad6055b0ca47c66ab0eb9a766324b1"
+    },
+    {
+      "package": "libsasl2-modules-db",
+      "bytes": 24643,
+      "sha256": "ddb128a81d3a140ef5b3574ae000a1a50d0cb9a2ec59917121a155f91b670166"
+    },
+    {
+      "package": "libsasl2-2",
+      "bytes": 24643,
+      "sha256": "ddb128a81d3a140ef5b3574ae000a1a50d0cb9a2ec59917121a155f91b670166"
+    },
+    {
+      "package": "libldap2",
+      "bytes": 62837,
+      "sha256": "b4081907f0d9a4110736fa6540dc8ca9d7d60a20878b5d78f84916cc04907bdc"
+    },
+    {
+      "package": "librtmp1",
+      "bytes": 2726,
+      "sha256": "4302abcc1ea1b6cbe8d19c79b892acf78878030220210707c19006828866207c"
+    },
+    {
+      "package": "libssh-4",
+      "bytes": 12158,
+      "sha256": "1b33ec0b1d0d521afb21d8e6b98fa4abf52b1ffb69a8461a045db9d586ce141f"
+    },
+    {
+      "package": "libcurl4t64",
+      "bytes": 21749,
+      "sha256": "a7c131b21e6e73b3b085a7d9f1637b68f5f92b832cc6f462e0c978fbe7841ccb"
+    },
+    {
+      "package": "curl",
+      "bytes": 21749,
+      "sha256": "a7c131b21e6e73b3b085a7d9f1637b68f5f92b832cc6f462e0c978fbe7841ccb"
+    },
+    {
+      "package": "libcurl3t64-gnutls",
+      "bytes": 21749,
+      "sha256": "a7c131b21e6e73b3b085a7d9f1637b68f5f92b832cc6f462e0c978fbe7841ccb"
+    },
+    {
+      "package": "liberror-perl",
+      "bytes": 2669,
+      "sha256": "5ece6f21cf4f64f798479e81abd3f25a20bd7e8fc13d98c680b25a8af6b954af"
+    },
+    {
+      "package": "git-man",
+      "bytes": 19290,
+      "sha256": "e7efbd67e2dac6d950e4607b541778a610561ec77562b8b0a9704a7a3fcbc39c"
+    },
+    {
+      "package": "git",
+      "bytes": 19290,
+      "sha256": "e7efbd67e2dac6d950e4607b541778a610561ec77562b8b0a9704a7a3fcbc39c"
+    },
+    {
+      "package": "libonig5",
+      "bytes": 2564,
+      "sha256": "10b930a2a7d4841b79b16f1cbd515e4fda85cce803b2b0418ec2a6f99c84a074"
+    },
+    {
+      "package": "libjq1",
+      "bytes": 21039,
+      "sha256": "71a7b9322efe66bc489a97dcb3452992e419494043f6798fb61dc347648f06cd"
+    },
+    {
+      "package": "jq",
+      "bytes": 21039,
+      "sha256": "71a7b9322efe66bc489a97dcb3452992e419494043f6798fb61dc347648f06cd"
+    },
+    {
+      "package": "python3-setuptools",
+      "bytes": 3706,
+      "sha256": "b667d4e1f17b94a30d1398150ee53cfbe65e2c71b9fc12509d641612233abe97"
+    },
+    {
+      "package": "python3-wheel",
+      "bytes": 4159,
+      "sha256": "9526299f624f2de05ccad5d74e9e1841671206f8dbe2d9a8b6b11c57edf3cea5"
+    },
+    {
+      "package": "python3-pip",
+      "bytes": 18718,
+      "sha256": "e8945857357ef1399a575fcd6b92f1957a5e49edcd65779002dde0bce84f3c1a"
+    }
+  ],
+  "network_interfaces": [
+    "lo",
+    "sit0",
+    "gre0",
+    "gretap0",
+    "erspan0",
+    "ip6tnl0",
+    "ip6gre0",
+    "ip_vti0",
+    "tunl0",
+    "ip6_vti0"
+  ],
+  "external_connect_refused": true,
+  "fixtures": "local HTTP fetch,JSON expression,Python calculation,pip version,Git commit/read,rsync copy,local Ed25519 key generation; all discarded with RAM root",
+  "qualified_profile_sha256": "62a89f926b2c0b6078ef63a30bf529d71516720a6ed846c0a2b0b9db0968f601",
+  "negative_checks": {
+    "corrupt_required_archive": {
+      "exit": 1,
+      "elapsed_seconds": 8.794,
+      "dpkg_unchanged": true
+    },
+    "missing_required_archive": {
+      "exit": 1,
+      "elapsed_seconds": 8.915,
+      "dpkg_unchanged": true
+    },
+    "forged_signed_metadata": {
+      "exit": 100,
+      "elapsed_seconds": 5.488,
+      "dpkg_unchanged": true
+    },
+    "newer_nonseed_dependency": {
+      "exit": 2,
+      "elapsed_seconds": 8.908,
+      "dpkg_unchanged": true
+    },
+    "clean_offline_install": {
+      "exit": 0,
+      "elapsed_seconds": 28.806,
+      "dpkg_audit": "empty"
+    }
+  },
+  "baseline_status_sha256": "5579ea756917a8f07dcc675f85ae1073db61977f1d91353e617f9acdab4a7340",
+  "offline_lists_before": 0,
+  "network_links": [
+    {
+      "ifindex": 1,
+      "ifname": "lo",
+      "flags": [
+        "LOOPBACK",
+        "UP",
+        "LOWER_UP"
+      ],
+      "mtu": 65536,
+      "qdisc": "noqueue",
+      "operstate": "UNKNOWN",
+      "linkmode": "DEFAULT",
+      "group": "default",
+      "txqlen": 1000,
+      "link_type": "loopback",
+      "address": "00:00:00:00:00:00",
+      "broadcast": "00:00:00:00:00:00"
+    },
+    {
+      "ifindex": 2,
+      "link": null,
+      "ifname": "sit0",
+      "flags": [
+        "NOARP"
+      ],
+      "mtu": 1480,
+      "qdisc": "noop",
+      "operstate": "DOWN",
+      "linkmode": "DEFAULT",
+      "group": "default",
+      "txqlen": 1000,
+      "link_type": "sit",
+      "address": "0.0.0.0",
+      "broadcast": "0.0.0.0"
+    },
+    {
+      "ifindex": 3,
+      "link": null,
+      "ifname": "gre0",
+      "flags": [
+        "NOARP"
+      ],
+      "mtu": 1476,
+      "qdisc": "noop",
+      "operstate": "DOWN",
+      "linkmode": "DEFAULT",
+      "group": "default",
+      "txqlen": 1000,
+      "link_type": "gre",
+      "address": "0.0.0.0",
+      "broadcast": "0.0.0.0"
+    },
+    {
+      "ifindex": 4,
+      "link": null,
+      "ifname": "gretap0",
+      "flags": [
+        "BROADCAST",
+        "MULTICAST"
+      ],
+      "mtu": 1462,
+      "qdisc": "noop",
+      "operstate": "DOWN",
+      "linkmode": "DEFAULT",
+      "group": "default",
+      "txqlen": 1000,
+      "link_type": "ether",
+      "address": "00:00:00:00:00:00",
+      "broadcast": "ff:ff:ff:ff:ff:ff"
+    },
+    {
+      "ifindex": 5,
+      "link": null,
+      "ifname": "erspan0",
+      "flags": [
+        "BROADCAST",
+        "MULTICAST"
+      ],
+      "mtu": 1450,
+      "qdisc": "noop",
+      "operstate": "DOWN",
+      "linkmode": "DEFAULT",
+      "group": "default",
+      "txqlen": 1000,
+      "link_type": "ether",
+      "address": "00:00:00:00:00:00",
+      "broadcast": "ff:ff:ff:ff:ff:ff"
+    },
+    {
+      "ifindex": 6,
+      "link": null,
+      "ifname": "ip6tnl0",
+      "flags": [
+        "NOARP"
+      ],
+      "mtu": 1452,
+      "qdisc": "noop",
+      "operstate": "DOWN",
+      "linkmode": "DEFAULT",
+      "group": "default",
+      "txqlen": 1000,
+      "link_type": "tunnel6",
+      "address": "::",
+      "broadcast": "::",
+      "permaddr": "6e78:cad7:2ba2::"
+    },
+    {
+      "ifindex": 7,
+      "link": null,
+      "ifname": "ip6gre0",
+      "flags": [
+        "NOARP"
+      ],
+      "mtu": 1448,
+      "qdisc": "noop",
+      "operstate": "DOWN",
+      "linkmode": "DEFAULT",
+      "group": "default",
+      "txqlen": 1000,
+      "link_type": "gre6",
+      "address": "::",
+      "broadcast": "::",
+      "permaddr": "428d:23de:92a5::"
+    },
+    {
+      "ifindex": 8,
+      "link": null,
+      "ifname": "ip_vti0",
+      "flags": [
+        "NOARP"
+      ],
+      "mtu": 1480,
+      "qdisc": "noop",
+      "operstate": "DOWN",
+      "linkmode": "DEFAULT",
+      "group": "default",
+      "txqlen": 1000,
+      "link_type": "ipip",
+      "address": "0.0.0.0",
+      "broadcast": "0.0.0.0"
+    },
+    {
+      "ifindex": 9,
+      "link": null,
+      "ifname": "tunl0",
+      "flags": [
+        "NOARP"
+      ],
+      "mtu": 1480,
+      "qdisc": "noop",
+      "operstate": "DOWN",
+      "linkmode": "DEFAULT",
+      "group": "default",
+      "txqlen": 1000,
+      "link_type": "ipip",
+      "address": "0.0.0.0",
+      "broadcast": "0.0.0.0"
+    },
+    {
+      "ifindex": 10,
+      "link": null,
+      "ifname": "ip6_vti0",
+      "flags": [
+        "NOARP"
+      ],
+      "mtu": 1332,
+      "qdisc": "noop",
+      "operstate": "DOWN",
+      "linkmode": "DEFAULT",
+      "group": "default",
+      "txqlen": 1000,
+      "link_type": "tunnel6",
+      "address": "::",
+      "broadcast": "::",
+      "permaddr": "62ef:40d8:a95f::"
+    }
+  ],
+  "network_isolation": "Fresh namespace,only loopback up,no default/foreign route; kernel-created tunnel interfaces remain DOWN; no host firewall/network change",
+  "rootfs": "Clean signed Ubuntu Base24.04.5 amd64,not a booted VM"
+}

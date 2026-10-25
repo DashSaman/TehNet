@@ -1,0 +1,78 @@
+{
+  "checked_at_utc": "2026-10-19T17:45:35.963671+00:00",
+  "expected_only": [
+    "tunnelpannel-tehnet-web|8d66f44330c9c74e82b59ab1c7984ce331c00cc0b793d06734172cfe7d3cee91|nginx@sha256:970364228b1e4f932abc22d321932816782cca8a20b85a77552a7cfe9acfb3b5|"
+  ],
+  "actual_only": [
+    "tunnelpannel-tehnet-web|699ae2f14e5b3d3ed65e28f5eb93c2746ccf497d3dfcd1a43d1222b5702a176b|nginx@sha256:970364228b1e4f932abc22d321932816782cca8a20b85a77552a7cfe9acfb3b5|"
+  ],
+  "changed_containers": [
+    {
+      "name": "tunnelpannel-tehnet-web",
+      "id": "699ae2f14e5b3d3ed65e28f5eb93c2746ccf497d3dfcd1a43d1222b5702a176b",
+      "created": "2026-10-19T17:18:11.429540847Z",
+      "image": "sha256:970364228b1e4f932abc22d321932816782cca8a20b85a77552a7cfe9acfb3b5",
+      "healthy": "healthy",
+      "status": "running",
+      "readonly": true,
+      "compose_file": "/opt/tunnelpannel-tehnet-web/releases/9f5245f28e26/compose.yaml",
+      "mounts": [
+        {
+          "source": "/opt/tunnelpannel-tehnet-web/releases/9f5245f28e26/nginx.conf",
+          "target": "/etc/nginx/nginx.conf",
+          "rw": false
+        },
+        {
+          "source": "/opt/tunnelpannel-tehnet-web/releases/9f5245f28e26/public",
+          "target": "/usr/share/nginx/html",
+          "rw": false
+        }
+      ]
+    }
+  ],
+  "changed_protected_paths": [],
+  "stored_latest": {
+    "phase": "observing",
+    "started_at": "2026-10-19T13:39:28.226058+00:00",
+    "deadline": "2026-10-21T13:39:28.226058+00:00",
+    "elapsed_hours": 3.6747,
+    "samples": 10,
+    "failed_samples": 1,
+    "new_publications": 0,
+    "maximum_observation_gap_seconds": 1826.655983,
+    "limitations": [
+      "no_new_publication",
+      "last_sample_not_healthy"
+    ],
+    "latest": {
+      "checked_at": "2026-10-19T17:19:57.191325+00:00",
+      "outcome": "error",
+      "errors": [
+        "ValueError: Existing container fingerprints changed"
+      ],
+      "refresh_timer": {
+        "NextElapseUSecRealtime": "Mon 2026-10-19 18:20:25 UTC",
+        "LastTriggerUSec": "Mon 2026-10-19 12:20:53 UTC",
+        "Result": "success",
+        "Persistent": "yes",
+        "ActiveState": "active",
+        "UnitFileState": "enabled"
+      },
+      "refresh_service": {
+        "Result": "success",
+        "ExecMainStatus": "0",
+        "ActiveState": "inactive",
+        "UnitFileState": "disabled"
+      },
+      "refresh_stage": "not_due",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+      "accepted_at": "2026-10-19T06:26:39.147044+00:00",
+      "packages": 58,
+      "signature_and_exact_install_binding": true,
+      "main_private_origin_checks": true,
+      "swap_bytes": 0,
+      "accepted_run": "run-20261019-062320-a1195755"
+    }
+  },
+  "completed": false
+}

@@ -1,0 +1,32 @@
+# 20October dawn publication and four automatic source requalifications
+
+Subsequent20October11:23:22UTC status:[first natural post-repair sample healthy](NATURAL_RECOVERY_20261020.md),46samples/35retained failures/1in-window publication. The pending recovery descriptions below record the earlier10:50–10:58UTC follow-up;original evidence/history remains unchanged.
+
+The native scheduled run `run-20261020-002025-75be29d8` started00:20:24UTC,published00:23:55UTC and accepted the new profile at **2026-10-20T00:23:53.116922Z (03:53:53Tehran)**. This follow-up ran after the requested00:25UTC boundary;the new publication itself occurred during the requested dawn slot. Its SHA256 is `fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724`. The independent conversation follow-up ran around10:50UTC;it did not run at dawn or initiate this publication.
+
+[Native event journal and stored samples](dawn-followup-20261020/post-transition-native.json),[canonical publication metadata](dawn-followup-20261020/canonical/publication.json) and [read-only verification](dawn-followup-20261020/read-only-state.json) agree on the run,profile SHA and installation acceptance. Three original Ubuntu InRelease signatures and dates were rechecked with the pinned archive keyring. The native candidate/install proof passes `validate_acceptance`;accepted public profile is exactly that candidate plus the accepted/scope fields. Four public file hashes also match independently over HTTPS.
+
+| Source | Automatic acceptance20October UTC | Tehran | Download and offline installation |
+|---|---|---|---|
+| ArvanCloud | 00:28:04 | 03:58:04 | pass |
+| LinuxMirrors.ir | 00:39:10 | 04:09:10 | pass |
+| Liara | 00:42:32 | 04:12:32 | pass |
+| Hamravesh | 00:45:42 | 04:15:42 | pass |
+
+Each row belongs to the exact SHA above:58packages,**32,141,260 package bytes**,six signed package indexes and64complete hash-verified downloads. Each original installation proof was rehashed from its original bytes and revalidated against the current profile. Eight tools passed:git,curl,jq,python,pip,wget,rsync,ssh. Clean installation exited0 with empty dpkg audit;corrupt archive,missing archive,forged signature and unsupported newer dependency were rejected with unchanged dpkg state. These are retained results of independent server jobs,not new downloads performed by this follow-up.
+
+[Generation and timings](dawn-followup-20261020/providers/generation.json);original proofs:[Arvan](dawn-followup-20261020/providers/arvan/offline-install-acceptance.json),[LinuxMirrors](dawn-followup-20261020/providers/linuxmirrors/offline-install-acceptance.json),[Liara](dawn-followup-20261020/providers/liara/offline-install-acceptance.json),[Hamravesh](dawn-followup-20261020/providers/hamravesh/offline-install-acceptance.json). Adjacent download and lab records preserve every download observation and private tmpfs noswap/cgroup swap0/noOOM result. This validates a fresh signed Ubuntu24.04.5amd64 Base userspace under network-isolated installation;it is not a booted VM or proof of every Ubuntu/server/kernel combination.
+
+The [public source selector check](dawn-followup-20261020/selector-public.json) verifies only these four passing rows are selectable and each public proof SHA/profile SHA agrees with its current native result. Both client hashes and all four copied preparation commands passed Linux `bash -n`. The [canonical public HTTPS check](dawn-followup-20261020/public-http.json) adds20checks to16selector checks,including denied archive/private/unknown routes. [Main/private acceptance](dawn-followup-20261020/public-main-privacy.json) passed. No payload request,forced refresh,lab replay,quota reset or extra collector occurred.
+
+## Monitor inventory incident and coverage limitation
+
+The prior exact external-container inventory was superseded by another owner-authorized TunnelPannel rollout at19October17:54UTC. Its [public immutable commit](https://github.com/DashSaman/TunnelPannel/commit/3a10ea0b1a0978c5f3cfc1e3f49daaa164078730) matches the current release path. The original watch guard correctly rejected the changed container ID. [Diagnosis](dawn-followup-20261020/inventory-diagnostic.json) and original journals confirm that only this external ID differed;immutable nginx image,healthy/read-only root and expected read-only mounts remained valid. Other containers and protected files matched.
+
+At20October10:54UTC,under both existing locks,a [narrow inventory transition](dawn-followup-20261020/baseline-transition.json) replaced that one exact private expected fingerprint,retaining a private backup. It changed no website,container,source,unit,clock,budget,intent or sample. [Fresh source verification](dawn-followup-20261020/runtime-verification.json) confirms all34web/44producer/78provider/4watcher hashes match. The subsequent independent inventory/protected-source checks pass. A natural post-repair collector result is **still pending**,not fabricated by a forced sample.
+
+The stored10:53UTC sample predates repair: **45samples,35failed samples,new_publications0**. All failures remain. The watch counts publications only from healthy samples;its zero counter does not override the actual native published event and independently verified signed installation. This interval must not be called continuously healthy. The earlier diagnostic captured44samples/34failures;the next natural10:53sample added the35th before10:54repair.
+
+The original48h window remains19October13:39:28.226058UTC through21October13:39:28.226058UTC. `completed.json` is absent. Final coverage/incident acceptance is unresolved until the real deadline;preserve failed samples even if a future sample passes. Collector,refresh and provider timers remain enabled/active. At06:23UTC the refresh correctly returned `not_due`;next eligibility is12:23:53UTC,next native timer currently12:24:51UTC,subject to actual successful signature/install checks. Today's provider reservation is4intents/768MiB;it was not consumed again by this follow-up.
+
+Catalog payloads remain at external mirrors;lab archives existed only in transient private noswap RAM. The website-tree scan found no catalog payload files. Only code and small metadata/evidence are persistent here. Main website,VPN password/private data,Rubika token settings and other services were not modified. This milestone verifies the actual dawn publication and four same-generation providers;the48h watch remains in progress.

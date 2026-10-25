@@ -1,0 +1,20 @@
+[
+  {
+    "file": "activate.log",
+    "original_sha256": "d8f0e0caebb6b34996d5f3e5d9ae7add7cbbaf6c53f10e1ae51d1390bbac5114",
+    "normalized_sha256": "471fced1b1901bb546d074fbcbbf22d374f309347ecb9cd0f720a544da740992",
+    "changes": "Console trailing spaces and CRLF normalized only; original server log retained. No proof JSON normalized."
+  },
+  {
+    "file": "rehearse.log",
+    "original_sha256": "6b59fefeb375cdeebd06f6b6a3ec9e644bdb8425a0169e9a62e6e3b3a914d743",
+    "normalized_sha256": "c96874d473dd17cfd0dcdf7e990156df4167de19865f5b39dcd7e98d7465cd08",
+    "changes": "Console trailing spaces and CRLF normalized only; original server log retained. No proof JSON normalized."
+  },
+  {
+    "file": "interrupted-rehearsal.log",
+    "original_sha256": "b8360456fcc36be090b6f7bf2827da21a3c7ecd848f3be9002007e5e78156df2",
+    "normalized_sha256": "e5e0a121fd67a38902c2a88b82338daa6d747d0ca738ff61c14e16e2cd2fdfde",
+    "changes": "Console trailing spaces and CRLF normalized only; original server log retained. No proof JSON normalized."
+  }
+]

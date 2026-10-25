@@ -1,0 +1,9 @@
+{
+  "accepted_at": "2026-10-18T16:54:44.583116+00:00",
+  "checked_at": "2026-10-18T17:44:53.609818+00:00",
+  "stage": "failed",
+  "run": "run-20261018-174453-bee7f061",
+  "result": "ValueError: Stage failed: discovery.log\ngpgv: Signature made Thu 10 Sep 2026 04:44:43 PM UTC\ngpgv:                using RSA key 843938DF228D22F7B3742BC0D94AA3F0EFE21092\ngpgv: Good signature from \"Ubuntu CD Image Automatic Signing Key (2012) <cdimage@ubuntu.com>\"\n{\"base\": \"ubuntu-base-24.04.5-base-amd64.tar.gz\", \"base_sha256\": \"e77b6f10c2590cef872b33ee9f635a0e3fd1f57fb074c0e52b5c7f56147a0c86\", \"base_bytes\": 30028293, \"signature_key\": \"843938DF228D22F7B3742BC0D94AA3F0EFE21092\", \"tls_verified\": true, \"payload_location\": \"private tmpfs,noswap\", \"elapsed_seconds\": 9.954}\nE: seteuid 42 failed - seteuid (1: Operation not permitted)\nReading package lists...\nE: seteuid 42 failed - seteuid (1: Operation not permitted)\nE: Method gave invalid 400 URI Failure message: Failed to set new user ids - setresuid (1: Operation not permitted)\nE: Method file has died unexpectedly!\nE: Sub-process file returned an error code (112)\n",
+  "failed_at": "2026-10-18T17:45:14.447576+00:00",
+  "last_failure": "ValueError"
+}

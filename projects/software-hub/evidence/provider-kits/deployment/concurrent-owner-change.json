@@ -1,0 +1,7 @@
+{
+  "checked_at_utc": "2026-10-19T15:25:40.349217+00:00",
+  "reason": "Direct owner requested commercial TunnelPannel update in its active task; latest task update confirms only its owned website container recreation",
+  "change": "one exact TunnelPannel container ID replacement,same immutable nginx image/compose location/read-only mounts",
+  "all_other_containers_and_protected_hashes_preserved": true,
+  "watch_start_deadline_history_producer_baseline_preserved": true
+}

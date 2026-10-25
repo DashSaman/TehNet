@@ -1,0 +1,24 @@
+{
+  "initial": {
+    "files_sha256": {
+      "app/provider_kit.py": "fd4dc7ee75f89e444ef6060edf8e3e9ff8ff0b007fd569f099af82fdf5b304a6",
+      "tools/provider_lab.py": "f3e0f022f01da09594b346189dc123074cb9d659ed21ec23915c462df838b4a9",
+      "tools/offline_kit.py": "fd35d9874932bc35fa8ff026c8608c61ed86533fc46d9ac56d00387e710e0fc9",
+      "batch.py": "22be186a4f863a0e1662010837c3caf4d87db3c8f353b436fbfcdb60e315dc6f",
+      "frozen-profile.json": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    }
+  },
+  "repair": {
+    "files_sha256": {
+      "app/provider_kit.py": "b5f105b5c6960f86c51ae6c400e798f068baa971e853f658c8c21fb68afaa2bd",
+      "tools/provider_lab.py": "f3e0f022f01da09594b346189dc123074cb9d659ed21ec23915c462df838b4a9",
+      "tools/offline_kit.py": "fd35d9874932bc35fa8ff026c8608c61ed86533fc46d9ac56d00387e710e0fc9",
+      "batch.py": "5aa96d51ad95365ee38bd9e7b855e5763a2162b2d6a47d99d906891eaf39a08f",
+      "frozen-profile.json": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca"
+    }
+  },
+  "historical_controllers": "Finite completed manual qualification,not recurring publisher; do not replay existing runtime directories or reset budgets",
+  "final_enabled_helper_sha256": "3297543cb2947206c080fa868eb8679983ce15a532948dba5446ae9a2fca16ea",
+  "final_vs_repaired_lab_difference": "QUALIFIED_SOURCES accepted IDs only",
+  "predecessor": "0f0f32bd8bce6ee85a5dee2998ecfbc8edd7158b"
+}

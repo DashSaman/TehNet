@@ -1,0 +1,16 @@
+{
+  "checked_at_utc": "2026-10-19T15:44:15.165147+00:00",
+  "observed_guard_failure": "Current container baseline drift; no publisher error or forced collector sample",
+  "verified_owner_change": "TunnelPannel paid-plan/owner-console website release e85b4e660ddd0ae8652cce99e5db753216b7cdc7; active owner task confirms successful independent deployment",
+  "old_container_id": "049981c744346e5dbe314c29a757f7b4fef1fc2afcf58f83f67012deebdc5bbb",
+  "new_container_id": "8d66f44330c9c74e82b59ab1c7984ce331c00cc0b793d06734172cfe7d3cee91",
+  "same_immutable_nginx_image_readonly_expected_release_mounts_and_health": true,
+  "changed_baseline_fields": [
+    "one verified externally owned container fingerprint"
+  ],
+  "all_other_config_fields_protected_hashes_samples_events_and_producer_budget_preserved": true,
+  "original_start_deadline_preserved": true,
+  "container_or_website_mutations": 0,
+  "forced_refresh_or_collector_samples": 0,
+  "private_baseline_backup": "retained on server only; not exported"
+}

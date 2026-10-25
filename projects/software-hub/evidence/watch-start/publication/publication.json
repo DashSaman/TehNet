@@ -1,0 +1,12 @@
+{
+  "published_files_sha256": {
+    "index.html": "32f2c65fdf5ee069975ff4911cbd751cfbcc8d399237c1755026a37e5a6bc3c1",
+    "profile.json": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+    "offline_kit.py": "fd35d9874932bc35fa8ff026c8608c61ed86533fc46d9ac56d00387e710e0fc9",
+    "acceptance.json": "283ebf9e6f5568a2b422636001576faed89a42ee3f1e718afd3054fa8e95eb26"
+  },
+  "backup": "/root/tehnet-backups/20261019-062320-a1195755-offline-auto",
+  "owned_snippet_only": true,
+  "container_restart": false,
+  "software_payload_files": 0
+}

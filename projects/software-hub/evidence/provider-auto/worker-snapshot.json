@@ -1,0 +1,11 @@
+{
+  "checked_at_utc": "2026-10-19T16:43:35.720087+00:00",
+  "fresh_protected_snapshot_equals_current_finite_watch_baseline": true,
+  "protected_files": 2,
+  "future_worker_independent_of_finite_watch_config": true,
+  "v2_to_v3_changed_sources": [
+    "tests/test_provider_auto.py",
+    "tools/provider_auto.py"
+  ],
+  "all_transport_install_and_other_source_files_identical": true
+}

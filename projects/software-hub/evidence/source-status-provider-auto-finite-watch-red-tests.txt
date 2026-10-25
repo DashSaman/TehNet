@@ -1,0 +1,20 @@
+test_duplicate_intent_never_reserves_again_or_resets_failed_charge (test_provider_auto.ProviderAutoPolicyTests.test_duplicate_intent_never_reserves_again_or_resets_failed_charge) ... ok
+test_one_profile_processes_each_source_once_and_crash_is_not_replayed (test_provider_auto.ProviderAutoPolicyTests.test_one_profile_processes_each_source_once_and_crash_is_not_replayed) ... ok
+test_preflight_error_is_recorded_without_budget_or_download (test_provider_auto.ProviderAutoPolicyTests.test_preflight_error_is_recorded_without_budget_or_download) ... ok
+test_protection_snapshot_outlives_finite_watch_and_uses_current_owned_files (test_provider_auto.ProviderAutoPolicyTests.test_protection_snapshot_outlives_finite_watch_and_uses_current_owned_files) ... FAIL
+test_receipt_is_profile_bound_and_only_passed_rows_can_be_projected (test_provider_auto.ProviderAutoPolicyTests.test_receipt_is_profile_bound_and_only_passed_rows_can_be_projected) ... ok
+test_separate_budget_is_durable_bounded_and_refuses_clock_rollback (test_provider_auto.ProviderAutoPolicyTests.test_separate_budget_is_durable_bounded_and_refuses_clock_rollback) ... ok
+test_systemd_lab_keeps_noswap_caps_and_private_engine_inaccessible (test_provider_auto.ProviderAutoPolicyTests.test_systemd_lab_keeps_noswap_caps_and_private_engine_inaccessible) ... ok
+
+======================================================================
+FAIL: test_protection_snapshot_outlives_finite_watch_and_uses_current_owned_files (test_provider_auto.ProviderAutoPolicyTests.test_protection_snapshot_outlives_finite_watch_and_uses_current_owned_files)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\amirreza\Documents\Codex\2026-10-17\referenced-chatgpt-conversation-this-is-an\work\TehNet\projects\software-hub\tests\test_provider_auto.py", line 63, in test_protection_snapshot_outlives_finite_watch_and_uses_current_owned_files
+    self.assertTrue(hasattr(auto,'protected_snapshot'),'Automatic qualifications must not depend on an expired finite watch directory')
+AssertionError: False is not true : Automatic qualifications must not depend on an expired finite watch directory
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.047s
+
+FAILED (failures=1)

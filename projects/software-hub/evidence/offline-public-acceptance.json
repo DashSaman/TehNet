@@ -1,0 +1,71 @@
+{
+  "tested_at_utc": "2026-10-18T16:54:44.583116+00:00",
+  "offline_install_pass": true,
+  "profile_sha256": "5088e4a875b7b9bb31884787629dde20ef8b6f38d08d5603f9a53ee07f8f3abb",
+  "client_code_sha256": "fd35d9874932bc35fa8ff026c8608c61ed86533fc46d9ac56d00387e710e0fc9",
+  "baseline": {
+    "base": "ubuntu-base-24.04.5-base-amd64.tar.gz",
+    "base_sha256": "e77b6f10c2590cef872b33ee9f635a0e3fd1f57fb074c0e52b5c7f56147a0c86",
+    "base_bytes": 30028293,
+    "signature_key": "843938DF228D22F7B3742BC0D94AA3F0EFE21092",
+    "tls_verified": true,
+    "payload_location": "private tmpfs,noswap",
+    "elapsed_seconds": 4.087
+  },
+  "packages": 58,
+  "package_bytes": 32139756,
+  "signed_suites": 3,
+  "signed_indices": 6,
+  "functional_tools": [
+    "git",
+    "curl",
+    "jq",
+    "python",
+    "pip",
+    "wget",
+    "rsync",
+    "ssh"
+  ],
+  "negative_checks": {
+    "corrupt_required_archive": {
+      "exit": 1,
+      "elapsed_seconds": 8.94,
+      "dpkg_unchanged": true
+    },
+    "missing_required_archive": {
+      "exit": 1,
+      "elapsed_seconds": 8.967,
+      "dpkg_unchanged": true
+    },
+    "forged_signed_metadata": {
+      "exit": 100,
+      "elapsed_seconds": 5.435,
+      "dpkg_unchanged": true
+    },
+    "newer_nonseed_dependency": {
+      "exit": 2,
+      "elapsed_seconds": 8.955,
+      "dpkg_unchanged": true
+    },
+    "clean_offline_install": {
+      "exit": 0,
+      "elapsed_seconds": 28.84,
+      "dpkg_audit": "empty"
+    }
+  },
+  "copyright_files_verified": 58,
+  "external_connect_refused": true,
+  "no_existing_package_lists": true,
+  "tmpfs_noswap": true,
+  "memory_swap_bytes": 0,
+  "software_payload_disk_files": 0,
+  "main_website_preserved": true,
+  "preparation_elapsed_seconds": 88.078,
+  "scope": "Actual clean official Ubuntu Base24.04.5 amd64 userland; no-network native APT + all8 functional checks,2026-10-18. Not booted VM/general noble-core/Iran/PyPI acceptance.",
+  "limitations": [
+    "Dated frozen profile; mutable metadata maximum48h at preparation",
+    "No booted VM/ISO/Iran connectivity or domestic tariff acceptance",
+    "No arbitrary PyPI wheelhouse",
+    "VPN owner password remains unset; Rubika disabled"
+  ]
+}

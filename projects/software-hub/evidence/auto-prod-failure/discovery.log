@@ -1,0 +1,10 @@
+gpgv: Signature made Thu 10 Sep 2026 04:44:43 PM UTC
+gpgv:                using RSA key 843938DF228D22F7B3742BC0D94AA3F0EFE21092
+gpgv: Good signature from "Ubuntu CD Image Automatic Signing Key (2012) <cdimage@ubuntu.com>"
+{"base": "ubuntu-base-24.04.5-base-amd64.tar.gz", "base_sha256": "e77b6f10c2590cef872b33ee9f635a0e3fd1f57fb074c0e52b5c7f56147a0c86", "base_bytes": 30028293, "signature_key": "843938DF228D22F7B3742BC0D94AA3F0EFE21092", "tls_verified": true, "payload_location": "private tmpfs,noswap", "elapsed_seconds": 4.229}
+E: seteuid 42 failed - seteuid (1: Operation not permitted)
+Reading package lists...
+E: seteuid 42 failed - seteuid (1: Operation not permitted)
+E: Method gave invalid 400 URI Failure message: Failed to set new user ids - setresuid (1: Operation not permitted)
+E: Method file has died unexpectedly!
+E: Sub-process file returned an error code (112)

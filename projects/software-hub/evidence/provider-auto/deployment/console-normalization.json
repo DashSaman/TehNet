@@ -1,0 +1,14 @@
+[
+  {
+    "file": "rehearse.log",
+    "original_sha256": "cdc1f26110bd7318a5f768215ecb05f10c6c3c905f6588c18a5900db7f337bce",
+    "normalized_sha256": "995b43f7cd7b9eee110e5c14a50c5a6e06bdc6279cd9ae25f4a8011fbb87a381",
+    "change": "Trailing console whitespace only; original full logs retained in owned server release; no proof JSON altered"
+  },
+  {
+    "file": "activate.log",
+    "original_sha256": "144341e475e5319b36dd96f295e143775927ea89e19cbb0ed5c2c340ff0dc4ab",
+    "normalized_sha256": "608b945bc3d65059a96d024e0d11d303c8e5879d80afc95adadbe5e6499f02aa",
+    "change": "Trailing console whitespace only; original full logs retained in owned server release; no proof JSON altered"
+  }
+]

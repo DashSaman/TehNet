@@ -1,0 +1,14 @@
+{
+  "reconciled_at_utc": "2026-10-20T10:54:06.620818+00:00",
+  "reason": "Direct owner asked the active TunnelPannel task to publish the new interface and Backhaul/AmneziaWG/native4in6/traffic controls; exact immutable source commit independently confirmed on GitHub",
+  "verified_external_source_commit": "3a10ea0b1a0978c5f3cfc1e3f49daaa164078730",
+  "source_url": "https://github.com/DashSaman/TunnelPannel/commit/3a10ea0b1a0978c5f3cfc1e3f49daaa164078730",
+  "only_config_field_changed": "containers; one exact verified externally owned fingerprint replacement",
+  "old_fingerprint": "tunnelpannel-tehnet-web|699ae2f14e5b3d3ed65e28f5eb93c2746ccf497d3dfcd1a43d1222b5702a176b|nginx@sha256:970364228b1e4f932abc22d321932816782cca8a20b85a77552a7cfe9acfb3b5|",
+  "new_fingerprint": "tunnelpannel-tehnet-web|122d3dce86699170c3c1863a158a7c45f4e4e92371f0fed942a5d0b18e162a4c|nginx@sha256:970364228b1e4f932abc22d321932816782cca8a20b85a77552a7cfe9acfb3b5|",
+  "all_other_config_hashes_original_window_and_budgets_preserved": true,
+  "failed_sample_and_history_preserved": true,
+  "containers_websites_source_or_units_mutated": false,
+  "extra_watch_sample_refresh_or_payload_download": false,
+  "private_baseline_backup_retained_on_server": true
+}

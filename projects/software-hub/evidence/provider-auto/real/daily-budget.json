@@ -1,0 +1,24 @@
+{
+  "day": "2026-10-19",
+  "attempts": 4,
+  "reserved_bytes": 805306368,
+  "intents": {
+    "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca:arvan": {
+      "reserved_at": "2026-10-19T16:25:04.535279+00:00",
+      "reserved_bytes": 201326592
+    },
+    "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca:linuxmirrors": {
+      "reserved_at": "2026-10-19T16:29:04.230179+00:00",
+      "reserved_bytes": 201326592
+    },
+    "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca:liara": {
+      "reserved_at": "2026-10-19T16:40:10.917309+00:00",
+      "reserved_bytes": 201326592
+    },
+    "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca:hamravesh": {
+      "reserved_at": "2026-10-19T16:43:18.828545+00:00",
+      "reserved_bytes": 201326592
+    }
+  },
+  "days": {}
+}

@@ -1,0 +1,12 @@
+{
+  "verified_source_sha": "9f5245f28e26a338c29849ba7ca6024744739634",
+  "source_url": "https://github.com/DashSaman/TunnelPannel/commit/9f5245f28e26a338c29849ba7ca6024744739634",
+  "committed_at": "2026-10-19T17:00:46Z",
+  "subject": "Add owned Backhaul, AmneziaWG, native4in6 and durable route traffic controls",
+  "owner_thread_title": "بررسی و آماده‌سازی TunnelPannel",
+  "owner_authorization": "Direct user requested new tunnel methods/traffic controls/interface, two-server tests and publication on the website/repository while preserving current tunnels.",
+  "observed_owner_task_stage": "New interface being published in its independent website container; six bidirectional method tests passed; later traffic-limit testing still ongoing.",
+  "other_project_checkout_or_runtime_modified_by_this_task": false,
+  "other_thread_messaged": false,
+  "credentials_or_private_owner_outputs_published": false
+}

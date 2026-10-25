@@ -1,0 +1,28 @@
+{
+  "tested_at_utc": "2026-10-18T17:00:09.149823+00:00",
+  "image": "sha256:ab4220407e6a35a6e3d4221b44f238f12b25b1081be4b03ce8a92276a60289fa",
+  "healthy_readonly_engine": true,
+  "all_frozen_runtime_and_8_operator_hashes_match_previous_acceptance": true,
+  "all_container_fingerprints_preserved": true,
+  "site_auth_restricted_research_preserved": true,
+  "only_owned_nginx_guide_routes_updated": true,
+  "base_proxy_bytes_preserved": true,
+  "state_files": [
+    "auth/auth.sqlite",
+    "data/catalog.sqlite",
+    "metadata/public/external.sqlite",
+    "metadata/restricted/external.sqlite",
+    "ops/network.sqlite"
+  ],
+  "catalog_software_payload_disk_files_in_scanned_software_trees": 0,
+  "preexisting_locked_application_build_wheels": {
+    "count": 110,
+    "bytes": 20523643,
+    "all_predate_task_and_match_existing_release_locks": true,
+    "purpose": "Existing app build/rollback code dependencies,not public catalog files; retained unchanged"
+  },
+  "lab_mounts_cleaned": true,
+  "unchanged_11_file_timer_enabled_30min": true,
+  "rubika_token_present": false,
+  "public_profile_sha256": "5088e4a875b7b9bb31884787629dde20ef8b6f38d08d5603f9a53ee07f8f3abb"
+}

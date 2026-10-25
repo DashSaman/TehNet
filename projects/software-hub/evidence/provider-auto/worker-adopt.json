@@ -1,0 +1,26 @@
+{
+  "adopted_at_utc": "2026-10-19T16:47:34.210473+00:00",
+  "runtime": "/opt/tehnet-software/operations/provider-auto-20261019-v3",
+  "actual_labs_runtime": "provider-auto-20261019-v2",
+  "control_only_change": "fresh per-run protection snapshot without finite-watch dependency",
+  "fresh_snapshot_equivalence": true,
+  "v2_to_v3_changed_sources": [
+    "tests/test_provider_auto.py",
+    "tools/provider_auto.py"
+  ],
+  "all_transport_install_and_other_source_files_identical": true,
+  "state_budget_and_exact_proofs_unchanged": true,
+  "additional_payload_attempts": 0,
+  "systemd_analyze_verify": "pass",
+  "latest": {
+    "stage": "complete",
+    "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+    "providers": {
+      "arvan": "pass",
+      "linuxmirrors": "pass",
+      "liara": "pass",
+      "hamravesh": "pass"
+    },
+    "checked_at": "2026-10-19T16:47:33.727605+00:00"
+  }
+}

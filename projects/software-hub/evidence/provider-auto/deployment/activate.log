@@ -1,0 +1,9 @@
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+ Container tehnet-software Recreate
+ Container tehnet-software Recreated
+ Container tehnet-software Starting
+ Container tehnet-software Started
+curl: (22) The requested URL returned error: 502
+curl: (22) The requested URL returned error: 502
+ENGINE_ACTIVE_PASS elapsed_seconds=8 image=sha256:d7cb725013a64de941bc383dfe3725670d48a9623cebc7d5cfaea4496110e179 backup=/root/tehnet-backups/20261019-164804-software-engine-activate

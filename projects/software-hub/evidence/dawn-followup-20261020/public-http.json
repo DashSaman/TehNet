@@ -1,0 +1,123 @@
+{
+  "tested_at_utc": "2026-10-20T10:55:07.439273+00:00",
+  "vantage": "independent Windows public HTTPS",
+  "checks": [
+    {
+      "path": "/software/offline/",
+      "method": "GET",
+      "status": 200,
+      "sha256": "dc8dfe9fe9c310dc50d772a19056f8bf6a871d1d397d844f3e7184f5d9a2cfe9",
+      "known_edge_beacon_removed": false
+    },
+    {
+      "path": "/software/offline/",
+      "method": "HEAD",
+      "status": 200,
+      "sha256": null,
+      "known_edge_beacon_removed": false
+    },
+    {
+      "path": "/software/offline/profile.json",
+      "method": "GET",
+      "status": 200,
+      "sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724",
+      "known_edge_beacon_removed": false
+    },
+    {
+      "path": "/software/offline/profile.json",
+      "method": "HEAD",
+      "status": 200,
+      "sha256": null,
+      "known_edge_beacon_removed": false
+    },
+    {
+      "path": "/software/offline/offline_kit.py",
+      "method": "GET",
+      "status": 200,
+      "sha256": "fd35d9874932bc35fa8ff026c8608c61ed86533fc46d9ac56d00387e710e0fc9",
+      "known_edge_beacon_removed": false
+    },
+    {
+      "path": "/software/offline/offline_kit.py",
+      "method": "HEAD",
+      "status": 200,
+      "sha256": null,
+      "known_edge_beacon_removed": false
+    },
+    {
+      "path": "/software/offline/acceptance.json",
+      "method": "GET",
+      "status": 200,
+      "sha256": "8d50041239cf898b154c73e98831f1b8f97c47936102c8d7efb81f21dd910610",
+      "known_edge_beacon_removed": false
+    },
+    {
+      "path": "/software/offline/acceptance.json",
+      "method": "HEAD",
+      "status": 200,
+      "sha256": null,
+      "known_edge_beacon_removed": false
+    },
+    {
+      "path": "/software/offline/unknown",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/software/offline/unknown",
+      "method": "HEAD",
+      "status": 404
+    },
+    {
+      "path": "/software/offline/unknown",
+      "method": "POST",
+      "status": 404
+    },
+    {
+      "path": "/software/offline/private/fixture",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/software/offline/private/fixture",
+      "method": "HEAD",
+      "status": 404
+    },
+    {
+      "path": "/software/offline/private/fixture",
+      "method": "POST",
+      "status": 404
+    },
+    {
+      "path": "/software/offline/archives/example.deb",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/software/offline/archives/example.deb",
+      "method": "HEAD",
+      "status": 404
+    },
+    {
+      "path": "/software/offline/archives/example.deb",
+      "method": "POST",
+      "status": 404
+    },
+    {
+      "path": "/software/private/fixture",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/software/private/fixture",
+      "method": "HEAD",
+      "status": 404
+    },
+    {
+      "path": "/software/private/fixture",
+      "method": "POST",
+      "status": 404
+    }
+  ],
+  "existing_main_and_private_acceptance": true
+}

@@ -1,0 +1,32 @@
+{
+  "verified_at_utc": "2026-10-21T20:32:02.848855+00:00",
+  "registered_report_ref": "750513c35f30dfe79f37cd1a59857ec3a088664f",
+  "only_actual_retirement_fields_and_coordination_changed": true,
+  "all_original_sample_outcomes_incidents_publications_and_proofs_unchanged": true,
+  "finite_watch_inactive_disabled": true,
+  "existing_finite_automation_deleted_and_config_absent": true,
+  "both_long_lived_timers_enabled_active_after_retirement": true,
+  "all99_native_state_files_budgets_and_status_preserved": true,
+  "no_new_payload_labs_publications_or_followups": true,
+  "original_runtime_manifests_and_main_untouched": true,
+  "private_commit_not_in_public_ancestry": true,
+  "allowlist_json_whitespace_sensitive_content_checks": "pass",
+  "consolidation": {
+    "result": "PASS",
+    "source_blobs_verified": 22,
+    "copied_bytes": 189734,
+    "local_markdown_links_checked": 556,
+    "existing_site_files_changed": 0,
+    "authorized_new_menu_scripts": [
+      "ops/lib/software-menu.php",
+      "ops/software-menu.php",
+      "tests/software-menu-logic.php"
+    ],
+    "root_docs_append_only": [
+      "HANDOFF.md",
+      "PROGRESS.md",
+      "README.md",
+      "TASKS.md"
+    ]
+  }
+}

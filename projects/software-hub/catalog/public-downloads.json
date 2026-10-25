@@ -1,0 +1,357 @@
+{
+  "format": 1,
+  "entries": [
+    {
+      "source": {
+        "id": "mobinhost-alpine-pilot",
+        "provider": "MobinHost public mirror",
+        "ecosystem": "alpine",
+        "base_url": "https://mirror.mobinhost.com/alpine",
+        "allowed_hosts": [
+          "mirror.mobinhost.com"
+        ],
+        "visibility": "public",
+        "routing_enabled": true,
+        "permission_state": "approved",
+        "domestic_state": "verified",
+        "approval_evidence": "2026-10-18 operator review: official mirrors.alpinelinux.org lists Tehran; mirror public archive offers visitor downloads; RIPE 87.107.152.0/23 country IR. Country classification only; no outage/tariff guarantee. See evidence/LIVE_MIRRORS.md.",
+        "failure_domain": "mobinhost"
+      },
+      "artifact": {
+        "sha256": "c5ca053cfe1d85c5b96dff8b9bc57045f7f184a30ffb6b65776409ca90388677",
+        "size_bytes": 3701382,
+        "name": "Alpine Linux Mini rootfs (container/chroot)",
+        "version": "3.24.2",
+        "architecture": "x86_64",
+        "filename": "alpine-minirootfs-3.24.2-x86_64.tar.gz",
+        "visibility": "public"
+      },
+      "relative_path": "v3.24/releases/x86_64/alpine-minirootfs-3.24.2-x86_64.tar.gz",
+      "license_evidence": "https://alpinelinux.org/downloads/",
+      "identity_evidence": "https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/x86_64/alpine-minirootfs-3.24.2-x86_64.tar.gz.sha256",
+      "approved_cidrs": [
+        "87.107.152.0/23"
+      ]
+    },
+    {
+      "source": {
+        "id": "mobinhost-alpine-pilot",
+        "provider": "MobinHost public mirror",
+        "ecosystem": "alpine",
+        "base_url": "https://mirror.mobinhost.com/alpine",
+        "allowed_hosts": [
+          "mirror.mobinhost.com"
+        ],
+        "visibility": "public",
+        "routing_enabled": true,
+        "permission_state": "approved",
+        "domestic_state": "verified",
+        "approval_evidence": "2026-10-18 operator review: official mirrors.alpinelinux.org lists Tehran; mirror public archive offers visitor downloads; RIPE 87.107.152.0/23 country IR. Country classification only; no outage/tariff guarantee. See evidence/LIVE_MIRRORS.md.",
+        "failure_domain": "mobinhost"
+      },
+      "artifact": {
+        "sha256": "9bf70a7f18ea44094cbb5f70c58f9af129c8214745743db0e68e5502cc2ce773",
+        "size_bytes": 4028030,
+        "name": "Alpine Linux Mini rootfs (container/chroot)",
+        "version": "3.24.2",
+        "architecture": "aarch64",
+        "filename": "alpine-minirootfs-3.24.2-aarch64.tar.gz",
+        "visibility": "public"
+      },
+      "relative_path": "v3.24/releases/aarch64/alpine-minirootfs-3.24.2-aarch64.tar.gz",
+      "license_evidence": "https://alpinelinux.org/downloads/",
+      "identity_evidence": "https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/aarch64/alpine-minirootfs-3.24.2-aarch64.tar.gz.sha256",
+      "approved_cidrs": [
+        "87.107.152.0/23"
+      ]
+    },
+    {
+      "source": {
+        "id": "arvan-ubuntu-pilot",
+        "provider": "ArvanCloud public Ubuntu mirror",
+        "ecosystem": "apt",
+        "base_url": "https://mirror.arvancloud.ir/ubuntu",
+        "allowed_hosts": [
+          "mirror.arvancloud.ir"
+        ],
+        "visibility": "public",
+        "routing_enabled": true,
+        "permission_state": "approved",
+        "domestic_state": "verified",
+        "approval_evidence": "2026-10-18 operator review: official Arvan Linux repository offers Ubuntu downloads; archlinux.org mirror listing identifies Iran; actual peer RIPE 185.143.233.0/24 country IR (ANYCAST). Registry country only, not physical location, domestic tariff or outage guarantee. See evidence/LIVE_MIRRORS.md.",
+        "failure_domain": "arvancloud"
+      },
+      "artifact": {
+        "sha256": "e68cf4365b7aa9c4e2af4af6eee1710d6f967059b7b4af62786e8870d7366333",
+        "size_bytes": 26006,
+        "name": "GNU hello (Ubuntu installation example)",
+        "version": "2.10-3build1",
+        "architecture": "amd64",
+        "filename": "hello_2.10-3build1_amd64.deb",
+        "visibility": "public"
+      },
+      "relative_path": "pool/main/h/hello/hello_2.10-3build1_amd64.deb",
+      "license_evidence": "https://changelogs.ubuntu.com/changelogs/pool/main/h/hello/hello_2.10-3build1/copyright",
+      "identity_evidence": "https://packages.ubuntu.com/noble/amd64/hello/download",
+      "approved_cidrs": [
+        "185.143.233.0/24"
+      ]
+    },
+    {
+      "source": {
+        "id": "arvan-ubuntu-pilot",
+        "provider": "ArvanCloud public Ubuntu mirror",
+        "ecosystem": "apt",
+        "base_url": "https://mirror.arvancloud.ir/ubuntu",
+        "allowed_hosts": [
+          "mirror.arvancloud.ir"
+        ],
+        "visibility": "public",
+        "routing_enabled": true,
+        "permission_state": "approved",
+        "domestic_state": "verified",
+        "approval_evidence": "2026-10-18 operator review: official Arvan Linux repository offers Ubuntu downloads; archlinux.org mirror listing identifies Iran; actual peer RIPE 185.143.233.0/24 country IR (ANYCAST). Registry country only, not physical location, domestic tariff or outage guarantee. See evidence/LIVE_MIRRORS.md.",
+        "failure_domain": "arvancloud"
+      },
+      "artifact": {
+        "sha256": "099bb129f543adc4c14203334b0fa0a909f8bf038c4d56bc9cc7c774ebf78f87",
+        "size_bytes": 3679758,
+        "name": "Git version control (Ubuntu 24.04; dependencies required)",
+        "version": "1:2.43.0-1ubuntu7.3",
+        "architecture": "amd64",
+        "filename": "git_2.43.0-1ubuntu7.3_amd64.deb",
+        "visibility": "public"
+      },
+      "relative_path": "pool/main/g/git/git_2.43.0-1ubuntu7.3_amd64.deb",
+      "license_evidence": "https://changelogs.ubuntu.com/changelogs/pool/main/g/git/git_2.43.0-1ubuntu7.3/copyright",
+      "identity_evidence": "https://packages.ubuntu.com/noble-updates/amd64/git/download",
+      "approved_cidrs": [
+        "185.143.233.0/24"
+      ]
+    },
+    {
+      "source": {
+        "id": "arvan-ubuntu-pilot",
+        "provider": "ArvanCloud public Ubuntu mirror",
+        "ecosystem": "apt",
+        "base_url": "https://mirror.arvancloud.ir/ubuntu",
+        "allowed_hosts": [
+          "mirror.arvancloud.ir"
+        ],
+        "visibility": "public",
+        "routing_enabled": true,
+        "permission_state": "approved",
+        "domestic_state": "verified",
+        "approval_evidence": "2026-10-18 operator review: official Arvan Linux repository offers Ubuntu downloads; archlinux.org mirror listing identifies Iran; actual peer RIPE 185.143.233.0/24 country IR (ANYCAST). Registry country only, not physical location, domestic tariff or outage guarantee. See evidence/LIVE_MIRRORS.md.",
+        "failure_domain": "arvancloud"
+      },
+      "artifact": {
+        "sha256": "4358c023e3c1a74bb1e77935807ea2088b137a898167fca278a1767c353ac1c5",
+        "size_bytes": 226504,
+        "name": "curl HTTP/TLS client (Ubuntu 24.04; dependencies required)",
+        "version": "8.5.0-2ubuntu10.15",
+        "architecture": "amd64",
+        "filename": "curl_8.5.0-2ubuntu10.15_amd64.deb",
+        "visibility": "public"
+      },
+      "relative_path": "pool/main/c/curl/curl_8.5.0-2ubuntu10.15_amd64.deb",
+      "license_evidence": "https://changelogs.ubuntu.com/changelogs/pool/main/c/curl/curl_8.5.0-2ubuntu10.15/copyright",
+      "identity_evidence": "https://packages.ubuntu.com/noble-updates/amd64/curl/download",
+      "approved_cidrs": [
+        "185.143.233.0/24"
+      ]
+    },
+    {
+      "source": {
+        "id": "arvan-ubuntu-pilot",
+        "provider": "ArvanCloud public Ubuntu mirror",
+        "ecosystem": "apt",
+        "base_url": "https://mirror.arvancloud.ir/ubuntu",
+        "allowed_hosts": [
+          "mirror.arvancloud.ir"
+        ],
+        "visibility": "public",
+        "routing_enabled": true,
+        "permission_state": "approved",
+        "domestic_state": "verified",
+        "approval_evidence": "2026-10-18 operator review: official Arvan Linux repository offers Ubuntu downloads; archlinux.org mirror listing identifies Iran; actual peer RIPE 185.143.233.0/24 country IR (ANYCAST). Registry country only, not physical location, domestic tariff or outage guarantee. See evidence/LIVE_MIRRORS.md.",
+        "failure_domain": "arvancloud"
+      },
+      "artifact": {
+        "sha256": "f59183392f84fe67b407b494d8ba6185e9b0e4a106ffcb369490bd20a83fd40e",
+        "size_bytes": 65694,
+        "name": "jq JSON command line (Ubuntu 24.04; dependencies required)",
+        "version": "1.7.1-3ubuntu0.24.04.2",
+        "architecture": "amd64",
+        "filename": "jq_1.7.1-3ubuntu0.24.04.2_amd64.deb",
+        "visibility": "public"
+      },
+      "relative_path": "pool/main/j/jq/jq_1.7.1-3ubuntu0.24.04.2_amd64.deb",
+      "license_evidence": "https://changelogs.ubuntu.com/changelogs/pool/main/j/jq/jq_1.7.1-3ubuntu0.24.04.2/copyright",
+      "identity_evidence": "https://packages.ubuntu.com/noble-updates/amd64/jq/download",
+      "approved_cidrs": [
+        "185.143.233.0/24"
+      ]
+    },
+    {
+      "source": {
+        "id": "arvan-ubuntu-pilot",
+        "provider": "ArvanCloud public Ubuntu mirror",
+        "ecosystem": "apt",
+        "base_url": "https://mirror.arvancloud.ir/ubuntu",
+        "allowed_hosts": [
+          "mirror.arvancloud.ir"
+        ],
+        "visibility": "public",
+        "routing_enabled": true,
+        "permission_state": "approved",
+        "domestic_state": "verified",
+        "approval_evidence": "2026-10-18 operator review: official Arvan Linux repository offers Ubuntu downloads; archlinux.org mirror listing identifies Iran; actual peer RIPE 185.143.233.0/24 country IR (ANYCAST). Registry country only, not physical location, domestic tariff or outage guarantee. See evidence/LIVE_MIRRORS.md.",
+        "failure_domain": "arvancloud"
+      },
+      "artifact": {
+        "sha256": "d452689b9660845345a4c3e05e4ad82c082d5474e04031b7aa47f1a6d5610a6e",
+        "size_bytes": 2334634,
+        "name": "Python 3.12 minimal interpreter (Ubuntu 24.04; dependencies required)",
+        "version": "3.12.3-1ubuntu0.17",
+        "architecture": "amd64",
+        "filename": "python3.12-minimal_3.12.3-1ubuntu0.17_amd64.deb",
+        "visibility": "public"
+      },
+      "relative_path": "pool/main/p/python3.12/python3.12-minimal_3.12.3-1ubuntu0.17_amd64.deb",
+      "license_evidence": "https://changelogs.ubuntu.com/changelogs/pool/main/p/python3.12/python3.12_3.12.3-1ubuntu0.17/copyright",
+      "identity_evidence": "https://packages.ubuntu.com/noble-updates/amd64/python3.12-minimal/download",
+      "approved_cidrs": [
+        "185.143.233.0/24"
+      ]
+    },
+    {
+      "source": {
+        "id": "arvan-ubuntu-pilot",
+        "provider": "ArvanCloud public Ubuntu mirror",
+        "ecosystem": "apt",
+        "base_url": "https://mirror.arvancloud.ir/ubuntu",
+        "allowed_hosts": [
+          "mirror.arvancloud.ir"
+        ],
+        "visibility": "public",
+        "routing_enabled": true,
+        "permission_state": "approved",
+        "domestic_state": "verified",
+        "approval_evidence": "2026-10-18 operator review: official Arvan Linux repository offers Ubuntu downloads; archlinux.org mirror listing identifies Iran; actual peer RIPE 185.143.233.0/24 country IR (ANYCAST). Registry country only, not physical location, domestic tariff or outage guarantee. See evidence/LIVE_MIRRORS.md.",
+        "failure_domain": "arvancloud"
+      },
+      "artifact": {
+        "sha256": "4e1af0b6f0b52c847ffa7b192b9f650845b99ff300138af05ab9a6252eb75682",
+        "size_bytes": 1319940,
+        "name": "Python pip package manager (Ubuntu 24.04; dependencies required)",
+        "version": "24.0+dfsg-1ubuntu1.3",
+        "architecture": "all",
+        "filename": "python3-pip_24.0+dfsg-1ubuntu1.3_all.deb",
+        "visibility": "public"
+      },
+      "relative_path": "pool/universe/p/python-pip/python3-pip_24.0+dfsg-1ubuntu1.3_all.deb",
+      "license_evidence": "https://changelogs.ubuntu.com/changelogs/pool/universe/p/python-pip/python-pip_24.0+dfsg-1ubuntu1.3/copyright",
+      "identity_evidence": "https://packages.ubuntu.com/noble-updates/amd64/python3-pip/download",
+      "approved_cidrs": [
+        "185.143.233.0/24"
+      ]
+    },
+    {
+      "source": {
+        "id": "arvan-ubuntu-pilot",
+        "provider": "ArvanCloud public Ubuntu mirror",
+        "ecosystem": "apt",
+        "base_url": "https://mirror.arvancloud.ir/ubuntu",
+        "allowed_hosts": [
+          "mirror.arvancloud.ir"
+        ],
+        "visibility": "public",
+        "routing_enabled": true,
+        "permission_state": "approved",
+        "domestic_state": "verified",
+        "approval_evidence": "2026-10-18 operator review: official Arvan Linux repository offers Ubuntu downloads; archlinux.org mirror listing identifies Iran; actual peer RIPE 185.143.233.0/24 country IR (ANYCAST). Registry country only, not physical location, domestic tariff or outage guarantee. See evidence/LIVE_MIRRORS.md.",
+        "failure_domain": "arvancloud"
+      },
+      "artifact": {
+        "sha256": "2aa5a734b21b49ff6bd2239546b3f88275f8abb55dd8a984249e6cd0c1173a92",
+        "size_bytes": 334118,
+        "name": "GNU Wget downloader (Ubuntu 24.04; dependencies required)",
+        "version": "1.21.4-1ubuntu4.5",
+        "architecture": "amd64",
+        "filename": "wget_1.21.4-1ubuntu4.5_amd64.deb",
+        "visibility": "public"
+      },
+      "relative_path": "pool/main/w/wget/wget_1.21.4-1ubuntu4.5_amd64.deb",
+      "license_evidence": "https://changelogs.ubuntu.com/changelogs/pool/main/w/wget/wget_1.21.4-1ubuntu4.5/copyright",
+      "identity_evidence": "https://packages.ubuntu.com/noble-updates/amd64/wget/download",
+      "approved_cidrs": [
+        "185.143.233.0/24"
+      ]
+    },
+    {
+      "source": {
+        "id": "arvan-ubuntu-pilot",
+        "provider": "ArvanCloud public Ubuntu mirror",
+        "ecosystem": "apt",
+        "base_url": "https://mirror.arvancloud.ir/ubuntu",
+        "allowed_hosts": [
+          "mirror.arvancloud.ir"
+        ],
+        "visibility": "public",
+        "routing_enabled": true,
+        "permission_state": "approved",
+        "domestic_state": "verified",
+        "approval_evidence": "2026-10-18 operator review: official Arvan Linux repository offers Ubuntu downloads; archlinux.org mirror listing identifies Iran; actual peer RIPE 185.143.233.0/24 country IR (ANYCAST). Registry country only, not physical location, domestic tariff or outage guarantee. See evidence/LIVE_MIRRORS.md.",
+        "failure_domain": "arvancloud"
+      },
+      "artifact": {
+        "sha256": "8f952895697d19a6f1caa71f17c7d4e8c1f1fb485eb824ffe3e4c77dd587b338",
+        "size_bytes": 442954,
+        "name": "rsync file synchronization (Ubuntu 24.04; dependencies required)",
+        "version": "3.2.7-1ubuntu1.5",
+        "architecture": "amd64",
+        "filename": "rsync_3.2.7-1ubuntu1.5_amd64.deb",
+        "visibility": "public"
+      },
+      "relative_path": "pool/main/r/rsync/rsync_3.2.7-1ubuntu1.5_amd64.deb",
+      "license_evidence": "https://changelogs.ubuntu.com/changelogs/pool/main/r/rsync/rsync_3.2.7-1ubuntu1.5/copyright",
+      "identity_evidence": "https://packages.ubuntu.com/noble-updates/amd64/rsync/download",
+      "approved_cidrs": [
+        "185.143.233.0/24"
+      ]
+    },
+    {
+      "source": {
+        "id": "arvan-ubuntu-pilot",
+        "provider": "ArvanCloud public Ubuntu mirror",
+        "ecosystem": "apt",
+        "base_url": "https://mirror.arvancloud.ir/ubuntu",
+        "allowed_hosts": [
+          "mirror.arvancloud.ir"
+        ],
+        "visibility": "public",
+        "routing_enabled": true,
+        "permission_state": "approved",
+        "domestic_state": "verified",
+        "approval_evidence": "2026-10-18 operator review: official Arvan Linux repository offers Ubuntu downloads; archlinux.org mirror listing identifies Iran; actual peer RIPE 185.143.233.0/24 country IR (ANYCAST). Registry country only, not physical location, domestic tariff or outage guarantee. See evidence/LIVE_MIRRORS.md.",
+        "failure_domain": "arvancloud"
+      },
+      "artifact": {
+        "sha256": "c77365e50089a9be1ccc4cb28a586d7485b9d83798e67b8ad6636e53cc921649",
+        "size_bytes": 907922,
+        "name": "OpenSSH client (Ubuntu 24.04; dependencies required)",
+        "version": "1:9.6p1-3ubuntu13.19",
+        "architecture": "amd64",
+        "filename": "openssh-client_9.6p1-3ubuntu13.19_amd64.deb",
+        "visibility": "public"
+      },
+      "relative_path": "pool/main/o/openssh/openssh-client_9.6p1-3ubuntu13.19_amd64.deb",
+      "license_evidence": "https://changelogs.ubuntu.com/changelogs/pool/main/o/openssh/openssh_9.6p1-3ubuntu13.19/copyright",
+      "identity_evidence": "https://packages.ubuntu.com/noble-updates/amd64/openssh-client/download",
+      "approved_cidrs": [
+        "185.143.233.0/24"
+      ]
+    }
+  ]
+}

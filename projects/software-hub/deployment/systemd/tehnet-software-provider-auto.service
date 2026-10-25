@@ -1,0 +1,31 @@
+[Unit]
+Description=Requalify four TehNet external kit sources for the exact current publication
+After=network-online.target docker.service
+Wants=network-online.target
+[Service]
+Type=oneshot
+WorkingDirectory=@RUNTIME@
+Environment=PYTHONPATH=@RUNTIME@:@HOST_SITE@
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/usr/bin/python3 -m tools.provider_auto --state /opt/tehnet-software/operations/provider-auto-state --receipts /srv/tehnet-software/metadata/public/provider-qualification.json --seed /opt/tehnet-software/operations/offline-devtools-20261018 --host-site @HOST_SITE@
+SuccessExitStatus=75
+TimeoutStartSec=5400
+TimeoutStopSec=30
+KillMode=control-group
+MemoryMax=128M
+MemorySwapMax=0
+CPUQuota=20%
+TasksMax=32
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX AF_NETLINK
+ReadWritePaths=/opt/tehnet-software/operations/provider-auto-state /srv/tehnet-software/metadata/public /run/lock
+InaccessiblePaths=/srv/tehnet-software/auth /srv/tehnet-software/data /srv/tehnet-software/metadata/restricted /srv/tehnet-software/ops
+UMask=0077
+StandardOutput=journal
+StandardError=journal

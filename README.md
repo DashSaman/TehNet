@@ -63,3 +63,14 @@ This repository is the canonical source of truth for TehNet product, implementat
 - `HANDOFF.md` / `PROGRESS.md` / `TASKS.md` — continuation state, verified progress and backlog
 
 See `PROGRESS.md` and `HANDOFF.md` for the current implementation state.
+
+## آرشیو نرم‌افزار تهران نتورک — پژوهش و برنامه مستقل / TehNet Software Archive
+
+[Start here: projects/software-hub/README.md](projects/software-hub/README.md) — isolated research copy, roadmap, agent workstreams, privacy and portable migration design. This is not a deployed service; original TehNet site/runtime is unchanged.
+
+
+## تحویل جامع آرشیو نرم‌افزار به ایجنت بعدی — ۲۵ اکتبر ۲۰۲۶
+
+برای ادامهٔ این بخش از [AGENT_HANDOFF](projects/software-hub/AGENT_HANDOFF.md) شروع کنید: تمام کارهای انجام‌شده با لینک شواهد، نتیجهٔ آزمون‌ها، خطاهای محفوظ، محدودیت‌ها، مسئولیت‌ها و قدم‌های باز در آن جمع‌بندی شده‌اند. [task جمع‌بندی](projects/software-hub/tasks/DOCS-AGENT-HANDOFF-20261025.md) نتیجهٔ کنترل مستندات و ref انتشار را ثبت می‌کند.
+
+عبارت قدیمی «This is not a deployed service» در معرفی اولیهٔ بالا، وضعیت زمان کپی پژوهش بود. موتور بعداً زیر /software/ فعال شد؛ آخرین بررسی عملیاتی این گفتگو ۲۱ اکتبر است. پایش محدود با completed_with_incidents پایان یافت و پیگیری آن بازنشسته شد؛ تایمرهای انتشار و بازآزمایی در همان کنترل فعال ماندند. وضعیت زندهٔ امروز از آن نتیجه نمی‌شود. این تغییر ۲۵ اکتبر فقط مستندات است؛ سایت و سرویس‌ها تغییر نکردند.

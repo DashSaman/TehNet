@@ -1,0 +1,129 @@
+{
+  "tested_at_utc": "2026-10-19T17:01:48.551360+00:00",
+  "vantage": "independent-Windows-public-TLS",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "h1": 1,
+      "canonical": [
+        "https://tehnet.ir/"
+      ],
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "software_links": 1
+    },
+    {
+      "path": "/learn/",
+      "status": 200,
+      "h1": 1,
+      "canonical": [
+        "https://tehnet.ir/learn/"
+      ],
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "software_links": 1
+    },
+    {
+      "path": "/services/",
+      "status": 200,
+      "h1": 1,
+      "canonical": [
+        "https://tehnet.ir/services/"
+      ],
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "software_links": 1
+    },
+    {
+      "path": "/shop/",
+      "status": 200,
+      "h1": 1,
+      "canonical": [
+        "https://tehnet.ir/shop/"
+      ],
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "software_links": 1
+    },
+    {
+      "path": "/contact/",
+      "status": 200,
+      "h1": 1,
+      "canonical": [
+        "https://tehnet.ir/contact/"
+      ],
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "software_links": 1
+    },
+    {
+      "path": "/software/",
+      "status": 200,
+      "h1": 1,
+      "canonical": [],
+      "robots": [
+        "noindex,nofollow"
+      ],
+      "software_links": 0
+    },
+    {
+      "path": "/software/readyz",
+      "status": 200,
+      "cache_control": "private, no-store"
+    },
+    {
+      "path": "/software/v1/sources",
+      "status": 200,
+      "cache_control": "private, no-store"
+    },
+    {
+      "path": "/software/static/style.css",
+      "status": 200,
+      "cache_control": "private, no-store"
+    },
+    {
+      "path": "/software/openapi.json",
+      "status": 200,
+      "cache_control": "private, no-store"
+    },
+    {
+      "path": "/software/private/fixture",
+      "method": "GET",
+      "status": 404,
+      "cache_control": "private, no-store"
+    },
+    {
+      "path": "/software/private/fixture",
+      "method": "HEAD",
+      "status": 404,
+      "cache_control": "private, no-store"
+    },
+    {
+      "path": "/software/private/fixture",
+      "method": "POST",
+      "status": 404,
+      "cache_control": "private, no-store"
+    },
+    {
+      "path": "/software/static/ui.js",
+      "status": 200,
+      "bytes": 1823
+    },
+    {
+      "path": "/software/static/fonts/Vazirmatn-Regular.woff2",
+      "status": 200,
+      "bytes": 50684
+    },
+    {
+      "path": "/software/static/fonts/Vazirmatn-ExtraBold.woff2",
+      "status": 200,
+      "bytes": 51120
+    }
+  ]
+}

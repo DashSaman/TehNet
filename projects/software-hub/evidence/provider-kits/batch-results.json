@@ -1,0 +1,190 @@
+{
+  "started_at": "2026-10-19T14:55:48.662270+00:00",
+  "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+  "status": "complete",
+  "providers": [
+    {
+      "provider": "arvan",
+      "started_at": "2026-10-19T14:55:49.161993+00:00",
+      "outcome": "pass",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+      "finished_at": "2026-10-19T14:59:13.953823+00:00",
+      "unit_start_exit": 0,
+      "network_budget": {
+        "limit": 201326592,
+        "used": 100248384,
+        "requests": 65
+      },
+      "complete_hash_verified_downloads": 64,
+      "packages": 58,
+      "package_bytes": 32139756,
+      "functional_tools": [
+        "git",
+        "curl",
+        "jq",
+        "python",
+        "pip",
+        "wget",
+        "rsync",
+        "ssh"
+      ],
+      "negative_checks": {
+        "corrupt_required_archive": {
+          "exit": 1,
+          "elapsed_seconds": 9.669,
+          "dpkg_unchanged": true
+        },
+        "missing_required_archive": {
+          "exit": 1,
+          "elapsed_seconds": 9.516,
+          "dpkg_unchanged": true
+        },
+        "forged_signed_metadata": {
+          "exit": 100,
+          "elapsed_seconds": 5.589,
+          "dpkg_unchanged": true
+        },
+        "newer_nonseed_dependency": {
+          "exit": 2,
+          "elapsed_seconds": 8.996,
+          "dpkg_unchanged": true
+        },
+        "clean_offline_install": {
+          "exit": 0,
+          "elapsed_seconds": 29.61,
+          "dpkg_audit": "empty"
+        }
+      },
+      "install_evidence_sha256": "f3f33a3c0f149b0c64653fec5da80cfde6eb555786f4b84ac538bd5a8696f6cc",
+      "qualified_profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+      "software_payload_disk_files": 0
+    },
+    {
+      "provider": "linuxmirrors",
+      "started_at": "2026-10-19T14:59:14.416740+00:00",
+      "outcome": "failed",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+      "finished_at": "2026-10-19T15:01:02.949216+00:00",
+      "unit_start_exit": 1,
+      "network_budget": {
+        "limit": 201326592,
+        "used": 64307540,
+        "requests": 7
+      },
+      "error": "ValueError: Native laboratory unit failed; original qualification.log retained"
+    },
+    {
+      "provider": "liara",
+      "started_at": "2026-10-19T15:01:03.376969+00:00",
+      "outcome": "pass",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+      "finished_at": "2026-10-19T15:04:18.704707+00:00",
+      "unit_start_exit": 0,
+      "network_budget": {
+        "limit": 201326592,
+        "used": 100248384,
+        "requests": 65
+      },
+      "complete_hash_verified_downloads": 64,
+      "packages": 58,
+      "package_bytes": 32139756,
+      "functional_tools": [
+        "git",
+        "curl",
+        "jq",
+        "python",
+        "pip",
+        "wget",
+        "rsync",
+        "ssh"
+      ],
+      "negative_checks": {
+        "corrupt_required_archive": {
+          "exit": 1,
+          "elapsed_seconds": 9.374,
+          "dpkg_unchanged": true
+        },
+        "missing_required_archive": {
+          "exit": 1,
+          "elapsed_seconds": 9.382,
+          "dpkg_unchanged": true
+        },
+        "forged_signed_metadata": {
+          "exit": 100,
+          "elapsed_seconds": 5.445,
+          "dpkg_unchanged": true
+        },
+        "newer_nonseed_dependency": {
+          "exit": 2,
+          "elapsed_seconds": 8.898,
+          "dpkg_unchanged": true
+        },
+        "clean_offline_install": {
+          "exit": 0,
+          "elapsed_seconds": 29.561,
+          "dpkg_audit": "empty"
+        }
+      },
+      "install_evidence_sha256": "0ddd15ac46b0c77581b3f9e0b87f1c38cdae8fb7a2a7cc36b0bf136afd5c142d",
+      "qualified_profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+      "software_payload_disk_files": 0
+    },
+    {
+      "provider": "hamravesh",
+      "started_at": "2026-10-19T15:04:19.135072+00:00",
+      "outcome": "pass",
+      "profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+      "finished_at": "2026-10-19T15:07:34.762240+00:00",
+      "unit_start_exit": 0,
+      "network_budget": {
+        "limit": 201326592,
+        "used": 100248384,
+        "requests": 65
+      },
+      "complete_hash_verified_downloads": 64,
+      "packages": 58,
+      "package_bytes": 32139756,
+      "functional_tools": [
+        "git",
+        "curl",
+        "jq",
+        "python",
+        "pip",
+        "wget",
+        "rsync",
+        "ssh"
+      ],
+      "negative_checks": {
+        "corrupt_required_archive": {
+          "exit": 1,
+          "elapsed_seconds": 9.001,
+          "dpkg_unchanged": true
+        },
+        "missing_required_archive": {
+          "exit": 1,
+          "elapsed_seconds": 8.898,
+          "dpkg_unchanged": true
+        },
+        "forged_signed_metadata": {
+          "exit": 100,
+          "elapsed_seconds": 5.405,
+          "dpkg_unchanged": true
+        },
+        "newer_nonseed_dependency": {
+          "exit": 2,
+          "elapsed_seconds": 8.993,
+          "dpkg_unchanged": true
+        },
+        "clean_offline_install": {
+          "exit": 0,
+          "elapsed_seconds": 29.316,
+          "dpkg_audit": "empty"
+        }
+      },
+      "install_evidence_sha256": "3596fe427407a1846a0c6532f010d8354b95e1c434585b645567ba7e8bdd43e8",
+      "qualified_profile_sha256": "433c86293ecbc675f78cef8efae426eef3612f2b22e22886b9eeb1a1e6b4cfca",
+      "software_payload_disk_files": 0
+    }
+  ],
+  "finished_at": "2026-10-19T15:07:34.768257+00:00"
+}

@@ -1,0 +1,62 @@
+{
+  "tested_at_utc": "2026-10-20T00:23:53.116922+00:00",
+  "offline_install_pass": true,
+  "profile_sha256": "fa5c9cf4a358b255a39363a46e32547bb54aaa2882a2e6d5a827dd11fd765724",
+  "client_code_sha256": "fd35d9874932bc35fa8ff026c8608c61ed86533fc46d9ac56d00387e710e0fc9",
+  "qualified_candidate_sha256": "8d6dc87dabc09f9ca542a57fe037c9c5d896d9688f62e5d082871f9ac89e5c75",
+  "packages": 58,
+  "package_bytes": 32141260,
+  "functional_tools": [
+    "git",
+    "curl",
+    "jq",
+    "python",
+    "pip",
+    "wget",
+    "rsync",
+    "ssh"
+  ],
+  "negative_checks": {
+    "corrupt_required_archive": {
+      "exit": 1,
+      "elapsed_seconds": 8.887,
+      "dpkg_unchanged": true
+    },
+    "missing_required_archive": {
+      "exit": 1,
+      "elapsed_seconds": 9.12,
+      "dpkg_unchanged": true
+    },
+    "forged_signed_metadata": {
+      "exit": 100,
+      "elapsed_seconds": 5.483,
+      "dpkg_unchanged": true
+    },
+    "newer_nonseed_dependency": {
+      "exit": 2,
+      "elapsed_seconds": 9.098,
+      "dpkg_unchanged": true
+    },
+    "clean_offline_install": {
+      "exit": 0,
+      "elapsed_seconds": 28.992,
+      "dpkg_audit": "empty"
+    }
+  },
+  "baseline": {
+    "base": "ubuntu-base-24.04.5-base-amd64.tar.gz",
+    "base_sha256": "e77b6f10c2590cef872b33ee9f635a0e3fd1f57fb074c0e52b5c7f56147a0c86",
+    "base_bytes": 30028293,
+    "signature_key": "843938DF228D22F7B3742BC0D94AA3F0EFE21092",
+    "tls_verified": true,
+    "payload_location": "private tmpfs,noswap",
+    "elapsed_seconds": 4.318
+  },
+  "automatic_refresh": true,
+  "refresh_check_hours": 6,
+  "refresh_after_hours": 12,
+  "publication_max_metadata_age_hours": 24,
+  "scope": "Automatic clean signed Ubuntu Base24.04.5 amd64; no-network native APT +8 functional tests; not bootedVM/Iran/PyPI acceptance.",
+  "software_payload_disk_files": 0,
+  "memory_swap_bytes": 0
+}

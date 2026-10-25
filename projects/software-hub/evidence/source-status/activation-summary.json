@@ -1,0 +1,17 @@
+{
+  "tested_at_utc": "2026-10-19T14:18:35.872811+00:00",
+  "old_image": "sha256:ab4220407e6a35a6e3d4221b44f238f12b25b1081be4b03ce8a92276a60289fa",
+  "new_image": "sha256:3d01499c5a3c66b625abd95f113a4d37a156f6a230c4bb283cacac3237b3d8a6",
+  "same_schema_encrypted_recovery_and_code_rollback_rehearsal": true,
+  "full_offline_nginx_aliases_preserved": true,
+  "main_private_research_and_other_containers_preserved": true,
+  "watch_authorized_baseline_change": [
+    "owned engine image",
+    "owned engine container fingerprint"
+  ],
+  "original_watch_start_deadline_history_and_producer_hashes_preserved": true,
+  "producer_source_and_budget_unchanged": true,
+  "main_and_private_origin_checks": true,
+  "software_payloads_downloaded": 0,
+  "main_site_code_changed": false
+}

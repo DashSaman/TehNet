@@ -1,0 +1,13 @@
+test_backup_requires_writer_freeze_and_exclusive_output (test_recovery.EncryptedRecoveryTests.test_backup_requires_writer_freeze_and_exclusive_output) ... ok
+test_corrupt_ciphertext_and_existing_restore_never_activate (test_recovery.EncryptedRecoveryTests.test_corrupt_ciphertext_and_existing_restore_never_activate) ... ok
+test_plain_openpgp_store_packet_is_not_accepted_as_encrypted (test_recovery.EncryptedRecoveryTests.test_plain_openpgp_store_packet_is_not_accepted_as_encrypted) ... ok
+test_real_roundtrip_invalidates_restored_sessions_preserves_active_and_credentials (test_recovery.EncryptedRecoveryTests.test_real_roundtrip_invalidates_restored_sessions_preserves_active_and_credentials) ... ok
+test_untrusted_ciphertext_digest_is_rejected (test_recovery.EncryptedRecoveryTests.test_untrusted_ciphertext_digest_is_rejected) ... ok
+test_actual_schema_required_not_just_identity_and_future_versions_fail (test_recovery.RecoveryContractTests.test_actual_schema_required_not_just_identity_and_future_versions_fail) ... ok
+test_authenticated_aes256_mdc_and_ocb_status_only (test_recovery.RecoveryContractTests.test_authenticated_aes256_mdc_and_ocb_status_only) ... ok
+test_manifest_rejects_traversal_duplicate_unknown_and_excess_sizes (test_recovery.RecoveryContractTests.test_manifest_rejects_traversal_duplicate_unknown_and_excess_sizes) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.775s
+
+OK
