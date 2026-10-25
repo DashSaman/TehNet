@@ -157,7 +157,7 @@ Status legend: `LOCKED`, `NEXT`, `BACKLOG`, `BLOCKED`, `DONE`, `PREPARED`, `DEFE
 - DONE — TehNet 0.5.1 navy/cyan palette, résumé SVG, responsive header, theme/motion controls and native Amirreza profile.
 - DONE — Privacy, public route/metadata/download, origin and live Chromium verification; see ops/VISUAL_REFRESH_2026-10-13.md.
 - DONE — Corrected pre-existing blog archive H1/canonical.
-- DEFERRED — Review/integration of feat/portfolio-visual-20261013 into main; retain branch/worktree.
+- DONE — 2026-10-25: feat/portfolio-visual-20261013 integrated into main (via PR #3 history); contained branch head deleted.
 - UNCHANGED — Payment, support/account, manual quote/invoice and indexing launch remain separate work.
 
 ## Separate TehNet Software Archive research and implementation track (2026-10-17)
@@ -679,3 +679,14 @@ Final report was registered and pushed at 750513c35f30dfe79f37cd1a59857ec3a08866
 - Production/runtime/data and original research/evidence are outside this documentation task. Publish only the reviewed Markdown allowlist to the existing authorized review branch; no main merge or raw evidence export.
 
 Documentation gate,2026-10-25T13:41:07Z: PASS for22 original blobs/189734bytes and643 local hub links; PASS for the12-Markdown-path allowlist, five retained historical prefixes,170 changed-document links, added-text privacy patterns and preserved final-report counts/gaps. Whitespace check passes. This is documentation verification only, with zero application/research/evidence/runtime changes; see the handoff task for exact commands and limitations.
+
+## 2026-10-25 — main consolidation / تلفیق main
+
+- DONE — Merge software-archive branch into main (PR #2, merge `ec556d8`); draft flag removed first.
+- DONE — Merge store/payment-sandbox phase into main (PR #3, merge `917f553`); root-docs conflicts resolved as union preserving both workstreams.
+- DONE — Integration verification on merged main: zarinpal-protocol 20 + zarinpal-lifecycle 29 + store-policy + product-evidence 31 + photo-import 7 + photo-cleanup + product-inquiry-logic checks, all PASSED (PHP 8.3.6).
+- DONE — Live smoke 2026-10-25: `/`, `/shop/`, `/software/`, `/learn/mikrotik/`, `/contact/` HTTP 200; deployed `tehnet-store` plugin hashes match main (zero drift).
+- DONE — feat/portfolio-visual-20261013 reached main via PR #3 history; contained branch heads deleted (also audit/store-readiness-20261015).
+- BLOCKED — Real Zarinpal gateway activation: needs owner-provided merchant credential plus commercial-readiness items (real price/stock seed, legal docs, ERP production company, shipping/notification capacity); sandbox adapter refuses production by design and no real gateway endpoint exists yet.
+- OPEN — Real end-to-end purchase test (cart → checkout → gateway → callback → ERP invoice) after a real gateway exists; native sandbox purchase already passed earlier (order 323, `qa/store-2026-10-15/native-payment.json`).
+- OPEN — Software-archive items per `projects/software-hub/AGENT_HANDOFF.md`: W1 original OFFLINE_SOFTWARE_CATALOG recovery, W4/W6 acceptance, private external provider/Rubika, real timed Iran migration.
