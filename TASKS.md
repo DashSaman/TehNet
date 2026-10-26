@@ -702,3 +702,14 @@ Documentation gate,2026-10-25T13:41:07Z: PASS for22 original blobs/189734bytes a
 - OPEN — Owner inputs to activate FX pricing in practice: per-product base USD prices (product edit field is live), and legal-entity profile fields for official invoices.
 - OPEN — Suggested DNS `time.tehnet.ir` → server IP (needs owner DNS access).
 - OPEN — Iranian provider activation blocked on owner API credentials + operator approval evidence + trusted digests (per PROVIDER_ONBOARDING.fa.md gates).
+
+## 2026-10-26 — competitive-gap build phase / مرحلهٔ ساخت بر اساس شکاف رقبا
+
+- DONE — Shop sorting: WooCommerce-native (جدیدترین/قیمت) plus custom الفبایی/کد-کالا ordering; live-verified SKU order matches database ascending order (PR #9).
+- DONE — Filters: IRR price range and «فقط کالاهای موجود» meta filters alongside existing unit/spec filters (PR #9). Brand filter remains data-blocked (no brand field per product yet).
+- DONE — Honest 45-day «جدید» badge on product cards and same-category «کالاهای مرتبط» section on product pages (PR #9).
+- DONE — Public moderated product Q&A: submissions start pending, admin answers/publishes; anonymous submissions require admin_post_nopriv hooks (found live, fixed in PR #10). Internal inquiry feedback (rating 1-5) recorded privately (PR #10).
+- DONE — Price/stock alerts with optional IRR target, deduplicated, hourly cron check + manual run; EMAIL DELIVERY WAITS FOR SMTP CONFIGURATION (owner input) (PR #11).
+- DONE — B2B quote portal live at `/b2b/`: bounded intake (1-5 items) stored privately; finance-role board tracks received → quoted (ref) → won/lost; formal quote issuance stays manual (PR #12).
+- OPEN — Items 8 (search autocomplete), 9 (brand pages + brand filter data entry), 11 (campaigns/discounts — gated on real gateway), 14 (variants), 16 (editorial pros/cons reviews), 19-28 per `docs/COMPETITIVE_GAPS_2026-10-25.fa.md`.
+- NOTE — Contract-test suites now: compare 12, qa 13, alerts 17, quotes 15, accounting 10, fx-rate 22 (89 checks) — all green on main.
