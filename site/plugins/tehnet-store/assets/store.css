@@ -38,3 +38,12 @@
 .tn-suggest li{padding:9px 14px;cursor:pointer;font-size:14px}
 .tn-suggest li small{color:#5b707c}
 .tn-suggest li.tn-suggest-active{background:#e8f4f7}
+
+/* Shop professional polish (2026-10-27) */
+.tn-cta-inquiry{background:#0e7490;border-color:#0e7490;color:#fff}
+.tn-empty-state{margin:20px 0;padding:18px;border:1px dashed #b9c6cd;border-radius:12px;text-align:center}
+.tn-shop-policy{margin:14px 0;padding:12px 16px;background:#f4f9fa;border-radius:10px;color:#33525f;font-size:14px}
+.tn-shop-policy ul{margin:0;padding-inline-start:18px}
+.tn-inquiry{margin:28px 0;padding:16px;border:1px solid #d8dee4;border-radius:12px}
+.tn-inquiry form p{margin:8px 0}
+.tn-inquiry input,.tn-inquiry textarea{max-width:420px}
