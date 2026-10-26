@@ -88,6 +88,7 @@ final class TehNet_Store_QA {
 
     public function submit_question(): void {
         $product=$this->product_from_request('tn_question_');
+        if (!TehNet_Store_Policy::throttle('qa',5,3600)) { wp_die('تعداد درخواست‌های شما زیاد است؛ کمی بعد دوباره تلاش کنید.',429); }
         $input=static fn(string $key):string => isset($_POST[$key])&&is_string($_POST[$key])?sanitize_textarea_field(wp_unslash($_POST[$key])):'';
         $valid=self::validate_question($input('tn_name'),$input('tn_body'),$input('tn_hp'));
         if (!$valid['ok']) { wp_die('اطلاعات پرسش نامعتبر است.',400); }
@@ -99,6 +100,7 @@ final class TehNet_Store_QA {
 
     public function submit_feedback(): void {
         $product=$this->product_from_request('tn_feedback_');
+        if (!TehNet_Store_Policy::throttle('feedback',5,3600)) { wp_die('تعداد درخواست‌های شما زیاد است؛ کمی بعد دوباره تلاش کنید.',429); }
         $input=static fn(string $key):string => isset($_POST[$key])&&is_string($_POST[$key])?sanitize_textarea_field(wp_unslash($_POST[$key])):'';
         $rating=isset($_POST['tn_rating'])?absint($_POST['tn_rating']):0;
         $valid=self::validate_feedback($rating,$input('tn_comment'),sanitize_email(wp_unslash($_POST['tn_email']??'')));

@@ -3,6 +3,18 @@ defined('ABSPATH') || exit;
 
 /** Exact arithmetic at the store/ERP/payment boundary. */
 final class TehNet_Store_Policy {
+    /** Per-IP submission throttle for public forms. Returns true when the submission may proceed. */
+    public static function throttle(string $bucket,int $max = 5,int $window = 3600): bool {
+        $ip='unknown';
+        if (isset($_SERVER['HTTP_CF_CONNECTING_IP']) && is_string($_SERVER['HTTP_CF_CONNECTING_IP'])) { $ip=$_SERVER['HTTP_CF_CONNECTING_IP']; }
+        elseif (isset($_SERVER['REMOTE_ADDR']) && is_string($_SERVER['REMOTE_ADDR'])) { $ip=$_SERVER['REMOTE_ADDR']; }
+        $key='tn_th_'.md5($bucket.'|'.preg_replace('/[^0-9a-fA-F:.]/','',substr($ip,0,45)));
+        $count=(int)get_transient($key);
+        if ($count >= $max) { return false; }
+        set_transient($key,$count+1,$window);
+        return true;
+    }
+
     private static function digits(string $value): string {
         return strtr($value, ['۰'=>'0','۱'=>'1','۲'=>'2','۳'=>'3','۴'=>'4','۵'=>'5','۶'=>'6','۷'=>'7','۸'=>'8','۹'=>'9','٠'=>'0','١'=>'1','٢'=>'2','٣'=>'3','٤'=>'4','٥'=>'5','٦'=>'6','٧'=>'7','٨'=>'8','٩'=>'9']);
     }

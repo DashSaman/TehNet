@@ -22,3 +22,12 @@
 .tn-filter-sort{display:flex;flex-direction:column;gap:4px;min-width:140px}
 .tn-filter-price input{width:110px}
 .tn-filter-stock{display:flex;align-items:center;gap:6px}
+
+/* Editorial pros/cons (2026-10-26) */
+.tn-editorial{margin:24px 0;padding:16px;border:1px solid #d8dee4;border-radius:12px}
+.tn-editorial h2{font-size:20px;margin:0 0 12px}
+.tn-editorial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.tn-editorial ul{list-style:none;margin:0;padding:0}
+.tn-editorial li{padding:4px 0}
+.tn-editorial-pros li{color:#0f766e}
+.tn-editorial-cons li{color:#b45309}

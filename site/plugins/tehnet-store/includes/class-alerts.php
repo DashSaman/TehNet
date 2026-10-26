@@ -63,6 +63,7 @@ final class TehNet_Store_Alerts {
         $product=is_scalar($raw)?wc_get_product(absint($raw)):false;
         if (!$product instanceof WC_Product) { wp_die('کالا در دسترس نیست.',404); }
         check_admin_referer('tn_alert_'.$product->get_id());
+        if (!TehNet_Store_Policy::throttle('alert',5,3600)) { wp_die('تعداد درخواست‌های شما زیاد است؛ کمی بعد دوباره تلاش کنید.',429); }
         $email=isset($_POST['tn_email'])&&is_string($_POST['tn_email'])?sanitize_text_field(wp_unslash($_POST['tn_email'])):'';
         $type=isset($_POST['tn_type'])&&is_string($_POST['tn_type'])?sanitize_key(wp_unslash($_POST['tn_type'])):'';
         $target=isset($_POST['tn_target'])&&is_string($_POST['tn_target'])?sanitize_text_field(wp_unslash($_POST['tn_target'])):'';
