@@ -3,6 +3,50 @@
   const dialog = document.querySelector('#tn-store-dialog');
   if (!dialog) return;
   const feedback = document.querySelector('#tn-store-feedback');
+  const ajax = location.origin + '/wp-admin/admin-ajax.php';
+  const validItem = p => p && Number.isSafeInteger(p.id) && typeof p.name === 'string' && typeof p.url === 'string' && new URL(p.url, location.origin).origin === location.origin;
+  const syncWishlist = () => {
+    if (!document.body.classList.contains('logged-in') || !dialog.dataset.tnNonce) return;
+    const body = new URLSearchParams({action:'tn_wishlist_sync', nonce:dialog.dataset.tnNonce, items:JSON.stringify(lists.wishlist)});
+    fetch(ajax,{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/x-www-form-urlencoded'},body})
+      .then(r=>r.ok?r.json():null).then(merged=>{ if(Array.isArray(merged)){ lists.wishlist=merged.filter(validItem); save('wishlist'); } }).catch(()=>{});
+  };
+  syncWishlist();
+  (() => {
+    const input=document.querySelector('.tn-filter-search input[name="s"]');
+    if(!input) return;
+    let timer=null,box=null,index=-1,lastItems=[];
+    const close=()=>{ if(box){box.remove();box=null;index=-1;lastItems=[];} };
+    const go=item=>{ close(); location.href=item.url; };
+    const render=items=>{
+      close();
+      if(!items.length) return;
+      lastItems=items;
+      box=document.createElement('ul');box.className='tn-suggest';box.setAttribute('role','listbox');
+      items.forEach(item=>{
+        const li=document.createElement('li');li.setAttribute('role','option');
+        li.append(document.createTextNode(item.name));
+        if(item.sku){const sku=document.createElement('small');sku.dir='ltr';sku.textContent=' '+item.sku;li.append(sku);}
+        li.addEventListener('mousedown',e=>{e.preventDefault();go(item);});
+        box.append(li);
+      });
+      input.parentElement.append(box);index=-1;
+    };
+    const highlight=()=>{ if(!box)return; [...box.children].forEach((li,i)=>li.classList.toggle('tn-suggest-active',i===index)); };
+    input.addEventListener('input',()=>{
+      clearTimeout(timer);const q=input.value.trim();
+      if(q.length<2){close();return;}
+      timer=setTimeout(async()=>{ try{ const r=await fetch(ajax+'?action=tn_suggest&term='+encodeURIComponent(q),{credentials:'same-origin'}); render(r.ok?await r.json():[]); }catch{close();} },250);
+    });
+    input.addEventListener('keydown',e=>{
+      if(!box||!lastItems.length){return;}
+      if(e.key==='ArrowDown'){e.preventDefault();index=(index+1)%lastItems.length;highlight();}
+      else if(e.key==='ArrowUp'){e.preventDefault();index=(index-1+lastItems.length)%lastItems.length;highlight();}
+      else if(e.key==='Enter'&&index>=0&&lastItems[index]){e.preventDefault();go(lastItems[index]);}
+      else if(e.key==='Escape'){close();}
+    });
+    document.addEventListener('click',e=>{ if(box&&!input.parentElement.contains(e.target))close(); });
+  })();
   const lists = { compare: [], wishlist: [] };
   for (const kind of Object.keys(lists)) {
     try {
@@ -77,6 +121,7 @@
         if (!existing && lists[kind].length >= (kind === 'compare' ? 4 : 24)) { feedback.textContent = 'تعداد انتخاب‌ها به سقف مجاز رسیده است.'; return; }
         if (existing) lists[kind]=lists[kind].filter(p=>p.id!==item.id); else lists[kind].push(item);
         save(kind); feedback.textContent = existing?'کالا از انتخاب‌های شما حذف شد.':'کالا به انتخاب‌های شما اضافه شد.';
+      if (kind==='wishlist') syncWishlist();
       } catch { feedback.textContent = 'اطلاعات کالا قابل خواندن نیست.'; }
     }
     const open = event.target.closest('[data-tn-open]');

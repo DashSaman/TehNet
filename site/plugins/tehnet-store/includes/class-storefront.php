@@ -22,6 +22,9 @@ final class TehNet_Store_Storefront {
         add_action('woocommerce_after_shop_loop_item',[$this,'tools'],20);
         add_action('woocommerce_single_product_summary',[$this,'unit'],11);
         add_action('woocommerce_after_single_product_summary',[$this,'related_products'],19);
+        add_action('wp_ajax_tn_suggest',[$this,'suggest']);
+        add_action('wp_ajax_nopriv_tn_suggest',[$this,'suggest']);
+        add_action('wp_ajax_tn_wishlist_sync',[$this,'wishlist_sync']);
         add_action('woocommerce_single_product_summary',[$this,'editorial'],40);
         add_action('woocommerce_single_product_summary',[$this,'tools'],32);
         add_action('woocommerce_product_query',[$this,'query']);
@@ -115,7 +118,7 @@ final class TehNet_Store_Storefront {
     public function assets(): void {
         if (!function_exists('is_woocommerce') || !(is_woocommerce() || is_cart() || is_checkout() || is_account_page())) { return; }
         wp_enqueue_style('tn-store',plugins_url('assets/store.css',dirname(__DIR__).'/tehnet-store.php'),[], '0.5.3');
-        wp_enqueue_script('tn-store',plugins_url('assets/store.js',dirname(__DIR__).'/tehnet-store.php'),[], '0.5.1',true);
+        wp_enqueue_script('tn-store',plugins_url('assets/store.js',dirname(__DIR__).'/tehnet-store.php'),[], '0.5.2',true);
         if(is_shop()||is_product_taxonomy()||is_product())wp_enqueue_style('tn-shop-experience',plugins_url('assets/store-experience.css',dirname(__DIR__).'/tehnet-store.php'),['tn-store','tehnet-visual-refresh'],'0.4.0');
     }
     public function body_classes(array $classes):array {
@@ -266,6 +269,56 @@ final class TehNet_Store_Storefront {
         }
         return $out;
     }
+    /** Pure: bound, origin-safe wishlist projection for persistence. */
+    public static function sanitize_wishlist(array $items): array {
+        $out=[];
+        foreach ($items as $item) {
+            if (!is_array($item) || count($out)>=24) { break; }
+            if (!isset($item['id'],$item['name'],$item['url']) || !is_numeric($item['id']) || (int)$item['id']<=0) { continue; }
+            if (!is_string($item['name']) || mb_strlen($item['name'])<1) { continue; }
+            $url=is_string($item['url']) ? $item['url'] : '';
+            $host=$url!=='' ? (string)wp_parse_url($url,PHP_URL_HOST) : '';
+            if ($host==='') { continue; }
+            $entry=['id'=>(int)$item['id'],'name'=>mb_substr($item['name'],0,200),'url'=>$url];
+            if (isset($item['sku']) && is_string($item['sku']) && mb_strlen($item['sku'])<=64) { $entry['sku']=mb_substr($item['sku'],0,64); }
+            if (!in_array($entry,$out,true)) { $out[]=$entry; }
+        }
+        return $out;
+    }
+    public function suggest(): void {
+        $term=isset($_GET['term'])&&is_string($_GET['term'])?mb_substr(sanitize_text_field(wp_unslash($_GET['term'])),0,40):'';
+        $term=self::normalize_search($term);
+        nocache_headers();header('Content-Type: application/json; charset=utf-8');
+        if (mb_strlen($term)<2) { echo '[]';exit; }
+        $query=new WP_Query(['post_type'=>'product','post_status'=>'publish','posts_per_page'=>6,'s'=>$term,'fields'=>'ids','no_found_rows'=>true]);
+        $out=[];
+        foreach ($query->posts as $product_id) {
+            $product=wc_get_product($product_id);
+            if (!$product instanceof WC_Product) { continue; }
+            $out[]=['name'=>$product->get_name(),'sku'=>$product->get_sku(),'url'=>$product->get_permalink()];
+        }
+        echo wp_json_encode($out,JSON_UNESCAPED_UNICODE);exit;
+    }
+    public function wishlist_sync(): void {
+        if (!is_user_logged_in()) { wp_die('ورود لازم است.',403); }
+        check_ajax_referer('tn_wishlist','nonce');
+        $raw=isset($_POST['items'])&&is_string($_POST['items'])?json_decode(wp_unslash($_POST['items']),true):null;
+        if ($raw===null && trim((string)($_POST['items']??''))==='') { $raw=[]; }
+        if (!is_array($raw)) { wp_die('داده نامعتبر است.',400); }
+        $user_id=get_current_user_id();
+        $existing=get_user_meta($user_id,'tn_wishlist',true);
+        $existing=is_array($existing)?$existing:[];
+        $merged=$existing;
+        foreach (self::sanitize_wishlist($raw) as $item) {
+            $found=false;
+            foreach ($merged as $candidate) { if (($candidate['id']??0)===$item['id']) { $found=true;break; } }
+            if (!$found) { $merged[]=$item; }
+        }
+        $merged=self::sanitize_wishlist($merged);
+        update_user_meta($user_id,'tn_wishlist',$merged);
+        header('Content-Type: application/json; charset=utf-8');
+        echo wp_json_encode($merged,JSON_UNESCAPED_UNICODE);exit;
+    }
     public function card_badge(): void {
         global $product;
         if (!$product instanceof WC_Product) { return; }
@@ -294,7 +347,8 @@ final class TehNet_Store_Storefront {
     /** Pure: newline list to bounded clean lines (2..120 chars, max 6). */
     public static function editorial_lines(string $raw): array {
         $out=[];
-        foreach (preg_split('/?
+        foreach (preg_split('/
+?
 /',$raw) ?: [] as $line) {
             $line=trim($line);
             if ($line==='' || mb_strlen($line)<2 || mb_strlen($line)>120) { continue; }
@@ -326,7 +380,7 @@ final class TehNet_Store_Storefront {
     }
     public function dialog(): void {
         if (!wp_script_is('tn-store','enqueued')) { return; }
-        echo '<dialog id="tn-store-dialog" aria-labelledby="tn-store-dialog-title" dir="rtl"><h2 id="tn-store-dialog-title">انتخاب‌های شما</h2><div id="tn-store-dialog-content"></div><button type="button" data-tn-close>بستن</button></dialog><p id="tn-store-feedback" class="screen-reader-text" role="status" aria-live="polite"></p>';
+        echo '<dialog id="tn-store-dialog" aria-labelledby="tn-store-dialog-title" dir="rtl"'.(is_user_logged_in()?' data-tn-nonce="'.esc_attr(wp_create_nonce('tn_wishlist')).'"':'').'><h2 id="tn-store-dialog-title">انتخاب‌های شما</h2><div id="tn-store-dialog-content"></div><button type="button" data-tn-close>بستن</button></dialog><p id="tn-store-feedback" class="screen-reader-text" role="status" aria-live="polite"></p>';
     }
     public function fields(): void {
         wp_nonce_field('tn_store_product','tn_store_nonce');
