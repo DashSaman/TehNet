@@ -33,6 +33,9 @@ final class TehNet_Store_Tickets {
         add_shortcode('tn_support_ticket',[$this,'shortcode']);
         add_action('admin_post_tn_ticket_submit',[$this,'submit']);
         add_action('admin_post_nopriv_tn_ticket_submit',[$this,'submit']);
+        add_action('woocommerce_after_single_product_summary',[$this,'product_inquiry_form'],26);
+        add_action('admin_post_tn_inquiry_submit',[$this,'submit_inquiry']);
+        add_action('admin_post_nopriv_tn_inquiry_submit',[$this,'submit_inquiry']);
         add_action('admin_post_tn_ticket_reply',[$this,'reply']);
         add_action('admin_menu',function():void { add_submenu_page('tn-store','تیکت‌های پشتیبانی','تیکت‌ها','tn_store_operations_view','tn-store-tickets',[$this,'admin_page']); });
     }
@@ -86,6 +89,45 @@ final class TehNet_Store_Tickets {
         wp_safe_redirect(add_query_arg(['page'=>'tn-store-tickets','tn_result'=>'ok'],admin_url('admin.php')));exit;
     }
 
+    public function product_inquiry_form(): void {
+        global $product;
+        if (!$product instanceof WC_Product) { return; }
+        echo '<section class="tn-inquiry" id="tn-inquiry" aria-labelledby="tn-inquiry-title"><h2 id="tn-inquiry-title">استعلام قیمت و موجودی این کالا</h2>';
+        echo '<p>مدل، موجودی و قیمت این کالا پیش از ثبت سفارش با شما تطبیق داده می‌شود؛ پاسخ در ساعات کاری از طریق ایمیل ارسال می‌شود.</p>';
+        echo '<form method="post" action="'.esc_url(admin_url('admin-post.php')).'" class="tn-inquiry-form"><input type="hidden" name="action" value="tn_inquiry_submit"><input type="hidden" name="product_id" value="'.esc_attr($product->get_id()).'">';
+        wp_nonce_field('tn_inquiry_'.$product->get_id());
+        echo '<p class="tn-qa-hp" aria-hidden="true"><label>خالی بگذارید <input name="tn_hp" tabindex="-1" autocomplete="off"></label></p>';
+        echo '<p><label>نام شما <input name="tn_name" maxlength="80" required></label></p>';
+        echo '<p><label>ایمیل <input type="email" name="tn_email" maxlength="120" required></label></p>';
+        echo '<p><label>مقدار موردنیاز (مثلاً ۲.۵ متر یا ۳ عدد) <input name="tn_qty" maxlength="60" required></label></p>';
+        echo '<p><label>توضیح (اختیاری) <textarea name="tn_notes" maxlength="1000"></textarea></label></p>';
+        echo '<p><button class="button button-primary" type="submit">ثبت استعلام</button></p>';
+        if (isset($_GET['tn_inquiry']) && $_GET['tn_inquiry']==='sent') { echo '<p role="status" class="tn-qa-notice">استعلام شما ثبت شد؛ نتیجه از طریق ایمیل اعلام می‌شود.</p>'; }
+        echo '</form></section>';
+    }
+    public function submit_inquiry(): void {
+        $raw=$_POST['product_id']??null;
+        $product=is_scalar($raw)?wc_get_product(absint($raw)):false;
+        if (!$product instanceof WC_Product) { wp_die('کالا در دسترس نیست.',404); }
+        check_admin_referer('tn_inquiry_'.$product->get_id());
+        $field=static fn(string $key):string => isset($_POST[$key])&&is_string($_POST[$key])?sanitize_textarea_field(wp_unslash($_POST[$key])):'';
+        if ($field('tn_hp')!=='') { wp_die('اطلاعات استعلام نامعتبر است.',400); }
+        if (!TehNet_Store_Policy::throttle('inquiry',5,3600)) { wp_die('تعداد درخواست‌های شما زیاد است؛ کمی بعد دوباره تلاش کنید.',429); }
+        $qty=$field('tn_qty'); $notes=$field('tn_notes');
+        $message='مقدار: '.$qty.' | کالا: '.$product->get_name().($notes!==''?' | توضیح: '.$notes:'');
+        $valid=self::validate_ticket($field('tn_name'),$field('tn_email'),'استعلام قیمت — '.($product->get_sku()?:$product->get_id()),$message,$product->get_sku()?:'');
+        if (!$valid['ok']) { wp_die('اطلاعات استعلام نامعتبر است.',400); }
+        $id=wp_insert_post(['post_type'=>self::CPT,'post_status'=>'private','post_title'=>$valid['subject']],true);
+        if (is_wp_error($id)) { wp_die('ثبت استعلام انجام نشد.',500); }
+        update_post_meta($id,'_tn_name',$valid['name']);
+        update_post_meta($id,'_tn_email',$valid['email']);
+        update_post_meta($id,'_tn_message',$valid['message']);
+        update_post_meta($id,'_tn_reference',$valid['reference']);
+        update_post_meta($id,'_tn_ticket_state','open');
+        update_post_meta($id,'_tn_inquiry_product',$product->get_id());
+        update_post_meta($id,'_tn_thread',[['who'=>'customer','at'=>gmdate('c'),'text'=>$valid['message']]]);
+        wp_safe_redirect(add_query_arg('tn_inquiry','sent',$product->get_permalink().'#tn-inquiry'));exit;
+    }
     public function admin_page(): void {
         if (!current_user_can('tn_store_operations_view')) { wp_die('دسترسی مجاز نیست.',403); }
         echo '<div class="wrap" dir="rtl"><h1>تیکت‌های پشتیبانی</h1>';

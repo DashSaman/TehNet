@@ -16,6 +16,7 @@ final class TehNet_Store_Storefront {
         add_action('woocommerce_shop_loop_item_title',[$this,'card_specs'],15);
         add_action('woocommerce_before_shop_loop',[$this,'filters'],5);
         add_action('woocommerce_no_products_found',[$this,'filters'],5);
+        add_action('woocommerce_no_products_found',[$this,'empty_state'],8);
         add_filter('request',[$this,'normalize_request']);
         add_filter('posts_search',[$this,'sku_search'],20,2);
         add_filter('woocommerce_redirect_single_search_result',fn($value)=>$this->preview_allowed()?false:$value);
@@ -29,6 +30,7 @@ final class TehNet_Store_Storefront {
         add_action('woocommerce_single_product_summary',[$this,'tools'],32);
         add_action('woocommerce_product_query',[$this,'query']);
         add_action('woocommerce_before_shop_loop',[$this,'preview_notice'],1);
+        add_action('woocommerce_before_shop_loop',[$this,'policy_note'],3);
         add_filter('woocommerce_loop_product_link',[$this,'preview_link'],10,2);
         add_action('template_redirect',[$this,'preview_headers']);
         add_filter('woocommerce_get_stock_html',[$this,'stock_html'],30,2);
@@ -87,7 +89,10 @@ final class TehNet_Store_Storefront {
         return wc_price($product->get_price()).' <small>برای هر '.esc_html(self::UNITS[$product->get_meta('_tn_sale_unit')]).'</small>';
     }
     public function cta(string $value,$product,array $args): string {
-        if (!$this->physical($product) || !$this->eligible($product)) { return $value; }
+        if (!$this->physical($product)) { return $value; }
+        if (!$this->eligible($product)) {
+            return sprintf('<a class="button tn-cta-inquiry" href="%s">%s</a>',esc_url($product->get_permalink().'#tn-inquiry'),esc_html__('استعلام قیمت و موجودی','tehnet-store'));
+        }
         return sprintf('<a class="button" href="%s">%s</a>',esc_url($product->get_permalink()),esc_html__('انتخاب مقدار و خرید','tehnet-store'));
     }
     public function validate_cart(): void {
@@ -154,7 +159,23 @@ final class TehNet_Store_Storefront {
     public function card_specs():void {
         global $product;if(!$product instanceof WC_Product)return;$chips=[];
         foreach(self::SPECS as $key=>$definition){$v=$product->get_meta('_tn_verified_'.$key);if(in_array($v,$definition[1],true))$chips[]=$definition[0].': '.$v;}
-        if($chips)echo '<p class="tn-card-specs">'.esc_html(implode(' · ',$chips)).'</p>';
+        if(!$chips){
+            $declared=self::source_specs($product->get_meta('_tn_source_attributes'),3);
+            foreach($declared as $declared_value){$chips[]=$declared_value;}
+        }
+        if($chips)echo '<p class="tn-card-specs">'.esc_html(implode(' · ',array_slice($chips,0,3))).'</p>';
+    }
+    public function empty_state(): void {
+        $reset=wc_get_page_permalink('shop');
+        echo '<div class="tn-empty-state"><p>کالایی با این فیلترها یافت نشد. می‌توانید فیلترها را پاک کنید یا درخواست سازمانی ثبت کنید.</p>';
+        echo '<p><a class="button" href="'.esc_url($reset).'">پاک کردن فیلترها</a> <a class="button button-link" href="'.esc_url((string)get_permalink(get_page_by_path('b2b'))).'">ثبت درخواست سازمانی</a></p></div>';
+    }
+    public function policy_note(): void {
+        echo '<div class="tn-shop-policy"><ul>';
+        echo '<li>کاتالوگ فعلاً استعلامی است: مدل، موجودی و قیمت هر کالا پیش از ثبت سفارش با شما تطبیق داده می‌شود.</li>';
+        echo '<li>پاسخ استعلام در ساعات کاری از طریق ایمیل ارسال می‌شود؛ پیش‌فاکتور سازمانی ۳ روز کاری اعتبار دارد.</li>';
+        echo '<li>مشخصات «اعلام منبع» از فروشندهٔ مرجع نقل شده و تأیید فنی تهران نتورک جداگانه درج می‌شود.</li>';
+        echo '</ul></div>';
     }
     public function filters(): void {
         $unit=isset($_GET['tn_unit']) && is_string($_GET['tn_unit']) ? sanitize_key(wp_unslash($_GET['tn_unit'])) : '';
