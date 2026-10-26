@@ -713,3 +713,13 @@ Documentation gate,2026-10-25T13:41:07Z: PASS for22 original blobs/189734bytes a
 - DONE — B2B quote portal live at `/b2b/`: bounded intake (1-5 items) stored privately; finance-role board tracks received → quoted (ref) → won/lost; formal quote issuance stays manual (PR #12).
 - OPEN — Items 8 (search autocomplete), 9 (brand pages + brand filter data entry), 11 (campaigns/discounts — gated on real gateway), 14 (variants), 16 (editorial pros/cons reviews), 19-28 per `docs/COMPETITIVE_GAPS_2026-10-25.fa.md`.
 - NOTE — Contract-test suites now: compare 12, qa 13, alerts 17, quotes 15, accounting 10, fx-rate 22 (89 checks) — all green on main.
+
+## 2026-10-26 — remaining-agentable-items build / ساخت موارد باقی‌ماندهٔ عامل‌پذیر
+
+- DONE — Per-IP rate limiting (CF-aware) on all five public forms: question/feedback/alert/quote/ticket (3-5/hour, 429) (PR #14).
+- DONE — Editorial pros/cons: bounded admin textareas (6×120 chars, 8 contract checks) shown on product pages only when filled, labeled as editorial opinion (PR #14). Content entry by editors remains open work.
+- DONE — Support ticket system live at `/support/`: thread history, support-role board, reply (stored + emailed when SMTP configured), close; Telegram bridge still token-gated (PR #15).
+- DONE — Printable B2B quote document: per-item IRR price entry validated via Policy::irr; document renders legal profile, Jalali date, 3-working-day validity, totals, honest «در استعلام» for unpriced items, stamp (full render verified in-container) (PR #16).
+- DONE — Minimal PWA mu-plugin: RTL manifest (?tn_pwa=manifest), service worker (network-first pages, cache-first statics; /wp-admin and /software/private excluded); push notifications need owner VAPID keys (PR #16).
+- NOTE — Account/cart/checkout pages verified present; customer account lives at `/tn-account/` (registration stays closed by default — open registration is an owner decision given no captcha yet).
+- NOTE — Store plugin 0.7.0; contract suites: compare 12, qa 13, alerts 17, quotes 15, tickets 9, editorial 8, accounting 10, fx-rate 22, store-policy — all green on main; zero deploy drift (11 store files + mu-plugin hash-match).
