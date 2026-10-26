@@ -2,7 +2,7 @@
 /**
  * Plugin Name: TehNet Store
  * Description: Safe catalog imports and ERP-backed commerce for TehNet.
- * Version: 0.6.2
+ * Version: 0.7.0
  * Requires PHP: 8.2
  * License: GPL-2.0-or-later
  */
@@ -21,6 +21,7 @@ require_once __DIR__ . '/includes/class-price-rate.php';
 require_once __DIR__ . '/includes/class-qa.php';
 require_once __DIR__ . '/includes/class-alerts.php';
 require_once __DIR__ . '/includes/class-quotes.php';
+require_once __DIR__ . '/includes/class-tickets.php';
 register_activation_hook(__FILE__,['TehNet_Store_Operations','install']);
 add_action('woocommerce_blocks_payment_method_type_registration',static function($registry):void {
     if (class_exists('Automattic\\WooCommerce\\Blocks\\Payments\\Integrations\\AbstractPaymentMethodType')) {
@@ -41,6 +42,7 @@ add_action('plugins_loaded',static function():void {
         (new TehNet_Store_QA())->register();
         (new TehNet_Store_Alerts())->register();
         (new TehNet_Store_Quotes())->register();
+        (new TehNet_Store_Tickets())->register();
     }
 });
 
