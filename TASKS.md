@@ -723,3 +723,11 @@ Documentation gate,2026-10-25T13:41:07Z: PASS for22 original blobs/189734bytes a
 - DONE — Minimal PWA mu-plugin: RTL manifest (?tn_pwa=manifest), service worker (network-first pages, cache-first statics; /wp-admin and /software/private excluded); push notifications need owner VAPID keys (PR #16).
 - NOTE — Account/cart/checkout pages verified present; customer account lives at `/tn-account/` (registration stays closed by default — open registration is an owner decision given no captcha yet).
 - NOTE — Store plugin 0.7.0; contract suites: compare 12, qa 13, alerts 17, quotes 15, tickets 9, editorial 8, accounting 10, fx-rate 22, store-policy — all green on main; zero deploy drift (11 store files + mu-plugin hash-match).
+
+## 2026-10-26 — capability sweep closeout / بستن جاروی قابلیت‌ها
+
+- DONE — Live search suggestions (gap item 8): ajax `tn_suggest` (min 2 chars, SKU-aware via existing normalization), accessible keyboard listbox, verified in a real browser (PR #18).
+- DONE — Account-synced wishlist (gap item 23): nonce-protected ajax sync for logged-in visitors; bounded origin-safe projection with 11 contract checks (PR #18).
+- EVALUATED/SKIPPED — Redis object cache: redis container reachable but phpredis absent and stock image unchanged; a hand-rolled drop-in was rejected as too risky. Recommended path for the next deploy window: add phpredis to the image + official drop-in + WP_CACHE_KEY_SALT and a dedicated redis DB index.
+- VERIFIED — Woo Product structured data present on PDPs; `tn_alerts_check` cron scheduled; account/cart/checkout pages assigned (account at `/tn-account/`).
+- OPEN (owner-gated, unchanged) — gateway/SMTP/Telegram/VAPID credentials; base USD prices; legal profile; brand data entry; physical MPN/360 capture; indexing approval; GSC; Arvan/IranServer provider credentials + digests; W1 catalog; Iran migration; root password rotation; `time.tehnet.ir` DNS; open-registration decision.
