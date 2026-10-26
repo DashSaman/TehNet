@@ -731,3 +731,10 @@ Documentation gate,2026-10-25T13:41:07Z: PASS for22 original blobs/189734bytes a
 - EVALUATED/SKIPPED — Redis object cache: redis container reachable but phpredis absent and stock image unchanged; a hand-rolled drop-in was rejected as too risky. Recommended path for the next deploy window: add phpredis to the image + official drop-in + WP_CACHE_KEY_SALT and a dedicated redis DB index.
 - VERIFIED — Woo Product structured data present on PDPs; `tn_alerts_check` cron scheduled; account/cart/checkout pages assigned (account at `/tn-account/`).
 - OPEN (owner-gated, unchanged) — gateway/SMTP/Telegram/VAPID credentials; base USD prices; legal profile; brand data entry; physical MPN/360 capture; indexing approval; GSC; Arvan/IranServer provider credentials + digests; W1 catalog; Iran migration; root password rotation; `time.tehnet.ir` DNS; open-registration decision.
+
+## 2026-10-27 — Redis cache + professional shop flow / کش ردیس و جریان حرفه‌ای فروشگاه
+
+- DONE — Redis object cache live (own recommendation executed): phpredis compiled in-container, official redis-cache 3.0.0 drop-in, dedicated DB 1, salt, guard drop-in makes extension loss non-fatal; zero-downtime verified through a live redis restart; persistence caveat + rollback documented in `ops/redis-cache/README.md` (PR #20).
+- DONE — Per-product inquiry form on PDP (name/email/qty/notes → ticket board with SKU reference; live-tested), replacing the dead-end read-more CTA on all product cards with «استعلام قیمت و موجودی» (PR #20).
+- DONE — Declared-spec chips on cards when no verified specs exist; friendly empty-filter state (reset + B2B pointer); honest shop-policy block on /shop/ (PR #20).
+- NOTE — After any container recreation, re-run `pecl install redis-6.1.0 && docker-php-ext-enable redis` inside the WordPress container (or bake into image at the next deploy window); the guard keeps the site safe until then.
