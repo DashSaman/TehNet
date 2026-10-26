@@ -22,6 +22,7 @@ final class TehNet_Store_Storefront {
         add_action('woocommerce_after_shop_loop_item',[$this,'tools'],20);
         add_action('woocommerce_single_product_summary',[$this,'unit'],11);
         add_action('woocommerce_after_single_product_summary',[$this,'related_products'],19);
+        add_action('woocommerce_single_product_summary',[$this,'editorial'],40);
         add_action('woocommerce_single_product_summary',[$this,'tools'],32);
         add_action('woocommerce_product_query',[$this,'query']);
         add_action('woocommerce_before_shop_loop',[$this,'preview_notice'],1);
@@ -113,7 +114,7 @@ final class TehNet_Store_Storefront {
     }
     public function assets(): void {
         if (!function_exists('is_woocommerce') || !(is_woocommerce() || is_cart() || is_checkout() || is_account_page())) { return; }
-        wp_enqueue_style('tn-store',plugins_url('assets/store.css',dirname(__DIR__).'/tehnet-store.php'),[], '0.5.2');
+        wp_enqueue_style('tn-store',plugins_url('assets/store.css',dirname(__DIR__).'/tehnet-store.php'),[], '0.5.3');
         wp_enqueue_script('tn-store',plugins_url('assets/store.js',dirname(__DIR__).'/tehnet-store.php'),[], '0.5.1',true);
         if(is_shop()||is_product_taxonomy()||is_product())wp_enqueue_style('tn-shop-experience',plugins_url('assets/store-experience.css',dirname(__DIR__).'/tehnet-store.php'),['tn-store','tehnet-visual-refresh'],'0.4.0');
     }
@@ -290,6 +291,33 @@ final class TehNet_Store_Storefront {
         }
         echo '</ul></section>';
     }
+    /** Pure: newline list to bounded clean lines (2..120 chars, max 6). */
+    public static function editorial_lines(string $raw): array {
+        $out=[];
+        foreach (preg_split('/?
+/',$raw) ?: [] as $line) {
+            $line=trim($line);
+            if ($line==='' || mb_strlen($line)<2 || mb_strlen($line)>120) { continue; }
+            $out[]=$line;
+            if (count($out)>=6) { break; }
+        }
+        return $out;
+    }
+    public function editorial(): void {
+        global $product;
+        if (!$product instanceof WC_Product) { return; }
+        $pros=$product->get_meta('_tn_editorial_pros'); $cons=$product->get_meta('_tn_editorial_cons');
+        $pros=is_array($pros)?$pros:[]; $cons=is_array($cons)?$cons:[];
+        if (!$pros && !$cons) { return; }
+        echo '<div class="tn-editorial"><h2>نگاه تحریرهٔ تهران نتورک</h2><div class="tn-editorial-grid">';
+        foreach ([['قوت','pros',$pros,'+'],['ضعف','cons',$cons,'−']] as [$label,$key,$lines,$mark]) {
+            if (!$lines) { continue; }
+            echo '<section class="tn-editorial-'.$key.'"><h3>نقاط '.$label.'</h3><ul>';
+            foreach ($lines as $line) { echo '<li>'.esc_html($mark.' '.$line).'</li>'; }
+            echo '</ul></section>';
+        }
+        echo '</div><p class="description">دیدگاه تحریریه بر پایهٔ بررسی کاتالوگ است؛ جای مشخصات تأییدشدهٔ فنی را نمی‌گیرد.</p></div>';
+    }
     public function unit(): void {
         global $product;
         if (!$this->physical($product)) { return; }
@@ -309,6 +337,8 @@ final class TehNet_Store_Storefront {
         woocommerce_wp_text_input(['id'=>'_tn_erp_uom','label'=>'واحد دقیق ERP','description'=>'نام واحد در ERP؛ تبدیل قرقره/متر باید در همان کالا ثبت شده باشد.']);
         woocommerce_wp_text_input(['id'=>'_tn_technical_evidence_url','label'=>'منبع معتبر مشخصات تأییدشده','type'=>'url']);
         foreach (self::SPECS as $key=>$definition) { woocommerce_wp_select(['id'=>'_tn_verified_'.$key,'label'=>$definition[0].' تأییدشده','options'=>[''=>'نیازمند بررسی']+array_combine($definition[1],$definition[1])]); }
+        woocommerce_wp_textarea_input(['id'=>'_tn_editorial_pros','label'=>'نقاط قوت تحریریه (هر خط یک مورد، حداکثر ۶)','rows'=>4]);
+        woocommerce_wp_textarea_input(['id'=>'_tn_editorial_cons','label'=>'نقاط ضعف تحریریه (هر خط یک مورد، حداکثر ۶)','rows'=>4]);
     }
     public function save_fields(int $id): void {
         if (!current_user_can('manage_woocommerce') || !isset($_POST['tn_store_nonce']) || !is_string($_POST['tn_store_nonce']) || !wp_verify_nonce(wp_unslash($_POST['tn_store_nonce']),'tn_store_product')) { return; }
@@ -328,6 +358,10 @@ final class TehNet_Store_Storefront {
         foreach (self::SPECS as $key=>$definition) {
             $field='_tn_verified_'.$key;$value=isset($_POST[$field]) && is_string($_POST[$field])?sanitize_text_field(wp_unslash($_POST[$field])):'';
             update_post_meta($id,$field,$verified && in_array($value,$definition[1],true)?$value:'');
+        }
+        foreach (['_tn_editorial_pros','_tn_editorial_cons'] as $editorial_key) {
+            $raw=isset($_POST[$editorial_key]) && is_string($_POST[$editorial_key])?sanitize_textarea_field(wp_unslash($_POST[$editorial_key])):'';
+            update_post_meta($id,$editorial_key,self::editorial_lines($raw));
         }
         add_post_meta($id,'_tn_store_review_audit',wp_json_encode(['user'=>get_current_user_id(),'at'=>gmdate('c'),'action'=>'product-sale-review']));
     }

@@ -67,6 +67,7 @@ final class TehNet_Store_Quotes {
 
     public function submit(): void {
         check_admin_referer('tn_quote');
+        if (!TehNet_Store_Policy::throttle('quote',3,3600)) { wp_die('تعداد درخواست‌های شما زیاد است؛ کمی بعد دوباره تلاش کنید.',429); }
         $field=static fn(string $key):string => isset($_POST[$key])&&is_string($_POST[$key])?sanitize_text_field(wp_unslash($_POST[$key])):'';
         $items=[]; $pids=$_POST['tn_item_product']??[]; $qtys=$_POST['tn_item_qty']??[];
         if (is_array($pids)&&is_array($qtys)) {
