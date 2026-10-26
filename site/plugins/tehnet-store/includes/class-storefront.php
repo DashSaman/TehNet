@@ -11,6 +11,7 @@ final class TehNet_Store_Storefront {
         add_action('woocommerce_no_products_found',[$this,'categories'],2);
         add_action('woocommerce_before_shop_loop_item_title',static function():void{echo '<div class="tn-card-media">';},5);
         add_action('woocommerce_before_shop_loop_item_title',static function():void{echo '</div>';},20);
+        add_action('woocommerce_shop_loop_item_title',[$this,'card_badge'],4);
         add_action('woocommerce_shop_loop_item_title',[$this,'card_identity'],5);
         add_action('woocommerce_shop_loop_item_title',[$this,'card_specs'],15);
         add_action('woocommerce_before_shop_loop',[$this,'filters'],5);
@@ -20,6 +21,7 @@ final class TehNet_Store_Storefront {
         add_filter('woocommerce_redirect_single_search_result',fn($value)=>$this->preview_allowed()?false:$value);
         add_action('woocommerce_after_shop_loop_item',[$this,'tools'],20);
         add_action('woocommerce_single_product_summary',[$this,'unit'],11);
+        add_action('woocommerce_after_single_product_summary',[$this,'related_products'],19);
         add_action('woocommerce_single_product_summary',[$this,'tools'],32);
         add_action('woocommerce_product_query',[$this,'query']);
         add_action('woocommerce_before_shop_loop',[$this,'preview_notice'],1);
@@ -111,7 +113,7 @@ final class TehNet_Store_Storefront {
     }
     public function assets(): void {
         if (!function_exists('is_woocommerce') || !(is_woocommerce() || is_cart() || is_checkout() || is_account_page())) { return; }
-        wp_enqueue_style('tn-store',plugins_url('assets/store.css',dirname(__DIR__).'/tehnet-store.php'),[], '0.4.0');
+        wp_enqueue_style('tn-store',plugins_url('assets/store.css',dirname(__DIR__).'/tehnet-store.php'),[], '0.5.2');
         wp_enqueue_script('tn-store',plugins_url('assets/store.js',dirname(__DIR__).'/tehnet-store.php'),[], '0.5.1',true);
         if(is_shop()||is_product_taxonomy()||is_product())wp_enqueue_style('tn-shop-experience',plugins_url('assets/store-experience.css',dirname(__DIR__).'/tehnet-store.php'),['tn-store','tehnet-visual-refresh'],'0.4.0');
     }
@@ -159,6 +161,15 @@ final class TehNet_Store_Storefront {
         if($category===''&&function_exists('is_product_category')&&is_product_category())$category=(string)(get_queried_object()->slug??'');
         echo '<label class="tn-filter-category"><span>دسته کالا</span>';wp_dropdown_categories(['taxonomy'=>'product_cat','name'=>'product_cat','value_field'=>'slug','selected'=>$category,'show_option_all'=>'همه دسته‌ها','hide_empty'=>true,'hierarchical'=>true]);echo '</label>';
         $advanced=$unit!=='';foreach(array_keys(self::SPECS)as $key)if(isset($_GET['tn_'.$key])&&is_string($_GET['tn_'.$key])&&$_GET['tn_'.$key]!=='')$advanced=true;
+        $orderby=isset($_GET['orderby'])&&is_string($_GET['orderby'])?sanitize_key(wp_unslash($_GET['orderby'])):'';
+        echo '<label class="tn-filter-sort"><span>مرتب‌سازی</span><select name="orderby">';
+        foreach ([''=>'پیش‌فرض','date'=>'جدیدترین','tn_title'=>'الفبایی نام','tn_sku'=>'کد کالا','price'=>'ارزان‌ترین (ریال)','price-desc'=>'گران‌ترین (ریال)'] as $value=>$label) {
+            echo '<option value="'.esc_attr($value).'" '.selected($orderby,$value,false).'>'.esc_html($label).'</option>';
+        }
+        echo '</select></label>';
+        $pmin=isset($_GET['tn_pmin'])&&is_numeric($_GET['tn_pmin'])?sanitize_text_field(wp_unslash($_GET['tn_pmin'])):'';
+        $pmax=isset($_GET['tn_pmax'])&&is_numeric($_GET['tn_pmax'])?sanitize_text_field(wp_unslash($_GET['tn_pmax'])):'';
+        $instock=isset($_GET['tn_stock'])&&$_GET['tn_stock']==='1';
         echo '<button class="button tn-filter-submit" type="submit">جست‌وجو و فیلتر</button><details class="tn-filter-advanced"'.($advanced?' open':'').'><summary>فیلترهای فنی و واحد فروش</summary><div class="tn-filter-options"><label>واحد فروش <select name="tn_unit"><option value="">همه واحدها</option>';
         foreach(self::UNITS as $key=>$label) { printf('<option value="%s" %s>%s</option>',esc_attr($key),selected($unit,$key,false),esc_html($label)); }
         echo '</select></label>';
@@ -168,12 +179,26 @@ final class TehNet_Store_Storefront {
             foreach ($definition[1] as $value) { echo '<option value="'.esc_attr($value).'" '.selected($current,$value,false).'>'.esc_html($value).'</option>'; }
             echo '</select></label>';
         }
+        echo '<label class="tn-filter-price">قیمت از (ریال) <input type="number" min="0" step="1000" name="tn_pmin" value="'.esc_attr($pmin).'"></label>';
+        echo '<label class="tn-filter-price">تا (ریال) <input type="number" min="0" step="1000" name="tn_pmax" value="'.esc_attr($pmax).'"></label>';
+        echo '<label class="tn-filter-stock"><input type="checkbox" name="tn_stock" value="1" '.checked($instock,true,false).'> فقط کالاهای موجود</label>';
         $reset=$this->preview_allowed()?add_query_arg('tn_preview','1',wc_get_page_permalink('shop')):wc_get_page_permalink('shop');
         echo '</div></details><a class="tn-filter-reset" href="'.esc_url($reset).'">پاک کردن فیلترها</a></form>';
         echo '<div class="tn-store-toolbar"><span>قیمت‌ها با واحد ریال نمایش داده می‌شوند؛ موجودی و ارسال پیش از تأیید سفارش بررسی می‌شود.</span><button type="button" data-tn-open="compare">مقایسه <span data-tn-count="compare">۰</span></button><button type="button" data-tn-open="wishlist">علاقه‌مندی <span data-tn-count="wishlist">۰</span></button></div>';
     }
     public function query($query): void {
         if ($this->preview_allowed()) { $query->set('post_status',['publish','draft']); }
+        $orderby=isset($_GET['orderby'])&&is_string($_GET['orderby'])?sanitize_key(wp_unslash($_GET['orderby'])):'';
+        if ($orderby==='tn_title') { $query->set('orderby','title'); $query->set('order','ASC'); }
+        elseif ($orderby==='tn_sku') { $query->set('meta_key','_sku'); $query->set('orderby','meta_value'); $query->set('order','ASC'); }
+        $meta=$query->get('meta_query');$meta=is_array($meta)?$meta:[];
+        if (isset($_GET['tn_stock']) && $_GET['tn_stock']==='1') { $meta[]=['key'=>'_stock_status','value'=>'instock']; }
+        $pmin=isset($_GET['tn_pmin'])&&is_numeric($_GET['tn_pmin'])?(float)wp_unslash($_GET['tn_pmin']):null;
+        $pmax=isset($_GET['tn_pmax'])&&is_numeric($_GET['tn_pmax'])?(float)wp_unslash($_GET['tn_pmax']):null;
+        if ($pmin!==null || $pmax!==null) {
+            $meta[]=['key'=>'_price','compare'=>'BETWEEN','type'=>'NUMERIC','value'=>[$pmin??0,$pmax??PHP_FLOAT_MAX]];
+        }
+        if (count($meta)>($query->get('meta_query')?count($query->get('meta_query')):0)) { $query->set('meta_query',$meta); }
         $unit=isset($_GET['tn_unit']) && is_string($_GET['tn_unit']) ? sanitize_key(wp_unslash($_GET['tn_unit'])) : '';
         if (isset(self::UNITS[$unit])) {
             $meta=$query->get('meta_query');$meta=is_array($meta)?$meta:[];
@@ -239,6 +264,31 @@ final class TehNet_Store_Storefront {
             if ($name!=='' && $terms) { $out[$name]=implode(' / ',$terms); }
         }
         return $out;
+    }
+    public function card_badge(): void {
+        global $product;
+        if (!$product instanceof WC_Product) { return; }
+        $created=$product->get_date_created();
+        if (!$created instanceof WC_DateTime) { return; }
+        if (time()-$created->getTimestamp() <= 45*DAY_IN_SECONDS) { echo '<span class="tn-badge tn-badge-new">جدید</span>'; }
+    }
+    public function related_products(): void {
+        global $product;
+        if (!$product instanceof WC_Product || is_cart() || is_checkout()) { return; }
+        $ids=wc_get_related_products($product->get_id(),4);
+        if (!$ids) {
+            $args=['limit'=>5,'exclude'=>[$product->get_id()],'return'=>'ids','orderby'=>'rand'];
+            if ($product->get_category_ids()) { $args['category']=array_map(static function($id){ $t=get_term($id,'product_cat'); return $t&&!is_wp_error($t)?$t->slug:''; },$product->get_category_ids()); }
+            $ids=array_filter(wc_get_products($args));
+        }
+        if (!$ids) { return; }
+        echo '<section class="tn-related" aria-labelledby="tn-related-title"><h2 id="tn-related-title">کالاهای مرتبط</h2><ul class="tn-related-list">';
+        foreach ($ids as $related_id) {
+            $related=wc_get_product($related_id);
+            if (!$related instanceof WC_Product || $related->get_status()!=='publish') { continue; }
+            echo '<li><a href="'.esc_url($related->get_permalink()).'">'.esc_html($related->get_name()).'</a></li>';
+        }
+        echo '</ul></section>';
     }
     public function unit(): void {
         global $product;

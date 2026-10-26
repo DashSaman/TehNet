@@ -11,3 +11,14 @@
 .tn-reviewed-model .tn-model-controls[hidden]{display:none}
 .tn-parts-list{display:flex;gap:8px;flex-wrap:wrap;margin-block:16px}.tn-parts-list button[aria-pressed=true]{border:2px solid var(--tn-accent,#79e7f7)}.tn-part-detail{border:1px solid var(--tn-border,#52758a);padding:16px;margin-block:16px}.tn-part-detail dl{display:grid;grid-template-columns:1fr 1fr;gap:8px}.tn-part-detail dd{margin:0;direction:ltr;text-align:end}[data-tn-parts-panel]>label{display:block;margin-block:16px}[data-tn-explode-range]{display:block;width:100%;min-height:44px}
 .tn-reviewed-model{clear:both;border:1px solid var(--tn-border,#52758a);padding:20px;border-radius:16px;margin-block:24px}.tn-reviewed-model model-viewer{display:block;width:100%;height:420px;max-height:65vh;background:var(--tn-surface,#101c29);border-radius:12px}.tn-reviewed-model [data-tn-model-stage]{position:relative}.tn-reviewed-model [data-tn-model-stage]:has(model-viewer)::after{content:'tehnet.ir';position:absolute;right:8%;bottom:9%;pointer-events:none;color:var(--tn-ink,#fff);opacity:.36;font:700 20px Arial}.tn-reviewed-model button{font:inherit;min-height:44px;padding:10px 16px}.tn-reviewed-model .tn-model-controls{display:flex;flex-wrap:wrap;gap:12px}
+
+/* Phase A (2026-10-26): badges, sort/filter controls, related products */
+.tn-badge-new{display:inline-block;background:#0e7490;color:#fff;border-radius:8px;padding:2px 10px;font-size:12px;margin-inline-end:6px;vertical-align:middle}
+.tn-related{margin:32px 0}
+.tn-related h2{font-size:20px;margin-bottom:12px}
+.tn-related-list{list-style:none;display:grid;gap:8px;margin:0;padding:0}
+.tn-related-list a{display:block;padding:10px 14px;border:1px solid #d8dee4;border-radius:10px;text-decoration:none}
+.tn-related-list a:hover{border-color:#0e7490}
+.tn-filter-sort{display:flex;flex-direction:column;gap:4px;min-width:140px}
+.tn-filter-price input{width:110px}
+.tn-filter-stock{display:flex;align-items:center;gap:6px}
