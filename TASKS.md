@@ -752,3 +752,11 @@ Documentation gate,2026-10-25T13:41:07Z: PASS for22 original blobs/189734bytes a
 - DONE — Buying-guide blocks under category listings (honest educational content; 8 contract checks; guides-contract.php) — TechnoLife tour item (PR #27).
 - DONE — Brand infrastructure: admin flag per category, brand filter dropdown (tax_query), brand chips on cards; Legrand/Nexans flagged live (filter verified returning 8 Legrand products) (PR #27).
 - OPEN — Remaining tour gaps still data/owner-gated: variants, delivery-speed filter (logistics), installments/discount codes/address-book (gateway), plus content expansion of the guides themselves.
+
+## 2026-10-27 — manual sales: cart/checkout/registration live / فروش دستی فعال شد
+
+- DONE — Manual-sales mode (owner request, PR #28): ERP readiness/freshness bypassed behind an Operations-admin toggle; per-product price/approval/stock/unit gates unchanged; manual orders land on-hold with a marker for owner confirmation.
+- DONE — Registration open (honeypot + 5/day IP throttle mu-plugin, user-chosen passwords) — verified by registering/logging-in a real account in a browser.
+- DONE — No-gateway payment methods live: COD (Tehran) + bank transfer/card-to-card; store base country fixed US→IR (Tehran/THR state, 10-digit postcodes now valid).
+- VERIFIED — Full E2E in a real browser: register → login → add to cart → checkout → COD → order #205 received → artifacts cleaned (order/product/user removed; modes stay ON).
+- NOTE — To actually sell a real product: set price, stock, unit, minimum and check «مشخصات و قیمت تأیید شد» in its edit page (with manual mode on). Bank account details for the transfer method: WooCommerce → Settings → Payments → Bank transfer.
