@@ -30,6 +30,9 @@ final class TehNet_Store_Storefront {
         add_action('woocommerce_single_product_summary',[$this,'tools'],32);
         add_action('woocommerce_product_query',[$this,'query']);
         add_action('woocommerce_before_shop_loop',[$this,'preview_notice'],1);
+        add_action('woocommerce_after_shop_loop',[$this,'category_guide'],30);
+        add_action('product_cat_edit_form_fields',[$this,'brand_field']);
+        add_action('edited_product_cat',[$this,'save_brand_field']);
         add_action('woocommerce_before_shop_loop',[$this,'policy_note'],3);
         add_filter('woocommerce_loop_product_link',[$this,'preview_link'],10,2);
         add_action('template_redirect',[$this,'preview_headers']);
@@ -153,7 +156,9 @@ final class TehNet_Store_Storefront {
     public function card_identity():void {
         global $product;if(!$product instanceof WC_Product)return;
         $terms=get_the_terms($product->get_id(),'product_cat');
-        echo '<div class="tn-card-identity">';if(is_array($terms)&&$terms){$parents=array_column($terms,'parent');$chosen=$terms[0];foreach($terms as $term)if(!in_array($term->term_id,$parents,true)){$chosen=$term;break;}echo '<span>'.esc_html($chosen->name).'</span>';}
+        echo '<div class="tn-card-identity">';
+        if(is_array($terms)&&$terms){foreach($terms as $brand_check){if(get_term_meta($brand_check->term_id,'_tn_is_brand',true)==='yes'){echo '<span class="tn-card-brand">'.esc_html($brand_check->name).'</span>';break;}}}
+        if(is_array($terms)&&$terms){$parents=array_column($terms,'parent');$chosen=$terms[0];foreach($terms as $term)if(!in_array($term->term_id,$parents,true)){$chosen=$term;break;}echo '<span>'.esc_html($chosen->name).'</span>';}
         if($product->get_sku())echo '<span class="tn-card-sku" dir="ltr">'.esc_html($product->get_sku()).'</span>';echo '</div>';
     }
     public function card_specs():void {
@@ -205,6 +210,13 @@ final class TehNet_Store_Storefront {
             foreach ($definition[1] as $value) { echo '<option value="'.esc_attr($value).'" '.selected($current,$value,false).'>'.esc_html($value).'</option>'; }
             echo '</select></label>';
         }
+        $brand=isset($_GET['tn_brand'])&&is_string($_GET['tn_brand'])?sanitize_text_field(wp_unslash($_GET['tn_brand'])):'';
+        $brands=$this->brand_terms();
+        if ($brands) {
+            echo '<label>برند <select name="tn_brand"><option value="">همه برندها</option>';
+            foreach ($brands as $brand_term) { echo '<option value="'.esc_attr($brand_term->slug).'" '.selected($brand,$brand_term->slug,false).'>'.esc_html($brand_term->name).'</option>'; }
+            echo '</select></label>';
+        }
         echo '<label class="tn-filter-price">قیمت از (ریال) <input type="number" min="0" step="1000" name="tn_pmin" value="'.esc_attr($pmin).'"></label>';
         echo '<label class="tn-filter-price">تا (ریال) <input type="number" min="0" step="1000" name="tn_pmax" value="'.esc_attr($pmax).'"></label>';
         echo '<label class="tn-filter-stock"><input type="checkbox" name="tn_stock" value="1" '.checked($instock,true,false).'> فقط کالاهای موجود</label>';
@@ -225,6 +237,12 @@ final class TehNet_Store_Storefront {
             $meta[]=['key'=>'_price','compare'=>'BETWEEN','type'=>'NUMERIC','value'=>[$pmin??0,$pmax??PHP_FLOAT_MAX]];
         }
         if (count($meta)>($query->get('meta_query')?count($query->get('meta_query')):0)) { $query->set('meta_query',$meta); }
+        $brand=isset($_GET['tn_brand'])&&is_string($_GET['tn_brand'])?sanitize_title(wp_unslash($_GET['tn_brand'])):'';
+        if ($brand!=='') {
+            $tax=$query->get('tax_query');$tax=is_array($tax)?$tax:[];
+            $tax[]=['taxonomy'=>'product_cat','field'=>'slug','terms'=>[$brand]];
+            $query->set('tax_query',$tax);
+        }
         $unit=isset($_GET['tn_unit']) && is_string($_GET['tn_unit']) ? sanitize_key(wp_unslash($_GET['tn_unit'])) : '';
         if (isset(self::UNITS[$unit])) {
             $meta=$query->get('meta_query');$meta=is_array($meta)?$meta:[];
@@ -357,6 +375,52 @@ final class TehNet_Store_Storefront {
         update_user_meta($user_id,'tn_wishlist',$merged);
         header('Content-Type: application/json; charset=utf-8');
         echo wp_json_encode($merged,JSON_UNESCAPED_UNICODE);exit;
+    }
+    private const GUIDES=[
+        'cable'=>['title'=>'راهنمای خرید کابل شبکه','body'=>['کابل شبکه قلب پسیو شبکه است و کیفیت آن روی پایداری کل لینک اثر می‌گذارد. ردهٔ کابل (Cat5e/Cat6/Cat6A) پهنای باند و مسافت مجاز را تعیین می‌کند و نوع شیلد (UTP/FTP/SFTP) بسته به محیط مداخلهٔ الکترومغناطیسی انتخاب می‌شود؛ روکش PVC برای فضای داخلی و LSZH برای مکان‌های حساس به دود و آتش تفاوت مهمی است.','در تهران نتورک مشخصات هر قلم از فهرست، از فروشندهٔ مرجع نقل و با برچسب «اعلام منبع» نمایش داده می‌شود؛ تأیید مدل، متراژ واقعی و تطبیق مشخصات پیش از ثبت سفارش انجام می‌شود. برای پروژه‌های سازمانی، پیش‌فاکتور با قیمت روز صادر می‌شود.'],
+            'tips'=>['ردهٔ Cat6 برای شبکه‌های گیگابیت و شیلد SFTP برای محیط‌های پرنویز توصیهٔ رایج است.','روکش LSZH در فضاهای بسته و ساختمان‌های اداری ایمن‌تر است.','برای مسافت‌های طولانی، افت سیگنال و کیفیت اتصالات از خود کابل مهم‌تر است.','متراژ و تعداد جفت سیم را پیش از خرید با استعلام تطبیق بدهید.']],
+        'keystone'=>['title'=>'راهنمای خرید کیستون شبکه','body'=>['کیستون، نقطهٔ اتصال کابل به پریز است و کیفیت ساخت آن مستقیماً روی خطاهای اتصال اثر می‌گذارد. هم‌خوانی ردهٔ کیستون با کابل (Cat5e/Cat6)، نوع شیلد و روش نصب (پرسی یا پیچی/آچارخور) موارد اصلی انتخاب است.','کیستون‌های این کاتالوگ در حالت استعلامی عرضه می‌شوند؛ نوع پورت و سازگاری با کابل شما در پاسخ استعلام مشخص و ثبت می‌شود.'],
+            'tips'=>['کیستون شیلددار (FTP/SFTP) را با کابل شیلددار و پریز سازگار استفاده کنید.','کیستون پرسی برای اجرای سریع و کیستون آچارخور برای اتصال قابل‌بازبینی','ردهٔ کیستون و کابل و پریز باید یکی باشد.','نوع پورت (RJ45 زن/تلفن) را پیش از سفارش تطبیق بدهید.']],
+        'connector'=>['title'=>'راهنمای خرید اتصالات و سوکت شبکه','body'=>['سوکت‌ها و اتصالات، حلقه‌های پایانی شبکه‌اند؛ تنوع آن‌ها از سوکت RJ45 برای ساخت پچ‌کورد تا اتصالات تلفن و برق کشیده می‌شود. سازگاری اندازه، رده و نوع رسانا (برق/داده) موارد اصلی انتخاب است.','مشخصات فنی دقیق هر قلم پس از بررسی در پاسخ استعلام اعلام می‌شود و روی پیش‌فاکتور ثبت می‌گردد.'],
+            'tips'=>['سوکت مسی خالص با آبکاری طلا استاندارد تر نیست؛ کیفیت ساخت مهم‌تر است.','برای پچ‌کورد سفارشی، سوکت و کابل هم‌رده انتخاب کنید.','اتصالات برق را با استاندارد ولتاژ/جریان محل نصب تطبیق بدهید.','تعداد پین و نوع بدنه (پرسی/کلمپی) را در استعلام مشخص کنید.']],
+        'general'=>['title'=>'راهنمای خرید تجهیزات پسیو شبکه','body'=>['تجهیزات پسیو — کابل، کیستون، پریز، سوکت و متعلقات نصب — بستر فیزیکی شبکه‌اند و ضعف آن‌ها خود را به‌صورت خطای متناوب و افت سرعت نشان می‌دهد. انتخاب درست، هم‌خوانی اجزاست: رده، شیلد و برند کابل، کیستون و پریز باید با هم هماهنگ باشند.','کاتالوگ تهران نتورک فعلاً استعلامی است: قیمت و موجودی روز هر قلم پس از بررسی، در قالب استعلام یا پیش‌فاکتور سازمانی اعلام می‌شود؛ مشخصات اعلامی منبع، صریحاً از تأیید فنی تهران نتورک جدا شده‌اند.'],
+            'tips'=>['هم‌رده بودن کابل، کیستون و پریز مهم‌ترین اصل اجراست.','مسیر کابل و منابع نویز (برق، موتور، لامپ) را پیش از انتخاب شیلد بررسی کنید.','برای پروژه، خرید یک برند برای کل مسیر پسیو ریسک ناسازگاری را کم می‌کند.','از بخش آموزش تهران نتورک برای اصول اجرا استفاده کنید.']],
+    ];
+
+    /** Pure: pick a guide for a category name (or shop default). */
+    public static function guide_for(string $term_name): array {
+        if (mb_stripos($term_name,'کابل')!==false) { return self::GUIDES['cable']; }
+        if (mb_stripos($term_name,'کیستون')!==false) { return self::GUIDES['keystone']; }
+        if (mb_stripos($term_name,'اتصال')!==false || mb_stripos($term_name,'سوکت')!==false) { return self::GUIDES['connector']; }
+        return self::GUIDES['general'];
+    }
+
+    public function category_guide(): void {
+        if (function_exists('is_shop') && is_shop()) { $guide=self::GUIDES['general']; $context='فروشگاه'; }
+        elseif (is_product_taxonomy()) {
+            $term=get_queried_object();
+            $name=is_object($term)&&isset($term->name)?(string)$term->name:'';
+            $guide=self::guide_for($name);
+            $context=$name;
+        } else { return; }
+        echo '<section class="tn-category-guide" aria-labelledby="tn-guide-title"><h2 id="tn-guide-title">'.esc_html($guide['title']).'</h2>';
+        foreach ($guide['body'] as $paragraph) { echo '<p>'.esc_html($paragraph).'</p>'; }
+        echo '<ul>';
+        foreach ($guide['tips'] as $tip) { echo '<li>'.esc_html($tip).'</li>'; }
+        echo '</ul><p class="description">این راهنما کلی و آموزشی است؛ مشخصات هر کالا در صفحهٔ همان کالا و پاسخ استعلام اعمال می‌شود.</p></section>';
+    }
+
+    public function brand_field($term): void {
+        $flag=get_term_meta($term->term_id,'_tn_is_brand',true)==='yes';
+        echo '<tr class="form-field"><th scope="row"><label for="tn_is_brand">برند</label></th><td><label><input type="checkbox" name="tn_is_brand" id="tn_is_brand" value="yes" '.checked($flag,true,false).'> این دسته یک برند است (در فیلتر برند و چیپ کارت نمایش داده می‌شود)</label></td></tr>';
+    }
+    public function save_brand_field(int $term_id): void {
+        if (!current_user_can('manage_product_terms')) { return; }
+        update_term_meta($term_id,'_tn_is_brand',isset($_POST['tn_is_brand'])&&$_POST['tn_is_brand']==='yes'?'yes':'');
+    }
+    private function brand_terms(): array {
+        $terms=get_terms(['taxonomy'=>'product_cat','hide_empty'=>true,'meta_key'=>'_tn_is_brand','meta_value'=>'yes','number'=>20]);
+        return is_array($terms)?$terms:[];
     }
     public function card_badge(): void {
         global $product;
