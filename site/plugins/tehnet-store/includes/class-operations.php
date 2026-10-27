@@ -38,6 +38,13 @@ final class TehNet_Store_Operations {
             echo '</td></tr>';
         }
         echo '</tbody></table>';
+        $misses=get_option('tn_search_misses',[]);
+        if (is_array($misses) && $misses) {
+            arsort($misses,SORT_NUMERIC);
+            echo '<h2>جستجوهای بی‌نتیجه (سیگنال کالای موردنیاز مشتری)</h2><table class="widefat striped"><thead><tr><th>عبارت</th><th>تعداد</th></tr></thead><tbody>';
+            foreach (array_slice($misses,0,20,true) as $miss_term=>$miss_count) { echo '<tr><td>'.esc_html($miss_term).'</td><td>'.(int)$miss_count.'</td></tr>'; }
+            echo '</tbody></table>';
+        }
         if (!$ready) { echo '</div>';return; }
         echo '<h2>ثبت عملیات</h2><form method="post" action="'.esc_url(admin_url('admin-post.php')).'">';
         wp_nonce_field('tn_store_operation');echo '<input type="hidden" name="action" value="tn_store_operation">';

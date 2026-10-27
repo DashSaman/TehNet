@@ -166,6 +166,7 @@ final class TehNet_Store_Storefront {
         if($chips)echo '<p class="tn-card-specs">'.esc_html(implode(' · ',array_slice($chips,0,3))).'</p>';
     }
     public function empty_state(): void {
+        if (function_exists('is_search') && is_search()) { $this->log_search_miss((string)get_search_query()); }
         $reset=wc_get_page_permalink('shop');
         echo '<div class="tn-empty-state"><p>کالایی با این فیلترها یافت نشد. می‌توانید فیلترها را پاک کنید یا درخواست سازمانی ثبت کنید.</p>';
         echo '<p><a class="button" href="'.esc_url($reset).'">پاک کردن فیلترها</a> <a class="button button-link" href="'.esc_url((string)get_permalink(get_page_by_path('b2b'))).'">ثبت درخواست سازمانی</a></p></div>';
@@ -306,6 +307,22 @@ final class TehNet_Store_Storefront {
         }
         return $out;
     }
+    /** Pure: bounded search-miss aggregation (max 100 terms). */
+    public static function record_search_miss(string $term,array $current): array {
+        $term=mb_substr(trim($term),0,60);
+        if (mb_strlen($term)<2) { return $current; }
+        $current[$term]=($current[$term] ?? 0)+1;
+        if (count($current)>100) {
+            arsort($current,SORT_NUMERIC);
+            $current=array_slice($current,0,100,true);
+        }
+        return $current;
+    }
+    private function log_search_miss(string $term): void {
+        $current=get_option('tn_search_misses',[]);
+        $updated=self::record_search_miss($term,is_array($current)?$current:[]);
+        if ($updated!==$current) { update_option('tn_search_misses',$updated,false); }
+    }
     public function suggest(): void {
         $term=isset($_GET['term'])&&is_string($_GET['term'])?mb_substr(sanitize_text_field(wp_unslash($_GET['term'])),0,40):'';
         $term=self::normalize_search($term);
@@ -318,6 +335,7 @@ final class TehNet_Store_Storefront {
             if (!$product instanceof WC_Product) { continue; }
             $out[]=['name'=>$product->get_name(),'sku'=>$product->get_sku(),'url'=>$product->get_permalink()];
         }
+        if (!$out) { $this->log_search_miss($term); }
         echo wp_json_encode($out,JSON_UNESCAPED_UNICODE);exit;
     }
     public function wishlist_sync(): void {

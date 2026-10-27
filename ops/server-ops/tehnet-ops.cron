@@ -1,0 +1,3 @@
+# TehNet ops: retention after nightly backup + health snapshot every 5 minutes
+0 1 * * * root /opt/tehnet/ops/retention.sh >> /var/log/tehnet-ops.log 2>&1
+*/5 * * * * root /opt/tehnet/ops/health.sh >> /var/log/tehnet-ops.log 2>&1
