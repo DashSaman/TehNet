@@ -250,7 +250,16 @@ final class TehNet_Store_ERP {
     }
     public function checkout(int $id,array $posted,$order): void {
         if (!$order instanceof WC_Order || !$this->physical($order)) { return; }
-        if (!$this->ready()) { throw new Exception('اتصال رزرو موجودی آماده نیست؛ برای این سفارش استعلام بگیرید.'); }
+        // Manual-sales mode: skip ERP reservation; stock/price gates already passed and the owner confirms manually.
+        if (!$this->ready()) {
+            if (TehNet_Store_Storefront::manual_sales()) {
+                $order->update_status('on-hold','فروش دستی: در انتظار تأیید موجودی و پرداخت توسط مدیر.');
+                $order->update_meta_data('_tn_manual_sale',gmdate('c'));
+                $order->save();
+                return;
+            }
+            throw new Exception('اتصال رزرو موجودی آماده نیست؛ برای این سفارش استعلام بگیرید.');
+        }
         try { if (($this->reserve_order($order)['state']??'')!=='reserved') { throw new RuntimeException('Reservation is closed'); } }
         catch (RuntimeException $e) { throw new Exception('رزرو قطعی موجودی تأیید نشد. سفارش را پرداخت نکنید؛ وضعیت آن باید بررسی شود.'); }
     }

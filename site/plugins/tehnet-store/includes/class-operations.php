@@ -12,6 +12,7 @@ final class TehNet_Store_Operations {
         if ($admin) { foreach (array_unique(array_merge(['tn_store_operations_view'],array_values(self::ACTIONS))) as $cap) { $admin->add_cap($cap); } }
     }
     public function register(): void {
+        add_action('admin_post_tn_manual_sales',[TehNet_Store_Operations::class,'save_manual_sales']);
         add_action('admin_menu',function():void { add_menu_page('عملیات فروشگاه','عملیات فروشگاه','tn_store_operations_view','tn-store',[$this,'page'],'dashicons-store',57); });
         add_action('admin_post_tn_store_operation',[$this,'submit']);
     }
@@ -46,6 +47,12 @@ final class TehNet_Store_Operations {
             echo '</tbody></table>';
         }
         if (!$ready) { echo '</div>';return; }
+        echo '<h2>فروش دستی (بدون اتصال ERP)</h2><form method="post" action="'.esc_url(admin_url('admin-post.php')).'">';
+        wp_nonce_field('tn_manual_sales');
+        echo '<input type="hidden" name="action" value="tn_manual_sales">';
+        echo '<p><label><input type="checkbox" name="enabled" value="yes" '.checked(TehNet_Store_Storefront::manual_sales(),true,false).'> فروش دستی فعال باشد — پرداخت با واریز/کارت‌به‌کارت یا پرداخت در محل؛ قیمت، تأیید مشخصات و موجودی هر کالا همچنان از فیلدهای ویرایش کالا کنترل می‌شود و سفارش‌ها برای تأیید دستی شما ثبت می‌شوند.</label></p>';
+        submit_button('ذخیره حالت فروش');
+        echo '</form>';
         echo '<h2>ثبت عملیات</h2><form method="post" action="'.esc_url(admin_url('admin-post.php')).'">';
         wp_nonce_field('tn_store_operation');echo '<input type="hidden" name="action" value="tn_store_operation">';
         echo '<p><label>شماره داخلی سفارش <input type="number" name="order_id" min="1" required></label></p><p><label>عملیات <select name="operation">';
@@ -66,6 +73,12 @@ final class TehNet_Store_Operations {
     }
     private function input(string $key): string {
         return isset($_POST[$key]) && is_string($_POST[$key]) ? sanitize_text_field(wp_unslash($_POST[$key])) : '';
+    }
+    public function save_manual_sales(): void {
+        if (!current_user_can('manage_woocommerce')) { wp_die('دسترسی مجاز نیست.',403); }
+        check_admin_referer('tn_manual_sales');
+        update_option('tn_manual_sales',isset($_POST['enabled'])&&$_POST['enabled']==='yes'?'yes':'no',false);
+        wp_safe_redirect(add_query_arg(['page'=>'tn-store','tn_result'=>'ok'],admin_url('admin.php')));exit;
     }
     public function submit(): void {
         $operation=$this->input('operation');

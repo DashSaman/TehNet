@@ -74,14 +74,19 @@ final class TehNet_Store_Storefront {
         global $wpdb;
         return $wpdb->prepare(" AND {$wpdb->posts}.ID = %d ",$id).(!is_user_logged_in()?" AND {$wpdb->posts}.post_password = '' ":'');
     }
+    public static function manual_sales(): bool {
+        return get_option('tn_manual_sales','no')==='yes';
+    }
     private function eligible(WC_Product $product): bool {
-        // Until a working ERP reservation endpoint is connected, physical checkout stays closed.
+        // Manual mode (owner-enabled): Woo stock replaces ERP readiness/freshness; price/approval/unit gates stay.
         $ready=class_exists('TehNet_Store_ERP') && (new TehNet_Store_ERP())->ready();
+        $fresh=$product->get_meta('_tn_erp_fresh_until');
+        if (!$ready && self::manual_sales()) { $ready=true; $fresh=(string)(time()+HOUR_IN_SECONDS); }
         return get_woocommerce_currency()==='IRR' && TehNet_Store_Policy::can_sell([
             'approved'=>$product->get_meta('_tn_sale_approved'), 'price'=>$product->get_price(),
             'stock'=>(string)$product->get_stock_quantity(), 'unit'=>$product->get_meta('_tn_sale_unit'),
             'minimum'=>$product->get_meta('_tn_min_quantity'),
-            'erp_fresh_until'=>$product->get_meta('_tn_erp_fresh_until'),'erp_ready'=>$ready,
+            'erp_fresh_until'=>$fresh,'erp_ready'=>$ready,
         ],time());
     }
     public function purchasable(bool $value,$product): bool {
