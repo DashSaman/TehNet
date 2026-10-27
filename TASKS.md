@@ -763,6 +763,6 @@ Documentation gate,2026-10-25T13:41:07Z: PASS for22 original blobs/189734bytes a
 
 ## 2026-10-27 — software-hub: live gap assessment + diagnosability fix
 
-- DONE — Read-only live check (timers, current generation, 4 providers, public/private routes) + gap table at ; today's provider run passes all four providers for profile d07536f8 (newer than the Oct-21 handoff snapshot).
-- DONE — Diagnosability fix: offline_refresh  now records type+message (unit-tested, deployed hash-identical to the operational v3 with backup). Guards/signatures/quotas untouched.
+- DONE — Read-only live check (timers, current generation, 4 providers, public/private routes) + gap table at projects/software-hub/tasks/GAP-ASSESSMENT-20261027.md; today's provider run passes all four providers for profile d07536f8 (newer than the Oct-21 handoff snapshot).
+- DONE — Diagnosability fix: offline_refresh last_failure now records type+message (unit-tested, deployed hash-identical to the operational v3 with backup). Guards/signatures/quotas untouched.
 - OPEN (external, unchanged) — W1 original catalog input; private-delivery acceptance; owner Rubika token; real Iran migration target; install-guide test in a real booted VM.
