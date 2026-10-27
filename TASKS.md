@@ -766,3 +766,8 @@ Documentation gate,2026-10-25T13:41:07Z: PASS for22 original blobs/189734bytes a
 - DONE — Read-only live check (timers, current generation, 4 providers, public/private routes) + gap table at projects/software-hub/tasks/GAP-ASSESSMENT-20261027.md; today's provider run passes all four providers for profile d07536f8 (newer than the Oct-21 handoff snapshot).
 - DONE — Diagnosability fix: offline_refresh last_failure now records type+message (unit-tested, deployed hash-identical to the operational v3 with backup). Guards/signatures/quotas untouched.
 - OPEN (external, unchanged) — W1 original catalog input; private-delivery acceptance; owner Rubika token; real Iran migration target; install-guide test in a real booted VM.
+
+## 2026-10-27 — software-hub نوبت دوم: آزمون سفر کاربر + رفع باگ نصاب
+
+- DONE — User-journey test of the offline guide (isolated network-disabled container, guide commands verbatim) exposed a real bare-Ubuntu install failure (_apt sandbox vs file: repo under $HOME); fixed via installer option APT::Sandbox::User=root with pinned INSTALLER_SHA256 updated in repo + seed + v3; re-tested to OFFLINE_INSTALL_PASS; record at projects/software-hub/tasks/GUIDE-JOURNEY-20261027.md.
+- PENDING (automatic) — Next timer cycle (~06:23 UTC) publishes the fixed generation; current published generation still carries the old installer until then.
