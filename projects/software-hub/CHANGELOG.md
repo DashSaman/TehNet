@@ -522,3 +522,8 @@ Documentation-only handoff for another agent, with last operational evidence exp
 Corrected stale entry summaries in README/STATUS/ROADMAP/WORKSTREAMS; linked the guide from hub AGENTS and append-only root coordination documents. Historical research, evidence, failures and receipts remain unchanged. No code, website, container, unit, secret, payload, provider result, quota, intent, schedule or runtime configuration change. Fresh documentation/provenance/link/scope/privacy checks and exact publication state are recorded in tasks/DOCS-AGENT-HANDOFF-20261025.md.
 
 Documentation gate,2026-10-25T13:41:07Z: PASS for22 original blobs/189734bytes and643 local hub links; PASS for the12-Markdown-path allowlist, five retained historical prefixes,170 changed-document links, added-text privacy patterns and preserved final-report counts/gaps. Whitespace check passes. This is documentation verification only, with zero application/research/evidence/runtime changes; see the handoff task for exact commands and limitations.
+
+## 2026-10-27 — بررسی زنده + اصلاح تشخیص‌پذیری خطای انتشار
+
+- بررسی مستقل فقط‌خواندنی سرور (تایمرها، نسل جاری، چهار منبع، مسیر عمومی/خصوصی) و تدوین [جدول شکاف](tasks/GAP-ASSESSMENT-20261027.md).
+- `offline_refresh.py`: `last_failure` از نام نوع به «نوع: پیام (≤۲۰۰ نویسه)» تغییر کرد تا علت شکست پس از موفقیت بعدی هم بماند؛ تست واحد جدید؛ استقرار هم‌SHA بر نسخهٔ عملیاتی v3 با پشتیبان قبلی؛ بدون هیچ آزمایش فعال یا تغییر گارد.

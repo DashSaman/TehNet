@@ -159,6 +159,10 @@ def live_check(public):
     result=subprocess.run(['python3',str(ROOT/'tools/verify_live.py'),'--origin','--expect-downloads','--allow-configured-access'],capture_output=True,text=True,timeout=90)
     if result.returncode:raise ValueError('Main/private acceptance failed: '+result.stdout+result.stderr)
 
+def failure_summary(failure)->str:
+    # Survives the next successful run in status.json so the reason is never erased by the type name alone.
+    return type(failure).__name__+': '+str(failure)[:200]
+
 def run(state_root,seed,host_site,*,force=False,dry_run=False):
     import fcntl
     from tools.offline_publication import publish,set_current
@@ -248,7 +252,7 @@ def run(state_root,seed,host_site,*,force=False,dry_run=False):
                 status['retention_warning']=str(warning)[:1000];save(status_path,status)
             return status
         except BaseException as failure:
-            status.update({'stage':'failed','result':type(failure).__name__+': '+str(failure)[:5000],'failed_at':datetime.now(timezone.utc).isoformat(),'last_failure':type(failure).__name__})
+            status.update({'stage':'failed','result':type(failure).__name__+': '+str(failure)[:5000],'failed_at':datetime.now(timezone.utc).isoformat(),'last_failure':failure_summary(failure)})
             save(status_path,status);save(metadata/'failure.json',status);raise
 
 def main():

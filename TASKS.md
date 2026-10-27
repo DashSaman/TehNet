@@ -760,3 +760,9 @@ Documentation gate,2026-10-25T13:41:07Z: PASS for22 original blobs/189734bytes a
 - DONE — No-gateway payment methods live: COD (Tehran) + bank transfer/card-to-card; store base country fixed US→IR (Tehran/THR state, 10-digit postcodes now valid).
 - VERIFIED — Full E2E in a real browser: register → login → add to cart → checkout → COD → order #205 received → artifacts cleaned (order/product/user removed; modes stay ON).
 - NOTE — To actually sell a real product: set price, stock, unit, minimum and check «مشخصات و قیمت تأیید شد» in its edit page (with manual mode on). Bank account details for the transfer method: WooCommerce → Settings → Payments → Bank transfer.
+
+## 2026-10-27 — software-hub: live gap assessment + diagnosability fix
+
+- DONE — Read-only live check (timers, current generation, 4 providers, public/private routes) + gap table at ; today's provider run passes all four providers for profile d07536f8 (newer than the Oct-21 handoff snapshot).
+- DONE — Diagnosability fix: offline_refresh  now records type+message (unit-tested, deployed hash-identical to the operational v3 with backup). Guards/signatures/quotas untouched.
+- OPEN (external, unchanged) — W1 original catalog input; private-delivery acceptance; owner Rubika token; real Iran migration target; install-guide test in a real booted VM.
