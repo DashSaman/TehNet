@@ -71,6 +71,7 @@ final class TehNet_Store_QA {
         echo '<details class="tn-feedback"><summary>بازخورد استعلام این کالا</summary>';
         echo '<form method="post" action="'.esc_url(admin_url('admin-post.php')).'"><input type="hidden" name="action" value="tn_feedback_submit"><input type="hidden" name="product_id" value="'.esc_attr($id).'">';
         wp_nonce_field('tn_feedback_'.$id);
+        echo '<p class="tn-qa-hp" aria-hidden="true"><label>خالی بگذارید <input name="tn_hp" tabindex="-1" autocomplete="off"></label></p>';
         echo '<p><label>امتیاز پاسخ استعلام <select name="tn_rating"><option value="5">۵ — کامل</option><option value="4">۴</option><option value="3">۳</option><option value="2">۲</option><option value="1">۱ — ناقص</option></select></label></p>';
         echo '<p><label>توضیح <textarea name="tn_comment" maxlength="500" required></textarea></label></p>';
         echo '<p><label>ایمیل (اختیاری، برای پیگیری) <input type="email" name="tn_email" maxlength="120"></label></p>';
@@ -103,6 +104,7 @@ final class TehNet_Store_QA {
         if (!TehNet_Store_Policy::throttle('feedback',5,3600)) { wp_die('تعداد درخواست‌های شما زیاد است؛ کمی بعد دوباره تلاش کنید.',429); }
         $input=static fn(string $key):string => isset($_POST[$key])&&is_string($_POST[$key])?sanitize_textarea_field(wp_unslash($_POST[$key])):'';
         $rating=isset($_POST['tn_rating'])?absint($_POST['tn_rating']):0;
+        if ($input('tn_hp')!=='') { wp_die('اطلاعات بازخورد نامعتبر است.',400); }
         $valid=self::validate_feedback($rating,$input('tn_comment'),sanitize_email(wp_unslash($_POST['tn_email']??'')));
         if (!$valid['ok']) { wp_die('اطلاعات بازخورد نامعتبر است.',400); }
         $id=wp_insert_post(['post_type'=>self::F_CPT,'post_status'=>'private','post_title'=>'بازخورد '.$product->get_sku(),'post_content'=>$valid['comment']],true);

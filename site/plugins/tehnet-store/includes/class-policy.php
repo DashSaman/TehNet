@@ -3,11 +3,40 @@ defined('ABSPATH') || exit;
 
 /** Exact arithmetic at the store/ERP/payment boundary. */
 final class TehNet_Store_Policy {
+    private const CF_V4=['173.245.48.0/20','103.21.244.0/22','103.22.200.0/22','103.31.4.0/22','141.101.64.0/18','108.162.192.0/18','190.93.240.0/20','188.114.96.0/20','197.234.240.0/22','198.41.128.0/17','162.158.0.0/15','104.16.0.0/13','104.24.0.0/14','172.64.0.0/13','131.0.72.0/22'];
+    private const CF_V6=['2400:cb00::/32','2606:4700::/32','2803:f800::/32','2405:b500::/32','2405:8100::/32','2a06:98c0::/29','2c0f:f248::/32'];
+
+    /** True only when the direct peer is a published Cloudflare range, making CF-Connecting-IP trustworthy. */
+    public static function is_cloudflare(string $peer): bool {
+        if (filter_var($peer,FILTER_VALIDATE_IP,FILTER_FLAG_IPV4)) {
+            $packed=ip2long($peer);
+            foreach (self::CF_V4 as $cidr) {
+                [$net,$bits]=explode('/',$cidr);
+                if (($packed >> (32-(int)$bits)) === (ip2long($net) >> (32-(int)$bits))) { return true; }
+            }
+            return false;
+        }
+        $peer_bin=@inet_pton($peer);
+        if ($peer_bin===false || strlen($peer_bin)!==16) { return false; }
+        foreach (self::CF_V6 as $cidr) {
+            [$net,$bits]=explode('/',$cidr);
+            $net_bin=@inet_pton($net);
+            if ($net_bin===false) { continue; }
+            $bytes=(int)$bits >> 3; $rest=(int)$bits & 7;
+            if (substr($peer_bin,0,$bytes)!==substr($net_bin,0,$bytes)) { continue; }
+            if ($rest===0) { return true; }
+            if ((ord($peer_bin[$bytes]) >> (8-$rest)) === (ord($net_bin[$bytes]) >> (8-$rest))) { return true; }
+        }
+        return false;
+    }
+
     /** Per-IP submission throttle for public forms. Returns true when the submission may proceed. */
     public static function throttle(string $bucket,int $max = 5,int $window = 3600): bool {
         $ip='unknown';
-        if (isset($_SERVER['HTTP_CF_CONNECTING_IP']) && is_string($_SERVER['HTTP_CF_CONNECTING_IP'])) { $ip=$_SERVER['HTTP_CF_CONNECTING_IP']; }
-        elseif (isset($_SERVER['REMOTE_ADDR']) && is_string($_SERVER['REMOTE_ADDR'])) { $ip=$_SERVER['REMOTE_ADDR']; }
+        $remote=isset($_SERVER['REMOTE_ADDR']) && is_string($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '';
+        $cf=isset($_SERVER['HTTP_CF_CONNECTING_IP']) && is_string($_SERVER['HTTP_CF_CONNECTING_IP']) ? trim($_SERVER['HTTP_CF_CONNECTING_IP']) : '';
+        if ($cf!=='' && filter_var($cf,FILTER_VALIDATE_IP) && $remote!=='' && self::is_cloudflare($remote)) { $ip=$cf; }
+        elseif ($remote!=='') { $ip=$remote; }
         $key='tn_th_'.md5($bucket.'|'.preg_replace('/[^0-9a-fA-F:.]/','',substr($ip,0,45)));
         $count=(int)get_transient($key);
         if ($count >= $max) { return false; }

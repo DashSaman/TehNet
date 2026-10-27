@@ -31,7 +31,7 @@ final class TehNet_PWA {
             header('Service-Worker-Allowed: /');
             echo "const C='tehnet-v1';self.addEventListener('install',e=>self.skipWaiting());self.addEventListener('activate',e=>self.clients.claim());";
             echo "self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;const u=new URL(e.request.url);if(u.origin!==location.origin||u.pathname.startsWith('/wp-admin')||u.pathname.startsWith('/software/private'))return;";
-            echo "if(e.request.mode==='navigate'){e.respondWith(fetch(e.request).then(r=>{const cp=r.clone();caches.open(C).then(c=>c.put('/',cp));return r;}).catch(()=>caches.match('/')));return;}";
+            echo "if(e.request.mode==='navigate'){e.respondWith(fetch(e.request).then(r=>{const cc=(r.headers.get('cache-control')||'').toLowerCase();const ck=e.request.headers.get('cookie')||'';const cacheable=!cc.includes('no-store')&&!cc.includes('private')&&!cc.includes('no-cache')&&!ck.includes('wordpress_logged_in')&&!ck.includes('wordpress_sec')&&!ck.includes('comment_author');if(cacheable){const cp=r.clone();caches.open(C).then(c=>c.put('/',cp));}return r;}).catch(()=>caches.match('/')));return;}";
             echo "if(u.pathname.startsWith('/wp-content/')||u.pathname.startsWith('/wp-includes/')){e.respondWith(caches.open(C).then(c=>c.match(e.request).then(m=>m||fetch(e.request).then(r=>{const cp=r.clone();c.put(e.request,cp);return r;}))));}});";
             exit;
         }
