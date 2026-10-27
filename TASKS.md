@@ -771,3 +771,9 @@ Documentation gate,2026-10-25T13:41:07Z: PASS for22 original blobs/189734bytes a
 
 - DONE — User-journey test of the offline guide (isolated network-disabled container, guide commands verbatim) exposed a real bare-Ubuntu install failure (_apt sandbox vs file: repo under $HOME); fixed via installer option APT::Sandbox::User=root with pinned INSTALLER_SHA256 updated in repo + seed + v3; re-tested to OFFLINE_INSTALL_PASS; record at projects/software-hub/tasks/GUIDE-JOURNEY-20261027.md.
 - PENDING (automatic) — Next timer cycle (~06:23 UTC) publishes the fixed generation; current published generation still carries the old installer until then.
+
+## 2026-10-27 — software-hub نوبت سوم: edge health check + release pre-verification / راستی‌آزمایی edge و پیش‌بررسی انتشار
+
+- DONE — Read-only verification from the origin host via public Cloudflare HTTPS (03:00–03:15 UTC): 14 public routes returned expected responses (cart at /cart-2/ 200 after /cart/ 301; checkout at /tn-checkout/ 302 empty-cart redirect; bare /checkout/ has no page so 404 is expected); /tools/status all-ok (disk 10 GB free, last backup 20261027-001000); no drift vs checkpoint — live generation auto-20261027-002458-c4fdb3e9 still carries the old installer (sha 28e69ac2…3075-era generation, profile generated 00:25:28Z).
+- DONE — Release-criteria pre-check: seed installer contains APT::Sandbox::User=root, installer sha256 910af90a0cb21c0cba7918f2ae57241239f35cd9a281a6050d4ae4fab3de2f3b equals the pinned INSTALLER_SHA256 in the operational v3 offline_kit.py; offline-refresh timer next run 06:23:23 UTC auto-publishes the fixed generation; provider-auto run 03:12:42Z passes all four providers for profile d07536f8…3075.
+- PENDING (automatic + verification) — After the 06:23 UTC timer run, verify the published generation carries installer sha 910af90a… and the guide's kit-script hash; record a dated receipt.
