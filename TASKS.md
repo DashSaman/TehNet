@@ -738,3 +738,9 @@ Documentation gate,2026-10-25T13:41:07Z: PASS for22 original blobs/189734bytes a
 - DONE — Per-product inquiry form on PDP (name/email/qty/notes → ticket board with SKU reference; live-tested), replacing the dead-end read-more CTA on all product cards with «استعلام قیمت و موجودی» (PR #20).
 - DONE — Declared-spec chips on cards when no verified specs exist; friendly empty-filter state (reset + B2B pointer); honest shop-policy block on /shop/ (PR #20).
 - NOTE — After any container recreation, re-run `pecl install redis-6.1.0 && docker-php-ext-enable redis` inside the WordPress container (or bake into image at the next deploy window); the guard keeps the site safe until then.
+
+## 2026-10-27 — competitor tour, ops hardening, security review / تور رقبا، بهداشت عملیاتی و بازبینی امنیتی
+
+- DONE — Live browser tour of TechnoLife (filters, PDP, add-to-cart, cart) recorded in ; Digikala bot-blocked this round (noted honestly).
+- DONE — Ops package (PR #22): docker log truncation + future 10m×3 limits, dangling image/build-cache prune, journald 100M cap (disk 81%→73%); backup retention keep-4 wired as daily cron beside the existing VERIFIED nightly timer (5.0GB→2.4GB); public health dashboard  (5 routes + NTP + redis + wordpress + disk + last backup) every 5 min; bounded search-miss analytics in operations admin (7 contract checks, live-verified then reset); Persian owner guide .
+- DONE — Independent read-only security review of the new code (fresh clone): 0 critical/high; all 3 findings fixed (PR #23): CF-Connecting-IP only trusted behind verified Cloudflare ranges (CIDR v4+v6 matcher), service-worker no longer caches authenticated/no-store pages, alerts run-now nonce-protected; feedback honeypot added. Reviewer-verified-clean: all nonces/caps/escaping/sku_search/IDOR.
