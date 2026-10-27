@@ -108,10 +108,10 @@ final class TehNet_Store_Alerts {
         if (!current_user_can('tn_store_operations_view')) { wp_die('دسترسی مجاز نیست.',403); }
         $state=get_option(self::STATE_OPTION,[]);
         echo '<div class="wrap" dir="rtl"><h1>هشدار قیمت و موجودی</h1>';
-        if (isset($_GET['tn_result']) && $_GET['tn_result']==='run') { $this->check(); echo '<div class="notice notice-success"><p>بررسی همین حالا اجرا شد.</p></div>'; $state=get_option(self::STATE_OPTION,[]); }
+        if (isset($_GET['tn_result']) && $_GET['tn_result']==='run') { check_admin_referer('tn_alerts_run'); $this->check(); echo '<div class="notice notice-success"><p>بررسی همین حالا اجرا شد.</p></div>'; $state=get_option(self::STATE_OPTION,[]); }
         echo '<p>آخرین بررسی خودکار: '.esc_html(is_array($state)&&isset($state['at'])?$state['at']:'—');
         if (is_array($state)&&isset($state['checked'])) { echo ' — بررسی‌شده: '.(int)$state['checked'].' | ارسال‌شده: '.(int)$state['fired'].' | ناموفق: '.(int)$state['failed']; }
-        echo '</p><p><a class="button" href="'.esc_url(add_query_arg('tn_result','run',admin_url('admin.php?page=tn-store-alerts'))).'">اجرای بررسی همین حالا</a></p>';
+        echo '</p><p><a class="button" href="'.esc_url(wp_nonce_url(add_query_arg('tn_result','run',admin_url('admin.php?page=tn-store-alerts')),'tn_alerts_run')).'">اجرای بررسی همین حالا</a></p>';
         if (!function_exists('wp_mail')) { echo '<div class="notice notice-warning"><p>سرویس ایمیل پیکربندی نشده است؛ ارسال انجام نمی‌شود تا SMTP تنظیم شود.</p></div>'; }
         $alerts=new WP_Query(['post_type'=>self::CPT,'post_status'=>'private','posts_per_page'=>100]);
         if ($alerts->have_posts()) {
