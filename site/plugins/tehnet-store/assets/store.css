@@ -47,3 +47,9 @@
 .tn-inquiry{margin:28px 0;padding:16px;border:1px solid #d8dee4;border-radius:12px}
 .tn-inquiry form p{margin:8px 0}
 .tn-inquiry input,.tn-inquiry textarea{max-width:420px}
+
+/* Category guides + brand chip (2026-10-27) */
+.tn-category-guide{margin:28px 0;padding:18px 20px;border-top:3px solid #0e7490;color:#33525f;font-size:15px}
+.tn-category-guide h2{font-size:20px;margin:0 0 10px}
+.tn-category-guide ul{padding-inline-start:20px}
+.tn-card-brand{background:#e8f4f7;color:#0e7490;border-radius:6px;padding:1px 8px;font-size:12px;margin-inline-end:6px}
