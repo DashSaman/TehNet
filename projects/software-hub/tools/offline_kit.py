@@ -8,7 +8,7 @@ from urllib.parse import urlsplit,unquote
 SUITES={'noble','noble-updates','noble-security'}
 ARCHIVE_KEYS={'790BC7277767219C42C86F933B4FE6ACC0B21F32','F6ECB3762474EDA9D21B7022871920D1991BC93C'}
 SHA=re.compile(r'^[a-f0-9]{64}$')
-INSTALLER_SHA256='28e69ac2dc26fd165627138e56ea58751bd93b16408f8017d7bd5cd89b8d879f'
+INSTALLER_SHA256='910af90a0cb21c0cba7918f2ae57241239f35cd9a281a6050d4ae4fab3de2f3b'
 SEEDS={'git','curl','jq','python3.12-minimal','python3-pip','wget','rsync','openssh-client','ca-certificates'}
 MIRROR='https://mirror.arvancloud.ir/ubuntu/'
 

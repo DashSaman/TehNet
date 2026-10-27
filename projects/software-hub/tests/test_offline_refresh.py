@@ -2,7 +2,7 @@ from pathlib import Path
 from datetime import datetime,timezone,timedelta
 import copy,hashlib,json,os,tempfile,unittest
 from unittest.mock import patch
-from tools.offline_refresh import reserve_attempt,should_refresh,validate_acceptance,render_guide
+from tools.offline_refresh import reserve_attempt,should_refresh,validate_acceptance,render_guide,failure_summary
 from tools.refresh_transport import reserve_request
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -15,6 +15,13 @@ class OfflineRefreshTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'budget'):reserve_attempt(state,NOW)
             reserve_attempt(state,NOW+timedelta(days=1))
             self.assertEqual(json.loads(state.read_text())['attempts'],1)
+    def test_last_failure_summary_keeps_reason_and_is_bounded(self):
+        summary=failure_summary(ValueError('Candidate too old/changed at publication'))
+        self.assertTrue(summary.startswith('ValueError: Candidate too old'))
+        self.assertLessEqual(len(summary),len('ValueError')+2+200)
+        self.assertEqual(failure_summary(ValueError('x'*999))[-3:],'xxx')
+        self.assertIn('RuntimeError',failure_summary(RuntimeError('boom')))
+
     def test_first_run_is_due_but_success_is_not_repeated_until_twelve_hours(self):
         self.assertTrue(should_refresh({},NOW))
         self.assertFalse(should_refresh({'accepted_at':NOW.isoformat()},NOW+timedelta(hours=11)))
