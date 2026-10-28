@@ -24,7 +24,7 @@ OPTIONS=(-o "Dir::Etc::sourcelist=$STATE/sources.list" -o 'Dir::Etc::sourceparts
  -o 'Acquire::Languages=none' -o 'Acquire::By-Hash=false'
  -o 'Acquire::AllowInsecureRepositories=false' -o 'Acquire::AllowDowngradeToInsecureRepositories=false'
  -o 'Acquire::Check-Date=true' -o 'Acquire::Check-Valid-Until=true'
- -o 'APT::Update::Error-Mode=any' -o 'Acquire::Retries=0')
+ -o 'APT::Update::Error-Mode=any' -o 'Acquire::Retries=0' -o 'APT::Sandbox::User=root')
 printf 'Frozen Ubuntu package snapshot: '; cat "$KIT/snapshot.txt"
 echo 'The kit proves the recorded versions, not future security freshness.'
 # Only local files are configured. Native APT checks original Ubuntu signatures,

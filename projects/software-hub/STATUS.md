@@ -27,6 +27,10 @@
 - موارد باز بیرونی بدون تغییر: W1 کاتالوگ اصلی، تحویل خصوصی، توکن روبیکا، مهاجرت واقعی ایران، آزمون راهنما در VM واقعی.
 
 
+## بررسی زندهٔ ۲۸ اکتبر ۲۰۲۶ — ریشه‌یابی شکست «Unrecognized offline installer» و رفع کامل
+
+شکست تیک‌های ۲۷/۲۸ اکتبر (ValueError: Unrecognized offline installer) ریشه‌یابی شد: نصاب candidate توسط `tools.build_devtools_profile` از فایل `deployment/client/offline-install.sh` در ROOT عملیاتی ساخته می‌شود، نه از manifest های seed؛ اصلاح نوبت دوم پین کیت و seed را به‌روز کرده بود اما این فایلِ منبع را نه. در نتیجه builder نصاب قدیمی (sha `28e69ac2…d879f`) می‌ساخت و اعتبارسنجی آن را نسبت به پین جدید کیت (`910af90a…de2f3b`) رد می‌کرد. رفع: `offline-install.sh` در مخزن و ROOT زنده دقیقاً هم‌محتوای نصاب seed (شامل `APT::Sandbox::User=root`) شد؛ sha هر دو = `910af90a0cb21c0cba7918f2ae57241239f35cd9a281a6050d4ae4fab3de2f3b` == پین کیت tools. نسخهٔ پیشین بایگانی شد: `/root/tehnet-backups/offline-install.sh.pre-sandbox-fix-20261028`. تست‌ها: `tests.test_offline_refresh` 10/10 و سوئیت‌های offline-kit/lab/publication/watch/aptmeta/deployment/provider-kit/publication-pointer جمعاً 53/53 سبز. بودجهٔ روز ۲۸ اکتبر (۲ تلاش) پیش از رفع روی تیک‌های شکست‌خورده مصرف شده بود؛ تلاش اجباری انجام نشد. اولین تیک واجد شرایط: **۰۰:۲۲ UTC ۲۹ اکتبر** با بودجهٔ روز تازه؛ پس از آن راستی‌آزمایی عمومی نصاب (has_fix=True، sha `910af90a…`) باقی است. ضمناً رکورد DNS مالک `time.tehnet.ir → 91.107.138.246` فعال شد و پرس‌وجوی NTP از طریق نام دامنه پاسخ گرفت (stratum 3، ساعت صحیح).
+
 ## نقطهٔ شروع ایجنت بعدی — جمع‌بندی ۲۵ اکتبر ۲۰۲۶
 
 [تحویل جامع کارها](AGENT_HANDOFF.md) مرجع شروع است. آخرین بررسی عملیاتی این گفتگو مربوط به ۲۱ اکتبر است؛ ۲۵ اکتبر فقط مستندات جمع‌بندی شد و وضعیت زنده دوباره بررسی نشد.

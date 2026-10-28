@@ -788,3 +788,10 @@ Documentation gate,2026-10-25T13:41:07Z: PASS for22 original blobs/189734bytes a
 
 - VERIFIED — post-18:23Z check at 2026-10-27T18:45:01Z: current=auto-20261027-002458-c4fdb3e9, stage=failed, result=ValueError: Unrecognized offline installer, last_failure=ValueError: Unrecognized offline installer; public installer via Cloudflare has_fix=False sha=28e69ac2dc26. No forced run.
 - PENDING — fixed-generation publication deferred (freshness guard / not_due / failure as recorded above); next automatic attempt is the next eligible tick with a fresh daily budget; re-verify then.
+
+## 2026-10-28 — software-hub sixth live check: root-caused "Unrecognized offline installer", fixed the installer source / نوبت ششم: ریشه‌یابی و رفع منبع نصاب
+
+- VERIFIED — Root cause of the failed 2026-10-27/28 ticks: tools.build_devtools_profile builds the candidate installer from ROOT deployment/client/offline-install.sh (not from the seed manifests); that file still carried the pre-sandbox-fix installer (sha 28e69ac2…) while the kit pin was already 910af90a…, so validate_profile raised "Unrecognized offline installer" before qualification.
+- DONE — deployment/client/offline-install.sh updated in repo and in the live ROOT to exactly the seed installer (contains APT::Sandbox::User=root); sha256=910af90a0cb21c0cba7918f2ae57241239f35cd9a281a6050d4ae4fab3de2f3b equals the tools kit pin; previous copy archived at /root/tehnet-backups/offline-install.sh.pre-sandbox-fix-20261028. Tests: test_offline_refresh 10/10, plus offline-kit/lab/publication/watch/aptmeta/deployment/provider-kit/publication-pointer suites 53/53 green. No forced run; the 2026-10-28 daily budget (2/2 attempts) was already spent on the failed ticks before the fix.
+- VERIFIED — Owner DNS record time.tehnet.ir -> 91.107.138.246 is live; NTP query via the hostname answered (stratum 3, clock correct). Removed from the owner pending list in docs/OWNER_GUIDE.fa.md.
+- PENDING — First eligible tick 2026-10-29 00:22 UTC (fresh daily budget) should build and publish the fixed generation; then verify the public installer has_fix=True sha=910af90a… and record a dated receipt.
