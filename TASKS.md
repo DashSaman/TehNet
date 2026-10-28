@@ -795,3 +795,11 @@ Documentation gate,2026-10-25T13:41:07Z: PASS for22 original blobs/189734bytes a
 - DONE — deployment/client/offline-install.sh updated in repo and in the live ROOT to exactly the seed installer (contains APT::Sandbox::User=root); sha256=910af90a0cb21c0cba7918f2ae57241239f35cd9a281a6050d4ae4fab3de2f3b equals the tools kit pin; previous copy archived at /root/tehnet-backups/offline-install.sh.pre-sandbox-fix-20261028. Tests: test_offline_refresh 10/10, plus offline-kit/lab/publication/watch/aptmeta/deployment/provider-kit/publication-pointer suites 53/53 green. No forced run; the 2026-10-28 daily budget (2/2 attempts) was already spent on the failed ticks before the fix.
 - VERIFIED — Owner DNS record time.tehnet.ir -> 91.107.138.246 is live; NTP query via the hostname answered (stratum 3, clock correct). Removed from the owner pending list in docs/OWNER_GUIDE.fa.md.
 - PENDING — First eligible tick 2026-10-29 00:22 UTC (fresh daily budget) should build and publish the fixed generation; then verify the public installer has_fix=True sha=910af90a… and record a dated receipt.
+
+## 2026-10-28 — time-server completion: public NTP hardened, IPv6 + Iran sources + monitoring / تکمیل سرویس زمان
+
+- DONE — time.tehnet.ir public NTP completed: chrony drop-in now allows IPv6 (`allow ::/0`) alongside IPv4 with existing rate limit (interval 3 burst 8 leak 2); verified IPv6 client reply against the server's global address. External IPv4 query from the owner's workstation succeeded (stratum 4, server offset ~0.4 ms vs upstream).
+- DONE — Iranian upstream resilience: `ir.pool.ntp.org` added via /etc/chrony/sources.d/iran-ntp.sources (reachability verified 109 ms; a.nic.ir/time.ir unreachable from Hetzner); pool members now appear among active sources.
+- DONE — Monitoring: health.sh ntp check rewritten escape-free (bash strips NUL bytes — `bytes([27])+47*bytes([0])`) and enriched; /tools/status now reports ntp/ntp_stratum/ntp_offset_ms (live: ok/4/0.4). /tools/time now advertises ntp_host=time.tehnet.ir. Full docs: ops/time-server/README.md.
+- NOTE — Owner workstation clock is ~2 s behind NTP (observed during external test); optional AAAA record (2a01:4f8:c010:1bac::1, DNS only) would enable IPv6 clients by hostname.
+- PENDING — offline-refresh fixed generation still due at the 2026-10-29 00:22 UTC tick (fresh budget); verify has_fix=True after it.
