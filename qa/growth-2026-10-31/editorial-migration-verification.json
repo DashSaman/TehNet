@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-10-31T21:57:37.255613+00:00",
+  "status": "NATIVE_QUALIFIED_OPERATOR_REHEARSAL_PENDING",
+  "scope": "Exact existing lesson62 only; zero runtime deployment files in editorial bundle",
+  "native_assertions": 27,
+  "native_output": [
+    "PASS: Exactly one existing lesson pending",
+    "PASS: Preflight changes no records",
+    "PASS: One body updated, no page created",
+    "PASS: Exact immutable body stored",
+    "PASS: Title slug parent preserved",
+    "PASS: All lesson meta preserved",
+    "PASS: Actual modification timestamp recorded",
+    "PASS: Preexisting revision retained",
+    "PASS: Repeat is record-idempotent",
+    "PASS: Rollback preserves a later lesson edit",
+    "PASS: Foreign-edit sentinel not overwritten",
+    "PASS: Rollback restores only existing lesson",
+    "PASS: All original posts meta users and revisions exactly restored",
+    "PASS: Rollback repeat is idempotent",
+    "PASS: Rolled-back journal cannot be reused",
+    "PASS: Unapproved target id refused",
+    "PASS: Unapproved target url refused",
+    "PASS: Unapproved target title_observed refused",
+    "PASS: Body digest drift refused",
+    "PASS: Wider field scope refused",
+    "PASS: Body path escape refused",
+    "PASS: Changed baseline refused",
+    "PASS: Negative manifest cases change no records",
+    "PASS: Hook cannot change lesson metadata",
+    "PASS: Rejected hook side effect transaction rolled back",
+    "PASS: Second database writer blocked by managed row lock",
+    "PASS: Concurrent-writer case fully restored",
+    "EDITORIAL_MIGRATION=PASS checks=27"
+  ],
+  "previous_service_native_regression": {
+    "status": "PASS",
+    "assertions": 37,
+    "original_posts_meta_unchanged": true,
+    "scope": "Verified isolated native WordPress only",
+    "fixture_pages_cleaned": 13,
+    "production_mutations": 0,
+    "observed_utc": "2026-10-31T21:53:45.428092+00:00"
+  },
+  "python_boundary_tests": {
+    "tests": 8,
+    "status": "PASS",
+    "red_observed": [
+      "Missing explicit editorial scope",
+      "Missing staging port validation"
+    ]
+  },
+  "php_lint": "PASS",
+  "source_sha256_lf": {
+    "ops/migrate-growth-content.php": "56de481e9583b1b9acd6dc649a54b47b4e94d775d9ac120af8cfca7fcfabe30a",
+    "ops/release-growth-content.py": "8695ba171d781cb6c6b324ef97e60306ce4d992c7cb45f524bd338a93ae49bf6",
+    "tests/growth-editorial-migration-native.php": "e8f8255900d32ca4aaa87d8ef1ede1372a826abb353d0030580463199b0a05f1",
+    "tests/test_growth_release.py": "3cd8ff65ac955ae976c9c53ada6d5fc74fc7cbf525373087464c050544175ee5"
+  },
+  "recovery": {
+    "private_backup_verified": true,
+    "owned_native_case_rollback_after_test_failure": true,
+    "all_original_rows_restored_in_final_acceptance": true,
+    "known_stray_first_red_attempt_archived_outside_web_root": true
+  },
+  "failures_and_corrections": [
+    "Initial staging helper demanded zero published ports; independent inspection showed the existing binding was loopback-only. Qualified explicit unchanged-loopback acceptance; public binding remains refused. No port/network changed.",
+    "WP-CLI eval-file method scope required explicit test globals. The first red attempt wrote an empty-body fixture outside the intended temp root; its exact identity was verified and it was archived privately. No site records were changed by that red attempt.",
+    "A test second connection used an uninitialized table property. Full diagnostic inspected; the owned applied case was journal-rolled back, table reference corrected and final27 assertions passed. This was a test-harness issue, not evidence of a missing database lock."
+  ],
+  "production_mutations": 0,
+  "production": "NOT_DEPLOYED",
+  "limits": [
+    "Native transaction tests are not a full content-only operator rehearsal",
+    "Old37-case suite passed before a subsequent CLI authorization-marker tightening; the library transaction path did not change in that tightening",
+    "Ambiguous host loss/COMMIT and every possible plugin side effect remain unqualified; incomplete journal requires reconciliation",
+    "RouterOS lab/restore NOT_RUN; WordPress acceptance is not router behavior evidence"
+  ]
+}

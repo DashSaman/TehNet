@@ -5,6 +5,8 @@ final class TehNet_Growth_Content_Migration {
     private string $digest;
     private string $directory;
     private array $touched=[];
+    private bool $existingLesson=false;
+    private string $expectedTitle='';
 
     public function __construct(string $path,string $digest,string $directory,bool $authorizedProduction=false) {
         if(!defined('WP_CLI')||!WP_CLI||!current_user_can('manage_options')||(string)get_option('blog_public')!=='0')throw new RuntimeException('Authorized closed-index native CLI required');
@@ -17,14 +19,23 @@ final class TehNet_Growth_Content_Migration {
         if(!$real||!is_dir($real)||is_link($directory)||($web&&($real===$web||str_starts_with($real,$web.DIRECTORY_SEPARATOR)))||(fileperms($real)&0077)!==0)throw new RuntimeException('Private journal directory outside the web root required');
         $this->manifest=json_decode(file_get_contents($path),true,512,JSON_THROW_ON_ERROR);$this->digest=$digest;$this->directory=$real;
         $m=$this->manifest;
-        if(($m['schema']??null)!==1||($m['key']??'')!=='tehnet-growth-20261031-v1'||count($m['pages']??[])!==2||count($m['updates']??[])!==2)throw new RuntimeException('Unexpected migration scope');
+        if(($m['key']??'')==='tehnet-editorial-routeros-20261101-v1'){
+            $target=$m['target']??[];
+            if(($m['schema']??null)!==1||($target['id']??null)!==62||($target['url']??'')!=='https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/'||($target['change_fields']??null)!==['post_content']||($m['content_file']??'')!=='routeros-winbox.html'||!is_string($target['title_observed']??null)||$target['title_observed']==='')throw new RuntimeException('Unapproved existing-lesson scope');
+            $bodyPath=dirname($path).'/routeros-winbox.html';
+            if(is_link($bodyPath)||!is_file($bodyPath)||!preg_match('/^[a-f0-9]{64}$/D',$m['content_sha256_lf']??'')||!hash_equals($m['content_sha256_lf'],hash_file('sha256',$bodyPath)))throw new RuntimeException('Immutable lesson body mismatch');
+            if(in_array(62,array_map('intval',[get_option('page_on_front'),get_option('page_for_posts'),get_option('woocommerce_shop_page_id')]),true))throw new RuntimeException('Protected role cannot be an editorial target');
+            $this->existingLesson=true;$this->expectedTitle=$target['title_observed'];
+            $this->manifest=$m=['schema'=>1,'key'=>$m['key'],'pages'=>[],'updates'=>[['id'=>62,'expected_content_sha256'=>$target['expected_content_sha256']??'','replace'=>file_get_contents($bodyPath)]]];
+        }elseif(($m['schema']??null)!==1||($m['key']??'')!=='tehnet-growth-20261031-v1'||count($m['pages']??[])!==2||count($m['updates']??[])!==2)throw new RuntimeException('Unexpected migration scope');
         $keys=[];$hubs=[];
         foreach($m['updates']as$row){
             if(!is_int($row['id']??null)||$row['id']<1||isset($hubs[$row['id']])||!preg_match('/^[a-f0-9]{64}$/D',$row['expected_content_sha256']??''))throw new RuntimeException('Hub manifest identity invalid');
             $hub=get_post($row['id']);if(!$hub||$hub->post_type!=='page'||$hub->post_status!=='publish')throw new RuntimeException('Hub identity missing');
-            if($production&&!array_key_exists($hub->ID,[7=>'lab',8=>'services']))throw new RuntimeException('Unapproved production hub');
-            if($production&&get_page_uri($hub)!==[7=>'lab',8=>'services'][$hub->ID])throw new RuntimeException('Production hub path drift');
-            $this->blocks($row['append']??'');$hubs[$row['id']]=true;
+            $allowed=$this->existingLesson?[62=>'learn/mikrotik/mtcna/routeros-winbox']:[7=>'lab',8=>'services'];
+            if(($production||$this->existingLesson)&&(!array_key_exists($hub->ID,$allowed)||get_page_uri($hub)!==$allowed[$hub->ID]))throw new RuntimeException('Unapproved managed page path');
+            if($this->existingLesson&&$hub->post_title!==$this->expectedTitle)throw new RuntimeException('Existing lesson title drift');
+            $this->blocks($row[$this->existingLesson?'replace':'append']??'');$hubs[$row['id']]=true;
         }
         foreach($m['pages']as$row){
             $key=$row['key']??'';$slug=$row['slug']??'';
@@ -37,10 +48,14 @@ final class TehNet_Growth_Content_Migration {
 
     private function blocks(string $content):void {
         if($content===''||serialize_blocks(parse_blocks($content))!==$content)throw new RuntimeException('Block serialization mismatch');
-        $walk=static function(array $blocks)use(&$walk):void {foreach($blocks as$b){
+        if($this->existingLesson&&wp_kses_post($content)!==$content)throw new RuntimeException('Lesson sanitization mismatch');
+        $existingLesson=$this->existingLesson;
+        $walk=static function(array $blocks)use(&$walk,$existingLesson):void {foreach($blocks as$b){
             if($b['blockName']===null){if(trim($b['innerHTML'])!=='')throw new RuntimeException('Unstructured block content');continue;}
-            if(!in_array($b['blockName'],['core/paragraph','core/heading','core/list','core/list-item','core/shortcode'],true)||!WP_Block_Type_Registry::get_instance()->is_registered($b['blockName']))throw new RuntimeException('Unapproved block');
+            $allowed=['core/paragraph','core/heading','core/list','core/list-item','core/shortcode'];if($existingLesson)$allowed[]='core/code';
+            if(!in_array($b['blockName'],$allowed,true)||!WP_Block_Type_Registry::get_instance()->is_registered($b['blockName']))throw new RuntimeException('Unapproved block');
             if($b['blockName']==='core/shortcode'&&!in_array(trim($b['innerHTML']),['[tn_editorial_note]','[tn_voice_network_readiness]'],true))throw new RuntimeException('Unapproved shortcode');
+            if($existingLesson&&$b['blockName']==='core/shortcode'&&trim($b['innerHTML'])!=='[tn_editorial_note]')throw new RuntimeException('Unapproved lesson shortcode');
             $walk($b['innerBlocks']);
         }};$walk(parse_blocks($content));
     }
@@ -66,6 +81,14 @@ final class TehNet_Growth_Content_Migration {
     }
     private function retainedRevisions(array $before,array $after):void {
         foreach($before['revisions']as$id=>$row)if(!isset($after['revisions'][$id])||!$this->equal($row,$after['revisions'][$id]))throw new RuntimeException('Preexisting revisions must remain intact');
+    }
+    private function lessonFields(array $before,array $after,string $body,string $started):void {
+        $expected=$before['post'];$expected['post_content']=$body;
+        foreach(['post_modified','post_modified_gmt']as$key)$expected[$key]=$after['post'][$key];
+        if(!$this->equal($expected,$after['post'])||!$this->equal($before['meta'],$after['meta']))throw new RuntimeException('Unapproved lesson field or meta change');
+        $stamp=strtotime($after['post']['post_modified_gmt'].' UTC');
+        if($stamp===false||$stamp<strtotime($started)||$stamp>time()+5||get_date_from_gmt($after['post']['post_modified_gmt'])!==$after['post']['post_modified'])throw new RuntimeException('Actual lesson modification date required');
+        if(count(array_diff_key($after['revisions'],$before['revisions']))>1)throw new RuntimeException('Unexpected lesson revisions');
     }
     private function protectedState(array $newIds=[]):array {
         global $wpdb;$ids=array_map('intval',array_merge(array_column($this->manifest['updates'],'id'),array_values($newIds)));$set=implode(',',array_unique($ids));
@@ -100,7 +123,7 @@ final class TehNet_Growth_Content_Migration {
     }
     private function plan():array {
         $hubs=[];$pages=[];
-        foreach($this->manifest['updates']as$row){$p=get_post($row['id']);if(hash('sha256',$p->post_content)!==$row['expected_content_sha256'])throw new RuntimeException('Hub body drift; refuse overwrite');$hubs[$p->ID]=$this->snapshot($p->ID);}
+        foreach($this->manifest['updates']as$row){$p=get_post($row['id']);if($this->existingLesson&&(!$p||$p->post_type!=='page'||$p->post_status!=='publish'||$p->post_title!==$this->expectedTitle||get_page_uri($p)!=='learn/mikrotik/mtcna/routeros-winbox'))throw new RuntimeException('Existing lesson identity changed');if(hash('sha256',$p->post_content)!==$row['expected_content_sha256'])throw new RuntimeException('Hub body drift; refuse overwrite');$hubs[$p->ID]=$this->snapshot($p->ID);}
         foreach($this->manifest['pages']as$row){$path=get_page_uri($row['parent_id']).'/'.$row['slug'];if(get_page_by_path($path,OBJECT,'page'))throw new RuntimeException('New path already exists; do not adopt');$pages[$row['key']]=$path;}
         return ['hubs'=>$hubs,'paths'=>$pages];
     }
@@ -132,7 +155,7 @@ final class TehNet_Growth_Content_Migration {
             if($journal&&$journal['status']!=='APPLIED')throw new RuntimeException('Incomplete or failed journal requires explicit reconciliation');
             if($journal){$this->verifyAfter($journal);if($mode!=='rollback')return ['status'=>'APPLIED','pages_pending'=>0,'hubs_pending'=>0,'pages_created'=>0,'hubs_updated'=>0,'page_ids'=>$journal['page_ids'],'protected_state_unchanged'=>true];}
             elseif($mode==='rollback')throw new RuntimeException('No matching applied journal');
-            if(!$journal){$plan=$this->plan();if($mode==='check')return ['status'=>'READY','pages_pending'=>2,'hubs_pending'=>2,'protected_digest'=>hash('sha256',serialize($this->protectedState()))];$journal=['schema'=>1,'digest'=>$this->digest,'home'=>home_url('/'),'environment'=>wp_get_environment_type(),'status'=>'PREPARED','before'=>$plan,'protected'=>$this->protectedState(),'page_ids'=>[],'created_utc'=>gmdate('c')];$this->writeJournal($journal);}
+            if(!$journal){$plan=$this->plan();if($mode==='check')return ['status'=>'READY','pages_pending'=>count($this->manifest['pages']),'hubs_pending'=>count($this->manifest['updates']),'protected_digest'=>hash('sha256',serialize($this->protectedState()))];$journal=['schema'=>1,'digest'=>$this->digest,'home'=>home_url('/'),'environment'=>wp_get_environment_type(),'status'=>'PREPARED','before'=>$plan,'protected'=>$this->protectedState(),'page_ids'=>[],'created_utc'=>gmdate('c')];$this->writeJournal($journal);}
             $this->query('SET TRANSACTION ISOLATION LEVEL REPEATABLE READ');
             $this->query('START TRANSACTION');$transaction=true;
             $this->lockManaged($journal['page_ids']);
@@ -141,8 +164,8 @@ final class TehNet_Growth_Content_Migration {
             if($mode==='apply'){
                 $plan=$this->plan();if(!$this->equal($plan,$journal['before'])||!$this->equal($journal['protected'],$this->protectedState()))throw new RuntimeException('State changed before transaction');
                 foreach($this->manifest['pages']as$row){$id=wp_insert_post(wp_slash(['post_type'=>'page','post_status'=>'publish','post_parent'=>$row['parent_id'],'post_name'=>$row['slug'],'post_title'=>$row['title'],'post_excerpt'=>$row['excerpt'],'post_content'=>$row['content'],'meta_input'=>['_tn_growth_release'=>$this->digest,'_tn_growth_key'=>$row['key']]]),true);if(is_wp_error($id))throw new RuntimeException('Page insert failed');$journal['page_ids'][$row['key']]=$id;$p=get_post($id);if($p->post_content!==$row['content']||$p->post_title!==$row['title']||$p->post_excerpt!==$row['excerpt']||$p->post_name!==$row['slug']||(int)$p->post_parent!==$row['parent_id'])throw new RuntimeException('Saved page mismatch');}
-                foreach($this->manifest['updates']as$row){$body=$journal['before']['hubs'][$row['id']]['post']['post_content']."\n\n".$row['append'];$id=wp_update_post(wp_slash(['ID'=>$row['id'],'post_content'=>$body]),true);if(is_wp_error($id)||get_post($id)->post_content!==$body)throw new RuntimeException('Hub append failed');}
-                $journal['after']=['hubs'=>[],'pages'=>[]];foreach($this->manifest['updates']as$row){$after=$this->snapshot($row['id']);$this->retainedRevisions($journal['before']['hubs'][$row['id']],$after);$journal['after']['hubs'][$row['id']]=$after;}foreach($journal['page_ids']as$id)$journal['after']['pages'][$id]=$this->snapshot($id);
+                foreach($this->manifest['updates']as$row){$body=$this->existingLesson?$row['replace']:$journal['before']['hubs'][$row['id']]['post']['post_content']."\n\n".$row['append'];$id=wp_update_post(wp_slash(['ID'=>$row['id'],'post_content'=>$body]),true);if(is_wp_error($id)||get_post($id)->post_content!==$body)throw new RuntimeException('Managed body update failed');}
+                $journal['after']=['hubs'=>[],'pages'=>[]];foreach($this->manifest['updates']as$row){$after=$this->snapshot($row['id']);$this->retainedRevisions($journal['before']['hubs'][$row['id']],$after);if($this->existingLesson)$this->lessonFields($journal['before']['hubs'][$row['id']],$after,$row['replace'],$journal['created_utc']);$journal['after']['hubs'][$row['id']]=$after;}foreach($journal['page_ids']as$id)$journal['after']['pages'][$id]=$this->snapshot($id);
                 $this->verifyAfter($journal);
             }else{
                 foreach($journal['before']['hubs']as$id=>$before)$this->restoreHub((int)$id,$before,$journal['after']['hubs'][$id]);
@@ -152,7 +175,7 @@ final class TehNet_Growth_Content_Migration {
             }
             $journal['status']='COMMIT_READY';$this->writeJournal($journal);$this->query('COMMIT');$transaction=false;$committed=true;
             $journal['status']=$mode==='apply'?'APPLIED':'ROLLED_BACK';$journal['completed_utc']=gmdate('c');$this->writeJournal($journal);
-            return $mode==='apply'?['status'=>'APPLIED','pages_created'=>2,'hubs_updated'=>2,'page_ids'=>$journal['page_ids'],'protected_digest'=>hash('sha256',serialize($journal['protected'])),'protected_state_unchanged'=>true]:['status'=>'ROLLED_BACK','hubs_restored'=>2,'pages_drafted'=>2,'protected_state_unchanged'=>true];
+            return $mode==='apply'?['status'=>'APPLIED','pages_created'=>count($this->manifest['pages']),'hubs_updated'=>count($this->manifest['updates']),'page_ids'=>$journal['page_ids'],'protected_digest'=>hash('sha256',serialize($journal['protected'])),'protected_state_unchanged'=>true]:['status'=>'ROLLED_BACK','hubs_restored'=>count($this->manifest['updates']),'pages_drafted'=>count($this->manifest['pages']),'protected_state_unchanged'=>true];
         } catch(Throwable $e) {
             if($transaction){$rolled=$wpdb->query('ROLLBACK')!==false;$transaction=false;if($journal){$journal['status']=$rolled?'FAILED':'NEEDS_RECONCILIATION';$journal['failure_utc']=gmdate('c');$this->writeJournal($journal);}}
             elseif($committed&&$journal){$journal['status']='NEEDS_RECONCILIATION';$this->writeJournal($journal);}
@@ -167,6 +190,9 @@ final class TehNet_Growth_Content_Migration {
 }
 
 if(!defined('TN_GROWTH_LIBRARY_ONLY')){
-    $migration=new TehNet_Growth_Content_Migration((string)getenv('TN_GROWTH_MANIFEST'),(string)getenv('TN_GROWTH_DIGEST'),(string)getenv('TN_GROWTH_JOURNAL_DIR'),getenv('TN_GROWTH_AUTHORIZED_RELEASE')==='tehnet-growth-20261031-v1');
+    $authorization=getenv('TN_GROWTH_AUTHORIZED_RELEASE');$manifestPath=(string)getenv('TN_GROWTH_MANIFEST');
+    $requested=is_file($manifestPath)?json_decode(file_get_contents($manifestPath),true,512,JSON_THROW_ON_ERROR):[];
+    $authorized=in_array($authorization,['tehnet-growth-20261031-v1','tehnet-editorial-routeros-20261101-v1'],true)&&($requested['key']??null)===$authorization;
+    $migration=new TehNet_Growth_Content_Migration($manifestPath,(string)getenv('TN_GROWTH_DIGEST'),(string)getenv('TN_GROWTH_JOURNAL_DIR'),$authorized);
     echo wp_json_encode($migration->run(getenv('TN_GROWTH_MODE')?:'check'));
 }
