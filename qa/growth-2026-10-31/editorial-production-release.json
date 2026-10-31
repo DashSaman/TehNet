@@ -1,0 +1,192 @@
+{
+  "observed_utc": "2026-10-31T22:03:00.465052+00:00",
+  "scope": "Existing lesson62 body and actual modification timestamps only; zero runtime files",
+  "source_commit": "e5fd6319df95db4d45c3760106ca873989d8c8e5",
+  "baseline_commit": "5cd0895ad5b175a4838fb7538abc7e961a62a86a",
+  "status": "DEPLOYED",
+  "check": {
+    "status": "READY",
+    "files_pending": 0,
+    "content": {
+      "status": "READY",
+      "pages_pending": 0,
+      "hubs_pending": 1,
+      "protected_digest": "414b7571bb8a35603ec449b7e5b6ade778f1f30285fa3586962968831a5688b3"
+    }
+  },
+  "apply": {
+    "status": "APPLIED",
+    "files_changed": 0,
+    "content": {
+      "status": "APPLIED",
+      "pages_created": 0,
+      "hubs_updated": 1,
+      "page_ids": [],
+      "protected_digest": "414b7571bb8a35603ec449b7e5b6ade778f1f30285fa3586962968831a5688b3",
+      "protected_state_unchanged": true
+    }
+  },
+  "repeat": {
+    "status": "APPLIED",
+    "files_changed": 0,
+    "content": {
+      "status": "APPLIED",
+      "pages_pending": 0,
+      "hubs_pending": 0,
+      "pages_created": 0,
+      "hubs_updated": 0,
+      "page_ids": [],
+      "protected_state_unchanged": true
+    }
+  },
+  "http_smoke": [
+    {
+      "path": "/learn/mikrotik/mtcna/routeros-winbox/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "reviewed_lesson_sections": true,
+      "auto_loaded_player": false
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true
+    },
+    {
+      "path": "/shop/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true
+    },
+    {
+      "path": "/services/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true
+    },
+    {
+      "path": "/lab/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true
+    },
+    {
+      "path": "/services/voice-network-readiness/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true
+    },
+    {
+      "path": "/lab/voice-network-checklist/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "readiness_instance": true
+    },
+    {
+      "path": "/support/?tn_service_context=voice-network",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "nonce_inside_owning_form": true,
+      "network_context_preserved": true
+    },
+    {
+      "path": "/b2b/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "nonce_inside_owning_form": true
+    }
+  ],
+  "commerce_indexing": {
+    "blog_public": "0",
+    "products": 25,
+    "purchasable": 0,
+    "erp_ready": false,
+    "sandbox_enabled": false
+  },
+  "existing_runtime_unchanged": true,
+  "protected_state_unchanged": true,
+  "fresh_backup_checksum_verified": true,
+  "completed_utc": "2026-10-31T22:03:25.458461+00:00",
+  "qualified_source": "d2c24b0a1d18a92125e6a9456998fcdb5fddf2bb",
+  "qualified_payload_runtime_digests_and_operator_equal": true,
+  "integration": {
+    "pr": 37,
+    "head": "379ac88910093feb75039edd9b2d1a786afdd373",
+    "merge": "e5fd6319df95db4d45c3760106ca873989d8c8e5",
+    "ci_run": 41246291105,
+    "ci_scope": "Required tracked-file-privacy check; runtime tests recorded separately"
+  },
+  "public_browser": {
+    "status": "PASS",
+    "scope": "Read-only production existing lesson acceptance; default browser TLS validation",
+    "checks": 35,
+    "observations": [
+      {
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "modified": "2026-10-31T22:03:17+00:00",
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "modified": "2026-10-31T22:03:17+00:00",
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "modified": "2026-10-31T22:03:17+00:00",
+        "overflow": false
+      }
+    ],
+    "page_errors": [],
+    "blocked_external_origins": 0,
+    "methods": [
+      "GET"
+    ],
+    "form_submissions": 0,
+    "routeros_lab": "NOT_RUN"
+  },
+  "public_browser_harness_sha256_lf": "e733c4d6b16700fd8a852b2919df8d45625e7585e738a914f68de7c34af65257",
+  "visual_review": {
+    "production_mobile_full_page": true,
+    "staging_desktop_and_mobile": true
+  },
+  "new_articles_published": 0,
+  "existing_lessons_updated": 1,
+  "portfolio_jobs_addressed": [
+    "TN-T021",
+    "TN-T022",
+    "TN-T023",
+    "TN-T024",
+    "TN-T025"
+  ],
+  "limits": [
+    "Published improvement to an existing page, not a new URL or five articles",
+    "RouterOS lab/restore NOT_RUN; no device output/recovery duration/customer case claimed",
+    "No rank, traffic, indexing, backlink, AI-citation or conversion outcome measured",
+    "Deliberate noindex and closed commerce remain; credential rotation/history/Origin gates unchanged",
+    "Rollback rehearsed in owned staging; live rollback was not needed. Host-loss/ambiguous COMMIT not fault-injected."
+  ]
+}
