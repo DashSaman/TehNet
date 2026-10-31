@@ -1,6 +1,6 @@
 # Existing routing lesson, bounded continuation
 
-Status: IN_PROGRESS. Continues the overnight owner directive and completed lesson62 release; no new URL or RouterOS infrastructure change.
+Status: VERIFIED_FOR_RELEASE; production pending. Continues the overnight owner directive and completed lesson62 release; no new URL or RouterOS infrastructure change.
 
 Target: published page64, `/learn/mikrotik/mtcna/static-routing/`. Preserve title, slug, parent, status, excerpt and meta; update body, actual modification time and at most one owned revision. Protect home, menus, store, customers, noindex, disabled payments and MyTel.
 

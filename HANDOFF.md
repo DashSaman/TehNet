@@ -1,10 +1,10 @@
-## CURRENT — مسیریابی: پیش‌نویس و scope مستقل آزموده، انتشار هنوز انجام نشده
+## CURRENT — مسیریابی آمادهٔ انتشار محدود؛ production هنوز انجام نشده
 
-درس موجود64 با همان URL/عنوان برای پنج نیاز C02 توسعه یافت؛8 منبع اولیهٔ scoped، سناریوی دو روتر، مسیر برگشت، عیب‌یابی و برگهٔ پذیرش.16GET با TLS معتبر،56بلوک معتبر و21کنترل browser دسکتاپ/موبایل/no-JS و ویرایش/reset پاس؛ تمام داده‌ها و کاربر/lock موقت staging به حالت قبل برگشتند. RouterOS اجرا نشده است.
+صفحه64 با همان URL/Title،8منبع اولیه،56بلوک معتبر،21کنترل browser و16GET لینک آماده است.29native جدید +27regression درس62 +37خدمات +10unit operator پاس. scope مستقل64 به هویت/فایل مشخص محدود است؛ صفر runtime file و7digest فقط خواندنی.
 
-scope مستقل `tehnet-editorial-routing-20261101-v1` فقط ID64/path/file را می‌پذیرد.29assertion native جدید،27regression درس62،37regression خدمات،10unit operator و2lint پاس؛ constructor قبلی به‌درستی scope تازه را رد کرد. دیگر scopeها/هویت/بدنه، drift و ویرایش بعدی محافظت شدند. رسید `qa/growth-2026-10-31/routing-draft-and-migration.json` و طرح `docs/superpowers/plans/2026-11-01-routing-lesson-release.md`.
+rehearsal immutable source `4becf1692f838bba5cdb47f3bc5fade6c0459f1c` در staging بومی: check/apply/repeat/rollback/repeat، رد دستکاری payload/metadata و4HTTP پاس؛ posts/meta/users و runtime دقیقاً بازیابی شدند. رسید `qa/growth-2026-10-31/routing-release-rehearsal.json`. RouterOS lab اجرا نشده؛ یک درس موجود، نه پنج مقالهٔ تازه.
 
-NEXT: bundle immutable از همین منبع و rehearsal check/apply/repeat/rollback/repeat، سپس PR/CI عادی، snapshot، برابری payload، backup/checksum/drift تازه و انتشار فقط body64 در دامنهٔ مجاز. تولید هنوز تغییر نکرده؛ درس62 و P4 قبلاً DEPLOYED هستند و نباید بازپخش شوند. noindex/پرداخت/MyTel freeze و گیت‌های rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED حفظ شوند.
+NEXT: PR/CI عادی همین source، snapshot خصوصی قبل از integration، verify برابری bundle با منبع آزموده، backup/checksum/drift تازه؛ سپس انتشار فقط body64 و پذیرش HTTPS/مرورگر/دادهٔ محافظت‌شده. این درس هنوز DEPLOYED نیست. درس62 و P4 را بازپخش نکنید. noindex/پرداخت/MyTel freeze و گیت‌های rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED برقرارند.
 
 ## HISTORICAL CHECKPOINT — درس RouterOS به‌روزرسانی و روی live تأیید شد
 

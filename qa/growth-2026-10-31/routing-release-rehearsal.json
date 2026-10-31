@@ -1,0 +1,117 @@
+{
+  "scope": "Exact existing lesson in owned native staging, no runtime file changes",
+  "source_commit": "4becf1692f838bba5cdb47f3bc5fade6c0459f1c",
+  "observed_utc": "2026-10-31T22:25:03.640768+00:00",
+  "results": [
+    {
+      "operation": "check",
+      "status": "READY",
+      "files_pending": 0,
+      "content": {
+        "status": "READY",
+        "pages_pending": 0,
+        "hubs_pending": 1,
+        "protected_digest": "76dba710d92b0b2640e6a994db17154d092451f4f1a04170a917d84960199236"
+      }
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "files_changed": 0,
+      "content": {
+        "status": "APPLIED",
+        "pages_created": 0,
+        "hubs_updated": 1,
+        "page_ids": [],
+        "protected_digest": "76dba710d92b0b2640e6a994db17154d092451f4f1a04170a917d84960199236",
+        "protected_state_unchanged": true
+      }
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "files_changed": 0,
+      "content": {
+        "status": "APPLIED",
+        "pages_pending": 0,
+        "hubs_pending": 0,
+        "pages_created": 0,
+        "hubs_updated": 0,
+        "page_ids": [],
+        "protected_state_unchanged": true
+      }
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "files_restored": 0,
+      "content": {
+        "status": "ROLLED_BACK",
+        "hubs_restored": 1,
+        "pages_drafted": 0,
+        "protected_state_unchanged": true
+      }
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "files_restored": 0,
+      "content": {
+        "status": "ROLLED_BACK",
+        "hubs_restored": 0,
+        "pages_drafted": 0,
+        "protected_state_unchanged": true
+      }
+    }
+  ],
+  "production_mutations": 0,
+  "tampered_payload_refused": true,
+  "tampered_metadata_refused": true,
+  "http_smoke": [
+    {
+      "path": "/learn/mikrotik/mtcna/static-routing/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/shop/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/services/voice-network-readiness/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    }
+  ],
+  "original_posts_meta_users_exactly_restored": true,
+  "existing_runtime_unchanged": true,
+  "backup_checksum_verified": true,
+  "status": "VERIFIED",
+  "completed_utc": "2026-10-31T22:25:19.908854+00:00",
+  "schema": 1,
+  "scope_key": "tehnet-editorial-routing-20261101-v1",
+  "baseline_commit": "d9fb3679f27625bcf6f0d6b75dfdfb06063d9823",
+  "payload_members": {
+    "content/routing-editorial-2026-11-01/manifest.json": "5637b807301baf3bd98d67854c1ca04b5f6e30330d2cb3cd32e56ce8562e3539",
+    "content/routing-editorial-2026-11-01/static-routing.html": "6e9e6d91e54f3508ee3a4d5f86f578db79e806647cb0b00820be6f67f8f65e63",
+    "ops/migrate-growth-content.php": "94506974b0d065fe52b50930a39a433b9215a372f4c99f0f1c19ac496a35325d"
+  },
+  "tool_sha256": "491898e8e1121e6b69c915c39707002c887a0a8951f19b0c5347b5516c4ab35f",
+  "runtime_guard_count": 7,
+  "runtime_file_writes": 0,
+  "production": "NOT_DEPLOYED",
+  "limits": [
+    "Owned WordPress rehearsal, not RouterOS execution",
+    "Abrupt host loss and ambiguous COMMIT not fault-injected; reconciliation remains required"
+  ]
+}
