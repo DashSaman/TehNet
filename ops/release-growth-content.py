@@ -1,4 +1,4 @@
-"""Bounded six-file TehNet release. Run on the host with a private config/bundle.
+"""Bounded TehNet service or existing-lesson release with a private config/bundle.
 
 No credentials, endpoint inventory or raw WordPress state belongs in Git. The
 production authorization marker identifies scope; it does not grant owner consent.
@@ -27,6 +27,24 @@ FILES = [
 ]
 EXTRA = ['content/growth-2026-10-31/manifest.json', 'ops/migrate-growth-content.php']
 SCOPE = 'tehnet-growth-20261031-v1'
+EDITORIAL_SCOPE = 'tehnet-editorial-routeros-20261101-v1'
+
+
+def scope_spec(scope):
+    if scope == SCOPE:
+        return list(FILES), list(EXTRA), []
+    if scope == EDITORIAL_SCOPE:
+        return [], ['content/growth-editorial-2026-11-01/manifest.json',
+                    'content/growth-editorial-2026-11-01/routeros-winbox.html',
+                    'ops/migrate-growth-content.php'], FILES + ['site/plugins/tehnet-store/tehnet-store.php']
+    raise ValueError('Unapproved release scope')
+
+
+def staging_ports_safe(bindings, allow_loopback=False):
+    if not bindings:
+        return True
+    rows = [row for values in bindings.values() for row in (values or [])]
+    return bool(allow_loopback and rows and all(row.get('HostIp') in ('127.0.0.1', '::1') for row in rows))
 
 
 def digest(data):
@@ -84,7 +102,8 @@ def validate_restore(root, entries):
             raise RuntimeError('File drift; preserve foreign edit')
 
 
-def build_bundle(repo, output, source, baseline):
+def build_bundle(repo, output, source, baseline, scope=SCOPE):
+    files, extra, runtime = scope_spec(scope)
     for commit in (source, baseline):
         if not re.fullmatch('[a-f0-9]{40}', commit):
             raise ValueError('Full immutable commit IDs required')
@@ -102,21 +121,23 @@ def build_bundle(repo, output, source, baseline):
             raise RuntimeError('Git object unavailable')
         return p.stdout
 
-    metadata = {'schema': 1, 'scope': SCOPE, 'source_commit': source, 'baseline_commit': baseline, 'files': {}, 'members': {}}
-    for path in FILES + EXTRA:
+    metadata = {'schema': 1, 'scope': scope, 'source_commit': source, 'baseline_commit': baseline, 'files': {}, 'members': {}}
+    for path in files + extra:
         data = blob(source, path)
         target = member(output / 'payload', path)
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(data)
         metadata['members'][path] = digest(data)
-        if path in FILES:
+        if path in files:
             old = blob(baseline, path, True)
             metadata['files'][path] = {'old': None if old is None else digest(old), 'new': digest(data)}
+    if runtime:
+        metadata['runtime_guard'] = {path: digest(blob(source, path)) for path in runtime}
     tool = blob(source, 'ops/release-growth-content.py')
     (output / 'release-growth-content.py').write_bytes(tool)
     metadata['tool_sha256'] = digest(tool)
     (output / 'bundle.json').write_text(json.dumps(metadata, indent=2) + '\n', encoding='utf-8')
-    return {'status': 'BUNDLED', 'source_commit': source, 'files': 6}
+    return {'status': 'BUNDLED', 'source_commit': source, 'files': len(files)}
 
 
 class Release:
@@ -129,8 +150,14 @@ class Release:
         self.b = bundle.resolve()
         self.m = json.loads(member(self.b, 'bundle.json').read_text())
         c, m = self.c, self.m
-        if m['schema'] != 1 or m['scope'] != SCOPE or set(m['members']) != set(FILES + EXTRA) or list(m['files']) != FILES:
+        self.scope = m['scope']
+        self.files, self.extra, runtime = scope_spec(self.scope)
+        if self.scope == EDITORIAL_SCOPE and digest(member(self.b, 'bundle.json').read_bytes()) != c.get('bundle_manifest_sha256'):
+            raise RuntimeError('Approved editorial bundle metadata checksum required')
+        if m['schema'] != 1 or set(m['members']) != set(self.files + self.extra) or list(m['files']) != self.files or set(m.get('runtime_guard', {})) != set(runtime):
             raise RuntimeError('Unexpected bundle scope')
+        if any(not re.fullmatch('[a-f0-9]{64}', value) for value in m.get('runtime_guard', {}).values()):
+            raise RuntimeError('Runtime guard requires complete digests')
         if m['source_commit'] != c['source_commit'] or m['baseline_commit'] != c['baseline_commit']:
             raise RuntimeError('Approved source/baseline mismatch')
         if digest(Path(__file__).read_bytes()) != m['tool_sha256']:
@@ -158,8 +185,8 @@ class Release:
         self.state = json.loads(self.receipt_path.read_text()) if self.receipt_path.exists() else None
         if self.state and (self.state['source_commit'] != m['source_commit'] or self.state['app_id'] != c['app_id'] or self.state['db_id'] != c['db_id']):
             raise RuntimeError('Release journal identity mismatch')
-        self.container_stage = '/tmp/tn-growth-release-' + m['source_commit']
-        self.manifest_digest = m['members'][EXTRA[0]]
+        self.container_stage = ('/tmp/tn-editorial-release-' if self.scope == EDITORIAL_SCOPE else '/tmp/tn-growth-release-') + m['source_commit']
+        self.manifest_digest = m['members'][self.extra[0]]
         self.root = None
 
     def run(self, args, data=None, timeout=180, cwd=None):
@@ -184,27 +211,33 @@ class Release:
         if self.directory.resolve().is_relative_to(Path(roots[0]).resolve()):
             raise RuntimeError('Private journal must be outside the web root')
         if self.c['environment'] == 'production':
-            if self.c.get('authorization') != SCOPE or self.c['app'] != 'tehnet-wordpress' or self.c['db'] != 'tehnet-db':
+            if self.c.get('authorization') != self.scope or self.c['app'] != 'tehnet-wordpress' or self.c['db'] != 'tehnet-db':
                 raise RuntimeError('Unapproved production scope')
             if self.run(['docker', 'port', self.c['app'], '80/tcp']).decode().strip() != '127.0.0.1:18082':
                 raise RuntimeError('Production routing drift')
         else:
             networks = app['NetworkSettings']['Networks']
-            if set(networks) != {self.c['network']} or set(db['NetworkSettings']['Networks']) != set(networks) or app['HostConfig']['PortBindings'] or db['HostConfig']['PortBindings']:
+            loopback = self.scope == EDITORIAL_SCOPE
+            if set(networks) != {self.c['network']} or set(db['NetworkSettings']['Networks']) != set(networks) or not staging_ports_safe(app['HostConfig']['PortBindings'], loopback) or not staging_ports_safe(db['HostConfig']['PortBindings']):
                 raise RuntimeError('Staging network/port isolation missing')
+            if loopback and app['HostConfig']['PortBindings'] != self.c.get('staging_app_bindings'):
+                raise RuntimeError('Existing loopback preview binding drift')
             net = json.loads(self.run(['docker', 'network', 'inspect', self.c['network']]))[0]
             if not net['Internal']:
                 raise RuntimeError('Staging network is not internal')
-        for rel in FILES:
+        for rel in self.files + list(self.m.get('runtime_guard', {})):
             member(self.root, rel.removeprefix('site/'))
 
     def stage(self):
         self.run(['docker', 'exec', self.c['app'], 'mkdir', '-p', self.container_stage + '/journal'])
         self.run(['docker', 'exec', self.c['app'], 'chmod', '700', self.container_stage, self.container_stage + '/journal'])
-        for source, name in ((EXTRA[0], 'manifest.json'), (EXTRA[1], 'migration.php')):
+        staged = [(self.extra[0], 'manifest.json'), ('ops/migrate-growth-content.php', 'migration.php')]
+        if self.scope == EDITORIAL_SCOPE:
+            staged.append((self.extra[1], 'routeros-winbox.html'))
+        for source, name in staged:
             self.run(['docker', 'cp', str(member(self.b / 'payload', source)), self.c['app'] + ':' + self.container_stage + '/' + name])
         # Syntax-check every PHP artifact before the first live file write.
-        for path in [p for p in FILES if p.endswith('.php')]:
+        for path in [p for p in self.files if p.endswith('.php')]:
             self.run(['docker', 'exec', '-i', self.c['app'], 'php', '-l'], member(self.b / 'payload', path).read_bytes())
         self.run(['docker', 'exec', self.c['app'], 'php', '-l', self.container_stage + '/migration.php'])
 
@@ -212,7 +245,7 @@ class Release:
         env = {'TN_GROWTH_MANIFEST': self.container_stage + '/manifest.json', 'TN_GROWTH_DIGEST': self.manifest_digest,
                'TN_GROWTH_JOURNAL_DIR': self.container_stage + '/' + journal, 'TN_GROWTH_MODE': mode}
         if self.c['environment'] == 'production':
-            env['TN_GROWTH_AUTHORIZED_RELEASE'] = SCOPE
+            env['TN_GROWTH_AUTHORIZED_RELEASE'] = self.scope
         args = ['docker', 'exec']
         for key, value in env.items():
             args += ['-e', key + '=' + value]
@@ -228,6 +261,9 @@ class Release:
         atomic_write(self.receipt_path, json.dumps(self.state, indent=2).encode(), 0o600, None, None)
 
     def file_guard(self, after=False):
+        for rel, expected in self.m.get('runtime_guard', {}).items():
+            if file_digest(member(self.root, rel.removeprefix('site/'))) != expected:
+                raise RuntimeError('Runtime drift; content-only release cannot replace code')
         for rel, entry in self.m['files'].items():
             path = member(self.root, rel.removeprefix('site/'))
             if path.exists() and not path.is_file() or file_digest(path) != entry['new' if after else 'old']:
@@ -269,7 +305,7 @@ class Release:
         for rel, row in self.state['files'].items():
             if row['old'] is not None and file_digest(member(self.directory / 'before', rel)) != row['old']:
                 raise RuntimeError('Private file backup checksum mismatch')
-        for rel in reversed(FILES):
+        for rel in reversed(self.files):
             rel = rel.removeprefix('site/')
             row, path = self.state['files'][rel], member(self.root, rel)
             if file_digest(path) not in (row['old'], row['new']):
@@ -288,13 +324,15 @@ class Release:
         if not self.state or self.state['status'] not in ('APPLIED', 'ROLLED_BACK'):
             raise RuntimeError('Explicit reconciliation required before rollback')
         validate_restore(self.root, self.state['files'])
+        if self.scope == EDITORIAL_SCOPE:
+            self.file_guard()
         # If content restoration is refused, leave modules available and retain all evidence.
         result = self.native('rollback')
         self.restore_files()
         self.state['status'] = 'ROLLED_BACK'
         self.state['rollback'] = result
         self.save()
-        return {'status': 'ROLLED_BACK', 'files_restored': 6, 'content': result}
+        return {'status': 'ROLLED_BACK', 'files_restored': len(self.files), 'content': result}
 
     def execute(self, mode):
         self.target()
@@ -311,7 +349,7 @@ class Release:
         if check['status'] != 'READY':
             raise RuntimeError('Clean content baseline required')
         if mode == 'check':
-            return {'status': 'READY', 'files_pending': 6, 'content': check}
+            return {'status': 'READY', 'files_pending': len(self.files), 'content': check}
         self.state = {'schema': 1, 'status': 'PREPARED', 'source_commit': self.m['source_commit'], 'app_id': self.c['app_id'], 'db_id': self.c['db_id'], 'preflight': check}
         self.save()
         self.backup()
@@ -320,7 +358,7 @@ class Release:
         if self.native('check') != check:
             raise RuntimeError('Content/protected state changed during backup')
         try:
-            for rel in FILES:
+            for rel in self.files:
                 row = self.state['files'][rel.removeprefix('site/')]
                 self.file_guard_partial(rel)
                 destination = member(self.root, rel.removeprefix('site/'))
@@ -333,6 +371,7 @@ class Release:
             self.state['status'] = 'FILES_APPLIED'
             self.save()
             applied = self.native('apply')
+            self.file_guard(after=True)
             if applied['status'] != 'APPLIED' or applied['protected_digest'] != check['protected_digest']:
                 raise RuntimeError('Protected state changed across file/content release')
             repeated = self.native('check')
@@ -340,12 +379,14 @@ class Release:
                 raise RuntimeError('Post-release native check failed')
             self.state['status'], self.state['content'] = 'APPLIED', applied
             self.save()
-            return {'status': 'APPLIED', 'files_changed': 6, 'content': applied}
+            return {'status': 'APPLIED', 'files_changed': len(self.files), 'content': applied}
         except BaseException:
             self.state['status'] = 'NEEDS_RECONCILIATION'
             self.save()
             # Never guess whether a database COMMIT succeeded. Only proven states permit undo.
             try:
+                if self.scope == EDITORIAL_SCOPE:
+                    self.file_guard()
                 raw = self.run(['docker', 'exec', self.c['app'], 'sh', '-c', 'if test -f ' + self.container_stage + '/journal/journal.json; then cat ' + self.container_stage + '/journal/journal.json; else printf null; fi'])
                 journal = json.loads(raw)
                 if journal and journal['status'] == 'APPLIED':
@@ -366,8 +407,8 @@ class Release:
             raise
 
     def file_guard_partial(self, next_rel):
-        index = FILES.index(next_rel)
-        for i, rel in enumerate(FILES):
+        index = self.files.index(next_rel)
+        for i, rel in enumerate(self.files):
             expected = self.m['files'][rel]['new' if i < index else 'old']
             if file_digest(member(self.root, rel.removeprefix('site/'))) != expected:
                 raise RuntimeError('Concurrent file drift during serial release')
@@ -381,11 +422,12 @@ def main():
     parser.add_argument('--repo', type=Path, default=Path.cwd())
     parser.add_argument('--source-commit')
     parser.add_argument('--baseline-commit')
+    parser.add_argument('--scope', choices=[SCOPE, EDITORIAL_SCOPE], default=SCOPE, help='Bundle scope; execution reads and validates the immutable bundle scope')
     args = parser.parse_args()
     release = None
     try:
         if args.mode == 'bundle':
-            result = build_bundle(args.repo, args.bundle, args.source_commit, args.baseline_commit)
+            result = build_bundle(args.repo, args.bundle, args.source_commit, args.baseline_commit, args.scope)
         else:
             if not args.config:
                 raise ValueError('Private config required')

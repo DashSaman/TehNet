@@ -72,3 +72,21 @@ DEPLOYED — PR34 از مسیر عادی با required CI41240538610 ادغام 
 ## checkpoint intent —۱نوامبر،۰۰:۵۲ تهران
 
 DONE/VERIFIED_INVENTORY_ONLY —۱۰۰کار خواننده در۲۰خوشه با source/priority/owner/destination/limit/state ثبت شد؛۲۰ کنترل ساختاری و مرور دستی تفاوت کارها پاس. منبع۳۵سطر است، نه۳۵رقیب یا۳۵تحقیق کامل: depth/نسخه/حدود جدا و CISA excerpt فقطPARTIAL.۳۴مورد عمومی غیرمحصولی TehNet و۱۳مسیر MyTel باGET خواندنی inventory شدند؛۱۳canonical/H1/title در نگاشت freeze حفظ.۳۳موضوع به۱۳صفحه موجود و۶۷موضوع به۱۴گروه آموزشیِ پیشنهادی نگاشت؛۱۰۰URL جدید ساخته نشد. دوکوئری مستقل مشاهده شد، locale/device/provider دقیق نامعلوم؛۹۳فرضیهٔ تقاضا و۷صرفاً شاهد محدود نوع intent. rank/volume/GSC/backlink/AI citation و برتری کامل رقبا ادعا نشد. مقاله/صفحه تازهٔ این بسته۰، production write۰. موضوع‌های C07 پوشش موجود دارند؛ expand بدون gap تازه مجاز نیست. metadata/CSV/receipt در seo وqa ثبت شد. MyTel هیچ تغییر runtime یا title/H1/URL ندارد؛ پیشنهاد لینک برگشت فقط سند TehNet است. بعد: متن اصلی درس RouterOS، review منابع Backup/Config، brief متمایز، staging و مسیر محدود بازگشت برای بهبود همان صفحه. از بازسازی package منتشرشده خودداری شود.
+
+## checkpoint درس —۱نوامبر،۰۱:۱۴ تهران
+
+## CURRENT — پرتفوی ادغام‌شده و پیش‌نویس درس آزموده،۱نوامبر۲۰۲۶
+
+P6/P7: پرتفوی۱۰۰کار/۲۰خوشه/۳۵منبع در [TehNet PR36](https://github.com/DashSaman/TehNet/pull/36) باCI موفق ادغام شد؛ main `5cd0895ad5b175a4838fb7538abc7e961a62a86a`، source `87805ecc4d2306996f2fdfac50c893e440574f92`. روش با ledger/topic/dashboard در [-SEO PR6](https://github.com/DashSaman/-SEO/pull/6) وCI موفق ادغام شد؛ main `64d6fc262909ee93a1d0070343f7e28821e38306`، baseline۷۱٪ ثابت. تاریخچهٔ امن/rotation/Origin و noindex/پرداخت گیت‌های جدا و باز هستند.
+
+درس موجود RouterOS/Winbox (ID62) برای Backup/Export/Safe Mode بازنویسی مفید شد؛ **VERIFIED_NATIVE_DRAFT، هنوز production منتشر نشده**.۷منبع رسمی با دامنه/نسخه و حد آزمون؛۵۴بلوک معتبر،۲۱کنترل browser،۱۴GET پیوند باTLS، و بازگشت fixture/کاربر/lock به fingerprint قبلی پاس. مدرک `qa/growth-2026-10-31/editorial-routeros-draft.json` و brief `seo/editorial-routeros-winbox-2026-11-01.fa.md`. RouterOS lab/restore واقعی اجرا نشده و متن آن را ادعا نمی‌کند. مقالهٔ تازهٔ منتشرشده در بسته‌های جدید۰ است.
+
+NEXT دقیق: سازوکار محدودِ ویرایش body همان ID62 با حفظ هویت/meta و ثبت تاریخ واقعی، journal خصوصی، row/range lock، drift/revision/retention guard و rollback را qualify کن؛ migration قدیمیِ دوصفحه‌ای برای این کار مجاز نیست. سپس backup تازه، staging/rehearsal و انتشارِ محتوای همین درس در دامنهٔ قبلاً مجاز؛ پس از آن درس static-routing و گپ‌های اثبات‌شدهٔ فنی/رقبا. بازپخش انتشارِ دو صفحهٔ خدمات/Lab لازم نیست.
+
+## checkpoint rehearsal درس —۱نوامبر،۰۱:۳۰ تهران
+
+## CURRENT — درس و مسیر انتشار qualify شد؛ production هنوز انجام نشده
+
+متن RouterOS/Winbox با۵۴بلوک معتبر،۲۱کنترل browser و۱۴GET پیوند آماده است. scope محدودِ ID62 با۲۷assertion native و۳۷regression مسیر قبلی،۸تست operator و rehearsal کامل check/apply/repeat/rollback/repeat پاس شد. source آزمودهٔ ابزار/بدنه `d2c24b0a1d18a92125e6a9456998fcdb5fddf2bb` است؛ بسته صفر فایل runtime نصب می‌کند و۷digest runtime را فقط می‌سنجد. دستکاری payload/metadata رد، چهارمسیر staging۲۰۰ و دادهٔ posts/meta/users و runtime پس از rollback دقیقاً برابر شدند. رسید `qa/growth-2026-10-31/editorial-release-rehearsal.json`؛ طرح `docs/superpowers/plans/2026-11-01-existing-lesson-release.md`.
+
+NEXT: [PR37](https://github.com/DashSaman/TehNet/pull/37) را با CI head تازه عادی ادغام، snapshot خصوصی/برابری payload را verify و backup تازهٔ qualified production با checksum بگیر؛ سپس فقط body درس62 را منتشر و HTTPS/browser/protected state را ثبت کن. هیچ بازپخش انتشار۶فایلی، MyTel write، تغییر noindex/پرداخت یا گیت امنیتی مجاز نشده است. مقالهٔ تازهٔ این بسته هنوز۰ و این درس هنوز live به‌روزرسانی نشده است. پس از آن routing و گپ‌های فنی/رقبا ادامه یابند.

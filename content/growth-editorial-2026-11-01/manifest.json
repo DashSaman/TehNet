@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "key": "tehnet-editorial-routeros-20261101-v1",
+  "status": "DRAFT_NOT_DEPLOYED",
+  "target": {
+    "id": 62,
+    "url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+    "title_observed": "شروع با RouterOS و Winbox — جلسه اول MTCNA",
+    "expected_content_sha256": "8c77374b3a532b417e6b8f3b08320ed7ebacca3b1a9c7e88793b5d6c2ad3004c",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "content_file": "routeros-winbox.html",
+  "content_sha256_lf": "a3a3b72026643b3feb9ea8e9cc047d732cbb48480c699330d19d22be47e65a44",
+  "protected": [
+    "home",
+    "menus",
+    "products/all meta",
+    "orders/customers/tickets/quotes",
+    "blog_public",
+    "payments/ERP",
+    "MyTel production"
+  ],
+  "qualification": {
+    "source_review": "COMPLETE_FOR_DESCRIBED_CONCEPTS",
+    "routeros_lab": "NOT_RUN",
+    "wordpress_block_roundtrip": "PASS_54_REGISTERED_BLOCKS",
+    "browser": "PASS_21_CHECKS_DESKTOP_MOBILE_NOJS_EDITOR",
+    "content_migration": "NOT_QUALIFIED",
+    "production": "NOT_DEPLOYED",
+    "links": "PASS_14_TLS_GETS_VIDEO_EXCLUDED"
+  },
+  "limits": [
+    "Documentation selector7.26 is not a target device version",
+    "No tested RouterOS output, restore time or customer case is claimed",
+    "Conceptual guidance; no executable destructive import/reset/load recipe",
+    "Existing strict two-page service migration must not be reused for page62"
+  ]
+}
