@@ -1,0 +1,60 @@
+{
+  "observed_utc": "2026-10-31T18:56:54.666151+00:00",
+  "scope": "Existing isolated native WordPress clone only",
+  "browser": {
+    "observed_utc": "2026-10-31T18:56:49.754Z",
+    "scope": "Isolated native WordPress preview only; synthetic records checked and cleaned by private orchestrator",
+    "passed": 24,
+    "failed": 0,
+    "checks": [
+      "/services/voice-network-readiness/ responds 200",
+      "/services/voice-network-readiness/ retains noindex",
+      "/services/voice-network-readiness/ has one page H1",
+      "/services/voice-network-readiness/ canonical identifies the page",
+      "/services/voice-network-readiness/ body uses actual rendered content",
+      "/lab/voice-network-checklist/ responds 200",
+      "/lab/voice-network-checklist/ retains noindex",
+      "/lab/voice-network-checklist/ has one page H1",
+      "/lab/voice-network-checklist/ canonical identifies the page",
+      "/lab/voice-network-checklist/ body uses actual rendered content",
+      "Native shortcode has all eight questions",
+      "Native enqueued script updates summary",
+      "Native export is a manual report with selected state",
+      "Native themed mobile has no horizontal overflow",
+      "Intake context does not collide with WordPress service CPT routing",
+      "Ticket nonce belongs to submitted FormData",
+      "Service context and subject are prefilled",
+      "Actual approved-context ticket POST succeeds",
+      "Array query cannot inject service context",
+      "Array POST retains valid ticket workflow",
+      "Invalid nonce is rejected by native WordPress",
+      "B2B nonce belongs to submitted FormData",
+      "Actual B2B request POST succeeds",
+      "No uncaught native-page JavaScript errors"
+    ],
+    "production_changed": false
+  },
+  "backend": {
+    "synthetic_tickets": 2,
+    "synthetic_quotes": 1,
+    "all_private": true,
+    "approved_context_persisted": true,
+    "array_context_rejected": true,
+    "quote_quantity_preserved": true,
+    "invalid_nonce_records": 0,
+    "cleaned_records": 3
+  },
+  "original_records_unchanged_after_cleanup": true,
+  "isolation": {
+    "mail_blocked": true,
+    "http_blocked": true,
+    "payments_blocked": true,
+    "cron_disabled": true
+  },
+  "production_mutations": 0,
+  "limits": [
+    "Clone was upgraded from old Store0.4.0; production code/content drift and release/backup/rollback still require separate qualification.",
+    "No real customer, order, payment, ERP or MyTel operation.",
+    "Rate-limit transients are left to expire in this isolated clone."
+  ]
+}

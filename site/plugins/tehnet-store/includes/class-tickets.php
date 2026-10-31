@@ -7,6 +7,12 @@ final class TehNet_Store_Tickets {
     private const PAGE_SLUG='support';
     public const STATES=['open','answered','closed'];
 
+    /** Only supported infrastructure intents may prefill the existing ticket intake. */
+    public static function service_context($value): array {
+        if (!is_string($value) || $value!=='voice-network') { return []; }
+        return ['key'=>'voice-network','label'=>'بررسی آمادگی شبکه برای VoIP'];
+    }
+
     public static function install(): void {
         register_post_type(self::CPT,['labels'=>['name'=>'تیکت پشتیبانی','singular_name'=>'تیکت'],'public'=>false,'show_ui'=>false,
             'supports'=>['title'],'capability_type'=>'post','capabilities'=>['create_posts'=>'do_not_allow'],'map_meta_cap'=>true]);
@@ -41,12 +47,14 @@ final class TehNet_Store_Tickets {
     }
 
     public function shortcode(): string {
+        $service=self::service_context($_GET['tn_service_context']??'');
         $out='<form method="post" action="'.esc_url(admin_url('admin-post.php')).'" class="tn-ticket-form" dir="rtl"><input type="hidden" name="action" value="tn_ticket_submit">';
-        wp_nonce_field('tn_ticket');
+        $out.=wp_nonce_field('tn_ticket','_wpnonce',true,false);
+        if ($service) { $out.='<input type="hidden" name="tn_service_context" value="'.esc_attr($service['key']).'">'; }
         $out.='<p class="tn-qa-hp" aria-hidden="true"><label>خالی بگذارید <input name="tn_hp" tabindex="-1" autocomplete="off"></label></p>';
         $out.='<p><label>نام شما <input name="tn_name" maxlength="80" required></label></p>';
         $out.='<p><label>ایمیل <input type="email" name="tn_email" maxlength="120" required></label></p>';
-        $out.='<p><label>موضوع <input name="tn_subject" maxlength="140" required></label></p>';
+        $out.='<p><label>موضوع <input name="tn_subject" maxlength="140" required value="'.esc_attr($service['label']??'').'"></label></p>';
         $out.='<p><label>ارجاع (اختیاری: شماره سفارش/پیش‌فاکتور یا کد کالا) <input name="tn_reference" maxlength="80"></label></p>';
         $out.='<p><label>شرح مشکل <textarea name="tn_message" maxlength="3000" required></textarea></label></p>';
         $out.='<p><button class="button button-primary" type="submit">ثبت تیکت</button></p></form>';
@@ -66,6 +74,8 @@ final class TehNet_Store_Tickets {
         update_post_meta($id,'_tn_email',$valid['email']);
         update_post_meta($id,'_tn_message',$valid['message']);
         update_post_meta($id,'_tn_reference',$valid['reference']);
+        $service=self::service_context($field('tn_service_context'));
+        if ($service) { update_post_meta($id,'_tn_service_context',$service['key']); }
         update_post_meta($id,'_tn_ticket_state','open');
         update_post_meta($id,'_tn_thread',[['who'=>'customer','at'=>gmdate('c'),'text'=>$valid['message']]]);
         wp_safe_redirect(add_query_arg('tn_ticket','sent',get_permalink(get_page_by_path(self::PAGE_SLUG))));exit;

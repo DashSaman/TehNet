@@ -1,0 +1,11 @@
+{
+  "observed_utc": "2026-10-31T18:56:16.031327+00:00",
+  "scope": "existing isolated clone only; Store0.7.0 to current source plus bounded MU module",
+  "file_count": 41,
+  "php_lint_files": 20,
+  "protected_state_unchanged": true,
+  "isolation_guards": true,
+  "source_checksums_verified": true,
+  "backup_verified_by_sha256": true,
+  "production_mutations": 0
+}

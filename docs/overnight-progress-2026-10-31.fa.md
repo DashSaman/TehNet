@@ -32,3 +32,7 @@ ACL محل خصوصی با icacls بومی محدود شد؛ تلاش اولیه
 v3 عمداً در gateِ برابری tree متوقف شد: فهرست مشترک، ایمیل تماسِ عمداً عمومی پروفایل TehNet را هم جایگزین می‌کرد. scope پس از بازبینی original اصلاح و تماس عمومی حفظ شد. اولین checkoutِ v4 نیز به محدودیت طول مسیر Windows خورد؛ اصلِ شکست نگه داشته شد و checkout تازه با `git -c core.longpaths=true` در همان فرمان ساخته شد، بدون تغییر تنظیم سراسری. تلاشی برای ادامه روی checkout ناقص انجام نشد.
 
 برای wikiِ TehNet و -SEO، تلاش خواندنی `ls-remote` با exit128 و پیام repository-not-found برگشت. محتوای wiki قابل بررسی نبود؛ feature روشن را مدرک نبودن محتوا نمی‌نامیم. Pages طبق snapshot API پیشین فعال نبود. تصاویر/OCR/cache خارجی هنوز بررسی کامل نشده‌اند. بررسی تنظیم واقعی branch protection و native secret scanning نیز جدا باز است.
+
+## checkpoint native و GitHub —۳۱اکتبر
+
+مستندات امنیت/برنامه با715f465 push و draft PR34 ساخته شد؛ CI آن commit موفق بود. بستهٔ فرم/ابزار اکنون۶۴PHP+۴JS،۲۶component و۲۴native پاس دارد؛۳رکورد مصنوعی private تأیید و پاک، دادهٔ قبلی ثابت. تداخل query باCPT اصلاح شد. دو صفحه/۲hub فقط staged هستند؛۲۰PHP lint و۴۱بلوک roundtrip. شکست query و helper journal در سند بسته ثبت شده‌اند. production، history remote، Origin، indexing و commerce تغییر نکردند. بعد: commit/push کد/شواهد، انتقال درس محدود به -SEO، سپس qualification انتشار و تحقیق محتوا.

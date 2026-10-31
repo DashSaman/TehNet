@@ -49,7 +49,7 @@ final class TehNet_Store_Quotes {
     public function shortcode(): string {
         $products=wc_get_products(['limit'=>60,'status'=>'publish','orderby'=>'title','order'=>'ASC']);
         $out='<form method="post" action="'.esc_url(admin_url('admin-post.php')).'" class="tn-quote-form" dir="rtl"><input type="hidden" name="action" value="tn_quote_submit">';
-        wp_nonce_field('tn_quote');
+        $out.=wp_nonce_field('tn_quote','_wpnonce',true,false);
         $out.='<p class="tn-qa-hp" aria-hidden="true"><label>خالی بگذارید <input name="tn_hp" tabindex="-1" autocomplete="off"></label></p>';
         $out.='<p><label>نام سازمان <input name="tn_company" maxlength="120" required></label></p>';
         $out.='<p><label>نام رابط <input name="tn_contact" maxlength="80" required></label></p>';

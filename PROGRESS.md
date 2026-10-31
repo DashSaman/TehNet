@@ -1,3 +1,7 @@
+## CURRENT — native service-intake milestone, 2026-10-31
+
+Read `docs/service-network-readiness-2026-10-31.fa.md` and `qa/growth-2026-10-31/native-verification.json`. Current package:64 PHP +4 JS assertions,26 component-browser and24 native-browser checks passed; two synthetic tickets and one B2B quote were verified private and removed, original-record fingerprints unchanged. `tn_service_context` avoids an observed WordPress CPT query collision. Two editable pages and guarded hub appendices are staged, not live. Production deployment remains pending fresh drift/backup/rollback and full-page/editor/link review. Security/credential/history/Origin gates remain separately open. Next: qualify the bounded TehNet release, then continue intent/content research; do not replay old preview synchronization against production.
+
 ## CURRENT — autonomous security-first execution, 2026-10-31
 
 The latest owner directive is preserved in `docs/requirements-autonomous-2026-10-31.md`; it overrides conflicting priorities, not completed work. Read `docs/superpowers/plans/2026-10-31-overnight-execution.fa.md` and `docs/overnight-progress-2026-10-31.fa.md` before continuing. Security evidence and open gates: `security/INCIDENT_RESPONSE_2026-10-31.md` and `security/EXPOSURE_REMEDIATION_MATRIX.md`.
