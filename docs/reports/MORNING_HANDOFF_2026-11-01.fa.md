@@ -1,6 +1,6 @@
 # تحویل صبح TehNet × MyTel × SEO —۱نوامبر۲۰۲۶
 
-**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 01:56 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
+**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 01:59 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
 
 ## ۱. امنیت — گیت‌های باز مقدم‌اند
 
@@ -142,3 +142,13 @@ NEXT: bundle immutable از همین منبع و rehearsal check/apply/repeat/ro
 rehearsal immutable source `4becf1692f838bba5cdb47f3bc5fade6c0459f1c` در staging بومی: check/apply/repeat/rollback/repeat، رد دستکاری payload/metadata و4HTTP پاس؛ posts/meta/users و runtime دقیقاً بازیابی شدند. رسید `qa/growth-2026-10-31/routing-release-rehearsal.json`. RouterOS lab اجرا نشده؛ یک درس موجود، نه پنج مقالهٔ تازه.
 
 NEXT: PR/CI عادی همین source، snapshot خصوصی قبل از integration، verify برابری bundle با منبع آزموده، backup/checksum/drift تازه؛ سپس انتشار فقط body64 و پذیرش HTTPS/مرورگر/دادهٔ محافظت‌شده. این درس هنوز DEPLOYED نیست. درس62 و P4 را بازپخش نکنید. noindex/پرداخت/MyTel freeze و گیت‌های rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED برقرارند.
+
+## checkpoint انتشار مسیریابی —۰۱:۵۹ تهران
+
+## CURRENT — مسیریابی روی سایت منتشر و تأیید شد
+
+**DEPLOYED —۱نوامبر،۰۱:۵۷ تهران:** [درس موجود مسیریابی](https://tehnet.ir/learn/mikrotik/mtcna/static-routing/) با همان ID64/URL/Title و فقط body/تاریخ واقعی تغییر به‌روزرسانی شد. [PR39](https://github.com/DashSaman/TehNet/pull/39)، required CI41248197017؛ source live `e2dcf87e3c20ca9919829000d239bd62e3ff3723` و برابری payload/tool/7runtime guard با source qualify‌شده `4becf1692f838bba5cdb47f3bc5fade6c0459f1c` تأیید شد. backup تازه/checksum/drift پیش‌وپس پاس؛ صفر runtime file، یک درس موجود، صفر مقاله/URL جدید؛ repeat بدون تغییر.
+
+پذیرش واقعی:56بلوک/21browser staging و16GET لینک؛29native +27regression درس62 +37خدمات +10unit operator؛ rehearsal کامل و رد tamper؛ سپس9HTTPS عمومی و35browser دسکتاپ/موبایل/no-JS با یکH1/canonical/noindex/timestamp واقعی، بدون overflow/page error/POST. mobile screenshot staging وlive دیده شد؛ desktop فقط کنترل خودکار است. خانه/منو/دادهٔ محافظت‌شده/runtime ثابت؛25کالا/قابل‌خرید0، ERP/sandbox false وMyTel write0. RouterOS اجرا نشده و در مقاله روشن است. رسید: `qa/growth-2026-10-31/routing-production-release.json`؛ brief: `seo/editorial-static-routing-2026-11-01.fa.md`.
+
+تا این checkpoint، دو درس62 و64 بهبود یافته‌اند؛ پرتفوی100موضوع هنوز فهرست کاندیدا و شاهد محدود بازار است، نه100مقاله. NEXT: audit خواندنی و محدود UX/SEO مسیرهای موجود، یک اصلاح اثبات‌شده با qualification، و مقایسهٔ مستند TarazNet؛ MyTel فقط پیشنهاد قابل بازبینی. درس‌ها/P4 یا inventory را بازپخش نکنید. گزارش صبح هنوز LIVE_NOT_FINAL است. rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED و noindex/پرداخت/MyTel freeze حفظ می‌شوند.

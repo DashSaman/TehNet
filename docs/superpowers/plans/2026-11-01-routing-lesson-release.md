@@ -1,6 +1,6 @@
 # Existing routing lesson, bounded continuation
 
-Status: VERIFIED_FOR_RELEASE; production pending. Continues the overnight owner directive and completed lesson62 release; no new URL or RouterOS infrastructure change.
+Status: DEPLOYED_VERIFIED; this bounded unit is complete. Continues the overnight owner directive and completed lesson62 release; no new URL or RouterOS infrastructure change.
 
 Target: published page64, `/learn/mikrotik/mtcna/static-routing/`. Preserve title, slug, parent, status, excerpt and meta; update body, actual modification time and at most one owned revision. Protect home, menus, store, customers, noindex, disabled payments and MyTel.
 
@@ -11,3 +11,5 @@ Target: published page64, `/learn/mikrotik/mtcna/static-routing/`. Preserve titl
 5. Normal protected PR/CI integration, private snapshot before local merge. Publish only equivalent qualified payload/tool with fresh verified production backup and drift guards. Verify actual public page and protected states; record exact source and status. Otherwise retain VERIFIED/BLOCKED and the reason, never infer DEPLOYED.
 
 No force-push, credential rotation, shared network/DNS changes, customer actions or real payments. Historical security gates persist. This is one improved lesson, not five new articles or a ranking result.
+
+Accepted: PR39/CI41248197017, source e2dcf87, equivalent qualified source4becf16, fresh verified backup,9 TLS GETs and35 read-only production browser checks. No runtime file installed, one existing page revised, all protected states retained. Broader SEO/security/content mission remains open.
