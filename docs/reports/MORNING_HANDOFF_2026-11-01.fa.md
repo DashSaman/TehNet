@@ -1,6 +1,6 @@
 # تحویل صبح TehNet × MyTel × SEO —۱نوامبر۲۰۲۶
 
-**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-10-31 23:55 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
+**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 00:22 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
 
 ## ۱. امنیت — گیت‌های باز مقدم‌اند
 
@@ -22,13 +22,13 @@ main دو مخزن عمومی اکنون PR و check واقعیِ `tracked-file-
 
 در شاخهٔ رشد، nonce فرم تیکت و B2B داخل همان form بازگشتی قرار گرفت. context محدود `tn_service_context=voice-network` موضوع اولیهٔ قابل‌ویرایش می‌دهد؛ آرایه/مقدار نامعتبر پذیرفته نمی‌شود و marker فقط در meta خصوصی ذخیره می‌شود. پارامتر آزمایشی قبلی باCPT خدمات تداخل داشت و404 می‌داد؛ قبل از انتشار اصلاح شد.
 
-ابزار۸پرسشی دستی، summary، reset/focus، دانلودJSON محلی، چند نمونه مستقل و no-JS در MU-plugin موجود افزوده شد. اندازه‌گیری/score/تضمین آمادگی نیست. دو صفحهٔ ویرایش‌پذیر خدمات و Lab و append محدود Services/Lab **فقط در preview خصوصی** ذخیره شدند. خانه/منو/محصولات ثابت ماندند؛ preview موجود restart/reset نشد. قبل از sync محدود، SQL/فایل‌ها backup و هویت/internal network/mail/HTTP/cron/payment guard تأیید شدند.
+ابزار۸پرسشی دستی، summary، reset/focus، دانلودJSON محلی، چند نمونه مستقل و no-JS در MU-plugin موجود افزوده شد. اندازه‌گیری/score/تضمین آمادگی نیست. دو صفحهٔ ویرایش‌پذیر [خدمات شبکه برای VoIP](https://tehnet.ir/services/voice-network-readiness/) و [Lab چک‌لیست دستی](https://tehnet.ir/lab/voice-network-checklist/) به‌همراه append محدود Services/Lab **روی production منتشر شدند**. خانه/منو/محصولات ثابت ماندند؛ preview موجود restart/reset نشد. قبل از sync محدود، SQL/فایل‌ها backup و هویت/internal network/mail/HTTP/cron/payment guard تأیید شدند.
 
-**production این بسته تغییر نکرده است.** visual/editor، drift خواندنی و backup/restore تازه تأیید شدند؛ migration idempotent و۳۷check native تأیید شده‌اند؛ orchestration۶فایلی، گیت تازه و release هنوز لازم‌اند. sync۴۱فایلیِ clone مجوز sync کامل به تولید نیست.۲۵ محصول inquiry-only، noindex عمدی و درگاه/ERP واقعی بسته ماندند؛ MyTel production فقط خوانده شد.
+**انتشار محدود در۰۰:۱۹ تهران انجام شد.** PR34 با CI الزامی موفق ادغام و main ac506f1 دقیقاً برابر tree آزموده‌شده بود؛ snapshot خصوصی پیش از integration verify شد. orchestration۶فایلی با backup/checksum/drift تازه، migration و repeat صفر تغییر اجرا شد؛۸HTTP عمومی با TLS معتبر و۲۵check مرورگر عمومی پاس. rollback محتوا سپس فایل‌ها در clone مستقل تمرین شد و در live لازم نشد. journal و backup خصوصی حفظ شدند. sync۴۱فایلیِ clone به تولید بازپخش نشد.۲۵ محصول inquiry-only، noindex عمدی و درگاه/ERP واقعی بسته ماندند؛ MyTel production فقط خوانده شد.
 
 ## ۳. محتوا، سئو و رقابت
 
-دو draft خدمات/چک‌لیست با تفکیک intent شبکه از PBX/IVR/داخلی مایتل و منابع RFC/Cisco آماده و staged شدند؛ **مقالهٔ جدیدِ منتشرشده در این بسته صفر است.** پنج لینک داخلیِ متمایز در clone200 دادند. پرتفوی تحقیق‌شدهٔ۱۰۰موضوع، batch مقاله، benchmark کامل۱۰۰خارجی/۲۰ایرانی و مدل دقیق/مجاز۲۵کالا هنوز کامل نیستند. کاندیدا/draft با انتشار یا نتیجهٔ رتبه یکسان نیست.
+دو صفحهٔ خدمات/چک‌لیست با تفکیک intent شبکه از PBX/IVR/داخلی مایتل و منابع RFC/Cisco منتشر شدند؛ **مقالهٔ جدیدِ منتشرشده در این بسته صفر است.** پنج لینک داخلیِ متمایز در clone200 دادند. پرتفوی تحقیق‌شدهٔ۱۰۰موضوع، batch مقاله، benchmark کامل۱۰۰خارجی/۲۰ایرانی و مدل دقیق/مجاز۲۵کالا هنوز کامل نیستند. صفحهٔ خدمات و ابزار، مقاله یا نتیجهٔ رتبه شمرده نمی‌شوند.
 
 پژوهش اولیهٔ منابع رسمی جاری Google/Bing/OpenAI انجام شده؛ دادهٔ تازهٔ رتبه/ترافیک/GSC/Ahrefs در این checkpoint ادعا نمی‌شود. noindex به‌صورت خودکار باز یا sitemap/IndexNow ارسال نشده است. هیچ رتبه، توصیهٔ AI، مشتری، قیمت، موجودی، MPN، نمای پنهان/اجزای مدل یا اندازهٔ میکرونی ساخته نشد. هیچ external post/message یا پرداخت واقعی انجام نشده است.
 
@@ -45,26 +45,29 @@ main دو مخزن عمومی اکنون PR و check واقعیِ `tracked-file-
 | full-page/editor |۲صفحه desktop/mobile،۵۶بلوک معتبر، edit/reset بدون ذخیره |۰page error،۰Save؛ cleanup و fingerprint اصلی برابر |
 | recovery تازه |۱۰٬۰۱۶فایل و۴۷جدول تطبیق؛ native boot پاس | شبکه داخلی/بدون پورت،۰egress/mail/payment؛۲container و network موقت حذف؛ runtime/data قبلی ثابت |
 | migration native |۳۷پاس؛۱۳fixture cleanup و اصل posts/meta برابر | apply/repeat/rollback، race دو اتصال، row/meta lock و retention cap؛۰production write |
+| release rehearsal |۴boundary test؛ apply/repeat،۸HTTP، rollback/repeat و bundle tamper رد شد | clone مستقل،۶فایل baseline و protected state برابر؛۲container/network حذف |
+| production release |۶فایل/۲صفحه/۲appendix؛۸GET معتبر TLS، repeat۰تغییر | backup/checksum/drift تازه؛ nonce/context/canonical/H1/noindex پاس؛۰POST واقعی |
+| public browser |۲۵پاس/۰fail | desktop1440/mobile375/no-JS/JSON/reset؛۰overflow/page error/POST/cross-origin؛ screenshot بازبینی |
 | guard |۹test درهرمخزن و CI مربوط پاس؛ اسکن خصوصی ترکیبی پاک | محافظ محدود؛ «همهٔ secretها غایب‌اند» نتیجه نمی‌شود |
 
 شکست‌های ثبت‌شده: regression اولیهٔ nonce۷FAIL؛ query regression۱۹check/۳FAIL و پس از اصلاح۱۹/۰؛ native اولیه به404/timeout برخورد کرد و۰رکورد ساخته بود. تمرینv3 روی gate برابری tree، به‌دلیل طبقه‌بندی تماس عمومی متوقف شد و scope اصلاح شد. checkout ویندوز روی طول مسیر شکست خورد؛ کپی ناقص حفظ و کپی تازه با تنظیم فقط همان فرمان ساخته شد. helper journal مسیر host/container را اشتباه گرفته بود؛ backup کامل موجود ماند و نوشتن/کپی/تأیید journal اصلاح شد. helper تشخیصی یک shadow نام ماژول داشت و OCR probe ابتدا generic-type reflection را پیدا نکرد؛ هر دو اصلاح و probe سپس پاس شد. protection PUT اول422 schema داد؛ پاسخ بررسی، گیت تازه و checks-only پذیرفته شد. هیچ‌کدام permission bypass یا دلیلِ ادعای موفقیتِ پیش از آزمون نیست.
 
 ## ۵. GitHub و انتقال دانش
 
-- TehNet main پاک‌سازی: `c05bd38`، [PR33](https://github.com/DashSaman/TehNet/pull/33) MERGED. شاخهٔ رشد `feat/tehnet-mytel-seo-20261031`: `715f465` مستندات و `0fbf6e8` کد/شواهد، [PR34](https://github.com/DashSaman/TehNet/pull/34) draft/open؛ CI هر دو commit موفق. merge/deploy بستهٔ رشد انجام نشده است.
+- TehNet پاک‌سازی با `c05bd38`/[PR33](https://github.com/DashSaman/TehNet/pull/33) ادغام شد. [PR34](https://github.com/DashSaman/TehNet/pull/34) رشد نیز پس از required CI41240538610 و head `4c6e938` ادغام؛ main/source انتشار `ac506f1`، tree آزموده‌شده برابر. commit593b30e ابزار release و4c6e938 رسید rehearsal هستند. بستهٔ محدود production منتشر شده؛ رسید: `qa/growth-2026-10-31/production-release.json`.
 - MyTel privacy main: `63890ad`، [PR3](https://github.com/DashSaman/mytel.one/pull/3) MERGED؛ runtime دست نخورده.
 - -SEO privacy main `e59de10`؛ درس native WordPress با `0413aea` و [PR3](https://github.com/DashSaman/-SEO/pull/3) ادغام، main `1f205e6`. درس الزام guard با `a771289` و [PR4](https://github.com/DashSaman/-SEO/pull/4) پس از CI موفق از مسیر عادیِ محافظت‌شده ادغام شد؛ main `c3b3431` است. هیچ protection bypass انجام نشد.
 
 منابع۳گانهٔ WordPress و receipt immutable، playbook تداخل query/nonce، source ledger، handoff/progress/dashboard به -SEO منتقل شدند؛ private MyTel metrics/مشتری/نشانی منتقل نشد. baseline مرکزی همچنان۷۱٪ است. update protection یک منبع رسمی GitHub و scope/settings/failure را نیز ثبت کرده است. مدل/ارائه‌دهندهٔ استفاده‌نشده ادعا نمی‌شود؛ GLM یا CLI بیرونی تازه فراخوانی نشد؛ یک بازبین محدود native Sol medium فقط transaction/rollback دو فایل جدید را خواند.
 
-این گزارش و آخرین receiptها پیش از آخرین commit ممکن است تغییرِ مستنداتیِ درحال ثبت باشند؛ وضعیت دقیق با `git status --short` و remote SHA reconcile شود. تغییرات source تا0fbf6e8 و checkpoint مستنداتی1acad88 push و remote تأیید شده‌اند؛ پذیرش editor/recovery تازه نیز در همین شاخه ثبت می‌شود.
+این گزارش و رسید انتشار/browser پیش از commit بعدی تغییرات درحال ثبت‌اند؛ وضعیت دقیق با `git status --short` و remote SHA reconcile شود. source انتشار ac506f1 در main عمومی موجود است؛ commit مستنداتی بعدی نباید به‌عنوان runtime جدید شمرده شود.
 
 ## ۶. ادامهٔ شب و تصمیم‌های لازم
 
 Heartbeat موجود **ACTIVE** و محدود تا۰۸:۰۰ تهران است؛ کارکرد محلی به رایانهٔ روشن/آنلاین/خارج از Sleep و Codex باز وابسته است. runner دائمی مستقل نصب نشده است. نوبت بعد از `docs/overnight-progress-2026-10-31.fa.md` و برنامه شروع کند، کارهای موفق را بی‌دلیل تکرار نکند و deployment موازی نسازد.
 
 ۱. آخرین checkpoint/CI و remote SHA را reconcile کن؛ PR4 مرکزی ادغام شده است. هیچ رمز/نشانی/raw capture وارد Git نشود و صرفاً به‌دلیل تغییر refهای معمول، purge محلی را بی‌هدف تکرار نکن.
-۲. visual/editor و preflight خواندنی/restore اکنون تأیید شده‌اند؛ migration۳۷check پذیرفته شده است؛ orchestration۶فایلی و گیت backup/drift تازه، سپس release واجد گیت را اجرا کن. ID صفحهٔ جدیدِ clone روی live استفاده نشود؛ parent/path و journal همان محیط معیارند. در صورت گیت واقعی، آن را دقیق ثبت و به کار مستقل بعدی برو.
+۲. انتشار۶فایلی و دو صفحه انجام شده؛ آن را تکرار نکن. گام اول ناتمام اکنون intent و پرتفوی۱۰۰موضوع است. ID صفحهٔ clone روی live استفاده نشود؛ برای تغییر بعدی، parent/path و journal همان محیط معیارند و گیت انتشار دوباره لازم است.
 ۳. مالکیت intent و۱۰۰موضوع متمایزِ دارای منبع/وضعیت تحقیق، بهبود خدمات موجود و batch کوچک مقالهٔ واقعاً مستند را ادامه بده؛ draft را منتشرشده نشمار.
 ۴. baseline فنی/AI و رقبا را با منبع/محدودیت و دسترسی واقعی تکمیل و درس هر milestone را به -SEO برگردان.
 ۵. purge مشترک تاریخچه، account rotation نامعلوم، Origin مشترک بدون OOB، بازکردن index و پرداخت واقعی گیت‌های جدا هستند؛ تأیید ضمنی ساخته نشود. CAD/MPN نامطمئن BLOCKED همان قلم بماند.
@@ -79,3 +82,9 @@ Heartbeat موجود **ACTIVE** و محدود تا۰۸:۰۰ تهران است؛ 
 ### شواهد تکمیلی checkpoint۲۳:۵۵
 
 migration و۳۷ آزمون native در سند/receipt جدید ثبت شدند. دو نقص نسخهٔ prototype با بازبینی محدود و سپس regression واقعی پیدا شدند: TOCTOU rollback و prune revision. قفل و revalidation داخل تراکنش و override محدود retention همراه با حفظ اصل revisionها اصلاح‌شان کردند؛ هیچ‌کدام روی production اجرا نشده بودند. آزمایش مستقل اتصال دوم هم رد تغییر قبل از قفل و هم مسدودشدن UPDATE/INSERT meta در زمان قفل را تأیید کرد. journal شکست/ابهام عمداً نیاز به reconciliation دارد؛ راه رفع خطا force retry یا حذف journal نیست. مرحلهٔ بعد orchestration/release است، نه تکرار آزمون editor و OCR.
+
+### شواهد تکمیلی checkpoint۰۰:۲۲
+
+در clone تازه، HTTP فرم‌ها درحالی‌که root CLI موفق بود شکست خورد: بعضی directoryهای restore با مالک root و mode محدود مانده بودند. ثبت shortcode در دو runtime مقایسه شد؛ فقط۱۴۲۰directory همان clone و رویهٔ خصوصی استخراج اصلاح شدند. سپس۸HTTP، rollback/repeat، برابری فایل/داده و cleanup پاس شد. native bootِ root به‌تنهایی پذیرش HTTP نیست؛ checksum/جدول‌های پیشین معتبرند. خطای helper تشخیصیِ نام متغیر نیز فقط قبل از probe رخ داد و اصلاح شد. production permission/ownership تغییر نکرد.
+
+انتشار بعدی از همین نسخهٔ آزموده‌شده انجام شد؛۸GET عمومی و۲۵check مرورگر پاس و screenshotهای service desktop و Lab mobile بازبینی شدند. abrupt host loss و COMMIT مبهم در rehearsal fault-inject نشدند و NEEDS_RECONCILIATION می‌مانند؛ هیچ موفقیت در بازیابی شبکه/OOB یا purge/rotation ادعا نمی‌شود. منابع موقت تمرین حذف، backup و journal زنده خصوصی ماندند. مأموریت محتوا/رقابت ادامه دارد و گزارش هنوز نهایی نیست.

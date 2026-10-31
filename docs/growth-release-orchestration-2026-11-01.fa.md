@@ -1,6 +1,6 @@
 # انتشار محدود خدمات و ابزار شبکه
 
-وضعیت: `VERIFIED` روی clone مستقل؛ انتشار production هنوز انجام نشده است. چهار boundary test و تمرین کامل file+content با source593b30e پاس شدند. رسید: `qa/growth-2026-10-31/release-rehearsal.json`.
+وضعیت: `DEPLOYED` در۱نوامبر۰۰:۱۹ تهران؛ PR34/main ac506f1 از مسیر عادی و پس از required CI41240538610 ادغام شد. tree دقیقاً برابر نسخهٔ آزموده‌شده بود. چهار boundary test و تمرین کامل file+content با source593b30e پاس شدند. رسیدهای مستقل: `qa/growth-2026-10-31/release-rehearsal.json` و `production-release.json` در همان پوشه.
 
 `ops/release-growth-content.py` بسته را از blobهای دو commit کامل می‌سازد: source برای شش فایل و manifest/migration، baseline برای checksum نسخهٔ قبلی. فایل operator نیز از همان source می‌آید. CRLF محیط checkout وارد بسته نمی‌شود. config، bundle اجرایی، log، SQL، نسخهٔ قبلی فایل‌ها و journal فقط در محل خصوصی بیرون Git/webroot می‌مانند. config شامل شناسهٔ دقیق app/DB و حساب CLI موجود است؛ نمونه‌ای حاوی مقدار واقعی در مخزن قرار نمی‌گیرد.
 
@@ -14,4 +14,6 @@
 
 شکست نخست HTTP واقعی بود: directoryهای بازیابی‌شده‌ای که mode محدود داشتند با مالک root استخراج شده بودند، درحالی‌که فایل‌ها به کاربر وب تعلق داشتند. root CLI به آن‌ها دسترسی داشت و native boot پیشین این اختلاف را آشکار نمی‌کرد. شناسایی با مقایسهٔ shortcode registry در HTTP و CLI انجام شد؛۱۴۲۰ directory فقط در clone دارای owner-label/ID معتبر اصلاح، رویهٔ خصوصی استخراج نیز اصلاح، سپس HTTP و rollback کامل پاس شدند. این خطای restore بود؛ تغییر مجوز یا مالکیت در production انجام نشد. checksum و برابری جدول‌های بازیابی پیشین معتبرند، ولی native bootِ root به‌تنهایی پذیرش HTTP نیست.
 
-انتشار زنده همچنان به integration عادی، CI، backup/checksum/drift تازه و smoke عمومی نیاز دارد. abrupt host loss و COMMIT مبهم در این تمرین fault-inject نشدند؛ fail-closed و بررسی خصوصی journal لازم است و بازیابی شبکه/OOB تأیید نشده است.
+انتشار زنده با backup/checksum/drift تازه انجام شد؛۶فایل،۲صفحه و۲appendix در همین دامنه اعمال شدند. repeat صفر تغییر داد.۸GET عمومی با TLS معتبر،200/یکH1/noindex، دو canonical صحیح و nonce داخل فرم‌های تیکت/B2B پاس شد.۲۵check مرورگر عمومی برای desktop1440/mobile375/no-JS، دانلود واقعی JSON محلی و reset/focus پاس؛۰overflow/page error/POST/cross-origin attempt. تصاویر دسکتاپ خدمات و موبایل Lab بازبینی شدند. خانه، منو، protected data/runtime و۲۵ محصولِ استعلامی، ERP/payment بسته و MyTel حفظ شدند. rollback روی live لازم نشد؛ نسخهٔ قبل و journal خصوصی نگه داشته شدند.
+
+abrupt host loss و COMMIT مبهم در تمرین fault-inject نشدند؛ fail-closed و بررسی خصوصی journal لازم است و بازیابی شبکه/OOB تأیید نشده است. پس از گذشت زمان یا ویرایش صفحات، rollback به‌صورت کور مجاز نیست؛ drift gate باید پاس شود. بسته را دوباره deploy نکنید و page IDهای clone را روی production به‌کار نبرید.
