@@ -113,5 +113,17 @@ check('visible editorial note permits truthful Article dates',str_contains($out,
 check('article author does not expose account email or phone',!preg_match('/email|telephone|sameAs|credential/',$out));
 $ctx['post']->post_content='متن بدون یادداشت';check('article attribution is not invented for unmarked content',!str_contains(output(),'"@type":"Article"'));
 reset_context();$ctx['front']=false;$ctx['page']=false;$ctx['shop']=true;$ctx['path']='shop';$out=output();check('Woo shop archive gets description without duplicate canonical',str_contains($out,'فروشگاه تجهیزات شبکه')&&!str_contains($out,'rel="canonical"'));
-file_put_contents(__DIR__.'/../qa/search-metadata-unit.json',json_encode(['scope'=>'PHP unit tests with WP stubs; not integration/live proof','results'=>$results],JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE));
+foreach(['learn','lab','learn/mikrotik','learn/mikrotik/mtcna'] as $path){
+    reset_context();$ctx['front']=false;$ctx['path']=$path;$ctx['post']->post_content='فهرست منابع [tn_editorial_note]';$out=output();
+    check('collection page is not inferred to be Article: '.$path,!str_contains($out,'"@type":"Article"'));
+    check('collection description and social metadata retained: '.$path,substr_count($out,'name="description"')===1&&str_contains($out,'property="og:url"'));
+}
+foreach(['learn/mikrotik/mtcna/routeros-winbox','learn/mikrotik/mtcna/static-routing','lab/gns3-mikrotik','lab/voice-network-checklist'] as $path){
+    reset_context();$ctx['front']=false;$ctx['path']=$path;$ctx['post']->post_excerpt='درس فنی مستقل';$ctx['post']->post_content='متن درس [tn_editorial_note]';
+    check('real lesson keeps Article: '.$path,str_contains(output(),'"@type":"Article"'));
+}
+reset_context();$ctx['front']=false;$ctx['page']=false;$ctx['singular']=true;$ctx['path']='lab';$ctx['post']->post_type='post';$ctx['post']->post_excerpt='نوشته مستقل';$ctx['post']->post_content='متن [tn_editorial_note]';
+check('same-slug post is not excluded as a hub',str_contains(output(),'"@type":"Article"'));
+$receiptPath=getenv('TN_METADATA_TEST_RECEIPT')?:__DIR__.'/../qa/search-metadata-unit.json';
+file_put_contents($receiptPath,json_encode(['scope'=>'PHP unit tests with WP stubs; not integration/live proof','results'=>$results],JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE));
 $failed=count(array_filter($results,fn($r)=>!$r['pass']));echo 'CHECKS='.count($results).' FAILURES='.$failed."\n";exit($failed?1:0);

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: TehNet Search Metadata
  * Description: Bounded page descriptions, social metadata and truthful profile identity.
- * Version: 0.2.0
+ * Version: 0.2.1
  * Requires PHP: 8.2
  *
  * Isolated metadata owner; the existing Core owns LocalBusiness and Woo archives.
@@ -122,6 +122,9 @@ function social_image(int $id): array {
 /** Only opted-in, visibly attributed articles. No invented review or test claims. */
 function editorial_schema(\WP_Post $post,string $url): ?array {
     if (!function_exists('has_shortcode') || !has_shortcode($post->post_content,'tn_editorial_note')) return null;
+    // A visible source note also belongs on collection hubs; it is not an Article opt-in there.
+    if ($post->post_type === 'page' && in_array(trim((string)get_page_uri($post->ID), '/'),
+        ['learn','lab','learn/mikrotik','learn/mikrotik/mtcna'], true)) return null;
     if (!function_exists('get_post_time') || !function_exists('get_post_modified_time')) return null;
     return ['@context'=>'https://schema.org','@type'=>'Article','@id'=>$url.'#article','mainEntityOfPage'=>$url,
         'headline'=>clean(get_the_title($post),250),'inLanguage'=>'fa-IR',

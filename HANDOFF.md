@@ -1,4 +1,12 @@
-## CURRENT — مسیریابی روی سایت منتشر و تأیید شد
+## CURRENT — audit فنی انجام شد؛ اصلاح schema در qualification
+
+73پاسخ GET عمومی/68HTML200 شامل25کالا بررسی شد؛ H1/canonical/robots/JSON syntax و attributeهای تصاویر در این دامنه پاس.16مشاهدهٔ مرورگر1440/375/320/no-JS برای4مسیر، منو/Escape/focus/navigation/skip-link و نبود overflow/page error پاس. نبود sitemap با noindex فعلی سازگار و گیت launch جداست. queryless graph حکم orphan ابزارها نیست؛ email-protection درJS به mailto تبدیل شد. شواهد `qa/growth-2026-10-31/technical-audit-and-metadata-role.json`؛8منبع رسمی scoped در `seo/technical-audit-2026-11-01.fa.md`.
+
+تنها اصلاح این بسته: چهارhub، فقط به‌دلیل source note نباید Article فرض شوند. چهارFAIL واقعی در regression قبل از اصلاح؛ سپس56metadata unit،12operator unit و16native checker پاس. فایل metadata0.2.1 محلی است؛ **هنوز روی staging نصب/در production منتشر نشده**. scope یک‌فایلی مستقل با checker فقط‌خواندنی،7runtime guard و rollback فایل اضافه شد؛ content migration استفاده نمی‌شود.
+
+NEXT همین بسته: immutable bundle → apply/repeat در staging با backup/hash/identity/isolation → پذیرش native HTTP/مرورگر → rollback/repeat و برابری داده/runtime؛ سپس PR/CI عادی، snapshot، backup/checksum/drift تازه و انتشار فقط همین فایل. درس62/64/P4 را بازپخش نکنید. noindex/پرداخت/MyTel freeze و rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED برقرارند. گزارش صبح هنوز interim است.
+
+## HISTORICAL CHECKPOINT — مسیریابی روی سایت منتشر و تأیید شد
 
 **DEPLOYED —۱نوامبر،۰۱:۵۷ تهران:** [درس موجود مسیریابی](https://tehnet.ir/learn/mikrotik/mtcna/static-routing/) با همان ID64/URL/Title و فقط body/تاریخ واقعی تغییر به‌روزرسانی شد. [PR39](https://github.com/DashSaman/TehNet/pull/39)، required CI41248197017؛ source live `e2dcf87e3c20ca9919829000d239bd62e3ff3723` و برابری payload/tool/7runtime guard با source qualify‌شده `4becf1692f838bba5cdb47f3bc5fade6c0459f1c` تأیید شد. backup تازه/checksum/drift پیش‌وپس پاس؛ صفر runtime file، یک درس موجود، صفر مقاله/URL جدید؛ repeat بدون تغییر.
 

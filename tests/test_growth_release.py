@@ -81,6 +81,27 @@ class ReleaseBoundaries(unittest.TestCase):
         prefixes = [row[2] for row in self.module.LESSON_SCOPES.values()]
         self.assertEqual(len(set(prefixes)), len(prefixes))
 
+    def test_metadata_scope_writes_only_its_file_and_has_no_content_migrator(self):
+        files, extra, runtime = self.module.scope_spec(self.module.METADATA_SCOPE)
+        self.assertEqual(files, ['site/mu-plugins/tehnet-search-metadata.php'])
+        self.assertEqual(extra, ['content/metadata-role-2026-11-01/manifest.json', 'ops/check-metadata-state.php'])
+        self.assertNotIn(files[0], runtime)
+        self.assertEqual(len(runtime), 7)
+        self.assertNotIn('ops/migrate-growth-content.php', extra)
+
+    def test_metadata_runtime_guard_is_independent_of_owned_file_revision(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            release = self.module.Release.__new__(self.module.Release)
+            release.root = root
+            protected = root / 'mu-plugins/protected.php'; protected.parent.mkdir(); protected.write_bytes(b'baseline')
+            release.m = {'runtime_guard': {'site/mu-plugins/protected.php': self.module.digest(b'baseline')}}
+            release.runtime_guard()
+            protected.write_bytes(b'foreign edit')
+            with self.assertRaises(RuntimeError):
+                release.runtime_guard()
+            self.assertEqual(protected.read_bytes(), b'foreign edit')
+
     def test_routing_bundle_uses_only_its_committed_payload(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp); repo = root / 'repo'; repo.mkdir()
