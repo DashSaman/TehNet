@@ -1,6 +1,6 @@
 # Existing network-support page and bounded competitor evidence
 
-Status: DEPLOYED_VERIFIED — 2026-11-01 02:54 Asia/Tehran. Steps1–6 passed; source933bc33065295a018182104626ac7a7ba78bd55c, PR43/CI41252270026,9 valid-TLS GETs and41 public-browser checks. All8 runtime guard files preserved, zero runtime replacements. Separate staging metadata fixture exactly restored. Step7 transfer to -SEO remains. See actual production receipt, including UNKNOWN initial local build failure; no native/remote action ran on that partial bundle.
+Status: DEPLOYED_VERIFIED — 2026-11-01 02:54 Asia/Tehran. Steps1–6 passed; source933bc33065295a018182104626ac7a7ba78bd55c, PR43/CI41252270026,9 valid-TLS GETs and41 public-browser checks. All8 runtime guard files preserved, zero runtime replacements. Separate staging metadata fixture exactly restored. Step7 completed through -SEO PR10/main9380cc1cdfb7f7a0d2bdb1f85437b87d7b924366 and CI41252616666; baseline71% unchanged. See actual production receipt, including UNKNOWN initial local build failure; no native/remote action ran on that partial bundle.
 
 The current ID31 `/services/network-support-tehran/` already explains symptoms and remote/on-site selection. It lacks an explicit acceptance record, safe intake example and distinction between response and resolution commitments. Improve that page, preserving URL/title/H1/meta and the existing Tehran-only on-site/nationwide remote policy. No new landing page or article.
 
