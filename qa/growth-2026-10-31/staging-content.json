@@ -1,0 +1,57 @@
+{
+  "runs": [
+    {
+      "pages": [
+        {
+          "key": "voice-service",
+          "id": 193,
+          "url": "http://localhost:18085/services/voice-network-readiness/",
+          "content_sha256": "7f384153b9140fe60db47dca2690ebd1e6e85ff8a16637745d12e7f23844a915"
+        },
+        {
+          "key": "voice-checklist",
+          "id": 194,
+          "url": "http://localhost:18085/lab/voice-network-checklist/",
+          "content_sha256": "5727d4db2cd5729fb7e47d5c12f5e6d73f0dff92d5e6a51e77062710b92df117"
+        }
+      ],
+      "created": 0,
+      "updated": 2,
+      "block_roundtrip_count": 41,
+      "scope": "isolated staging only",
+      "blog_public": 0,
+      "private_journal_verified": true
+    },
+    {
+      "pages": [
+        {
+          "key": "voice-service",
+          "id": 193,
+          "url": "http://localhost:18085/services/voice-network-readiness/",
+          "content_sha256": "7f384153b9140fe60db47dca2690ebd1e6e85ff8a16637745d12e7f23844a915"
+        },
+        {
+          "key": "voice-checklist",
+          "id": 194,
+          "url": "http://localhost:18085/lab/voice-network-checklist/",
+          "content_sha256": "5727d4db2cd5729fb7e47d5c12f5e6d73f0dff92d5e6a51e77062710b92df117"
+        }
+      ],
+      "created": 0,
+      "updated": 0,
+      "block_roundtrip_count": 41,
+      "scope": "isolated staging only",
+      "blog_public": 0,
+      "private_journal_verified": true
+    }
+  ],
+  "initial_creation_observed": {
+    "pages_created": 2,
+    "hubs_appended": 2
+  },
+  "limits": [
+    "Initial host/container journal path was incorrect; the full pre-stage database/file backup remained available.",
+    "Corrected journal writes are checked, copied to the private host checkpoint and verified. The corrected query-link revision updated two fenced staged bodies; repeat changed zero.",
+    "PHP parse/serialize roundtrip is not Gutenberg browser-editor validation."
+  ]
+}

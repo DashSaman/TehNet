@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "assertions": 37,
+  "original_posts_meta_unchanged": true,
+  "scope": "Verified isolated native WordPress only",
+  "fixture_pages_cleaned": 13,
+  "production_mutations": 0,
+  "observed_utc": "2026-10-31T20:22:46.904447+00:00",
+  "migration_source_sha256": "3d5ca27f45f77040695e69ebae4c0844b4c55833e4d78888e2f63c830dfd454b",
+  "native_test_source_sha256": "d5e854485e2cb3c68445085862092340c62f2c6fd9b5d23ee225c660dca64be6",
+  "manifest_sha256": "7962a724bc56ca1041518afc4072f3d4afdf7fd601aa4c63246e788d392999a6",
+  "php_lint": "Both new PHP files PASS using existing portable runtime",
+  "review": {
+    "provider": "Native GPT-6.1 Sol",
+    "effort": "medium",
+    "scope": "Read-only transaction/journal/rollback review of the two new files; no native tests run by reviewer",
+    "findings": [
+      {
+        "id": "MIG-01",
+        "priority": "P1",
+        "trigger": "Second connection commits a hub edit after preflight but before transaction start",
+        "red": "Concurrent edit was overwritten; rejection assertion FAILED on initial implementation",
+        "fix": "Managed row/revision/meta range locks and revalidation inside transaction; per-transaction REPEATABLE READ",
+        "green": "Boundary race rejected and concurrent content preserved; second-connection UPDATE/meta INSERT blocked"
+      },
+      {
+        "id": "MIG-02",
+        "priority": "P2",
+        "trigger": "Existing hub at enforced two-revision retention limit",
+        "red": "Original revision retention assertion FAILED on initial implementation",
+        "fix": "Bounded in-process retention override and original-revision verification before commit",
+        "green": "All prior limited revisions retained, full rollback and original-row cleanup verified"
+      }
+    ]
+  },
+  "initial_native_pass_assertions": 28,
+  "harness_failures": [
+    "WP-CLI eval-file prepends code, so strict_types in driver failed before fixtures; driver declaration removed.",
+    "Required migration implementation was initially absent; failure occurred before fixture creation."
+  ],
+  "limits": [
+    "Native fixture acceptance only; no production migration/file deployment performed.",
+    "Crash/commit ambiguity requires explicit journal/data reconciliation; automatic force retry is prohibited.",
+    "Normal external edits or edit locks after release can intentionally prevent rollback until reconciled.",
+    "Checks protect the observed WordPress/MariaDB schema and supported transactional engine; unrelated network/OOB recovery is outside scope."
+  ]
+}

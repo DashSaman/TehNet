@@ -1,0 +1,42 @@
+{
+  "observed_utc": "2026-10-31T19:01:41.154864+00:00",
+  "scope": "Anonymous read-only isolated-preview internal links from the two draft bodies",
+  "links": [
+    {
+      "path": "/lab/voice-network-checklist/",
+      "status_chain": [
+        200
+      ],
+      "final_status": 200
+    },
+    {
+      "path": "/learn/mikrotik/mtcna/queues-troubleshooting/",
+      "status_chain": [
+        200
+      ],
+      "final_status": 200
+    },
+    {
+      "path": "/services/mikrotik-tehran/",
+      "status_chain": [
+        200
+      ],
+      "final_status": 200
+    },
+    {
+      "path": "/services/voice-network-readiness/",
+      "status_chain": [
+        200
+      ],
+      "final_status": 200
+    },
+    {
+      "path": "/support/?tn_service_context=voice-network",
+      "status_chain": [
+        200
+      ],
+      "final_status": 200
+    }
+  ],
+  "production_changed": false
+}
