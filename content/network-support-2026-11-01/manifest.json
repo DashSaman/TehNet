@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "key": "tehnet-service-network-support-20261101-v1",
+  "status": "DRAFT_NOT_DEPLOYED",
+  "target": {
+    "id": 31,
+    "url": "https://tehnet.ir/services/network-support-tehran/",
+    "title_observed": "پشتیبانی شبکه تهران",
+    "expected_content_sha256": "bfc8e8d2a83fd89cc9d17a2af26dc67f86ccda1e70bedcd519d2d6a1625bbe3a",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "content_file": "network-support.html",
+  "content_sha256_lf": "29e476e8be485e4ac1c97885b35ace4497a4036cdf7e4854806f6512a31874d5",
+  "protected": [
+    "home",
+    "menus",
+    "products/all meta",
+    "orders/customers/tickets/quotes",
+    "blog_public",
+    "payments/ERP",
+    "MyTel production"
+  ],
+  "qualification": {
+    "native": "PASS_37_SCOPED_ASSERTIONS_PLUS_29_27_37_SHARED_REGRESSIONS",
+    "browser": "PASS_26_DESKTOP_MOBILE_NOJS_EDITOR",
+    "blocks": "PASS_41_REGISTERED_BLOCKS",
+    "operator": "PASS_13_UNITS_REHEARSAL_PENDING",
+    "production": "NOT_DEPLOYED"
+  },
+  "limits": [
+    "One existing service page, zero new URLs/articles",
+    "No service delivery, staffing, price, response/resolution time or conversion evidence inferred",
+    "Competitor self-description informs page usability, not technical correctness or copied contract terms"
+  ]
+}

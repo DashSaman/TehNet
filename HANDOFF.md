@@ -1,4 +1,12 @@
-## CURRENT — اصلاح نقش schema روی live منتشر و تأیید شد
+## CURRENT — مقایسهٔ محدود خدمات و پیش‌نویس پشتیبانی آزموده شد
+
+VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED —۱نوامبر: سه صفحهٔ خدمات TarazNet/Parag/Varianet با۱۵معیار، چهارGET معتبرTLS و۹مشاهدهٔ browser ثبت شد؛ پاراگ browser403 و mobile performance/CWV/portal/lead delivery نامعلوم. منبع خوداظهاری با کیفیت واقعی خدمت یا رتبه یکی نیست. `seo/competitor-services-2026-11-01.json` و brief فارسی مرجع‌اند.
+
+ID31 پشتیبانی شبکه فقط body: ورودی امن، نمونهٔ ساختگی، تفاوت پاسخ/رفع، توافق تغییر/بازیابی و پذیرش تحویل؛ پرش‌ها و CTA موجود.۴۱بلوک،۲۶browser،۳۷native جدید،۲۹/۲۷/۳۷رگرسیون مشترک و۱۳unit پاس؛ همهٔ state موقت staging بازگردانده شد. ابزار قدیمی scope را رد کرد. صفر URL/مقاله و production write؛ scope مستقل هشت runtime digest فعلی را محافظت و صفر فایل نصب می‌کند. رسید `qa/growth-2026-10-31/network-support-draft-and-migration.json`.
+
+NEXT: qualify immutable release/rehearsal با metadata0.2.1 موقت و restore دقیق fixture staging، سپس integration عادی CI/backup/checksum/drift و انتشار همین صفحه. packageهای قبلی را بازپخش نکنید. گزارش صبح LIVE_NOT_FINAL؛ rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED وnoindex/پرداخت/MyTel freeze پابرجا هستند.
+
+## HISTORICAL CHECKPOINT — اصلاح نقش schema روی live منتشر و تأیید شد
 
 **DEPLOYED —۱نوامبر،۰۲:۲۶ تهران:** metadata0.2.1 فقط Article چهارhub learn/lab/mikrotik/mtcna را حذف می‌کند؛ Article درس‌ها و متن/note/description/OG/title/H1/canonical/noindex حفظ شدند. [PR41](https://github.com/DashSaman/TehNet/pull/41)، CI41250290474؛ source live `6728ddd23ecda9ed9fd2178f22ba9330277da25d` و برابری payload/tool/7runtime guard با qualified source `c287a86783016164404ed2158f60ac7ce4a02656` تأیید شد. backup تازه/checksum/drift پاس؛ یک فایل و صفر سطر DB/محتوا، repeat apply بدون تغییر.
 

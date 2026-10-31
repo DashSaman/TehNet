@@ -160,3 +160,13 @@ NEXT: PR/CI عادی، snapshot قبل از integration، bundle برابر هم
 شواهد: audit73response/68HTML/25product و16browser smoke؛56metadata unit پس از4FAIL baseline،12operator و16native checker؛ staging8HTTP+188browser وrollback/repeat اصل فایل؛ سپس13HTTPS و188browser عمومی در24حالت desktop/mobile/no-JS پاس. دادهٔ محافظت‌شده،۷فایل محافظت‌شدهٔ دیگر وcontainerها ثابت،25کالا/قابل‌خرید0، ERP/sandbox false، MyTel write0. receipt: `qa/growth-2026-10-31/metadata-role-production-release.json`؛ مرورگر `tests/metadata-role-browser.cjs`. Rich Results Test/URL Inspection،CWV میدانی،رتبه/AI citation اجرا یا اندازه‌گیری نشده‌اند.
 
 NEXT: مقایسهٔ مستند و محدود TarazNet و صفحات خدمات رقبا، تطبیق با خدمات موجود TehNet و اولین بهبود متمایز روی URL موجود؛ MyTel فقط پیشنهاد در دامنهٔ مجاز. audit/پرتفوی100topic و انتشارP4/درس62/64/metadata را بازپخش نکنید. گزارش صبح هنوز LIVE_NOT_FINAL است؛ rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED وnoindex/پرداخت/MyTel freeze حفظ شوند.
+
+## checkpoint مقایسه و پشتیبانی —۱نوامبر،2026-11-01 02:50 تهران
+
+## CURRENT — مقایسهٔ محدود خدمات و پیش‌نویس پشتیبانی آزموده شد
+
+VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED —۱نوامبر: سه صفحهٔ خدمات TarazNet/Parag/Varianet با۱۵معیار، چهارGET معتبرTLS و۹مشاهدهٔ browser ثبت شد؛ پاراگ browser403 و mobile performance/CWV/portal/lead delivery نامعلوم. منبع خوداظهاری با کیفیت واقعی خدمت یا رتبه یکی نیست. `seo/competitor-services-2026-11-01.json` و brief فارسی مرجع‌اند.
+
+ID31 پشتیبانی شبکه فقط body: ورودی امن، نمونهٔ ساختگی، تفاوت پاسخ/رفع، توافق تغییر/بازیابی و پذیرش تحویل؛ پرش‌ها و CTA موجود.۴۱بلوک،۲۶browser،۳۷native جدید،۲۹/۲۷/۳۷رگرسیون مشترک و۱۳unit پاس؛ همهٔ state موقت staging بازگردانده شد. ابزار قدیمی scope را رد کرد. صفر URL/مقاله و production write؛ scope مستقل هشت runtime digest فعلی را محافظت و صفر فایل نصب می‌کند. رسید `qa/growth-2026-10-31/network-support-draft-and-migration.json`.
+
+NEXT: qualify immutable release/rehearsal با metadata0.2.1 موقت و restore دقیق fixture staging، سپس integration عادی CI/backup/checksum/drift و انتشار همین صفحه. packageهای قبلی را بازپخش نکنید. گزارش صبح LIVE_NOT_FINAL؛ rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED وnoindex/پرداخت/MyTel freeze پابرجا هستند.

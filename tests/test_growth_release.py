@@ -81,6 +81,16 @@ class ReleaseBoundaries(unittest.TestCase):
         prefixes = [row[2] for row in self.module.LESSON_SCOPES.values()]
         self.assertEqual(len(set(prefixes)), len(prefixes))
 
+    def test_support_scope_is_exact_body_only_and_guards_current_metadata(self):
+        scope = 'tehnet-service-network-support-20261101-v1'
+        files, extra, runtime = self.module.scope_spec(scope)
+        self.assertEqual(files, [])
+        self.assertEqual(extra, ['content/network-support-2026-11-01/manifest.json', 'content/network-support-2026-11-01/network-support.html', 'ops/migrate-growth-content.php'])
+        self.assertEqual(len(runtime), 8)
+        self.assertIn('site/mu-plugins/tehnet-search-metadata.php', runtime)
+        self.assertNotIn(scope, self.module.LESSON_SCOPES)
+        self.assertIn(scope, self.module.GUARDED_SCOPES)
+
     def test_metadata_scope_writes_only_its_file_and_has_no_content_migrator(self):
         files, extra, runtime = self.module.scope_spec(self.module.METADATA_SCOPE)
         self.assertEqual(files, ['site/mu-plugins/tehnet-search-metadata.php'])

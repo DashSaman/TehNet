@@ -1,0 +1,15 @@
+# Existing network-support page and bounded competitor evidence
+
+Status: VERIFIED_NATIVE_DRAFT — 2026-11-01. Steps1–4 and isolated editor/layout review passed; immutable operator rehearsal and publication remain. This is not a deployment receipt.
+
+The current ID31 `/services/network-support-tehran/` already explains symptoms and remote/on-site selection. It lacks an explicit acceptance record, safe intake example and distinction between response and resolution commitments. Improve that page, preserving URL/title/H1/meta and the existing Tehran-only on-site/nationwide remote policy. No new landing page or article.
+
+1. Read the public support pages of TarazNet (primary), Parag and Varianet. Record observation date, exact URLs and page-level evidence for the 15 requested dimensions. `NOT_OBSERVED_IN_PAGE` is not evidence that a business lacks a capability. Mobile, schema and navigation require actual bounded checks; no rank, traffic, conversion, credentialed portal or delivery-quality inference.
+2. Write original editable Gutenberg content: safe initial request, example with synthetic data, agreed scope/dependencies, response versus resolution, authorized change/rollback and handoff acceptance. No copied wording, price, staffing, SLA or 24-hour guarantee. Link existing request/contact/related technical resources; do not submit requests.
+3. Add one exact existing-page scope for ID31, its URI, filename and body field to the existing guarded migration/operator. This is not an arbitrary page updater. Preserve all other post/meta/revisions/business data. New scope checks eight current runtime digests, including metadata0.2.1, with zero runtime writes.
+4. First show the old operator/native migration reject the new scope. Then test manifest identity/body/path/field/baseline failures, retained revisions, hook rollback, concurrent writer lock, idempotence, protected state and foreign-edit rollback refusal. Re-run the shared boundary regressions affected by the registry extension.
+5. Isolated native staging: network/mail/payments closed; actual block serialization/sanitization, desktop/mobile/no-JS and unsaved editor/reset; restore all owned temporary state. Qualify immutable bundle with fresh checksum-verified backup, tamper rejection, apply/repeat/HTTP/rollback/repeat, preserving existing containers.
+6. Publication only after ordinary CI-backed integration, verified private pre-integration snapshot, equality to the qualified payload/tool/runtime, fresh production backup/checksum and drift checks. Verify only the existing page and protected public routes. If qualification fails, retain evidence and continue independent work; do not cross approval gates.
+7. Commit sanitized evidence and a transferable method in -SEO. Update HANDOFF/PROGRESS/TASKS, overnight log and LIVE_NOT_FINAL morning report with actual results, source commit and next action.
+
+Security history remains NEEDS_APPROVAL; credential rotation UNKNOWN; origin UNDETERMINED. MyTel live read-only, deliberate noindex, inquiry-only shop, customer data and closed real payments remain protected. No external messages or form submissions.
