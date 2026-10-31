@@ -4,6 +4,10 @@ from pathlib import Path
 import tempfile
 import unittest
 import subprocess
+import os
+import contextlib
+import io
+from unittest import mock
 
 SOURCE = Path(__file__).resolve().parents[1] / 'ops/release-growth-content.py'
 
@@ -171,6 +175,99 @@ class ReleaseBoundaries(unittest.TestCase):
         self.assertFalse(self.module.staging_ports_safe(local))
         self.assertTrue(self.module.staging_ports_safe(local, allow_loopback=True))
         self.assertFalse(self.module.staging_ports_safe(public, allow_loopback=True))
+
+    def test_relative_dot_destination_is_resolved_before_member_io(self):
+        # A real relative path, not a stub: Windows counts the unresolved cwd/../
+        # spelling against its relative-path limit even when the final path fits.
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp).resolve(); repo = root / 'repo'; repo.mkdir()
+            files, extra, runtime = self.module.scope_spec(self.module.SUPPORT_SCOPE)
+            for name in set(extra + runtime + ['ops/release-growth-content.py']):
+                file = repo / name; file.parent.mkdir(parents=True, exist_ok=True); file.write_bytes(b'committed support fixture\n')
+            def git(*args):
+                return subprocess.check_output(['git', *args], cwd=repo, stderr=subprocess.PIPE).decode().strip()
+            git('init'); git('add', '.'); git('-c', 'user.name=QA', '-c', 'user.email=qa@example.invalid', 'commit', '-m', 'fixture')
+            commit = git('rev-parse', 'HEAD')
+            # Keep the normalized absolute path short while making its lexical
+            # relative spelling exceed260. Each intermediate directory exists.
+            suffix = '/payload/' + extra[1]
+            depth = max(4, (285 - len(str(root)) - len(suffix)) // 8)
+            current = root
+            for i in range(depth): current = current / ('cwd%03d' % i); current.mkdir()
+            output = Path(*(['..'] * depth)) / 'bundle'
+            previous = Path.cwd()
+            try:
+                os.chdir(current)
+                self.module.build_bundle(repo, output, commit, commit, self.module.SUPPORT_SCOPE)
+            finally:
+                os.chdir(previous)
+            self.assertTrue((root / 'bundle/bundle.json').is_file())
+            self.assertEqual((root / 'bundle/payload' / extra[1]).read_bytes(), b'committed support fixture\n')
+
+    def test_bundle_destination_cannot_adopt_existing_directory(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); existing = root / 'existing'; existing.mkdir()
+            sentinel = existing / 'foreign'; sentinel.write_bytes(b'preserve')
+            for output in [existing]:
+                with self.assertRaises(RuntimeError):
+                    self.module.build_bundle(root, output, 'a'*40, 'b'*40, self.module.SUPPORT_SCOPE)
+            self.assertEqual(sentinel.read_bytes(), b'preserve')
+
+    def test_dangling_symlink_bundle_destination_is_rejected(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); link = root / 'link'; target = root / 'uncreated'
+            try: link.symlink_to(target, target_is_directory=True)
+            except OSError: self.skipTest('Host lacks symlink creation permission')
+            with self.assertRaises(RuntimeError):
+                self.module.build_bundle(root, link, 'a'*40, 'b'*40, self.module.SUPPORT_SCOPE)
+            self.assertFalse(target.exists())
+
+    def test_private_diagnostics_reject_relative_repository_and_webroot(self):
+        with self.assertRaises(RuntimeError): self.module.private_diagnostics_directory(Path('relative'))
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp).resolve()
+            for marker in ['.git', 'wp-config.php']:
+                (root / marker).write_text('owned fixture')
+                with self.assertRaises(RuntimeError): self.module.private_diagnostics_directory(root)
+                (root / marker).unlink()
+
+    def test_failure_detail_is_saved_privately_and_not_printed(self):
+        with tempfile.TemporaryDirectory() as temp:
+            directory = Path(temp).resolve()
+            sentinel = 'SYNTHETIC-SECRET-SHOULD-STAY-IN-PRIVATE-LOG'
+            stdout = io.StringIO(); stderr = io.StringIO()
+            args = ['release', '--mode', 'bundle', '--bundle', str(directory / 'bundle'),
+                    '--source-commit', 'a'*40, '--baseline-commit', 'b'*40, '--diagnostics-dir', str(directory)]
+            with mock.patch('sys.argv', args), mock.patch.object(self.module, 'build_bundle', side_effect=RuntimeError(sentinel)), contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(stderr):
+                code = self.module.main()
+            self.assertEqual(code, 1)
+            import json
+            public = json.loads(stdout.getvalue())
+            self.assertEqual(public['phase'], 'bundle')
+            self.assertEqual(public['error_type'], 'RuntimeError')
+            self.assertTrue(public['private_diagnostics_saved'])
+            self.assertNotIn(sentinel, stdout.getvalue() + stderr.getvalue())
+            files = list(directory.glob('failure-*.log')); self.assertEqual(len(files), 1)
+            self.assertIn(sentinel, files[0].read_text(encoding='utf-8'))
+            if os.name != 'nt': self.assertEqual(files[0].stat().st_mode & 0o077, 0)
+
+    def test_unrestricted_diagnostics_directory_is_refused_before_execution(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp).resolve()
+            if os.name == 'nt':
+                # Grant a harmless owned empty fixture a broader read ACL, then
+                # revoke it; never change the private vault or a real repository.
+                result = subprocess.run(['icacls.exe', str(root), '/grant', '*S-1-1-0:(OI)(CI)(RX)'], capture_output=True)
+                self.assertEqual(result.returncode, 0)
+                try:
+                    with self.assertRaises(RuntimeError): self.module.private_diagnostics_directory(root)
+                finally:
+                    restored = subprocess.run(['icacls.exe', str(root), '/remove:g', '*S-1-1-0'], capture_output=True)
+                    self.assertEqual(restored.returncode, 0)
+            else:
+                root.chmod(0o755)
+                with self.assertRaises(RuntimeError): self.module.private_diagnostics_directory(root)
+                root.chmod(0o700)
 
 
 if __name__ == '__main__':

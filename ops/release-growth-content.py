@@ -124,8 +124,13 @@ def build_bundle(repo, output, source, baseline, scope=SCOPE):
     for commit in (source, baseline):
         if not re.fullmatch('[a-f0-9]{40}', commit):
             raise ValueError('Full immutable commit IDs required')
-    if output.exists():
+    if output.exists() or output.is_symlink():
         raise RuntimeError('Bundle destination must be new')
+    # Resolve before any I/O: on Windows a relative cwd/../ spelling can exceed
+    # MAX_PATH although its normalized destination is short. Reject links first
+    # so normalization cannot adopt a dangling/redirected destination.
+    reject_link_path(output)
+    output = output.resolve()
     output.mkdir(mode=0o700, parents=True)
 
     def blob(commit, path, optional=False):
@@ -155,6 +160,51 @@ def build_bundle(repo, output, source, baseline, scope=SCOPE):
     metadata['tool_sha256'] = digest(tool)
     (output / 'bundle.json').write_text(json.dumps(metadata, indent=2) + '\n', encoding='utf-8')
     return {'status': 'BUNDLED', 'source_commit': source, 'files': len(files)}
+
+
+def reject_link_path(path):
+    for candidate in [path, *path.parents]:
+        if candidate.is_symlink() or getattr(candidate, 'is_junction', lambda: False)():
+            raise RuntimeError('Linked output path refused')
+
+
+def private_diagnostics_directory(path):
+    """Validate an explicit existing private destination; never create it implicitly."""
+    if not path.is_absolute():
+        raise RuntimeError('Absolute private diagnostics directory required')
+    reject_link_path(path)
+    path = path.resolve(strict=True)
+    if not path.is_dir() or any((p / '.git').exists() or (p / 'wp-config.php').exists() for p in [path, *path.parents]):
+        raise RuntimeError('Diagnostics must be outside repositories and WordPress roots')
+    if os.name == 'nt':
+        # chmod does not establish a private Windows DACL. Inspect actual allow
+        # rules using SIDs; raw account names/paths never leave this subprocess.
+        script = r'''$ErrorActionPreference='Stop'
+$acl=[System.IO.Directory]::GetAccessControl($env:TN_RELEASE_DIAGNOSTICS_ROOT)
+$allowed=@([System.Security.Principal.WindowsIdentity]::GetCurrent().User.Value,'S-1-5-18','S-1-5-32-544')
+# Python's private temporary directories can grant OWNER RIGHTS rather than the
+# account SID. Accept that rule only when the actual owner is already allowed.
+if($allowed -contains $acl.GetOwner([System.Security.Principal.SecurityIdentifier]).Value){$allowed+='S-1-3-4'}
+$rules=@($acl.GetAccessRules($true,$true,[System.Security.Principal.SecurityIdentifier]) | Where-Object { $_.AccessControlType -eq 'Allow' -and -not ($_.PropagationFlags -band [System.Security.AccessControl.PropagationFlags]::InheritOnly) })
+if($rules.Count -eq 0){exit 1}
+foreach($rule in $rules){if($allowed -notcontains $rule.IdentityReference.Value){exit 1}}
+exit 0'''
+        import base64
+        result = subprocess.run(['powershell.exe', '-NoProfile', '-NonInteractive', '-EncodedCommand', base64.b64encode(script.encode('utf-16le')).decode()],
+                                env={**os.environ, 'TN_RELEASE_DIAGNOSTICS_ROOT': str(path)}, capture_output=True, timeout=20,
+                                creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        if result.returncode:
+            raise RuntimeError('Restricted Windows diagnostics ACL required')
+    elif path.stat().st_mode & 0o077:
+        raise RuntimeError('Restricted diagnostics permissions required')
+    return path
+
+
+def save_failure(directory, detail):
+    name = 'failure-' + datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ') + '-' + secrets.token_hex(6) + '.log'
+    # Directory was validated before execution; recheck before a failure write.
+    directory = private_diagnostics_directory(directory)
+    atomic_write(directory / name, detail.encode('utf-8'), 0o600, None, None)
 
 
 class Release:
@@ -444,9 +494,13 @@ def main():
     parser.add_argument('--source-commit')
     parser.add_argument('--baseline-commit')
     parser.add_argument('--scope', choices=[SCOPE, *GUARDED_SCOPES], default=SCOPE, help='Bundle scope; execution reads and validates the immutable bundle scope')
+    parser.add_argument('--diagnostics-dir', type=Path, help='Existing absolute private directory outside Git/WordPress; full failures stay here, never stdout')
     args = parser.parse_args()
     release = None
+    diagnostics = None
     try:
+        if args.diagnostics_dir:
+            diagnostics = private_diagnostics_directory(args.diagnostics_dir)
         if args.mode == 'bundle':
             result = build_bundle(args.repo, args.bundle, args.source_commit, args.baseline_commit, args.scope)
         else:
@@ -455,12 +509,25 @@ def main():
             release = Release(args.config, args.bundle)
             result = release.execute(args.mode)
         print(json.dumps(result))
-    except BaseException:
+    except BaseException as error:
         # Commands and raw WordPress failures stay in the private log, never public CI.
+        detail = traceback.format_exc()
+        saved = False
         if release is not None:
-            release.log.write(traceback.format_exc().encode())
-            release.log.flush()
-        print(json.dumps({'status': 'FAILED', 'action': 'Inspect private log/journals; no automatic retry or journal deletion'}))
+            try:
+                release.log.write(detail.encode())
+                release.log.flush()
+                saved = True
+            except (OSError, AttributeError):
+                pass
+        if diagnostics is not None:
+            try:
+                save_failure(diagnostics, detail)
+                saved = True
+            except (OSError, RuntimeError, subprocess.SubprocessError):
+                pass
+        print(json.dumps({'status': 'FAILED', 'phase': args.mode, 'error_type': type(error).__name__, 'private_diagnostics_saved': saved,
+                          'action': 'Inspect private log/journals; no automatic retry or journal deletion'}))
         return 1
     return 0
 
