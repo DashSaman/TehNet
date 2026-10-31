@@ -1,6 +1,6 @@
 # تحویل صبح TehNet × MyTel × SEO —۱نوامبر۲۰۲۶
 
-**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 02:28 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
+**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 02:56 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
 
 ## ۱. امنیت — گیت‌های باز مقدم‌اند
 
@@ -182,3 +182,16 @@ NEXT: PR/CI عادی، snapshot قبل از integration، bundle برابر هم
 شواهد: audit73response/68HTML/25product و16browser smoke؛56metadata unit پس از4FAIL baseline،12operator و16native checker؛ staging8HTTP+188browser وrollback/repeat اصل فایل؛ سپس13HTTPS و188browser عمومی در24حالت desktop/mobile/no-JS پاس. دادهٔ محافظت‌شده،۷فایل محافظت‌شدهٔ دیگر وcontainerها ثابت،25کالا/قابل‌خرید0، ERP/sandbox false، MyTel write0. receipt: `qa/growth-2026-10-31/metadata-role-production-release.json`؛ مرورگر `tests/metadata-role-browser.cjs`. Rich Results Test/URL Inspection،CWV میدانی،رتبه/AI citation اجرا یا اندازه‌گیری نشده‌اند.
 
 NEXT: مقایسهٔ مستند و محدود TarazNet و صفحات خدمات رقبا، تطبیق با خدمات موجود TehNet و اولین بهبود متمایز روی URL موجود؛ MyTel فقط پیشنهاد در دامنهٔ مجاز. audit/پرتفوی100topic و انتشارP4/درس62/64/metadata را بازپخش نکنید. گزارش صبح هنوز LIVE_NOT_FINAL است؛ rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED وnoindex/پرداخت/MyTel freeze حفظ شوند.
+
+
+## به‌روزرسانی پشتیبانی و مقایسهٔ خدمات —۰۲:۵۴تهران
+
+## CURRENT — پشتیبانی شبکه روی live منتشر و تأیید شد
+
+DEPLOYED —۱نوامبر،۰۲:۵۴تهران: [پشتیبانی شبکه تهران](https://tehnet.ir/services/network-support-tehran/) همان ID31/URL/عنوان، فقط body و تاریخ واقعی تغییر. ورودی امن/نمونهٔ ساختگی/پاسخ در برابر رفع/گزارش تحویل و پرش‌های موبایل افزوده شد. [PR43](https://github.com/DashSaman/TehNet/pull/43)، CI41252270026؛ source `933bc33065295a018182104626ac7a7ba78bd55c` برابر payload/tool/8guardِ qualified `b29f80fea66530ab1a821ba0af9650d395d73b84`. backup تازه/checksum/drift وrepeat بدون تغییر؛ صفر runtime install/URL/مقالهٔ جدید.
+
+۴۱بلوک و۲۶browser staging،۳۷native جدید و۲۹/۲۷/۳۷regression،۱۳operator وrehearsal بازگشت دقیق پاس؛ سپس۹HTTPS و۴۱browser عمومی1440/375/no-JS پاس. همهٔ دادهٔ محافظت‌شده/۸runtime file/containerها ثابت؛۲۵کالا/قابل‌خرید۰، ERP/sandbox false، MyTel write۰. مقایسهٔ سه رقیب/۱۵معیار مستند است؛ browser403 پاراگ وCWV/پرتال/کیفیت تحویل/رتبه اندازه‌گیری نشده. رسید `qa/growth-2026-10-31/network-support-production-release.json` وbrief `seo/competitor-services-2026-11-01.fa.md`.
+
+NEXT: انتقال روش و شواهد واقعی به -SEO؛ سپس diagnostics خصوصیِ buildbundle محلی را بهبود بده (اولین build پیش از native متوقف، یک diagnostic کامل با checksum برابر موفق؛ علت نخست UNKNOWN). بعد تحقیق scoped برای درس موجود IP/DHCP/DNS، بدون ساخت صفحات هم‌نیت یا ادعای۱۰۰مقاله. انتشارها/مقایسه/پرتفوی قبلی بازپخش نشوند. گزارش صبح LIVE_NOT_FINAL؛ rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED وnoindex/پرداخت/MyTel freeze حفظ شوند.
+
+انتقال -SEO هنوز در جریان است؛ این بخش گزارش نهایی۰۸:۰۰ نیست. سقف بررسی سه صفحهٔ رقیب است، نه۱۲۰سایت؛ کیفیت تحویل واقعی، CWV واثر سئو اندازه‌گیری نشده. محدودیت build محلی در رسید ثبت شده؛ هیچ خرابی production یا rollback زنده رخ نداد.

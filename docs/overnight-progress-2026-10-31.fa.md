@@ -170,3 +170,13 @@ VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED —۱نوامبر: سه صفحهٔ خدمات
 ID31 پشتیبانی شبکه فقط body: ورودی امن، نمونهٔ ساختگی، تفاوت پاسخ/رفع، توافق تغییر/بازیابی و پذیرش تحویل؛ پرش‌ها و CTA موجود.۴۱بلوک،۲۶browser،۳۷native جدید،۲۹/۲۷/۳۷رگرسیون مشترک و۱۳unit پاس؛ همهٔ state موقت staging بازگردانده شد. ابزار قدیمی scope را رد کرد. صفر URL/مقاله و production write؛ scope مستقل هشت runtime digest فعلی را محافظت و صفر فایل نصب می‌کند. رسید `qa/growth-2026-10-31/network-support-draft-and-migration.json`.
 
 NEXT: qualify immutable release/rehearsal با metadata0.2.1 موقت و restore دقیق fixture staging، سپس integration عادی CI/backup/checksum/drift و انتشار همین صفحه. packageهای قبلی را بازپخش نکنید. گزارش صبح LIVE_NOT_FINAL؛ rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED وnoindex/پرداخت/MyTel freeze پابرجا هستند.
+
+## checkpoint انتشار پشتیبانی —۱نوامبر،۰۲:۵۴تهران
+
+## CURRENT — پشتیبانی شبکه روی live منتشر و تأیید شد
+
+DEPLOYED —۱نوامبر،۰۲:۵۴تهران: [پشتیبانی شبکه تهران](https://tehnet.ir/services/network-support-tehran/) همان ID31/URL/عنوان، فقط body و تاریخ واقعی تغییر. ورودی امن/نمونهٔ ساختگی/پاسخ در برابر رفع/گزارش تحویل و پرش‌های موبایل افزوده شد. [PR43](https://github.com/DashSaman/TehNet/pull/43)، CI41252270026؛ source `933bc33065295a018182104626ac7a7ba78bd55c` برابر payload/tool/8guardِ qualified `b29f80fea66530ab1a821ba0af9650d395d73b84`. backup تازه/checksum/drift وrepeat بدون تغییر؛ صفر runtime install/URL/مقالهٔ جدید.
+
+۴۱بلوک و۲۶browser staging،۳۷native جدید و۲۹/۲۷/۳۷regression،۱۳operator وrehearsal بازگشت دقیق پاس؛ سپس۹HTTPS و۴۱browser عمومی1440/375/no-JS پاس. همهٔ دادهٔ محافظت‌شده/۸runtime file/containerها ثابت؛۲۵کالا/قابل‌خرید۰، ERP/sandbox false، MyTel write۰. مقایسهٔ سه رقیب/۱۵معیار مستند است؛ browser403 پاراگ وCWV/پرتال/کیفیت تحویل/رتبه اندازه‌گیری نشده. رسید `qa/growth-2026-10-31/network-support-production-release.json` وbrief `seo/competitor-services-2026-11-01.fa.md`.
+
+NEXT: انتقال روش و شواهد واقعی به -SEO؛ سپس diagnostics خصوصیِ buildbundle محلی را بهبود بده (اولین build پیش از native متوقف، یک diagnostic کامل با checksum برابر موفق؛ علت نخست UNKNOWN). بعد تحقیق scoped برای درس موجود IP/DHCP/DNS، بدون ساخت صفحات هم‌نیت یا ادعای۱۰۰مقاله. انتشارها/مقایسه/پرتفوی قبلی بازپخش نشوند. گزارش صبح LIVE_NOT_FINAL؛ rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED وnoindex/پرداخت/MyTel freeze حفظ شوند.

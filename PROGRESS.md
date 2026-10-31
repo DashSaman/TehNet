@@ -1,4 +1,12 @@
-## CURRENT — پشتیبانی شبکه آمادهٔ انتشار محدود است
+## CURRENT — پشتیبانی شبکه روی live منتشر و تأیید شد
+
+DEPLOYED —۱نوامبر،۰۲:۵۴تهران: [پشتیبانی شبکه تهران](https://tehnet.ir/services/network-support-tehran/) همان ID31/URL/عنوان، فقط body و تاریخ واقعی تغییر. ورودی امن/نمونهٔ ساختگی/پاسخ در برابر رفع/گزارش تحویل و پرش‌های موبایل افزوده شد. [PR43](https://github.com/DashSaman/TehNet/pull/43)، CI41252270026؛ source `933bc33065295a018182104626ac7a7ba78bd55c` برابر payload/tool/8guardِ qualified `b29f80fea66530ab1a821ba0af9650d395d73b84`. backup تازه/checksum/drift وrepeat بدون تغییر؛ صفر runtime install/URL/مقالهٔ جدید.
+
+۴۱بلوک و۲۶browser staging،۳۷native جدید و۲۹/۲۷/۳۷regression،۱۳operator وrehearsal بازگشت دقیق پاس؛ سپس۹HTTPS و۴۱browser عمومی1440/375/no-JS پاس. همهٔ دادهٔ محافظت‌شده/۸runtime file/containerها ثابت؛۲۵کالا/قابل‌خرید۰، ERP/sandbox false، MyTel write۰. مقایسهٔ سه رقیب/۱۵معیار مستند است؛ browser403 پاراگ وCWV/پرتال/کیفیت تحویل/رتبه اندازه‌گیری نشده. رسید `qa/growth-2026-10-31/network-support-production-release.json` وbrief `seo/competitor-services-2026-11-01.fa.md`.
+
+NEXT: انتقال روش و شواهد واقعی به -SEO؛ سپس diagnostics خصوصیِ buildbundle محلی را بهبود بده (اولین build پیش از native متوقف، یک diagnostic کامل با checksum برابر موفق؛ علت نخست UNKNOWN). بعد تحقیق scoped برای درس موجود IP/DHCP/DNS، بدون ساخت صفحات هم‌نیت یا ادعای۱۰۰مقاله. انتشارها/مقایسه/پرتفوی قبلی بازپخش نشوند. گزارش صبح LIVE_NOT_FINAL؛ rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED وnoindex/پرداخت/MyTel freeze حفظ شوند.
+
+## HISTORICAL CHECKPOINT — پشتیبانی شبکه آمادهٔ انتشار محدود است
 
 VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر: source qualify‌شده `b29f80fea66530ab1a821ba0af9650d395d73b84` برای body همان ID31.۳۷native/۲۹+۲۷+۳۷رگرسیون،۱۳operator،۴۱بلوک و۲۶browser پاس؛ immutable check/apply/repeat/HTTP/rollback/repeat و رد tamper پاس. هشت runtime digest محافظت، صفر runtime install توسط operator. فقط در staging، baseline metadata0.2.1 موقت گذاشته و اصل0.2.0 دقیق بازگردانده شد؛ همهٔ posts/meta/users وcontainerها نیز ثابت/بازگردانده شدند. رسید `qa/growth-2026-10-31/network-support-release-rehearsal.json`؛ صفحه هنوز production تغییر نکرده است.
 

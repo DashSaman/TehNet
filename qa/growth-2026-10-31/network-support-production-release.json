@@ -1,0 +1,174 @@
+{
+  "observed_utc": "2026-10-31T23:24:29.165390+00:00",
+  "completed_utc": "2026-10-31T23:24:53.778512+00:00",
+  "scope": "Existing service31 body and actual modification timestamps only; zero runtime files",
+  "source_commit": "933bc33065295a018182104626ac7a7ba78bd55c",
+  "baseline_commit": "c2d4d0c230ab6ed5c1dff83b816e7b7adc0460ae",
+  "status": "DEPLOYED",
+  "commerce_indexing": {
+    "blog_public": "0",
+    "products": 25,
+    "purchasable": 0,
+    "erp_ready": false,
+    "sandbox_enabled": false
+  },
+  "existing_container_runtime_unchanged": true,
+  "runtime_files_verified_unchanged": 8,
+  "protected_state_unchanged": true,
+  "fresh_backup_checksum_verified": true,
+  "schema": 1,
+  "qualified_source_commit": "b29f80fea66530ab1a821ba0af9650d395d73b84",
+  "qualified_payload_tool_and_8_runtime_guards_equal": true,
+  "integration": {
+    "pr": 43,
+    "url": "https://github.com/DashSaman/TehNet/pull/43",
+    "head": "c930b7c19fda4ec49685f190b4ac842b0095d6d1",
+    "required_ci_run": 41252270026,
+    "required_ci_job": "tracked-file-privacy",
+    "conclusion": "success",
+    "pre_integration_private_snapshot_verified": true
+  },
+  "change": {
+    "existing_service_pages": 1,
+    "new_pages": 0,
+    "new_articles": 0,
+    "runtime_files_installed": 0,
+    "repeat_changed_files": 0,
+    "repeat_changed_pages": 0,
+    "all_other_fields_meta_and_preexisting_revisions_preserved": true
+  },
+  "http_smoke": [
+    {
+      "path": "/services/network-support-tehran/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "auto_loaded_player": false,
+      "reviewed_service_sections": true
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true
+    },
+    {
+      "path": "/shop/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true
+    },
+    {
+      "path": "/services/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true
+    },
+    {
+      "path": "/lab/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true
+    },
+    {
+      "path": "/services/voice-network-readiness/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true
+    },
+    {
+      "path": "/lab/voice-network-checklist/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "readiness_instance": true
+    },
+    {
+      "path": "/support/?tn_service_context=voice-network",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "nonce_inside_owning_form": true,
+      "network_context_preserved": true
+    },
+    {
+      "path": "/b2b/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "nonce_inside_owning_form": true
+    }
+  ],
+  "public_browser": {
+    "status": "PASS",
+    "scope": "Read-only production existing service acceptance; default browser TLS validation",
+    "checks": 41,
+    "observations": [
+      {
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "overflow": false
+      }
+    ],
+    "page_errors": [],
+    "blocked_external_origins": 0,
+    "methods": [
+      "GET"
+    ],
+    "form_submissions": 0,
+    "real_service_delivery": "NOT_TESTED"
+  },
+  "staging": {
+    "blocks": 41,
+    "browser_checks": 26,
+    "scoped_native_assertions": 37,
+    "shared_regressions": [
+      29,
+      27,
+      37
+    ],
+    "operator_units": 13,
+    "immutable_rehearsal": "qa/growth-2026-10-31/network-support-release-rehearsal.json"
+  },
+  "private_artifacts_retained_outside_git": [
+    "fresh backups/checksums",
+    "exact native journals",
+    "all raw HTML and screenshots",
+    "initial partial local bundle and diagnostic outcome"
+  ],
+  "local_packaging_observation": "First local CLI bundle build stopped after writing one payload member; no native/production operation had run. One bounded direct-call diagnostic using absolute paths built a complete bundle; all source members/tool/eight guards matched the qualified bundle before publication. Initial cause remains UNKNOWN; improve private bundle-failure diagnostics separately. No remote retry, journal reset or bypass occurred.",
+  "production_rollback_needed": false,
+  "mytel_production_writes": 0,
+  "real_form_submissions": 0,
+  "limits": [
+    "First-party competitor self-description is not measured service quality or proof of superior SEO",
+    "Nine competitor browser observations include three403 responses; no CWV/normal-user performance or authenticated-portal assessment",
+    "No actual support service, staffing, SLA, price, conversion, rank, traffic, backlink or AI citation measured",
+    "Deliberate noindex, closed real commerce and credential/history/origin gates preserved"
+  ]
+}
