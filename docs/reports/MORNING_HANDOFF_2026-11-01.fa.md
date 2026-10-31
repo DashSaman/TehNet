@@ -1,6 +1,6 @@
 # تحویل صبح TehNet × MyTel × SEO —۱نوامبر۲۰۲۶
 
-**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 00:52 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
+**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 01:14 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
 
 ## ۱. امنیت — گیت‌های باز مقدم‌اند
 
@@ -94,3 +94,13 @@ migration و۳۷ آزمون native در سند/receipt جدید ثبت شدند.
 TehNet PR35 با source1caef30 و CI41241026792 ادغام شد؛ main9c42f84 همان tree آزموده‌شده است. درس migration/restore/release در -SEO PR5 با source6879f66 و CI41241154426 از مسیر عادی ادغام و main ecc32a3 شد؛ دفتر منبع/topic/checklist/handoff/progress/dashboard به‌روز، baseline۷۱٪ حفظ شد. این‌ها runtime تازه نیستند.
 
 پرتفوی/نگاشت تازه۲۰کنترل دارد و۱۰۰موضوع را مقاله یا نتیجهٔ جست‌وجو نمی‌شمارد. منابع primary با عمق و نسخه/حدود ثبت، سایت شبه‌مستندات رسمی نشمرده و403های Proxmox/CISA صریح‌اند. موجودی MyTel فقطGET خواندنی و title/H1/canonical freeze است؛ پیشنهادهای reverse-link هنوز فقط در سند TehNet هستند. دو جست‌وجوی مستقل با scope نامعلوم ثبت شد؛ خروجی ادغام‌شدهٔ یک multi-query به کوئری‌ها نسبت داده نشد. ابزار خواندن فارسی ابتدا به encoding ویندوز و یک helper inline به quoting خورد؛ صرفاً helper/خروجی، بدون mutation؛ باUTF8 و فایل مستقل اصلاح شد. گام بعد، بهبود محتوای موجود با source/brief/QA و staging است. گزارش هنوز LIVE است.
+
+## checkpoint تحریری —۰۱:۱۴ تهران
+
+## CURRENT — پرتفوی ادغام‌شده و پیش‌نویس درس آزموده،۱نوامبر۲۰۲۶
+
+P6/P7: پرتفوی۱۰۰کار/۲۰خوشه/۳۵منبع در [TehNet PR36](https://github.com/DashSaman/TehNet/pull/36) باCI موفق ادغام شد؛ main `5cd0895ad5b175a4838fb7538abc7e961a62a86a`، source `87805ecc4d2306996f2fdfac50c893e440574f92`. روش با ledger/topic/dashboard در [-SEO PR6](https://github.com/DashSaman/-SEO/pull/6) وCI موفق ادغام شد؛ main `64d6fc262909ee93a1d0070343f7e28821e38306`، baseline۷۱٪ ثابت. تاریخچهٔ امن/rotation/Origin و noindex/پرداخت گیت‌های جدا و باز هستند.
+
+درس موجود RouterOS/Winbox (ID62) برای Backup/Export/Safe Mode بازنویسی مفید شد؛ **VERIFIED_NATIVE_DRAFT، هنوز production منتشر نشده**.۷منبع رسمی با دامنه/نسخه و حد آزمون؛۵۴بلوک معتبر،۲۱کنترل browser،۱۴GET پیوند باTLS، و بازگشت fixture/کاربر/lock به fingerprint قبلی پاس. مدرک `qa/growth-2026-10-31/editorial-routeros-draft.json` و brief `seo/editorial-routeros-winbox-2026-11-01.fa.md`. RouterOS lab/restore واقعی اجرا نشده و متن آن را ادعا نمی‌کند. مقالهٔ تازهٔ منتشرشده در بسته‌های جدید۰ است.
+
+NEXT دقیق: سازوکار محدودِ ویرایش body همان ID62 با حفظ هویت/meta و ثبت تاریخ واقعی، journal خصوصی، row/range lock، drift/revision/retention guard و rollback را qualify کن؛ migration قدیمیِ دوصفحه‌ای برای این کار مجاز نیست. سپس backup تازه، staging/rehearsal و انتشارِ محتوای همین درس در دامنهٔ قبلاً مجاز؛ پس از آن درس static-routing و گپ‌های اثبات‌شدهٔ فنی/رقبا. بازپخش انتشارِ دو صفحهٔ خدمات/Lab لازم نیست.

@@ -1,0 +1,187 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-10-31T21:44:06.665960+00:00",
+  "status": "VERIFIED_NATIVE_DRAFT",
+  "target_id": 62,
+  "target_url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+  "content_sha256_lf": "a3a3b72026643b3feb9ea8e9cc047d732cbb48480c699330d19d22be47e65a44",
+  "native": {
+    "blocks": 54,
+    "registered": true,
+    "roundtrip": true,
+    "sanitization": true
+  },
+  "browser": {
+    "scope": "Temporary existing lesson in independently guarded native staging",
+    "status": "PASS",
+    "checks": 21,
+    "observations": [
+      {
+        "width": 1440,
+        "status": 200,
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "status": 200,
+        "h1": 1,
+        "overflow": false
+      }
+    ],
+    "editor": {
+      "blocks": 54,
+      "names": [
+        "core/paragraph",
+        "core/heading",
+        "core/list",
+        "core/list-item",
+        "core/code",
+        "core/shortcode"
+      ],
+      "invalid": [],
+      "changed": true,
+      "restored": true
+    },
+    "page_errors": [],
+    "blocked_external_origins": 2,
+    "page_saves": 0,
+    "production_mutations": 0,
+    "original_posts_meta_users_unchanged_after_cleanup": true,
+    "owned_editor_removed": true,
+    "private_backup_verified": true,
+    "temporary_lesson_restored": true
+  },
+  "links": {
+    "scope": "Draft lesson link availability, unauthenticated GET, default TLS validation",
+    "observed_utc": "2026-10-31T21:42:36.222961+00:00",
+    "status": "PASS",
+    "content_sha256_lf": "a3a3b72026643b3feb9ea8e9cc047d732cbb48480c699330d19d22be47e65a44",
+    "links": [
+      {
+        "url": "https://manual.mikrotik.com/docs/cli-reference/import/",
+        "final_url": "https://manual.mikrotik.com/docs/cli-reference/import/",
+        "status": 200,
+        "bytes": 40594,
+        "html_sha256": "b5e02039dfdefaf0453b3c3584262d4fa76c8e40e2383653951f7a9e2847d396"
+      },
+      {
+        "url": "https://manual.mikrotik.com/docs/cli-reference/system/backup/load/",
+        "final_url": "https://manual.mikrotik.com/docs/cli-reference/system/backup/load/",
+        "status": 200,
+        "bytes": 55868,
+        "html_sha256": "663f288fca6aace2048f2fbf9241eb1761c37e5c19cfc63c5d66fdab7c0ededa"
+      },
+      {
+        "url": "https://manual.mikrotik.com/docs/cli-reference/system/backup/save/",
+        "final_url": "https://manual.mikrotik.com/docs/cli-reference/system/backup/save/",
+        "status": 200,
+        "bytes": 56178,
+        "html_sha256": "711df49c4f550ce54f72bebded3cc0435421b1353afc70f4e97296f57d214b72"
+      },
+      {
+        "url": "https://manual.mikrotik.com/docs/getting-started/configuration-management/",
+        "final_url": "https://manual.mikrotik.com/docs/getting-started/configuration-management/",
+        "status": 200,
+        "bytes": 145745,
+        "html_sha256": "b1380e7b4538ea2f4ae9b9a4ca0f559d95d56756a7a1ab3c3ad2e8ffec5fc02d"
+      },
+      {
+        "url": "https://manual.mikrotik.com/docs/getting-started/configuration-management/backup/",
+        "final_url": "https://manual.mikrotik.com/docs/getting-started/configuration-management/backup/",
+        "status": 200,
+        "bytes": 44563,
+        "html_sha256": "657eb8789ca0abbd6578157f07f68e041ecd1b1575982a24411d8759e774dd98"
+      },
+      {
+        "url": "https://manual.mikrotik.com/docs/management-tools/mac-server/",
+        "final_url": "https://manual.mikrotik.com/docs/management-tools/mac-server/",
+        "status": 200,
+        "bytes": 53105,
+        "html_sha256": "1c9dbe7b6a3cc1af3771539b811ee8d7607936bfd884a82b8d797c3d685058a8"
+      },
+      {
+        "url": "https://manual.mikrotik.com/docs/management-tools/winbox/",
+        "final_url": "https://manual.mikrotik.com/docs/management-tools/winbox/",
+        "status": 200,
+        "bytes": 156136,
+        "html_sha256": "fd8e675f96d7da2c569072292ad19cca7796e5a6662eb1862f099579e7960fc4"
+      },
+      {
+        "url": "https://mikrotik.com/download/winbox",
+        "final_url": "https://mikrotik.com/download/winbox",
+        "status": 200,
+        "bytes": 267363,
+        "html_sha256": "d0fa4a17ef6e2b177e320898639ed12b418b9da27caa3ff7486010d04f354c40"
+      },
+      {
+        "url": "https://tehnet.ir/lab-before-production/",
+        "final_url": "https://tehnet.ir/lab-before-production/",
+        "status": 200,
+        "bytes": 45487,
+        "html_sha256": "f8dd09f19509900b1e7862624ad50ea427244223b24019edfe9e2eb90885f374"
+      },
+      {
+        "url": "https://tehnet.ir/lab/gns3-mikrotik/",
+        "final_url": "https://tehnet.ir/lab/gns3-mikrotik/",
+        "status": 200,
+        "bytes": 48517,
+        "html_sha256": "268c4b992983f3d7a2eff729703f2510d2e8497ae4e61d499859c43531bdd64d"
+      },
+      {
+        "url": "https://tehnet.ir/learn/mikrotik/mtcna/",
+        "final_url": "https://tehnet.ir/learn/mikrotik/mtcna/",
+        "status": 200,
+        "bytes": 51751,
+        "html_sha256": "359015b92f7b6632706944db919167c73383cdcc8bed0342f41d7bd8049ec7b1"
+      },
+      {
+        "url": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+        "final_url": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+        "status": 200,
+        "bytes": 46972,
+        "html_sha256": "f440965b4718280d27f56ae4e8f22cf6b7a00f9fec96ef6ffb4973d7e86892c8"
+      },
+      {
+        "url": "https://tehnet.ir/services/mikrotik-tehran/",
+        "final_url": "https://tehnet.ir/services/mikrotik-tehran/",
+        "status": 200,
+        "bytes": 45397,
+        "html_sha256": "4eac421f4b10d313aa4dd20083c9789e51d96b55960dd496fe2ab30842db5e03"
+      },
+      {
+        "url": "https://tehnet.ir/technical-methodology/",
+        "final_url": "https://tehnet.ir/technical-methodology/",
+        "status": 200,
+        "bytes": 47674,
+        "html_sha256": "40541c87e435e32f5c0bc2a8ee02ff0c2e81793e094cbebb1277a387482d6514"
+      }
+    ],
+    "excluded": [
+      {
+        "url": "https://www.youtube.com/watch?v=Wbj3C0g__zw",
+        "reason": "Existing video link preserved; playback/full content not reviewed"
+      }
+    ],
+    "mutations": 0,
+    "limits": [
+      "HTTP200 does not validate source claims, indexing or video availability",
+      "No authenticated content or raw HTTP response is included"
+    ]
+  },
+  "visual_review": {
+    "desktop_1440": true,
+    "mobile_375": true,
+    "video": "Existing URL preserved as an explicit external link; no auto-loaded player; blocked staging playback was not treated as a live playback failure"
+  },
+  "routeros_lab": "NOT_RUN",
+  "content_migration": "NOT_QUALIFIED",
+  "production": "NOT_DEPLOYED",
+  "new_articles_published": 0,
+  "limits": [
+    "Native checks qualify WordPress content/editability, not RouterOS restore behavior",
+    "No original RouterOS outputs, customer incident or recovery duration claimed",
+    "Staging temporary body and owned account/locks were removed; original posts/meta/users fingerprints matched",
+    "Post-modified timestamp in temporary-body staging remained the original value; a real update must record the actual modification date"
+  ]
+}
