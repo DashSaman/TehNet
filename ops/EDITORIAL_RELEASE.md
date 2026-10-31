@@ -15,3 +15,9 @@ The native journal's PREPARED/COMMIT_READY/FAILED/NEEDS_RECONCILIATION state is 
 Evidence: `qa/growth-2026-10-31/editorial-migration-verification.json`, `editorial-release-rehearsal.json` and `editorial-routeros-draft.json`. These cover WordPress behavior, not a RouterOS device/restore test or SEO gain. The original manifest/QA files record their dated preparation state; current publication state belongs in HANDOFF and a separate actual production receipt.
 
 Routing evidence has the separate `routing-` receipt prefix and `tests/growth-routing-migration-native.php`, `routing-existing-page-browser.cjs` and `routing-public-smoke.cjs` fixtures. Keep its qualification and actual production result distinct from the first lesson.
+
+## Metadata-only correction
+
+`tehnet-metadata-role-20261101-v1` is separately bounded to one installable file, `site/mu-plugins/tehnet-search-metadata.php`. Its immutable manifest is `content/metadata-role-2026-11-01/manifest.json`; the staged native entry is `ops/check-metadata-state.php`, not the content migrator. Seven other runtime digests remain read-only guards. The checker hashes business tables and selected sensitive options in a consistent read transaction, coordinates through the same advisory lock and writes only a private digest journal. It never updates page/customer/database rows.
+
+The operator retains fresh backup/checksum, serial atomic file replacement, ownership, drift and guarded file rollback. A repeat apply changes no file. Rollback first verifies the native data digest, then restores only the owned metadata file; it cannot undo another editor's data or bypass a later file edit. Rolled/ambiguous journals require explicit reconciliation or a reviewed new source. The scope is not approval to change canonical/robots/noindex, Cloudflare, content or MyTel. Qualification and actual production results must have their own `metadata-role-` receipts.

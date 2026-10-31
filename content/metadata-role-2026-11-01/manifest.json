@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "key": "tehnet-metadata-role-20261101-v1",
+  "runtime_file": "mu-plugins/tehnet-search-metadata.php",
+  "database_changes_allowed": false,
+  "hub_uris": ["learn", "lab", "learn/mikrotik", "learn/mikrotik/mtcna"],
+  "status_at_creation": "QUALIFICATION_IN_PROGRESS_NOT_DEPLOYED"
+}

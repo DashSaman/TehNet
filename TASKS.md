@@ -1,4 +1,12 @@
-## CURRENT — مسیریابی روی سایت منتشر و تأیید شد
+## CURRENT — اصلاح metadata در staging qualify شد؛ production هنوز انجام نشده
+
+audit خواندنی73پاسخ/68HTML/25محصول و16حالت مرورگر ثبت شد؛ source note چهارhub به Article تعبیر می‌شد. اصلاح metadata0.2.1 فقط همین چهارpage را مستثنی می‌کند و درس‌های واقعی را حفظ می‌کند.56metadata unit پس از4FAIL واقعی،12operator unit و16native checker پاس.
+
+scope تک‌فایلی `tehnet-metadata-role-20261101-v1`، source qualify‌شده `c287a86783016164404ed2158f60ac7ce4a02656`: check/apply/repeat،8native HTTP و188browser desktop/mobile/no-JS، سپس rollback/repeat پاس. فقط4Article هاب حذف؛ main text/other metadata/lesson Article برابر baseline. اصل فایل وposts/meta/users وruntime بازیابی/حفظ؛ DB write0. tamper payload/metadata رد. رسید `qa/growth-2026-10-31/metadata-role-release-rehearsal.json`.
+
+NEXT: PR/CI عادی، snapshot قبل از integration، bundle برابر همین payload/tool و7runtime guard، backup/checksum/drift تازه و انتشار فقط فایل metadata؛ سپس13GET وپذیرش browser واقعی. هنوز DEPLOYED نیست. noindex/صفحات/منو/محصولات/MyTel تغییر نکنند و درس62/64/P4 بازپخش نشوند. پس از این بسته، مقایسهٔ مستند TarazNet و گپ‌های خدمات/محتوای بعدی. rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED وگزارش صبح interim برقرارند.
+
+## HISTORICAL CHECKPOINT — مسیریابی روی سایت منتشر و تأیید شد
 
 **DEPLOYED —۱نوامبر،۰۱:۵۷ تهران:** [درس موجود مسیریابی](https://tehnet.ir/learn/mikrotik/mtcna/static-routing/) با همان ID64/URL/Title و فقط body/تاریخ واقعی تغییر به‌روزرسانی شد. [PR39](https://github.com/DashSaman/TehNet/pull/39)، required CI41248197017؛ source live `e2dcf87e3c20ca9919829000d239bd62e3ff3723` و برابری payload/tool/7runtime guard با source qualify‌شده `4becf1692f838bba5cdb47f3bc5fade6c0459f1c` تأیید شد. backup تازه/checksum/drift پیش‌وپس پاس؛ صفر runtime file، یک درس موجود، صفر مقاله/URL جدید؛ repeat بدون تغییر.
 

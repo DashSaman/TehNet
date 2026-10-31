@@ -1,0 +1,2059 @@
+{
+  "schema": 1,
+  "status": "AUDIT_VERIFIED_FIX_LOCAL_NATIVE_STATE_TESTED_NOT_DEPLOYED",
+  "observed_utc": "2026-10-31T22:35:33.533641+00:00",
+  "scope": "Unauthenticated bounded GET with default TLS; no forms/login/customer actions",
+  "response_count": 73,
+  "html_200_count": 68,
+  "products_200_count": 25,
+  "inventory_public_nonutility_paths": 31,
+  "additional_main_link_paths": 22,
+  "rows": [
+    {
+      "path": "/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/",
+      "response_sha256": "dd2eb2a0ed960037b5a5718608e89ecdd37890622687c49cce3839c4246b3465",
+      "tls_verification": true,
+      "title_count": 2,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "LocalBusiness"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/about/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/about/",
+      "response_sha256": "70eeb4c35da8b53505a709ca4f4a03517c7798098de67635b342f28b8ab36cd2",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/about/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "LocalBusiness"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/amirreza-golavar/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/amirreza-golavar/",
+      "response_sha256": "0391023b30871d9095341fa822d8130b2e498520d4e5367c660283b8754edf8d",
+      "tls_verification": true,
+      "title_count": 2,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/amirreza-golavar/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "ProfilePage"
+      ],
+      "image_count": 1,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/b2b/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/b2b/",
+      "response_sha256": "3c58e946a430681f3c9efd570fe7a13f97ef3c69ac366594776b641da9ed65f3",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/b2b/"
+      ],
+      "description_count": 0,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 0,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/blog/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/blog/",
+      "response_sha256": "50e9de1076f9aaf281ae1be3b3d5623f39b9fc10b061cdd0a2d5a8c925017cc6",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/blog/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 0,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/contact/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/contact/",
+      "response_sha256": "de8f85bce12274be280390ea4d7ef3862d88a9effd173d254d7d79936262a482",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/contact/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "LocalBusiness"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/lab-before-production/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/lab-before-production/",
+      "response_sha256": "f8dd09f19509900b1e7862624ad50ea427244223b24019edfe9e2eb90885f374",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/lab-before-production/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/lab/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/lab/",
+      "response_sha256": "1f0be99ba29ee939bb2a572b365975716cbb820da03a8f6e3eea48e21cd2e2ee",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/lab/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/lab/gns3-mikrotik/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/lab/gns3-mikrotik/",
+      "response_sha256": "268c4b992983f3d7a2eff729703f2510d2e8497ae4e61d499859c43531bdd64d",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/lab/gns3-mikrotik/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/lab/voice-network-checklist/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/lab/voice-network-checklist/",
+      "response_sha256": "81499cfbeb4c61f7ee6550072be763927b165ada66bd766900eb86e253701b59",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/lab/voice-network-checklist/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/lab/wireguard-mtu/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/lab/wireguard-mtu/",
+      "response_sha256": "d304b9e119285e0a8775872bb5fde0e31ffa189a4b891586c607c7254a12619c",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/lab/wireguard-mtu/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/learn/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/learn/",
+      "response_sha256": "301f5986b9ad35339587351f5777732bec3a9d5e2cf38ffa5bab01ffecc8ca75",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/learn/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/learn/mikrotik/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/learn/mikrotik/",
+      "response_sha256": "a9ceeb44f7e5b187247829b217050ecd82bc23662849e110d738650ec0471f3e",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/learn/mikrotik/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/learn/mikrotik/mtcna/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/learn/mikrotik/mtcna/",
+      "response_sha256": "359015b92f7b6632706944db919167c73383cdcc8bed0342f41d7bd8049ec7b1",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/learn/mikrotik/mtcna/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/learn/mikrotik/mtcna/firewall-basics/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/learn/mikrotik/mtcna/firewall-basics/",
+      "response_sha256": "df7042370837b7f7bfa5195ff73c35259e5b40c03d6b6cca1b7fc265eaadc4e0",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/learn/mikrotik/mtcna/firewall-basics/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/learn/mikrotik/mtcna/ip-dhcp-dns/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+      "response_sha256": "f440965b4718280d27f56ae4e8f22cf6b7a00f9fec96ef6ffb4973d7e86892c8",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/learn/mikrotik/mtcna/nat-masquerade/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/learn/mikrotik/mtcna/nat-masquerade/",
+      "response_sha256": "31d23cb0e65ef4cd195f264fef88b8292dd0b32276189f651c06b37610b8c3cb",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/learn/mikrotik/mtcna/nat-masquerade/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/learn/mikrotik/mtcna/queues-troubleshooting/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/learn/mikrotik/mtcna/queues-troubleshooting/",
+      "response_sha256": "08823c19df83a5c5d55a438f5f40548d812edf8579ecb2903d684345e9f8747f",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/learn/mikrotik/mtcna/queues-troubleshooting/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/learn/mikrotik/mtcna/routeros-winbox/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+      "response_sha256": "85abdd2aa152af4d182891f08ce46f95af4a322f75838661259251cff231cd75",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/learn/mikrotik/mtcna/static-routing/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/",
+      "response_sha256": "8547f645768ee809e5d13397b594f4eb9d7fb3a158b83eeaaf72c87fa0908830",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/mtcna-learning-path/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/mtcna-learning-path/",
+      "response_sha256": "9f2aa903a2696ae45270902c987403ade8ff26270a88ce43d817fd7cc3838116",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/mtcna-learning-path/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-16585/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-16585/",
+      "response_sha256": "9541ff13b6b93e3603ead3065a0ef2ed8ce5fb0250187d0286d810744b3cb3a1",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-16585/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 7,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17827/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17827/",
+      "response_sha256": "c400ef6f88ce7a04a1fe663dd60e3643e5574b6cede30ceb24d6f16d3c86c0cf",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17827/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 7,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17829/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17829/",
+      "response_sha256": "7349d5e78842754a21a5b3474c70117c39024b95a0f7f00e847059e643253297",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17829/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 7,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17831/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17831/",
+      "response_sha256": "17ffcacace9570d7e609e811aa73c5e1e95bc25abacc71cf3110152ff7b12107",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17831/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 7,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17851/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17851/",
+      "response_sha256": "54be63bc898d7e1368e5d8a0adce882871143a08c7518e99afc49ca4a7197bae",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17851/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 7,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17855/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17855/",
+      "response_sha256": "04b526fb3688ad701d5bfbafdd829c81c6c525827ff311db3df0ddad0f8ecef6",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17855/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 7,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17857/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17857/",
+      "response_sha256": "4885664ef06a5448fc76ae95f4c461c1b968d7b853d8933a3f8b84edf4842531",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17857/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 7,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17860/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17860/",
+      "response_sha256": "dc32bfc3e02dee8001d53fe7afe993c6b9fb6726397233a87ded90b96ce13025",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17860/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 7,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17863/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17863/",
+      "response_sha256": "2d483795e1228710e36e131347a4cf1e09ebb6850a3248e30659683fb191ff61",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17863/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 7,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17866/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17866/",
+      "response_sha256": "a93e2722c333f8796e83212175eecf6e1a4fb12e2f7b4eef59aeabc22387b98f",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17866/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 7,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17868/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17868/",
+      "response_sha256": "be405356c0d6f6725934a0b31a4f0a093c64c47544f121f5569f74c19008a8d5",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17868/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 8,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17871/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17871/",
+      "response_sha256": "24c8815503b5d0a16005ab5d25b6f74a88920c81d68e54e0d3d27d9b28cf0673",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17871/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 7,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17982/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17982/",
+      "response_sha256": "e56e78e0699026905c1cd6c3d1432f0e886b65fed2313384d371a5bc977ce058",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17982/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 7,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17989/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17989/",
+      "response_sha256": "82c9d28a728c6dcfae9c6ee816658ef72a53ec1e7e924f1302cceaf66780f4c0",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17989/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 7,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17991/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17991/",
+      "response_sha256": "736014805b198343f691187743ed249474608a27cbddea4c6fa91ca8300a43dd",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17991/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 7,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-18002/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-18002/",
+      "response_sha256": "c06ddadeebc56320142bde07574a7f2c242d02d074a71d19f1cc73c66dab73f7",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-18002/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 8,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/robots.txt",
+      "status": 200,
+      "final_url": "https://tehnet.ir/robots.txt",
+      "response_sha256": "d5002dc74d13eeb00382a985e31d8dfa310cde3d2ba40e08c941a06a3cf87892",
+      "tls_verification": true
+    },
+    {
+      "path": "/services/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/services/",
+      "response_sha256": "568fac34334f8c27d04347afeec0d427a2af942b1e0d7eb4a9e97b506df3c0aa",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/services/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "LocalBusiness"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/services/mikrotik-tehran/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/services/mikrotik-tehran/",
+      "response_sha256": "4eac421f4b10d313aa4dd20083c9789e51d96b55960dd496fe2ab30842db5e03",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/services/mikrotik-tehran/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "LocalBusiness"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/services/network-setup-tehran/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/services/network-setup-tehran/",
+      "response_sha256": "a10cd8502b85d5e7ebc77763dbcdfd129d3b7d94eddcbb7741b893e827ceef2b",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/services/network-setup-tehran/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "LocalBusiness"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/services/network-support-tehran/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/services/network-support-tehran/",
+      "response_sha256": "a56d0f13c47c340a91ebb145eeb04cdf7b39f2944653ecee6537e5f5c8203a90",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/services/network-support-tehran/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "LocalBusiness"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/services/network-tehran/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/services/network-tehran/",
+      "response_sha256": "f5477f870ea52c8c793d95d43e95cdfdae1665a71ed2b3503241412d8ad55321",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/services/network-tehran/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "LocalBusiness"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/services/remote-support/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/services/remote-support/",
+      "response_sha256": "e893c5b5fcbf50e41eff7c2c84c24502a7dde88f905ad26a453a7efc38993af1",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/services/remote-support/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "LocalBusiness"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/services/voice-network-readiness/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/services/voice-network-readiness/",
+      "response_sha256": "55673bdf50586fb223dad1ebe83dd7c56faf3ae6e31b672acaa53b85ea1315fb",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/services/voice-network-readiness/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 2,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "Article",
+        "LocalBusiness"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/shop/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/shop/",
+      "response_sha256": "e7ce4e35acf9b2cbc14291bae2165adb1b549398125ab8ed618540e6b8218b85",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/shop/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 18,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 404,
+      "final_url": "https://tehnet.ir/wp-sitemap.xml",
+      "response_sha256": "263018362e8f7609367d4c17a3fe8853390fbb9d782bffcdc98c45b73a78f363",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 0,
+      "canonical": [],
+      "description_count": 0,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 0,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/support/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/support/",
+      "response_sha256": "464b1060308c285f91da62ea6dfe2513e30d05f5b36fe4101f569b394522755b",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/support/"
+      ],
+      "description_count": 0,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 0,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/technical-methodology/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/technical-methodology/",
+      "response_sha256": "40541c87e435e32f5c0bc2a8ee02ff0c2e81793e094cbebb1277a387482d6514",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/technical-methodology/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "Article"
+      ],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/tn-qa-missing-20261101/",
+      "status": 404,
+      "final_url": "https://tehnet.ir/tn-qa-missing-20261101/",
+      "response_sha256": "c5db96c4c649d7c78f44e0e2c969b6eef5c3f260e154717859866c37b15977b9",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [],
+      "description_count": 0,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 0,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/wp-sitemap.xml",
+      "status": 404,
+      "final_url": "https://tehnet.ir/wp-sitemap.xml",
+      "response_sha256": "263018362e8f7609367d4c17a3fe8853390fbb9d782bffcdc98c45b73a78f363",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 0,
+      "canonical": [],
+      "description_count": 0,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 0,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [],
+      "image_count": 2,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/cdn-cgi/l/email-protection",
+      "status": 404,
+      "final_url": "https://tehnet.ir/cdn-cgi/l/email-protection",
+      "response_sha256": "7aae9198763ff61b585ec530b5c4f5acf31a7bc1494634adc6341b2a162ff88f",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [],
+      "description_count": 0,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 0,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [],
+      "image_count": 0,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-16584/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-16584/",
+      "response_sha256": "4d1641e3b63c46f07c294743e0b32a1d2f8d26bf5b515545588edf6ce2156b26",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-16584/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 7,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17824/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17824/",
+      "response_sha256": "bd21d97cb2a62b165d68dc90ee17928f9491ba2f93f220096f26ca29ae88aa76",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17824/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 7,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17873/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17873/",
+      "response_sha256": "b356a3ab1673443d316a88e85c7e6a82b81600649e8d440f42970240da677dfc",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17873/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 7,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17888/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17888/",
+      "response_sha256": "0a51279214889ba290627008fc8fd072041fb08e3f0a7eafe8acba233da4069c",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17888/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 7,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17920/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17920/",
+      "response_sha256": "1961fdf0ff38945382b63b7d9cba7b0bbbdb512b0874c06d99c0c2a784400a10",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17920/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 8,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17927/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17927/",
+      "response_sha256": "173e003853916fe1c1d4d454c36f83e74928fd658d5d49aea39530ce7421bca3",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17927/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 7,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17929/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17929/",
+      "response_sha256": "1e9520d5138555b0cb3f35a45fb48f1a9e1f9275df30ae26281d6036fc7eff24",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17929/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 8,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17935/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17935/",
+      "response_sha256": "cfd6791457464ad003dcfff37471ba6bab0e57bf0eca0170f4502a30615e36bc",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17935/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 7,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/product/tn-sn-17941/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/product/tn-sn-17941/",
+      "response_sha256": "45d78d531d3a538c8ad910d3371e2e36b83f2d65715e0a23e73aebe0db866da2",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/product/tn-sn-17941/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 8,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/shop/page/2/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/shop/page/2/",
+      "response_sha256": "7184a84088e9b326e4dbabd3ea992b9a348a29207673be80fb2fcfd6a8cc0435",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/shop/page/2/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 11,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/shop/tn-sn-category-78/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/shop/tn-sn-category-78/",
+      "response_sha256": "6c90a2b10a27f28032a355bed81975ec6a576643be0d1dff01bff0324e95f0a6",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/shop/tn-sn-category-78/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 18,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/shop/tn-sn-category-78/tn-sn-category-146/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/",
+      "response_sha256": "5ea7e642cd3db8fbcf6477c521663642483fe4f8542edac0e8aebd4fa1df84d6",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 18,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-147/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-147/",
+      "response_sha256": "f9d7b22a7d42eb10a9182868f995354d12cff16c72a6677fc695c7174b8a1fe9",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-147/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 17,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-147/tn-sn-category-148/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-147/tn-sn-category-148/",
+      "response_sha256": "db8215f98ce115d2035c5709e00a7dced4bd119603e1416445946438d21ff89f",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-147/tn-sn-category-148/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 9,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-147/tn-sn-category-149/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-147/tn-sn-category-149/",
+      "response_sha256": "d32952708ad6b7574d4eb06f769ccd63b3332e0e85b7f03503298f9cb1a25816",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-147/tn-sn-category-149/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 10,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-147/tn-sn-category-150/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-147/tn-sn-category-150/",
+      "response_sha256": "1cc2aefadd78fd66b46d341a11bdb9deb7fb84c1a488584c9d0019804c61fd8f",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-147/tn-sn-category-150/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 17,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/",
+      "response_sha256": "771c4f18154160668b23472dd89be8b24f01639f18985ee27aed65e6723cd45b",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 12,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/tn-sn-category-171/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/tn-sn-category-171/",
+      "response_sha256": "33662da341c92153a02e29777ff52d40d5382e6f013ced3ebf807b21e6a2806d",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/tn-sn-category-171/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 8,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/tn-sn-category-172/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/tn-sn-category-172/",
+      "response_sha256": "de1f02e082117300e5bd1e60656bd9a09e023405ff07dc2cf3d755e2406c6384",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/tn-sn-category-172/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 4,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/tn-sn-category-174/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/tn-sn-category-174/",
+      "response_sha256": "7d9b93bce5de9569c6ddf1a11b332f8b77e9e21dd41100e2957e239011e77123",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/tn-sn-category-174/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 4,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    },
+    {
+      "path": "/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/tn-sn-category-584/",
+      "status": 200,
+      "final_url": "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/tn-sn-category-584/",
+      "response_sha256": "f21fb4b7bf64ae45be127513f3360542d61d75df5e5581baa0ecd769eec017e5",
+      "tls_verification": true,
+      "title_count": 1,
+      "h1_count": 1,
+      "canonical": [
+        "https://tehnet.ir/shop/tn-sn-category-78/tn-sn-category-146/tn-sn-category-170/tn-sn-category-584/"
+      ],
+      "description_count": 1,
+      "robots": [
+        "noindex, nofollow"
+      ],
+      "jsonld_count": 1,
+      "jsonld_syntax_valid": true,
+      "jsonld_types": [
+        "BreadcrumbList"
+      ],
+      "image_count": 3,
+      "images_missing_alt_attribute": 0,
+      "images_missing_dimension_attributes": 0
+    }
+  ],
+  "link_graph": {
+    "method": "BFS from home using links among this bounded cached HTML corpus; query/utility/external URLs omitted",
+    "reachable_html": 66,
+    "unreached_paths": [
+      "/b2b/",
+      "/support/"
+    ],
+    "limits": "Query/context links were omitted; the two utility paths are not established orphan pages."
+  },
+  "browser_smoke": {
+    "method": "Read-only unauthenticated real-browser smoke, normal TLS",
+    "rows": [
+      {
+        "route": "/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "page_errors": [],
+        "email_links": {
+          "mailto": 0,
+          "obfuscated": 0
+        },
+        "skip_target_exists": true
+      },
+      {
+        "route": "/shop/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "page_errors": [],
+        "email_links": {
+          "mailto": 0,
+          "obfuscated": 0
+        },
+        "skip_target_exists": true
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "page_errors": [],
+        "email_links": {
+          "mailto": 0,
+          "obfuscated": 0
+        },
+        "skip_target_exists": true
+      },
+      {
+        "route": "/amirreza-golavar/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "page_errors": [],
+        "email_links": {
+          "mailto": 1,
+          "obfuscated": 0
+        },
+        "skip_target_exists": true
+      },
+      {
+        "route": "/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "page_errors": [],
+        "menu_opens": true,
+        "menu_escape": true,
+        "escape_focus": true,
+        "email_links": {
+          "mailto": 0,
+          "obfuscated": 0
+        },
+        "skip_target_exists": true
+      },
+      {
+        "route": "/shop/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "page_errors": [],
+        "menu_opens": true,
+        "menu_escape": true,
+        "escape_focus": true,
+        "email_links": {
+          "mailto": 0,
+          "obfuscated": 0
+        },
+        "skip_target_exists": true
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "page_errors": [],
+        "menu_opens": true,
+        "menu_escape": true,
+        "escape_focus": true,
+        "email_links": {
+          "mailto": 0,
+          "obfuscated": 0
+        },
+        "skip_target_exists": true
+      },
+      {
+        "route": "/amirreza-golavar/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "page_errors": [],
+        "menu_opens": true,
+        "menu_escape": true,
+        "escape_focus": true,
+        "email_links": {
+          "mailto": 1,
+          "obfuscated": 0
+        },
+        "skip_target_exists": true
+      },
+      {
+        "route": "/",
+        "width": 320,
+        "javascript": true,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "page_errors": [],
+        "menu_opens": true,
+        "menu_escape": true,
+        "escape_focus": true,
+        "email_links": {
+          "mailto": 0,
+          "obfuscated": 0
+        },
+        "skip_target_exists": true
+      },
+      {
+        "route": "/shop/",
+        "width": 320,
+        "javascript": true,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "page_errors": [],
+        "menu_opens": true,
+        "menu_escape": true,
+        "escape_focus": true,
+        "email_links": {
+          "mailto": 0,
+          "obfuscated": 0
+        },
+        "skip_target_exists": true
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/",
+        "width": 320,
+        "javascript": true,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "page_errors": [],
+        "menu_opens": true,
+        "menu_escape": true,
+        "escape_focus": true,
+        "email_links": {
+          "mailto": 0,
+          "obfuscated": 0
+        },
+        "skip_target_exists": true
+      },
+      {
+        "route": "/amirreza-golavar/",
+        "width": 320,
+        "javascript": true,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "page_errors": [],
+        "menu_opens": true,
+        "menu_escape": true,
+        "escape_focus": true,
+        "email_links": {
+          "mailto": 1,
+          "obfuscated": 0
+        },
+        "skip_target_exists": true
+      },
+      {
+        "route": "/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "page_errors": [],
+        "nojs_navigation": true,
+        "email_links": {
+          "mailto": 0,
+          "obfuscated": 0
+        },
+        "skip_target_exists": true
+      },
+      {
+        "route": "/shop/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "page_errors": [],
+        "nojs_navigation": true,
+        "email_links": {
+          "mailto": 0,
+          "obfuscated": 0
+        },
+        "skip_target_exists": true
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "page_errors": [],
+        "nojs_navigation": true,
+        "email_links": {
+          "mailto": 0,
+          "obfuscated": 0
+        },
+        "skip_target_exists": true
+      },
+      {
+        "route": "/amirreza-golavar/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "overflow": false,
+        "h1": 1,
+        "page_errors": [],
+        "nojs_navigation": true,
+        "email_links": {
+          "mailto": 0,
+          "obfuscated": 1
+        },
+        "skip_target_exists": true
+      }
+    ],
+    "mutations": 0
+  },
+  "classification": {
+    "HUB_ARTICLE_ROLE": {
+      "status": "FIX_IMPLEMENTED_NOT_DEPLOYED",
+      "paths": [
+        "/learn/",
+        "/lab/",
+        "/learn/mikrotik/",
+        "/learn/mikrotik/mtcna/"
+      ],
+      "severity": "P2 semantic correction before index launch",
+      "basis": "Primary purpose is resource/curriculum collection; the editorial-note shortcode alone currently infers Article",
+      "limit": "Editorial interpretation of visible content and relevance guidance; no Google manual action or ranking loss observed"
+    },
+    "SITEMAP_404": {
+      "status": "EXPECTED_CURRENT_POLICY",
+      "reason": "Current intentional closed-index configuration; WordPress disables native sitemaps when blog_public is false",
+      "owner_launch_gate": "NEEDS_APPROVAL; not changed"
+    },
+    "EMAIL_PROTECTION_404": {
+      "status": "JS_DEPENDENCY_CLASSIFIED",
+      "reason": "Three real-browser widths decode to a mailto link; no-JS remains obfuscated; other public contact routes remain",
+      "action": "No Cloudflare setting or email sent"
+    },
+    "UTILITY_DESCRIPTIONS": {
+      "status": "OPTIONAL_REVIEW",
+      "paths": [
+        "/support/",
+        "/b2b/"
+      ],
+      "reason": "Public utility contexts have no description; noindex retained; no claim this causes ranking loss"
+    },
+    "SHOP_PAGINATION_DESCRIPTION": {
+      "status": "ACCEPTABLE_GENERIC_DESCRIPTION",
+      "paths": [
+        "/shop/",
+        "/shop/page/2/"
+      ],
+      "reason": "Same catalog intent; self-canonicals are distinct; not treated as a mandatory uniqueness score"
+    }
+  },
+  "fix_qualification": {
+    "metadata_unit_checks": 56,
+    "unit_failures_before": 4,
+    "unit_failures_after": 0,
+    "operator_unit_checks": 12,
+    "native_readonly_state_checks": 16,
+    "native_backup_verified": true,
+    "native_file_release_rehearsal": "PENDING",
+    "production": "NOT_DEPLOYED"
+  },
+  "mutations": {
+    "public_crawl": 0,
+    "browser": 0,
+    "native_tests_database_rows": 0,
+    "production": 0
+  },
+  "limits": [
+    "Not a Googlebot/Bingbot/AI crawler identity check",
+    "Request duration is not a Core Web Vitals or target-market measurement",
+    "JSON parsing is not schema eligibility or truth validation",
+    "Intentional noindex/robots/sitemap behavior must be assessed against launch gates",
+    "68 HTTP200 documents are the bounded corpus, not a claim every possible site URL was audited",
+    "No Rich Results Test, URL Inspection, GSC, real bot/CDN identity or field CWV experiment performed",
+    "Raw HTML, headers, private journals and fingerprints remain outside public Git"
+  ]
+}

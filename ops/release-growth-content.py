@@ -29,10 +29,12 @@ EXTRA = ['content/growth-2026-10-31/manifest.json', 'ops/migrate-growth-content.
 SCOPE = 'tehnet-growth-20261031-v1'
 EDITORIAL_SCOPE = 'tehnet-editorial-routeros-20261101-v1'
 ROUTING_SCOPE = 'tehnet-editorial-routing-20261101-v1'
+METADATA_SCOPE = 'tehnet-metadata-role-20261101-v1'
 LESSON_SCOPES = {
     EDITORIAL_SCOPE: ('content/growth-editorial-2026-11-01', 'routeros-winbox.html', '/tmp/tn-editorial-release-'),
     ROUTING_SCOPE: ('content/routing-editorial-2026-11-01', 'static-routing.html', '/tmp/tn-routing-release-'),
 }
+GUARDED_SCOPES = [*LESSON_SCOPES, METADATA_SCOPE]
 
 
 def scope_spec(scope):
@@ -43,6 +45,10 @@ def scope_spec(scope):
         return [], [directory + '/manifest.json',
                     directory + '/' + body,
                     'ops/migrate-growth-content.php'], FILES + ['site/plugins/tehnet-store/tehnet-store.php']
+    if scope == METADATA_SCOPE:
+        return ['site/mu-plugins/tehnet-search-metadata.php'], [
+            'content/metadata-role-2026-11-01/manifest.json', 'ops/check-metadata-state.php'
+        ], FILES + ['site/plugins/tehnet-store/tehnet-store.php']
     raise ValueError('Unapproved release scope')
 
 
@@ -158,7 +164,7 @@ class Release:
         c, m = self.c, self.m
         self.scope = m['scope']
         self.files, self.extra, runtime = scope_spec(self.scope)
-        if self.scope in LESSON_SCOPES and digest(member(self.b, 'bundle.json').read_bytes()) != c.get('bundle_manifest_sha256'):
+        if self.scope in GUARDED_SCOPES and digest(member(self.b, 'bundle.json').read_bytes()) != c.get('bundle_manifest_sha256'):
             raise RuntimeError('Approved editorial bundle metadata checksum required')
         if m['schema'] != 1 or set(m['members']) != set(self.files + self.extra) or list(m['files']) != self.files or set(m.get('runtime_guard', {})) != set(runtime):
             raise RuntimeError('Unexpected bundle scope')
@@ -191,7 +197,8 @@ class Release:
         self.state = json.loads(self.receipt_path.read_text()) if self.receipt_path.exists() else None
         if self.state and (self.state['source_commit'] != m['source_commit'] or self.state['app_id'] != c['app_id'] or self.state['db_id'] != c['db_id']):
             raise RuntimeError('Release journal identity mismatch')
-        self.container_stage = (LESSON_SCOPES[self.scope][2] if self.scope in LESSON_SCOPES else '/tmp/tn-growth-release-') + m['source_commit']
+        prefix = '/tmp/tn-metadata-role-' if self.scope == METADATA_SCOPE else (LESSON_SCOPES[self.scope][2] if self.scope in LESSON_SCOPES else '/tmp/tn-growth-release-')
+        self.container_stage = prefix + m['source_commit']
         self.manifest_digest = m['members'][self.extra[0]]
         self.root = None
 
@@ -223,7 +230,7 @@ class Release:
                 raise RuntimeError('Production routing drift')
         else:
             networks = app['NetworkSettings']['Networks']
-            loopback = self.scope in LESSON_SCOPES
+            loopback = self.scope in GUARDED_SCOPES
             if set(networks) != {self.c['network']} or set(db['NetworkSettings']['Networks']) != set(networks) or not staging_ports_safe(app['HostConfig']['PortBindings'], loopback) or not staging_ports_safe(db['HostConfig']['PortBindings']):
                 raise RuntimeError('Staging network/port isolation missing')
             if loopback and app['HostConfig']['PortBindings'] != self.c.get('staging_app_bindings'):
@@ -237,7 +244,7 @@ class Release:
     def stage(self):
         self.run(['docker', 'exec', self.c['app'], 'mkdir', '-p', self.container_stage + '/journal'])
         self.run(['docker', 'exec', self.c['app'], 'chmod', '700', self.container_stage, self.container_stage + '/journal'])
-        staged = [(self.extra[0], 'manifest.json'), ('ops/migrate-growth-content.php', 'migration.php')]
+        staged = [(self.extra[0], 'manifest.json'), (self.extra[-1], 'migration.php')]
         if self.scope in LESSON_SCOPES:
             staged.append((self.extra[1], LESSON_SCOPES[self.scope][1]))
         for source, name in staged:
@@ -266,14 +273,17 @@ class Release:
         self.state['updated_utc'] = datetime.datetime.now(datetime.timezone.utc).isoformat()
         atomic_write(self.receipt_path, json.dumps(self.state, indent=2).encode(), 0o600, None, None)
 
-    def file_guard(self, after=False):
+    def runtime_guard(self):
         for rel, expected in self.m.get('runtime_guard', {}).items():
             if file_digest(member(self.root, rel.removeprefix('site/'))) != expected:
-                raise RuntimeError('Runtime drift; content-only release cannot replace code')
+                raise RuntimeError('Protected runtime drift; preserve other code')
+
+    def file_guard(self, after=False):
+        self.runtime_guard()
         for rel, entry in self.m['files'].items():
             path = member(self.root, rel.removeprefix('site/'))
             if path.exists() and not path.is_file() or file_digest(path) != entry['new' if after else 'old']:
-                raise RuntimeError('Six-file drift gate failed')
+                raise RuntimeError('Managed-file drift gate failed')
 
     def backup(self):
         if self.c['environment'] == 'production':
@@ -330,8 +340,8 @@ class Release:
         if not self.state or self.state['status'] not in ('APPLIED', 'ROLLED_BACK'):
             raise RuntimeError('Explicit reconciliation required before rollback')
         validate_restore(self.root, self.state['files'])
-        if self.scope in LESSON_SCOPES:
-            self.file_guard()
+        if self.scope in GUARDED_SCOPES:
+            self.runtime_guard()
         # If content restoration is refused, leave modules available and retain all evidence.
         result = self.native('rollback')
         self.restore_files()
@@ -391,8 +401,8 @@ class Release:
             self.save()
             # Never guess whether a database COMMIT succeeded. Only proven states permit undo.
             try:
-                if self.scope in LESSON_SCOPES:
-                    self.file_guard()
+                if self.scope in GUARDED_SCOPES:
+                    self.runtime_guard()
                 raw = self.run(['docker', 'exec', self.c['app'], 'sh', '-c', 'if test -f ' + self.container_stage + '/journal/journal.json; then cat ' + self.container_stage + '/journal/journal.json; else printf null; fi'])
                 journal = json.loads(raw)
                 if journal and journal['status'] == 'APPLIED':
@@ -428,7 +438,7 @@ def main():
     parser.add_argument('--repo', type=Path, default=Path.cwd())
     parser.add_argument('--source-commit')
     parser.add_argument('--baseline-commit')
-    parser.add_argument('--scope', choices=[SCOPE, *LESSON_SCOPES], default=SCOPE, help='Bundle scope; execution reads and validates the immutable bundle scope')
+    parser.add_argument('--scope', choices=[SCOPE, *GUARDED_SCOPES], default=SCOPE, help='Bundle scope; execution reads and validates the immutable bundle scope')
     args = parser.parse_args()
     release = None
     try:
