@@ -1,0 +1,413 @@
+{
+  "observed_utc": "2026-10-31T22:56:19.670570+00:00",
+  "scope": "One metadata runtime file; no database or content rows changed",
+  "source_commit": "6728ddd23ecda9ed9fd2178f22ba9330277da25d",
+  "baseline_commit": "d01c7973d898ac626ac96f3d44ed5d0d167b4371",
+  "status": "DEPLOYED",
+  "check": {
+    "status": "READY",
+    "files_pending": 1,
+    "content": {
+      "status": "READY",
+      "pages_pending": 0,
+      "hubs_pending": 0,
+      "pages_created": 0,
+      "hubs_updated": 0,
+      "hubs_restored": 0,
+      "pages_drafted": 0,
+      "protected_digest": "c3164301f6e5598137fcc7995006356c29784c4284c6f859a23ed7b1ee7cf1aa",
+      "protected_state_unchanged": true,
+      "database_rows_written": 0
+    }
+  },
+  "apply": {
+    "status": "APPLIED",
+    "files_changed": 1,
+    "content": {
+      "status": "APPLIED",
+      "pages_pending": 0,
+      "hubs_pending": 0,
+      "pages_created": 0,
+      "hubs_updated": 0,
+      "hubs_restored": 0,
+      "pages_drafted": 0,
+      "protected_digest": "c3164301f6e5598137fcc7995006356c29784c4284c6f859a23ed7b1ee7cf1aa",
+      "protected_state_unchanged": true,
+      "database_rows_written": 0
+    }
+  },
+  "repeat": {
+    "status": "APPLIED",
+    "files_changed": 0,
+    "content": {
+      "status": "APPLIED",
+      "pages_pending": 0,
+      "hubs_pending": 0,
+      "pages_created": 0,
+      "hubs_updated": 0,
+      "hubs_restored": 0,
+      "pages_drafted": 0,
+      "protected_digest": "c3164301f6e5598137fcc7995006356c29784c4284c6f859a23ed7b1ee7cf1aa",
+      "protected_state_unchanged": true,
+      "database_rows_written": 0
+    }
+  },
+  "http_smoke": [
+    {
+      "path": "/learn/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/lab/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/learn/mikrotik/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/learn/mikrotik/mtcna/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/learn/mikrotik/mtcna/routeros-winbox/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 1
+    },
+    {
+      "path": "/learn/mikrotik/mtcna/static-routing/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 1
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true
+    },
+    {
+      "path": "/shop/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true
+    },
+    {
+      "path": "/services/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true
+    },
+    {
+      "path": "/services/voice-network-readiness/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true
+    },
+    {
+      "path": "/lab/voice-network-checklist/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "readiness_instance": true
+    },
+    {
+      "path": "/support/?tn_service_context=voice-network",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "nonce_inside_owning_form": true,
+      "network_context_preserved": true
+    },
+    {
+      "path": "/b2b/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "nonce_inside_owning_form": true
+    }
+  ],
+  "commerce_indexing": {
+    "blog_public": "0",
+    "products": 25,
+    "purchasable": 0,
+    "erp_ready": false,
+    "sandbox_enabled": false
+  },
+  "existing_container_runtime_unchanged": true,
+  "other_runtime_guard_files_verified_unchanged": 7,
+  "protected_state_unchanged": true,
+  "fresh_backup_checksum_verified": true,
+  "completed_utc": "2026-10-31T22:56:45.437280+00:00",
+  "schema": 1,
+  "qualified_source": "c287a86783016164404ed2158f60ac7ce4a02656",
+  "qualified_payload_tool_runtime_guards_equal": true,
+  "integration": {
+    "pr": 41,
+    "head": "f2cc199edacdf305284e037bd696d5611cddf733",
+    "merge": "6728ddd23ecda9ed9fd2178f22ba9330277da25d",
+    "ci_run": 41250290474,
+    "ci_scope": "Required privacy guard/tests; runtime qualification recorded separately"
+  },
+  "public_browser": {
+    "status": "PASS",
+    "method": "Native/public page-role acceptance, real browser with normal TLS when HTTPS",
+    "checks": 188,
+    "observations": [
+      {
+        "route": "/learn/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/lab/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/routeros-winbox/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/static-routing/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/shop/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/lab/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/routeros-winbox/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/static-routing/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/shop/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/lab/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/routeros-winbox/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/static-routing/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/shop/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      }
+    ],
+    "page_errors": [],
+    "blocked_external_origins": 0,
+    "methods": [
+      "GET"
+    ],
+    "form_submissions": 0,
+    "limits": [
+      "Functional acceptance, not a Google rich-result/URL Inspection/SEO measurement"
+    ]
+  },
+  "public_browser_harness_sha256_lf": "315ab39d6de6711b5af8650b3ccda029df8c1933f7e1d2d8326f910e26c501ea",
+  "existing_hubs_article_inference_corrected": 4,
+  "new_content_pages": 0,
+  "database_rows_written_by_release": 0,
+  "limits": [
+    "One metadata file, not a content revision or index launch",
+    "Native/public functional checks, not Google Rich Results Test/URL Inspection or SEO gains",
+    "No field CWV, real bot identity, GSC, ranking, traffic or AI-citation measurement",
+    "Noindex, closed commerce, MyTel freeze and security gates preserved",
+    "Rollback rehearsed in staging; live rollback not needed; abrupt host loss not fault-injected"
+  ]
+}
