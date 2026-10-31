@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "observed_utc": "2026-10-31T21:25:55.271547+00:00",
+  "observed_utc": "2026-10-31T21:29:06.091945+00:00",
   "scope": "Candidate inventory and cross-brand mapping consistency; no new content publication",
   "status": "VERIFIED_INVENTORY_ONLY",
   "checks_passed": 20,
@@ -66,5 +66,6 @@
     "All100 candidates still require full source/command/lab and market/editorial validation before production",
     "No quantitative demand/rank/backlink/GSC cannibalization or AI-citation evidence",
     "Two search observations have uncontrolled provider locale/device; result copies are not verified competitor capability"
-  ]
+  ],
+  "validator_sha256_lf": "d57f915a8592235a9abee85fc92682188c39b8c218c045ded7ea2ad30f9d1638"
 }

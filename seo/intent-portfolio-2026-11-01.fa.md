@@ -6,6 +6,8 @@
 
 فایل مرجع و قابل‌ویرایش [CSV موضوعات](topic-portfolio-2026-11-01.csv) است. برای هر سطر، شناسهٔ پایدار، خوشه، مالک، اولویت، پرسش، کار خواننده، intent، روش توسعه، مقصد، source ID، وضعیت تحقیق، شاهد بازار و محدودیت ثبت شده است. [خوشه‌ها و بستهٔ اول](topic-clusters-2026-11-01.json)، [دفتر منابع](content-source-ledger-2026-11-01.json)، [نگاشت برند](brand-intent-map-2026-11-01.json)، [موجودی محتوای عمومی](public-content-inventory-2026-11-01.json) و [مشاهدهٔ جست‌وجو](intent-search-observations-2026-11-01.json) همراه آن‌اند. رسید کنترل: [intent-portfolio-verification.json](../qa/growth-2026-10-31/intent-portfolio-verification.json).
 
+عامل بعدی می‌تواند با `rtk proxy python -X utf8 tools/validate_intent_portfolio_20261101.py` همان۲۰کنترل را بدون credential یا شبکه اجرا کند؛ حالت پیش‌فرض فقط خواندنی است. `--write-receipt` صریحاً رسید همین snapshot تاریخی را بازتولید می‌کند. validator داده‌های فعلیِ سایت یا صحت معنایی/بازار را دوباره نمی‌سنجد؛ مقایسه با inventory ثبت‌شده است، نه crawl تازه. تغییر معنادار بعدی باید تاریخ/source جدید و receipt تازهٔ خودش را داشته باشد.
+
 ## چرا این نگاشت؟
 
 موجودی خواندنی وردپرس،۳۴ مورد عمومیِ منتشرشدهٔ غیرمحصولی در TehNet ثبت کرد؛ صفحات تازهٔ خدمات/Lab داخل همین شمارند.۱۳ مسیر تجاری MyTel با HTTPS معتبر،۲۰۰، یک H1 و canonical خودشان ثبت شدند. این‌ها موجودی صفحه‌اند، نه صفحات ایندکس‌شده یا دارای ترافیک. URL/Title/H1 مایتل در snapshot نگاشت حفظ شده‌اند؛ performance یا محتوای production آن تغییر نکرد.
