@@ -1,0 +1,85 @@
+{
+  "source_commit": "b29f80fea66530ab1a821ba0af9650d395d73b84",
+  "observed_utc": "2026-10-31T23:20:59.958762+00:00",
+  "completed_utc": "2026-10-31T23:21:15.542185+00:00",
+  "production_mutations": 0,
+  "tampered_payload_refused": true,
+  "tampered_metadata_refused": true,
+  "http_smoke": [
+    {
+      "path": "/services/network-support-tehran/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/shop/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/services/voice-network-readiness/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    }
+  ],
+  "original_posts_meta_users_exactly_restored": true,
+  "backup_checksum_verified": true,
+  "original_metadata_fixture_exactly_restored": true,
+  "schema": 1,
+  "status": "VERIFIED_REHEARSAL_NOT_DEPLOYED",
+  "scope": "One existing service page ID31/body and actual modification timestamps; zero runtime file writes by the release operator",
+  "runtime_files_guarded": 8,
+  "existing_container_runtime_unchanged": true,
+  "separate_staging_fixture": "Current production metadata0.2.1 was temporarily installed only in isolated staging and its original0.2.0 bytes restored; not a production write",
+  "operations": [
+    {
+      "operation": "check",
+      "status": "READY",
+      "files": 0,
+      "pages_created": 0,
+      "existing_pages_changed": 0
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "files": 0,
+      "pages_created": 0,
+      "existing_pages_changed": 1
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "files": 0,
+      "pages_created": 0,
+      "existing_pages_changed": 0
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "files": 0,
+      "pages_created": 0,
+      "existing_pages_changed": 1
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "files": 0,
+      "pages_created": 0,
+      "existing_pages_changed": 0
+    }
+  ],
+  "limits": [
+    "No production publication or shared-network change",
+    "Actual editor/browser41-block/26-check qualification is in the separate draft receipt",
+    "No abrupt host-loss injection; ambiguous commit journals require private reconciliation"
+  ]
+}

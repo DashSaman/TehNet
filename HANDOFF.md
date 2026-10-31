@@ -1,4 +1,10 @@
-## CURRENT — مقایسهٔ محدود خدمات و پیش‌نویس پشتیبانی آزموده شد
+## CURRENT — پشتیبانی شبکه آمادهٔ انتشار محدود است
+
+VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر: source qualify‌شده `b29f80fea66530ab1a821ba0af9650d395d73b84` برای body همان ID31.۳۷native/۲۹+۲۷+۳۷رگرسیون،۱۳operator،۴۱بلوک و۲۶browser پاس؛ immutable check/apply/repeat/HTTP/rollback/repeat و رد tamper پاس. هشت runtime digest محافظت، صفر runtime install توسط operator. فقط در staging، baseline metadata0.2.1 موقت گذاشته و اصل0.2.0 دقیق بازگردانده شد؛ همهٔ posts/meta/users وcontainerها نیز ثابت/بازگردانده شدند. رسید `qa/growth-2026-10-31/network-support-release-rehearsal.json`؛ صفحه هنوز production تغییر نکرده است.
+
+سه رقیب/۱۵معیار فقط صفحهٔ خدمات، نه۱۲۰سایت یا کیفیت واقعی خدمت؛ browser403 پاراگ و CWV/portal/lead delivery نامعلوم. منبع `seo/competitor-services-2026-11-01.json`. NEXT: PR عادی با required CI head، snapshot خصوصی پیش از integration، برابری payload/tool/8guard با source بالا، backup تازه/checksum/drift، سپس انتشار و پذیرش عمومی همان صفحه. MyTel write/noindex/payment و گیت‌های امنیتی تغییری نکرده‌اند. گزارش صبح LIVE_NOT_FINAL باقی است.
+
+## HISTORICAL CHECKPOINT — مقایسهٔ محدود خدمات و پیش‌نویس پشتیبانی آزموده شد
 
 VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED —۱نوامبر: سه صفحهٔ خدمات TarazNet/Parag/Varianet با۱۵معیار، چهارGET معتبرTLS و۹مشاهدهٔ browser ثبت شد؛ پاراگ browser403 و mobile performance/CWV/portal/lead delivery نامعلوم. منبع خوداظهاری با کیفیت واقعی خدمت یا رتبه یکی نیست. `seo/competitor-services-2026-11-01.json` و brief فارسی مرجع‌اند.
 

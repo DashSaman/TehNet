@@ -1,6 +1,6 @@
 # Existing network-support page and bounded competitor evidence
 
-Status: VERIFIED_NATIVE_DRAFT — 2026-11-01. Steps1–4 and isolated editor/layout review passed; immutable operator rehearsal and publication remain. This is not a deployment receipt.
+Status: VERIFIED_REHEARSAL_NOT_DEPLOYED — 2026-11-01. Steps1–5 passed with qualified source b29f80fea66530ab1a821ba0af9650d395d73b84. Ordinary CI integration and production backup/drift/public acceptance remain. Separate staging metadata baseline fixture was exactly restored.
 
 The current ID31 `/services/network-support-tehran/` already explains symptoms and remote/on-site selection. It lacks an explicit acceptance record, safe intake example and distinction between response and resolution commitments. Improve that page, preserving URL/title/H1/meta and the existing Tehran-only on-site/nationwide remote policy. No new landing page or article.
 
