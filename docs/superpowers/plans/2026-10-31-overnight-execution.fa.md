@@ -73,6 +73,7 @@ Files: `site/plugins/tehnet-store/includes/class-{tickets,quotes}.php`, `site/mu
 - [x] parse/serialize بلوک‌ها، parent/slug، یک H1، canonical/noindex، CTA و nonce در FormData و POST context را با مشتری synthetic در clone بررسی کن.
 - [x] full-page desktop/mobile و گوتنبرگ واقعی:۵۶بلوک معتبر، unsaved edit/reset، cleanup کاربر/قفل و برابری دادهٔ قبلی؛ production drift gate خواندنی۶فایلی پاس شد. `docs/editor-release-acceptance-2026-10-31.fa.md` و رسیدها مرجع‌اند.
 - [x] backup تازه با checksum و restore جدا:۱۰٬۰۱۶فایل/۴۷جدول و native boot، cleanup و invariants پاس؛ WordPress/SQL فقط، نه Origin/OOB.
+- [x] migration محدود با journal، apply/repeat/rollback و دو اتصال مستقل/retention cap:۳۷ native PASS؛۱۳fixture cleanup، اصل posts/meta برابر.
 - [ ] فقط بعد از backup/checksum/drift/rollback و گیت مجاز انتشار، release سریالی و public smoke انجام بده؛ تغییر محلی را deployed نام نزن.
 
 ### P6/P7 — مالکیت intent، خدمات و محتوا
