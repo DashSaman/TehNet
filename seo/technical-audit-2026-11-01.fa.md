@@ -1,6 +1,6 @@
 # بازبینی محدود UX و SEO فنی —۱نوامبر۲۰۲۶
 
-وضعیت: **AUDIT_VERIFIED؛ اصلاح schema و مسیر تک‌فایلی VERIFIED_FOR_RELEASE؛ هنوز DEPLOYED نیست**. [رسید](../qa/growth-2026-10-31/technical-audit-and-metadata-role.json) دامنهٔ واقعی را ثبت می‌کند.
+وضعیت: **AUDIT_VERIFIED؛ اصلاح schema تک‌فایلی DEPLOYED_VERIFIED؛ audit اولیه و rehearsal checkpoint تاریخی‌اند**. [رسید](../qa/growth-2026-10-31/technical-audit-and-metadata-role.json) دامنهٔ واقعی را ثبت می‌کند.
 
 ## روش و مشاهده
 
@@ -41,3 +41,8 @@
 ## پذیرش staging
 
 source c287a86 در staging بومی با backup/checksum و drift اعمال شد؛8مسیر HTTP فقط حذف4Article را با برابری متن و سایرmetadata نشان دادند.188کنترل browser دسکتاپ/موبایل/no-JS پاس؛ سپس rollback/repeat اصل فایل را برگرداند و داده/runtime برابر ماند. DB write0؛ production هنوز انجام نشده. رسید rehearsal checkpoint مستقل است و audit اولیه را به‌عنوان دادهٔ «بعد از اصلاح» بازنویسی نمی‌کند.
+
+
+## نتیجهٔ زنده
+
+در۰۲:۲۶تهران source6728ddd با backup تازه/checksum/drift منتشر شد؛ یک فایل metadata و صفر سطر DB/محتوا، repeat بدون تغییر.13GET باTLS و188کنترل browser عمومی پاس؛ فقط Article چهارhub حذف و درس‌ها/خانه/فروشگاه/داده/۷فایل دیگر/containerها/noindex حفظ شدند. [رسید actual production](../qa/growth-2026-10-31/metadata-role-production-release.json) وضعیت فعلی است؛ از audit اولیه نتیجهٔ بعد از اصلاح نسازید. هیچ نتیجهٔ رتبه، ترافیک،RichResult یاAIcitation اندازه‌گیری نشده است.

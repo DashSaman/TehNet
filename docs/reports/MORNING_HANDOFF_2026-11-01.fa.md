@@ -1,6 +1,6 @@
 # تحویل صبح TehNet × MyTel × SEO —۱نوامبر۲۰۲۶
 
-**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 02:23 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
+**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 02:28 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
 
 ## ۱. امنیت — گیت‌های باز مقدم‌اند
 
@@ -172,3 +172,13 @@ audit خواندنی73پاسخ/68HTML/25محصول و16حالت مرورگر ث�
 scope تک‌فایلی `tehnet-metadata-role-20261101-v1`، source qualify‌شده `c287a86783016164404ed2158f60ac7ce4a02656`: check/apply/repeat،8native HTTP و188browser desktop/mobile/no-JS، سپس rollback/repeat پاس. فقط4Article هاب حذف؛ main text/other metadata/lesson Article برابر baseline. اصل فایل وposts/meta/users وruntime بازیابی/حفظ؛ DB write0. tamper payload/metadata رد. رسید `qa/growth-2026-10-31/metadata-role-release-rehearsal.json`.
 
 NEXT: PR/CI عادی، snapshot قبل از integration، bundle برابر همین payload/tool و7runtime guard، backup/checksum/drift تازه و انتشار فقط فایل metadata؛ سپس13GET وپذیرش browser واقعی. هنوز DEPLOYED نیست. noindex/صفحات/منو/محصولات/MyTel تغییر نکنند و درس62/64/P4 بازپخش نشوند. پس از این بسته، مقایسهٔ مستند TarazNet و گپ‌های خدمات/محتوای بعدی. rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED وگزارش صبح interim برقرارند.
+
+## checkpoint انتشار metadata —۱نوامبر،۰۲:۲۸ تهران
+
+## CURRENT — اصلاح نقش schema روی live منتشر و تأیید شد
+
+**DEPLOYED —۱نوامبر،۰۲:۲۶ تهران:** metadata0.2.1 فقط Article چهارhub learn/lab/mikrotik/mtcna را حذف می‌کند؛ Article درس‌ها و متن/note/description/OG/title/H1/canonical/noindex حفظ شدند. [PR41](https://github.com/DashSaman/TehNet/pull/41)، CI41250290474؛ source live `6728ddd23ecda9ed9fd2178f22ba9330277da25d` و برابری payload/tool/7runtime guard با qualified source `c287a86783016164404ed2158f60ac7ce4a02656` تأیید شد. backup تازه/checksum/drift پاس؛ یک فایل و صفر سطر DB/محتوا، repeat apply بدون تغییر.
+
+شواهد: audit73response/68HTML/25product و16browser smoke؛56metadata unit پس از4FAIL baseline،12operator و16native checker؛ staging8HTTP+188browser وrollback/repeat اصل فایل؛ سپس13HTTPS و188browser عمومی در24حالت desktop/mobile/no-JS پاس. دادهٔ محافظت‌شده،۷فایل محافظت‌شدهٔ دیگر وcontainerها ثابت،25کالا/قابل‌خرید0، ERP/sandbox false، MyTel write0. receipt: `qa/growth-2026-10-31/metadata-role-production-release.json`؛ مرورگر `tests/metadata-role-browser.cjs`. Rich Results Test/URL Inspection،CWV میدانی،رتبه/AI citation اجرا یا اندازه‌گیری نشده‌اند.
+
+NEXT: مقایسهٔ مستند و محدود TarazNet و صفحات خدمات رقبا، تطبیق با خدمات موجود TehNet و اولین بهبود متمایز روی URL موجود؛ MyTel فقط پیشنهاد در دامنهٔ مجاز. audit/پرتفوی100topic و انتشارP4/درس62/64/metadata را بازپخش نکنید. گزارش صبح هنوز LIVE_NOT_FINAL است؛ rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED وnoindex/پرداخت/MyTel freeze حفظ شوند.

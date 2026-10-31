@@ -1,6 +1,6 @@
 # Bounded technical audit and hub metadata correction
 
-Status: VERIFIED_FOR_RELEASE; production pending. Inline continuation of the owner's autonomous UX/SEO correction scope. No new question or deployment permission is inferred from time passing.
+Status: DEPLOYED_VERIFIED; this bounded unit is complete. Inline continuation of the owner's autonomous UX/SEO correction scope. No new question or deployment permission is inferred from time passing.
 
 Observed: a bounded public GET crawl returned73 responses including25 product URLs; status/H1/canonical/description/JSON syntax and main links were examined. A real-browser smoke covered16 route/viewport/JS combinations. Raw responses remain outside Git. This is neither a full crawler identity/field-performance audit nor a120-site benchmark.
 
@@ -17,3 +17,5 @@ Alternatives considered: add CollectionPage/ItemList graphs, or suppress all WP 
 No canonical/robots/sitemap-policy change; no Cloudflare policy change or email delivery; no customer/payment action. Schema counts, HTTP200 and browser acceptance are not search or AI-citation metrics. Morning report stays interim until the agreed deadline.
 
 Qualified c287a86: one file, zero database writes,8 native HTTP comparisons and188 real-browser checks, then exact original file rollback and unchanged protected data/runtime. Metadata/payload tampering refused.
+
+Actual acceptance: PR41/CI41250290474; source6728ddd equals qualified payload/tool c287a86, fresh verified backup,13 valid-TLS GETs and188 read-only public-browser checks. One metadata file installed; no DB/content writes or indexing-policy change. Broader mission remains open.
