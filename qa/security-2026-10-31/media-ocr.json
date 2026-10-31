@@ -1,0 +1,46 @@
+{
+  "observed_utc": "2026-10-31T19:23:06.487366+00:00",
+  "current_tracked_raster_paths": 135,
+  "additional_distinct_historical_rasters": 143,
+  "current_tiles": 206,
+  "historical_tiles": 268,
+  "images_with_recognized_characters": 239,
+  "recognized_characters_total": 51590,
+  "known_value_findings": 0,
+  "other_context_candidates": 0,
+  "source_hashes_unchanged_after_both_runs": true,
+  "offline_engine": "Windows.Media.Ocr, en-US",
+  "synthetic_fixture": "PASS",
+  "historical_available_snapshot_inventory": {
+    "TehNet": {
+      "blobs": 2121,
+      "raster_blob_occurrences": 165,
+      "already_ocr_content": 131,
+      "new_distinct_raster": 34,
+      "pdf_objects": 0,
+      "lfs_pointers": 0,
+      "invalid_raster_candidates": 0
+    },
+    "mytel.one": {
+      "blobs": 2593,
+      "raster_blob_occurrences": 109,
+      "already_ocr_content": 0,
+      "new_distinct_raster": 109,
+      "pdf_objects": 0,
+      "lfs_pointers": 0,
+      "invalid_raster_candidates": 0
+    }
+  },
+  "limits": [
+    "No OCR completeness guarantee; installed recognition is English and may miss Persian, tiny, obfuscated or fragmented text.",
+    "Current worktree and dated reachable original mirrors only; not external caches, unreachable refs, every image metadata field or every archive payload.",
+    "Animated assets: first frame only.",
+    "Raw text, crops, identifiers and exact original paths remain private outside Git.",
+    "Generic hostnames/new email addresses/prose passwords outside the identified-value list were not systematically classified in OCR; semantic review remains separate."
+  ],
+  "detection_scope": [
+    "Identified literal values, including identified IPv6/email/password values",
+    "IPv4 candidates excluding loopback/unspecified/documentation examples",
+    "Selected credential-token prefix formats"
+  ]
+}

@@ -4,14 +4,14 @@
 
 | بسته | وضعیت فعلی | شاهد/محدودیت | گام بعد |
 |---|---|---|---|
-| P0/P1 پاک‌سازی فایل جاری | VERIFIED / GitHub main integrated | TehNet#33→c05bd38؛ MyTel#3→63890ad؛ -SEO#2→e59de10. هر۳ CI موفق؛۲۷ unit guard؛ دادهٔ سایت تغییر نکرد. | تکمیل incident matrix و ACL |
+| P0/P1 پاک‌سازی و پیشگیری | VERIFIED within stated scope | سه privacy PR ادغام؛ guard/CI و الزام main در دو public فعال؛ تصاویر جاری/تاریخی OCR شد. رمز/Origin/history گیت‌های جدا دارند. | مطابق matrix؛ مهار جاری را دوباره از صفر شروع نکن |
 | رمز تاریخی | BLOCKED / validity unknown | متن حذف شد؛ rotation انجام نشده؛ حساب/وابستگی قابل‌تأیید نداریم. مقدار در Git/گزارش تکرار نشود. | بررسی مجاز/ارجاع به مالک، بدون آزمون ورود نامعلوم |
-| P2 تمرین تاریخچه | VERIFIED locally / NEEDS_APPROVAL for shared rewrite | v2:۲۰۵۳ و۱۱۸۱blob، مقادیر شناسایی‌شده صفر؛۳۹ و۷ref تغییر محلی؛ remote دست‌نخورده. snapshot پس از merge هنوز تازه نشده. | دامنهٔ GitHub و rehearsal تازه با tree-preservation |
-| P3 Origin | IN_PROGRESS | محافظت بیرونی/OOB هنوز ارزیابی نشده؛ حذف IP اثبات حفاظت نیست. | منابع Cloudflare، inventory خواندنی و probe معتبر |
-| P4/P5 nonce/context/readiness | IN_PROGRESS / local only |۱۴فایل draft قبل از FF خصوصی حفظ شدند. کد و unitها موجودند؛ native/browser/release انجام نشده. | اجرای fresh PHP و browser/staging |
+| P2 تمرین تاریخچه | VERIFIED locally / NEEDS_APPROVAL for shared rewrite | v4 پس از merge:۲۰۹۰/۱۱۹۵blob، backup restore/main-tree equal/guard/unit؛ هیچ force-push. refهای جدید معمولی map را قدیمی می‌کنند. | فقط پیش از purge مصوب ref drift تازه بررسی شود؛ OCR/cache حدودش محفوظ |
+| P3 Origin | BLOCKED on valid route/OOB prerequisites | read-only با TLS روشن؛ مسیر بیرونی مبهم، OOB تأیید نشده؛ live network mutation صفر. | پیش‌نیاز معتبر/طرح محدود؛ به کار مستقل بعدی برو |
+| P4/P5 nonce/context/readiness | VERIFIED native preview / release pending |۶۴PHP+۴JS،۲۶component+۲۴native،۳synthetic cleanup و protected hash equal؛ دو page و۲hub فقط staged. | full-page/editor، live drift/backup/rollback و انتشار محدود مجاز |
 | P6/P7 خدمات/محتوا/۱۰۰موضوع | READY after initial security triage | دو صفحه draft؛ پرتفوی۱۰۰موضوع و batch مقاله هنوز تکمیل نشده. | owner/intent/source map و بستهٔ کوچک مستند |
-| P8/P9 فنی/AI/انتقال | IN_PROGRESS | پژوهش اولیهٔ جاری در checkpoint خصوصی موجود؛ درس privacy در -SEO ادغام شد؛ سایت‌های noindex دست نخورده‌اند. | baseline عمومی پاک‌سازی‌شده و انتقال درس‌های جدید |
-| P10 تحویل صبح | READY for final window | هنوز زمان/کار صبح نرسیده؛ هیچ ادعای whole-program completion وجود ندارد. | QA/commit/report براساس نتیجه واقعی |
+| P8/P9 فنی/AI/انتقال | IN_PROGRESS overall; two scoped lessons merged | درس privacy/nonce/query و الزام guard در -SEO ادغام؛ source ledger/handoff/progress/dashboard و۷۱٪ حفظ. | baseline/provider research و اندازه‌گیری واقعی بعدی، بدون ادعای rank/citation |
+| P10 تحویل صبح | LIVE draft, NOT FINAL | docs/reports/MORNING_HANDOFF_2026-11-01.fa.md با آزمون/شکست/گیت واقعی ساخته شد؛ runner ACTIVE. | نزدیک موعد۰۸:۰۰ نتیجه/remaining/remote را نهایی کن |
 
 ## checkpoint آغاز
 
@@ -36,3 +36,15 @@ v3 عمداً در gateِ برابری tree متوقف شد: فهرست مشتر
 ## checkpoint native و GitHub —۳۱اکتبر
 
 مستندات امنیت/برنامه با715f465 push و draft PR34 ساخته شد؛ CI آن commit موفق بود. بستهٔ فرم/ابزار اکنون۶۴PHP+۴JS،۲۶component و۲۴native پاس دارد؛۳رکورد مصنوعی private تأیید و پاک، دادهٔ قبلی ثابت. تداخل query باCPT اصلاح شد. دو صفحه/۲hub فقط staged هستند؛۲۰PHP lint و۴۱بلوک roundtrip. شکست query و helper journal در سند بسته ثبت شده‌اند. production، history remote، Origin، indexing و commerce تغییر نکردند. بعد: commit/push کد/شواهد، انتقال درس محدود به -SEO، سپس qualification انتشار و تحقیق محتوا.
+
+## checkpoint الزام CI —۳۱اکتبر
+
+main دو ریپوی عمومی اکنون PR و check واقعیِ متصل به GitHub Actions و branch به‌روز را حتی برای admin الزام می‌کند؛۰ reviewer، force/deletion خاموش. API200 و عدم تغییر main SHA تأیید شد. درخواست اول422 schema داشت و بعد از بررسی پاسخ/تازه‌کردن گیت، ساختار checks-only پذیرفته شد. API مخزن خصوصی403 است و UNKNOWN می‌ماند. تغییر تاریخچه یا شبکه انجام نشد. جزئیات در prevention/رسید؛ OCR آفلاین جاری جدا در حال بررسی است.
+
+## checkpoint رسانه و گزارش زنده —۳۱اکتبر
+
+OCR آفلاین۱۳۵ مسیر raster جاری و۱۴۳ تصویر تاریخی اضافی در۴۷۴tile پس از probe مصنوعی پاس اجرا شد؛ match شناسایی‌شده/candidate صفر، اصل تصاویر با hash ثابت. انگلیسی/کیفیت OCR/metadata/cache/archive محدودیت‌اند، نه گواه پاکی مطلق. موجودی تاریخیPDF/LFS صفر بود. گزارش هدف۱نوامبر اکنون با برچسب «زنده/نهایی‌نشده» و همهٔ گیت‌ها/تست‌ها در docs/reports است. Native lesson به -SEO PR3 ادغام شده؛ guard lesson PR4 آمادهٔ CI/merge است. شاخهٔ رشد source تا0fbf6e8 push و CI پاس؛ publication/deploy هنوز باز. بعد: reconcile آخرین docs/CI، full-page/editor و release qualification؛ سپس تحقیق موضوع/مقاله.
+
+## checkpoint ادغام مرکزی و شروع گام بعد
+
+درس native در -SEO PR3 و الزام check در PR4 ادغام شدند؛ آخرین main مرکزی c3b3431، CI هر دو موفق. PR4 از همان سیاست الزامی جدید عبور کرد و هیچ bypass انجام نشد. TehNet source0fbf6e8 روی PR34 draft باقی است؛ deployment باز. گزارش زنده/صف اکنون روی full-page/editor و qualification انتشار تمرکز دارد؛ IDsِ clone نباید در تولید بازپخش شوند. پس از آن، پرتفوی۱۰۰موضوع/مقاله و baseline رقابتی/AI ادامه یابد.
