@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-31T21:25:54.789571+00:00",
+  "observed_local_date": "2026-11-01",
+  "engine": "Web search tool; exact engine/locale/device unavailable",
+  "target_language": "fa",
+  "target_market": "Iran/Tehran intended; provider geolocation not controlled",
+  "queries": [
+    {
+      "id": "QUERY_SUPPORT_01",
+      "query": "\"پشتیبانی شبکه\" \"تهران\"",
+      "class": "OBSERVED_WEB_SEARCH",
+      "selected_results": [
+        {
+          "url": "https://clinicitc.com/network-support/",
+          "observed_page_type": "Commercial service landing page",
+          "observation": "Offers on-site and online network support in its own copy; actual delivery not tested"
+        },
+        {
+          "url": "https://rayanposhtiban.com/",
+          "observed_page_type": "Commercial service homepage",
+          "observation": "Network support service copy, not technical lab evidence"
+        },
+        {
+          "url": "https://www.parag.pro/services/network-support",
+          "observed_page_type": "Commercial service landing page",
+          "observation": "Describes intake/prioritization and reporting in its own copy; backend not tested"
+        }
+      ],
+      "inference": "Maintain one existing support landing page for the job; use process/deliverable evidence rather than synonym landing pages",
+      "limits": "No exact position, volume, conversion, quality score or causal ranking claim"
+    },
+    {
+      "id": "QUERY_BACKUP_02",
+      "query": "\"میکروتیک\" \"backup\" \"export\" تفاوت",
+      "class": "OBSERVED_WEB_SEARCH",
+      "selected_results": [
+        {
+          "url": "https://faceit.ir/educational/mikrotik-backup-export-restore-config-guide-2026/",
+          "observed_page_type": "Informational tutorial/comparison",
+          "observation": "Explains file types and recovery in its own copy; full operational claims not independently tested"
+        },
+        {
+          "url": "https://mehdimj.ir/blog/2026/10/02/mtcna-night-07-backup-reset-netinstall/",
+          "observed_page_type": "Course lesson/tutorial",
+          "observation": "MTCNA backup/export lesson; its lab claims are not our evidence"
+        },
+        {
+          "url": "https://www.itpiran.net/blog/mikrotik/mikrotik-backup-manual-step-by-step/",
+          "observed_page_type": "Informational tutorial",
+          "observation": "Manual backup tutorial; not a source for our executable commands"
+        }
+      ],
+      "inference": "Informational file/recovery intent is already a section in the current RouterOS lesson; deepen it there before adding another URL",
+      "limits": "Provider locale/device unknown; no exact rank/volume or exhaustive competitor quality/uniqueness claim"
+    }
+  ],
+  "excluded_batch_observation": "A multi-query request returned merged/unattributed results dominated by backup topics; not assigned as query-specific market evidence",
+  "not_measured": [
+    "Search Console queries/cannibalization",
+    "Search volume",
+    "Exact ranks",
+    "Backlinks",
+    "AI citations",
+    "Competitor delivery quality"
+  ]
+}

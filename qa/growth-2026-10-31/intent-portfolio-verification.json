@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-10-31T21:25:55.271547+00:00",
+  "scope": "Candidate inventory and cross-brand mapping consistency; no new content publication",
+  "status": "VERIFIED_INVENTORY_ONLY",
+  "checks_passed": 20,
+  "checks": [
+    "100 candidates, IDs sequential and unique",
+    "20 clusters with five jobs each",
+    "No exact normalized title or job duplicates",
+    "No invented publication status",
+    "All rows require further research",
+    "Every topic has scoped sources",
+    "Sources have publisher/date/depth/scope/limits",
+    "No source names a tool-inaccessible endpoint as reviewed",
+    "TehNet candidates have valid editorial priorities and limits",
+    "Existing destinations resolve in native published inventory",
+    "Proposed groups are absent from current inventory",
+    "All candidate actions explicit",
+    "One action per canonical group",
+    "13 MyTel routes reserved/frozen and existing",
+    "MyTel observed200 and self-canonical",
+    "MyTel title/H1 preserved in normalized map",
+    "Existing commercial TehNet map uses real preferred URLs",
+    "Candidate destination stays on TehNet, no specialist commercial clone",
+    "MyTel reverse referrals are document-only",
+    "All topics have unmeasured or scoped search evidence"
+  ],
+  "topics": 100,
+  "clusters": 20,
+  "source_rows": 35,
+  "source_review_depth": {
+    "SECTION_REVIEWED": 21,
+    "TOPIC_SCAN": 10,
+    "PARTIAL": 1,
+    "READ": 1,
+    "VERIFIED": 2
+  },
+  "priority_distribution": {
+    "P1": 35,
+    "P2": 52,
+    "P3": 13
+  },
+  "market_evidence_distribution": {
+    "UNMEASURED_HYPOTHESIS": 93,
+    "QUERY_BACKUP_02": 5,
+    "QUERY_SUPPORT_01": 2
+  },
+  "existing_destination_topics": 33,
+  "existing_destinations": 13,
+  "proposed_canonical_groups": 14,
+  "mytel_frozen_routes": 13,
+  "new_pages_published": 0,
+  "new_articles_published": 0,
+  "production_writes": 0,
+  "source_sha256_lf": {
+    "seo/public-content-inventory-2026-11-01.json": "dc7c5faad05ab16b43f62a0351cf1a7ab4434488601ba06154b421ef0d9d1382",
+    "seo/content-source-ledger-2026-11-01.json": "d7b683975ce80ad833614b1bdd5f65667039bbb235b52f3218b5fe038930c48a",
+    "seo/brand-intent-map-2026-11-01.json": "1d7955d9498084df9f2bfef5511d9974145e3a5ff4c21620e5fbc8f42630371d",
+    "seo/intent-search-observations-2026-11-01.json": "b0cd5dcc2aca6237aa2789882301e41834a598684d64da1418a807ec385e33d4",
+    "seo/topic-clusters-2026-11-01.json": "46b7a0d03db3fd44653c4f0a92dc9c45353a7750313b242a8004e1a12ce905a0",
+    "seo/topic-portfolio-2026-11-01.csv": "acf18b7fe5f8794ad3be88d41dba92943ae5fbbe31e1c76fcbf7c0d44b093e0c"
+  },
+  "limits": [
+    "Exact duplicate checks do not prove semantic uniqueness; manual reader-job/cluster review also performed",
+    "All100 candidates still require full source/command/lab and market/editorial validation before production",
+    "No quantitative demand/rank/backlink/GSC cannibalization or AI-citation evidence",
+    "Two search observations have uncontrolled provider locale/device; result copies are not verified competitor capability"
+  ]
+}

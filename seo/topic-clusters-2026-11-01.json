@@ -1,0 +1,196 @@
+{
+  "schema": 1,
+  "clusters": [
+    {
+      "id": "C01",
+      "name_fa": "آدرس‌دهی و سرویس پایه",
+      "preferred_destination": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+      "action": "EXPAND_EXISTING",
+      "topics": 5,
+      "scope_limit_fa": "پروفایل و نسخهٔ OS؛ فرمان‌ها هنوز آزمون نشده‌اند"
+    },
+    {
+      "id": "C02",
+      "name_fa": "تصمیم مسیریابی",
+      "preferred_destination": "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/",
+      "action": "EXPAND_EXISTING",
+      "topics": 5,
+      "scope_limit_fa": "مسیر برگشت و نسخهٔ RouterOS؛ مثال اجرایی هنوز آزمایش نشده"
+    },
+    {
+      "id": "C03",
+      "name_fa": "VLAN و مسیر مدیریت",
+      "preferred_destination": "https://tehnet.ir/learn/mikrotik/vlan-troubleshooting/",
+      "action": "PROPOSED_GUIDE_GROUP",
+      "topics": 5,
+      "scope_limit_fa": "مدل switch-chip و OOB پیش از تغییر VLAN باید مشخص شوند"
+    },
+    {
+      "id": "C04",
+      "name_fa": "پایداری لایه دو",
+      "preferred_destination": "https://tehnet.ir/learn/switching-resilience/",
+      "action": "PROPOSED_GUIDE_GROUP",
+      "topics": 5,
+      "scope_limit_fa": "مدل/IOS و توپولوژی؛ قطع پورت یا تغییر STP بدون لاب مجاز نیست"
+    },
+    {
+      "id": "C05",
+      "name_fa": "بازیابی و تغییر RouterOS",
+      "preferred_destination": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+      "action": "EXPAND_EXISTING",
+      "topics": 5,
+      "scope_limit_fa": "همان دستگاه/نسخه، محدودیت Safe Mode و حفاظت فایل؛ بدون آزمون روتر"
+    },
+    {
+      "id": "C06",
+      "name_fa": "فایروال و NAT",
+      "preferred_destination": "https://tehnet.ir/learn/mikrotik/mtcna/firewall-basics/",
+      "action": "EXPAND_EXISTING",
+      "topics": 5,
+      "scope_limit_fa": "counter و مسیر packet؛ حذف connection یا rule عملیاتی مجاز نیست"
+    },
+    {
+      "id": "C07",
+      "name_fa": "آمادگی شبکهٔ صوت",
+      "preferred_destination": "https://tehnet.ir/services/voice-network-readiness/",
+      "action": "EXPAND_EXISTING",
+      "topics": 5,
+      "scope_limit_fa": "شبکهٔ صوت؛ استقرار PBX و قیمت/SLA در حوزهٔ MyTel است"
+    },
+    {
+      "id": "C08",
+      "name_fa": "WAN، MTU و مدرک شبکه",
+      "preferred_destination": "https://tehnet.ir/lab/wireguard-mtu/",
+      "action": "EXPAND_EXISTING",
+      "topics": 5,
+      "scope_limit_fa": "ابزار برآورد است؛ capture/اندازه‌گیری واقعی انجام نشده"
+    },
+    {
+      "id": "C09",
+      "name_fa": "VPN بین شعب",
+      "preferred_destination": "https://tehnet.ir/learn/wireguard-branch-troubleshooting/",
+      "action": "PROPOSED_GUIDE_GROUP",
+      "topics": 5,
+      "scope_limit_fa": "کلید، prefix و NAT هر سمت؛ MTU به Lab موجود ارجاع شود"
+    },
+    {
+      "id": "C10",
+      "name_fa": "وای‌فای سازمانی",
+      "preferred_destination": "https://tehnet.ir/learn/enterprise-wifi-survey/",
+      "action": "PROPOSED_GUIDE_GROUP",
+      "topics": 5,
+      "scope_limit_fa": "مدل AP، client و مقررات رادیویی؛ survey واقعی هنوز نداریم"
+    },
+    {
+      "id": "C11",
+      "name_fa": "شبکهٔ لینوکس",
+      "preferred_destination": "https://tehnet.ir/learn/linux-network-diagnostics/",
+      "action": "PROPOSED_GUIDE_GROUP",
+      "topics": 5,
+      "scope_limit_fa": "فقط پوشش فصل RHEL9؛ توزیع و نسخهٔ ابزار پیش از دستور باید pin شوند"
+    },
+    {
+      "id": "C12",
+      "name_fa": "DNS ویندوز و AD",
+      "preferred_destination": "https://tehnet.ir/learn/windows-dns-troubleshooting/",
+      "action": "PROPOSED_GUIDE_GROUP",
+      "topics": 5,
+      "scope_limit_fa": "دسترسی Domain و log خصوصی؛ source تکمیلی و lab لازم است"
+    },
+    {
+      "id": "C13",
+      "name_fa": "DHCP سازمانی",
+      "preferred_destination": "https://tehnet.ir/learn/windows-dhcp-troubleshooting/",
+      "action": "PROPOSED_GUIDE_GROUP",
+      "topics": 5,
+      "scope_limit_fa": "نسخهٔ Server و HA؛ تغییر scope/failover نیازمند lab است"
+    },
+    {
+      "id": "C14",
+      "name_fa": "شبکهٔ مجازی‌سازی",
+      "preferred_destination": "https://tehnet.ir/learn/virtualization-network-handover/",
+      "action": "PROPOSED_GUIDE_GROUP",
+      "topics": 5,
+      "scope_limit_fa": "source روی master؛ release دقیق و لاب hypervisor هنوز تعیین نشده"
+    },
+    {
+      "id": "C15",
+      "name_fa": "پشتیبان و بازیابی خدمت",
+      "preferred_destination": "https://tehnet.ir/learn/backup-restore-evidence/",
+      "action": "PROPOSED_GUIDE_GROUP",
+      "topics": 5,
+      "scope_limit_fa": "سازگاری برنامه و داده، RPO/RTO وابسته به نیاز؛ CISA فقط excerpt تاریخی"
+    },
+    {
+      "id": "C16",
+      "name_fa": "مانیتورینگ قابل تفسیر",
+      "preferred_destination": "https://tehnet.ir/learn/network-monitoring-evidence/",
+      "action": "PROPOSED_GUIDE_GROUP",
+      "topics": 5,
+      "scope_limit_fa": "نسخه/OID/نمونهٔ سنجش مشخص؛ هیچ alert واقعی ارسال نشده"
+    },
+    {
+      "id": "C17",
+      "name_fa": "اتوماسیون شبکه",
+      "preferred_destination": "https://tehnet.ir/learn/network-automation-safety/",
+      "action": "PROPOSED_GUIDE_GROUP",
+      "topics": 5,
+      "scope_limit_fa": "collection pin و دستگاه سازگار؛ check mode تضمین no-write نیست"
+    },
+    {
+      "id": "C18",
+      "name_fa": "امنیت و چرخهٔ تغییر",
+      "preferred_destination": "https://tehnet.ir/learn/network-security-change-control/",
+      "action": "PROPOSED_GUIDE_GROUP",
+      "topics": 5,
+      "scope_limit_fa": "طرح آموزشی؛ تغییر live، ادعای audit کامل و صدور گواهی ممنوع"
+    },
+    {
+      "id": "C19",
+      "name_fa": "پذیرش کابل‌کشی",
+      "preferred_destination": "https://tehnet.ir/learn/cabling-acceptance-evidence/",
+      "action": "PROPOSED_GUIDE_GROUP",
+      "topics": 5,
+      "scope_limit_fa": "استاندارد/دیتاشیت/دستگاه اندازه‌گیری؛ ادعای مشخصات۲۵SKU یا موجودی نداریم"
+    },
+    {
+      "id": "C20",
+      "name_fa": "تحویل و پشتیبانی شبکه",
+      "preferred_destination": "https://tehnet.ir/services/network-support-tehran/",
+      "action": "EXPAND_EXISTING",
+      "topics": 5,
+      "scope_limit_fa": "پیشنهاد دامنهٔ کار؛ بدون قیمت، ساعت، SLA، توان تخصصی یا مشتری ساختگی"
+    }
+  ],
+  "destination_overrides": [
+    {
+      "topics": [
+        "TN-T039",
+        "TN-T040"
+      ],
+      "destination": "https://tehnet.ir/learn/network-measurement-evidence/",
+      "action": "PROPOSED_GUIDE_GROUP",
+      "reason": "Loss measurement and privacy-safe capture are different jobs from MTU estimation; do not inflate the calculator page"
+    }
+  ],
+  "rules": [
+    "100 distinct reader jobs, not100 new URLs",
+    "Existing lesson sections stay on their preferred page unless later evidence warrants a different job/page",
+    "New canonical groups are proposals only; every topic is currently unpublished as a new content item",
+    "All priorities are editorial business judgment, not a calculated ranking probability"
+  ],
+  "first_editorial_batch": [
+    {
+      "topics": "TN-T021..TN-T025",
+      "target": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+      "decision": "Improve current Backup/Export and Safe Mode sections; do not create a competing backup landing page",
+      "required_evidence": "Read full current lesson and primary backup/config docs; command/source safety review; isolated editorial staging and reversible body drift gate"
+    },
+    {
+      "topics": "TN-T006..TN-T010",
+      "target": "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/",
+      "decision": "Improve the existing routing lesson; policy/overlap may stay deferred until a separate validated lab exists",
+      "required_evidence": "Source version and synthetic lab evidence if commands/results are claimed"
+    }
+  ]
+}
