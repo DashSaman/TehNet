@@ -1,0 +1,108 @@
+{
+  "scope": "Exact existing lesson in owned native staging, no runtime file changes",
+  "source_commit": "d2c24b0a1d18a92125e6a9456998fcdb5fddf2bb",
+  "observed_utc": "2026-10-31T21:59:16.695702+00:00",
+  "results": [
+    {
+      "operation": "check",
+      "status": "READY",
+      "files_pending": 0,
+      "content": {
+        "status": "READY",
+        "pages_pending": 0,
+        "hubs_pending": 1,
+        "protected_digest": "00609c7958a08a4999d53169f485beb9b315d67a2f89c249aaaaafd22b543c64"
+      }
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "files_changed": 0,
+      "content": {
+        "status": "APPLIED",
+        "pages_created": 0,
+        "hubs_updated": 1,
+        "page_ids": [],
+        "protected_digest": "00609c7958a08a4999d53169f485beb9b315d67a2f89c249aaaaafd22b543c64",
+        "protected_state_unchanged": true
+      }
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "files_changed": 0,
+      "content": {
+        "status": "APPLIED",
+        "pages_pending": 0,
+        "hubs_pending": 0,
+        "pages_created": 0,
+        "hubs_updated": 0,
+        "page_ids": [],
+        "protected_state_unchanged": true
+      }
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "files_restored": 0,
+      "content": {
+        "status": "ROLLED_BACK",
+        "hubs_restored": 1,
+        "pages_drafted": 0,
+        "protected_state_unchanged": true
+      }
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "files_restored": 0,
+      "content": {
+        "status": "ROLLED_BACK",
+        "hubs_restored": 0,
+        "pages_drafted": 0,
+        "protected_state_unchanged": true
+      }
+    }
+  ],
+  "production_mutations": 0,
+  "tampered_payload_refused": true,
+  "tampered_metadata_refused": true,
+  "http_smoke": [
+    {
+      "path": "/learn/mikrotik/mtcna/routeros-winbox/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/shop/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/services/voice-network-readiness/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    }
+  ],
+  "original_posts_meta_users_exactly_restored": true,
+  "existing_runtime_unchanged": true,
+  "backup_checksum_verified": true,
+  "status": "VERIFIED",
+  "completed_utc": "2026-10-31T21:59:32.355683+00:00",
+  "limits": [
+    "Existing owned native staging, not a new independent full-backup restore; the previous qualified recovery rehearsal remains a separate prerequisite",
+    "No fault injection of host loss or ambiguous COMMIT; incomplete states require private reconciliation",
+    "Four staging HTTP GETs do not establish live publication, indexing or search outcomes",
+    "RouterOS restore/lab NOT_RUN; source-reviewed conceptual lesson only"
+  ],
+  "helper_failure": "Initial rehearsal helper had a Python syntax error, caught before any remote execution. Full private diagnostic reviewed, syntax corrected and local compilation added before the successful run."
+}

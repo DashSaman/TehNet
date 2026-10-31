@@ -1,3 +1,9 @@
+## CURRENT — درس و مسیر انتشار qualify شد؛ production هنوز انجام نشده
+
+متن RouterOS/Winbox با۵۴بلوک معتبر،۲۱کنترل browser و۱۴GET پیوند آماده است. scope محدودِ ID62 با۲۷assertion native و۳۷regression مسیر قبلی،۸تست operator و rehearsal کامل check/apply/repeat/rollback/repeat پاس شد. source آزمودهٔ ابزار/بدنه `d2c24b0a1d18a92125e6a9456998fcdb5fddf2bb` است؛ بسته صفر فایل runtime نصب می‌کند و۷digest runtime را فقط می‌سنجد. دستکاری payload/metadata رد، چهارمسیر staging۲۰۰ و دادهٔ posts/meta/users و runtime پس از rollback دقیقاً برابر شدند. رسید `qa/growth-2026-10-31/editorial-release-rehearsal.json`؛ طرح `docs/superpowers/plans/2026-11-01-existing-lesson-release.md`.
+
+NEXT: [PR37](https://github.com/DashSaman/TehNet/pull/37) را با CI head تازه عادی ادغام، snapshot خصوصی/برابری payload را verify و backup تازهٔ qualified production با checksum بگیر؛ سپس فقط body درس62 را منتشر و HTTPS/browser/protected state را ثبت کن. هیچ بازپخش انتشار۶فایلی، MyTel write، تغییر noindex/پرداخت یا گیت امنیتی مجاز نشده است. مقالهٔ تازهٔ این بسته هنوز۰ و این درس هنوز live به‌روزرسانی نشده است. پس از آن routing و گپ‌های فنی/رقبا ادامه یابند.
+
 ## CURRENT — پرتفوی ادغام‌شده و پیش‌نویس درس آزموده،۱نوامبر۲۰۲۶
 
 P6/P7: پرتفوی۱۰۰کار/۲۰خوشه/۳۵منبع در [TehNet PR36](https://github.com/DashSaman/TehNet/pull/36) باCI موفق ادغام شد؛ main `5cd0895ad5b175a4838fb7538abc7e961a62a86a`، source `87805ecc4d2306996f2fdfac50c893e440574f92`. روش با ledger/topic/dashboard در [-SEO PR6](https://github.com/DashSaman/-SEO/pull/6) وCI موفق ادغام شد؛ main `64d6fc262909ee93a1d0070343f7e28821e38306`، baseline۷۱٪ ثابت. تاریخچهٔ امن/rotation/Origin و noindex/پرداخت گیت‌های جدا و باز هستند.

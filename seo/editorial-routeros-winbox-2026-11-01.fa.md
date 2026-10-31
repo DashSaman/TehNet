@@ -43,3 +43,5 @@
 ## پیشرفت مسیر انتشار — هنوز منتشر نشده
 
 پس از نسخهٔ draft، یک scope صریح و محدود برای همین درس به موتور transaction/journal موجود افزوده شد؛ scope قدیمیِ دوصفحه‌ای همچنان فقط خدمات/Lab است. scope جدید body و تاریخ واقعیِ تغییر را می‌پذیرد و تغییر title/slug/parent/meta یا ازبین‌رفتن revision قبلی را رد می‌کند.۲۷assertion native و۳۷regression قبلی پاس؛۸تست مرزی operator نیز پاس است. بستهٔ جدید صفر فایل runtime برای نصب دارد و۷digest runtime را فقط می‌سنجد. rehearsal کاملِ operator و انتشار production هنوز انجام نشده‌اند؛ [رسید لایهٔ migration](../qa/growth-2026-10-31/editorial-migration-verification.json) خطاهای harness و اصلاح آن‌ها را نیز ثبت می‌کند.
+
+Rehearsal کامل operator نیز پاس شد؛ [رسید](../qa/growth-2026-10-31/editorial-release-rehearsal.json) عملیات واقعی و محدودیت‌های آن را ثبت می‌کند. وضعیت production هنوز NOT_DEPLOYED است؛ source آزموده d2c24b0، ادغام/backup تازه/آزمون عمومی گام بعدند.
