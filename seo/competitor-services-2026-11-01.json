@@ -372,8 +372,11 @@
     "id": 31,
     "decision": "EXPAND_EXISTING_BODY",
     "gap": "Existing page has basic symptoms/intake but no explicit response-vs-resolution or handoff acceptance; add an original safe request example and jump links",
-    "state": "VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED",
+    "state": "DEPLOYED_VERIFIED",
     "new_urls": 0,
-    "new_articles": 0
+    "new_articles": 0,
+    "production_source_commit": "933bc33065295a018182104626ac7a7ba78bd55c",
+    "deployed_utc": "2026-10-31T23:24:53.778512+00:00",
+    "receipt": "../qa/growth-2026-10-31/network-support-production-release.json"
   }
 }

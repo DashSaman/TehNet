@@ -1,6 +1,6 @@
 # پشتیبانی شبکه: مقایسهٔ محدود و بهبود صفحهٔ موجود
 
-وضعیت: VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED —۱نوامبر۲۰۲۶. این checkpoint انتشار واقعی نیست.
+وضعیت: DEPLOYED_VERIFIED —۱نوامبر۲۰۲۶،۰۲:۵۴تهران. [همان صفحهٔ پشتیبانی](https://tehnet.ir/services/network-support-tehran/) پس از [PR43](https://github.com/DashSaman/TehNet/pull/43) وCI41252270026 منتشر شد؛ source `933bc33065295a018182104626ac7a7ba78bd55c` برابر payload/tool/8guardِ source qualify‌شده `b29f80fea66530ab1a821ba0af9650d395d73b84`. رسیدهای draft/rehearsal checkpointهای تاریخی‌اند.
 
 دادهٔ قابل بازاجرا و همهٔ۱۵معیار در [scorecard](competitor-services-2026-11-01.json) است. دامنه سه صفحهٔ خدمات است؛ بررسی۱۲۰فروشگاه، عملکرد کل سایت یا کیفیت اجرای شرکت‌ها انجام نشده است. تاریخ انتشار/به‌روزرسانی منابع نامعلوم است؛ زمان مشاهده ثبت شده. عبارات هر شرکت خوداظهاری‌اند.
 
@@ -16,4 +16,6 @@
 
 متن [network-support.html](../content/network-support-2026-11-01/network-support.html)، scope مستقل ID31 و رسید [native](../qa/growth-2026-10-31/network-support-draft-and-migration.json):۴۱بلوک ثبت‌شده،۲۶browser،۳۷native جدید، رگرسیون۲۹/۲۷/۳۷ و۱۳unit operator پاس. نمایش موبایل نسخهٔ نهایی دارای پرش‌ها دیده شد؛ دسکتاپ و no-JS کنترل خودکار دارند. هیچ فرم واقعی ارسال نشده است. این کار به سه درس/۱۰۰موضوع موجود اضافهٔ آموزشی محسوب نمی‌شود: یک service page موجود است، صفر مقاله/URL جدید.
 
-NEXT: immutable bundle/rehearsal با baseline فعلی metadata0.2.1 و بازگرداندن fixture خصوصی؛ سپس CI/backup/checksum/drift و انتشار محدود در صورت پذیرش. noindex/پرداخت/MyTel freeze و گیت‌های امنیتی تغییری نمی‌کنند.
+پذیرش واقعی: backup تازه/checksum/drift، صفر runtime install، یک body و تاریخ واقعی تغییر؛ repeat بدون تغییر.۹HTTPS و۴۱browser عمومی1440/375/no-JS پاس، همهٔ هشت فایل محافظت‌شده/containerها ثابت. noindex/۲۵کالای استعلامی/پرداخت/MyTel freeze حفظ شد. [رسید انتشار](../qa/growth-2026-10-31/network-support-production-release.json) شامل محدودیت اولیهٔ بسته‌سازی محلی است: یک build پیش از هر native action متوقف شد؛ یک diagnostic بستهٔ کامل با برابری checksum ساخت؛ علت نخست UNKNOWN باقی است و بازپخش remote/journal انجام نشد.
+
+NEXT: بهبود private diagnostic بسته‌سازی و سپس تحقیق نیازهای واقعی درس IP/DHCP/DNS موجود؛ این مقایسه یا انتشار را بازپخش نکنید. هیچ CWV/کیفیت واقعی خدمت/رتبه/AI citation اندازه‌گیری نشده است.

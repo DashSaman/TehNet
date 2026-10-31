@@ -109,3 +109,17 @@ Heartbeat موجود `automation-2` هر نیم‌ساعت در همین گفت�
 تا۲۳:۰۰: P0–P3 و شروع بستهٔ فرم/ابزار؛۲۳–۰۱: staging و اصلاح UX؛۰۱–۰۴: خدمات/محتوای مستند و نقشهٔ موضوعات؛۰۴–۰۶: سئو/رقابت/انتقال دانش؛۰۶–۰۷:۳۰: regression و releaseهای واجد گیت؛۰۷:۳۰–۰۸:۰۰: گزارش. اگر امنیت طول بکشد، این بازه‌ها با ثبت علت جابه‌جا شوند و کیفیت/گیت‌ها حذف نشوند.
 
 Checkpoint clarification: completed boxes refer to the scoped results in the progress log. Remote purge/credential/Origin acceptance remains open; OCR has bounded completed evidence. PHP/component/native-preview/editor acceptance is not a production deployment. Check the latest progress entry before repeating a dated task.
+
+## Queue checkpoint — existing support service and scoped comparison, 2026-11-01
+
+| Package | State | Evidence / remaining scope |
+|---|---|---|
+| P6 existing network-support ID31 | DEPLOYED | PR43/source933bc33065295a018182104626ac7a7ba78bd55c; one body,9 TLS/41 public-browser checks; setup/security/server/monitoring are not thereby complete |
+| P8 prior metadata role | DEPLOYED | Previous metadata receipt remains current; not redeployed by this body-only release |
+| P9 service competitors | VERIFIED | Three specific service pages/15 dimensions;9 browser observations including3x403, no120-site/full-performance/portal/service-quality claim |
+| P9 knowledge transfer | VERIFIED | -SEO PR10/main9380cc1cdfb7f7a0d2bdb1f85437b87d7b924366, CI41252616666; four source rows/topic/dashboard/continuation; baseline71% unchanged |
+| P8 local bundle diagnostics | READY | Initial local CLI build stopped before native action; one complete checksum-qualified diagnostic bundle succeeded; cause UNKNOWN, improve private failure diagnostics without replaying production |
+| P7 next existing IP/DHCP/DNS lesson | READY | Official-source scoped research and distinct useful content/acceptance needed;100 candidates remain candidates |
+| P10 final morning report | IN_PROGRESS | LIVE_NOT_FINAL;08:00 Tehran final still required |
+
+Scoped acceptance:37 native new/29+27+37 shared regressions,13 operator units,41 blocks/26 staging-browser checks, immutable backup/tamper/apply/repeat/rollback/repeat, current metadata baseline fixture exactly restored. Production zero runtime installs, eight runtime files/protected data/containers retained, noindex and25 inquiry-only products preserved. No MyTel write or real forms/payments. Credential rotation UNKNOWN, history NEEDS_APPROVAL and Origin UNDETERMINED remain; the unchecked broad tasks above are not silently marked complete.
