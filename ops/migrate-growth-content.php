@@ -1,12 +1,17 @@
 <?php
 /** Bounded WP-CLI content migration. Journal and raw snapshots must stay outside Git/web roots. */
 final class TehNet_Growth_Content_Migration {
+    private const LESSON_SCOPES=[
+        'tehnet-editorial-routeros-20261101-v1'=>['id'=>62,'uri'=>'learn/mikrotik/mtcna/routeros-winbox','file'=>'routeros-winbox.html'],
+        'tehnet-editorial-routing-20261101-v1'=>['id'=>64,'uri'=>'learn/mikrotik/mtcna/static-routing','file'=>'static-routing.html'],
+    ];
     private array $manifest;
     private string $digest;
     private string $directory;
     private array $touched=[];
     private bool $existingLesson=false;
     private string $expectedTitle='';
+    private array $lessonScope=[];
 
     public function __construct(string $path,string $digest,string $directory,bool $authorizedProduction=false) {
         if(!defined('WP_CLI')||!WP_CLI||!current_user_can('manage_options')||(string)get_option('blog_public')!=='0')throw new RuntimeException('Authorized closed-index native CLI required');
@@ -19,20 +24,21 @@ final class TehNet_Growth_Content_Migration {
         if(!$real||!is_dir($real)||is_link($directory)||($web&&($real===$web||str_starts_with($real,$web.DIRECTORY_SEPARATOR)))||(fileperms($real)&0077)!==0)throw new RuntimeException('Private journal directory outside the web root required');
         $this->manifest=json_decode(file_get_contents($path),true,512,JSON_THROW_ON_ERROR);$this->digest=$digest;$this->directory=$real;
         $m=$this->manifest;
-        if(($m['key']??'')==='tehnet-editorial-routeros-20261101-v1'){
+        if(isset(self::LESSON_SCOPES[$m['key']??''])){
+            $scope=self::LESSON_SCOPES[$m['key']];$this->lessonScope=$scope;
             $target=$m['target']??[];
-            if(($m['schema']??null)!==1||($target['id']??null)!==62||($target['url']??'')!=='https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/'||($target['change_fields']??null)!==['post_content']||($m['content_file']??'')!=='routeros-winbox.html'||!is_string($target['title_observed']??null)||$target['title_observed']==='')throw new RuntimeException('Unapproved existing-lesson scope');
-            $bodyPath=dirname($path).'/routeros-winbox.html';
+            if(($m['schema']??null)!==1||($target['id']??null)!==$scope['id']||($target['url']??'')!=='https://tehnet.ir/'.$scope['uri'].'/'||($target['change_fields']??null)!==['post_content']||($m['content_file']??'')!==$scope['file']||!is_string($target['title_observed']??null)||$target['title_observed']==='')throw new RuntimeException('Unapproved existing-lesson scope');
+            $bodyPath=dirname($path).'/'.$scope['file'];
             if(is_link($bodyPath)||!is_file($bodyPath)||!preg_match('/^[a-f0-9]{64}$/D',$m['content_sha256_lf']??'')||!hash_equals($m['content_sha256_lf'],hash_file('sha256',$bodyPath)))throw new RuntimeException('Immutable lesson body mismatch');
-            if(in_array(62,array_map('intval',[get_option('page_on_front'),get_option('page_for_posts'),get_option('woocommerce_shop_page_id')]),true))throw new RuntimeException('Protected role cannot be an editorial target');
+            if(in_array($scope['id'],array_map('intval',[get_option('page_on_front'),get_option('page_for_posts'),get_option('woocommerce_shop_page_id')]),true))throw new RuntimeException('Protected role cannot be an editorial target');
             $this->existingLesson=true;$this->expectedTitle=$target['title_observed'];
-            $this->manifest=$m=['schema'=>1,'key'=>$m['key'],'pages'=>[],'updates'=>[['id'=>62,'expected_content_sha256'=>$target['expected_content_sha256']??'','replace'=>file_get_contents($bodyPath)]]];
+            $this->manifest=$m=['schema'=>1,'key'=>$m['key'],'pages'=>[],'updates'=>[['id'=>$scope['id'],'expected_content_sha256'=>$target['expected_content_sha256']??'','replace'=>file_get_contents($bodyPath)]]];
         }elseif(($m['schema']??null)!==1||($m['key']??'')!=='tehnet-growth-20261031-v1'||count($m['pages']??[])!==2||count($m['updates']??[])!==2)throw new RuntimeException('Unexpected migration scope');
         $keys=[];$hubs=[];
         foreach($m['updates']as$row){
             if(!is_int($row['id']??null)||$row['id']<1||isset($hubs[$row['id']])||!preg_match('/^[a-f0-9]{64}$/D',$row['expected_content_sha256']??''))throw new RuntimeException('Hub manifest identity invalid');
             $hub=get_post($row['id']);if(!$hub||$hub->post_type!=='page'||$hub->post_status!=='publish')throw new RuntimeException('Hub identity missing');
-            $allowed=$this->existingLesson?[62=>'learn/mikrotik/mtcna/routeros-winbox']:[7=>'lab',8=>'services'];
+            $allowed=$this->existingLesson?[$this->lessonScope['id']=>$this->lessonScope['uri']]:[7=>'lab',8=>'services'];
             if(($production||$this->existingLesson)&&(!array_key_exists($hub->ID,$allowed)||get_page_uri($hub)!==$allowed[$hub->ID]))throw new RuntimeException('Unapproved managed page path');
             if($this->existingLesson&&$hub->post_title!==$this->expectedTitle)throw new RuntimeException('Existing lesson title drift');
             $this->blocks($row[$this->existingLesson?'replace':'append']??'');$hubs[$row['id']]=true;
@@ -123,7 +129,7 @@ final class TehNet_Growth_Content_Migration {
     }
     private function plan():array {
         $hubs=[];$pages=[];
-        foreach($this->manifest['updates']as$row){$p=get_post($row['id']);if($this->existingLesson&&(!$p||$p->post_type!=='page'||$p->post_status!=='publish'||$p->post_title!==$this->expectedTitle||get_page_uri($p)!=='learn/mikrotik/mtcna/routeros-winbox'))throw new RuntimeException('Existing lesson identity changed');if(hash('sha256',$p->post_content)!==$row['expected_content_sha256'])throw new RuntimeException('Hub body drift; refuse overwrite');$hubs[$p->ID]=$this->snapshot($p->ID);}
+        foreach($this->manifest['updates']as$row){$p=get_post($row['id']);if($this->existingLesson&&(!$p||$p->post_type!=='page'||$p->post_status!=='publish'||$p->post_title!==$this->expectedTitle||get_page_uri($p)!==$this->lessonScope['uri']))throw new RuntimeException('Existing lesson identity changed');if(hash('sha256',$p->post_content)!==$row['expected_content_sha256'])throw new RuntimeException('Hub body drift; refuse overwrite');$hubs[$p->ID]=$this->snapshot($p->ID);}
         foreach($this->manifest['pages']as$row){$path=get_page_uri($row['parent_id']).'/'.$row['slug'];if(get_page_by_path($path,OBJECT,'page'))throw new RuntimeException('New path already exists; do not adopt');$pages[$row['key']]=$path;}
         return ['hubs'=>$hubs,'paths'=>$pages];
     }
@@ -192,7 +198,7 @@ final class TehNet_Growth_Content_Migration {
 if(!defined('TN_GROWTH_LIBRARY_ONLY')){
     $authorization=getenv('TN_GROWTH_AUTHORIZED_RELEASE');$manifestPath=(string)getenv('TN_GROWTH_MANIFEST');
     $requested=is_file($manifestPath)?json_decode(file_get_contents($manifestPath),true,512,JSON_THROW_ON_ERROR):[];
-    $authorized=in_array($authorization,['tehnet-growth-20261031-v1','tehnet-editorial-routeros-20261101-v1'],true)&&($requested['key']??null)===$authorization;
+    $authorized=in_array($authorization,['tehnet-growth-20261031-v1','tehnet-editorial-routeros-20261101-v1','tehnet-editorial-routing-20261101-v1'],true)&&($requested['key']??null)===$authorization;
     $migration=new TehNet_Growth_Content_Migration($manifestPath,(string)getenv('TN_GROWTH_DIGEST'),(string)getenv('TN_GROWTH_JOURNAL_DIR'),$authorized);
     echo wp_json_encode($migration->run(getenv('TN_GROWTH_MODE')?:'check'));
 }

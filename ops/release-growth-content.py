@@ -28,14 +28,20 @@ FILES = [
 EXTRA = ['content/growth-2026-10-31/manifest.json', 'ops/migrate-growth-content.php']
 SCOPE = 'tehnet-growth-20261031-v1'
 EDITORIAL_SCOPE = 'tehnet-editorial-routeros-20261101-v1'
+ROUTING_SCOPE = 'tehnet-editorial-routing-20261101-v1'
+LESSON_SCOPES = {
+    EDITORIAL_SCOPE: ('content/growth-editorial-2026-11-01', 'routeros-winbox.html', '/tmp/tn-editorial-release-'),
+    ROUTING_SCOPE: ('content/routing-editorial-2026-11-01', 'static-routing.html', '/tmp/tn-routing-release-'),
+}
 
 
 def scope_spec(scope):
     if scope == SCOPE:
         return list(FILES), list(EXTRA), []
-    if scope == EDITORIAL_SCOPE:
-        return [], ['content/growth-editorial-2026-11-01/manifest.json',
-                    'content/growth-editorial-2026-11-01/routeros-winbox.html',
+    if scope in LESSON_SCOPES:
+        directory, body, _ = LESSON_SCOPES[scope]
+        return [], [directory + '/manifest.json',
+                    directory + '/' + body,
                     'ops/migrate-growth-content.php'], FILES + ['site/plugins/tehnet-store/tehnet-store.php']
     raise ValueError('Unapproved release scope')
 
@@ -152,7 +158,7 @@ class Release:
         c, m = self.c, self.m
         self.scope = m['scope']
         self.files, self.extra, runtime = scope_spec(self.scope)
-        if self.scope == EDITORIAL_SCOPE and digest(member(self.b, 'bundle.json').read_bytes()) != c.get('bundle_manifest_sha256'):
+        if self.scope in LESSON_SCOPES and digest(member(self.b, 'bundle.json').read_bytes()) != c.get('bundle_manifest_sha256'):
             raise RuntimeError('Approved editorial bundle metadata checksum required')
         if m['schema'] != 1 or set(m['members']) != set(self.files + self.extra) or list(m['files']) != self.files or set(m.get('runtime_guard', {})) != set(runtime):
             raise RuntimeError('Unexpected bundle scope')
@@ -185,7 +191,7 @@ class Release:
         self.state = json.loads(self.receipt_path.read_text()) if self.receipt_path.exists() else None
         if self.state and (self.state['source_commit'] != m['source_commit'] or self.state['app_id'] != c['app_id'] or self.state['db_id'] != c['db_id']):
             raise RuntimeError('Release journal identity mismatch')
-        self.container_stage = ('/tmp/tn-editorial-release-' if self.scope == EDITORIAL_SCOPE else '/tmp/tn-growth-release-') + m['source_commit']
+        self.container_stage = (LESSON_SCOPES[self.scope][2] if self.scope in LESSON_SCOPES else '/tmp/tn-growth-release-') + m['source_commit']
         self.manifest_digest = m['members'][self.extra[0]]
         self.root = None
 
@@ -217,7 +223,7 @@ class Release:
                 raise RuntimeError('Production routing drift')
         else:
             networks = app['NetworkSettings']['Networks']
-            loopback = self.scope == EDITORIAL_SCOPE
+            loopback = self.scope in LESSON_SCOPES
             if set(networks) != {self.c['network']} or set(db['NetworkSettings']['Networks']) != set(networks) or not staging_ports_safe(app['HostConfig']['PortBindings'], loopback) or not staging_ports_safe(db['HostConfig']['PortBindings']):
                 raise RuntimeError('Staging network/port isolation missing')
             if loopback and app['HostConfig']['PortBindings'] != self.c.get('staging_app_bindings'):
@@ -232,8 +238,8 @@ class Release:
         self.run(['docker', 'exec', self.c['app'], 'mkdir', '-p', self.container_stage + '/journal'])
         self.run(['docker', 'exec', self.c['app'], 'chmod', '700', self.container_stage, self.container_stage + '/journal'])
         staged = [(self.extra[0], 'manifest.json'), ('ops/migrate-growth-content.php', 'migration.php')]
-        if self.scope == EDITORIAL_SCOPE:
-            staged.append((self.extra[1], 'routeros-winbox.html'))
+        if self.scope in LESSON_SCOPES:
+            staged.append((self.extra[1], LESSON_SCOPES[self.scope][1]))
         for source, name in staged:
             self.run(['docker', 'cp', str(member(self.b / 'payload', source)), self.c['app'] + ':' + self.container_stage + '/' + name])
         # Syntax-check every PHP artifact before the first live file write.
@@ -324,7 +330,7 @@ class Release:
         if not self.state or self.state['status'] not in ('APPLIED', 'ROLLED_BACK'):
             raise RuntimeError('Explicit reconciliation required before rollback')
         validate_restore(self.root, self.state['files'])
-        if self.scope == EDITORIAL_SCOPE:
+        if self.scope in LESSON_SCOPES:
             self.file_guard()
         # If content restoration is refused, leave modules available and retain all evidence.
         result = self.native('rollback')
@@ -385,7 +391,7 @@ class Release:
             self.save()
             # Never guess whether a database COMMIT succeeded. Only proven states permit undo.
             try:
-                if self.scope == EDITORIAL_SCOPE:
+                if self.scope in LESSON_SCOPES:
                     self.file_guard()
                 raw = self.run(['docker', 'exec', self.c['app'], 'sh', '-c', 'if test -f ' + self.container_stage + '/journal/journal.json; then cat ' + self.container_stage + '/journal/journal.json; else printf null; fi'])
                 journal = json.loads(raw)
@@ -422,7 +428,7 @@ def main():
     parser.add_argument('--repo', type=Path, default=Path.cwd())
     parser.add_argument('--source-commit')
     parser.add_argument('--baseline-commit')
-    parser.add_argument('--scope', choices=[SCOPE, EDITORIAL_SCOPE], default=SCOPE, help='Bundle scope; execution reads and validates the immutable bundle scope')
+    parser.add_argument('--scope', choices=[SCOPE, *LESSON_SCOPES], default=SCOPE, help='Bundle scope; execution reads and validates the immutable bundle scope')
     args = parser.parse_args()
     release = None
     try:

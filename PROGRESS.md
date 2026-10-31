@@ -1,4 +1,12 @@
-## CURRENT — درس RouterOS به‌روزرسانی و روی live تأیید شد
+## CURRENT — مسیریابی: پیش‌نویس و scope مستقل آزموده، انتشار هنوز انجام نشده
+
+درس موجود64 با همان URL/عنوان برای پنج نیاز C02 توسعه یافت؛8 منبع اولیهٔ scoped، سناریوی دو روتر، مسیر برگشت، عیب‌یابی و برگهٔ پذیرش.16GET با TLS معتبر،56بلوک معتبر و21کنترل browser دسکتاپ/موبایل/no-JS و ویرایش/reset پاس؛ تمام داده‌ها و کاربر/lock موقت staging به حالت قبل برگشتند. RouterOS اجرا نشده است.
+
+scope مستقل `tehnet-editorial-routing-20261101-v1` فقط ID64/path/file را می‌پذیرد.29assertion native جدید،27regression درس62،37regression خدمات،10unit operator و2lint پاس؛ constructor قبلی به‌درستی scope تازه را رد کرد. دیگر scopeها/هویت/بدنه، drift و ویرایش بعدی محافظت شدند. رسید `qa/growth-2026-10-31/routing-draft-and-migration.json` و طرح `docs/superpowers/plans/2026-11-01-routing-lesson-release.md`.
+
+NEXT: bundle immutable از همین منبع و rehearsal check/apply/repeat/rollback/repeat، سپس PR/CI عادی، snapshot، برابری payload، backup/checksum/drift تازه و انتشار فقط body64 در دامنهٔ مجاز. تولید هنوز تغییر نکرده؛ درس62 و P4 قبلاً DEPLOYED هستند و نباید بازپخش شوند. noindex/پرداخت/MyTel freeze و گیت‌های rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED حفظ شوند.
+
+## HISTORICAL CHECKPOINT — درس RouterOS به‌روزرسانی و روی live تأیید شد
 
 **DEPLOYED —۱نوامبر۲۰۲۶،۰۱:۳۳ تهران:** [درس موجود RouterOS و Winbox](https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/) با همان ID62/URL/Title، فقط body و تاریخ واقعی تغییر به‌روزرسانی شد. [PR37](https://github.com/DashSaman/TehNet/pull/37) با required CI41246291105 ادغام؛ source production `e5fd6319df95db4d45c3760106ca873989d8c8e5`، payload/tool/runtime guard برابر source qualify‌شده `d2c24b0a1d18a92125e6a9456998fcdb5fddf2bb`. backup تازه/ checksum و drift پیش‌وپس پاس؛ صفر فایل runtime نصب، یک درس بهبود، صفر صفحه/مقالهٔ جدید. repeat صفر تغییر.
 
@@ -6,13 +14,13 @@
 
 پرتفوی۱۰۰job و نگاشت برند در PR36 و روش در -SEO PR6 ادغام شده‌اند؛ شمار topic کاندیدا مساوی مقالهٔ منتشرشده نیست. NEXT: درس موجود static-routing را با شاهد رسمی/شکاف واقعی/مثال امن توسعه بده؛ scope ID62 را برای ID64 دور نزن، بهبود بعدی به scope و پذیرش محدود خودش نیاز دارد. گپ‌های فنی UX/SEO، مقایسهٔ TarazNet و MyTel proposal فقط طبق مرزهای قبلی ادامه یابند. نسخهٔ گزارش صبح هنوز LIVE است. credential rotation UNKNOWN، تاریخچهٔ remote NEEDS_APPROVAL و Origin UNDETERMINED؛ noindex/پرداخت/MyTel freeze حفظ شوند.
 
-## CURRENT — درس و مسیر انتشار qualify شد؛ production هنوز انجام نشده
+## HISTORICAL CHECKPOINT — درس و مسیر انتشار qualify شد؛ production هنوز انجام نشده
 
 متن RouterOS/Winbox با۵۴بلوک معتبر،۲۱کنترل browser و۱۴GET پیوند آماده است. scope محدودِ ID62 با۲۷assertion native و۳۷regression مسیر قبلی،۸تست operator و rehearsal کامل check/apply/repeat/rollback/repeat پاس شد. source آزمودهٔ ابزار/بدنه `d2c24b0a1d18a92125e6a9456998fcdb5fddf2bb` است؛ بسته صفر فایل runtime نصب می‌کند و۷digest runtime را فقط می‌سنجد. دستکاری payload/metadata رد، چهارمسیر staging۲۰۰ و دادهٔ posts/meta/users و runtime پس از rollback دقیقاً برابر شدند. رسید `qa/growth-2026-10-31/editorial-release-rehearsal.json`؛ طرح `docs/superpowers/plans/2026-11-01-existing-lesson-release.md`.
 
 NEXT: [PR37](https://github.com/DashSaman/TehNet/pull/37) را با CI head تازه عادی ادغام، snapshot خصوصی/برابری payload را verify و backup تازهٔ qualified production با checksum بگیر؛ سپس فقط body درس62 را منتشر و HTTPS/browser/protected state را ثبت کن. هیچ بازپخش انتشار۶فایلی، MyTel write، تغییر noindex/پرداخت یا گیت امنیتی مجاز نشده است. مقالهٔ تازهٔ این بسته هنوز۰ و این درس هنوز live به‌روزرسانی نشده است. پس از آن routing و گپ‌های فنی/رقبا ادامه یابند.
 
-## CURRENT — پرتفوی ادغام‌شده و پیش‌نویس درس آزموده،۱نوامبر۲۰۲۶
+## HISTORICAL CHECKPOINT — پرتفوی ادغام‌شده و پیش‌نویس درس آزموده،۱نوامبر۲۰۲۶
 
 P6/P7: پرتفوی۱۰۰کار/۲۰خوشه/۳۵منبع در [TehNet PR36](https://github.com/DashSaman/TehNet/pull/36) باCI موفق ادغام شد؛ main `5cd0895ad5b175a4838fb7538abc7e961a62a86a`، source `87805ecc4d2306996f2fdfac50c893e440574f92`. روش با ledger/topic/dashboard در [-SEO PR6](https://github.com/DashSaman/-SEO/pull/6) وCI موفق ادغام شد؛ main `64d6fc262909ee93a1d0070343f7e28821e38306`، baseline۷۱٪ ثابت. تاریخچهٔ امن/rotation/Origin و noindex/پرداخت گیت‌های جدا و باز هستند.
 
@@ -20,35 +28,35 @@ P6/P7: پرتفوی۱۰۰کار/۲۰خوشه/۳۵منبع در [TehNet PR36](htt
 
 NEXT دقیق: سازوکار محدودِ ویرایش body همان ID62 با حفظ هویت/meta و ثبت تاریخ واقعی، journal خصوصی، row/range lock، drift/revision/retention guard و rollback را qualify کن؛ migration قدیمیِ دوصفحه‌ای برای این کار مجاز نیست. سپس backup تازه، staging/rehearsal و انتشارِ محتوای همین درس در دامنهٔ قبلاً مجاز؛ پس از آن درس static-routing و گپ‌های اثبات‌شدهٔ فنی/رقبا. بازپخش انتشارِ دو صفحهٔ خدمات/Lab لازم نیست.
 
-## CURRENT — intent ownership and100-job portfolio recorded, 2026-11-01
+## HISTORICAL CHECKPOINT — intent ownership and100-job portfolio recorded, 2026-11-01
 
 Read `seo/intent-portfolio-2026-11-01.fa.md`, the authoritative100-row CSV, brand/source/cluster/search JSON and `qa/growth-2026-10-31/intent-portfolio-verification.json`.20 consistency checks passed:100 unique normalized jobs/titles,20 clusters,35 source rows with review-depth limits,33 proposed improvements mapped to13 existing destinations and67 topics to14 unpublished guide groups.13 MyTel commercial routes remain frozen;6 TehNet commercial intents use existing pages. Two uncontrolled-locale search observations support only limited intent inference;93 topics have no market measurement,7 only scoped observations. All proposed work is unpublished and requires further source/command/editorial validation; existing C07 coverage is retained unless a new gap is proved. No production mutation. Next: deep review/improve existing RouterOS-Winbox Backup/Export/Safe Mode sections (TN-T021..025), then routing lesson; no synonym URLs or repeat of the deployed network package. MyTel reverse links are proposals in this TehNet package only, not production changes. Security gates remain open; morning report LIVE.
 
-## CURRENT — network service package deployed, 2026-11-01
+## HISTORICAL CHECKPOINT — network service package deployed, 2026-11-01
 
 PR34 merged normally to main ac506f1 after required CI41240538610; tested-head tree equal and private snapshot verified. Six-file release completed2026-11-01 00:19 Tehran with fresh backup/checksum/drift, two new Services/Lab pages and two guarded hub appendices.8 public TLS-verified HTTP paths and25 read-only public-browser checks passed: desktop1440/mobile375/no-JS/local JSON/reset, nonce inside ticket/B2B forms. Home/menu/protected data/runtime and25 inquiry-only products/noindex/closed ERP/payment preserved. No real form submission, MyTel write, shared network change, rotation or force-push. Evidence: `qa/growth-2026-10-31/production-release.json`; rollback rehearsed in a disposable clone, private production journal/backup retained. Do not replay deployment or old clone IDs. Next unfinished package: distinct100-topic intent portfolio and current-page improvement map, then researched article batch/technical-competitive SEO and transfer to -SEO. Morning report remains LIVE; credentials/history/Origin gates remain open.
 
-## CURRENT — six-file release rehearsal accepted, 2026-11-01
+## HISTORICAL CHECKPOINT — six-file release rehearsal accepted, 2026-11-01
 
 Read `docs/growth-release-orchestration-2026-11-01.fa.md` and `qa/growth-2026-10-31/release-rehearsal.json`. Immutable593b30e bundle:4 boundary tests; isolated check/apply/repeat,8 HTTP paths, guarded content-before-files rollback/repeat and tampered-bundle rejection passed. Restored directory ownership initially blocked web-user plugin traversal despite root CLI success; corrected only the owned clone and the private restore procedure, then HTTP passed. Six file hashes and protected data unchanged after rollback;2 disposable containers/internal network removed. Production unchanged. Next: fresh origin/main/CI/snapshot/drift/backup and qualified normal PR34 integration/release; then intent portfolio. No new review assistant or external CLI used. Credential/history/Origin gates remain open.
 
-## CURRENT — bounded content migration accepted, 2026-10-31
+## HISTORICAL CHECKPOINT — bounded content migration accepted, 2026-10-31
 
 Read `docs/growth-content-migration-2026-10-31.fa.md`, `ops/migrate-growth-content.php` and `qa/growth-2026-10-31/migration-verification.json`. Native37 assertions passed,13 owned fixture pages cleaned and every original post/meta row unchanged. Apply/repeat, exact Persian content, rollback/repeat, failed transaction, foreign path, nested-transaction refusal, second-connection race/row+metadata locks and limited-revision preservation verified. A single read-only native Sol medium reviewer found two prototype issues; both reproduced red and fixed before production. No live migration/file release performed. Next: qualified six-file orchestration (module before MU loader), fresh drift/backup/checksum, content apply/public smoke and guarded content-before-files rollback; then intent portfolio/articles. Existing preview/editor/recovery acceptance is complete; do not restart it blindly. Credential/history/Origin gates remain open; morning report remains LIVE.
 
-## CURRENT — editor acceptance and isolated recovery, 2026-10-31
+## HISTORICAL CHECKPOINT — editor acceptance and isolated recovery, 2026-10-31
 
 Read `docs/editor-release-acceptance-2026-10-31.fa.md` and the editor/preflight/recovery receipts in `qa/growth-2026-10-31/`. Full desktop/mobile pages and56 nested Gutenberg blocks passed validation; unsaved block edit/reset worked on both pages, no browser Save, owned editor/locks cleaned, original posts/meta/users unchanged. Read-only production drift gate:6 files match main,2 hub hashes match, new paths absent,25 inquiry-only/noindex/ERP/payment invariants retained. Fresh private backup restored:10,016 file bytes checked,47 business tables match, isolated WordPress boots,2 owned containers/internal network removed, existing runtimes/data unchanged. No production release or MyTel write. Recovery certifies WordPress/SQL only, not Origin/OOB. Next: implement and test the bounded idempotent content migration with private journal/apply/repeat/rollback, then6-file qualified release/public smoke. Do not repeat editor/OCR/security audits without a reason; fixture IDs must never be replayed live. Morning report remains LIVE, NOT FINAL.
 
-## CURRENT — publication enforcement and media checkpoint, 2026-10-31
+## HISTORICAL CHECKPOINT — publication enforcement and media checkpoint, 2026-10-31
 
 The two public main branches now require PR/app-bound privacy check/up-to-date branch, including admins;0 approving reviews required, force/deletion disabled. API200 readback and unchanged main refs verified. Offline en-US OCR examined135 current raster paths plus143 additional distinct historical rasters, with no detected known value/address/token candidate; originals remain byte-identical. OCR/metadata/cache limits apply. Read `docs/reports/MORNING_HANDOFF_2026-11-01.fa.md`: it is explicitly a LIVE, NOT FINAL checkpoint until the08:00 Tehran handoff. TehNet PR34 remains draft/undeployed; credential validity, shared-history rewrite and Origin/OOB gates remain open. SEO PR4 is merged (c3b3431; tested tree equals main). Next: reconcile this checkpoint/CI, then full-page/editor and bounded production-release qualification before content research. Do not repeat successful audits blindly.
 
-## CURRENT — native service-intake milestone, 2026-10-31
+## HISTORICAL CHECKPOINT — native service-intake milestone, 2026-10-31
 
 Read `docs/service-network-readiness-2026-10-31.fa.md` and `qa/growth-2026-10-31/native-verification.json`. Current package:64 PHP +4 JS assertions,26 component-browser and24 native-browser checks passed; two synthetic tickets and one B2B quote were verified private and removed, original-record fingerprints unchanged. `tn_service_context` avoids an observed WordPress CPT query collision. Two editable pages and guarded hub appendices are staged, not live. Production deployment remains pending fresh drift/backup/rollback and full-page/editor/link review. Security/credential/history/Origin gates remain separately open. Next: qualify the bounded TehNet release, then continue intent/content research; do not replay old preview synchronization against production.
 
-## CURRENT — autonomous security-first execution, 2026-10-31
+## HISTORICAL CHECKPOINT — autonomous security-first execution, 2026-10-31
 
 The latest owner directive is preserved in `docs/requirements-autonomous-2026-10-31.md`; it overrides conflicting priorities, not completed work. Read `docs/superpowers/plans/2026-10-31-overnight-execution.fa.md` and `docs/overnight-progress-2026-10-31.fa.md` before continuing. Security evidence and open gates: `security/INCIDENT_RESPONSE_2026-10-31.md` and `security/EXPOSURE_REMEDIATION_MATRIX.md`.
 

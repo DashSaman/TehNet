@@ -1,0 +1,228 @@
+<!-- wp:paragraph -->
+<p>برای ارتباط دو شبکه، نوشتن یک static route فقط بخشی از کار است: روتر باید next-hop قابل استفاده داشته باشد، پاسخ راه برگشت پیدا کند و فایروال هم ترافیک موردنظر را اجازه دهد. در این درس از <a href="/learn/mikrotik/mtcna/">مسیر MTCNA تهران نتورک</a>، یک سناریوی دو روتر و دو LAN را از طراحی تا پذیرش مرحله‌به‌مرحله بررسی می‌کنیم. اگر مسیر در جدول دیده می‌شود ولی ارتباط ندارید، از بخش عیب‌یابی شروع کنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>دامنه و نسخه:</strong> این راهنما دربارهٔ IPv4 و جدول <code>main</code> در یک طرح ساده است. منابع رسمی در ۱ نوامبر ۲۰۲۶ بازبینی شده‌اند و انتخابگر مستندات RouterOS نسخهٔ 7.26 را نشان می‌داد؛ این عدد نسخهٔ دستگاه شما یا توصیهٔ ارتقا نیست. نمونه‌ها روی RouterOS اجرا نشده‌اند و خروجی، زمان failover یا نتیجهٔ لاب اندازه‌گیری نشده است. پیش از تغییر شبکهٔ عملیاتی، <a href="/learn/mikrotik/mtcna/routeros-winbox/">بستهٔ قبل از تغییر و روش بازگشت</a> را آماده کنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><a href="https://www.youtube.com/watch?v=hqjjvQoO7as">ویدیوی این جلسه در YouTube</a> مکمل متن است؛ برای خواندن درس نیازی به پخش سرویس بیرونی ندارید. نحو وابسته به نسخه را با مرجع رسمی تطبیق دهید؛ اجرای تمام دستورهای ویدیو در نسخهٔ فعلی اینجا تأیید نشده است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">از دیده‌شدن route تا انتخاب مسیر چه فاصله‌ای هست؟</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>مطابق <a href="https://manual.mikrotik.com/docs/user-guides/routing-and-networking-protocols/routing-decision/">Routing Decision</a>، اطلاعات مسیرهای شناخته‌شده در RIB قرار می‌گیرد؛ FIB اطلاعات لازم برای forwarding را دارد. در جدول انتخاب‌شده، مسیر فعالِ منطبق با طول prefix بیشتر، انتخاب دقیق‌تری است. Distance برای رقابت مسیرهای همان prefix اهمیت دارد؛ عدد کوچک‌ترِ یک مسیر پیش‌فرض، مسیر فعالِ اختصاصی‌تر را کنار نمی‌زند. مثلاً برای مقصد <code>203.0.113.20</code>، مسیر فعال <code>203.0.113.0/24</code> از <code>0.0.0.0/0</code> اختصاصی‌تر است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>در <a href="https://manual.mikrotik.com/docs/cli-reference/ip/route/">مرجع ip route</a>، پرچم‌های active، inactive و disabled و فیلدهای <code>gateway</code>، <code>immediate-gw</code>، <code>distance</code> و <code>routing-table</code> از هم جدا هستند. وجود یک ردیف، سلامت ارتباط دو میزبان را ثابت نمی‌کند. در همین لاب، ابتدا ببینید مسیر غیرفعال یا disabled نیست، مقصد درست است و next-hop به رابط موردانتظار resolve شده است؛ مقدار واقعی نام رابط را از دستگاه خود بخوانید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">سناریوی دو روتر: رفت و برگشت را روی یک شکل بنویسید</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>شکل زیر طراحی آموزشی است، نه نقشهٔ شبکهٔ مشتری. هر LAN یک subnet مستقل دارد و لینک میانی یک شبکهٔ جداست. نشانی‌های شکل از سه محدودهٔ مستندسازی <a href="https://www.rfc-editor.org/rfc/rfc5737.html">RFC 5737</a> انتخاب شده‌اند؛ برای تصویر و متن نمونه‌اند و نباید به اینترنت عمومی فرستاده یا به‌عنوان طرح عملیاتی استفاده شوند. برای اجرای تمرین، همهٔ آن‌ها را با یک طرح آدرس خصوصیِ مجاز و بدون تعارض در لاب جدا جایگزین کنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code>Host A: 192.0.2.10/24
+Gateway: 192.0.2.1
+   |
+R1 LAN: 192.0.2.1/24
+R1 transit: 198.51.100.1/30
+   |
+R2 transit: 198.51.100.2/30
+R2 LAN: 203.0.113.1/24
+   |
+Host B: 203.0.113.20/24
+Gateway: 203.0.113.1</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>فرض آغاز: رابط‌ها و IPهای هر دو روتر از قبل درست تنظیم شده‌اند، لینک میانی برقرار است و مسیر connected آن دیده می‌شود. این درس اسکریپت تنظیم کامل یک دستگاه خالی نیست.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>روی R1، شبکهٔ LAN سمت B مستقیم متصل نیست؛ مسیر آن باید به IP میانی R2 اشاره کند.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>روی R2، پاسخ به LAN سمت A به مسیر برگشت از R1 نیاز دارد. Default gateway هر میزبان نیز باید به روتر LAN خودش اشاره کند.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>در این طرح ساده از NAT و policy routing استفاده نمی‌کنیم. وجود آن‌ها در شبکهٔ واقعی، فرض‌های این سناریو را عوض می‌کند؛ پیکربندی موجود را برای شبیه‌کردن به مثال پاک نکنید.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">دو route پیشنهادی؛ هر دستور فقط روی روتر مربوط</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>این دو دستور <strong>پیکربندی را تغییر می‌دهند</strong> و برای کپی روی روتر زنده نیستند. در لابِ مجاز، پس از تطبیق همهٔ آدرس‌ها و نسخه، فقط روی روتر نوشته‌شده اجرا شوند. اگر از قبل ردیف هم‌منظور دارید، آن را بررسی کنید؛ اجرای دوبارهٔ add را عملیات idempotent فرض نکنید. برای مقصد چند hop آن‌طرف‌تر، نام یک رابط Ethernet را به‌جای IP روتر بعدی نگذارید؛ جزئیات next-hop و استثناهای point-to-point در راهنمای Routing Decision آمده است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code># R1 only — illustration, adapt in lab
+/ip/route/add dst-address=203.0.113.0/24 \
+    gateway=198.51.100.2 routing-table=main \
+    comment=&quot;TN-LAB-R1-TO-B&quot;
+
+# R2 only — return path
+/ip/route/add dst-address=192.0.2.0/24 \
+    gateway=198.51.100.1 routing-table=main \
+    comment=&quot;TN-LAB-R2-TO-A&quot;</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>پس از ثبت، روی هر روتر فقط ردیف مربوط به همان مقصد را بخوانید. دستورهای زیر تنظیمات را عوض نمی‌کنند؛ خروجی واقعی را در یادداشت خصوصیِ لاب ثبت کنید. انتظار ما، ردیف مقصد در main، حالت فعال و next-hop میانی صحیح است؛ خروجی ساختگی یا پرچم تضمینی برای دستگاه شما ارائه نشده است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code># R1
+/ip/route/print detail where dst-address=203.0.113.0/24
+# R2
+/ip/route/print detail where dst-address=192.0.2.0/24</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">آزمون از روتر با آزمون بین دو میزبان فرق دارد</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در <a href="https://manual.mikrotik.com/docs/diagnostics-monitoring-and-troubleshooting/ping/">راهنمای Ping</a>، <code>src-address</code> آدرس مبدأ probe را انتخاب می‌کند؛ به‌تنهایی دستور انتخاب رابط خروجی نیست. آدرس انتخابی باید متعلق به همان روتر باشد. در سیاست‌های مبتنی بر source، همین انتخاب ممکن است روی lookup هم اثر بگذارد. برای همین، Ping پیش‌فرض از IP لینک میانی می‌تواند موفق باشد، درحالی‌که پاسخ به IP سمت LAN مسیر برگشت نداشته باشد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code># R1, authorized lab only
+/ping 198.51.100.2 count=3
+/ping 203.0.113.20 src-address=192.0.2.1 count=3
+
+# R2, authorized lab only
+/ping 192.0.2.10 src-address=203.0.113.1 count=3</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>این probeها محدودند، ولی بسته به شبکه ارسال می‌کنند و باید فقط پس از جایگزینی آدرس‌ها در محیط مجاز اجرا شوند. موفقیت Ping روتر را نتیجهٔ آزمون Host A به Host B حساب نکنید. در <a href="https://manual.mikrotik.com/docs/firewall-and-quality-of-service/packet-flow-in-routeros/">Packet Flow</a>، ترافیک ساخته‌شده روی روتر از output و ترافیک عبوری از forward می‌گذرد. سپس از خود دو میزبان، در هر دو جهت، دسترسی مجاز موردنیاز را بررسی کنید؛ ممکن است فایروال میزبان ICMP را نبپذیرد ولی سرویس منتخب کار کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">عیب‌یابی مرحله‌ای: از کدام مشاهده به کدام بررسی برسیم؟</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>روتر به همسایهٔ میانی پاسخ نمی‌گیرد: ابتدا لینک، IP/mask، شبکهٔ connected و مجوز ICMP همان همسایه را بررسی کنید. هنوز تغییر route دوردست توضیح مناسبی برای همهٔ این حالت‌ها نیست.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>route دیده می‌شود اما inactive است: مقصد، enabled بودن، جدول و next-hop resolveشده را بخوانید. در این طرح، next-hop همسایهٔ مستقیم است؛ در طرح‌های recursive می‌تواند از مسیر دیگری resolve شود و scope/target-scope هم اهمیت پیدا می‌کند. قاعدهٔ «هر gateway خارج از subnet حتماً غلط است» عمومی نیست.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Ping با مبدأ پیش‌فرض کار می‌کند ولی با IP LAN نه: مسیر برگشت به LAN و سیاست source را بررسی کنید. این مشاهده سرنخ است، نه اثبات قطعیِ تنها یک علت.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>از روتر پاسخ دارید ولی از Host A نه: gateway میزبان، فایروال forward و فایروال مقصد را کنار مسیر رفت و برگشت بررسی کنید. برای آزمایش، کل فایروال را غیرفعال نکنید.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>نام مقصد کار نمی‌کند ولی IP سرویس درست است: پیش از افزودن route تازه، DNS همان میزبان را جدا بررسی کنید؛ به <a href="/learn/mikrotik/mtcna/ip-dhcp-dns/">درس IP، DHCP و DNS</a> مراجعه کنید.</li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>برای مشاهدهٔ مسیر، <a href="https://manual.mikrotik.com/docs/diagnostics-monitoring-and-troubleshooting/traceroute/">راهنمای Traceroute</a> استفاده از count و max-hops را توضیح می‌دهد. نمونهٔ محدود زیر برای همان لاب است. سکوت یک hop، خرابی قطعی همان روتر را ثابت نمی‌کند: پاسخ ICMP ممکن است فیلتر یا محدود شود یا مسیر برگشت نداشته باشد. Loss یک hop که در hopهای بعد ادامه پیدا نمی‌کند را به‌تنهایی packet loss سرویس ننامید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code># R1, adapted authorized lab addresses
+/tool/traceroute 203.0.113.20 \
+    src-address=192.0.2.1 count=1 max-hops=4</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>مرجع فعلی <a href="https://manual.mikrotik.com/docs/cli-reference/ip/route/check/">ip route check</a> نیز دستور check را با ورودی‌های نام‌دار <code>src-ip</code> و <code>dst-ip</code> فهرست می‌کند. این دستور را حذف‌شده فرض نکنید؛ پشتیبانی و نحو را با help نسخهٔ دستگاه تطبیق دهید. نتیجهٔ lookup هم جای آزمون مسیر برگشت، فایروال و سرویس دو میزبان را نمی‌گیرد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مسیر پشتیبان: distance کوچک‌تر، سلامت سرتاسری را اندازه نمی‌گیرد</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>برای دو مسیرِ یک prefix، distance متفاوت می‌تواند اولویت ایجاد کند؛ تا وقتی مسیر ترجیحی معتبر بماند، انتظار انتقال خودکار فقط به دلیل خرابی سرویس دوردست نداشته باشید. <code>check-gateway</code> دسترس‌پذیری gateway انتخابی را بررسی می‌کند؛ پاسخ‌دادن آن همسایه تضمین نمی‌کند تمام مسیر یا سرویس مقصد سالم است. طرح recursive و نقطهٔ پایش را باید متناسب با توپولوژی جداگانه طراحی کرد؛ این درس دستور آمادهٔ failover تولید ارائه نمی‌دهد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>پیش از تمرین، prefix یکسانِ دو مسیر، gatewayهای مستقل و نشانهٔ انتخاب مسیر اصلی را ثبت کنید.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>در لاب جدا، فقط یک خرابی تعریف‌شده و قابل برگشت ایجاد کنید؛ روش قطع و بازگردانی و مسئول آن از قبل معلوم باشد.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>مسیر انتخاب‌شده و آزمون دوطرفهٔ سرویس را قبل، حین و پس از خرابی ثبت کنید. نتیجهٔ «همسایه پاسخ دارد ولی سرویس قطع است» را هم یک حالت جدا حساب کنید.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>زمان جابه‌جایی و برگشت را همان‌جا اندازه بگیرید؛ عدد پیش‌فرض یک تنظیم یا وعدهٔ مقاله را نتیجهٔ آزمون خودتان ندانید.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">چه زمانی این طرح ساده کافی نیست؟</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>انتخاب مسیر براساس مبدأ یا نوع ترافیک:</strong> اگر نیاز می‌گوید فقط یک subnet از درگاه دیگر خارج شود، صرفاً عوض‌کردن distance مسیر main ممکن است نیاز را پاسخ ندهد. <a href="https://manual.mikrotik.com/docs/user-guides/routing-and-networking-protocols/policy-routing/">Policy Routing</a> جدول‌های جدا، routing rule و mangle را توضیح می‌دهد. در v7 جدول سفارشی باید تعریف شود؛ افزودن route به آن، به‌تنهایی همهٔ ترافیک را وارد آن جدول نمی‌کند. تفاوت lookup با lookup-only-in-table و ترتیب سیاست‌ها را پیش از ترکیب روش‌ها بررسی کنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>دو شعبه با prefix یکسان:</strong> اگر هر دو LAN یک subnet داشته باشند، سناریوی بالا دیگر همان مسئله نیست. برداشت طراحی از مثال: مسیر مقصدِ یکسان به‌تنهایی هویت دو شعبه را بیان نمی‌کند. ابتدا فهرست آدرس‌ها، وابستگی سرویس‌ها و امکان اصلاح آدرس‌دهی را تهیه کنید؛ جداسازی جدول/VRF یا ترجمهٔ آدرس گزینه‌های طراحی‌اند و برای هرکدام برنامهٔ مستقل لازم است. افزودن تصادفی route یا masquerade را درمان عمومی تعارض آدرس ندانید؛ <a href="/learn/mikrotik/mtcna/nat-masquerade/">درس NAT</a> موضوع جداگانهٔ ترجمه است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">برگهٔ پذیرش لاب: چه چیزی را واقعاً ثابت کردید؟</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>برای هر مرحله، «مشاهدهٔ واقعی، قبول/رد/نامشخص و گام بعد» را بنویسید. این فهرست یک طرح پیشنهادی آزمون است و در تهیهٔ مقاله اجرا نشده است. وجود route، دریافت ICMP و سلامت سرویس سه نتیجهٔ متفاوت‌اند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>طرح پایه: LANهای متمایز، لینک میانی، gateway هر میزبان، جدول انتخابی و مجوز تغییر مشخص‌اند.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>مسیرها: ردیف رفت و برگشت، حالت و next-hop واقعی با طرح مقایسه شده‌اند.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>روترها: probe محدود با IP مبدأ مشخص ثبت شده؛ آدرس مبدأ به همان روتر تعلق دارد.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>میزبان‌ها: آزمون مجاز Host A به B و B به A و سرویس منتخب، همراه با محدودیت ICMP ثبت شده است.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>پشتیبان، اگر جزو تمرین بود: خرابی تعریف‌شده، انتخاب مسیر، زمان واقعی و بازگشت ثبت شده‌اند؛ مورد آزمایش‌نشده «موفق» علامت نخورده است.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>پایان: تغییرهای موقتِ خودتان با روش بازگشت بررسی‌شده جمع شده و وضعیت پایه دوباره تأیید شده است. فایل پیکربندی یا نشانی واقعی را عمومی منتشر نکنید.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>برای ادامه، <a href="/learn/mikrotik/mtcna/firewall-basics/">درس فایروال Filter</a> و <a href="/lab-before-production/">لاب پیش از تولید</a> را بخوانید. اگر شبکهٔ موجود چند شعبه، لینک پشتیبان یا سیاست خروج متفاوت دارد، <a href="/services/mikrotik-tehran/">خدمات میکروتیک تهران نتورک</a> برای تعیین دامنهٔ بررسی است؛ امکان اجرا و هزینه پس از نیازسنجی مشخص می‌شوند. در درخواست اولیه، رمز، فایل Backup یا دسترسی زنده نفرستید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">منابع و اصلاح درس</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>منابع رسمی در بخش مرتبط لینک شده‌اند: Routing Decision، ip route و check، Ping، Traceroute، Packet Flow، Policy Routing و RFC 5737. توپولوژی، ترتیب بررسی و برگهٔ پذیرش، ترکیب آموزشی این درس‌اند؛ گزارش اجرای RouterOS یا پروندهٔ مشتری نیستند. برای مرز منابع و نحوهٔ اصلاح، <a href="/technical-methodology/">روش فنی و اصلاح محتوا</a> را ببینید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:shortcode -->
+[tn_editorial_note]
+<!-- /wp:shortcode -->
