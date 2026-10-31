@@ -1,4 +1,12 @@
-## CURRENT — پشتیبانی شبکه روی live منتشر و تأیید شد
+## CURRENT — گپ بسته‌سازی محلی رفع و شواهد خصوصی کامل شد
+
+VERIFIED_LOCAL_TOOLING —۱نوامبر: علتِ local build قبلی بازتولید شد؛ مسیر نسبیِ دارای `..` با طول269 شکست می‌خورد و مقصد resolve‌شده235 موفق بود. اکنون پیش از نوشتن مسیر نرمال می‌شود و خروجی موجود/لینک پذیرفته نمی‌شود. `--diagnostics-dir` اختیاری با ACL/owner محدود ویندوز یا mode محدود POSIX، بیرون `.git`/WordPress، trace را خصوصی و stdout را generic نگه می‌دارد؛ grant عمومیِ inherit-only نیز با تست قرمز سپس پاس رد شد. هیچ تنظیم OS/پوشهٔ شواهد واقعی تغییر نکرد.
+
+Windows19case:18PASS/1SKIP به‌علت مجوزsymlink؛ Linux code-head89ed726/PR46/CI41253886230:19PASS، شاملsymlink/POSIX. source نهایی ابزار `334cb2ccda9679218da8d2d05f0b34e8650deb63`؛ دو CLI bundle نسبی/مطلق، metadata و3member/tool/8guard برابر. `qa/growth-2026-10-31/bundle-path-diagnostics.json` و `ops/LOCAL_RELEASE_DIAGNOSTICS.md` مرجع‌اند. تغییر فقط tooling/CI است؛ صفر native/staging/production/MyTel write و انتشار قبلی بازپخش نشد. رسید قبلی UNKNOWN در زمان خود درست بود؛ این followup علت بازتولیدشده را روشن می‌کند. کد نهایی ACL نیز Linux19PASS دارد؛ ادغام عادی با CI head تازه الزام است. انتقال addendum/ledger/continuation در [-SEO PR11](https://github.com/DashSaman/-SEO/pull/11)، main `76fef59dab2e0e2af878f12d165246f3efd0a700` وCI41253986712 ادغام شد؛ baseline۷۱٪ ثابت.
+
+NEXT: تحقیق رسمی و brief متمایز برای درس موجود IP/DHCP/DNS؛ قبل از انتشار بعدی، ابزار جدید/محتوای جدید scope و rehearsal مستقل می‌خواهد. گزارش صبح LIVE_NOT_FINAL؛ rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED وnoindex/پرداخت/MyTel freeze حفظ شوند.
+
+## HISTORICAL CHECKPOINT — پشتیبانی شبکه روی live منتشر و تأیید شد
 
 DEPLOYED —۱نوامبر،۰۲:۵۴تهران: [پشتیبانی شبکه تهران](https://tehnet.ir/services/network-support-tehran/) همان ID31/URL/عنوان، فقط body و تاریخ واقعی تغییر. ورودی امن/نمونهٔ ساختگی/پاسخ در برابر رفع/گزارش تحویل و پرش‌های موبایل افزوده شد. [PR43](https://github.com/DashSaman/TehNet/pull/43)، CI41252270026؛ source `933bc33065295a018182104626ac7a7ba78bd55c` برابر payload/tool/8guardِ qualified `b29f80fea66530ab1a821ba0af9650d395d73b84`. backup تازه/checksum/drift وrepeat بدون تغییر؛ صفر runtime install/URL/مقالهٔ جدید.
 

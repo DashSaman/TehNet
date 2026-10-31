@@ -184,10 +184,16 @@ $acl=[System.IO.Directory]::GetAccessControl($env:TN_RELEASE_DIAGNOSTICS_ROOT)
 $allowed=@([System.Security.Principal.WindowsIdentity]::GetCurrent().User.Value,'S-1-5-18','S-1-5-32-544')
 # Python's private temporary directories can grant OWNER RIGHTS rather than the
 # account SID. Accept that rule only when the actual owner is already allowed.
-if($allowed -contains $acl.GetOwner([System.Security.Principal.SecurityIdentifier]).Value){$allowed+='S-1-3-4'}
-$rules=@($acl.GetAccessRules($true,$true,[System.Security.Principal.SecurityIdentifier]) | Where-Object { $_.AccessControlType -eq 'Allow' -and -not ($_.PropagationFlags -band [System.Security.AccessControl.PropagationFlags]::InheritOnly) })
+if($allowed -notcontains $acl.GetOwner([System.Security.Principal.SecurityIdentifier]).Value){exit 1}
+$allowed+='S-1-3-4'
+$rules=@($acl.GetAccessRules($true,$true,[System.Security.Principal.SecurityIdentifier]) | Where-Object { $_.AccessControlType -eq 'Allow' })
 if($rules.Count -eq 0){exit 1}
-foreach($rule in $rules){if($allowed -notcontains $rule.IdentityReference.Value){exit 1}}
+foreach($rule in $rules){
+ if($allowed -contains $rule.IdentityReference.Value){continue}
+ # Creator-owner inheritance resolves to this process for a newly owned log.
+ if($rule.IdentityReference.Value -eq 'S-1-3-0' -and ($rule.PropagationFlags -band [System.Security.AccessControl.PropagationFlags]::InheritOnly)){continue}
+ exit 1
+}
 exit 0'''
         import base64
         result = subprocess.run(['powershell.exe', '-NoProfile', '-NonInteractive', '-EncodedCommand', base64.b64encode(script.encode('utf-16le')).decode()],

@@ -19,3 +19,6 @@
 پذیرش واقعی: backup تازه/checksum/drift، صفر runtime install، یک body و تاریخ واقعی تغییر؛ repeat بدون تغییر.۹HTTPS و۴۱browser عمومی1440/375/no-JS پاس، همهٔ هشت فایل محافظت‌شده/containerها ثابت. noindex/۲۵کالای استعلامی/پرداخت/MyTel freeze حفظ شد. [رسید انتشار](../qa/growth-2026-10-31/network-support-production-release.json) شامل محدودیت اولیهٔ بسته‌سازی محلی است: یک build پیش از هر native action متوقف شد؛ یک diagnostic بستهٔ کامل با برابری checksum ساخت؛ علت نخست UNKNOWN باقی است و بازپخش remote/journal انجام نشد.
 
 NEXT: بهبود private diagnostic بسته‌سازی و سپس تحقیق نیازهای واقعی درس IP/DHCP/DNS موجود؛ این مقایسه یا انتشار را بازپخش نکنید. هیچ CWV/کیفیت واقعی خدمت/رتبه/AI citation اندازه‌گیری نشده است.
+
+
+**پیگیری۱نوامبر:** علت local build که در checkpoint انتشار UNKNOWN بود، جداگانه بازتولید و رفع شد؛ [رسید ابزار محلی](../qa/growth-2026-10-31/bundle-path-diagnostics.json). این تغییر هیچ انتشار مجدد یا ادعای اثر سئو نیست.

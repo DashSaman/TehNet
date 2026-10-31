@@ -257,13 +257,14 @@ class ReleaseBoundaries(unittest.TestCase):
             if os.name == 'nt':
                 # Grant a harmless owned empty fixture a broader read ACL, then
                 # revoke it; never change the private vault or a real repository.
-                result = subprocess.run(['icacls.exe', str(root), '/grant', '*S-1-1-0:(OI)(CI)(RX)'], capture_output=True)
-                self.assertEqual(result.returncode, 0)
-                try:
-                    with self.assertRaises(RuntimeError): self.module.private_diagnostics_directory(root)
-                finally:
-                    restored = subprocess.run(['icacls.exe', str(root), '/remove:g', '*S-1-1-0'], capture_output=True)
-                    self.assertEqual(restored.returncode, 0)
+                for grant in ['*S-1-1-0:(OI)(CI)(RX)', '*S-1-1-0:(OI)(CI)(IO)(R)']:
+                    result = subprocess.run(['icacls.exe', str(root), '/grant', grant], capture_output=True)
+                    self.assertEqual(result.returncode, 0)
+                    try:
+                        with self.assertRaises(RuntimeError): self.module.private_diagnostics_directory(root)
+                    finally:
+                        restored = subprocess.run(['icacls.exe', str(root), '/remove:g', '*S-1-1-0'], capture_output=True)
+                        self.assertEqual(restored.returncode, 0)
             else:
                 root.chmod(0o755)
                 with self.assertRaises(RuntimeError): self.module.private_diagnostics_directory(root)
