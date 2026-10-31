@@ -80,8 +80,8 @@ Files: `site/plugins/tehnet-store/includes/class-{tickets,quotes}.php`, `site/mu
 
 Files: brand ownership, keyword/page map, cross-brand link spec, candidate portfolio, original service/article/Lab sources, central source ledger.
 
-- [ ] حداقل۱۰۰ موضوع واقعاً متمایز با خوشه، intent، owner، صفحهٔ موجود/جدید، اولویت، منبع، محدودیت و وضعیت تحقیق ثبت کن؛ volume/rank نساز.
-- [ ] intent تخصصی PBX/VoIP برای۱۳ صفحهٔ موجود MyTel حفظ شود. TehNet روی شبکه، VLAN/QoS/PoE/WAN و آمادگی زیرساخت بماند؛ لینک‌ها editorial و خارجی معرفی شوند.
+- [x] موجودی۱۰۰کار/۲۰خوشه با owner/مقصد/source/priority/limit/state ثبت و۲۰کنترل پاس؛ VERIFIED_INVENTORY_ONLY، تحقیق بازار/فرمان و انتشار همهٔ موضوع‌ها تکمیل نیست.
+- [x] نگاشت۱۳intent تجاری موجود MyTel و۶intent TehNet ثبت شد؛ MyTel freeze حفظ، reverse-link فقط پیشنهاد در سند TehNet و بدون live write. editorial/external بودن صریح است.
 - [ ] پشتیبانی/راه‌اندازی موجود را اول بهبود بده؛ امنیت، سرور/مجازی‌سازی و مانیتورینگ فقط در حد خدمتِ قابل ارائه با دامنه و deliverable صادقانه تکمیل شوند.
 - [ ] مقالات در batch کوچک: intent و منابع رسمی → اصل توضیح/سناریو/دیاگرام → صحت commands/نسخه/محدودیت → لینک/metadata/CTA → مرور → staging → انتشار مجاز. دادهٔ نامطمئن در draft بماند.
 - [ ] بدون deep review واقعیِ۱۲۰ فروشگاه یا CAD دقیق۲۵کالا، چنین تکمیلی ادعا نشود؛ هر سطح benchmark و مدرک مدل/مجوز مشخص باشد.

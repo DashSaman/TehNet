@@ -1,0 +1,271 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-10-31T21:01:45.642063+00:00",
+  "method": "Owner brief plus dated public metadata inventory and manual intent grouping; mapping is editorial inference, not GSC cannibalization measurement",
+  "tehnet_existing": [
+    {
+      "owner": "TehNet",
+      "url": "https://tehnet.ir/services/network-tehran/",
+      "user_job_fa": "بررسی و انتخاب دامنهٔ خدمت شبکهٔ تهران",
+      "query_variants_fa": "خدمات شبکه تهران؛ مشاوره زیرساخت شرکت",
+      "guard_fa": "برای ورود به خدمات شبکه؛ به خدمات مشخص ارجاع دهد، متن پشتیبانی را تکثیر نکند",
+      "action": "IMPROVE_EXISTING_NOT_SYNONYM_PAGE"
+    },
+    {
+      "owner": "TehNet",
+      "url": "https://tehnet.ir/services/network-support-tehran/",
+      "user_job_fa": "نگهداری و رفع رخداد شبکهٔ موجود",
+      "query_variants_fa": "پشتیبانی شبکه تهران؛ نگهداری شبکه شرکت",
+      "guard_fa": "شرح فرایند دریافت درخواست، محدوده و مدارک؛ بدون SLA/قیمت ساختگی",
+      "action": "IMPROVE_EXISTING_NOT_SYNONYM_PAGE"
+    },
+    {
+      "owner": "TehNet",
+      "url": "https://tehnet.ir/services/network-setup-tehran/",
+      "user_job_fa": "پروژهٔ راه‌اندازی LAN و تحویل زیرساخت",
+      "query_variants_fa": "نصب شبکه شرکت؛ راه‌اندازی شبکه اداری تهران",
+      "guard_fa": "نیازسنجی و خروجی پروژه؛ با قرارداد نگهداری یکی نشود",
+      "action": "IMPROVE_EXISTING_NOT_SYNONYM_PAGE"
+    },
+    {
+      "owner": "TehNet",
+      "url": "https://tehnet.ir/services/mikrotik-tehran/",
+      "user_job_fa": "بررسی یا پیکربندی دستگاه و مسیر MikroTik",
+      "query_variants_fa": "خدمات میکروتیک تهران؛ تنظیم روتر شرکت",
+      "guard_fa": "برند دستگاه زیرمجموعهٔ خدمت شبکه؛ صفحات شهری هم‌معنی نساز",
+      "action": "IMPROVE_EXISTING_NOT_SYNONYM_PAGE"
+    },
+    {
+      "owner": "TehNet",
+      "url": "https://tehnet.ir/services/remote-support/",
+      "user_job_fa": "بررسی شبکه با دسترسی از راه دور مجاز",
+      "query_variants_fa": "پشتیبانی شبکه ریموت؛ عیب‌یابی شبکه از راه دور",
+      "guard_fa": "حضوری تهران و ریموت سراسر ایران؛ دامنه و دسترسی تعیین شود",
+      "action": "IMPROVE_EXISTING_NOT_SYNONYM_PAGE"
+    },
+    {
+      "owner": "TehNet",
+      "url": "https://tehnet.ir/services/voice-network-readiness/",
+      "user_job_fa": "آمادگی و عیب‌یابی زیرساخت شبکهٔ تماس",
+      "query_variants_fa": "آمادگی شبکه VoIP؛ بررسی VLAN و QoS و PoE",
+      "guard_fa": "PBX/داخلی/IVR/Queue تجاری به MyTel؛ CTA شبکه به تیکت موجود",
+      "action": "IMPROVE_EXISTING_NOT_SYNONYM_PAGE"
+    }
+  ],
+  "mytel_existing_frozen": [
+    {
+      "owner": "MyTel",
+      "url": "https://mytel.one/services/",
+      "commercial_intent_fa": "انتخاب خدمت تخصصی VoIP و مرکز تلفن",
+      "title_observed": "خدمات VoIP و مرکز تماس | راه‌اندازی و پشتیبانی | MyTel.one",
+      "h1_observed": "خدمات تخصصی VoIP راه‌اندازی مرکز تماس پشتیبانی سیستم تلفنی",
+      "canonical_observed": [
+        "https://mytel.one/services/"
+      ],
+      "state": "EXISTING_FROZEN_READ_ONLY",
+      "tehnet_rule": "Refer editorially when the user needs this specialist telephony job; do not clone this landing page",
+      "proposed_mytel_changes": "DOCUMENT_ONLY; production write not authorized"
+    },
+    {
+      "owner": "MyTel",
+      "url": "https://mytel.one/voip-support/",
+      "commercial_intent_fa": "رفع خرابی و نگهداری PBX، ایزابل و FreePBX",
+      "title_observed": "پشتیبانی VoIP و ایزابل در تهران | MyTel.one",
+      "h1_observed": "پشتیبانی VoIP، ایزابل و FreePBX برای شرکت‌ها و مرکز تماس",
+      "canonical_observed": [
+        "https://mytel.one/voip-support/"
+      ],
+      "state": "EXISTING_FROZEN_READ_ONLY",
+      "tehnet_rule": "Refer editorially when the user needs this specialist telephony job; do not clone this landing page",
+      "proposed_mytel_changes": "DOCUMENT_ONLY; production write not authorized"
+    },
+    {
+      "owner": "MyTel",
+      "url": "https://mytel.one/call-center/",
+      "commercial_intent_fa": "طراحی و راه‌اندازی مرکز تماس",
+      "title_observed": "راه‌اندازی مرکز تماس (کال سنتر) در تهران؛ Issabel و FreePBX + تعرفه",
+      "h1_observed": "راه‌اندازی مرکز تماس VoIP برای شرکت‌ها، تیم فروش و پشتیبانی",
+      "canonical_observed": [
+        "https://mytel.one/call-center/"
+      ],
+      "state": "EXISTING_FROZEN_READ_ONLY",
+      "tehnet_rule": "Refer editorially when the user needs this specialist telephony job; do not clone this landing page",
+      "proposed_mytel_changes": "DOCUMENT_ONLY; production write not authorized"
+    },
+    {
+      "owner": "MyTel",
+      "url": "https://mytel.one/business-pbx/",
+      "commercial_intent_fa": "راه‌اندازی مرکز تلفن سازمانی",
+      "title_observed": "مرکز تلفن سازمانی VoIP | راه‌اندازی سیستم تلفنی | MyTel.one",
+      "h1_observed": "راه‌اندازی مرکز تلفن سازمانی VoIP برای شرکت‌ها و شعب",
+      "canonical_observed": [
+        "https://mytel.one/business-pbx/"
+      ],
+      "state": "EXISTING_FROZEN_READ_ONLY",
+      "tehnet_rule": "Refer editorially when the user needs this specialist telephony job; do not clone this landing page",
+      "proposed_mytel_changes": "DOCUMENT_ONLY; production write not authorized"
+    },
+    {
+      "owner": "MyTel",
+      "url": "https://mytel.one/issabel/",
+      "commercial_intent_fa": "نصب و پیکربندی ایزابل",
+      "title_observed": "راه‌اندازی ایزابل در تهران | نصب و کانفیگ Issabel",
+      "h1_observed": "راه‌اندازی ایزابل (Issabel) برای مرکز تلفن و مرکز تماس سازمانی",
+      "canonical_observed": [
+        "https://mytel.one/issabel/"
+      ],
+      "state": "EXISTING_FROZEN_READ_ONLY",
+      "tehnet_rule": "Refer editorially when the user needs this specialist telephony job; do not clone this landing page",
+      "proposed_mytel_changes": "DOCUMENT_ONLY; production write not authorized"
+    },
+    {
+      "owner": "MyTel",
+      "url": "https://mytel.one/freepbx/",
+      "commercial_intent_fa": "نصب و پیکربندی FreePBX و Asterisk",
+      "title_observed": "راه‌اندازی FreePBX | نصب و کانفیگ مرکز تلفن | MyTel.one",
+      "h1_observed": "راه‌اندازی FreePBX و Asterisk برای مرکز تلفن سازمانی",
+      "canonical_observed": [
+        "https://mytel.one/freepbx/"
+      ],
+      "state": "EXISTING_FROZEN_READ_ONLY",
+      "tehnet_rule": "Refer editorially when the user needs this specialist telephony job; do not clone this landing page",
+      "proposed_mytel_changes": "DOCUMENT_ONLY; production write not authorized"
+    },
+    {
+      "owner": "MyTel",
+      "url": "https://mytel.one/sip-trunk/",
+      "commercial_intent_fa": "راه‌اندازی ترانک و مسیرهای تلفنی",
+      "title_observed": "راه‌اندازی SIP Trunk | ایزابل و FreePBX | MyTel.one",
+      "h1_observed": "راه‌اندازی SIP Trunk برای ایزابل، FreePBX و مرکز تلفن VoIP",
+      "canonical_observed": [
+        "https://mytel.one/sip-trunk/"
+      ],
+      "state": "EXISTING_FROZEN_READ_ONLY",
+      "tehnet_rule": "Refer editorially when the user needs this specialist telephony job; do not clone this landing page",
+      "proposed_mytel_changes": "DOCUMENT_ONLY; production write not authorized"
+    },
+    {
+      "owner": "MyTel",
+      "url": "https://mytel.one/ivr/",
+      "commercial_intent_fa": "طراحی و اجرای منوی تلفن گویا",
+      "title_observed": "راه‌اندازی تلفن گویا (IVR) در تهران؛ منوی صوتی فارسی + تعرفه",
+      "h1_observed": "راه‌اندازی IVR و تلفن گویا برای مرکز تماس و سیستم VoIP",
+      "canonical_observed": [
+        "https://mytel.one/ivr/"
+      ],
+      "state": "EXISTING_FROZEN_READ_ONLY",
+      "tehnet_rule": "Refer editorially when the user needs this specialist telephony job; do not clone this landing page",
+      "proposed_mytel_changes": "DOCUMENT_ONLY; production write not authorized"
+    },
+    {
+      "owner": "MyTel",
+      "url": "https://mytel.one/call-queue/",
+      "commercial_intent_fa": "راه‌اندازی صف و Agent تلفنی",
+      "title_observed": "راه‌اندازی صف تماس Queue؛ استراتژی زنگ، موزیک انتظار و تست واقعی",
+      "h1_observed": "راه‌اندازی صف تماس (Queue) برای مرکز تماس VoIP",
+      "canonical_observed": [
+        "https://mytel.one/call-queue/"
+      ],
+      "state": "EXISTING_FROZEN_READ_ONLY",
+      "tehnet_rule": "Refer editorially when the user needs this specialist telephony job; do not clone this landing page",
+      "proposed_mytel_changes": "DOCUMENT_ONLY; production write not authorized"
+    },
+    {
+      "owner": "MyTel",
+      "url": "https://mytel.one/call-recording/",
+      "commercial_intent_fa": "ضبط و نگهداری مکالمه در سامانهٔ تلفنی",
+      "title_observed": "ضبط مکالمات VoIP | Recording و CDR مرکز تماس | MyTel.one",
+      "h1_observed": "ضبط مکالمات VoIP و مدیریت فایل‌های تماس مرکز تلفن",
+      "canonical_observed": [
+        "https://mytel.one/call-recording/"
+      ],
+      "state": "EXISTING_FROZEN_READ_ONLY",
+      "tehnet_rule": "Refer editorially when the user needs this specialist telephony job; do not clone this landing page",
+      "proposed_mytel_changes": "DOCUMENT_ONLY; production write not authorized"
+    },
+    {
+      "owner": "MyTel",
+      "url": "https://mytel.one/call-reporting/",
+      "commercial_intent_fa": "گزارش و تحلیل تماس PBX",
+      "title_observed": "گزارش تماس VoIP و CDR | مرکز تلفن و مرکز تماس | MyTel.one",
+      "h1_observed": "گزارش تماس VoIP و CDR برای مرکز تلفن و مرکز تماس",
+      "canonical_observed": [
+        "https://mytel.one/call-reporting/"
+      ],
+      "state": "EXISTING_FROZEN_READ_ONLY",
+      "tehnet_rule": "Refer editorially when the user needs this specialist telephony job; do not clone this landing page",
+      "proposed_mytel_changes": "DOCUMENT_ONLY; production write not authorized"
+    },
+    {
+      "owner": "MyTel",
+      "url": "https://mytel.one/voip-crm/",
+      "commercial_intent_fa": "اتصال سامانهٔ تلفنی به CRM",
+      "title_observed": "اتصال VoIP به CRM | Click-to-Call و ثبت تماس | MyTel.one",
+      "h1_observed": "اتصال VoIP به CRM برای تماس، ثبت اطلاعات و فرآیند فروش",
+      "canonical_observed": [
+        "https://mytel.one/voip-crm/"
+      ],
+      "state": "EXISTING_FROZEN_READ_ONLY",
+      "tehnet_rule": "Refer editorially when the user needs this specialist telephony job; do not clone this landing page",
+      "proposed_mytel_changes": "DOCUMENT_ONLY; production write not authorized"
+    },
+    {
+      "owner": "MyTel",
+      "url": "https://mytel.one/branch-voip/",
+      "commercial_intent_fa": "اتصال و معماری تلفنی شعب",
+      "title_observed": "اتصال شعب با VoIP | یکپارچه‌سازی مرکز تلفن چند شعبه | MyTel.one",
+      "h1_observed": "اتصال شعب با VoIP و یکپارچه‌سازی مرکز تلفن چند شعبه",
+      "canonical_observed": [
+        "https://mytel.one/branch-voip/"
+      ],
+      "state": "EXISTING_FROZEN_READ_ONLY",
+      "tehnet_rule": "Refer editorially when the user needs this specialist telephony job; do not clone this landing page",
+      "proposed_mytel_changes": "DOCUMENT_ONLY; production write not authorized"
+    }
+  ],
+  "cross_domain_rules": [
+    "External editorial referrals, never internal links or a mass reciprocal network",
+    "No invented same legal owner, partnership, sameAs, reviews, certifications or SLA",
+    "No keyword-stuffed footer or sitewide cross-brand link injection",
+    "MyTel production URL/title/H1/performance freeze remains active"
+  ],
+  "existing_tehnet_referrals": [
+    {
+      "from": "https://tehnet.ir/services/voice-network-readiness/",
+      "to": [
+        "https://mytel.one/services/",
+        "https://mytel.one/voip-support/"
+      ],
+      "state": "LIVE_OBSERVED_IN_SOURCE",
+      "purpose": "Distinguish infrastructure from PBX deployment/support"
+    },
+    {
+      "from": "https://tehnet.ir/lab/voice-network-checklist/",
+      "to": [
+        "https://mytel.one/services/"
+      ],
+      "state": "LIVE_OBSERVED_IN_SOURCE",
+      "purpose": "Next step only for a specialist telephony need"
+    }
+  ],
+  "mytel_referral_proposals": [
+    {
+      "from": "https://mytel.one/voip-support/",
+      "to": "https://tehnet.ir/services/voice-network-readiness/",
+      "state": "DOCUMENT_ONLY_NOT_DEPLOYED",
+      "purpose": "Only if the section actually discusses VLAN/PoE/WAN infrastructure and the frozen-page contract is separately cleared"
+    },
+    {
+      "from": "https://mytel.one/branch-voip/",
+      "to": "https://tehnet.ir/services/voice-network-readiness/",
+      "state": "DOCUMENT_ONLY_NOT_DEPLOYED",
+      "purpose": "Only if the section actually discusses VLAN/PoE/WAN infrastructure and the frozen-page contract is separately cleared"
+    }
+  ],
+  "unverified_service_capability": [
+    "FortiGate/Sophos enterprise audit",
+    "Server/virtualization managed service",
+    "Zabbix/Grafana managed monitoring"
+  ],
+  "service_capability_rule": "Educational candidates do not establish deliverable commercial capacity; new landing-page publication remains blocked until scope/capability evidence exists"
+}

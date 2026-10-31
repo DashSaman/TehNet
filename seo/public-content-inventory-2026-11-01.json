@@ -1,0 +1,481 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-10-31T21:01:45.642063+00:00",
+  "method": "TehNet published public-type native read; MyTel13 unauthenticated HTTPS GETs, default TLS validation",
+  "tehnet": [
+    {
+      "id": 5,
+      "type": "page",
+      "parent": 0,
+      "url": "https://tehnet.ir/",
+      "title": "خانه",
+      "content_sha256": "1a05541d14cf8721b3ef6ba129167987f876f655289bc7de85ff370c6912f270"
+    },
+    {
+      "id": 6,
+      "type": "page",
+      "parent": 0,
+      "url": "https://tehnet.ir/learn/",
+      "title": "آموزش",
+      "content_sha256": "d74ddb29b45f1ceac224293fb55b20a162004cbcc1367e12c259e56a117e5532"
+    },
+    {
+      "id": 7,
+      "type": "page",
+      "parent": 0,
+      "url": "https://tehnet.ir/lab/",
+      "title": "Lab",
+      "content_sha256": "c7ef5a3ce97f7672dea850517c26f38772f8f14c8bf21d37555bf8a5412e6ad9"
+    },
+    {
+      "id": 8,
+      "type": "page",
+      "parent": 0,
+      "url": "https://tehnet.ir/services/",
+      "title": "خدمات",
+      "content_sha256": "514df9299d6156a1985e366d0d998044d1cb97674419bf1a2aefe107f0a116c5"
+    },
+    {
+      "id": 9,
+      "type": "page",
+      "parent": 0,
+      "url": "https://tehnet.ir/shop/",
+      "title": "فروشگاه",
+      "content_sha256": "2e45d4dfb718658891ce8b9e3f98d7011a290cc9556d904911f0e130a9d356eb"
+    },
+    {
+      "id": 10,
+      "type": "page",
+      "parent": 0,
+      "url": "https://tehnet.ir/about/",
+      "title": "درباره ما",
+      "content_sha256": "ac9985db27f4a4a93f10490173ab2eab52ab204cda7e343f1c78b31e264314c6"
+    },
+    {
+      "id": 11,
+      "type": "page",
+      "parent": 0,
+      "url": "https://tehnet.ir/contact/",
+      "title": "تماس با ما",
+      "content_sha256": "404dcd28d91a02c13f412102214903e51016bb6f357ac25c6a95fb3e2cef93e5"
+    },
+    {
+      "id": 26,
+      "type": "page",
+      "parent": 6,
+      "url": "https://tehnet.ir/learn/mikrotik/",
+      "title": "آموزش میکروتیک",
+      "content_sha256": "5724426d7696b5b1a6110b6b5f2b51dbb9faa7b61b0f5d1367fff410813a6306"
+    },
+    {
+      "id": 29,
+      "type": "page",
+      "parent": 8,
+      "url": "https://tehnet.ir/services/network-tehran/",
+      "title": "خدمات شبکه تهران",
+      "content_sha256": "16b9789a148a48da56b3353ab982c7030105f3b0cadc1d9fd4d025860d4ebe26"
+    },
+    {
+      "id": 31,
+      "type": "page",
+      "parent": 8,
+      "url": "https://tehnet.ir/services/network-support-tehran/",
+      "title": "پشتیبانی شبکه تهران",
+      "content_sha256": "bfc8e8d2a83fd89cc9d17a2af26dc67f86ccda1e70bedcd519d2d6a1625bbe3a"
+    },
+    {
+      "id": 33,
+      "type": "page",
+      "parent": 8,
+      "url": "https://tehnet.ir/services/network-setup-tehran/",
+      "title": "راه‌اندازی شبکه شرکت در تهران",
+      "content_sha256": "09eba56189c561933b6107fbdb2dcca7259450c7b78751ffb5f0df6e2d241818"
+    },
+    {
+      "id": 35,
+      "type": "page",
+      "parent": 8,
+      "url": "https://tehnet.ir/services/mikrotik-tehran/",
+      "title": "خدمات MikroTik تهران",
+      "content_sha256": "647165b37acf55aa4e9ca1faf56ee79754193282e6b2351b995316f04596a379"
+    },
+    {
+      "id": 37,
+      "type": "page",
+      "parent": 8,
+      "url": "https://tehnet.ir/services/remote-support/",
+      "title": "پشتیبانی شبکه از راه دور",
+      "content_sha256": "5c84ebdffaa8c93e61eea55bdf1871ff07cd68ee7ee1935135d557b3cc6f3e84"
+    },
+    {
+      "id": 40,
+      "type": "page",
+      "parent": 26,
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/",
+      "title": "آموزش MTCNA میکروتیک",
+      "content_sha256": "3d05ad0e46bccfe571fab155478788054a3105e4d2f6de274b1af7166625eaa9"
+    },
+    {
+      "id": 62,
+      "type": "page",
+      "parent": 40,
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+      "title": "شروع با RouterOS و Winbox — جلسه اول MTCNA",
+      "content_sha256": "8c77374b3a532b417e6b8f3b08320ed7ebacca3b1a9c7e88793b5d6c2ad3004c"
+    },
+    {
+      "id": 63,
+      "type": "page",
+      "parent": 40,
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+      "title": "آدرس‌دهی IP، DHCP و DNS در میکروتیک — MTCNA",
+      "content_sha256": "010a5df48a5326fca34a4a038b68f1b03ae41e04da1f72217636d9c68e1b15bc"
+    },
+    {
+      "id": 64,
+      "type": "page",
+      "parent": 40,
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/",
+      "title": "مسیریابی استاتیک در میکروتیک — MTCNA",
+      "content_sha256": "e897a015d5ca68d32749f0739bdf00f143420db3c7e10454fe6287fc226cf4b6"
+    },
+    {
+      "id": 65,
+      "type": "page",
+      "parent": 40,
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/nat-masquerade/",
+      "title": "NAT و Masquerade در میکروتیک — MTCNA",
+      "content_sha256": "d8679aa32b2397f5f05c9a079a59bb4d81b5e993b75ea0b877f7958aa5dbe351"
+    },
+    {
+      "id": 66,
+      "type": "page",
+      "parent": 40,
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/firewall-basics/",
+      "title": "فایروال میکروتیک؛ ساخت قانون با هدف مشخص — MTCNA",
+      "content_sha256": "10d586dfea0974346a7971d465555e936fabf5cee989c82672af7037f58dd175"
+    },
+    {
+      "id": 67,
+      "type": "page",
+      "parent": 40,
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/queues-troubleshooting/",
+      "title": "مدیریت پهنای باند و عیب‌یابی پایه — MTCNA",
+      "content_sha256": "b91779b11fcc2612d732e7f550a462f5d9ad1614ac95dfdd9a582c9b31281634"
+    },
+    {
+      "id": 69,
+      "type": "page",
+      "parent": 0,
+      "url": "https://tehnet.ir/blog/",
+      "title": "بلاگ",
+      "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": 70,
+      "type": "post",
+      "parent": 0,
+      "url": "https://tehnet.ir/mtcna-learning-path/",
+      "title": "مسیر یادگیری میکروتیک؛ دوره MTCNA تهران نتورک",
+      "content_sha256": "c6801de0318d1e15c7b0fc74116e87867a4aa50933d0f961648ab64517287de2"
+    },
+    {
+      "id": 71,
+      "type": "post",
+      "parent": 0,
+      "url": "https://tehnet.ir/lab-before-production/",
+      "title": "چرا قبل از شبکه واقعی، لاب مجازی بسازیم؟",
+      "content_sha256": "ce304164f1db28f5998fa38cedca0755d9c94fad4893aeace7b33dffc31c433e"
+    },
+    {
+      "id": 76,
+      "type": "page",
+      "parent": 7,
+      "url": "https://tehnet.ir/lab/gns3-mikrotik/",
+      "title": "مجازی‌سازی با GNS3؛ ساخت روتر میکروتیک مجازی برای تمرین",
+      "content_sha256": "3a6db0065a49e1ea8211b8264331aea5a1fb014d82b5432bf1e299aa04682ab7"
+    },
+    {
+      "id": 80,
+      "type": "page",
+      "parent": 0,
+      "url": "https://tehnet.ir/amirreza-golavar/",
+      "title": "امیررضا گل‌آور | رزومه حرفه‌ای",
+      "content_sha256": "3ffa85cf02b42374d675774aba39ce3f1fd6af8ad1d9e13f04c2e8e0099358e0"
+    },
+    {
+      "id": 107,
+      "type": "page",
+      "parent": 0,
+      "url": "https://tehnet.ir/cart-2/",
+      "title": "سبد خرید",
+      "content_sha256": "767793d8f22d1594915d17605c575f567461e1c48e701b2d0f8f06acd4798edb"
+    },
+    {
+      "id": 109,
+      "type": "page",
+      "parent": 0,
+      "url": "https://tehnet.ir/tn-checkout/",
+      "title": "تسویه حساب",
+      "content_sha256": "12183af529c31d1919bba52398eb3fc62cc1fa3aab4f857e29df5243ca73ddd7"
+    },
+    {
+      "id": 110,
+      "type": "page",
+      "parent": 0,
+      "url": "https://tehnet.ir/tn-account/",
+      "title": "حساب کاربری",
+      "content_sha256": "0c846e85bd9bd3925320fc92c24a6cae9e2a860616209cb93311eed72f5ca56a"
+    },
+    {
+      "id": 187,
+      "type": "page",
+      "parent": 0,
+      "url": "https://tehnet.ir/technical-methodology/",
+      "title": "روش منابع، آزمون و اصلاح محتوا",
+      "content_sha256": "97a8bbb7efd82d1628d33bc45620dcdca3bb0a425e7fe41df963f72d097148e0"
+    },
+    {
+      "id": 188,
+      "type": "page",
+      "parent": 7,
+      "url": "https://tehnet.ir/lab/wireguard-mtu/",
+      "title": "برآورد MTU در WireGuard؛ ابزار محلی و محدودیت‌ها",
+      "content_sha256": "23e79b52079754a62c69e7019c702286e24b48c373e8ade0060e19353c0250a8"
+    },
+    {
+      "id": 194,
+      "type": "page",
+      "parent": 0,
+      "url": "https://tehnet.ir/b2b/",
+      "title": "خرید سازمانی و پیش‌فاکتور",
+      "content_sha256": "df89d9251a68595cbfc002d0bc9a2d697979f8ebeeca4b8d338cdd2ef25a9df3"
+    },
+    {
+      "id": 196,
+      "type": "page",
+      "parent": 0,
+      "url": "https://tehnet.ir/support/",
+      "title": "پشتیبانی و تیکت",
+      "content_sha256": "c03b121aa300a0139a9e4226c2db60dc7d31d8fbdc3095d309901391aa776693"
+    },
+    {
+      "id": 206,
+      "type": "page",
+      "parent": 8,
+      "url": "https://tehnet.ir/services/voice-network-readiness/",
+      "title": "آماده‌سازی و بررسی شبکه برای VoIP",
+      "content_sha256": "7f384153b9140fe60db47dca2690ebd1e6e85ff8a16637745d12e7f23844a915"
+    },
+    {
+      "id": 207,
+      "type": "page",
+      "parent": 7,
+      "url": "https://tehnet.ir/lab/voice-network-checklist/",
+      "title": "چک‌لیست دستی آمادگی شبکه برای VoIP",
+      "content_sha256": "5727d4db2cd5729fb7e47d5c12f5e6d73f0dff92d5e6a51e77062710b92df117"
+    }
+  ],
+  "mytel": [
+    {
+      "url": "https://mytel.one/services/",
+      "final_url": "https://mytel.one/services/",
+      "status": 200,
+      "title": "خدمات VoIP و مرکز تماس | راه‌اندازی و پشتیبانی | MyTel.one",
+      "h1": [
+        "\r\n          خدمات تخصصی VoIP\r\n          راه‌اندازی مرکز تماس\r\n          پشتیبانی سیستم تلفنی\r\n        "
+      ],
+      "canonical": [
+        "https://mytel.one/services/"
+      ],
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "description": "خدمات VoIP و مرکز تماس شامل راه‌اندازی و پشتیبانی Issabel و FreePBX، SIP Trunk، تلفن گویا، صف تماس، ضبط مکالمات و بهینه‌سازی سیستم تلفنی کسب‌وکارها.",
+      "html_sha256": "c9e8abcd9e21328fa08842a1ac0664bb531579a351e7cd8d672f8a3c532c6f93"
+    },
+    {
+      "url": "https://mytel.one/voip-support/",
+      "final_url": "https://mytel.one/voip-support/",
+      "status": 200,
+      "title": "پشتیبانی VoIP و ایزابل در تهران | MyTel.one",
+      "h1": [
+        "پشتیبانی VoIP، ایزابل و FreePBX برای شرکت‌ها و مرکز تماس"
+      ],
+      "canonical": [
+        "https://mytel.one/voip-support/"
+      ],
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "description": "پشتیبانی VoIP، ایزابل و FreePBX در تهران برای رفع خرابی تماس، SIP Trunk، IVR، Queue، ضبط مکالمات و نگهداری مرکز تلفن سازمانی.",
+      "html_sha256": "ea3b36d89bf9f349ea701f592d234839b38f95fbc5be3a6399745cf1e3feaa5a"
+    },
+    {
+      "url": "https://mytel.one/call-center/",
+      "final_url": "https://mytel.one/call-center/",
+      "status": 200,
+      "title": "راه‌اندازی مرکز تماس (کال سنتر) در تهران؛ Issabel و FreePBX + تعرفه",
+      "h1": [
+        "راه‌اندازی مرکز تماس VoIP برای شرکت‌ها، تیم فروش و پشتیبانی"
+      ],
+      "canonical": [
+        "https://mytel.one/call-center/"
+      ],
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "description": "راه‌اندازی کال سنتر برای تیم فروش و پشتیبانی: صف، IVR، ضبط مکالمات، گزارش کارشناسان و اتصال شعب؛ با Issabel و FreePBX و تست تماس واقعی. مشاوره: 021-91018746",
+      "html_sha256": "20e83f224885828e2914931abf7d5e8e5e46286ae6e94b3a7864d115111f9c8b"
+    },
+    {
+      "url": "https://mytel.one/business-pbx/",
+      "final_url": "https://mytel.one/business-pbx/",
+      "status": 200,
+      "title": "مرکز تلفن سازمانی VoIP | راه‌اندازی سیستم تلفنی | MyTel.one",
+      "h1": [
+        "راه‌اندازی مرکز تلفن سازمانی VoIP برای شرکت‌ها و شعب"
+      ],
+      "canonical": [
+        "https://mytel.one/business-pbx/"
+      ],
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "description": "راه‌اندازی مرکز تلفن سازمانی VoIP برای شرکت‌ها و شعب شامل داخلی‌ها، SIP Trunk، IVR، Queue، گزارش تماس، ضبط مکالمات، امنیت و Backup.",
+      "html_sha256": "91f0ee3d7aa32fcce223bfbed0a1b3430de8bdcd23486467c1607d04d3cb3110"
+    },
+    {
+      "url": "https://mytel.one/issabel/",
+      "final_url": "https://mytel.one/issabel/",
+      "status": 200,
+      "title": "راه‌اندازی ایزابل در تهران | نصب و کانفیگ Issabel",
+      "h1": [
+        "راه‌اندازی ایزابل (Issabel) برای مرکز تلفن و مرکز تماس سازمانی"
+      ],
+      "canonical": [
+        "https://mytel.one/issabel/"
+      ],
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "description": "راه‌اندازی ایزابل در تهران برای مرکز تلفن و مرکز تماس؛ نصب و کانفیگ Issabel، SIP Trunk، Route، IVR، Queue، ضبط مکالمات، CDR، Backup و امنیت.",
+      "html_sha256": "dfdb8d25cddcf992616689c0d40b5b7871830680eb9f508cdf0df2fd6485dc52"
+    },
+    {
+      "url": "https://mytel.one/freepbx/",
+      "final_url": "https://mytel.one/freepbx/",
+      "status": 200,
+      "title": "راه‌اندازی FreePBX | نصب و کانفیگ مرکز تلفن | MyTel.one",
+      "h1": [
+        "راه‌اندازی FreePBX و Asterisk برای مرکز تلفن سازمانی"
+      ],
+      "canonical": [
+        "https://mytel.one/freepbx/"
+      ],
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "description": "راه‌اندازی FreePBX و Asterisk برای مرکز تلفن سازمانی شامل PJSIP، SIP Trunk، Route، IVR، Queue، Recording، CDR، Backup و امنیت.",
+      "html_sha256": "11b420cb3f6c1b3ce11aa91e6cf89e50f95e45b7f82072e2d141a4b14f3864f8"
+    },
+    {
+      "url": "https://mytel.one/sip-trunk/",
+      "final_url": "https://mytel.one/sip-trunk/",
+      "status": 200,
+      "title": "راه‌اندازی SIP Trunk | ایزابل و FreePBX | MyTel.one",
+      "h1": [
+        "راه‌اندازی SIP Trunk برای ایزابل، FreePBX و مرکز تلفن VoIP"
+      ],
+      "canonical": [
+        "https://mytel.one/sip-trunk/"
+      ],
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "description": "راه‌اندازی SIP Trunk برای Issabel و FreePBX شامل Registration، Caller ID، Codec، Inbound و Outbound Route، NAT، Firewall و تست تماس واقعی.",
+      "html_sha256": "81676397b00965f0524aff18f930794b77f78308cb33aff2c72938391825a1a9"
+    },
+    {
+      "url": "https://mytel.one/ivr/",
+      "final_url": "https://mytel.one/ivr/",
+      "status": 200,
+      "title": "راه‌اندازی تلفن گویا (IVR) در تهران؛ منوی صوتی فارسی + تعرفه",
+      "h1": [
+        "راه‌اندازی IVR و تلفن گویا برای مرکز تماس و سیستم VoIP"
+      ],
+      "canonical": [
+        "https://mytel.one/ivr/"
+      ],
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "description": "تلفن گویا سازمانی با منوی فارسی، اتصال به صف تماس و ضبط مکالمات؛ طراحی، اجرا و تست تماس واقعی توسط مایتل. استعلام و مشاوره: 021-91018746",
+      "html_sha256": "9f5c388c17e7d532441d388dcdabb4f168849aba2f74800225b5fc7da41c36df"
+    },
+    {
+      "url": "https://mytel.one/call-queue/",
+      "final_url": "https://mytel.one/call-queue/",
+      "status": 200,
+      "title": "راه‌اندازی صف تماس Queue؛ استراتژی زنگ، موزیک انتظار و تست واقعی",
+      "h1": [
+        "راه‌اندازی صف تماس (Queue) برای مرکز تماس VoIP"
+      ],
+      "canonical": [
+        "https://mytel.one/call-queue/"
+      ],
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "description": "صف تماس حرفه‌ای: تعریف Agent، استراتژی زنگ، Timeout، Music on Hold، Failover و مدیریت تماس بی‌پاسخ؛ طراحی و تست واقعی توسط مایتل. 021-91018746",
+      "html_sha256": "156f374c63fa0cb08ffc6f849fc3f1d1b88d2c2731ab13ab3bf1522476f229ff"
+    },
+    {
+      "url": "https://mytel.one/call-recording/",
+      "final_url": "https://mytel.one/call-recording/",
+      "status": 200,
+      "title": "ضبط مکالمات VoIP | Recording و CDR مرکز تماس | MyTel.one",
+      "h1": [
+        "ضبط مکالمات VoIP و مدیریت فایل‌های تماس مرکز تلفن"
+      ],
+      "canonical": [
+        "https://mytel.one/call-recording/"
+      ],
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "description": "راه‌اندازی ضبط مکالمات VoIP شامل Recording تماس ورودی و خروجی، Queue، CDR، فضای ذخیره‌سازی، سطح دسترسی و نگهداری فایل‌های تماس.",
+      "html_sha256": "417fa485584f43c794f1c08662165d0251d6947a16cb28642a5fa490ab8cb083"
+    },
+    {
+      "url": "https://mytel.one/call-reporting/",
+      "final_url": "https://mytel.one/call-reporting/",
+      "status": 200,
+      "title": "گزارش تماس VoIP و CDR | مرکز تلفن و مرکز تماس | MyTel.one",
+      "h1": [
+        "گزارش تماس VoIP و CDR برای مرکز تلفن و مرکز تماس"
+      ],
+      "canonical": [
+        "https://mytel.one/call-reporting/"
+      ],
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "description": "راه‌اندازی و بهینه‌سازی گزارش تماس VoIP و CDR شامل تماس‌های پاسخ‌داده و بی‌پاسخ، مدت مکالمه، Queue، Agent و ارتباط گزارش با Recording.",
+      "html_sha256": "504369543420b52af7cabe44089992313d585b660af76ede01b6e421347d0498"
+    },
+    {
+      "url": "https://mytel.one/voip-crm/",
+      "final_url": "https://mytel.one/voip-crm/",
+      "status": 200,
+      "title": "اتصال VoIP به CRM | Click-to-Call و ثبت تماس | MyTel.one",
+      "h1": [
+        "اتصال VoIP به CRM برای تماس، ثبت اطلاعات و فرآیند فروش"
+      ],
+      "canonical": [
+        "https://mytel.one/voip-crm/"
+      ],
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "description": "اتصال VoIP به CRM بر اساس قابلیت واقعی PBX و CRM شامل Click-to-Call، نمایش تماس‌گیرنده، ثبت رویداد تماس و یکپارچه‌سازی API.",
+      "html_sha256": "53ca9eabd3da0a19c2bac0d2431e1415282d819c3d06f4251c7832329dc9562c"
+    },
+    {
+      "url": "https://mytel.one/branch-voip/",
+      "final_url": "https://mytel.one/branch-voip/",
+      "status": 200,
+      "title": "اتصال شعب با VoIP | یکپارچه‌سازی مرکز تلفن چند شعبه | MyTel.one",
+      "h1": [
+        "اتصال شعب با VoIP و یکپارچه‌سازی مرکز تلفن چند شعبه"
+      ],
+      "canonical": [
+        "https://mytel.one/branch-voip/"
+      ],
+      "robots": "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "description": "اتصال شعب با VoIP و یکپارچه‌سازی مرکز تلفن چند شعبه شامل Dial Plan، ارتباط PBXها، بررسی شبکه، امنیت، کیفیت تماس و Route بین دفاتر.",
+      "html_sha256": "16e246a1806fb0e7108dcb875b4aa09564433f0ebd2b1973b47a249d86a481ee"
+    }
+  ],
+  "mutations": 0,
+  "limits": [
+    "Public metadata/content inventory is not search performance or ownership evidence",
+    "MyTel title/H1/canonical preserved; no production write"
+  ]
+}
