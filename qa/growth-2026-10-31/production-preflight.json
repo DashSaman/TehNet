@@ -1,0 +1,16 @@
+{
+  "main": "c05bd3899d96800c9ee1c767714a3b1c821fb37a",
+  "head": "1acad8813734cc7f2df204002b26d3a697f3465a",
+  "files_checked": 6,
+  "files_matching_main": 6,
+  "hub_drift_free": true,
+  "new_paths_absent": true,
+  "blog_public": "0",
+  "published_products": 25,
+  "purchasable_products": 0,
+  "erp_ready": false,
+  "sandbox_enabled": false,
+  "production_mutations": 0,
+  "observed_utc": "2026-10-31T19:42:40.195733+00:00",
+  "scope": "Read-only native production file/content/commerce drift gate; no release performed"
+}

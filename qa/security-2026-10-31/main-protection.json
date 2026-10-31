@@ -1,0 +1,41 @@
+{
+  "observed_utc": "2026-10-31T19:11:40.372218+00:00",
+  "scope": "Two public repositories main-branch policy only",
+  "repositories": {
+    "TehNet": {
+      "put_status": 200,
+      "readback_status": 200,
+      "required_check": "tracked-file-privacy",
+      "check_bound_to_observed_actions_app": true,
+      "strict_up_to_date": true,
+      "administrator_enforcement": true,
+      "pull_request_required": true,
+      "approving_review_count": 0,
+      "allow_force_pushes": false,
+      "allow_deletions": false,
+      "main_ref_unchanged": true,
+      "rollback_snapshot_private": true
+    },
+    "-SEO": {
+      "put_status": 200,
+      "readback_status": 200,
+      "required_check": "tracked-file-privacy",
+      "check_bound_to_observed_actions_app": true,
+      "strict_up_to_date": true,
+      "administrator_enforcement": true,
+      "pull_request_required": true,
+      "approving_review_count": 0,
+      "allow_force_pushes": false,
+      "allow_deletions": false,
+      "main_ref_unchanged": true,
+      "rollback_snapshot_private": true
+    }
+  },
+  "history_or_content_changed": false,
+  "private_repo_changed": false,
+  "initial_schema_validation_failure": {
+    "http_status": 422,
+    "cause": "Both contexts and checks were supplied to a one-of schema; corrected to checks only after full response review",
+    "preflight_confirmed_no_policy_change_before_corrected_request": true
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "observed_utc": "2026-10-31T18:55:40.380044+00:00",
+  "scope": "local component regression only; native/browser/deployment pending",
+  "php": [
+    {
+      "test": "service-intake-contract.php",
+      "exit": 0,
+      "pass_lines": 19,
+      "assertions_passed": 19
+    },
+    {
+      "test": "network-readiness-unit.php",
+      "exit": 0,
+      "pass_lines": 10,
+      "assertions_passed": 10
+    },
+    {
+      "test": "tickets-contract.php",
+      "exit": 0,
+      "pass_lines": 9,
+      "assertions_passed": 9
+    },
+    {
+      "test": "quotes-contract.php",
+      "exit": 0,
+      "pass_lines": 15,
+      "assertions_passed": 15
+    },
+    {
+      "test": "technical-resources-unit.php",
+      "exit": 0,
+      "pass_lines": 0,
+      "assertions_passed": 11
+    }
+  ],
+  "php_assertions_passed": 64,
+  "javascript_syntax": "PASS",
+  "javascript_state_assertions": 4,
+  "production_changed": false,
+  "limits": [
+    "No native WordPress integration, HTTP form submission or browser result is claimed here.",
+    "Initial portable runtime lacked mbstring; existing extension is explicitly enabled, without application workaround."
+  ]
+}

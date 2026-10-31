@@ -1,0 +1,48 @@
+{
+  "schema": "tehnet.voice-network-checklist.v1",
+  "type": "manual-self-assessment",
+  "measured": false,
+  "recorded_at": "2026-10-31T18:45:50.018Z",
+  "answers": [
+    {
+      "key": "path",
+      "question": "نقشهٔ مسیر تماس",
+      "state": "ready"
+    },
+    {
+      "key": "vlan",
+      "question": "VLAN و دسترسی",
+      "state": "issue"
+    },
+    {
+      "key": "power",
+      "question": "PoE و برق پشتیبان",
+      "state": "na"
+    },
+    {
+      "key": "qos",
+      "question": "QoS در گلوگاه",
+      "state": "ready"
+    },
+    {
+      "key": "wan",
+      "question": "کیفیت مسیر در ساعت شلوغ",
+      "state": "unknown"
+    },
+    {
+      "key": "firewall",
+      "question": "فایروال و مسیر برگشت",
+      "state": "unknown"
+    },
+    {
+      "key": "monitoring",
+      "question": "پایش و زمان مشترک",
+      "state": "unknown"
+    },
+    {
+      "key": "recovery",
+      "question": "تغییر و بازگشت",
+      "state": "unknown"
+    }
+  ]
+}

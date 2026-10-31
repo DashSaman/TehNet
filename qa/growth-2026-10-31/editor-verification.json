@@ -1,0 +1,88 @@
+{
+  "scope": "Isolated native WordPress full-page and unsaved Gutenberg block-edit acceptance",
+  "observations": [
+    {
+      "key": "service",
+      "status": 200,
+      "h1": 1,
+      "desktop": {
+        "width": 1440,
+        "scroll": 1440,
+        "title": "آماده‌سازی و بررسی شبکه برای VoIP – تهران نتورک | TehNet"
+      },
+      "mobile": {
+        "width": 375,
+        "scroll": 375
+      }
+    },
+    {
+      "key": "lab",
+      "status": 200,
+      "h1": 1,
+      "desktop": {
+        "width": 1440,
+        "scroll": 1440,
+        "title": "چک‌لیست دستی آمادگی شبکه برای VoIP – تهران نتورک | TehNet"
+      },
+      "mobile": {
+        "width": 375,
+        "scroll": 375
+      }
+    }
+  ],
+  "editor": [
+    {
+      "key": "service",
+      "count": 38,
+      "invalid": [],
+      "names": [
+        "core/paragraph",
+        "core/heading",
+        "core/list",
+        "core/list-item",
+        "core/shortcode"
+      ],
+      "title": "آماده‌سازی و بررسی شبکه برای VoIP",
+      "dirty_after_format_normalization": true,
+      "raw_format_differs_from_editor_serialization": true,
+      "unsaved_block_edit_verified": true,
+      "original_editor_blocks_restored": true
+    },
+    {
+      "key": "lab",
+      "count": 18,
+      "invalid": [],
+      "names": [
+        "core/paragraph",
+        "core/heading",
+        "core/shortcode",
+        "core/list",
+        "core/list-item"
+      ],
+      "title": "چک‌لیست دستی آمادگی شبکه برای VoIP",
+      "dirty_after_format_normalization": true,
+      "raw_format_differs_from_editor_serialization": true,
+      "unsaved_block_edit_verified": true,
+      "original_editor_blocks_restored": true
+    }
+  ],
+  "blocked_external_origins": 2,
+  "page_errors": [],
+  "static_cache": "Only byte-identical public static responses observed in this browser run; no authenticated HTML or REST data cached",
+  "page_saves": 0,
+  "production_mutations": 0,
+  "original_posts_meta_users_unchanged_after_cleanup": true,
+  "owned_editor_removed": true,
+  "private_backup_verified": true,
+  "observed_utc": "2026-10-31T19:52:01.961820+00:00",
+  "executed_browser_source_sha256": "e834943e4f04023c21a23fa32cbe553f8b345f3cd62fe9abd3db77a4485778a6",
+  "public_source": "tests/service-intake-editor-browser.cjs",
+  "review": "Full desktop/mobile screenshots reviewed; editor screenshot reviewed; raw admin screenshots retained privately.",
+  "limits": [
+    "Editor modifications were unsaved; no native editor Save was tested. WP-CLI staged save and block roundtrip are separate evidence.",
+    "Raw compact markup normalizes in Gutenberg serialization. Unsaved dirty state can remain after restoring semantically identical blocks. Original database fingerprint was verified after browser closure and owned-user/lock cleanup.",
+    "Editor static responses were cached byte-for-byte within this run; no production performance claim.",
+    "Two external origins requested by the native editor were blocked; no external account/avatar/CDN data was sent.",
+    "This harness has clone-specific fixture IDs and a fixed loopback URL; never copy fixture IDs to production. Native identity/egress verification and disposable editor ownership must precede it."
+  ]
+}

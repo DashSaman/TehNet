@@ -1,0 +1,25 @@
+{
+  "scope": "Before/after observations, not fabricated test executions",
+  "initial_nonce_regression": {
+    "failed": 7,
+    "scope": "old shortcode nonce output and absent resolver; prior local run"
+  },
+  "native_query_collision": {
+    "old_context_query_http": 404,
+    "bare_support_page_exists": true,
+    "native_browser_failure": "ticket form locator timed out because context query selected the existing tn_service CPT",
+    "synthetic_records_at_failure": 0
+  },
+  "query_regression_red": {
+    "checks": 19,
+    "failed": 3
+  },
+  "query_regression_green": {
+    "checks": 19,
+    "failed": 0
+  },
+  "final_php_assertions": 64,
+  "final_component_browser_checks": 26,
+  "final_native_browser_checks": 24,
+  "production_changed": false
+}
