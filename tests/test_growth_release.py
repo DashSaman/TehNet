@@ -71,6 +71,36 @@ class ReleaseBoundaries(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.module.scope_spec('arbitrary-pages')
 
+    def test_routing_scope_is_separate_and_cannot_write_runtime(self):
+        scope = self.module.ROUTING_SCOPE
+        files, extra, runtime = self.module.scope_spec(scope)
+        self.assertEqual(files, [])
+        self.assertEqual(extra, ['content/routing-editorial-2026-11-01/manifest.json', 'content/routing-editorial-2026-11-01/static-routing.html', 'ops/migrate-growth-content.php'])
+        self.assertEqual(set(runtime), set(self.module.FILES + ['site/plugins/tehnet-store/tehnet-store.php']))
+        # The same immutable commit can carry both lessons without sharing journals.
+        prefixes = [row[2] for row in self.module.LESSON_SCOPES.values()]
+        self.assertEqual(len(set(prefixes)), len(prefixes))
+
+    def test_routing_bundle_uses_only_its_committed_payload(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); repo = root / 'repo'; repo.mkdir()
+            scope = self.module.ROUTING_SCOPE
+            files, extra, runtime = self.module.scope_spec(scope)
+            for name in set(extra + runtime + ['ops/release-growth-content.py']):
+                file = repo / name; file.parent.mkdir(parents=True, exist_ok=True); file.write_bytes(b'committed routing fixture\n')
+            def git(*args):
+                return subprocess.check_output(['git', *args], cwd=repo, stderr=subprocess.DEVNULL).decode().strip()
+            git('init'); git('add', '.'); git('-c', 'user.name=QA', '-c', 'user.email=qa@example.invalid', 'commit', '-m', 'fixture')
+            commit = git('rev-parse', 'HEAD')
+            (repo / extra[1]).write_bytes(b'unreviewed working tree')
+            result = self.module.build_bundle(repo, root / 'bundle', commit, commit, scope)
+            import json
+            metadata = json.loads((root / 'bundle/bundle.json').read_text())
+            self.assertEqual(result['files'], 0)
+            self.assertEqual(metadata['files'], {})
+            self.assertEqual(set(metadata['members']), set(extra))
+            self.assertEqual((root / 'bundle/payload' / extra[1]).read_bytes(), b'committed routing fixture\n')
+
     def test_editorial_bundle_ignores_uncommitted_body_and_has_no_deployable_files(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp); repo = root / 'repo'; repo.mkdir()

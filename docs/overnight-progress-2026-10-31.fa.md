@@ -100,3 +100,23 @@ NEXT: [PR37](https://github.com/DashSaman/TehNet/pull/37) را با CI head تا
 پذیرش:۵۴بلوک و۲۱browser staging،۲۷native جدید +۳۷regression قبلی +۸operator boundary، rehearsal check/apply/repeat/rollback/repeat، سپس۹HTTPS واقعی و۳۵browser عمومی1440/375/no-JS با یکH1/canonical/noindex، timestamp واقعی، بدون overflow/page error/POST/external request پاس. خانه/منو/دادهٔ محافظت‌شده/runtime ثابت؛۲۵محصول/قابل‌خرید۰، ERP/sandbox false. MyTel write۰. RouterOS lab اجرا نشده و متن محدودیت را روشن می‌کند. رسید جامع: `qa/growth-2026-10-31/editorial-production-release.json`؛ test عمومی `tests/editorial-public-smoke.cjs`. journal/backup و تصاویر دقیق خصوصی‌اند؛ rollback live لازم نشد. هیچ رشد رتبه/ترافیک/AI citation ادعا نشده است.
 
 پرتفوی۱۰۰job و نگاشت برند در PR36 و روش در -SEO PR6 ادغام شده‌اند؛ شمار topic کاندیدا مساوی مقالهٔ منتشرشده نیست. NEXT: درس موجود static-routing را با شاهد رسمی/شکاف واقعی/مثال امن توسعه بده؛ scope ID62 را برای ID64 دور نزن، بهبود بعدی به scope و پذیرش محدود خودش نیاز دارد. گپ‌های فنی UX/SEO، مقایسهٔ TarazNet و MyTel proposal فقط طبق مرزهای قبلی ادامه یابند. نسخهٔ گزارش صبح هنوز LIVE است. credential rotation UNKNOWN، تاریخچهٔ remote NEEDS_APPROVAL و Origin UNDETERMINED؛ noindex/پرداخت/MyTel freeze حفظ شوند.
+
+## checkpoint مسیریابی —۱نوامبر،۰۱:۵۴ تهران
+
+## CURRENT — مسیریابی: پیش‌نویس و scope مستقل آزموده، انتشار هنوز انجام نشده
+
+درس موجود64 با همان URL/عنوان برای پنج نیاز C02 توسعه یافت؛8 منبع اولیهٔ scoped، سناریوی دو روتر، مسیر برگشت، عیب‌یابی و برگهٔ پذیرش.16GET با TLS معتبر،56بلوک معتبر و21کنترل browser دسکتاپ/موبایل/no-JS و ویرایش/reset پاس؛ تمام داده‌ها و کاربر/lock موقت staging به حالت قبل برگشتند. RouterOS اجرا نشده است.
+
+scope مستقل `tehnet-editorial-routing-20261101-v1` فقط ID64/path/file را می‌پذیرد.29assertion native جدید،27regression درس62،37regression خدمات،10unit operator و2lint پاس؛ constructor قبلی به‌درستی scope تازه را رد کرد. دیگر scopeها/هویت/بدنه، drift و ویرایش بعدی محافظت شدند. رسید `qa/growth-2026-10-31/routing-draft-and-migration.json` و طرح `docs/superpowers/plans/2026-11-01-routing-lesson-release.md`.
+
+NEXT: bundle immutable از همین منبع و rehearsal check/apply/repeat/rollback/repeat، سپس PR/CI عادی، snapshot، برابری payload، backup/checksum/drift تازه و انتشار فقط body64 در دامنهٔ مجاز. تولید هنوز تغییر نکرده؛ درس62 و P4 قبلاً DEPLOYED هستند و نباید بازپخش شوند. noindex/پرداخت/MyTel freeze و گیت‌های rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED حفظ شوند.
+
+## checkpoint rehearsal مسیریابی —۱نوامبر،۰۱:۵۶ تهران
+
+## CURRENT — مسیریابی آمادهٔ انتشار محدود؛ production هنوز انجام نشده
+
+صفحه64 با همان URL/Title،8منبع اولیه،56بلوک معتبر،21کنترل browser و16GET لینک آماده است.29native جدید +27regression درس62 +37خدمات +10unit operator پاس. scope مستقل64 به هویت/فایل مشخص محدود است؛ صفر runtime file و7digest فقط خواندنی.
+
+rehearsal immutable source `4becf1692f838bba5cdb47f3bc5fade6c0459f1c` در staging بومی: check/apply/repeat/rollback/repeat، رد دستکاری payload/metadata و4HTTP پاس؛ posts/meta/users و runtime دقیقاً بازیابی شدند. رسید `qa/growth-2026-10-31/routing-release-rehearsal.json`. RouterOS lab اجرا نشده؛ یک درس موجود، نه پنج مقالهٔ تازه.
+
+NEXT: PR/CI عادی همین source، snapshot خصوصی قبل از integration، verify برابری bundle با منبع آزموده، backup/checksum/drift تازه؛ سپس انتشار فقط body64 و پذیرش HTTPS/مرورگر/دادهٔ محافظت‌شده. این درس هنوز DEPLOYED نیست. درس62 و P4 را بازپخش نکنید. noindex/پرداخت/MyTel freeze و گیت‌های rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED برقرارند.

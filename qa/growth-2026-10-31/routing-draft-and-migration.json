@@ -1,0 +1,223 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED",
+  "observed_utc": "2026-10-31T22:24:12.999583+00:00",
+  "target": {
+    "id": 64,
+    "url": "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/",
+    "title_observed": "مسیریابی استاتیک در میکروتیک — MTCNA",
+    "expected_content_sha256": "e897a015d5ca68d32749f0739bdf00f143420db3c7e10454fe6287fc226cf4b6",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "content_sha256_lf": "6e9e6d91e54f3508ee3a4d5f86f578db79e806647cb0b00820be6f67f8f65e63",
+  "top_level_blocks": 37,
+  "browser": {
+    "scope": "Temporary existing lesson in independently guarded native staging",
+    "status": "PASS",
+    "checks": 21,
+    "observations": [
+      {
+        "width": 1440,
+        "status": 200,
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "status": 200,
+        "h1": 1,
+        "overflow": false
+      }
+    ],
+    "editor": {
+      "blocks": 56,
+      "names": [
+        "core/paragraph",
+        "core/heading",
+        "core/code",
+        "core/list",
+        "core/list-item",
+        "core/shortcode"
+      ],
+      "invalid": [],
+      "changed": true,
+      "restored": true
+    },
+    "page_errors": [],
+    "blocked_external_origins": 2,
+    "page_saves": 0,
+    "production_mutations": 0,
+    "original_posts_meta_users_unchanged_after_cleanup": true,
+    "owned_editor_removed": true,
+    "private_backup_verified": true,
+    "temporary_lesson_restored": true
+  },
+  "link_checks": {
+    "scope": "Draft lesson link availability, unauthenticated GET, default TLS validation",
+    "observed_utc": "2026-10-31T22:20:31.099333+00:00",
+    "status": "PASS",
+    "content_sha256_lf": "6e9e6d91e54f3508ee3a4d5f86f578db79e806647cb0b00820be6f67f8f65e63",
+    "links": [
+      {
+        "url": "https://manual.mikrotik.com/docs/cli-reference/ip/route/",
+        "final_url": "https://manual.mikrotik.com/docs/cli-reference/ip/route/",
+        "status": 200,
+        "bytes": 55529,
+        "html_sha256": "bc32b5578ecf65aa3e7afcc7f4817864d38ff63b6e8028c862b1b32a08b2bcdb"
+      },
+      {
+        "url": "https://manual.mikrotik.com/docs/cli-reference/ip/route/check/",
+        "final_url": "https://manual.mikrotik.com/docs/cli-reference/ip/route/check/",
+        "status": 200,
+        "bytes": 53147,
+        "html_sha256": "3f3f28c9acd70bf01d1105577d6380c8e012c5fcf260057a87a8a69f01b34686"
+      },
+      {
+        "url": "https://manual.mikrotik.com/docs/diagnostics-monitoring-and-troubleshooting/ping/",
+        "final_url": "https://manual.mikrotik.com/docs/diagnostics-monitoring-and-troubleshooting/ping/",
+        "status": 200,
+        "bytes": 80363,
+        "html_sha256": "1a313c2a19523639f446920c5cb33f6e648cd60895ee74a93909f98b28fd5e75"
+      },
+      {
+        "url": "https://manual.mikrotik.com/docs/diagnostics-monitoring-and-troubleshooting/traceroute/",
+        "final_url": "https://manual.mikrotik.com/docs/diagnostics-monitoring-and-troubleshooting/traceroute/",
+        "status": 200,
+        "bytes": 63916,
+        "html_sha256": "7bb8dfcb26c292e661db941deea2356fac3b7c9f29ebbc961e144ad5f1a3f4c5"
+      },
+      {
+        "url": "https://manual.mikrotik.com/docs/firewall-and-quality-of-service/packet-flow-in-routeros/",
+        "final_url": "https://manual.mikrotik.com/docs/firewall-and-quality-of-service/packet-flow-in-routeros/",
+        "status": 200,
+        "bytes": 118433,
+        "html_sha256": "b369b4e7ad97b3d6df8d121134329bac95d75e6935fde464eb4d2897b614ed72"
+      },
+      {
+        "url": "https://manual.mikrotik.com/docs/user-guides/routing-and-networking-protocols/policy-routing/",
+        "final_url": "https://manual.mikrotik.com/docs/user-guides/routing-and-networking-protocols/policy-routing/",
+        "status": 200,
+        "bytes": 45068,
+        "html_sha256": "3012d7fbf6c277c874bb0bf1ea20868057c8b8e72870d4e8154cc9725e31491b"
+      },
+      {
+        "url": "https://manual.mikrotik.com/docs/user-guides/routing-and-networking-protocols/routing-decision/",
+        "final_url": "https://manual.mikrotik.com/docs/user-guides/routing-and-networking-protocols/routing-decision/",
+        "status": 200,
+        "bytes": 79786,
+        "html_sha256": "4896ac1addb9579fb598126f544e3d0b13e94e8dd9f2e1231d3c6f9b2c75a98f"
+      },
+      {
+        "url": "https://tehnet.ir/lab-before-production/",
+        "final_url": "https://tehnet.ir/lab-before-production/",
+        "status": 200,
+        "bytes": 45487,
+        "html_sha256": "f8dd09f19509900b1e7862624ad50ea427244223b24019edfe9e2eb90885f374"
+      },
+      {
+        "url": "https://tehnet.ir/learn/mikrotik/mtcna/",
+        "final_url": "https://tehnet.ir/learn/mikrotik/mtcna/",
+        "status": 200,
+        "bytes": 51751,
+        "html_sha256": "359015b92f7b6632706944db919167c73383cdcc8bed0342f41d7bd8049ec7b1"
+      },
+      {
+        "url": "https://tehnet.ir/learn/mikrotik/mtcna/firewall-basics/",
+        "final_url": "https://tehnet.ir/learn/mikrotik/mtcna/firewall-basics/",
+        "status": 200,
+        "bytes": 47486,
+        "html_sha256": "df7042370837b7f7bfa5195ff73c35259e5b40c03d6b6cca1b7fc265eaadc4e0"
+      },
+      {
+        "url": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+        "final_url": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+        "status": 200,
+        "bytes": 46972,
+        "html_sha256": "f440965b4718280d27f56ae4e8f22cf6b7a00f9fec96ef6ffb4973d7e86892c8"
+      },
+      {
+        "url": "https://tehnet.ir/learn/mikrotik/mtcna/nat-masquerade/",
+        "final_url": "https://tehnet.ir/learn/mikrotik/mtcna/nat-masquerade/",
+        "status": 200,
+        "bytes": 46831,
+        "html_sha256": "31d23cb0e65ef4cd195f264fef88b8292dd0b32276189f651c06b37610b8c3cb"
+      },
+      {
+        "url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+        "final_url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+        "status": 200,
+        "bytes": 62240,
+        "html_sha256": "85abdd2aa152af4d182891f08ce46f95af4a322f75838661259251cff231cd75"
+      },
+      {
+        "url": "https://tehnet.ir/services/mikrotik-tehran/",
+        "final_url": "https://tehnet.ir/services/mikrotik-tehran/",
+        "status": 200,
+        "bytes": 45397,
+        "html_sha256": "4eac421f4b10d313aa4dd20083c9789e51d96b55960dd496fe2ab30842db5e03"
+      },
+      {
+        "url": "https://tehnet.ir/technical-methodology/",
+        "final_url": "https://tehnet.ir/technical-methodology/",
+        "status": 200,
+        "bytes": 47674,
+        "html_sha256": "40541c87e435e32f5c0bc2a8ee02ff0c2e81793e094cbebb1277a387482d6514"
+      },
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc5737.html",
+        "final_url": "https://www.rfc-editor.org/rfc/rfc5737.html",
+        "status": 200,
+        "bytes": 9955,
+        "html_sha256": "6bfa8be9b520ead136553655afdd402d0ea0c4108c2cb0184c307bacdedbdc60"
+      }
+    ],
+    "excluded": [
+      {
+        "url": "https://www.youtube.com/watch?v=hqjjvQoO7as",
+        "reason": "Existing video link preserved; playback/full content not reviewed"
+      }
+    ],
+    "mutations": 0,
+    "limits": [
+      "HTTP200 does not validate source claims, indexing or video availability",
+      "No authenticated content or raw HTTP response is included"
+    ]
+  },
+  "native_migration": {
+    "assertions": 29,
+    "status": "PASS",
+    "baseline_original_constructor": "EXPECTED_SCOPE_REJECTION",
+    "cross_scope_and_unknown_key_refused": true,
+    "drift_and_row_lock_and_revisions": "PASS",
+    "exact_original_rows_restored": true,
+    "backup_verified": true
+  },
+  "shared_regressions": {
+    "lesson62_native_assertions": 27,
+    "service_native_assertions": 37,
+    "operator_unit_tests": 10,
+    "php_lint_files": 2,
+    "status": "PASS"
+  },
+  "illustration_math": "PASS_NONOVERLAP_30_HOSTS_LAN_MEMBERSHIP",
+  "routeros_execution": "NOT_RUN",
+  "operator_rehearsal": "PENDING",
+  "production": "NOT_DEPLOYED",
+  "limits": [
+    "This is WordPress acceptance, not RouterOS execution",
+    "The five C02 reader jobs map to one existing lesson, not five new articles",
+    "No rank, traffic, AI citation or competitor superiority measured"
+  ]
+}

@@ -1,6 +1,8 @@
-# Existing RouterOS lesson release
+# Bounded existing-lesson releases
 
 The explicit scope `tehnet-editorial-routeros-20261101-v1` accepts only the existing published lesson62 at `/learn/mikrotik/mtcna/routeros-winbox/`. It updates the exact reviewed body and actual WordPress modification timestamps. It preserves title, URL, slug, parent, status, excerpt, meta and preexisting revisions. It is not a general article publisher. The old service scope still manages only its original pages/hubs.
+
+The separately registered `tehnet-editorial-routing-20261101-v1` accepts only page64 at `/learn/mikrotik/mtcna/static-routing/`, with `content/routing-editorial-2026-11-01/manifest.json` and sibling `static-routing.html`. Both the native migration and bundle operator hold explicit fixed registries; a manifest cannot choose another target or body path. Cross-scope adoption is refused. The two scopes use different private staging/journal prefixes even at the same source commit. They share the database advisory lock, not a journal. No service or lesson62 replay is needed to publish64.
 
 `release-growth-content.py --mode bundle --scope tehnet-editorial-routeros-20261101-v1` builds from complete immutable `--source-commit` and `--baseline-commit` values. Supply a new private `--bundle` destination and the repository path if needed. No runtime deployment files are included. The payload has the manifest, lesson HTML and migration CLI; seven runtime digests are read-only guards. `check`, `apply` and `rollback` read scope from that immutable bundle.
 
@@ -11,3 +13,5 @@ Before apply, verify the current protected branch/CI and payload equivalence wit
 The native journal's PREPARED/COMMIT_READY/FAILED/NEEDS_RECONCILIATION state is not proof of a successful apply. Abrupt host loss and ambiguous commit have not been fault-injected; preserve evidence and reconcile before another action. Never delete a journal to retry. After a proven apply, verify real HTTPS, title/H1/canonical/noindex, desktop/mobile/no-JS and protected commerce/data/runtime state before reporting DEPLOYED.
 
 Evidence: `qa/growth-2026-10-31/editorial-migration-verification.json`, `editorial-release-rehearsal.json` and `editorial-routeros-draft.json`. These cover WordPress behavior, not a RouterOS device/restore test or SEO gain. The original manifest/QA files record their dated preparation state; current publication state belongs in HANDOFF and a separate actual production receipt.
+
+Routing evidence has the separate `routing-` receipt prefix and `tests/growth-routing-migration-native.php`, `routing-existing-page-browser.cjs` and `routing-public-smoke.cjs` fixtures. Keep its qualification and actual production result distinct from the first lesson.
