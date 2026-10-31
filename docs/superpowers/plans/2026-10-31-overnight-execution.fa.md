@@ -118,7 +118,7 @@ Checkpoint clarification: completed boxes refer to the scoped results in the pro
 | P8 prior metadata role | DEPLOYED | Previous metadata receipt remains current; not redeployed by this body-only release |
 | P9 service competitors | VERIFIED | Three specific service pages/15 dimensions;9 browser observations including3x403, no120-site/full-performance/portal/service-quality claim |
 | P9 knowledge transfer | VERIFIED | -SEO PR10/main9380cc1cdfb7f7a0d2bdb1f85437b87d7b924366, CI41252616666; four source rows/topic/dashboard/continuation; baseline71% unchanged |
-| P8 local bundle diagnostics | VERIFIED | Reproduced269/235 relative path issue, normalized before I/O; private ACL/owner/inheritance guards, Windows18PASS/1SKIP and initial Linux CI19PASS; final Windows-only followup requires fresh head CI. Zero native/production writes; dated bundle-path-diagnostics receipt. |
+| P8 local bundle diagnostics | VERIFIED | Reproduced269/235 relative path issue, normalized before I/O; private ACL/owner/inheritance guards, Windows18PASS/1SKIP and current code-head Linux CI41253886230 with19PASS; fresh head CI gates final integration. -SEO PR11 transfer merged. Zero native/production writes; dated bundle-path-diagnostics receipt. |
 | P7 next existing IP/DHCP/DNS lesson | READY | Official-source scoped research and distinct useful content/acceptance needed;100 candidates remain candidates |
 | P10 final morning report | IN_PROGRESS | LIVE_NOT_FINAL;08:00 Tehran final still required |
 

@@ -39,16 +39,16 @@
       "real_cli_invalid_commit_expected_failure_logged_privately": true
     },
     "linux_ci": {
-      "source_commit": "f71a9438715483d6e54ea7c204e22c4d4bad7451",
-      "pr": 45,
-      "run_id": 41253477479,
-      "job_id": 124691645092,
+      "source_commit": "89ed7267cdb721b911bdde2c462f74e228a52b4c",
+      "pr": 46,
+      "run_id": 41253886230,
+      "job_id": 124692846252,
       "job": "release-operator-boundaries",
       "total": 19,
       "passed": 19,
       "skipped": 0,
       "log_summary_read": true,
-      "limit": "Final followup changes only Windows ACL checks/test cases; fresh current-head CI is required before its integration"
+      "limit": "Current code, including Windows-only ACL followup, passed19 Linux cases; raw log summary read. Final documentation-only head also requires normal CI before merge."
     }
   },
   "immutable_bundles": {
@@ -92,5 +92,12 @@
     "Windows junction creation not exercised; POSIX symlink exercised in Linux CI",
     "Private raw traces/original partial packages remain outside Git",
     "Historical production receipt truthfully recorded UNKNOWN at its checkpoint; this dated followup resolves the reproduced local cause"
-  ]
+  ],
+  "knowledge_transfer": {
+    "pr": "https://github.com/DashSaman/-SEO/pull/11",
+    "merge": "76fef59dab2e0e2af878f12d165246f3efd0a700",
+    "ci": 41253986712,
+    "status": "MERGED_VERIFIED",
+    "baseline_percent": 71
+  }
 }
