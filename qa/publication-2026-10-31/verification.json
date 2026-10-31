@@ -1,0 +1,35 @@
+{
+  "reviewed": "2026-10-31",
+  "scope": "current tracked working-tree hygiene plus a separate local history rehearsal",
+  "production_changed": false,
+  "remote_history_rewritten": false,
+  "repository_visibility_changed": false,
+  "tests": {
+    "changed_json_valid": 4,
+    "changed_javascript_syntax": 17,
+    "portable_module_resolution": "PASS with locally configured NODE_PATH; no machine path in source",
+    "production_site_paths_changed": 0,
+    "guard_tests": 9,
+    "publication_guard": {
+      "checked_tracked_files": 1334,
+      "issues": [],
+      "status": "PASS"
+    },
+    "staged_diff_check": "PASS"
+  },
+  "history_rehearsal": {
+    "all_reachable_blobs_checked": 2053,
+    "known_sensitive_value_blobs": 0,
+    "personal_path_blobs": 0,
+    "private_evidence_paths_in_history": 0,
+    "head_refs": 7,
+    "pull_refs": 32,
+    "remote_written": false,
+    "backup_bundle_exists": true
+  },
+  "limitations": [
+    "Known-address removal is scoped to identified values; it is not proof every form of sensitive information is absent.",
+    "Hosted PR refs/caches/forks/clones remain a separate coordinated gate.",
+    "GitHub Actions job is prepared; no remote CI success is claimed before it runs."
+  ]
+}

@@ -1,6 +1,6 @@
 /* Real-photo-first teaching preview; never an exact-product/CAD test. */
 const fs=require('fs'),path=require('path'),assert=require('assert/strict'),crypto=require('crypto');
-const {chromium}=require('C:/Users/amirreza/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const {chromium}=require('playwright');
 const root=path.resolve(__dirname,'../..'),out=path.resolve(process.argv[2]);
 const base=process.env.TN_DEMO_URL||'http://127.0.0.1:18084';
 const checks=[],errors=[],requests=[],responses=[];

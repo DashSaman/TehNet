@@ -1,6 +1,6 @@
 /* Drive actual mouse/touch gestures and the local demo toolbar. */
 const fs=require('fs'),path=require('path'),assert=require('assert/strict');
-const {chromium}=require('C:/Users/amirreza/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const {chromium}=require('playwright');
 const out=path.resolve(process.argv[2]),base='http://127.0.0.1:18084',checks=[],errors=[];
 const check=(value,name)=>{assert(value,name);checks.push(name)};
 const orbit=p=>p.locator('model-viewer').evaluate(v=>{const o=v.getCameraOrbit();return {theta:o.theta,phi:o.phi,radius:o.radius,framing:o.radius*Math.tan(v.getFieldOfView()*Math.PI/360)}});

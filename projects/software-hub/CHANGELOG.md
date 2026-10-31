@@ -533,3 +533,7 @@ Documentation gate,2026-10-25T13:41:07Z: PASS for22 original blobs/189734bytes a
 - اجرای مسیر کامل راهنما در کانتینر تازهٔ ubuntu:24.04 (شبکهٔ قطع برای نصب) → کشف شکست apt روی مخزن file: زیر $HOME (کاربر `_apt`).
 - اصلاح: `-o 'APT::Sandbox::User=root'` در نصاب پروفایل + به‌روزرسانی پین INSTALLER_SHA256 (مخزن، seed، v3)؛ تست‌های واحد سبز؛ بازآزمون واقعی تا OFFLINE_INSTALL_PASS.
 - جزئیات و محدودیت‌ها: [GUIDE-JOURNEY-20261027](tasks/GUIDE-JOURNEY-20261027.md).
+
+## 2026-10-31 — public Git hygiene
+
+Integrator task [SEC-PUBLICATION-20261031](tasks/SEC-PUBLICATION-20261031.md): personal workstation paths sanitized in Windows evidence; original private copies preserved. No application/runtime changes or new deployment acceptance. Public evidence now contains explicit replacement markers; prior exact-byte hashes do not authenticate redacted copies. History purge is still a separate gate.

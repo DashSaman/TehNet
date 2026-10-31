@@ -5,14 +5,14 @@ ERROR: test_publication_pointer (unittest.loader._FailedTest.test_publication_po
 ----------------------------------------------------------------------
 ImportError: Failed to import test module: test_publication_pointer
 Traceback (most recent call last):
-  File "C:\Users\amirreza\AppData\Local\Programs\Python\Python312\Lib\unittest\loader.py", line 396, in _find_test_path
+  File "[PRIVATE_LOCAL_PATH]", line 396, in _find_test_path
     module = self._get_module_from_name(name)
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\amirreza\AppData\Local\Programs\Python\Python312\Lib\unittest\loader.py", line 339, in _get_module_from_name
+  File "[PRIVATE_LOCAL_PATH]", line 339, in _get_module_from_name
     __import__(name)
-  File "C:\Users\amirreza\Documents\Codex\2026-10-17\referenced-chatgpt-conversation-this-is-an\work\TehNet\projects\software-hub\tests\test_publication_pointer.py", line 5, in <module>
+  File "[PRIVATE_LOCAL_PATH]", line 5, in <module>
     from tools import offline_publication as publication
-  File "C:\Users\amirreza\Documents\Codex\2026-10-17\referenced-chatgpt-conversation-this-is-an\work\TehNet\projects\software-hub\tools\offline_publication.py", line 3, in <module>
+  File "[PRIVATE_LOCAL_PATH]", line 3, in <module>
     import argparse,fcntl,hashlib,json,os,shutil,signal,subprocess,tempfile
 ModuleNotFoundError: No module named 'fcntl'
 

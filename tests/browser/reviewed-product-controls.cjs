@@ -1,6 +1,6 @@
 /* Native Woo, synthetic hidden future product; never a real product/CAD claim. */
 const fs=require('fs'),path=require('path'),assert=require('assert/strict');
-const {chromium}=require('C:/Users/amirreza/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const {chromium}=require('playwright');
 const root=path.resolve(__dirname,'../..'),out=path.resolve(process.argv[2]),fixture=JSON.parse(fs.readFileSync(path.join(root,'qa/shop-ux-2026-10-16/future-product.json'))),checks=[],errors=[];
 const check=(v,n)=>{assert(v,n);checks.push(n)},action=(p,n)=>p.locator(`[data-tn-model-action="${n}"]`);
 const state=p=>p.locator('model-viewer').evaluate(v=>({theta:v.getCameraOrbit().theta,radius:v.getCameraOrbit().radius,scale:v.getCameraOrbit().radius*Math.tan(v.getFieldOfView()*Math.PI/360)}));

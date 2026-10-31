@@ -1,6 +1,6 @@
 /* Owner-authorized read-only SSR crawl + selected rendered mobile checks. No forms submitted. */
 const fs=require('fs'),path=require('path'),crypto=require('crypto');
-const {chromium}=require('C:/Users/amirreza/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const {chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),out=path.resolve(root,process.argv[2]||'seo/audit-2026-10-16');
 const inventory=JSON.parse(fs.readFileSync(path.join(out,'native-inventory.json'))),origin='https://tehnet.ir';
 const normalize=u=>{try{const x=new URL(u,origin);if(x.origin!==origin||x.search||x.pathname.startsWith('/wp-')||/\.(?:jpg|png|webp|svg|pdf|zip|vcf|mp4|js|css)$/i.test(x.pathname))return null;x.hash='';return x.href;}catch{return null}};

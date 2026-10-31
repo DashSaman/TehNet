@@ -18,3 +18,7 @@ qa/exact-media-2026-10-18/*.json text eol=lf
 # Preserve the exact upstream bytes recorded in PROVENANCE.json.
 site/plugins/tehnet-store/assets/vendor/model-viewer/model-viewer.min.js -text
 site/plugins/tehnet-store/assets/vendor/model-viewer/LICENSE -text
+
+tools/publication_guard.py text eol=lf
+tests/test_publication_guard.py text eol=lf
+.publication-policy.json text eol=lf

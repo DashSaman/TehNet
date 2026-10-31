@@ -1,5 +1,5 @@
 const fs=require('fs'),path=require('path'),assert=require('assert/strict');
-const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'C:/Users/amirreza/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const root=path.resolve(__dirname,'../..'),out=path.join(root,'qa/store-2026-10-15');
 const env=Object.fromEntries(fs.readFileSync(path.join(root,'ops/staging/.env'),'utf8').trim().split(/\r?\n/).map(l=>{const i=l.indexOf('=');return[l.slice(0,i),l.slice(i+1)];}));
 (async()=>{const browser=await chromium.launch({headless:true,channel:'msedge'}),c=await browser.newContext({viewport:{width:390,height:844}}),p=await c.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));

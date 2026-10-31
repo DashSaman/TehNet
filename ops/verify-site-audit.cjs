@@ -1,5 +1,5 @@
 const fs=require('fs'),path=require('path'),assert=require('assert/strict'),{pathToFileURL}=require('url');
-const {chromium}=require('C:/Users/amirreza/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const {chromium}=require('playwright');
 const root=path.resolve(__dirname,'..'),folder=path.join(root,'seo/audit-2026-10-16'),out=path.resolve(process.argv[2]||'outputs');
 const read=n=>JSON.parse(fs.readFileSync(path.join(folder,n))),s=read('summary.json'),crawl=read('public-crawl.json'),native=read('native-inventory.json');
 (async()=>{

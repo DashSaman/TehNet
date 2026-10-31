@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "reviewed": "2026-10-31",
+  "private_prefixes": [],
+  "operator_documents": [
+    "README.md",
+    "ops/time-server/README.md",
+    "ops/LIGHTWEIGHT_SERVICES_2026-10-25.md"
+  ],
+  "public_test_keys": {
+    "projects/software-hub/fixtures/tls/server.key": {
+      "sha256": "9d13ef659fbc070be1b12e5c8fd593ac8d852a01928db264d6bd13036f994bfc",
+      "reason": "Intentionally public disposable mirror.test identity; isolated loopback TLS tests only. Never production trust. LF-normalized digest; see adjacent README."
+    }
+  },
+  "approved_content": {
+    "projects/software-hub/app/migrations/001_initial.sql": {
+      "sha256": "9a7b463f6a35abb60affeac2da4b60fa33c96fb8c562597866822e954fa84908",
+      "categories": [
+        "private-file-type"
+      ],
+      "reason": "Source schema migration, no production rows. LF-normalized content digest."
+    },
+    "projects/software-hub/research/upstream/Linux/tests/test_probe_sources.py": {
+      "sha256": "f59855477cc20ddba2e8fbbfc507a5e5cda1101a03806e1a4896f60f33d1b30e",
+      "categories": [
+        "embedded-url-credentials"
+      ],
+      "reason": "Immutable upstream rejection tests with synthetic URL userinfo; preserve provenance. LF-normalized content digest."
+    },
+    "projects/software-hub/tests/test_netguard.py": {
+      "sha256": "5b143de7251a48448e237f99ba70899be9814c7cb9112e7c893233613fa631cd",
+      "categories": [
+        "embedded-url-credentials"
+      ],
+      "reason": "Synthetic URL credentials are rejection test inputs. LF-normalized content digest."
+    },
+    "projects/software-hub/tests/test_offline_kit.py": {
+      "sha256": "633fb5bab937f1deae170421d9e6dad991082eef38758cc44521b7ccd05c2ae2",
+      "categories": [
+        "embedded-url-credentials"
+      ],
+      "reason": "Synthetic URL credentials are rejection test inputs. LF-normalized content digest."
+    },
+    "projects/software-hub/tests/test_rubika_probe.py": {
+      "sha256": "9ee8e9a69e965aa0c801271b6721a2a70ed433119c458988f763b73e38e4c4ed",
+      "categories": [
+        "embedded-url-credentials"
+      ],
+      "reason": "Synthetic URL credentials are rejection test inputs. LF-normalized content digest."
+    }
+  }
+}

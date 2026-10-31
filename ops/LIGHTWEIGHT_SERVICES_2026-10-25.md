@@ -8,7 +8,7 @@
 - کانفیگ: `/etc/chrony/conf.d/tehnet-public-ntp.conf`
   - `allow 0.0.0.0/0` (سرویس عمومی) + `ratelimit interval 3 burst 8 leak 2` (محدودسازی سوءاستفاده).
 - وضعیت در لحظهٔ تحویل: Stratum 3، همگام با pool اوبونتو، اختلاف ~۰ms؛ پاسخگویی از بیرون سرور تأیید شد (reply 48 bytes, roundtrip ~84ms).
-- آدرس فعلی: `91.107.138.246` (پورت 123/UDP). پیشنهاد: رکورد `time.tehnet.ir` به همین IP (نیازمند دسترسی DNS مالک).
+- آدرس فعلی: `[PRIVATE_TARGET]` (پورت 123/UDP). پیشنهاد: رکورد `time.tehnet.ir` به همین IP (نیازمند دسترسی DNS مالک).
 
 ### rollback
 `rm /etc/chrony/conf.d/tehnet-public-ntp.conf && systemctl restart chrony` (یا `systemctl disable --now chrony` برای حذف کامل).

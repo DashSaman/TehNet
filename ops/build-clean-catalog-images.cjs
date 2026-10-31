@@ -1,7 +1,7 @@
 /* Built-in imagegen reconstructs backgrounds. This deterministic compositor restores
    original pixels outside reviewed lettering masks; it never generates a product. */
 const fs=require('fs'),path=require('path'),crypto=require('crypto'),assert=require('assert/strict');
-const sharp=require(process.env.SHARP_MODULE||'C:/Users/amirreza/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp');
+const sharp=require(process.env.SHARP_MODULE||'sharp');
 const root=path.resolve(__dirname,'..'),source=path.join(root,'content/media/saieedshabake-2026-10-16'),out=path.join(root,'content/media/tehnet-clean-2026-10-16');
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 const polygon=(points,color)=>'<polygon points="'+points.reduce((a,v,i)=>a+(i%2?',':' ')+v,'').trim()+'" fill="'+color+'"/>';
