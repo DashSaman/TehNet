@@ -1,6 +1,6 @@
 # توسعهٔ درس موجود RouterOS و Winbox
 
-بازبینی: ۱ نوامبر ۲۰۲۶. وضعیت: `VERIFIED_NATIVE_DRAFT / NOT_DEPLOYED`.
+بازبینی: ۱ نوامبر ۲۰۲۶. وضعیت فعلی: `DEPLOYED / EXISTING_LESSON_UPDATED`. بخش‌های draft و پیشرفت پایین، checkpointهای قبلی‌اند؛ نتیجهٔ جدید در انتهای همین سند و receipt production ثبت است.
 
 این واحد، پنج کار خوانندهٔ TN-T021 تا TN-T025 در پرتفوی را در **همان درس موجود با ID62** پوشش می‌دهد. صفحهٔ جدید، عنوان/URL تازه، محصول، Schema جدید یا ادعای آزمایش RouterOS ایجاد نمی‌کند. فایل قابل‌ویرایش گوتنبرگ: [routeros-winbox.html](../content/growth-editorial-2026-11-01/routeros-winbox.html)؛ [manifest](../content/growth-editorial-2026-11-01/manifest.json) فقط مشخصات و انتظار محتوایی را نگه می‌دارد، نه مجوز اجرای migration قبلی.
 
@@ -45,3 +45,7 @@
 پس از نسخهٔ draft، یک scope صریح و محدود برای همین درس به موتور transaction/journal موجود افزوده شد؛ scope قدیمیِ دوصفحه‌ای همچنان فقط خدمات/Lab است. scope جدید body و تاریخ واقعیِ تغییر را می‌پذیرد و تغییر title/slug/parent/meta یا ازبین‌رفتن revision قبلی را رد می‌کند.۲۷assertion native و۳۷regression قبلی پاس؛۸تست مرزی operator نیز پاس است. بستهٔ جدید صفر فایل runtime برای نصب دارد و۷digest runtime را فقط می‌سنجد. rehearsal کاملِ operator و انتشار production هنوز انجام نشده‌اند؛ [رسید لایهٔ migration](../qa/growth-2026-10-31/editorial-migration-verification.json) خطاهای harness و اصلاح آن‌ها را نیز ثبت می‌کند.
 
 Rehearsal کامل operator نیز پاس شد؛ [رسید](../qa/growth-2026-10-31/editorial-release-rehearsal.json) عملیات واقعی و محدودیت‌های آن را ثبت می‌کند. وضعیت production هنوز NOT_DEPLOYED است؛ source آزموده d2c24b0، ادغام/backup تازه/آزمون عمومی گام بعدند.
+
+## نتیجهٔ انتشار واقعی
+
+در۱نوامبر،۰۱:۳۳تهران همین درس با source e5fd631 و backup تازهٔ verifyشده منتشر شد؛۹GET باTLS معتبر و۳۵کنترل browser عمومی پاس. URL/Title/canonical/H1، noindex، دادهٔ محافظت‌شده و runtime حفظ شدند؛ فقط متن و تاریخ واقعی و revision متعلق به به‌روزرسانی تغییر کردند. صفر مقالهٔ جدید/یک درس بهبود، نه پنج مقاله. دامنهٔ واقعی QA و مرز RouterOS/SEO در [رسید production](../qa/growth-2026-10-31/editorial-production-release.json) است. دوره و منوی اصلی/فروشگاه تغییر نکردند؛ MyTel فقط خواندنی ماند.
