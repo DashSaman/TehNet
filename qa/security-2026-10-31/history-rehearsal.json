@@ -1,0 +1,67 @@
+{
+  "observed_utc": "2026-10-31T18:39:05.531094+00:00",
+  "scope": "Local isolated post-merge rehearsal; not remote history cleanup",
+  "repositories": {
+    "TehNet": {
+      "object_counts": {
+        "blob": 2090,
+        "commit": 198,
+        "tag": 0
+      },
+      "known_sensitive_objects": 0,
+      "personal_path_objects": 0,
+      "private_evidence_paths": 0,
+      "refs": 41,
+      "changed_refs": 41,
+      "backup_bundle_sha256": "5e5bc73297c19c5bbe9cc2f393c5fa9955eb0d484865629d1138881f490745a0",
+      "backup_verified_and_restored": true,
+      "current_main_tree_unchanged": true,
+      "publication_unit_tests": 9,
+      "publication_guard": "PASS",
+      "remote_written": false,
+      "snapshot_source": "post-merge v3 verified bundle",
+      "intentional_public_contact_values_preserved": 1
+    },
+    "mytel.one": {
+      "object_counts": {
+        "blob": 1195,
+        "commit": 164,
+        "tag": 0
+      },
+      "known_sensitive_objects": 0,
+      "personal_path_objects": 0,
+      "private_evidence_paths": 0,
+      "refs": 9,
+      "changed_refs": 9,
+      "backup_bundle_sha256": "fb5345ccc4f166af7088aa70ca5c9e1a9972558d5ddde2b4f699d306702b1b13",
+      "backup_verified_and_restored": true,
+      "current_main_tree_unchanged": true,
+      "publication_unit_tests": 9,
+      "publication_guard": "PASS",
+      "remote_written": false,
+      "snapshot_source": "fresh read-only remote mirror",
+      "intentional_public_contact_values_preserved": 0
+    }
+  },
+  "remote_mutations": 0,
+  "shared_rewrite": "NEEDS_APPROVAL",
+  "wikis": {
+    "TehNet": {
+      "ls_remote_exit": 128,
+      "repository_not_found_message": true,
+      "accessible_refs": false,
+      "status": "inaccessible; no assertion of content absence"
+    },
+    "-SEO": {
+      "ls_remote_exit": 128,
+      "repository_not_found_message": true,
+      "accessible_refs": false,
+      "status": "inaccessible; no assertion of content absence"
+    }
+  },
+  "limits": [
+    "Snapshot will become stale when shared refs change; re-fetch and compare before any approved operation.",
+    "GitHub PR/cache/fork/other clone retention is not cleared.",
+    "Media OCR/manual review and credential validity/rotation remain open."
+  ]
+}

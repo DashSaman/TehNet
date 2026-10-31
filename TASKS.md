@@ -1,3 +1,13 @@
+## CURRENT — autonomous security-first execution, 2026-10-31
+
+The latest owner directive is preserved in `docs/requirements-autonomous-2026-10-31.md`; it overrides conflicting priorities, not completed work. Read `docs/superpowers/plans/2026-10-31-overnight-execution.fa.md` and `docs/overnight-progress-2026-10-31.fa.md` before continuing. Security evidence and open gates: `security/INCIDENT_RESPONSE_2026-10-31.md` and `security/EXPOSURE_REMEDIATION_MATRIX.md`.
+
+Current-file privacy cleanup is merged in TehNet#33, MyTel#3 and -SEO#2; main trees matched the tested trees and all three CI runs succeeded. Historical copies remain: no force-push, account reset or network change was performed. Historical credential validity is unknown; origin protection remains undetermined pending a valid route assessment and recovery prerequisites. Raw evidence is secured outside Git. The newest isolated rehearsal must be read by its date; old ref maps must never be applied blindly.
+
+Growth changes are a separate, unfinished package: nonce placement in support/B2B forms, narrowly validated service context, an eight-question manual readiness tool and two editable page drafts. Local regression:63 PHP assertions plus4 JavaScript state assertions;26 browser component checks, desktop/mobile screenshots reviewed. These are synthetic local component results, not native WordPress, HTTP submission or deployment acceptance. The next action is fresh native private-preview inspection, scoped synchronization and WordPress/browser acceptance, with drift/backup/rollback before any qualified TehNet release. MyTel production stays read-only; intentional noindex, inquiry-only products and real payment/ERP gates remain unchanged.
+
+Bounded overnight heartbeat is active in the current chat until08:00 Asia/Tehran, 2026-11-01. Local execution needs the computer online/awake and Codex running. Final evidence-based report belongs at `docs/reports/MORNING_HANDOFF_2026-11-01.fa.md`; the present checkpoint is not a completion report or a ranking claim.
+
 # TehNet Task Backlog
 
 ## CURRENT — agent continuity, 2026-10-25
