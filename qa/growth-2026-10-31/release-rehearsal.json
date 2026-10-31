@@ -1,0 +1,129 @@
+{
+  "scope": "Independent isolated clone; no production file/content writes",
+  "source_commit": "593b30ecb26d8fe59cf455872b391394bcf5269b",
+  "tampered_bundle_refused": true,
+  "restore_directory_ownership_repaired": 1420,
+  "prior_http_failure": "Restore directories owned by root blocked web-user plugin traversal; CLI ran as root",
+  "http_smoke": [
+    {
+      "path": "/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/shop/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/services/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/lab/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/services/voice-network-readiness/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/lab/voice-network-checklist/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "readiness_instance": true
+    },
+    {
+      "path": "/support/?tn_service_context=voice-network",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "nonce_inside_owning_form": true,
+      "network_context_preserved": true
+    },
+    {
+      "path": "/b2b/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "nonce_inside_owning_form": true
+    }
+  ],
+  "protected_state_unchanged": true,
+  "existing_runtime_unchanged": true,
+  "owned_containers_removed": 2,
+  "owned_network_removed": true,
+  "status": "VERIFIED",
+  "schema": 1,
+  "baseline_commit": "c05bd3899d96800c9ee1c767714a3b1c821fb37a",
+  "recorded_utc": "2026-10-31T20:46:53.207061+00:00",
+  "boundary_tests": {
+    "passed": 4,
+    "failed": 0
+  },
+  "production_mutations": 0,
+  "operations": [
+    {
+      "mode": "check",
+      "status": "READY",
+      "file_changes": null,
+      "pages_created": null,
+      "hubs_restored": null,
+      "pages_drafted": null
+    },
+    {
+      "mode": "apply",
+      "status": "APPLIED",
+      "file_changes": 6,
+      "pages_created": 2,
+      "hubs_restored": null,
+      "pages_drafted": null
+    },
+    {
+      "mode": "apply",
+      "status": "APPLIED",
+      "file_changes": 0,
+      "pages_created": 0,
+      "hubs_restored": null,
+      "pages_drafted": null
+    },
+    {
+      "mode": "apply",
+      "status": "APPLIED",
+      "file_changes": 0,
+      "pages_created": 0,
+      "hubs_restored": null,
+      "pages_drafted": null
+    },
+    {
+      "mode": "rollback",
+      "status": "ROLLED_BACK",
+      "file_changes": null,
+      "pages_created": null,
+      "hubs_restored": 2,
+      "pages_drafted": 2
+    },
+    {
+      "mode": "rollback",
+      "status": "ROLLED_BACK",
+      "file_changes": null,
+      "pages_created": null,
+      "hubs_restored": 0,
+      "pages_drafted": 0
+    }
+  ],
+  "limits": [
+    "No production deployment in this receipt",
+    "Abrupt host loss/ambiguous COMMIT requires reconciliation; not fault-injected here",
+    "WordPress/SQL recovery does not qualify shared network/OOB recovery"
+  ]
+}
