@@ -1,6 +1,6 @@
 /* Genuine local Woo -> official Zarinpal sandbox -> native ERP. Synthetic stock only. */
 const {execFileSync,execFile}=require('child_process'),fs=require('fs'),path=require('path'),assert=require('assert/strict');
-const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'C:/Users/amirreza/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const root=path.resolve(__dirname,'../..'),out=path.join(root,'qa/store-2026-10-15');
 function cli(code){return execFileSync('docker',['exec','tehnet-woo-stage-woo-1','php','/stage/wp-cli.phar','--allow-root','--path=/var/www/html','eval',"if(wp_get_environment_type()!=='local'||!TehNet_Store_Zarinpal_Sandbox::enabled()){throw new RuntimeException('Explicit local sandbox required');}"+code],{encoding:'utf8',stdio:['pipe','pipe','pipe']}).trim();}
 (async()=>{

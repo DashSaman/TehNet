@@ -1,4 +1,4 @@
-C:\Users\amirreza\AppData\Roaming\Python\Python312\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+[PRIVATE_LOCAL_PATH] StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
   from starlette.testclient import TestClient as TestClient  # noqa
 test_api_pagination_limits_and_markup_are_safe (test_preview.PreviewTests.test_api_pagination_limits_and_markup_are_safe) ... ok
 test_easy_install_has_explained_copyable_online_commands (test_preview.PreviewTests.test_easy_install_has_explained_copyable_online_commands) ... ok
@@ -17,7 +17,7 @@ test_unregistered_downloads_do_not_redirect_or_probe (test_preview.PreviewTests.
 FAIL: test_home_distinguishes_research_and_live_downloads_without_obsolete_claims (test_preview.PreviewTests.test_home_distinguishes_research_and_live_downloads_without_obsolete_claims)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "C:\Users\amirreza\Documents\Codex\2026-10-17\referenced-chatgpt-conversation-this-is-an\work\TehNet\projects\software-hub\tests\test_preview.py", line 117, in test_home_distinguishes_research_and_live_downloads_without_obsolete_claims
+  File "[PRIVATE_LOCAL_PATH]", line 117, in test_home_distinguishes_research_and_live_downloads_without_obsolete_claims
     self.assertFalse('نیازمند آزمون' in page,'Home still renders the same untested badge on every research card')
 AssertionError: True is not false : Home still renders the same untested badge on every research card
 

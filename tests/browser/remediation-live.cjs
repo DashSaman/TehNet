@@ -1,5 +1,5 @@
 /* Read-only production acceptance: no forms, orders, payment or external messages. */
-const fs=require('fs'),path=require('path'),assert=require('assert/strict');const {chromium}=require('C:/Users/amirreza/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const fs=require('fs'),path=require('path'),assert=require('assert/strict');const {chromium}=require('playwright');
 const root=path.resolve(__dirname,'../..'),out=path.join(root,'seo/remediation-2026-10-16'),axe=path.resolve(root,'../axe-runtime/axe.min.js');
 (async()=>{const b=await chromium.launch({headless:true,channel:'msedge'}),p=await b.newPage({viewport:{width:390,height:844}}),checks=[],errors=[],a11y=[];p.on('pageerror',e=>errors.push(e.message));const check=(ok,label)=>{assert(ok,label);checks.push(label)};try{
  for(const suffix of ['/','/learn/','/lab/','/technical-methodology/','/lab/wireguard-mtu/','/product/tn-sn-17929/','/amirreza-golavar/']){

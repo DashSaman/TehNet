@@ -37,3 +37,9 @@
 مخزن رسمی DashSaman/TehNet با remote، GitHub، SSH، hash و SQL read-only تأیید شد. main قدیمی merge نشده است. مأموریت کامل در `docs/requirements-store-2026-10-15.fa.txt` محفوظ است. فایل گزارش جداگانه شمارش کاتالوگ پیدا نشد و استفاده نشد.
 
 GLM: فقط یک مشاوره واقعی محدود `zai-coding-plan/glm-5.3-flash` با ۷۰۷ ورودی + ۵۲۸ خروجی انجام شد؛ ابزار bulk execution موجود نبود. برای درخواست تازه benchmark یک دستیار native Luna فقط نقشه کد را خواند و تغییری نداد. تغییر مدل/reasoning مدیر از ابزار تأیید نشده است.
+
+## Publication privacy — 2026-10-31
+
+Owner requested public-safe repositories. On branch `security/publication-hygiene-20261031` from `b5ec3da`, actual origin/IPv6/preview addresses and personal workstation paths were sanitized; portable browser module resolution and a bounded tracked-file guard were added. See [privacy report](docs/publication-privacy-2026-10-31.fa.md). Production/DNS/noindex/payments were not changed. This is not a full-history purge: old branch/commit/PR/fork copies remain a separate coordinated gate. Preserve this distinction when reporting completion.
+
+The broader growth mission continues separately on `feat/tehnet-mytel-seo-20261031`: service-intake nonce/context and a manual network-readiness tool are implemented locally, with content drafts. Native staging, live release,100+ candidate portfolio and cross-brand delivery are still pending. Do not replay historical deployments or claim those drafts are live.

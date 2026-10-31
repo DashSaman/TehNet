@@ -1,6 +1,6 @@
 /* Read-only storefront acceptance. No inquiry/cart/order/message submissions. */
 const fs=require('fs'),path=require('path'),assert=require('assert/strict');
-const {chromium}=require('C:/Users/amirreza/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const {chromium}=require('playwright');
 const base=process.env.TN_SHOP_BASE||'http://localhost:18085',out=path.resolve(process.argv[2]),checks=[],errors=[];
 const check=(v,n)=>{assert(v,n);checks.push(n)};
 async function capture(page,file){

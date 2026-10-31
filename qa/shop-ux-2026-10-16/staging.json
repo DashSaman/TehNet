@@ -11,7 +11,8 @@
   "external_network": false,
   "cron_mail_http_disabled": true,
   "database_storage": "ephemeral tmpfs; recreate only after explicit inspection if stopped",
-  "forward_target": "172.18.0.3:80",
+  "forward_target": "[PRIVATE_PREVIEW_TARGET]",
   "permissions_normalized": true,
-  "http_status": 200
+  "http_status": 200,
+  "publication_redacted": true
 }

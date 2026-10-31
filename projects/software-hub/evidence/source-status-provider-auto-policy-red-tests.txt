@@ -8,7 +8,7 @@ test_systemd_lab_keeps_noswap_caps_and_private_engine_inaccessible (test_provide
 FAIL: test_duplicate_intent_never_reserves_again_or_resets_failed_charge (test_provider_auto.ProviderAutoPolicyTests.test_duplicate_intent_never_reserves_again_or_resets_failed_charge)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "C:\Users\amirreza\Documents\Codex\2026-10-17\referenced-chatgpt-conversation-this-is-an\work\TehNet\projects\software-hub\tests\test_provider_auto.py", line 11, in setUp
+  File "[PRIVATE_LOCAL_PATH]", line 11, in setUp
     def setUp(self):self.assertIsNotNone(auto,'Automatic per-publication provider worker is not implemented')
                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 AssertionError: unexpectedly None : Automatic per-publication provider worker is not implemented
@@ -17,7 +17,7 @@ AssertionError: unexpectedly None : Automatic per-publication provider worker is
 FAIL: test_one_profile_processes_each_source_once_and_crash_is_not_replayed (test_provider_auto.ProviderAutoPolicyTests.test_one_profile_processes_each_source_once_and_crash_is_not_replayed)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "C:\Users\amirreza\Documents\Codex\2026-10-17\referenced-chatgpt-conversation-this-is-an\work\TehNet\projects\software-hub\tests\test_provider_auto.py", line 11, in setUp
+  File "[PRIVATE_LOCAL_PATH]", line 11, in setUp
     def setUp(self):self.assertIsNotNone(auto,'Automatic per-publication provider worker is not implemented')
                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 AssertionError: unexpectedly None : Automatic per-publication provider worker is not implemented
@@ -26,7 +26,7 @@ AssertionError: unexpectedly None : Automatic per-publication provider worker is
 FAIL: test_receipt_is_profile_bound_and_only_passed_rows_can_be_projected (test_provider_auto.ProviderAutoPolicyTests.test_receipt_is_profile_bound_and_only_passed_rows_can_be_projected)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "C:\Users\amirreza\Documents\Codex\2026-10-17\referenced-chatgpt-conversation-this-is-an\work\TehNet\projects\software-hub\tests\test_provider_auto.py", line 11, in setUp
+  File "[PRIVATE_LOCAL_PATH]", line 11, in setUp
     def setUp(self):self.assertIsNotNone(auto,'Automatic per-publication provider worker is not implemented')
                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 AssertionError: unexpectedly None : Automatic per-publication provider worker is not implemented
@@ -35,7 +35,7 @@ AssertionError: unexpectedly None : Automatic per-publication provider worker is
 FAIL: test_separate_budget_is_durable_bounded_and_refuses_clock_rollback (test_provider_auto.ProviderAutoPolicyTests.test_separate_budget_is_durable_bounded_and_refuses_clock_rollback)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "C:\Users\amirreza\Documents\Codex\2026-10-17\referenced-chatgpt-conversation-this-is-an\work\TehNet\projects\software-hub\tests\test_provider_auto.py", line 11, in setUp
+  File "[PRIVATE_LOCAL_PATH]", line 11, in setUp
     def setUp(self):self.assertIsNotNone(auto,'Automatic per-publication provider worker is not implemented')
                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 AssertionError: unexpectedly None : Automatic per-publication provider worker is not implemented
@@ -44,7 +44,7 @@ AssertionError: unexpectedly None : Automatic per-publication provider worker is
 FAIL: test_systemd_lab_keeps_noswap_caps_and_private_engine_inaccessible (test_provider_auto.ProviderAutoPolicyTests.test_systemd_lab_keeps_noswap_caps_and_private_engine_inaccessible)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "C:\Users\amirreza\Documents\Codex\2026-10-17\referenced-chatgpt-conversation-this-is-an\work\TehNet\projects\software-hub\tests\test_provider_auto.py", line 11, in setUp
+  File "[PRIVATE_LOCAL_PATH]", line 11, in setUp
     def setUp(self):self.assertIsNotNone(auto,'Automatic per-publication provider worker is not implemented')
                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 AssertionError: unexpectedly None : Automatic per-publication provider worker is not implemented

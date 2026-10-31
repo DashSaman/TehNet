@@ -1,6 +1,6 @@
 /* Synthetic sequence UI test. These images never enter the catalogue. */
 const fs=require('fs'),path=require('path'),assert=require('assert/strict'),{execFileSync}=require('child_process');
-const {chromium}=require('C:/Users/amirreza/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const {chromium}=require('playwright');
 const root=path.resolve(__dirname,'../..'),out=path.join(root,'qa/store-2026-10-16');fs.mkdirSync(out,{recursive:true});
 const fixture=path.join(out,'spin-test-fixture.html');
 execFileSync(path.resolve(root,'../php-runtime/php.exe'),[path.join(root,'tests/product-photos-unit.php'),fixture]);

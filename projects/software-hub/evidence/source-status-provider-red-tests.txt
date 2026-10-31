@@ -5,12 +5,12 @@ ERROR: test_provider_kit (unittest.loader._FailedTest.test_provider_kit)
 ----------------------------------------------------------------------
 ImportError: Failed to import test module: test_provider_kit
 Traceback (most recent call last):
-  File "C:\Users\amirreza\AppData\Local\Programs\Python\Python312\Lib\unittest\loader.py", line 396, in _find_test_path
+  File "[PRIVATE_LOCAL_PATH]", line 396, in _find_test_path
     module = self._get_module_from_name(name)
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\amirreza\AppData\Local\Programs\Python\Python312\Lib\unittest\loader.py", line 339, in _get_module_from_name
+  File "[PRIVATE_LOCAL_PATH]", line 339, in _get_module_from_name
     __import__(name)
-  File "C:\Users\amirreza\Documents\Codex\2026-10-17\referenced-chatgpt-conversation-this-is-an\work\TehNet\projects\software-hub\tests\test_provider_kit.py", line 4, in <module>
+  File "[PRIVATE_LOCAL_PATH]", line 4, in <module>
     from app.provider_kit import mapped_url,validated_target,selected_transport,kit
 ModuleNotFoundError: No module named 'app.provider_kit'
 

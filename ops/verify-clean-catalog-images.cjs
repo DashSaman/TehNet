@@ -1,6 +1,6 @@
 // Reproduce the delivered lossless images from immutable originals + transparent patches.
 const fs=require('fs'),path=require('path'),crypto=require('crypto'),assert=require('assert/strict');
-const sharp=require(process.env.SHARP_MODULE||'C:/Users/amirreza/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp');
+const sharp=require(process.env.SHARP_MODULE||'sharp');
 const root=path.resolve(__dirname,'..'),folder=path.join(root,'content/media/tehnet-clean-2026-10-16');
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
 (async()=>{

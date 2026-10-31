@@ -12,7 +12,7 @@ test_unlisted_archive_arbitrary_url_and_traversal_are_rejected (test_provider_ki
 FAIL: test_copied_old_qualification_cannot_prepare_new_profile_or_failed_source (test_provider_kit.ProviderKitTests.test_copied_old_qualification_cannot_prepare_new_profile_or_failed_source)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "C:\Users\amirreza\Documents\Codex\2026-10-17\referenced-chatgpt-conversation-this-is-an\work\TehNet\projects\software-hub\tests\test_provider_kit.py", line 10, in test_copied_old_qualification_cannot_prepare_new_profile_or_failed_source
+  File "[PRIVATE_LOCAL_PATH]", line 10, in test_copied_old_qualification_cannot_prepare_new_profile_or_failed_source
     self.assertTrue(hasattr(provider_kit,'require_current_qualification'),'Client must require exact current requalification before payload I/O')
 AssertionError: False is not true : Client must require exact current requalification before payload I/O
 

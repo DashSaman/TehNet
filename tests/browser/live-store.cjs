@@ -1,6 +1,6 @@
 /* Read-only public production acceptance. Never places an order, submits a form, or changes settings. */
 const fs=require('fs'),path=require('path'),assert=require('assert/strict');
-const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'C:/Users/amirreza/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE||'playwright');
 const root=path.resolve(__dirname,'../..'),out=path.join(root,'qa/store-2026-10-15');
 (async()=>{const b=await chromium.launch({headless:true,channel:'msedge'}),c=await b.newContext({viewport:{width:1440,height:1000}}),p=await c.newPage(),checks=[],errors=[];p.on('pageerror',e=>errors.push(e.message));
 try{

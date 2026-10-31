@@ -8,3 +8,21 @@
 
 # Raw third-party screenshots/text are local research, not distributable assets.
 qa/shop-ux-2026-10-16/baseline/
+
+# Publication privacy: local evidence is never public source.
+**/.env
+**/.env.*
+!**/.env.example
+**/.local/
+**/__pycache__/
+*.sql
+*.sql.gz
+*.sqlite
+*.sqlite3
+*.p12
+*.pfx
+*private-audit*
+
+!projects/software-hub/app/migrations/*.sql
+
+node_modules/

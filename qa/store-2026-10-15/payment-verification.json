@@ -11,70 +11,70 @@
       "passed": true,
       "expected_failure": false,
       "exit_code": 0,
-      "output": "No syntax errors detected in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\site\\plugins\\tehnet-store\\includes\\class-account.php\n"
+      "output": "No syntax errors detected in [PRIVATE_LOCAL_PATH]"
     },
     {
       "name": "lint site\\plugins\\tehnet-store\\includes\\class-catalog.php",
       "passed": true,
       "expected_failure": false,
       "exit_code": 0,
-      "output": "No syntax errors detected in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\site\\plugins\\tehnet-store\\includes\\class-catalog.php\n"
+      "output": "No syntax errors detected in [PRIVATE_LOCAL_PATH]"
     },
     {
       "name": "lint site\\plugins\\tehnet-store\\includes\\class-erp.php",
       "passed": true,
       "expected_failure": false,
       "exit_code": 0,
-      "output": "No syntax errors detected in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\site\\plugins\\tehnet-store\\includes\\class-erp.php\n"
+      "output": "No syntax errors detected in [PRIVATE_LOCAL_PATH]"
     },
     {
       "name": "lint site\\plugins\\tehnet-store\\includes\\class-operations.php",
       "passed": true,
       "expected_failure": false,
       "exit_code": 0,
-      "output": "No syntax errors detected in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\site\\plugins\\tehnet-store\\includes\\class-operations.php\n"
+      "output": "No syntax errors detected in [PRIVATE_LOCAL_PATH]"
     },
     {
       "name": "lint site\\plugins\\tehnet-store\\includes\\class-policy.php",
       "passed": true,
       "expected_failure": false,
       "exit_code": 0,
-      "output": "No syntax errors detected in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\site\\plugins\\tehnet-store\\includes\\class-policy.php\n"
+      "output": "No syntax errors detected in [PRIVATE_LOCAL_PATH]"
     },
     {
       "name": "lint site\\plugins\\tehnet-store\\includes\\class-storefront.php",
       "passed": true,
       "expected_failure": false,
       "exit_code": 0,
-      "output": "No syntax errors detected in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\site\\plugins\\tehnet-store\\includes\\class-storefront.php\n"
+      "output": "No syntax errors detected in [PRIVATE_LOCAL_PATH]"
     },
     {
       "name": "lint site\\plugins\\tehnet-store\\includes\\class-zarinpal-blocks.php",
       "passed": true,
       "expected_failure": false,
       "exit_code": 0,
-      "output": "No syntax errors detected in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\site\\plugins\\tehnet-store\\includes\\class-zarinpal-blocks.php\n"
+      "output": "No syntax errors detected in [PRIVATE_LOCAL_PATH]"
     },
     {
       "name": "lint site\\plugins\\tehnet-store\\includes\\class-zarinpal-gateway.php",
       "passed": true,
       "expected_failure": false,
       "exit_code": 0,
-      "output": "No syntax errors detected in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\site\\plugins\\tehnet-store\\includes\\class-zarinpal-gateway.php\n"
+      "output": "No syntax errors detected in [PRIVATE_LOCAL_PATH]"
     },
     {
       "name": "lint site\\plugins\\tehnet-store\\includes\\class-zarinpal-sandbox.php",
       "passed": true,
       "expected_failure": false,
       "exit_code": 0,
-      "output": "No syntax errors detected in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\site\\plugins\\tehnet-store\\includes\\class-zarinpal-sandbox.php\n"
+      "output": "No syntax errors detected in [PRIVATE_LOCAL_PATH]"
     },
     {
       "name": "lint site\\plugins\\tehnet-store\\tehnet-store.php",
       "passed": true,
       "expected_failure": false,
       "exit_code": 0,
-      "output": "No syntax errors detected in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\site\\plugins\\tehnet-store\\tehnet-store.php\n"
+      "output": "No syntax errors detected in [PRIVATE_LOCAL_PATH]"
     },
     {
       "name": "zarinpal-protocol",
@@ -102,7 +102,7 @@
       "passed": true,
       "expected_failure": true,
       "exit_code": 255,
-      "output": "PASS: request accepts a sandbox authority\nPASS: only the fixed sandbox host is used\nPASS: integer IRR is sent without a toman multiplier\nPASS: TLS and bounded transport cannot be weakened\nPASS: server verification code 100 yields the receipt\n\nFatal error: Uncaught RuntimeException: Sandbox payment is not verified in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\ops\\staging\\.local\\tn-zarinpal-regression-kcmt15no\\adapter.php:40\nStack trace:\n#0 C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\ops\\staging\\.local\\tn-zarinpal-regression-kcmt15no\\test.php(23): TehNet_Store_Zarinpal_Sandbox->verify('S00000000000000...', 11000)\n#1 {main}\n  thrown in C:\\Users\\amirreza\\Documents\\Codex\\2026-10-15\\referenced-chatgpt-conversation-this-is-an\\work\\TehNet\\ops\\staging\\.local\\tn-zarinpal-regression-kcmt15no\\adapter.php on line 40\n"
+      "output": "PASS: request accepts a sandbox authority\nPASS: only the fixed sandbox host is used\nPASS: integer IRR is sent without a toman multiplier\nPASS: TLS and bounded transport cannot be weakened\nPASS: server verification code 100 yields the receipt\n\nFatal error: Uncaught RuntimeException: Sandbox payment is not verified in [PRIVATE_LOCAL_PATH] trace:\n#0 [PRIVATE_LOCAL_PATH] TehNet_Store_Zarinpal_Sandbox->verify('S00000000000000...', 11000)\n#1 {main}\n  thrown in [PRIVATE_LOCAL_PATH] on line 40\n"
     }
   ]
 }

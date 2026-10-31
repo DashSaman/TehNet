@@ -1,6 +1,6 @@
 /* Read-only catalogue photo acceptance. Never submits inquiry/order/payment. */
 const fs=require('fs'),path=require('path'),assert=require('assert/strict');
-const {chromium}=require('C:/Users/amirreza/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const {chromium}=require('playwright');
 const root=path.resolve(__dirname,'../..'),out=path.join(root,'qa/store-2026-10-16');
 const cleanup=JSON.parse(fs.readFileSync(path.join(out,'cleanup-apply.json'))),revision=cleanup.migration.sha256.slice(0,16);
 (async()=>{const b=await chromium.launch({headless:true,channel:'msedge'}),c=await b.newContext({viewport:{width:390,height:844}}),p=await c.newPage(),errors=[],checks=[];

@@ -18,7 +18,7 @@ TehNet (`tehnet.ir`) پلتفرم تخصصی شبکه با چهار مسیر ا�
 ### محیط Production
 
 - دامنه: `tehnet.ir`
-- سرور Origin: `91.107.138.246`
+- نشانی Origin و اطلاعات دسترسی فقط در تنظیمات خصوصی اپراتور نگهداری می‌شوند.
 - CDN/DNS: Cloudflare
 - میزبان canonical: `https://tehnet.ir`
 - `www.tehnet.ir` باید به دامنه اصلی redirect دائمی شود.
@@ -48,7 +48,7 @@ This repository is the canonical source of truth for TehNet product, implementat
 ### Production target
 
 - Domain: `tehnet.ir`
-- Origin server: `91.107.138.246`
+- Origin address and access details are maintained in private operator configuration.
 - CDN/DNS: Cloudflare
 - Canonical host: `https://tehnet.ir`
 - `www.tehnet.ir` must permanently redirect to the apex host.
@@ -63,6 +63,8 @@ This repository is the canonical source of truth for TehNet product, implementat
 - `HANDOFF.md` / `PROGRESS.md` / `TASKS.md` — continuation state, verified progress and backlog
 
 See `PROGRESS.md` and `HANDOFF.md` for the current implementation state.
+
+Publication policy: [public-repository hygiene](docs/publication-privacy-2026-10-31.fa.md). Sanitized historical evidence can contain documentation-only replacement addresses and `[PRIVATE_LOCAL_PATH]`; those values are never deployment targets. Run `python tools/publication_guard.py` before publishing.
 
 ## آرشیو نرم‌افزار تهران نتورک — پژوهش و برنامه مستقل / TehNet Software Archive
 
