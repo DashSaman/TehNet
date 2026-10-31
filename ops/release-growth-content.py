@@ -30,21 +30,26 @@ SCOPE = 'tehnet-growth-20261031-v1'
 EDITORIAL_SCOPE = 'tehnet-editorial-routeros-20261101-v1'
 ROUTING_SCOPE = 'tehnet-editorial-routing-20261101-v1'
 METADATA_SCOPE = 'tehnet-metadata-role-20261101-v1'
+SUPPORT_SCOPE = 'tehnet-service-network-support-20261101-v1'
 LESSON_SCOPES = {
     EDITORIAL_SCOPE: ('content/growth-editorial-2026-11-01', 'routeros-winbox.html', '/tmp/tn-editorial-release-'),
     ROUTING_SCOPE: ('content/routing-editorial-2026-11-01', 'static-routing.html', '/tmp/tn-routing-release-'),
 }
-GUARDED_SCOPES = [*LESSON_SCOPES, METADATA_SCOPE]
+CONTENT_SCOPES = {**LESSON_SCOPES,
+    SUPPORT_SCOPE: ('content/network-support-2026-11-01', 'network-support.html', '/tmp/tn-network-support-release-'),
+}
+GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE]
 
 
 def scope_spec(scope):
     if scope == SCOPE:
         return list(FILES), list(EXTRA), []
-    if scope in LESSON_SCOPES:
-        directory, body, _ = LESSON_SCOPES[scope]
+    if scope in CONTENT_SCOPES:
+        directory, body, _ = CONTENT_SCOPES[scope]
         return [], [directory + '/manifest.json',
                     directory + '/' + body,
-                    'ops/migrate-growth-content.php'], FILES + ['site/plugins/tehnet-store/tehnet-store.php']
+                    'ops/migrate-growth-content.php'], FILES + ['site/plugins/tehnet-store/tehnet-store.php'] + (
+                        ['site/mu-plugins/tehnet-search-metadata.php'] if scope == SUPPORT_SCOPE else [])
     if scope == METADATA_SCOPE:
         return ['site/mu-plugins/tehnet-search-metadata.php'], [
             'content/metadata-role-2026-11-01/manifest.json', 'ops/check-metadata-state.php'
@@ -197,7 +202,7 @@ class Release:
         self.state = json.loads(self.receipt_path.read_text()) if self.receipt_path.exists() else None
         if self.state and (self.state['source_commit'] != m['source_commit'] or self.state['app_id'] != c['app_id'] or self.state['db_id'] != c['db_id']):
             raise RuntimeError('Release journal identity mismatch')
-        prefix = '/tmp/tn-metadata-role-' if self.scope == METADATA_SCOPE else (LESSON_SCOPES[self.scope][2] if self.scope in LESSON_SCOPES else '/tmp/tn-growth-release-')
+        prefix = '/tmp/tn-metadata-role-' if self.scope == METADATA_SCOPE else (CONTENT_SCOPES[self.scope][2] if self.scope in CONTENT_SCOPES else '/tmp/tn-growth-release-')
         self.container_stage = prefix + m['source_commit']
         self.manifest_digest = m['members'][self.extra[0]]
         self.root = None
@@ -245,8 +250,8 @@ class Release:
         self.run(['docker', 'exec', self.c['app'], 'mkdir', '-p', self.container_stage + '/journal'])
         self.run(['docker', 'exec', self.c['app'], 'chmod', '700', self.container_stage, self.container_stage + '/journal'])
         staged = [(self.extra[0], 'manifest.json'), (self.extra[-1], 'migration.php')]
-        if self.scope in LESSON_SCOPES:
-            staged.append((self.extra[1], LESSON_SCOPES[self.scope][1]))
+        if self.scope in CONTENT_SCOPES:
+            staged.append((self.extra[1], CONTENT_SCOPES[self.scope][1]))
         for source, name in staged:
             self.run(['docker', 'cp', str(member(self.b / 'payload', source)), self.c['app'] + ':' + self.container_stage + '/' + name])
         # Syntax-check every PHP artifact before the first live file write.

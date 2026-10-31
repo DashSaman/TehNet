@@ -1,0 +1,379 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_BOUNDED_OBSERVATIONS_NOT_FULL_BENCHMARK",
+  "observed_utc": "2026-10-31T23:14:13.161201+00:00",
+  "method": "Four bounded default-TLS GETs and one native read-only ID31 identity query; no forms submitted",
+  "dimensions": [
+    "service_coverage",
+    "technical_depth",
+    "customer_journey",
+    "navigation",
+    "user_experience",
+    "content_quality",
+    "seo_architecture",
+    "structured_data",
+    "trust_signals",
+    "mobile_performance",
+    "lead_capture",
+    "customer_portal",
+    "service_contracts",
+    "commercial_clarity",
+    "real_differentiation"
+  ],
+  "competitors": [
+    {
+      "name": "TarazNet",
+      "source_url": "https://taraznet.com/network-support/",
+      "priority": "PRIMARY",
+      "evidence_class": "OBSERVED_FIRST_PARTY_SELF_DESCRIPTION",
+      "publication_or_update_date": "UNKNOWN",
+      "reviewed_utc": "2026-10-31T23:14:13.161201+00:00",
+      "depth": "One public service page, not a whole-company/full-site audit",
+      "raw_get": {
+        "url": "https://taraznet.com/network-support/",
+        "final_url": "https://taraznet.com/network-support/",
+        "status": 200,
+        "bytes": 160978,
+        "sha256": "996fa5871b56b4959f8f1cafa543302894425cb4035523210f7a44be9bb9d799",
+        "title": "پشتیبانی شبکه های کامپیوتری و خدمات نگهداری سرور 24 ساعته",
+        "h1": [
+          "پشتیبانی شبکه"
+        ],
+        "canonical": [
+          "https://taraznet.com/network-support/"
+        ],
+        "description_present": true,
+        "robots": [
+          "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+        ],
+        "jsonld_types": [
+          "Answer",
+          "Article",
+          "BreadcrumbList",
+          "FAQPage",
+          "ImageObject",
+          "ListItem",
+          "LocalBusiness",
+          "Organization",
+          "Person",
+          "Question",
+          "WebPage",
+          "WebSite"
+        ],
+        "jsonld_parse_errors": 0,
+        "forms_in_source": 0,
+        "navigation_links_in_source": 154
+      },
+      "scorecard": {
+        "service_coverage": "حضوری/غیرحضوری، سخت‌افزار/نرم‌افزار",
+        "technical_depth": "شرح حوزه‌ها؛ اجرای واقعی آزموده نشد",
+        "customer_journey": "تماس، بررسی، گزارش، قرارداد",
+        "navigation": "پیوند خدمات مرتبط",
+        "user_experience": "CTA تماس؛ layout محدود مشاهده شد",
+        "content_quality": "دامنه گسترده؛ صحت ادعاها ارزیابی نشد",
+        "seo_architecture": "عنوان/H1/canonical و پیوندهای خدمات مشاهده شد",
+        "structured_data": "نوع‌ها در raw_get؛ eligibility آزموده نشد",
+        "trust_signals": "اطلاعات تماس؛ سابقه خوداظهاری",
+        "mobile_performance": "NOT_TESTED_CWV؛ فقط layout محدود",
+        "lead_capture": "CTA تماس؛ فرم در این HTML مشاهده نشد",
+        "customer_portal": "NOT_TESTED_AUTHENTICATED",
+        "service_contracts": "اشاره به قرارداد و بازدید دوره‌ای",
+        "commercial_clarity": "عوامل هزینه و استعلام؛ قیمت تأیید نشد",
+        "real_differentiation": "کیفیت واقعی خدمت NOT_MEASURED"
+      }
+    },
+    {
+      "name": "Parag",
+      "source_url": "https://www.parag.pro/services/network-support",
+      "priority": "RELEVANT_ADDITIONAL",
+      "evidence_class": "OBSERVED_FIRST_PARTY_SELF_DESCRIPTION",
+      "publication_or_update_date": "UNKNOWN",
+      "reviewed_utc": "2026-10-31T23:14:13.161201+00:00",
+      "depth": "One public service page, not a whole-company/full-site audit",
+      "raw_get": {
+        "url": "https://www.parag.pro/services/network-support",
+        "final_url": "https://www.parag.pro/services/network-support",
+        "status": 200,
+        "bytes": 756807,
+        "sha256": "51388a10bbdc60026afa8549195695cc1cf1e2a54f90f5958dcd720e913e1330",
+        "title": "پشتیبانی شبکه | پاراگ",
+        "h1": [
+          "پشتیبانی شبکه"
+        ],
+        "canonical": [
+          "https://parag.pro/services/network-support"
+        ],
+        "description_present": true,
+        "robots": [
+          "index, follow"
+        ],
+        "jsonld_types": [
+          "Answer",
+          "BreadcrumbList",
+          "FAQPage",
+          "ListItem",
+          "Organization",
+          "Question",
+          "Service",
+          "WebSite"
+        ],
+        "jsonld_parse_errors": 0,
+        "forms_in_source": 0,
+        "navigation_links_in_source": 39
+      },
+      "scorecard": {
+        "service_coverage": "هفت دستهٔ خدمت، خوداظهاری",
+        "technical_depth": "شرح خدمت؛ صحت اجرا آزموده نشد",
+        "customer_journey": "ثبت، اولویت، رسیدگی، تأیید، بازخورد",
+        "navigation": "پیوند فرایند/پلن/SLA",
+        "user_experience": "NOT_TESTED؛ browser403",
+        "content_quality": "ساختار فرایند؛ کیفیت تحویل نامعلوم",
+        "seo_architecture": "عنوان/H1/canonical و پیوند پلن مشاهده شد",
+        "structured_data": "نوع‌ها در raw_get؛ eligibility آزموده نشد",
+        "trust_signals": "نشان مشتری/آمار خوداظهاری، راستی‌آزمایی نشد",
+        "mobile_performance": "NOT_TESTED؛ browser403",
+        "lead_capture": "تیکت/تماس در متن؛ ارسال آزموده نشد",
+        "customer_portal": "پیوند SLA و پلن‌ها",
+        "service_contracts": "عوامل تعرفه و اندازهٔ پلن؛ تعهد تأیید نشد",
+        "commercial_clarity": "کیفیت واقعی خدمت NOT_MEASURED"
+      }
+    },
+    {
+      "name": "Varianet",
+      "source_url": "https://varianet.ir/services/network-support/",
+      "priority": "RELEVANT_ADDITIONAL",
+      "evidence_class": "OBSERVED_FIRST_PARTY_SELF_DESCRIPTION",
+      "publication_or_update_date": "UNKNOWN",
+      "reviewed_utc": "2026-10-31T23:14:13.161201+00:00",
+      "depth": "One public service page, not a whole-company/full-site audit",
+      "raw_get": {
+        "url": "https://varianet.ir/services/network-support/",
+        "final_url": "https://varianet.ir/services/network-support/",
+        "status": 200,
+        "bytes": 46374,
+        "sha256": "0a278cdd782af80d9e4452c31111337f3fe8b465b2197d5ae62d73ec49986b30",
+        "title": "پشتیبانی و عیب‌یابی شبکه سازمانی | واریان شبکه گستر",
+        "h1": [
+          "پشتیبانی، عیب‌یابی و رفع اشکال شبکه"
+        ],
+        "canonical": [
+          "https://varianet.ir/services/network-support/"
+        ],
+        "description_present": true,
+        "robots": [],
+        "jsonld_types": [
+          "AdministrativeArea",
+          "City",
+          "Country",
+          "GeoCoordinates",
+          "LocalBusiness",
+          "OpeningHoursSpecification",
+          "Organization",
+          "PostalAddress",
+          "Service"
+        ],
+        "jsonld_parse_errors": 0,
+        "forms_in_source": 1,
+        "navigation_links_in_source": 45
+      },
+      "scorecard": {
+        "service_coverage": "عیب‌یابی و توافق بر محدوده",
+        "technical_depth": "شرح دریافت شواهد؛ اجرای واقعی آزموده نشد",
+        "customer_journey": "اطلاعات، توافق، اقدام، جمع‌بندی",
+        "navigation": "پیوند طراحی/امنیت/خدمات مرتبط",
+        "user_experience": "layout محدود مشاهده شد",
+        "content_quality": "اطلاعات اولیه و مرز خدمت صریح",
+        "seo_architecture": "عنوان/H1/canonical و پیوند خدمات مشاهده شد",
+        "structured_data": "نوع‌ها در raw_get؛ eligibility آزموده نشد",
+        "trust_signals": "اطلاعات تماس؛ نمادها راستی‌آزمایی نشد",
+        "mobile_performance": "NOT_TESTED_CWV؛ فقط layout محدود",
+        "lead_capture": "لینک درخواست؛ فرم در HTML مشاهده شد",
+        "customer_portal": "NOT_TESTED_AUTHENTICATED",
+        "service_contracts": "محدوده/ساعات/SLA تابع توافق",
+        "commercial_clarity": "عوامل هزینه؛ تعهد عمومی زمان ندارد",
+        "real_differentiation": "کیفیت واقعی خدمت NOT_MEASURED"
+      }
+    }
+  ],
+  "tehnet_before": {
+    "url": "https://tehnet.ir/services/network-support-tehran/",
+    "final_url": "https://tehnet.ir/services/network-support-tehran/",
+    "status": 200,
+    "bytes": 45813,
+    "sha256": "a56d0f13c47c340a91ebb145eeb04cdf7b39f2944653ecee6537e5f5c8203a90",
+    "title": "پشتیبانی شبکه تهران – تهران نتورک | TehNet",
+    "h1": [
+      "پشتیبانی شبکه تهران"
+    ],
+    "canonical": [
+      "https://tehnet.ir/services/network-support-tehran/"
+    ],
+    "description_present": true,
+    "robots": [
+      "noindex, nofollow"
+    ],
+    "jsonld_types": [
+      "City",
+      "Country",
+      "LocalBusiness",
+      "PostalAddress"
+    ],
+    "jsonld_parse_errors": 0,
+    "forms_in_source": 0,
+    "navigation_links_in_source": 26
+  },
+  "browser": {
+    "observed_utc": "2026-10-31T23:15:10.604Z",
+    "scope": "Three service URLs; fenced desktop/mobile/no-JS layout observations only",
+    "limits": [
+      "External assets fenced: not normal-user performance or full functionality",
+      "No forms submitted, portal logins, lead delivery, SLA tests or customer quality verification",
+      "No CWV field/lab, rank, traffic, backlink or AI-citation measurements"
+    ],
+    "rows": [
+      {
+        "target": "https://taraznet.com/network-support/",
+        "width": 1440,
+        "js": true,
+        "status": 200,
+        "title": "پشتیبانی شبکه های کامپیوتری و خدمات نگهداری سرور 24 ساعته",
+        "h1_count": 1,
+        "overflow": false,
+        "visible_links": 63,
+        "visible_forms": 0,
+        "page_error_count": 0,
+        "blocked_external_origins": 0,
+        "blocked_nonread_requests": 0
+      },
+      {
+        "target": "https://taraznet.com/network-support/",
+        "width": 375,
+        "js": true,
+        "status": 200,
+        "title": "پشتیبانی شبکه های کامپیوتری و خدمات نگهداری سرور 24 ساعته",
+        "h1_count": 1,
+        "overflow": false,
+        "visible_links": 51,
+        "visible_forms": 0,
+        "page_error_count": 0,
+        "blocked_external_origins": 0,
+        "blocked_nonread_requests": 0
+      },
+      {
+        "target": "https://taraznet.com/network-support/",
+        "width": 375,
+        "js": false,
+        "status": 200,
+        "title": "پشتیبانی شبکه های کامپیوتری و خدمات نگهداری سرور 24 ساعته",
+        "h1_count": 1,
+        "overflow": true,
+        "visible_links": 154,
+        "visible_forms": 0,
+        "page_error_count": 0,
+        "blocked_external_origins": 0,
+        "blocked_nonread_requests": 0
+      },
+      {
+        "target": "https://www.parag.pro/services/network-support",
+        "width": 1440,
+        "js": true,
+        "status": 403,
+        "title": "Checking your browser before accessing. Just a moment...",
+        "h1_count": 1,
+        "overflow": false,
+        "visible_links": 0,
+        "visible_forms": 0,
+        "page_error_count": 0,
+        "blocked_external_origins": 1,
+        "blocked_nonread_requests": 0
+      },
+      {
+        "target": "https://www.parag.pro/services/network-support",
+        "width": 375,
+        "js": true,
+        "status": 403,
+        "title": "Checking your browser before accessing. Just a moment...",
+        "h1_count": 1,
+        "overflow": false,
+        "visible_links": 0,
+        "visible_forms": 0,
+        "page_error_count": 0,
+        "blocked_external_origins": 1,
+        "blocked_nonread_requests": 0
+      },
+      {
+        "target": "https://www.parag.pro/services/network-support",
+        "width": 375,
+        "js": false,
+        "status": 403,
+        "title": "Checking your browser before accessing. Just a moment...",
+        "h1_count": 1,
+        "overflow": false,
+        "visible_links": 0,
+        "visible_forms": 0,
+        "page_error_count": 0,
+        "blocked_external_origins": 1,
+        "blocked_nonread_requests": 0
+      },
+      {
+        "target": "https://varianet.ir/services/network-support/",
+        "width": 1440,
+        "js": true,
+        "status": 200,
+        "title": "پشتیبانی و عیب‌یابی شبکه سازمانی | واریان شبکه گستر",
+        "h1_count": 1,
+        "overflow": false,
+        "visible_links": 45,
+        "visible_forms": 1,
+        "page_error_count": 0,
+        "blocked_external_origins": 1,
+        "blocked_nonread_requests": 0
+      },
+      {
+        "target": "https://varianet.ir/services/network-support/",
+        "width": 375,
+        "js": true,
+        "status": 200,
+        "title": "پشتیبانی و عیب‌یابی شبکه سازمانی | واریان شبکه گستر",
+        "h1_count": 1,
+        "overflow": false,
+        "visible_links": 37,
+        "visible_forms": 0,
+        "page_error_count": 0,
+        "blocked_external_origins": 1,
+        "blocked_nonread_requests": 0
+      },
+      {
+        "target": "https://varianet.ir/services/network-support/",
+        "width": 375,
+        "js": false,
+        "status": 200,
+        "title": "پشتیبانی و عیب‌یابی شبکه سازمانی | واریان شبکه گستر",
+        "h1_count": 1,
+        "overflow": false,
+        "visible_links": 37,
+        "visible_forms": 0,
+        "page_error_count": 0,
+        "blocked_external_origins": 1,
+        "blocked_nonread_requests": 0
+      }
+    ]
+  },
+  "limits": [
+    "Three competitor service URLs, not120 sites; discovery query locale/device/provider unknown",
+    "First-party marketing is evidence of page content, not delivery quality, staffing, current price, valid SLA or independent customer endorsement",
+    "No authenticated portal, lead delivery, real support, performance/CWV, conversion, rank, traffic, backlink or AI citation tested",
+    "Browser GETs fenced external resources and all nonread methods; Parag browser403 is a measurement limitation, not proof of unusability for normal visitors",
+    "No score/ranking or claim of superiority; NOT_OBSERVED_IN_PAGE never means a business lacks that capability",
+    "Source publication/update dates unknown; this is a dated observation, not a freshness guarantee"
+  ],
+  "action": {
+    "target": "https://tehnet.ir/services/network-support-tehran/",
+    "id": 31,
+    "decision": "EXPAND_EXISTING_BODY",
+    "gap": "Existing page has basic symptoms/intake but no explicit response-vs-resolution or handoff acceptance; add an original safe request example and jump links",
+    "state": "VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED",
+    "new_urls": 0,
+    "new_articles": 0
+  }
+}

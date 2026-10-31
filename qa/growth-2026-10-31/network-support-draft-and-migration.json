@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED",
+  "observed_utc": "2026-10-31T23:19:15.979089+00:00",
+  "target": {
+    "id": 31,
+    "url": "https://tehnet.ir/services/network-support-tehran/",
+    "title_observed": "پشتیبانی شبکه تهران",
+    "expected_content_sha256": "bfc8e8d2a83fd89cc9d17a2af26dc67f86ccda1e70bedcd519d2d6a1625bbe3a",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "content_sha256_lf": "29e476e8be485e4ac1c97885b35ace4497a4036cdf7e4854806f6512a31874d5",
+  "native_blocks": {
+    "blocks": 41,
+    "registered": true,
+    "roundtrip": true,
+    "sanitization": true
+  },
+  "browser": {
+    "scope": "Temporary existing service in independently guarded native staging",
+    "status": "PASS",
+    "checks": 26,
+    "observations": [
+      {
+        "width": 1440,
+        "status": 200,
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "status": 200,
+        "h1": 1,
+        "overflow": false
+      }
+    ],
+    "editor": {
+      "blocks": 41,
+      "names": [
+        "core/paragraph",
+        "core/heading",
+        "core/list",
+        "core/list-item"
+      ],
+      "invalid": [],
+      "changed": true,
+      "restored": true
+    },
+    "page_errors": [],
+    "blocked_external_origins": 2,
+    "page_saves": 0,
+    "production_mutations": 0,
+    "original_posts_meta_users_unchanged_after_cleanup": true,
+    "owned_editor_removed": true,
+    "private_backup_verified": true,
+    "temporary_lesson_restored": true
+  },
+  "migration_assertions": 37,
+  "shared_regressions": {
+    "routing": 29,
+    "routeros": 27,
+    "original_growth": 37
+  },
+  "operator_unittests": 13,
+  "expected_baseline_rejection": true,
+  "scope": "One existing service ID31/body, actual change timestamps, all other post/meta/revisions protected",
+  "runtime_files_to_install": 0,
+  "current_runtime_files_guarded": 8,
+  "production_mutations": 0,
+  "limits": [
+    "Native staging/operator rehearsal still separate; this receipt does not claim production publication",
+    "No real ticket, quote, order, payment or support service performed",
+    "No independent quality, rank, conversion or AI citation measurement"
+  ]
+}

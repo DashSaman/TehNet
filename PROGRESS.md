@@ -1,4 +1,18 @@
-## CURRENT — اصلاح نقش schema روی live منتشر و تأیید شد
+## CURRENT — پشتیبانی شبکه آمادهٔ انتشار محدود است
+
+VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر: source qualify‌شده `b29f80fea66530ab1a821ba0af9650d395d73b84` برای body همان ID31.۳۷native/۲۹+۲۷+۳۷رگرسیون،۱۳operator،۴۱بلوک و۲۶browser پاس؛ immutable check/apply/repeat/HTTP/rollback/repeat و رد tamper پاس. هشت runtime digest محافظت، صفر runtime install توسط operator. فقط در staging، baseline metadata0.2.1 موقت گذاشته و اصل0.2.0 دقیق بازگردانده شد؛ همهٔ posts/meta/users وcontainerها نیز ثابت/بازگردانده شدند. رسید `qa/growth-2026-10-31/network-support-release-rehearsal.json`؛ صفحه هنوز production تغییر نکرده است.
+
+سه رقیب/۱۵معیار فقط صفحهٔ خدمات، نه۱۲۰سایت یا کیفیت واقعی خدمت؛ browser403 پاراگ و CWV/portal/lead delivery نامعلوم. منبع `seo/competitor-services-2026-11-01.json`. NEXT: PR عادی با required CI head، snapshot خصوصی پیش از integration، برابری payload/tool/8guard با source بالا، backup تازه/checksum/drift، سپس انتشار و پذیرش عمومی همان صفحه. MyTel write/noindex/payment و گیت‌های امنیتی تغییری نکرده‌اند. گزارش صبح LIVE_NOT_FINAL باقی است.
+
+## HISTORICAL CHECKPOINT — مقایسهٔ محدود خدمات و پیش‌نویس پشتیبانی آزموده شد
+
+VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED —۱نوامبر: سه صفحهٔ خدمات TarazNet/Parag/Varianet با۱۵معیار، چهارGET معتبرTLS و۹مشاهدهٔ browser ثبت شد؛ پاراگ browser403 و mobile performance/CWV/portal/lead delivery نامعلوم. منبع خوداظهاری با کیفیت واقعی خدمت یا رتبه یکی نیست. `seo/competitor-services-2026-11-01.json` و brief فارسی مرجع‌اند.
+
+ID31 پشتیبانی شبکه فقط body: ورودی امن، نمونهٔ ساختگی، تفاوت پاسخ/رفع، توافق تغییر/بازیابی و پذیرش تحویل؛ پرش‌ها و CTA موجود.۴۱بلوک،۲۶browser،۳۷native جدید،۲۹/۲۷/۳۷رگرسیون مشترک و۱۳unit پاس؛ همهٔ state موقت staging بازگردانده شد. ابزار قدیمی scope را رد کرد. صفر URL/مقاله و production write؛ scope مستقل هشت runtime digest فعلی را محافظت و صفر فایل نصب می‌کند. رسید `qa/growth-2026-10-31/network-support-draft-and-migration.json`.
+
+NEXT: qualify immutable release/rehearsal با metadata0.2.1 موقت و restore دقیق fixture staging، سپس integration عادی CI/backup/checksum/drift و انتشار همین صفحه. packageهای قبلی را بازپخش نکنید. گزارش صبح LIVE_NOT_FINAL؛ rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED وnoindex/پرداخت/MyTel freeze پابرجا هستند.
+
+## HISTORICAL CHECKPOINT — اصلاح نقش schema روی live منتشر و تأیید شد
 
 **DEPLOYED —۱نوامبر،۰۲:۲۶ تهران:** metadata0.2.1 فقط Article چهارhub learn/lab/mikrotik/mtcna را حذف می‌کند؛ Article درس‌ها و متن/note/description/OG/title/H1/canonical/noindex حفظ شدند. [PR41](https://github.com/DashSaman/TehNet/pull/41)، CI41250290474؛ source live `6728ddd23ecda9ed9fd2178f22ba9330277da25d` و برابری payload/tool/7runtime guard با qualified source `c287a86783016164404ed2158f60ac7ce4a02656` تأیید شد. backup تازه/checksum/drift پاس؛ یک فایل و صفر سطر DB/محتوا، repeat apply بدون تغییر.
 
