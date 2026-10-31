@@ -8,7 +8,7 @@
 | رمز تاریخی | BLOCKED / validity unknown | متن حذف شد؛ rotation انجام نشده؛ حساب/وابستگی قابل‌تأیید نداریم. مقدار در Git/گزارش تکرار نشود. | بررسی مجاز/ارجاع به مالک، بدون آزمون ورود نامعلوم |
 | P2 تمرین تاریخچه | VERIFIED locally / NEEDS_APPROVAL for shared rewrite | v4 پس از merge:۲۰۹۰/۱۱۹۵blob، backup restore/main-tree equal/guard/unit؛ هیچ force-push. refهای جدید معمولی map را قدیمی می‌کنند. | فقط پیش از purge مصوب ref drift تازه بررسی شود؛ OCR/cache حدودش محفوظ |
 | P3 Origin | BLOCKED on valid route/OOB prerequisites | read-only با TLS روشن؛ مسیر بیرونی مبهم، OOB تأیید نشده؛ live network mutation صفر. | پیش‌نیاز معتبر/طرح محدود؛ به کار مستقل بعدی برو |
-| P4/P5 nonce/context/readiness | VERIFIED native preview / release pending |۶۴PHP+۴JS،۲۶component+۲۴native،۳synthetic cleanup و protected hash equal؛ دو page و۲hub فقط staged. | full-page/editor، live drift/backup/rollback و انتشار محدود مجاز |
+| P4/P5 nonce/context/readiness | VERIFIED native preview / release pending |۶۴PHP+۴JS،۲۶component+۲۴native،۳synthetic cleanup و protected hash equal؛ دو page و۲hub فقط staged. | editor/full-page و drift/backup/restore تأیید؛ بعد migration apply/repeat/rollback و انتشار محدود مجاز |
 | P6/P7 خدمات/محتوا/۱۰۰موضوع | READY after initial security triage | دو صفحه draft؛ پرتفوی۱۰۰موضوع و batch مقاله هنوز تکمیل نشده. | owner/intent/source map و بستهٔ کوچک مستند |
 | P8/P9 فنی/AI/انتقال | IN_PROGRESS overall; two scoped lessons merged | درس privacy/nonce/query و الزام guard در -SEO ادغام؛ source ledger/handoff/progress/dashboard و۷۱٪ حفظ. | baseline/provider research و اندازه‌گیری واقعی بعدی، بدون ادعای rank/citation |
 | P10 تحویل صبح | LIVE draft, NOT FINAL | docs/reports/MORNING_HANDOFF_2026-11-01.fa.md با آزمون/شکست/گیت واقعی ساخته شد؛ runner ACTIVE. | نزدیک موعد۰۸:۰۰ نتیجه/remaining/remote را نهایی کن |
@@ -48,3 +48,9 @@ OCR آفلاین۱۳۵ مسیر raster جاری و۱۴۳ تصویر تاریخی
 ## checkpoint ادغام مرکزی و شروع گام بعد
 
 درس native در -SEO PR3 و الزام check در PR4 ادغام شدند؛ آخرین main مرکزی c3b3431، CI هر دو موفق. PR4 از همان سیاست الزامی جدید عبور کرد و هیچ bypass انجام نشد. TehNet source0fbf6e8 روی PR34 draft باقی است؛ deployment باز. گزارش زنده/صف اکنون روی full-page/editor و qualification انتشار تمرکز دارد؛ IDsِ clone نباید در تولید بازپخش شوند. پس از آن، پرتفوی۱۰۰موضوع/مقاله و baseline رقابتی/AI ادامه یابد.
+
+## checkpoint پذیرش editor و recovery —۳۱اکتبر،۲۳:۲۹تهران
+
+DONE/VERIFIED — دو full-page desktop/mobile،۵۶ nested block معتبر، unsaved edit/reset و cleanup کاربر/قفل با fingerprint برابر. preflight خواندنی live۶فایل/۲hub/path پاس؛ main هنوزc05bd38. Backup تازه و checksum، restore۱۰٬۰۱۶فایل/۴۷جدول، boot بومی ایزوله و cleanup دو container/network پاس؛ سرویس‌ها و دادهٔ قبلی ثابت. هیچ release محتوایی/کدی production انجام نشد. خطاهای timeout/normalization/auto-draft/CRLF و توقف فقط worker استخراج متعلق به آزمون در سند جدید ثبت شدند. شواهد عمومی `editor-verification.json`، `production-preflight.json`، `production-recovery.json`؛ اصل/raw خصوصی.
+
+IN_PROGRESS — release محدود اکنون به migration idempotent با journal، تست apply/repeat/rollback و smoke نیاز دارد؛ این گیت کار اجرایی است، نه درخواست تأیید تازه. شش مسیر source مجازند؛۴۱فایل clone را live کپی نکن. قبل از apply، تازگی backup و drift دوباره سنجیده شوند. پس از این بسته، پرتفوی۱۰۰موضوع/تحقیق/مقالات و انتقال درس بعدی به -SEO ادامه یابد. تاریخچه/rotation/Origin گیت‌های مستقل بازند؛ MyTel read-only. گزارش صبح هنوز نهایی نیست.

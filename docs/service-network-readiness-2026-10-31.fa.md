@@ -2,6 +2,8 @@
 
 وضعیت: **کد و دو صفحه در preview خصوصی پذیرفته شده‌اند؛ production تغییر نکرده است.** شاخه `feat/tehnet-mytel-seo-20261031` و [PR34](https://github.com/DashSaman/TehNet/pull/34) محل بازبینی‌اند.
 
+Checkpoint تازه‌تر: [پذیرش editor و آمادگی release](editor-release-acceptance-2026-10-31.fa.md). مرور کامل desktop/mobile و۵۶ بلوک معتبر گوتنبرگ با edit/reset بدون ذخیره تأیید شدند؛ دادهٔ قبلی بعد از cleanup ثابت ماند. preflight خواندنی live برای۶فایل/۲hub/path نیز پاس شد. بندهای پایین سابقهٔ آزمون پیشین را نگه می‌دارند؛ migration/release production هنوز انجام نشده است.
+
 ## تغییر قابل استفاده
 
 - nonce تیکت و B2B داخل HTML بازگشتی همان form قرار می‌گیرد. اعتبارسنجی، throttle و private بودن رکوردها حفظ شده‌اند.

@@ -69,8 +69,10 @@ Files: `site/plugins/tehnet-store/includes/class-{tickets,quotes}.php`, `site/mu
 
 - [x] تست‌های PHP مربوط را با mbstringِ runtime موجود اجرا و نتیجهٔ واقعی ذخیره کن؛ برای فقط کمبود extension کد را تغییر نده.
 - [x] browser contract برای unknown/ready/issue/na، چند نمونه، export measured:false، reset/focus، no-JS و موبایل۳۷۵px بنویس؛ نبود/شکست واقعی را قبل از اصلاح ثبت کن.
-- [ ] clone داخلیِ موجود را با identity و mail/HTTP/cron/payment guard بررسی کن؛ DB tmpfs آن را restart/reset نکن. فقط فایل‌های allowlist و محتوای همین بسته با backup خصوصی تغییر کنند.
-- [ ] parse/serialize بلوک‌ها، parent/slug، یک H1، canonical/noindex، CTA و nonce در FormData و POST context را با مشتری synthetic در clone بررسی کن.
+- [x] clone داخلیِ موجود را با identity و mail/HTTP/cron/payment guard بررسی کن؛ DB tmpfs آن را restart/reset نکن. فقط فایل‌های allowlist و محتوای همین بسته با backup خصوصی تغییر کنند.
+- [x] parse/serialize بلوک‌ها، parent/slug، یک H1، canonical/noindex، CTA و nonce در FormData و POST context را با مشتری synthetic در clone بررسی کن.
+- [x] full-page desktop/mobile و گوتنبرگ واقعی:۵۶بلوک معتبر، unsaved edit/reset، cleanup کاربر/قفل و برابری دادهٔ قبلی؛ production drift gate خواندنی۶فایلی پاس شد. `docs/editor-release-acceptance-2026-10-31.fa.md` و رسیدها مرجع‌اند.
+- [x] backup تازه با checksum و restore جدا:۱۰٬۰۱۶فایل/۴۷جدول و native boot، cleanup و invariants پاس؛ WordPress/SQL فقط، نه Origin/OOB.
 - [ ] فقط بعد از backup/checksum/drift/rollback و گیت مجاز انتشار، release سریالی و public smoke انجام بده؛ تغییر محلی را deployed نام نزن.
 
 ### P6/P7 — مالکیت intent، خدمات و محتوا
@@ -105,4 +107,4 @@ Heartbeat موجود `automation-2` هر نیم‌ساعت در همین گفت�
 
 تا۲۳:۰۰: P0–P3 و شروع بستهٔ فرم/ابزار؛۲۳–۰۱: staging و اصلاح UX؛۰۱–۰۴: خدمات/محتوای مستند و نقشهٔ موضوعات؛۰۴–۰۶: سئو/رقابت/انتقال دانش؛۰۶–۰۷:۳۰: regression و releaseهای واجد گیت؛۰۷:۳۰–۰۸:۰۰: گزارش. اگر امنیت طول بکشد، این بازه‌ها با ثبت علت جابه‌جا شوند و کیفیت/گیت‌ها حذف نشوند.
 
-Checkpoint clarification: completed boxes refer to the scoped results in the progress log; full remote purge/media/credential/Origin acceptance remains open. PHP/browser results are local only.
+Checkpoint clarification: completed boxes refer to the scoped results in the progress log. Remote purge/credential/Origin acceptance remains open; OCR has bounded completed evidence. PHP/component/native-preview/editor acceptance is not a production deployment. Check the latest progress entry before repeating a dated task.

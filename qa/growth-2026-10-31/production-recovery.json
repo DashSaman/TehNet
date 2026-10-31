@@ -1,0 +1,32 @@
+{
+  "observed_utc": "2026-10-31T19:58:27.339799+00:00",
+  "scope": "Fresh private production backup restored to new isolated resources; existing preview untouched",
+  "archive_checksums_verified": true,
+  "restored_file_bytes_verified_before_configuration": 10016,
+  "business_tables": 47,
+  "restored_business_tables_match": true,
+  "native_recovered_wordpress_boot": {
+    "home_is_local": true,
+    "staging": true,
+    "noindex": true,
+    "mail_blocked": true,
+    "http_blocked": true,
+    "payments_blocked": true,
+    "cron_disabled": true,
+    "products": 25,
+    "purchasable": 0
+  },
+  "production_business_tables_unchanged": true,
+  "existing_runtime_id_start_network_port_unchanged": true,
+  "disposable_resources_removed": 2,
+  "isolated_network_removed": true,
+  "status": "VERIFIED",
+  "production_application_or_configuration_changes": 0,
+  "limits": [
+    "Recovery covers WordPress files and SQL; compose/nginx/SSH/DNS/Origin/network-policy recovery and OOB are not certified.",
+    "Backup and raw restored data remain private. A fresh drift/backup gate is required at actual deployment time.",
+    "Initial extraction was stopped by exact owned-process digest after repeated gzip seeks proved unsuitable; no restore containers existed at that stop. The first partial copy and backup were retained privately.",
+    "The completed attempt used one-pass archive extraction, per-file content hash comparison, disk reserve guard, isolated database import, native WordPress boot and owned-resource cleanup.",
+    "No content release, live payment, credential rotation or shared-history rewrite occurred."
+  ]
+}

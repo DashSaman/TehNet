@@ -1,6 +1,6 @@
 # تحویل صبح TehNet × MyTel × SEO —۱نوامبر۲۰۲۶
 
-**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-10-31 22:53 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
+**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-10-31 23:29 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
 
 ## ۱. امنیت — گیت‌های باز مقدم‌اند
 
@@ -24,7 +24,7 @@ main دو مخزن عمومی اکنون PR و check واقعیِ `tracked-file-
 
 ابزار۸پرسشی دستی، summary، reset/focus، دانلودJSON محلی، چند نمونه مستقل و no-JS در MU-plugin موجود افزوده شد. اندازه‌گیری/score/تضمین آمادگی نیست. دو صفحهٔ ویرایش‌پذیر خدمات و Lab و append محدود Services/Lab **فقط در preview خصوصی** ذخیره شدند. خانه/منو/محصولات ثابت ماندند؛ preview موجود restart/reset نشد. قبل از sync محدود، SQL/فایل‌ها backup و هویت/internal network/mail/HTTP/cron/payment guard تأیید شدند.
 
-**production این بسته تغییر نکرده است.** review کاملِ visual/editor و qualification تازهٔ live drift، backup/restore و rollback هنوز لازم‌اند. sync۴۱فایلیِ clone مجوز sync کامل به تولید نیست.۲۵ محصول inquiry-only، noindex عمدی و درگاه/ERP واقعی بسته ماندند؛ MyTel production فقط خوانده شد.
+**production این بسته تغییر نکرده است.** visual/editor، drift خواندنی و backup/restore تازه تأیید شدند؛ migration idempotent با journal و پذیرش apply/repeat/rollback و release هنوز لازم‌اند. sync۴۱فایلیِ clone مجوز sync کامل به تولید نیست.۲۵ محصول inquiry-only، noindex عمدی و درگاه/ERP واقعی بسته ماندند؛ MyTel production فقط خوانده شد.
 
 ## ۳. محتوا، سئو و رقابت
 
@@ -41,7 +41,9 @@ main دو مخزن عمومی اکنون PR و check واقعیِ `tracked-file-
 | browser مؤلفه |۲۶پاس/۰fail | desktop/mobile، keyboard، export/reset، دو نمونه، no-JS، بدون egress/storage |
 | native browser/HTTP |۲۴پاس/۰fail نهایی | clone WordPress، status/H1/canonical/noindex، nonce/FormData، POST مثبت/منفی |
 | backend native |۲تیکت+۱B2B private تأیید و۳cleanup | context صحیح/رد آرایه/qty2.5؛ nonce بد۰record؛ دادهٔ قبلی ثابت |
-| staging |۲۰PHP lint،۴۱block roundtrip،۵link200 | repeat محتوا۰تغییر؛ editor-browser/full-page review هنوز کامل نیست |
+| staging |۲۰PHP lint،۴۱block roundtrip،۵link200 | repeat محتوا۰تغییر؛ پذیرش editor تازه در ردیف بعد |
+| full-page/editor |۲صفحه desktop/mobile،۵۶بلوک معتبر، edit/reset بدون ذخیره |۰page error،۰Save؛ cleanup و fingerprint اصلی برابر |
+| recovery تازه |۱۰٬۰۱۶فایل و۴۷جدول تطبیق؛ native boot پاس | شبکه داخلی/بدون پورت،۰egress/mail/payment؛۲container و network موقت حذف؛ runtime/data قبلی ثابت |
 | guard |۹test درهرمخزن و CI مربوط پاس؛ اسکن خصوصی ترکیبی پاک | محافظ محدود؛ «همهٔ secretها غایب‌اند» نتیجه نمی‌شود |
 
 شکست‌های ثبت‌شده: regression اولیهٔ nonce۷FAIL؛ query regression۱۹check/۳FAIL و پس از اصلاح۱۹/۰؛ native اولیه به404/timeout برخورد کرد و۰رکورد ساخته بود. تمرینv3 روی gate برابری tree، به‌دلیل طبقه‌بندی تماس عمومی متوقف شد و scope اصلاح شد. checkout ویندوز روی طول مسیر شکست خورد؛ کپی ناقص حفظ و کپی تازه با تنظیم فقط همان فرمان ساخته شد. helper journal مسیر host/container را اشتباه گرفته بود؛ backup کامل موجود ماند و نوشتن/کپی/تأیید journal اصلاح شد. helper تشخیصی یک shadow نام ماژول داشت و OCR probe ابتدا generic-type reflection را پیدا نکرد؛ هر دو اصلاح و probe سپس پاس شد. protection PUT اول422 schema داد؛ پاسخ بررسی، گیت تازه و checks-only پذیرفته شد. هیچ‌کدام permission bypass یا دلیلِ ادعای موفقیتِ پیش از آزمون نیست.
@@ -54,15 +56,21 @@ main دو مخزن عمومی اکنون PR و check واقعیِ `tracked-file-
 
 منابع۳گانهٔ WordPress و receipt immutable، playbook تداخل query/nonce، source ledger، handoff/progress/dashboard به -SEO منتقل شدند؛ private MyTel metrics/مشتری/نشانی منتقل نشد. baseline مرکزی همچنان۷۱٪ است. update protection یک منبع رسمی GitHub و scope/settings/failure را نیز ثبت کرده است. مدل/ارائه‌دهندهٔ استفاده‌نشده ادعا نمی‌شود؛ در این اجرای ادامه، GLM یا دستیار تازه فراخوانی نشد.
 
-این گزارش و آخرین receiptها پیش از آخرین commit ممکن است تغییرِ مستنداتیِ درحال ثبت باشند؛ وضعیت دقیق با `git status --short` و remote SHA reconcile شود. تغییرات source تا0fbf6e8 push و remote تأیید شده‌اند.
+این گزارش و آخرین receiptها پیش از آخرین commit ممکن است تغییرِ مستنداتیِ درحال ثبت باشند؛ وضعیت دقیق با `git status --short` و remote SHA reconcile شود. تغییرات source تا0fbf6e8 و checkpoint مستنداتی1acad88 push و remote تأیید شده‌اند؛ پذیرش editor/recovery تازه نیز در همین شاخه ثبت می‌شود.
 
 ## ۶. ادامهٔ شب و تصمیم‌های لازم
 
 Heartbeat موجود **ACTIVE** و محدود تا۰۸:۰۰ تهران است؛ کارکرد محلی به رایانهٔ روشن/آنلاین/خارج از Sleep و Codex باز وابسته است. runner دائمی مستقل نصب نشده است. نوبت بعد از `docs/overnight-progress-2026-10-31.fa.md` و برنامه شروع کند، کارهای موفق را بی‌دلیل تکرار نکند و deployment موازی نسازد.
 
 ۱. آخرین checkpoint/CI و remote SHA را reconcile کن؛ PR4 مرکزی ادغام شده است. هیچ رمز/نشانی/raw capture وارد Git نشود و صرفاً به‌دلیل تغییر refهای معمول، purge محلی را بی‌هدف تکرار نکن.
-۲. full-page visual و editor reviewِ دو صفحه در preview موجود، سپس drift تازهٔ production/main و بستهٔ release محدود با backup/restore/journal/rollback. ID صفحهٔ جدیدِ clone روی live استفاده نشود؛ parent/path و journal همان محیط معیارند. در صورت گیت واقعی، آن را دقیق ثبت و به کار مستقل بعدی برو.
+۲. visual/editor و preflight خواندنی/restore اکنون تأیید شده‌اند؛ migration محدود با journal و آزمون apply/repeat/rollback را پیاده و سپس release واجد گیت انجام بده. ID صفحهٔ جدیدِ clone روی live استفاده نشود؛ parent/path و journal همان محیط معیارند. در صورت گیت واقعی، آن را دقیق ثبت و به کار مستقل بعدی برو.
 ۳. مالکیت intent و۱۰۰موضوع متمایزِ دارای منبع/وضعیت تحقیق، بهبود خدمات موجود و batch کوچک مقالهٔ واقعاً مستند را ادامه بده؛ draft را منتشرشده نشمار.
 ۴. baseline فنی/AI و رقبا را با منبع/محدودیت و دسترسی واقعی تکمیل و درس هر milestone را به -SEO برگردان.
 ۵. purge مشترک تاریخچه، account rotation نامعلوم، Origin مشترک بدون OOB، بازکردن index و پرداخت واقعی گیت‌های جدا هستند؛ تأیید ضمنی ساخته نشود. CAD/MPN نامطمئن BLOCKED همان قلم بماند.
 ۶. نزدیک۰۷:۳۰ feature بزرگ تازه شروع نکن؛ QA/reconcile این گزارش و شمار کارهای واقعاً live/remaining را نهایی کن. اگر نوبت نهایی اجرا نشد، همین فایل صریحاً checkpoint ناتمام می‌ماند.
+
+### شواهد تکمیلی checkpoint۲۳:۲۹
+
+`docs/editor-release-acceptance-2026-10-31.fa.md` و سه receipt جدید جزئیات و حدود را نگه می‌دارند. ویرایش گوتنبرگ بدون Save بود؛ مقایسهٔ اولیهٔ raw markup با serialization خطای assertion داشت، سپس semantic block roundtrip و fingerprint DB ملاک شد. ورود اول به dashboard auto-draft ساخته بود؛ فقط ردیف‌های همان آزمون پس از تطبیق با SQL baseline پاک و hash اصلی برگشت. timeout فایل editor با پاسخ200/byte برابر و دریافت کامل از تونل بررسی شد؛ cache همان byteهای عمومی به‌کار رفت، نه ادعای performance.
+
+در backup، script موجود پس از رفع فرض نادرست دربارهٔ ExecStart و تطبیق کامل LF با CRLF تأیید شد؛ هیچ script/واحد سرور تعویض نشد. syntax error helper قبل از SSH متوقف شد. استخراج اول به seek تکراری gzip مبتلا بود؛ فقط worker با digest دقیق متوقف، backup/کپی ناقص حفظ و اجرای streaming نهایی موفق شد. این مشکلات ابزار QA بودند؛ سایت/مشتری/سرویس‌های قبلی تغییر نکردند. گیت‌های تاریخچه، رمز UNKNOWN و Origin/OOB همچنان باز و گزارش هنوز LIVE است.
