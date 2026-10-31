@@ -9,8 +9,8 @@
 | P2 تمرین تاریخچه | VERIFIED locally / NEEDS_APPROVAL for shared rewrite | v4 پس از merge:۲۰۹۰/۱۱۹۵blob، backup restore/main-tree equal/guard/unit؛ هیچ force-push. refهای جدید معمولی map را قدیمی می‌کنند. | فقط پیش از purge مصوب ref drift تازه بررسی شود؛ OCR/cache حدودش محفوظ |
 | P3 Origin | BLOCKED on valid route/OOB prerequisites | read-only با TLS روشن؛ مسیر بیرونی مبهم، OOB تأیید نشده؛ live network mutation صفر. | پیش‌نیاز معتبر/طرح محدود؛ به کار مستقل بعدی برو |
 | P4/P5 nonce/context/readiness | DEPLOYED | PR34/main ac506f1؛ backup/checksum/drift تازه،۶فایل/۲صفحه/۲hub؛۸HTTP و۲۵browser عمومی پاس، noindex/commerce/data ثابت. | release را تکرار نکن؛ intent و پرتفوی محتوا گام بعد |
-| P6/P7 خدمات/محتوا/۱۰۰موضوع | VERIFIED_INVENTORY_ONLY / article batch IN_PROGRESS |۱۰۰کار/۲۰خوشه/۳۵منبع با عمق مشخص؛۳۳سطر روی۱۳مقصد موجود،۶۷سطر روی۱۴گروه پیشنهادی؛۲۰کنترل پاس؛ مقالهٔ تازه۰. | deep review و بهبود درس موجود RouterOS؛ research/market/command gates باز |
-| P8/P9 فنی/AI/انتقال | IN_PROGRESS overall; two scoped lessons merged | درس privacy/nonce/query و الزام guard در -SEO ادغام؛ source ledger/handoff/progress/dashboard و۷۱٪ حفظ. | baseline/provider research و اندازه‌گیری واقعی بعدی، بدون ادعای rank/citation |
+| P6/P7 خدمات/محتوا/۱۰۰موضوع | Inventory VERIFIED; two existing lessons DEPLOYED; broader batch IN_PROGRESS |100job/20cluster با حد شاهد؛ دو درس62/64 با پذیرش جدا منتشر، مقالهٔ تازه0؛ RouterOS lab NOT_RUN. | UX/SEO و رقابت مستند بعدی؛ market/lab/measurement gates باز |
+| P8/P9 فنی/AI/انتقال | IN_PROGRESS overall; measured delivery receipts transferred | درس privacy/nonce/query و الزام guard در -SEO ادغام؛ source ledger/handoff/progress/dashboard و۷۱٪ حفظ. | baseline/provider research و اندازه‌گیری واقعی بعدی، بدون ادعای rank/citation |
 | P10 تحویل صبح | LIVE draft, NOT FINAL | docs/reports/MORNING_HANDOFF_2026-11-01.fa.md با آزمون/شکست/گیت واقعی ساخته شد؛ runner ACTIVE. | نزدیک موعد۰۸:۰۰ نتیجه/remaining/remote را نهایی کن |
 
 ## checkpoint آغاز
@@ -120,3 +120,13 @@ NEXT: bundle immutable از همین منبع و rehearsal check/apply/repeat/ro
 rehearsal immutable source `4becf1692f838bba5cdb47f3bc5fade6c0459f1c` در staging بومی: check/apply/repeat/rollback/repeat، رد دستکاری payload/metadata و4HTTP پاس؛ posts/meta/users و runtime دقیقاً بازیابی شدند. رسید `qa/growth-2026-10-31/routing-release-rehearsal.json`. RouterOS lab اجرا نشده؛ یک درس موجود، نه پنج مقالهٔ تازه.
 
 NEXT: PR/CI عادی همین source، snapshot خصوصی قبل از integration، verify برابری bundle با منبع آزموده، backup/checksum/drift تازه؛ سپس انتشار فقط body64 و پذیرش HTTPS/مرورگر/دادهٔ محافظت‌شده. این درس هنوز DEPLOYED نیست. درس62 و P4 را بازپخش نکنید. noindex/پرداخت/MyTel freeze و گیت‌های rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED برقرارند.
+
+## checkpoint انتشار مسیریابی —۱نوامبر،۰۱:۵۹ تهران
+
+## CURRENT — مسیریابی روی سایت منتشر و تأیید شد
+
+**DEPLOYED —۱نوامبر،۰۱:۵۷ تهران:** [درس موجود مسیریابی](https://tehnet.ir/learn/mikrotik/mtcna/static-routing/) با همان ID64/URL/Title و فقط body/تاریخ واقعی تغییر به‌روزرسانی شد. [PR39](https://github.com/DashSaman/TehNet/pull/39)، required CI41248197017؛ source live `e2dcf87e3c20ca9919829000d239bd62e3ff3723` و برابری payload/tool/7runtime guard با source qualify‌شده `4becf1692f838bba5cdb47f3bc5fade6c0459f1c` تأیید شد. backup تازه/checksum/drift پیش‌وپس پاس؛ صفر runtime file، یک درس موجود، صفر مقاله/URL جدید؛ repeat بدون تغییر.
+
+پذیرش واقعی:56بلوک/21browser staging و16GET لینک؛29native +27regression درس62 +37خدمات +10unit operator؛ rehearsal کامل و رد tamper؛ سپس9HTTPS عمومی و35browser دسکتاپ/موبایل/no-JS با یکH1/canonical/noindex/timestamp واقعی، بدون overflow/page error/POST. mobile screenshot staging وlive دیده شد؛ desktop فقط کنترل خودکار است. خانه/منو/دادهٔ محافظت‌شده/runtime ثابت؛25کالا/قابل‌خرید0، ERP/sandbox false وMyTel write0. RouterOS اجرا نشده و در مقاله روشن است. رسید: `qa/growth-2026-10-31/routing-production-release.json`؛ brief: `seo/editorial-static-routing-2026-11-01.fa.md`.
+
+تا این checkpoint، دو درس62 و64 بهبود یافته‌اند؛ پرتفوی100موضوع هنوز فهرست کاندیدا و شاهد محدود بازار است، نه100مقاله. NEXT: audit خواندنی و محدود UX/SEO مسیرهای موجود، یک اصلاح اثبات‌شده با qualification، و مقایسهٔ مستند TarazNet؛ MyTel فقط پیشنهاد قابل بازبینی. درس‌ها/P4 یا inventory را بازپخش نکنید. گزارش صبح هنوز LIVE_NOT_FINAL است. rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED و noindex/پرداخت/MyTel freeze حفظ می‌شوند.
