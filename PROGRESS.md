@@ -1,10 +1,10 @@
-## CURRENT — audit فنی انجام شد؛ اصلاح schema در qualification
+## CURRENT — اصلاح metadata در staging qualify شد؛ production هنوز انجام نشده
 
-73پاسخ GET عمومی/68HTML200 شامل25کالا بررسی شد؛ H1/canonical/robots/JSON syntax و attributeهای تصاویر در این دامنه پاس.16مشاهدهٔ مرورگر1440/375/320/no-JS برای4مسیر، منو/Escape/focus/navigation/skip-link و نبود overflow/page error پاس. نبود sitemap با noindex فعلی سازگار و گیت launch جداست. queryless graph حکم orphan ابزارها نیست؛ email-protection درJS به mailto تبدیل شد. شواهد `qa/growth-2026-10-31/technical-audit-and-metadata-role.json`؛8منبع رسمی scoped در `seo/technical-audit-2026-11-01.fa.md`.
+audit خواندنی73پاسخ/68HTML/25محصول و16حالت مرورگر ثبت شد؛ source note چهارhub به Article تعبیر می‌شد. اصلاح metadata0.2.1 فقط همین چهارpage را مستثنی می‌کند و درس‌های واقعی را حفظ می‌کند.56metadata unit پس از4FAIL واقعی،12operator unit و16native checker پاس.
 
-تنها اصلاح این بسته: چهارhub، فقط به‌دلیل source note نباید Article فرض شوند. چهارFAIL واقعی در regression قبل از اصلاح؛ سپس56metadata unit،12operator unit و16native checker پاس. فایل metadata0.2.1 محلی است؛ **هنوز روی staging نصب/در production منتشر نشده**. scope یک‌فایلی مستقل با checker فقط‌خواندنی،7runtime guard و rollback فایل اضافه شد؛ content migration استفاده نمی‌شود.
+scope تک‌فایلی `tehnet-metadata-role-20261101-v1`، source qualify‌شده `c287a86783016164404ed2158f60ac7ce4a02656`: check/apply/repeat،8native HTTP و188browser desktop/mobile/no-JS، سپس rollback/repeat پاس. فقط4Article هاب حذف؛ main text/other metadata/lesson Article برابر baseline. اصل فایل وposts/meta/users وruntime بازیابی/حفظ؛ DB write0. tamper payload/metadata رد. رسید `qa/growth-2026-10-31/metadata-role-release-rehearsal.json`.
 
-NEXT همین بسته: immutable bundle → apply/repeat در staging با backup/hash/identity/isolation → پذیرش native HTTP/مرورگر → rollback/repeat و برابری داده/runtime؛ سپس PR/CI عادی، snapshot، backup/checksum/drift تازه و انتشار فقط همین فایل. درس62/64/P4 را بازپخش نکنید. noindex/پرداخت/MyTel freeze و rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED برقرارند. گزارش صبح هنوز interim است.
+NEXT: PR/CI عادی، snapshot قبل از integration، bundle برابر همین payload/tool و7runtime guard، backup/checksum/drift تازه و انتشار فقط فایل metadata؛ سپس13GET وپذیرش browser واقعی. هنوز DEPLOYED نیست. noindex/صفحات/منو/محصولات/MyTel تغییر نکنند و درس62/64/P4 بازپخش نشوند. پس از این بسته، مقایسهٔ مستند TarazNet و گپ‌های خدمات/محتوای بعدی. rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED وگزارش صبح interim برقرارند.
 
 ## HISTORICAL CHECKPOINT — مسیریابی روی سایت منتشر و تأیید شد
 

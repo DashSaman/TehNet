@@ -1,6 +1,6 @@
 # بازبینی محدود UX و SEO فنی —۱نوامبر۲۰۲۶
 
-وضعیت: **AUDIT_VERIFIED؛ اصلاح schema محلی و مسیر انتشار در حال qualification؛ هنوز DEPLOYED نیست**. [رسید](../qa/growth-2026-10-31/technical-audit-and-metadata-role.json) دامنهٔ واقعی را ثبت می‌کند.
+وضعیت: **AUDIT_VERIFIED؛ اصلاح schema و مسیر تک‌فایلی VERIFIED_FOR_RELEASE؛ هنوز DEPLOYED نیست**. [رسید](../qa/growth-2026-10-31/technical-audit-and-metadata-role.json) دامنهٔ واقعی را ثبت می‌کند.
 
 ## روش و مشاهده
 
@@ -36,3 +36,8 @@
 ایمیل پروفایل در سه عرض مرورگرِ JS به mailto تبدیل شد؛ در no-JS، وابستگی به obfuscation باقی است. جایگزین‌های عمومی تماس موجودند. Cloudflare یا نشانی ارتباطی تغییر نکرد و هیچ ایمیلی ارسال نشد. sitemap/index launch نیز گیت جدا دارد؛ noindex موجود حفظ می‌شود.
 
 محدودیت‌ها: نه GSC/URL Inspection/Rich Results Test اجرا شده، نه هویت واقعی Googlebot/Bingbot/AI یا کیفیت میدانِ CWV/شبکهٔ ایران اندازه‌گیری شده است. گزارش حاضر جای بررسی رقبا،120فروشگاه، مجوز CAD یا بررسی تجاری25کالا را نمی‌گیرد. MyTel production فقط خواندنی و بدون تغییر است.
+
+
+## پذیرش staging
+
+source c287a86 در staging بومی با backup/checksum و drift اعمال شد؛8مسیر HTTP فقط حذف4Article را با برابری متن و سایرmetadata نشان دادند.188کنترل browser دسکتاپ/موبایل/no-JS پاس؛ سپس rollback/repeat اصل فایل را برگرداند و داده/runtime برابر ماند. DB write0؛ production هنوز انجام نشده. رسید rehearsal checkpoint مستقل است و audit اولیه را به‌عنوان دادهٔ «بعد از اصلاح» بازنویسی نمی‌کند.

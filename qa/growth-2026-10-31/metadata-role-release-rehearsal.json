@@ -1,0 +1,332 @@
+{
+  "scope": "One metadata file; no database/content migration",
+  "source_commit": "c287a86783016164404ed2158f60ac7ce4a02656",
+  "observed_utc": "2026-10-31T22:52:14.502135+00:00",
+  "results": [
+    {
+      "operation": "check",
+      "status": "READY",
+      "files_pending": 1,
+      "content": {
+        "status": "READY",
+        "pages_pending": 0,
+        "hubs_pending": 0,
+        "pages_created": 0,
+        "hubs_updated": 0,
+        "hubs_restored": 0,
+        "pages_drafted": 0,
+        "protected_digest": "d8e7fe9cf942ee221b8785d1dd026ccc5ee18406ebee8682c77f5a5aeb0d767d",
+        "protected_state_unchanged": true,
+        "database_rows_written": 0
+      }
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "files_changed": 1,
+      "content": {
+        "status": "APPLIED",
+        "pages_pending": 0,
+        "hubs_pending": 0,
+        "pages_created": 0,
+        "hubs_updated": 0,
+        "hubs_restored": 0,
+        "pages_drafted": 0,
+        "protected_digest": "d8e7fe9cf942ee221b8785d1dd026ccc5ee18406ebee8682c77f5a5aeb0d767d",
+        "protected_state_unchanged": true,
+        "database_rows_written": 0
+      }
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "files_changed": 0,
+      "content": {
+        "status": "APPLIED",
+        "pages_pending": 0,
+        "hubs_pending": 0,
+        "pages_created": 0,
+        "hubs_updated": 0,
+        "hubs_restored": 0,
+        "pages_drafted": 0,
+        "protected_digest": "d8e7fe9cf942ee221b8785d1dd026ccc5ee18406ebee8682c77f5a5aeb0d767d",
+        "protected_state_unchanged": true,
+        "database_rows_written": 0
+      }
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "files_restored": 1,
+      "content": {
+        "status": "ROLLED_BACK",
+        "pages_pending": 0,
+        "hubs_pending": 0,
+        "pages_created": 0,
+        "hubs_updated": 0,
+        "hubs_restored": 0,
+        "pages_drafted": 0,
+        "protected_digest": "d8e7fe9cf942ee221b8785d1dd026ccc5ee18406ebee8682c77f5a5aeb0d767d",
+        "protected_state_unchanged": true,
+        "database_rows_written": 0
+      }
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "files_restored": 1,
+      "content": {
+        "status": "ROLLED_BACK",
+        "pages_pending": 0,
+        "hubs_pending": 0,
+        "pages_created": 0,
+        "hubs_updated": 0,
+        "hubs_restored": 0,
+        "pages_drafted": 0,
+        "protected_digest": "d8e7fe9cf942ee221b8785d1dd026ccc5ee18406ebee8682c77f5a5aeb0d767d",
+        "protected_state_unchanged": true,
+        "database_rows_written": 0
+      }
+    }
+  ],
+  "production_mutations": 0,
+  "tampered_payload_refused": true,
+  "tampered_metadata_refused": true,
+  "native_http_routes": 8,
+  "only_four_hub_article_nodes_removed": true,
+  "visible_main_and_other_metadata_unchanged": true,
+  "protected_rows_unchanged_after_apply": true,
+  "existing_runtime_unchanged_after_apply": true,
+  "status": "VERIFIED",
+  "original_posts_meta_users_exactly_retained": true,
+  "existing_runtime_unchanged": true,
+  "backup_checksum_verified": true,
+  "exact_original_metadata_file_restored": true,
+  "browser": {
+    "status": "PASS",
+    "method": "Native/public page-role acceptance, real browser with normal TLS when HTTPS",
+    "checks": 188,
+    "observations": [
+      {
+        "route": "/learn/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/lab/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/routeros-winbox/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/static-routing/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/shop/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/lab/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/routeros-winbox/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/static-routing/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/shop/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/lab/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/routeros-winbox/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/static-routing/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/shop/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      }
+    ],
+    "page_errors": [],
+    "blocked_external_origins": 1,
+    "methods": [
+      "GET"
+    ],
+    "form_submissions": 0,
+    "limits": [
+      "Functional acceptance, not a Google rich-result/URL Inspection/SEO measurement"
+    ]
+  },
+  "completed_utc": "2026-10-31T22:53:07.665831+00:00",
+  "schema": 1,
+  "scope_key": "tehnet-metadata-role-20261101-v1",
+  "baseline_commit": "d01c7973d898ac626ac96f3d44ed5d0d167b4371",
+  "payload_members": {
+    "site/mu-plugins/tehnet-search-metadata.php": "3041c5701f96658c0cbb62d05774c59735cc961ed0217ed466b103111fc65e29",
+    "content/metadata-role-2026-11-01/manifest.json": "79ec8e8c7ad0992a073c46e9153a00db14113f3718bf9994f6a58cd7ea9f0c63",
+    "ops/check-metadata-state.php": "e2076973acf047b518c0a33b28875248685050c9abbab59633150b56c77dcf27"
+  },
+  "tool_sha256": "717fb3b2354006d8a7435301f03bdc58d1f59c138d0175f6a07ff9b5f1a3761c",
+  "managed_file_count": 1,
+  "runtime_guard_count": 7,
+  "production": "NOT_DEPLOYED",
+  "limits": [
+    "Native WordPress functional acceptance, not Rich Results Test/URL Inspection or ranking proof",
+    "One runtime metadata file changed; no business/content/database rows written",
+    "Rollback repeat may rewrite the same original bytes; only repeat apply is claimed to make zero file changes",
+    "Abrupt host loss was not fault-injected; ambiguous journals require reconciliation"
+  ]
+}
