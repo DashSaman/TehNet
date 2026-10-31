@@ -1,6 +1,6 @@
 # Local bundle path normalization and private failure evidence
 
-Status: IN_PROGRESS, local tooling only. No production or staging release is part of this unit.
+Status: VERIFIED_LOCAL_TOOLING. Windows18PASS/1SKIP, initial Linux CI19PASS; final Windows-only ACL followup has red/green evidence and requires fresh current-head CI before integration. No production/staging release is part of this unit. See the dated receipt for exact code/CI scope.
 
 The first support publication package stopped locally before native execution. A bounded reproduction now contrasts a269-character lexical relative output path containing `..` with its235-character resolved destination: relative packaging fails, absolute packaging succeeds, with the same immutable source/scope. Do not replay the completed support deployment.
 

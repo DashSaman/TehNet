@@ -1,6 +1,6 @@
 # تحویل صبح TehNet × MyTel × SEO —۱نوامبر۲۰۲۶
 
-**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 02:56 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
+**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 03:15 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
 
 ## ۱. امنیت — گیت‌های باز مقدم‌اند
 
@@ -195,3 +195,14 @@ DEPLOYED —۱نوامبر،۰۲:۵۴تهران: [پشتیبانی شبکه ته
 انتقال روش/ledger/topic/dashboard در [-SEO PR10](https://github.com/DashSaman/-SEO/pull/10) باCI41252616666 ادغام شد؛ main `9380cc1cdfb7f7a0d2bdb1f85437b87d7b924366`، baseline۷۱٪ وbacklog اصلی ثابت. NEXT: diagnostics خصوصیِ buildbundle محلی را بهبود بده (اولین build پیش از native متوقف، یک diagnostic کامل با checksum برابر موفق؛ علت نخست UNKNOWN). بعد تحقیق scoped برای درس موجود IP/DHCP/DNS، بدون ساخت صفحات هم‌نیت یا ادعای۱۰۰مقاله. انتشارها/مقایسه/پرتفوی قبلی بازپخش نشوند. گزارش صبح LIVE_NOT_FINAL؛ rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED وnoindex/پرداخت/MyTel freeze حفظ شوند.
 
 انتقال -SEO با PR10 وCI موفق ادغام شد؛ این بخش گزارش نهایی۰۸:۰۰ نیست. سقف بررسی سه صفحهٔ رقیب است، نه۱۲۰سایت؛ کیفیت تحویل واقعی، CWV واثر سئو اندازه‌گیری نشده. محدودیت build محلی در رسید ثبت شده؛ هیچ خرابی production یا rollback زنده رخ نداد.
+
+
+## ابزار انتشار محلی — followup پس از انتشار قبلی
+
+## CURRENT — گپ بسته‌سازی محلی رفع و شواهد خصوصی کامل شد
+
+VERIFIED_LOCAL_TOOLING —۱نوامبر: علتِ local build قبلی بازتولید شد؛ مسیر نسبیِ دارای `..` با طول269 شکست می‌خورد و مقصد resolve‌شده235 موفق بود. اکنون پیش از نوشتن مسیر نرمال می‌شود و خروجی موجود/لینک پذیرفته نمی‌شود. `--diagnostics-dir` اختیاری با ACL/owner محدود ویندوز یا mode محدود POSIX، بیرون `.git`/WordPress، trace را خصوصی و stdout را generic نگه می‌دارد؛ grant عمومیِ inherit-only نیز با تست قرمز سپس پاس رد شد. هیچ تنظیم OS/پوشهٔ شواهد واقعی تغییر نکرد.
+
+Windows19case:18PASS/1SKIP به‌علت مجوزsymlink؛ Linux PR45/CI41253477479:19PASS، شاملsymlink/POSIX. source نهایی ابزار `334cb2ccda9679218da8d2d05f0b34e8650deb63`؛ دو CLI bundle نسبی/مطلق، metadata و3member/tool/8guard برابر. `qa/growth-2026-10-31/bundle-path-diagnostics.json` و `ops/LOCAL_RELEASE_DIAGNOSTICS.md` مرجع‌اند. تغییر فقط tooling/CI است؛ صفر native/staging/production/MyTel write و انتشار قبلی بازپخش نشد. رسید قبلی UNKNOWN در زمان خود درست بود؛ این followup علت بازتولیدشده را روشن می‌کند. Windows ACL followup باید با CI head تازه ادغام شود.
+
+NEXT: انتقال addendum به -SEO، سپس تحقیق رسمی و brief متمایز برای درس موجود IP/DHCP/DNS؛ قبل از انتشار بعدی، ابزار جدید/محتوای جدید scope و rehearsal مستقل می‌خواهد. گزارش صبح LIVE_NOT_FINAL؛ rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED وnoindex/پرداخت/MyTel freeze حفظ شوند.

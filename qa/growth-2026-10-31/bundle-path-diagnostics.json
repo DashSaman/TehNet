@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_SCOPED_LOCAL_TOOLING",
+  "observed_utc": "2026-10-31T23:45:20.551775+00:00",
+  "code_source_commit": "334cb2ccda9679218da8d2d05f0b34e8650deb63",
+  "production_deployment": false,
+  "staging_mutations": 0,
+  "production_mutations": 0,
+  "mytel_writes": 0,
+  "root_cause": {
+    "status": "CONFIRMED_BY_CONTROLLED_REPRODUCTION",
+    "cause": "Unresolved relative output with parent-directory components crosses Windows relative-path limit before member I/O",
+    "baseline_source": "747d6781b5e6bf6b69773ccd7521f75707ffff0d",
+    "lexical_absolute_length": 269,
+    "resolved_absolute_length": 235,
+    "same_source_and_scope": true,
+    "before": {
+      "relative": "FileNotFoundError",
+      "absolute": "BUNDLED"
+    },
+    "after": {
+      "relative": "BUNDLED",
+      "absolute": "BUNDLED"
+    },
+    "scope_limit": "This local reproduction, not every possible bundle failure"
+  },
+  "tests": {
+    "windows": {
+      "total": 19,
+      "passed": 18,
+      "skipped": 1,
+      "skipped_case": "Symlink creation permission unavailable",
+      "relative_dot_path_red_before_fix": true,
+      "inherited_everyone_acl_red_before_fix": true,
+      "current_and_inherit_only_broad_acl_refused": true,
+      "owned_empty_acl_fixtures_revoked_after_tests": true,
+      "private_vault_acl_verified_without_mutation": true,
+      "synthetic_exception_only_in_private_log": true,
+      "real_cli_invalid_commit_expected_failure_logged_privately": true
+    },
+    "linux_ci": {
+      "source_commit": "f71a9438715483d6e54ea7c204e22c4d4bad7451",
+      "pr": 45,
+      "run_id": 41253477479,
+      "job_id": 124691645092,
+      "job": "release-operator-boundaries",
+      "total": 19,
+      "passed": 19,
+      "skipped": 0,
+      "log_summary_read": true,
+      "limit": "Final followup changes only Windows ACL checks/test cases; fresh current-head CI is required before its integration"
+    }
+  },
+  "immutable_bundles": {
+    "source_commit": "334cb2ccda9679218da8d2d05f0b34e8650deb63",
+    "relative_and_absolute_metadata_equal": true,
+    "members": 3,
+    "runtime_guards": 8,
+    "all_member_checksums_valid": true,
+    "committed_tool_checksum_valid": true,
+    "files_to_install": 0,
+    "executed_mode": "bundle only; no apply/check/rollback against native systems"
+  },
+  "diagnostics": {
+    "flag": "--diagnostics-dir",
+    "explicit_existing_absolute_directory_required": true,
+    "recognized_repository_and_webroot_markers": [
+      ".git",
+      "wp-config.php"
+    ],
+    "windows_permissions": "Current account/SYSTEM/Administrators owner and allow rules; OWNER RIGHTS only for an allowed owner, creator-owner inheritance only for newly owned logs; broad current and inherit-only grants refused",
+    "posix_permissions": "No group/other bits",
+    "stdout": "Status, phase, exception class and private-log-saved boolean only; no detail/path",
+    "trace": "New private file with restrictive permissions; no implicit diagnostics-directory creation",
+    "powershell_security_module_dependency": false
+  },
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation",
+      "reviewed": "2026-11-01",
+      "scope": "Relative MAX_PATH and extended prefix constraints"
+    },
+    {
+      "url": "https://docs.python.org/3.12/library/pathlib.html#pathlib.Path.resolve",
+      "reviewed": "2026-11-01",
+      "scope": "absolute() versus resolve(), parent components and symlinks; local Python3.12"
+    }
+  ],
+  "limits": [
+    "No change to OS registry, long-path settings, provider/authentication, DNS/origin/shared services or live credentials",
+    "Existing accepted site deployments were not replayed; installed production source remains unchanged",
+    "Windows junction creation not exercised; POSIX symlink exercised in Linux CI",
+    "Private raw traces/original partial packages remain outside Git",
+    "Historical production receipt truthfully recorded UNKNOWN at its checkpoint; this dated followup resolves the reproduced local cause"
+  ]
+}
