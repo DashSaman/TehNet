@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "status": "PUBLIC_BROWSER_PASS_UPDATED_NATIVE_RECHECK_PENDING",
+  "production_source": "4af1ff42ba2d427c9e7d55751b611f0a6cd4a5d4",
+  "observed_utc": "2026-11-01T03:08:27.065498+00:00",
+  "initial_public_failure": "Absolute scrollY equality sampled immediately after native image selection failed at1440.",
+  "actual_probe": {
+    "status": "OBSERVED",
+    "rows": [
+      {
+        "phase": "enter-immediate",
+        "scroll": 1,
+        "focusThumb": true,
+        "sliderAvailable": true,
+        "animating": false,
+        "currentSlide": 1,
+        "galleryHeight": 700.84375
+      },
+      {
+        "phase": "enter-settled",
+        "scroll": 15,
+        "focusThumb": true,
+        "sliderAvailable": true,
+        "animating": false,
+        "currentSlide": 1,
+        "galleryHeight": 707.796875
+      },
+      {
+        "phase": "space-before-down",
+        "scroll": 27,
+        "focusThumb": true,
+        "sliderAvailable": true,
+        "animating": false,
+        "currentSlide": 1,
+        "galleryHeight": 847.890625
+      },
+      {
+        "phase": "space-held-before-activation",
+        "scroll": 27,
+        "focusThumb": true,
+        "sliderAvailable": true,
+        "animating": false,
+        "currentSlide": 1,
+        "galleryHeight": 958.234375
+      },
+      {
+        "phase": "space-immediate-after-activation",
+        "scroll": 27,
+        "focusThumb": true,
+        "sliderAvailable": true,
+        "animating": false,
+        "currentSlide": 0,
+        "galleryHeight": 958.234375
+      },
+      {
+        "phase": "space-settled",
+        "scroll": 27,
+        "focusThumb": true,
+        "sliderAvailable": true,
+        "animating": false,
+        "currentSlide": 0,
+        "galleryHeight": 958.234375
+      }
+    ],
+    "server_mutations": 0
+  },
+  "finding": "Enter/image-selection changed gallery geometry and focus-scroll while active slide already updated. Held Space before keyup did not change page scroll or selected frame;native keyup activated the button. No application payload change was needed.",
+  "harness_change": "Wait for gallery-height/scroll stability,measure held Space before native keyup activation,then assert actual frame/current state. Keep all other keyboard/pointer/fullscreen/no-JS checks.",
+  "public_browser_checks_passed": 44,
+  "wrapper_failure": "After successful node run/receipt,the private Python summary tried obsolete metadata-browser observations/form_submissions keys;only summary formatting failed. Correct gallery receipt fields were then validated;no repeated node run inferred.",
+  "new_native_harness_confirmation": "PENDING_FRESH_SOURCE",
+  "server_mutations_from_browsers": 0,
+  "limits": [
+    "This is not new image/model/360 or a full accessibility/screen-reader/physical-device audit.",
+    "Old prepublication native44 results remain dated;updated harness must be separately confirmed in fresh-source native rehearsal."
+  ]
+}

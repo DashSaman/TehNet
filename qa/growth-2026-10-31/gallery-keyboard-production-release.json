@@ -1,0 +1,361 @@
+{
+  "observed_utc": "2026-11-01T03:02:37.851745+00:00",
+  "scope": "Three gallery runtime files;no database/content/product/media change",
+  "source_commit": "4af1ff42ba2d427c9e7d55751b611f0a6cd4a5d4",
+  "baseline_commit": "e4dc26baa15788c21fe7f3a56a8410af8f5bb1f2",
+  "status": "DEPLOYED_VERIFIED",
+  "check": {
+    "status": "READY",
+    "files_pending": 3,
+    "content": {
+      "status": "READY",
+      "pages_pending": 0,
+      "hubs_pending": 0,
+      "pages_created": 0,
+      "hubs_updated": 0,
+      "hubs_restored": 0,
+      "pages_drafted": 0,
+      "protected_digest": "c95a760a2f55ebcf91a0fa4ff29bbeb1f4be5d93eeeb944e9dc559804a2ec30a",
+      "protected_state_unchanged": true,
+      "database_rows_written": 0
+    }
+  },
+  "apply": {
+    "status": "APPLIED",
+    "files_changed": 3,
+    "content": {
+      "status": "APPLIED",
+      "pages_pending": 0,
+      "hubs_pending": 0,
+      "pages_created": 0,
+      "hubs_updated": 0,
+      "hubs_restored": 0,
+      "pages_drafted": 0,
+      "protected_digest": "c95a760a2f55ebcf91a0fa4ff29bbeb1f4be5d93eeeb944e9dc559804a2ec30a",
+      "protected_state_unchanged": true,
+      "database_rows_written": 0
+    }
+  },
+  "repeat": {
+    "status": "APPLIED",
+    "files_changed": 0,
+    "content": {
+      "status": "APPLIED",
+      "pages_pending": 0,
+      "hubs_pending": 0,
+      "pages_created": 0,
+      "hubs_updated": 0,
+      "hubs_restored": 0,
+      "pages_drafted": 0,
+      "protected_digest": "c95a760a2f55ebcf91a0fa4ff29bbeb1f4be5d93eeeb944e9dc559804a2ec30a",
+      "protected_state_unchanged": true,
+      "database_rows_written": 0
+    }
+  },
+  "http_smoke": [
+    {
+      "path": "/learn/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/lab/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/learn/mikrotik/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/learn/mikrotik/mtcna/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/learn/mikrotik/mtcna/routeros-winbox/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 1
+    },
+    {
+      "path": "/learn/mikrotik/mtcna/static-routing/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 1
+    },
+    {
+      "path": "/learn/mikrotik/mtcna/ip-dhcp-dns/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 1
+    },
+    {
+      "path": "/lab/voice-network-checklist/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 1,
+      "readiness_instance": true
+    },
+    {
+      "path": "/services/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/services/network-tehran/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/services/network-support-tehran/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/services/network-setup-tehran/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/services/mikrotik-tehran/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/services/remote-support/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/services/voice-network-readiness/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true
+    },
+    {
+      "path": "/shop/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true
+    },
+    {
+      "path": "/support/?tn_service_context=voice-network",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "nonce_inside_owning_form": true,
+      "network_context_preserved": true
+    },
+    {
+      "path": "/b2b/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "nonce_inside_owning_form": true
+    },
+    {
+      "path": "/product/tn-sn-17868/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "gallery_assets_present": true
+    }
+  ],
+  "all_25_original_image_price_inquiry_api_equal": true,
+  "product_only_asset_pages_checked": 25,
+  "public_asset_checks": [
+    {
+      "path": "/wp-content/plugins/tehnet-store/assets/product-gallery.js?ver=0.1.0",
+      "tls_verified": true,
+      "status": 200,
+      "sha256_matches_qualified_payload": true
+    },
+    {
+      "path": "/wp-content/plugins/tehnet-store/assets/product-gallery.css?ver=0.1.0",
+      "tls_verified": true,
+      "status": 200,
+      "sha256_matches_qualified_payload": true
+    }
+  ],
+  "commerce_indexing": {
+    "blog_public": "0",
+    "products": 25,
+    "purchasable": 0,
+    "erp_ready": false,
+    "sandbox_enabled": false
+  },
+  "existing_runtime_unchanged": true,
+  "protected_state_unchanged": true,
+  "fresh_backup_checksum_verified": true,
+  "completed_utc": "2026-11-01T03:03:13.674637+00:00",
+  "schema": 1,
+  "qualified_source": "e4fbe5f720b916869dd23cd5f8e637b297510aee",
+  "updated_browser_native_source": "70edb33383cde3f777fd9ce2aa93c73c5bfc5e8b",
+  "same_app_payload_tool_runtime_guards_across_both_rehearsals_and_live": true,
+  "integration": {
+    "pr": 58,
+    "head": "177f27223180f2c703b1048e4f6eca91c39c6915",
+    "merge": "4af1ff42ba2d427c9e7d55751b611f0a6cd4a5d4",
+    "ci_run": 41267470228,
+    "linux_operator_tests": 25,
+    "privacy_tests": 9,
+    "publication_scan_files": 1510,
+    "actual_ci_log_summaries_read": true
+  },
+  "public_browser": {
+    "status": "PASS",
+    "observed_utc": "2026-11-01T03:07:07.138Z",
+    "checks": [
+      "Product inventory GET 1440",
+      "Real multi-image product 1440",
+      "Original thumbnail count 1440",
+      "Every thumbnail is a native keyboard button 1440",
+      "No form submission type 1440",
+      "Position label 1440",
+      "Tab reaches second thumbnail 1440",
+      "Enter selects actual gallery frame and current state 1440",
+      "Selection retains keyboard focus 1440",
+      "Reverse Tab reaches first thumbnail 1440",
+      "Held Space does not page-scroll before activation 1440",
+      "Space selects first actual frame 1440",
+      "Visible inset focus ring 1440",
+      "Pointer selection retained 1440",
+      "Original thumbnail URLs/alt retained 1440",
+      "Fullscreen Escape returns focus 1440",
+      "Inquiry-only unchanged 1440",
+      "No unsupported exact3D or360 1440",
+      "No viewport overflow 1440",
+      "Product inventory GET 375",
+      "Real multi-image product 375",
+      "Original thumbnail count 375",
+      "Every thumbnail is a native keyboard button 375",
+      "No form submission type 375",
+      "Position label 375",
+      "Tab reaches second thumbnail 375",
+      "Enter selects actual gallery frame and current state 375",
+      "Selection retains keyboard focus 375",
+      "Reverse Tab reaches first thumbnail 375",
+      "Held Space does not page-scroll before activation 375",
+      "Space selects first actual frame 375",
+      "Visible inset focus ring 375",
+      "Pointer selection retained 375",
+      "Original thumbnail URLs/alt retained 375",
+      "Fullscreen Escape returns focus 375",
+      "Inquiry-only unchanged 375",
+      "No unsupported exact3D or360 375",
+      "No viewport overflow 375",
+      "No-JS retains original native image references",
+      "No-JS original first image visible",
+      "No-JS does not advertise a nonfunctional new control",
+      "No-JS inquiry-only fallback retained",
+      "No page errors",
+      "GET-only requests"
+    ],
+    "methods": [
+      "GET"
+    ],
+    "page_errors": [],
+    "server_form_or_commerce_mutations": 0,
+    "limits": [
+      "One real multi-image gallery at two widths;not complete WCAG/screen-reader or all-product coverage.",
+      "Source images do not establish photographic origin,exact model,CAD or360 frames."
+    ]
+  },
+  "public_browser_harness_sha256_lf": "a7342ad6a2f8db0acb2e7b09a4f46ede77368d89bd82cfe8c9771e664d900893",
+  "updated_browser_native_confirmation": "qa/growth-2026-10-31/gallery-keyboard-updated-browser-native.json",
+  "database_rows_written": 0,
+  "new_photos_models_frames_articles_urls": 0,
+  "live_rollback": "NOT_NEEDED_NOT_RUN",
+  "limits": [
+    "Actual public/browser checks cover one real multi-image product at1440/375 and375no-JS;25 shared asset loads are not25 keyboard audits.",
+    "20 smoke routes and25 product-asset routes overlap at the sampled product;two exact-payload asset downloads are separate.",
+    "Stored image/price/inquiry API equality does not certify photographic/exact-model provenance,real source stock or market prices.",
+    "Prepublication e4fbe5f native44 and updated70edb33 postpublication native44 are distinct dated evidence;app payload never changed between them.",
+    "Initial public scroll assertion and private summary-schema error were diagnosed and retained in gallery-keyboard-public-timing.json.",
+    "No full WCAG/screen-reader/authenticated/physical-device/CWV/SEO gain;no exact product CAD or360 frames supplied.",
+    "MyTel production writes0,noindex/closed commerce/data/security gates preserved;abrupt host loss not fault injected."
+  ]
+}

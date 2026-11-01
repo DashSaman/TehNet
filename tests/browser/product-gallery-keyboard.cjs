@@ -24,9 +24,17 @@ try{
   check(await buttons.nth(1).getAttribute('aria-current')==='true'&&await buttons.first().getAttribute('aria-current')==='false','Enter selects actual gallery frame and current state '+width);
   check(await buttons.nth(1).evaluate(e=>e===document.activeElement),'Selection retains keyboard focus '+width);
   await page.keyboard.press('Shift+Tab');check(await buttons.first().evaluate(e=>e===document.activeElement),'Reverse Tab reaches first thumbnail '+width);
-  const scroll=await page.evaluate(()=>scrollY);await page.keyboard.press('Space');await page.waitForFunction(()=>document.querySelectorAll('.flex-control-thumbs img')[0].classList.contains('flex-active'));
+  // Native gallery height/focus scrolling can continue after the active class changes.
+  await page.evaluate(()=>new Promise((resolve,reject)=>{
+   let previous='',stable=0,frames=0;
+   const sample=()=>{const key=[scrollY,document.querySelector('.woocommerce-product-gallery').getBoundingClientRect().height].join(':');stable=key===previous?stable+1:0;previous=key;
+    if(stable>=8)return resolve();if(++frames>300)return reject(new Error('Gallery geometry did not settle'));requestAnimationFrame(sample)};requestAnimationFrame(sample);
+  }));
+  const scroll=await page.evaluate(()=>scrollY);await page.keyboard.down('Space');
+  try{await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));check(await page.evaluate(y=>Math.abs(scrollY-y)<=2,scroll),'Held Space does not page-scroll before activation '+width)}
+  finally{await page.keyboard.up('Space')}
+  await page.waitForFunction(()=>document.querySelectorAll('.flex-control-thumbs img')[0].classList.contains('flex-active'));
   check(await buttons.first().getAttribute('aria-current')==='true','Space selects first actual frame '+width);
-  check(await page.evaluate(y=>Math.abs(scrollY-y)<=2,scroll),'Space does not scroll the page '+width);
   check(await buttons.first().evaluate(e=>{const s=getComputedStyle(e);return s.outlineStyle!=='none'&&parseFloat(s.outlineWidth)>=2&&parseFloat(s.outlineOffset)<0}),'Visible inset focus ring '+width);
   await buttons.nth(1).click();await page.waitForFunction(()=>document.querySelectorAll('.flex-control-thumbs img')[1].classList.contains('flex-active'));check(true,'Pointer selection retained '+width);
   check(JSON.stringify(await images.evaluateAll(es=>es.map(e=>({src:e.getAttribute('src'),alt:e.alt}))))===JSON.stringify(sources),'Original thumbnail URLs/alt retained '+width);
