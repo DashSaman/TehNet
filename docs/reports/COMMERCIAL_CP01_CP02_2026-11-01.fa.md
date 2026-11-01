@@ -1,6 +1,6 @@
 # کاتالوگ خدمات و مسیر درخواست — Issue63
 
-وضعیت فعلی: **VERIFIED_STAGING_NOT_DEPLOYED**. [Issue63](https://github.com/DashSaman/TehNet/issues/63) باز می‌ماند. برابری رقابتی، رشد رتبه یا تبدیل فروش اثبات نشده است.
+وضعیت فعلی: **DEPLOYED_VERIFIED**؛ source تولید `4aff1784785bc0a8c90150c4a1435a2d3b7919ed`. [Issue63](https://github.com/DashSaman/TehNet/issues/63) باز می‌ماند. برابری رقابتی، رشد رتبه یا تبدیل فروش اثبات نشده است.
 
 ## تغییر قابل مشاهده
 
@@ -28,7 +28,13 @@
 
 ## انتشار و کار بعد
 
-بک‌اند: [PR64](https://github.com/DashSaman/TehNet/pull/64)، commit `3100ced7049fd1d9e5b39f58a6614eb329f3b8fe`، CI41311680789 موفق. هنوز هیچ درخواست QA روی تولید و هیچ انتشار runtime/بدنهٔ این بسته انجام نشده است. گام بعد: PR جداگانهٔ کاتالوگ، تطبیق دقیق payload/tool/guard با نسخهٔ qualified، backup/checksum/drift تازه و انتشار محدود سه فایل و دو بدنه، سپس GET و مرورگر عمومی بدون submit.
+بک‌اند: [PR64](https://github.com/DashSaman/TehNet/pull/64)، CI41311680789؛ کاتالوگ: [PR65](https://github.com/DashSaman/TehNet/pull/65)، CI41312062988. هر دو موفق و ادغام شده‌اند. source تولید `4aff1784785bc0a8c90150c4a1435a2d3b7919ed` از نظر members/files/tool/guard با نسخهٔ native qualified برابر بود. backup/checksum/drift تازه، انتشار سه فایل/دو بدنه و repeat بدون تغییر گذشت؛ صفر صفحهٔ تازه.۱۴ GET با TLS معتبر، hash عمومی CSS و۱۳۹ بررسی مرورگر عمومی دسکتاپ1440/موبایل375 با JS و بدون JS گذشتند. فرم، چهار فیلد اجباری، CTA با پیش‌انتخاب، هفت دسته، شش مالک، MyTel و چهار مسیر خانه بررسی شدند؛ هیچ فرم تولید submit نشد. اطلاعات image/price/inquiry تمام۲۵کالا، دادهٔ محافظت‌شده و runtime همهٔ سرویس‌های موجود برابر ماندند. rollback زنده لازم نشد؛ مسیر آن در staging تمرین شده بود.
+
+[رسید تولید و مرورگر](../../qa/commercial-2026-11-01/production-verification.json). تصاویر زیر از سایت عمومی پس از انتشارند:
+
+![کارت‌های عمومی پس از انتشار](../../qa/commercial-2026-11-01/after-service-cards-1440.png)
+
+![Services عمومی پس از انتشار در موبایل](../../qa/commercial-2026-11-01/after-services-375.png)
 
 noindex،۲۵کالای استعلامی/قابل‌خرید صفر، ERP/پرداخت بسته، خانه/منو/مالک‌های خدمات و داده‌ها حفظ می‌شوند. credential rotation همچنان UNKNOWN/NOT_ROTATED؛ purge مشترک NEEDS_APPROVAL؛ Origin UNDETERMINED و MyTel production READ_ONLY. این تغییرات گیت‌ها را نمی‌بندند.
 

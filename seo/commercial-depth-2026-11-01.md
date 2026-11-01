@@ -1,0 +1,24 @@
+# CP03–CP05: three substantive existing-service upgrades
+
+Reviewed:2026-11-01. Status: VERIFIED_STAGING_NOT_DEPLOYED. No new article/URL is counted. The owner confirmed general availability of all specialist fields; vendor-specific certifications, SLA, prices and delivery dates remain unverified.
+
+| Existing owner | New customer job | Added value | Intent evidence and limit |
+|---|---|---|---|
+| `/services/network-support-tehran/`, ID31 | Specify monitoring and support responsibilities before buying | Worked branch-outage acceptance brief; discovery/notification/acknowledgment/recovery distinction; three proposed engagement patterns; FAQ and canonical service CTA | Existing support owner and owner-confirmed monitoring capability; TarazNet monitoring route observed in CP01. Commercial fit is an inference, not measured Iranian SERP volume/rank. |
+| `/services/network-setup-tehran/`, ID33 | Brief and accept an enterprise Wi-Fi project | Capacity/coverage questions, guest-access acceptance, representative device/location/load, handoff limits and FAQ | Existing network-setup owner; confirmed Wi-Fi capability. No separate synonym/vendor/location page or measured demand claim. |
+| `/services/mikrotik-tehran/`, ID35 | Define firewall acceptance before changing a live router | Three-chain distinction, original four-row access matrix, permitted/blocked paths, rollback and handoff boundaries | Existing MikroTik owner and confirmed firewall capability; source-backed RouterOS behavior. No claim of on-device execution, security certification or universal configuration. |
+
+Only append the new module to the actual current production body, verified against a fresh private inventory; preserve original content and ID/title/URL/parent/meta. Existing service-estimate links previously sent users into equipment B2B. Route those links to the already deployed service form and existing ticket entity. Equipment quotation remains independently available through B2B.
+
+## Scoped technical sources and synthesis
+
+- **FACT-OFFICIAL:** [Zabbix recovery operations](https://www.zabbix.com/documentation/current/en/manual/config/notifications/action/recovery_operations), current selector7.4 at review. Recovery operations can be configured separately. This supports distinguishing stages in the proposed acceptance workflow; it does not establish local deployment, message delivery, SLA or TehNet vendor certification. The worked incident is original and hypothetical; no remote command is executed.
+- **FACT-OFFICIAL:** [Cisco Site Survey Guidelines](https://www.cisco.com/c/en/us/support/docs/wireless/5500-series-wireless-controllers/116057-site-survey-guidelines-wlan-00.html), updated2023-11-14, scoped review2026-11-01. Capacity and coverage are distinct design considerations. Retain the age/product limit: legacy controller examples/thresholds are not a current equipment recommendation or universal acceptance target. The office brief is original and unmeasured.
+- **FACT-OFFICIAL:** [RouterOS Filter](https://manual.mikrotik.com/docs/firewall-and-quality-of-service/firewall/filter/), selector7.26 at review. Input/forward/output describe different packet destinations/origins. The original matrix is an acceptance worksheet, not deployable rules; bridge/hardware paths, IPv6 and dependencies require actual environment review. No real router/firewall/security test performed.
+- **FACT-OFFICIAL:** [Google helpful content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) and [crawlable links](https://developers.google.com/search/docs/crawling-indexing/links-crawlable), reviewed2026-11-01. Add original decision support and descriptive real links to existing owners. This is implementation guidance, not a ranking, indexing or AI-citation guarantee.
+
+Technical review was direct: source-to-claim check, explicit version/product limits, synthetic-example labels, no public credentials/IPs/commands, no guarantee inferred from one test, and appropriate network-vs-PBX ownership. Browser checks qualify rendering/routing; they do not qualify RF, Zabbix delivery, firewall effectiveness or response-time promises. Native release must still validate actual block serialization/KSES, apply/repeat/rollback, protected data and exact restoration before any publication.
+
+## Actual staging acceptance
+
+Immutable source `9e59a32df8613b887c7a5cbeca1fdf4ef0a7b0d8`: each existing page passed41 real browser checks (1440/375, JS/no-JS), native block serialization/KSES and check/apply/repeat/rollback/repeat. Original posts/meta/users, guard files and all existing runtimes restored exactly after each target. Production submissions/mutations zero. See [sanitized receipt](../qa/commercial-2026-11-01/depth-staging-verification.json). No physical device, RF, delivery, firewall-security or SEO outcome was tested.
