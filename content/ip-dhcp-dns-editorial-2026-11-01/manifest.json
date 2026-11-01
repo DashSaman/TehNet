@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "key": "tehnet-editorial-ip-dhcp-dns-20261101-v1",
+  "status": "DRAFT_NOT_DEPLOYED",
+  "target": {
+    "id": 63,
+    "url": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+    "title_observed": "آدرس‌دهی IP، DHCP و DNS در میکروتیک — MTCNA",
+    "expected_content_sha256": "010a5df48a5326fca34a4a038b68f1b03ae41e04da1f72217636d9c68e1b15bc",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "content_file": "ip-dhcp-dns.html",
+  "content_sha256_lf": "69ff0713547027dfd09975feccd77ead625d97c09f0eb95188d310c56a65305b",
+  "protected": [
+    "home",
+    "menus",
+    "products/all meta",
+    "orders/customers/tickets/quotes",
+    "blog_public",
+    "payments/ERP",
+    "MyTel production"
+  ],
+  "qualification": {
+    "source_review": "SCOPED_PRIMARY_SECTIONS",
+    "routeros_lab": "NOT_RUN",
+    "windows_network_commands": "NOT_RUN",
+    "native_blocks": "PASS_57_REGISTERED_BLOCKS",
+    "browser": "PASS_21_DESKTOP_MOBILE_NOJS_EDITOR",
+    "migration": "PASS_37_SCOPED_ASSERTIONS_AND_37_SUPPORT_REGRESSION",
+    "production": "NOT_DEPLOYED",
+    "operator_windows": "19_PASS_1_SYMLINK_PERMISSION_SKIP_OF20",
+    "links": "PASS_15_DEFAULT_TLS_GETS"
+  },
+  "limits": [
+    "Conceptual RFC5737 address plan must be replaced consistently for an authorized isolated private lab",
+    "No measured client/router output, successful DHCP/DNS lab or repair time claimed",
+    "Configuration fragment is intentionally disabled and is not an operational router script",
+    "One existing lesson addresses five C01 reader jobs; zero new articles/URLs"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "source_commit": "487663b9739cc4a974b9437ee3771e7ee0a315aa",
+  "observed_utc": "2026-11-01T00:02:47.410594+00:00",
+  "completed_utc": "2026-11-01T00:03:03.287896+00:00",
+  "production_mutations": 0,
+  "tampered_payload_refused": true,
+  "tampered_metadata_refused": true,
+  "http_smoke": [
+    {
+      "path": "/learn/mikrotik/mtcna/ip-dhcp-dns/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/shop/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/services/voice-network-readiness/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    }
+  ],
+  "original_posts_meta_users_exactly_restored": true,
+  "backup_checksum_verified": true,
+  "original_metadata_fixture_exactly_restored": true,
+  "schema": 1,
+  "status": "VERIFIED_REHEARSAL_NOT_DEPLOYED",
+  "scope": "Existing ID63/body and actual modification timestamps; zero runtime installs",
+  "runtime_guard_files": 8,
+  "existing_container_runtime_unchanged": true,
+  "separate_staging_fixture": "Metadata0.2.1 temporarily models current production; original0.2.0 bytes exactly restored",
+  "operations": [
+    {
+      "operation": "check",
+      "status": "READY",
+      "runtime_files": 0,
+      "pages_created": 0,
+      "existing_pages_changed": 0
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "runtime_files": 0,
+      "pages_created": 0,
+      "existing_pages_changed": 1
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "runtime_files": 0,
+      "pages_created": 0,
+      "existing_pages_changed": 0
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "runtime_files": 0,
+      "pages_created": 0,
+      "existing_pages_changed": 1
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "runtime_files": 0,
+      "pages_created": 0,
+      "existing_pages_changed": 0
+    }
+  ],
+  "technical_execution": "RouterOS and Windows network commands NOT_RUN",
+  "limits": [
+    "No production release yet",
+    "No abrupt host-loss fault injection; ambiguous native journals require reconciliation",
+    "One existing lesson; zero new articles/URLs or measured SEO gains"
+  ]
+}

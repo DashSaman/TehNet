@@ -31,9 +31,11 @@ EDITORIAL_SCOPE = 'tehnet-editorial-routeros-20261101-v1'
 ROUTING_SCOPE = 'tehnet-editorial-routing-20261101-v1'
 METADATA_SCOPE = 'tehnet-metadata-role-20261101-v1'
 SUPPORT_SCOPE = 'tehnet-service-network-support-20261101-v1'
+IP_DHCP_DNS_SCOPE = 'tehnet-editorial-ip-dhcp-dns-20261101-v1'
 LESSON_SCOPES = {
     EDITORIAL_SCOPE: ('content/growth-editorial-2026-11-01', 'routeros-winbox.html', '/tmp/tn-editorial-release-'),
     ROUTING_SCOPE: ('content/routing-editorial-2026-11-01', 'static-routing.html', '/tmp/tn-routing-release-'),
+    IP_DHCP_DNS_SCOPE: ('content/ip-dhcp-dns-editorial-2026-11-01', 'ip-dhcp-dns.html', '/tmp/tn-ip-dhcp-dns-release-'),
 }
 CONTENT_SCOPES = {**LESSON_SCOPES,
     SUPPORT_SCOPE: ('content/network-support-2026-11-01', 'network-support.html', '/tmp/tn-network-support-release-'),
@@ -49,7 +51,7 @@ def scope_spec(scope):
         return [], [directory + '/manifest.json',
                     directory + '/' + body,
                     'ops/migrate-growth-content.php'], FILES + ['site/plugins/tehnet-store/tehnet-store.php'] + (
-                        ['site/mu-plugins/tehnet-search-metadata.php'] if scope == SUPPORT_SCOPE else [])
+                        ['site/mu-plugins/tehnet-search-metadata.php'] if scope in (SUPPORT_SCOPE, IP_DHCP_DNS_SCOPE) else [])
     if scope == METADATA_SCOPE:
         return ['site/mu-plugins/tehnet-search-metadata.php'], [
             'content/metadata-role-2026-11-01/manifest.json', 'ops/check-metadata-state.php'

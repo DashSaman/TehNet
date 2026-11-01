@@ -1,4 +1,16 @@
-## CURRENT — گپ بسته‌سازی محلی رفع و شواهد خصوصی کامل شد
+## CURRENT — درس IP/DHCP/DNS و مسیر انتشار qualify شدند
+
+VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر: source مستقل ID63 `487663b9739cc4a974b9437ee3771e7ee0a315aa`.۵۷بلوک/۲۱browser/۱۵GET لینک،۳۷native جدید/۳۷regression خدمات و۲۰unit Windows (۱۹PASS/۱SKIPsymlink)؛ immutable check/apply/repeat/۴HTTP/rollback/repeat و رد tamper پاس. صفر runtime install و۸digest محافظت؛ metadata0.2.1 fixture واصل preview0.2.0، posts/meta/users وcontainerها دقیقاً بازگردانده شدند. `qa/growth-2026-10-31/ip-dhcp-dns-release-rehearsal.json` مرجع است؛ production هنوز تغییر نکرده.
+
+NEXT: PR با CI head تازه شامل Linux operator tests، snapshot خصوصی و برابری payload/tool/8guard با source بالا، backup تازه/checksum/drift و انتشار body همان درس؛ سپس HTTPS/browser و انتقال -SEO. RouterOS/Windows network commands اجرا نشده‌اند و متن صریح است. صفر مقاله/URL جدید؛ noindex/فروشگاه/داده/MyTel/پرداخت وگیت‌های امنیتی پابرجا. گزارش صبح هنوز LIVE_NOT_FINAL است.
+
+## HISTORICAL CHECKPOINT — پیش‌نویس IP/DHCP/DNS و scope مستقل آزموده شد
+
+VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED —۱نوامبر: همان ID63/URL/عنوان، پنج نیاز C01 در یک درس؛۹منبع اولیهٔ scoped، شکل ساختگی، تشخیص prefix/lease/DNS، reservation/تعارض و نمونهٔ غیرفعال لاب. RouterOS وWindows network commands اجرا نشده‌اند؛ متن محدودیت را روشن می‌کند.۵۷بلوک،۲۱browser و۱۵GET لینک باTLS، ویرایش/reset و بازگشت دقیق state staging پاس.۳۷native جدید/۳۷regression خدمات و۲۰unit Windows (۱۹PASS/۱SKIPsymlink) پاس؛ scope قدیمی در CLI entry رد شد. صفر مقاله/URL جدید، صفر production write و صفر runtime install؛۸فایل runtime محافظت می‌شوند. receipt `qa/growth-2026-10-31/ip-dhcp-dns-draft-and-migration.json` وbrief/source ledger درseo.
+
+ابزار محلی قبلی با PR45/46 وCI41254111873، و انتقال -SEO PR11/main76fef59 باCI41253986712 کامل شده؛ آن بسته را بازپخش نکنید. NEXT: immutable source/bundle وrehearsal مستقل ID63 با metadata0.2.1 موقت و restore دقیق preview0.2.0، سپس integration عادی/backup/checksum/drift و پذیرش عمومی. خانه/منو/فروشگاه/مشتری/MyTel/noindex/پرداخت وگیت‌های امنیتی حفظ شوند. گزارش صبح LIVE_NOT_FINAL وموعد۰۸:۰۰ پابرجاست.
+
+## HISTORICAL CHECKPOINT — گپ بسته‌سازی محلی رفع و شواهد خصوصی کامل شد
 
 VERIFIED_LOCAL_TOOLING —۱نوامبر: علتِ local build قبلی بازتولید شد؛ مسیر نسبیِ دارای `..` با طول269 شکست می‌خورد و مقصد resolve‌شده235 موفق بود. اکنون پیش از نوشتن مسیر نرمال می‌شود و خروجی موجود/لینک پذیرفته نمی‌شود. `--diagnostics-dir` اختیاری با ACL/owner محدود ویندوز یا mode محدود POSIX، بیرون `.git`/WordPress، trace را خصوصی و stdout را generic نگه می‌دارد؛ grant عمومیِ inherit-only نیز با تست قرمز سپس پاس رد شد. هیچ تنظیم OS/پوشهٔ شواهد واقعی تغییر نکرد.
 

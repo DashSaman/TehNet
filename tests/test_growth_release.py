@@ -95,6 +95,13 @@ class ReleaseBoundaries(unittest.TestCase):
         self.assertNotIn(scope, self.module.LESSON_SCOPES)
         self.assertIn(scope, self.module.GUARDED_SCOPES)
 
+    def test_ip_dhcp_dns_scope_is_distinct_and_guards_current_metadata(self):
+        files, extra, runtime = self.module.scope_spec('tehnet-editorial-ip-dhcp-dns-20261101-v1')
+        self.assertEqual(files, [])
+        self.assertEqual(extra, ['content/ip-dhcp-dns-editorial-2026-11-01/manifest.json', 'content/ip-dhcp-dns-editorial-2026-11-01/ip-dhcp-dns.html', 'ops/migrate-growth-content.php'])
+        self.assertEqual(len(runtime), 8)
+        self.assertIn('site/mu-plugins/tehnet-search-metadata.php', runtime)
+
     def test_metadata_scope_writes_only_its_file_and_has_no_content_migrator(self):
         files, extra, runtime = self.module.scope_spec(self.module.METADATA_SCOPE)
         self.assertEqual(files, ['site/mu-plugins/tehnet-search-metadata.php'])

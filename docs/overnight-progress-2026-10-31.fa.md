@@ -190,3 +190,11 @@ VERIFIED_LOCAL_TOOLING —۱نوامبر: علتِ local build قبلی بازت
 Windows19case:18PASS/1SKIP به‌علت مجوزsymlink؛ Linux code-head89ed726/PR46/CI41253886230:19PASS، شاملsymlink/POSIX. source نهایی ابزار `334cb2ccda9679218da8d2d05f0b34e8650deb63`؛ دو CLI bundle نسبی/مطلق، metadata و3member/tool/8guard برابر. `qa/growth-2026-10-31/bundle-path-diagnostics.json` و `ops/LOCAL_RELEASE_DIAGNOSTICS.md` مرجع‌اند. تغییر فقط tooling/CI است؛ صفر native/staging/production/MyTel write و انتشار قبلی بازپخش نشد. رسید قبلی UNKNOWN در زمان خود درست بود؛ این followup علت بازتولیدشده را روشن می‌کند. کد نهایی ACL نیز Linux19PASS دارد؛ ادغام عادی با CI head تازه الزام است. انتقال addendum/ledger/continuation در [-SEO PR11](https://github.com/DashSaman/-SEO/pull/11)، main `76fef59dab2e0e2af878f12d165246f3efd0a700` وCI41253986712 ادغام شد؛ baseline۷۱٪ ثابت.
 
 NEXT: تحقیق رسمی و brief متمایز برای درس موجود IP/DHCP/DNS؛ قبل از انتشار بعدی، ابزار جدید/محتوای جدید scope و rehearsal مستقل می‌خواهد. گزارش صبح LIVE_NOT_FINAL؛ rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED وnoindex/پرداخت/MyTel freeze حفظ شوند.
+
+## checkpoint پیش‌نویس ID63 —۱نوامبر
+
+## CURRENT — پیش‌نویس IP/DHCP/DNS و scope مستقل آزموده شد
+
+VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED —۱نوامبر: همان ID63/URL/عنوان، پنج نیاز C01 در یک درس؛۹منبع اولیهٔ scoped، شکل ساختگی، تشخیص prefix/lease/DNS، reservation/تعارض و نمونهٔ غیرفعال لاب. RouterOS وWindows network commands اجرا نشده‌اند؛ متن محدودیت را روشن می‌کند.۵۷بلوک،۲۱browser و۱۵GET لینک باTLS، ویرایش/reset و بازگشت دقیق state staging پاس.۳۷native جدید/۳۷regression خدمات و۲۰unit Windows (۱۹PASS/۱SKIPsymlink) پاس؛ scope قدیمی در CLI entry رد شد. صفر مقاله/URL جدید، صفر production write و صفر runtime install؛۸فایل runtime محافظت می‌شوند. receipt `qa/growth-2026-10-31/ip-dhcp-dns-draft-and-migration.json` وbrief/source ledger درseo.
+
+ابزار محلی قبلی با PR45/46 وCI41254111873، و انتقال -SEO PR11/main76fef59 باCI41253986712 کامل شده؛ آن بسته را بازپخش نکنید. NEXT: immutable source/bundle وrehearsal مستقل ID63 با metadata0.2.1 موقت و restore دقیق preview0.2.0، سپس integration عادی/backup/checksum/drift و پذیرش عمومی. خانه/منو/فروشگاه/مشتری/MyTel/noindex/پرداخت وگیت‌های امنیتی حفظ شوند. گزارش صبح LIVE_NOT_FINAL وموعد۰۸:۰۰ پابرجاست.
