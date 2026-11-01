@@ -124,6 +124,17 @@ foreach(['learn/mikrotik/mtcna/routeros-winbox','learn/mikrotik/mtcna/static-rou
 }
 reset_context();$ctx['front']=false;$ctx['page']=false;$ctx['singular']=true;$ctx['path']='lab';$ctx['post']->post_type='post';$ctx['post']->post_excerpt='نوشته مستقل';$ctx['post']->post_content='متن [tn_editorial_note]';
 check('same-slug post is not excluded as a hub',str_contains(output(),'"@type":"Article"'));
+foreach(['services','services/network-support-tehran','services/network-setup-tehran','services/mikrotik-tehran','services/remote-support','services/voice-network-readiness','services/future-network-service'] as $path){
+    reset_context();$ctx['front']=false;$ctx['path']=$path;$ctx['post']->post_excerpt='خدمت شبکه با منابع شفاف';$ctx['post']->post_content='راهنمای درخواست خدمت [tn_editorial_note]';$out=output();
+    check('service page is not inferred to be Article: '.$path,!str_contains($out,'"@type":"Article"'));
+    check('service description and social metadata retained: '.$path,substr_count($out,'name="description"')===1&&str_contains($out,'property="og:url"'));
+}
+foreach(['services-guide','learn/services','services/network-guide'] as $path){
+    reset_context();$ctx['front']=false;$ctx['page']=false;$ctx['singular']=true;$ctx['path']=$path;$ctx['post']->post_type='post';$ctx['post']->post_excerpt='مقاله مستقل';$ctx['post']->post_content='متن مقاله [tn_editorial_note]';
+    check('service-like post slug keeps Article: '.$path,str_contains(output(),'"@type":"Article"'));
+}
+reset_context();$ctx['front']=false;$ctx['path']='services-guide';$ctx['post']->post_excerpt='درس مستقل';$ctx['post']->post_content='متن درس [tn_editorial_note]';
+check('page outside services path is not a prefix false positive',str_contains(output(),'"@type":"Article"'));
 $receiptPath=getenv('TN_METADATA_TEST_RECEIPT')?:__DIR__.'/../qa/search-metadata-unit.json';
 file_put_contents($receiptPath,json_encode(['scope'=>'PHP unit tests with WP stubs; not integration/live proof','results'=>$results],JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE));
 $failed=count(array_filter($results,fn($r)=>!$r['pass']));echo 'CHECKS='.count($results).' FAILURES='.$failed."\n";exit($failed?1:0);
