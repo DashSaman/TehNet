@@ -1,6 +1,6 @@
 # تحویل صبح TehNet × MyTel × SEO —۱نوامبر۲۰۲۶
 
-**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 03:15 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
+**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 03:36 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
 
 ## ۱. امنیت — گیت‌های باز مقدم‌اند
 
@@ -214,3 +214,14 @@ NEXT: تحقیق رسمی و brief متمایز برای درس موجود IP/DH
 VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED —۱نوامبر: همان ID63/URL/عنوان، پنج نیاز C01 در یک درس؛۹منبع اولیهٔ scoped، شکل ساختگی، تشخیص prefix/lease/DNS، reservation/تعارض و نمونهٔ غیرفعال لاب. RouterOS وWindows network commands اجرا نشده‌اند؛ متن محدودیت را روشن می‌کند.۵۷بلوک،۲۱browser و۱۵GET لینک باTLS، ویرایش/reset و بازگشت دقیق state staging پاس.۳۷native جدید/۳۷regression خدمات و۲۰unit Windows (۱۹PASS/۱SKIPsymlink) پاس؛ scope قدیمی در CLI entry رد شد. صفر مقاله/URL جدید، صفر production write و صفر runtime install؛۸فایل runtime محافظت می‌شوند. receipt `qa/growth-2026-10-31/ip-dhcp-dns-draft-and-migration.json` وbrief/source ledger درseo.
 
 ابزار محلی قبلی با PR45/46 وCI41254111873، و انتقال -SEO PR11/main76fef59 باCI41253986712 کامل شده؛ آن بسته را بازپخش نکنید. NEXT: immutable source/bundle وrehearsal مستقل ID63 با metadata0.2.1 موقت و restore دقیق preview0.2.0، سپس integration عادی/backup/checksum/drift و پذیرش عمومی. خانه/منو/فروشگاه/مشتری/MyTel/noindex/پرداخت وگیت‌های امنیتی حفظ شوند. گزارش صبح LIVE_NOT_FINAL وموعد۰۸:۰۰ پابرجاست.
+
+
+## انتشار واقعی درس سوم موجود — IP/DHCP/DNS
+
+## CURRENT — درس موجود IP/DHCP/DNS روی live تأیید شد
+
+DEPLOYED —۱نوامبر،03:36تهران: [درس IP/DHCP/DNS](https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/) همان ID63/URL/عنوان/والد، فقط body و تاریخ واقعی تغییر.۹منبع اولیهٔ scoped، پنج نیاز C01 در یک درس با سناریوی ساختگی/مرزDNS/تشخیصlease/prefix/reservation/پذیرش. RouterOS/Windows network commands اجرا نشده و متن صریح است. PR47 وCI41255129086 با۲۰Linux PASS ادغام؛ source live `65f0757940bb4942b2001bf81a4a0d4e9eb905b7` برابر payload/tool/8guardِ qualified `487663b9739cc4a974b9437ee3771e7ee0a315aa`.
+
+backup تازه/checksum/drift وrepeat بدون تغییر؛ صفر runtime install/URL/مقالهٔ جدید.۵۷بلوک/۲۱browser staging/۱۵GET لینک،۳۷native/۳۷regression و۲۰Windows case (۱۹PASS/۱SKIPsymlink)، immutable rollback وfixture restore پاس؛ سپس۹HTTPS و۳۵browser عمومی1440/375/no-JS باtimestamp واقعی پاس. دادهٔ محافظت‌شده/۸runtime file/containerها ثابت؛۲۵کالا/قابل‌خرید۰،ERP/sandbox false، MyTel write۰. receipt `qa/growth-2026-10-31/ip-dhcp-dns-production-release.json`، brief/source درseo. سه درس موجود62/64/63 بهبود یافته‌اند؛ شمار۱۰۰کاندیدا به معنی۱۰۰مقاله نیست.
+
+NEXT: انتقال پذیرش واقعی و source/lab limits به -SEO؛ سپس اولین gap مستند با اولویت خدمات/UX یا MyTel proposal خواندنی طبق برنامه. انتشار63/62/64/31/metadata/P4 یا inventory تکرار نشوند. ابزار محلی وdiagnostics نیز qualify/CI شده‌اند. گزارش صبح LIVE_NOT_FINAL؛ rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED وnoindex/پرداخت/MyTel freeze حفظ شوند.
