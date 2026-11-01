@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "status": "QUALIFICATION_FAILED_RESTORED_NOT_DEPLOYED",
+  "source_commit": "a335efbcc428e0d36302b2f90fd280ab18ae4fba",
+  "step": "Native raw main-text comparison before browser",
+  "observation": "Only /product/tn-sn-17868/ main_text_sha256 differed. Article arrays, other metadata and other route outputs compared equal up to that assertion.",
+  "recovery": "Applied journal rolled back all three managed files; protected data digest retained; original metadata fixture restored exactly.",
+  "fixture_web_roles": "Old hub/service Article roles were directly observed before settling to0/0 with the real lesson remaining1.",
+  "application_payload_changed_since_8d0af85": false,
+  "browser_acceptance": "NOT_RUN",
+  "production_mutations": 0,
+  "next": "Retain complete raw before/after HTML in a new reviewed diagnostic-only staging attempt; compare changed node types before deciding whether code or the raw-main normalizer is wrong. Preserve journals/guards and exact rollback. This is not successful qualification."
+}
