@@ -1,0 +1,12 @@
+{
+  "status": "ROLLED_BACK",
+  "source_commit": "23f372955d8dbaf2b1c717376ee26c88ce233088",
+  "pull_request": "https://github.com/DashSaman/TehNet/pull/72",
+  "ci_run": 41321456987,
+  "files_applied_and_restored": 4,
+  "database_rows_written": 0,
+  "protected_state_unchanged": true,
+  "cause": "The private release wrapper checked the bare corporate.css URL instead of the versioned URL actually enqueued by WordPress. The bare URL retained the previous CSS in CDN cache. A post-rollback read-only TLS probe observed HIT/Age1878 at the bare URL and MISS at the enqueued versioned URL. No runtime regression was established.",
+  "next_attempt": "Read the stylesheet URL from the rendered HTML and verify that exact versioned asset against the native-qualified payload. Require a fresh source/journal, backup/checksum/drift guard; retain this rollback journal. Do not purge or reconfigure shared CDN/DNS or overwrite cached bytes to satisfy the test.",
+  "production_qa_submissions": 0
+}
