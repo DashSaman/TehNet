@@ -171,3 +171,14 @@ The JSON anchor-format failure and operator's overlapping shared-preview writers
 | P10 morning handoff | IN_PROGRESS | LIVE_NOT_FINAL;08:00Tehran final remains required |
 
 Native57 blocks/30 browser/39 assertions+37IPDNS+37support, Windows20PASS/1SKIP and Linux21PASS, immutable rollback/current-metadata restore remain dated qualification. The prior overlapping-QA incident was reconciled exactly; do not replay it or change journal/guards. MyTel production/noindex/commerce/customer data/security gates retained; remote history purge refmap requires later refresh under owner approval, never force-push in absence.
+
+## Queue checkpoint — existing remote-support immutable qualification
+
+| Package | State | Evidence / next gate |
+|---|---|---|
+| P6 existing remote-support ID37 | VERIFIED |40 blocks/30 browser/40 native+39setup+37support; Windows21PASS/1SKIP of22;12TLS200/3fragments |
+| ID37 immutable rehearsal | VERIFIED |98572f47343208e48118f086431a4faaa16d5483; backup/checksum/tamper/apply/repeat/4HTTP/rollback/repeat, exact content/metadata fixture restored; eight guards/zero runtime installs |
+| ID37 Linux CI/live | READY | Fresh source CI, ordinary merge/private snapshot, bundle equality and fresh production backup/checksum/drift required |
+| P10 morning report | IN_PROGRESS | LIVE_NOT_FINAL,08:00Tehran final remains required |
+
+No remote session/tool-security/network-device test was executed. Existing URL/title/parent/meta,MyTel freeze/noindex/commerce/home/menu/data/security gates remain. Local fixture-selector typo failed before SSH and was corrected; no partial native release or repeated prior recovery. Shared-preview writers remain serial under OS lock.

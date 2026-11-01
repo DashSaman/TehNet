@@ -1,6 +1,6 @@
 # بهبود خدمت موجود پشتیبانی ریموت
 
-وضعیت: DRAFT_NOT_DEPLOYED —۱نوامبر۲۰۲۶. این سند کار تحریریه است؛ نه سیاست اجراییِ ازپیش‌تأییدشده، نه گزارش جلسهٔ مشتری.
+وضعیت: VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر۲۰۲۶. این سند کار تحریریه است؛ نه سیاست اجراییِ ازپیش‌تأییدشده، نه گزارش جلسهٔ مشتری.
 
 هدف همان ID37، `/services/remote-support/`، عنوان «پشتیبانی شبکه از راه دور» و والد8 است. به‌روزرسانی فقط body و تاریخ واقعی؛ URL/عنوان/متا/خلاصه حفظ شوند. صفحهٔ فعلی چهار گام کلی دارد؛ تأیید شخص، جدایی مشاهده/کنترل، توقف هنگام قطع مسیر و بررسی پایان دسترسی را مشخص نمی‌کند. نبود این توضیح، شاهد نبود توانایی خدمت یا تقاضای اندازه‌گیری‌شده نیست.
 
@@ -25,3 +25,5 @@
 scope دقیق `tehnet-service-remote-support-20261101-v1`؛ ID37/URI/file ثابت، صفر نصبruntime و۸guard نسخهٔ جاری. تست operator وnative پیش از ثبت scope قرمز بودند؛ نتیجهٔ آزمون‌های کامل، editor/mobile/no-JS و بازیابی در receipt درج شود. تمام writerهای preview با قفل خصوصی و به‌ترتیب اجرا شوند. immutable rehearsal/CI/backup/checksum/drift و برابری source/payload/tool/guards پیش‌نیاز انتشارند؛ فعلاً انتشار انجام نشده است.
 
 MyTel production/read-only و freeze، noindex،۲۵کالای استعلامی، خانه/منو/مشتری و پرداخت بسته حفظ شوند. rotation UNKNOWN، history NEEDS_APPROVAL، Origin UNDETERMINED و منع force-push پابرجاست. رتبه، تقاضا، ترافیک یا توصیهٔ AI در این بسته اندازه‌گیری نشده است؛ تعداد مقاله/URL تازه صفر است.
+
+پذیرش واقعی draft/rehearsal:۴۰ بلوک،۳۰ browser/editor،۴۰ native جدید و۳۹ setup/۳۷ support regression؛ Windows۲۱PASS/۱SKIP از۲۲. نسخهٔ ثابت98572f47343208e48118f086431a4faaa16d5483 با backup/checksum/tamper/apply/repeat/۴HTTP/rollback/repeat و بازگردانی دقیق state/metadata fixture پذیرفته شد. خطای selector خصوصی پیش از SSH بود و با pin کامل اصلاح شد؛ هیچ معیار حفاظتی تغییر نکرد. Linux CI و انتشار واقعی هنوز در انتظارند.

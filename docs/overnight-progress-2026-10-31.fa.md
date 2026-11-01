@@ -262,3 +262,11 @@ VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED —۱نوامبر: همانID37/URL/عنوا�
 رسید `qa/growth-2026-10-31/remote-support-draft-and-migration.json` وbrief/source درseo. اختلاف اولیه باinventoryقدیمی متوقف وبهafter نسخهٔاصلاح‌شدهٔcommitted تطبیق داده شد؛driftنامعلوم نیست. CISA403 کامل خوانده‌نشده وازپشتوانهٔمتن حذف است؛NIST2016 نهایی بافراخوانپیش‌نویس2020 وMicrosoft فقطمثال ابزارند،نهقانون/گواهی/تعهدخدمت.
 
 NEXT: immutable rehearsal مستقل باmetadata0.2.1 وrestoreدقیقpreview0.2.0،CI/ادغامعادی/snapshotخصوصی،برابریpayload/tool/۸guard،backup/checksum/driftتازه وتحققپذیرشعمومی. فعلاًproductionتغییرنکرده؛انتشارهایپیشین/QA recovery/۱۰۰کاندیدا بازپخش نشوند. MyTel/noindex/فروشگاه/داده/خانه/منو/پرداخت وsecuritygates پابرجا؛گزارشصبحLIVE_NOT_FINAL تا۰۸:۰۰.
+
+## checkpoint تمرین انتشار ریموت
+
+## CURRENT — پشتیبانی ریموت برای انتشار محدود آماده شد
+
+VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر: نسخهٔ ثابت `98572f47343208e48118f086431a4faaa16d5483` برای همان ID37.۴۰ بلوک،۳۰ بررسی مرورگر،۴۰ native و۳۹ setup/۳۷ support regression پاس؛ Windows۲۱PASS/۱SKIP از۲۲. تمرین backup/checksum/tamper/check/apply/repeat/۴HTTP/rollback/repeat موفق بود. posts/meta/users و metadata fixture اصلی و containerها دقیقاً حفظ/بازگردانده شدند؛۸ guard و صفر نصب runtime. رسید `qa/growth-2026-10-31/remote-support-release-rehearsal.json`. خطای selector خصوصی پیش از SSH رخ داد؛ پس از اصلاح، تمرین بومی موفق شد. هیچ جلسهٔ ریموت، آزمون امنیت ابزار یا تغییر شبکه اجرا نشده است.
+
+NEXT: CI تازهٔ head، snapshot خصوصی و ادغام عادی؛ برابری payload/tool/۸guard، backup تازه/checksum/drift تولید، انتشار فقط body و پذیرش عمومی.۱۲ لینک TLS200/۳anchor و حدود منابع حفظ شوند. production هنوز تغییر نکرده است. انتشارهای پذیرفته‌شده یا recovery قبلی بازپخش نشوند. MyTel/noindex/فروشگاه/داده/خانه/منو/پرداخت و گیت‌های امنیتی پابرجا؛ گزارش صبح LIVE_NOT_FINAL تا۰۸:۰۰.

@@ -1,4 +1,10 @@
-## CURRENT — پیش‌نویس پشتیبانی ریموت و محدودهٔ انتشار آزموده شد
+## CURRENT — پشتیبانی ریموت برای انتشار محدود آماده شد
+
+VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر: نسخهٔ ثابت `98572f47343208e48118f086431a4faaa16d5483` برای همان ID37.۴۰ بلوک،۳۰ بررسی مرورگر،۴۰ native و۳۹ setup/۳۷ support regression پاس؛ Windows۲۱PASS/۱SKIP از۲۲. تمرین backup/checksum/tamper/check/apply/repeat/۴HTTP/rollback/repeat موفق بود. posts/meta/users و metadata fixture اصلی و containerها دقیقاً حفظ/بازگردانده شدند؛۸ guard و صفر نصب runtime. رسید `qa/growth-2026-10-31/remote-support-release-rehearsal.json`. خطای selector خصوصی پیش از SSH رخ داد؛ پس از اصلاح، تمرین بومی موفق شد. هیچ جلسهٔ ریموت، آزمون امنیت ابزار یا تغییر شبکه اجرا نشده است.
+
+NEXT: CI تازهٔ head، snapshot خصوصی و ادغام عادی؛ برابری payload/tool/۸guard، backup تازه/checksum/drift تولید، انتشار فقط body و پذیرش عمومی.۱۲ لینک TLS200/۳anchor و حدود منابع حفظ شوند. production هنوز تغییر نکرده است. انتشارهای پذیرفته‌شده یا recovery قبلی بازپخش نشوند. MyTel/noindex/فروشگاه/داده/خانه/منو/پرداخت و گیت‌های امنیتی پابرجا؛ گزارش صبح LIVE_NOT_FINAL تا۰۸:۰۰.
+
+## HISTORICAL CHECKPOINT — پیش‌نویس پشتیبانی ریموت و محدودهٔ انتشار آزموده شد
 
 VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED —۱نوامبر: همانID37/URL/عنوان/والد، توضیح دسترسی مجاز، مشاهده/کنترل، توقف و پایان دسترسی و تحویل.۳صفحهٔprimary باحدنسخه/دامنه؛مثال صریحاً ساختگی وبدون جلسه/تست امنیت/تغییرشبکه.۴۰بلوک/۳۰browser1440/375/no-JS/edit-reset،۴۰native جدید و۳۹setup+۳۷support regression پاس؛۲۲Windowscase شامل۲۱PASS/۱SKIPsymlink. گیت قدیمی scope را رد کرد؛scope جدید exact/body-only با۸guard/صفرنصبruntime.۱۲GETلینکTLS200 و۳fragmentID پاس. همهٔposts/meta/users وکاربر موقت پس ازQA دقیقاً بازگشتند؛writerهایpreview ترتیبی وباقفل مشترک.
 
