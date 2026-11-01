@@ -320,3 +320,10 @@ NEXT: انتقال source/قبولی/حدود به-SEO و ثبتCI/commit؛ سپ
 انتقال منابع، پذیرش واقعی و حدود در [-SEO PR16](https://github.com/DashSaman/-SEO/pull/16)، main `b99609baf26c762d0a3f7a1c2260b0a35307d429` و CI41262309458 ادغام شد؛۳source row/topic/dashboard/continuation،۹privacy test وscan۶۷فایل/۱۶مقصد dashboard پاس،baseline۷۱٪ ثابت. نسخهٔ مستند با دستگاه،سایت frozen با مرجع جاری و آزمونWordPress با آزمون روتر/شبکه خلط نشده‌اند.
 
 NEXT: صفحهٔ موجود /services/network-tehran/ را برای نقش مستقل راهنمای انتخاب خدمت و مسیر درخواست بخوان؛ فقط پس از شاهد، بهبود همانURL را تحقیق کن و صفحهٔ هم‌نیت نساز. انتشارهای پذیرفته‌شده، recovery و۱۰۰کاندیدا بازپخش نشوند؛ preview writers ترتیبی و با قفل مشترک باشند. noindex/خانه/منو/فروشگاه/داده/پرداخت/MyTel وrotationUNKNOWN/historyNEEDS_APPROVAL/originUNDETERMINED/منعforce-push پابرجا؛ گزارش صبح LIVE_NOT_FINAL تا۰۸:۰۰.
+
+
+## CURRENT — P8 نقش metadata خدمات، پیش از انتشار
+
+VERIFIED_LOCAL_NATIVE_CHECKER_NOT_DEPLOYED:۱۷TLS200؛ چهار service با Article نامتناسب. RED واقعی۷/۷۴ و GREEN۷۴، اپراتور۲۳PASS/۱SKIP از۲۴، checkerبومی۱۸ بدونDBwrite. metadata0.2.2 فقط یک فایل/هفتguard و scope جدید؛ manifest/checker قدیمی حفظ. یادداشت/متن/عنوان/URL/noindex/فروشگاه/MyTel تغییر نکرده‌اند. رسید service-metadata-role-draft.json و طرح2026-11-01-service-metadata-role.md.
+
+NEXT: تمرین immutable با baseline جاری0.2.1، snapshot خصوصی preview0.2.0، browser1440/375/no-JS، backup/checksum/tamper/repeat/rollback و restore دقیق؛ سپس CI/ادغام عادی/backup و drift تازهٔ تولید و پذیرش عمومی. ID29 برای جلوگیری از هاب هم‌نیت بازنویسی نشده است. انتشارهای پذیرفته‌شده/recovery قبلی را بازپخش نکن؛ writerها serial و قفل‌دار. rotationUNKNOWN/historyNEEDS_APPROVAL/refmapSTALE/originUNDETERMINED، منعforce-push و گزارش LIVE_NOT_FINAL تا۰۸:۰۰ پابرجا.

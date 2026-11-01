@@ -30,6 +30,7 @@ SCOPE = 'tehnet-growth-20261031-v1'
 EDITORIAL_SCOPE = 'tehnet-editorial-routeros-20261101-v1'
 ROUTING_SCOPE = 'tehnet-editorial-routing-20261101-v1'
 METADATA_SCOPE = 'tehnet-metadata-role-20261101-v1'
+SERVICE_METADATA_SCOPE = 'tehnet-metadata-service-role-20261101-v1'
 SUPPORT_SCOPE = 'tehnet-service-network-support-20261101-v1'
 IP_DHCP_DNS_SCOPE = 'tehnet-editorial-ip-dhcp-dns-20261101-v1'
 NETWORK_SETUP_SCOPE = 'tehnet-service-network-setup-20261101-v1'
@@ -46,7 +47,7 @@ CONTENT_SCOPES = {**LESSON_SCOPES,
     REMOTE_SUPPORT_SCOPE: ('content/remote-support-2026-11-01', 'remote-support.html', '/tmp/tn-remote-support-release-'),
     MIKROTIK_SERVICE_SCOPE: ('content/mikrotik-service-2026-11-01', 'mikrotik-service.html', '/tmp/tn-mikrotik-service-release-'),
 }
-GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE]
+GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE]
 
 
 def scope_spec(scope):
@@ -61,6 +62,10 @@ def scope_spec(scope):
     if scope == METADATA_SCOPE:
         return ['site/mu-plugins/tehnet-search-metadata.php'], [
             'content/metadata-role-2026-11-01/manifest.json', 'ops/check-metadata-state.php'
+        ], FILES + ['site/plugins/tehnet-store/tehnet-store.php']
+    if scope == SERVICE_METADATA_SCOPE:
+        return ['site/mu-plugins/tehnet-search-metadata.php'], [
+            'content/metadata-service-role-2026-11-01/manifest.json', 'ops/check-service-metadata-state.php'
         ], FILES + ['site/plugins/tehnet-store/tehnet-store.php']
     raise ValueError('Unapproved release scope')
 
@@ -266,7 +271,7 @@ class Release:
         self.state = json.loads(self.receipt_path.read_text()) if self.receipt_path.exists() else None
         if self.state and (self.state['source_commit'] != m['source_commit'] or self.state['app_id'] != c['app_id'] or self.state['db_id'] != c['db_id']):
             raise RuntimeError('Release journal identity mismatch')
-        prefix = '/tmp/tn-metadata-role-' if self.scope == METADATA_SCOPE else (CONTENT_SCOPES[self.scope][2] if self.scope in CONTENT_SCOPES else '/tmp/tn-growth-release-')
+        prefix = '/tmp/tn-metadata-service-role-' if self.scope == SERVICE_METADATA_SCOPE else ('/tmp/tn-metadata-role-' if self.scope == METADATA_SCOPE else (CONTENT_SCOPES[self.scope][2] if self.scope in CONTENT_SCOPES else '/tmp/tn-growth-release-'))
         self.container_stage = prefix + m['source_commit']
         self.manifest_digest = m['members'][self.extra[0]]
         self.root = None

@@ -1,0 +1,54 @@
+{
+  "status": "VERIFIED_LOCAL_NATIVE_CHECKER_NOT_DEPLOYED",
+  "observed_utc": "2026-11-01T02:09:28.107426+00:00",
+  "baseline": {
+    "tls": "DEFAULT_VALIDATION",
+    "public_routes": 17,
+    "http_200": 17,
+    "all_noindex": true,
+    "service_routes_misclassified_as_article": [
+      "/services/network-setup-tehran/",
+      "/services/mikrotik-tehran/",
+      "/services/remote-support/",
+      "/services/voice-network-readiness/"
+    ],
+    "raw_captures": "PRIVATE_OUTSIDE_GIT"
+  },
+  "diagnosis": {
+    "local_module_reproduced": true,
+    "cache_or_other_plugin_not_required": true,
+    "red_php_checks": 74,
+    "red_failures": 7,
+    "red_scope": "Unapproved release scope before registration",
+    "green_php_checks": 74,
+    "windows_operator": {
+      "cases": 24,
+      "passed": 23,
+      "skipped_symlink_permission": 1
+    },
+    "native_checker_assertions": 18,
+    "native_backup_verified": true,
+    "database_rows_written": 0
+  },
+  "scope": {
+    "runtime_files": 1,
+    "runtime_guards": 7,
+    "database_changes_allowed": false,
+    "content_migrator": false,
+    "metadata_version": "0.2.2",
+    "new_exact_scope": "tehnet-metadata-service-role-20261101-v1",
+    "old_manifest_checker_unchanged": true
+  },
+  "staging_release_rehearsal": "PENDING",
+  "production": "NOT_DEPLOYED",
+  "local_preparation_failures": [
+    "Two apply_patch context mismatches made no changes.",
+    "PowerShell expanded the receipt environment variable in the outer shell; default historical QA receipt was restored byte-for-byte from clean HEAD, then RED rerun with a private Python environment.",
+    "Generated native helper briefly referenced a doubled service- filename; failed before SSH and was corrected before the successful native run."
+  ],
+  "limits": [
+    "No Google rich-result, URL Inspection, manual-action, ranking, traffic or AI citation measurement.",
+    "Service Article suppression is page-role correctness; no new Service/Review/Offer assertions.",
+    "Noindex/closed commerce/MyTel production and security gates remain unchanged."
+  ]
+}

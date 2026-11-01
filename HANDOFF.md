@@ -891,3 +891,10 @@ Documentation gate,2026-10-25T13:41:07Z: PASS for22 original blobs/189734bytes a
 Owner requested public-safe repositories. On branch `security/publication-hygiene-20261031` from `b5ec3da`, actual origin/IPv6/preview addresses and personal workstation paths were sanitized; portable browser module resolution and a bounded tracked-file guard were added. See [privacy report](docs/publication-privacy-2026-10-31.fa.md). Production/DNS/noindex/payments were not changed. This is not a full-history purge: old branch/commit/PR/fork copies remain a separate coordinated gate. Preserve this distinction when reporting completion.
 
 The broader growth mission continues separately on `feat/tehnet-mytel-seo-20261031`: service-intake nonce/context and a manual network-readiness tool are implemented locally, with content drafts. Native staging, live release,100+ candidate portfolio and cross-brand delivery are still pending. Do not replay historical deployments or claim those drafts are live.
+
+
+## CURRENT — P8 نقش metadata خدمات، پیش از انتشار
+
+VERIFIED_LOCAL_NATIVE_CHECKER_NOT_DEPLOYED:۱۷TLS200؛ چهار service با Article نامتناسب. RED واقعی۷/۷۴ و GREEN۷۴، اپراتور۲۳PASS/۱SKIP از۲۴، checkerبومی۱۸ بدونDBwrite. metadata0.2.2 فقط یک فایل/هفتguard و scope جدید؛ manifest/checker قدیمی حفظ. یادداشت/متن/عنوان/URL/noindex/فروشگاه/MyTel تغییر نکرده‌اند. رسید service-metadata-role-draft.json و طرح2026-11-01-service-metadata-role.md.
+
+NEXT: تمرین immutable با baseline جاری0.2.1، snapshot خصوصی preview0.2.0، browser1440/375/no-JS، backup/checksum/tamper/repeat/rollback و restore دقیق؛ سپس CI/ادغام عادی/backup و drift تازهٔ تولید و پذیرش عمومی. ID29 برای جلوگیری از هاب هم‌نیت بازنویسی نشده است. انتشارهای پذیرفته‌شده/recovery قبلی را بازپخش نکن؛ writerها serial و قفل‌دار. rotationUNKNOWN/historyNEEDS_APPROVAL/refmapSTALE/originUNDETERMINED، منعforce-push و گزارش LIVE_NOT_FINAL تا۰۸:۰۰ پابرجا.

@@ -138,6 +138,16 @@ class ReleaseBoundaries(unittest.TestCase):
         prefixes = [row[2] for row in self.module.CONTENT_SCOPES.values()]
         self.assertEqual(len(set(prefixes)), len(prefixes))
 
+    def test_service_metadata_scope_is_separate_one_file_and_zero_content_writes(self):
+        scope = 'tehnet-metadata-service-role-20261101-v1'
+        files, extra, runtime = self.module.scope_spec(scope)
+        self.assertEqual(files, ['site/mu-plugins/tehnet-search-metadata.php'])
+        self.assertEqual(extra, ['content/metadata-service-role-2026-11-01/manifest.json', 'ops/check-service-metadata-state.php'])
+        self.assertNotIn(files[0], runtime)
+        self.assertEqual(len(runtime), 7)
+        self.assertIn(scope, self.module.GUARDED_SCOPES)
+        self.assertNotIn(scope, self.module.CONTENT_SCOPES)
+
     def test_metadata_scope_writes_only_its_file_and_has_no_content_migrator(self):
         files, extra, runtime = self.module.scope_spec(self.module.METADATA_SCOPE)
         self.assertEqual(files, ['site/mu-plugins/tehnet-search-metadata.php'])
