@@ -226,3 +226,7 @@ No actual router/network/VLAN/security/performance/recovery/customer or SEO gain
 | P10 final morning handoff | IN_PROGRESS | LIVE_NOT_FINAL;08:00Tehran actual consolidated final still required |
 
 Qualification remains dated:74PHP after7RED,18native checker,Windows23PASS/1SKIP/Linux24PASS,17native comparisons/386staging-browser and exact rollback/current baseline fixture→original preview restore. Native fixture1 versus public4 affected nodes and overlapping19/17 GET sets are explicit. Production metadata0.2.2 now differs from older content-release guards;do not replay those publishers. MyTel/noindex/commerce/customer data/security gates unchanged;purge refmap stale after normal merges,never force-push in owner absence.
+
+## Current checkpoint —2026-11-01 P2 coverage
+
+P2 current tooling, scoped local history copies, main API202runs and four related API/history/payload inventories are VERIFIED within the linked sanitized receipts. Shared rewrite/rotation/origin remain gated. Canonical HANDOFF/PROGRESS/TASKS and consolidated morning LIVE_NOT_FINAL report now carry the actual next step: final private refs after documentation merge, then P10 read-only closing checks/final report near08:00. Do not replay earlier publishers, recovery, portfolio or unchanged audits.

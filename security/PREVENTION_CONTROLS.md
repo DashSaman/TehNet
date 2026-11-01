@@ -1,6 +1,6 @@
 # پیشگیری از تکرار افشا
 
-Reviewed2026-10-31. این کنترل‌ها فعال‌اند، ولی گواه جامع امنیت نیستند.
+Initial controls reviewed2026-10-31; current coverage correction and actual CI checkpoints are below, dated2026-11-01. این کنترل‌ها گواه جامع امنیت نیستند.
 
 - `tools/publication_guard.py` + `.publication-policy.json`: فایل خصوصی، credential format، URL userinfo، مسیر شخصی، نشانی در اسناد عملیاتی و password در prose؛ diagnostic فقط دسته/مسیر/خط است.
 -۹ regression در هر مخزن، از جمله عدم نمایش مقدار، malformed/known values، exception محدودشده به digest محتوای LF-normalized و prose-password؛۲۷ تست و CI در PRهای ادغام‌شده موفق بودند.
@@ -29,3 +29,9 @@ The first PUT returned422 because both `contexts` and `checks` were supplied to 
 ## File enumeration/read coverage —2026-11-01
 
 The guard must read every enumerated tracked file or fail. Windows extended paths avoid false missing files; Git long-path support is per-command. Receipts expose tracked_files and checked_tracked_files separately; missing/unreadable paths produce only a relative path/category, without OS exception text. Twelve Windows regressions pass, including a real deep tracked credential fixture and missing/unreadable-file cases. Linux has one explicitly skipped Windows-only case. The earlier1276/1513 result is incomplete coverage, preserved in the qualification receipt. This correction changes repository tooling only and does not close retained-history/credential/Origin gates.
+
+Merged correction: TehNet#60/MyTel#5/-SEO#19, actual CI12cases per repository (11PASS/1 Windows-only SKIP on Linux), full tracked/read counts1515/52/68. All three local Windows suites passed12/12. Do not reinterpret the Windows skip as a Linux pass. Refer to the explicit source snapshot and full object-scan/guard separation in the new history-ref receipt.
+
+## Additional bounded evidence layers —2026-11-01
+
+Cached identical-hash payloads were checked with the current publication rules and default redacted Gitleaks stdin in an isolated private working directory:7payloads/545archive file members, no candidate or archive exclusion. Nine known values/token patterns remain separate from arbitrary-secret absence or credential validity. Core metadata for all7 explicitly named repositories was read/scanned with200, no known/token occurrence, no visibility change. Receipts: `qa/security-2026-10-31/related-payload-candidate-layers.json` and `repository-core-metadata.json`. No archive members were unpacked to their member paths or executed; the additional Gitleaks phase retained decoded member content in one private scanner stream. No account reset or release/artifact deletion occurred.

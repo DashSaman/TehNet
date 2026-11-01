@@ -1,0 +1,61 @@
+{
+  "observed_utc": "2026-11-01T03:47:50.108190+00:00",
+  "repositories": [
+    {
+      "repository": "DashSaman/TehNet",
+      "status": 200,
+      "visibility": "public",
+      "has_pages": false,
+      "has_wiki": true
+    },
+    {
+      "repository": "DashSaman/mytel.one",
+      "status": 200,
+      "visibility": "private",
+      "has_pages": false,
+      "has_wiki": false
+    },
+    {
+      "repository": "DashSaman/-SEO",
+      "status": 200,
+      "visibility": "public",
+      "has_pages": false,
+      "has_wiki": true
+    },
+    {
+      "repository": "DashSaman/MyTellPBX",
+      "status": 200,
+      "visibility": "public",
+      "has_pages": false,
+      "has_wiki": false
+    },
+    {
+      "repository": "DashSaman/melika",
+      "status": 200,
+      "visibility": "public",
+      "has_pages": false,
+      "has_wiki": true
+    },
+    {
+      "repository": "DashSaman/mytel-webphone",
+      "status": 200,
+      "visibility": "public",
+      "has_pages": false,
+      "has_wiki": true
+    },
+    {
+      "repository": "DashSaman/MytellPhone",
+      "status": 200,
+      "visibility": "public",
+      "has_pages": false,
+      "has_wiki": true
+    }
+  ],
+  "known_or_token_occurrences": 0,
+  "remote_mutations": 0,
+  "limits": [
+    "Repository core metadata checked separately from PR/issue/comment metadata and payloads.",
+    "Only the nine identified values and bounded token formats; not arbitrary-private-information proof.",
+    "Flags and404 wiki/pages responses do not establish absence of inaccessible content."
+  ]
+}
