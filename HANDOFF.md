@@ -1,4 +1,10 @@
-## CURRENT — گپ بسته‌سازی محلی رفع و شواهد خصوصی کامل شد
+## CURRENT — پیش‌نویس IP/DHCP/DNS و scope مستقل آزموده شد
+
+VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED —۱نوامبر: همان ID63/URL/عنوان، پنج نیاز C01 در یک درس؛۹منبع اولیهٔ scoped، شکل ساختگی، تشخیص prefix/lease/DNS، reservation/تعارض و نمونهٔ غیرفعال لاب. RouterOS وWindows network commands اجرا نشده‌اند؛ متن محدودیت را روشن می‌کند.۵۷بلوک،۲۱browser و۱۵GET لینک باTLS، ویرایش/reset و بازگشت دقیق state staging پاس.۳۷native جدید/۳۷regression خدمات و۲۰unit Windows (۱۹PASS/۱SKIPsymlink) پاس؛ scope قدیمی در CLI entry رد شد. صفر مقاله/URL جدید، صفر production write و صفر runtime install؛۸فایل runtime محافظت می‌شوند. receipt `qa/growth-2026-10-31/ip-dhcp-dns-draft-and-migration.json` وbrief/source ledger درseo.
+
+ابزار محلی قبلی با PR45/46 وCI41254111873، و انتقال -SEO PR11/main76fef59 باCI41253986712 کامل شده؛ آن بسته را بازپخش نکنید. NEXT: immutable source/bundle وrehearsal مستقل ID63 با metadata0.2.1 موقت و restore دقیق preview0.2.0، سپس integration عادی/backup/checksum/drift و پذیرش عمومی. خانه/منو/فروشگاه/مشتری/MyTel/noindex/پرداخت وگیت‌های امنیتی حفظ شوند. گزارش صبح LIVE_NOT_FINAL وموعد۰۸:۰۰ پابرجاست.
+
+## HISTORICAL CHECKPOINT — گپ بسته‌سازی محلی رفع و شواهد خصوصی کامل شد
 
 VERIFIED_LOCAL_TOOLING —۱نوامبر: علتِ local build قبلی بازتولید شد؛ مسیر نسبیِ دارای `..` با طول269 شکست می‌خورد و مقصد resolve‌شده235 موفق بود. اکنون پیش از نوشتن مسیر نرمال می‌شود و خروجی موجود/لینک پذیرفته نمی‌شود. `--diagnostics-dir` اختیاری با ACL/owner محدود ویندوز یا mode محدود POSIX، بیرون `.git`/WordPress، trace را خصوصی و stdout را generic نگه می‌دارد؛ grant عمومیِ inherit-only نیز با تست قرمز سپس پاس رد شد. هیچ تنظیم OS/پوشهٔ شواهد واقعی تغییر نکرد.
 

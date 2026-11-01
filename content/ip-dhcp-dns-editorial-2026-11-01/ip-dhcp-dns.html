@@ -1,0 +1,215 @@
+<!-- wp:paragraph -->
+<p>وقتی یک دستگاه IP دارد اما سرویس باز نمی‌شود، «تغییر DNS» یا ساختن دوبارهٔ DHCP نقطهٔ شروع خوبی نیست. ابتدا معلوم کنید آدرس و prefix درست دریافت شده، مقصد چگونه مسیریابی می‌شود و نام را کدام resolver پاسخ می‌دهد. این درس از <a href="/learn/mikrotik/mtcna/">مسیر MTCNA تهران نتورک</a>، رابطهٔ IP، DHCP و DNS را با یک طرح ساختگی و مسیر عیب‌یابی مرحله‌ای توضیح می‌دهد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>دامنه و حد آزمون:</strong> مثال‌ها IPv4 و یک LAN ساده، بدون policy routing یا VPN هستند. منابع رسمی در ۱ نوامبر ۲۰۲۶ بازبینی شدند؛ انتخابگر مستندات MikroTik نسخهٔ 7.26 را نشان می‌داد، نه نسخهٔ دستگاه شما یا توصیهٔ ارتقا. فرمان‌های RouterOS و سناریوی DHCP/DNS این متن اجرا نشده‌اند؛ خروجی واقعی، زمان رفع یا موفقیت لاب ادعا نمی‌شود. پیش از تغییر تنظیمات، <a href="/learn/mikrotik/mtcna/routeros-winbox/">پشتیبان و روش بازگشت</a> لازم است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><a href="https://www.youtube.com/watch?v=a0JMhBdNNgs">ویدیوی قبلی همین جلسه در YouTube</a> حفظ شده است؛ متن مستقل خوانده می‌شود. اجرای همهٔ دستورهای ویدیو در نسخهٔ فعلی در این بازبینی تأیید نشده است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">۱. IP و prefix: مقصد کنار من است یا به gateway نیاز دارد؟</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در مرجع <a href="https://manual.mikrotik.com/docs/cli-reference/ip/address/">ip/address</a>، address و netmask برای محاسبهٔ network به‌کار می‌روند. داشتن چهار عدد شبیه هم کافی نیست؛ prefix و مسیر واقعی را هم بررسی کنید. در طرح سادهٔ زیر، کلاینت با /24 مقصد .140 را در همان subnet می‌بیند؛ اگر فقط prefix کلاینت اشتباهاً /25 باشد، .100 و .140 در دو subnet متفاوت قرار می‌گیرند. نتیجه لزوماً قطعی کامل نیست؛ مسیر از gateway و قواعد عبور ممکن است نتیجه را عوض کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code>Illustration only — not customer addresses or a ready-to-run lab
+LAN:       192.0.2.0/24
+Gateway:   192.0.2.1
+DNS:       192.0.2.53  (separate, already prepared lab server)
+Printer:   192.0.2.60  (planned manual address)
+DHCP pool: 192.0.2.100–192.0.2.150
+Client A:  192.0.2.100/24
+Target B:  192.0.2.140/24
+
+A with /24 -&gt; same subnet as B
+A with /25 -&gt; A:192.0.2.0/25, B:192.0.2.128/25</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>این آدرس‌ها مطابق <a href="https://www.rfc-editor.org/rfc/rfc5737.html">RFC5737</a> فقط برای مستندسازی‌اند؛ آن‌ها را به اینترنت نفرستید یا طرح عملیاتی فرض نکنید. برای اجرای لاب، همهٔ آدرس‌ها را یکجا با طرح خصوصیِ مجاز و بدون تعارض جایگزین کنید. هم‌subnet بودن در این مثال جای خواندن جدول مسیر را نمی‌گیرد؛ route اختصاصی‌تر، VPN یا سیاست مسیریابی می‌تواند تصمیم واقعی را تغییر دهد. جزئیات در <a href="/learn/mikrotik/mtcna/static-routing/">درس مسیریابی</a> آمده است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">۲. DHCP چهار جزء جدا دارد؛ DNS همان gateway نیست</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>آدرس روی رابط LAN، خودِ روتر را عضو شبکه می‌کند. روی bridge، رابط واقعی و عضویت پورت‌ها را بررسی کنید؛ نام ether2 در هر دستگاه الزاماً LAN نیست.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>Pool محدودهٔ آدرس‌های قابل تخصیص است؛ آدرس روتر را داخل آن نگذارید.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>DHCP Server سرویس را به رابط و pool متصل می‌کند؛ DHCP Network گزینه‌هایی مانند prefix، gateway و DNS را برای subnet مشخص می‌کند.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>Gateway برای مسیر خروج از subnet است. DNS برای تبدیل نام به پاسخ DNS است؛ یک آدرس می‌تواند هر دو نقش را داشته باشد، اما یکی جای دیگری را نمی‌گیرد. داشتن gateway به‌تنهایی اینترنت یا مسیر بعدی روتر را تضمین نمی‌کند.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>مرجع <a href="https://manual.mikrotik.com/docs/network-management/dhcp/server/">DHCP Server</a> پیش‌نیازهای آدرس، pool، network و رابط را جدا می‌کند. مثال مفهومی زیر تغییر پیکربندی است، نه دستور تعمیر شبکهٔ زنده. فقط روی لاب خالی و جدا، پس از جایگزینی طرح آدرس و با bridge ازقبل‌آمادهٔ lab-lan معنا دارد؛ نام‌های هم‌منظور نباید از قبل وجود داشته باشند. اجرای دوبارهٔ add را idempotent فرض نکنید. DNS نمونه یک سرور جدا و ازقبل‌آماده است؛ این قطعه DNS یا دسترسی اینترنت ایجاد نمی‌کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code># Conceptual only; adapt the entire address plan in an isolated lab.
+# Requires an existing lab-lan bridge with a lab client port.
+/ip/address/add address=192.0.2.1/24 interface=lab-lan comment=&quot;TN-LAB-C01&quot;
+/ip/pool/add name=tn-lab-c01 ranges=192.0.2.100-192.0.2.150
+/ip/dhcp-server/network/add address=192.0.2.0/24 gateway=192.0.2.1 dns-server=192.0.2.53
+/ip/dhcp-server/add name=tn-lab-c01 interface=lab-lan address-pool=tn-lab-c01 disabled=yes</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>سرویس در نمونه عمداً disabled می‌ماند. تا جدابودن لاب، درستی رابط و نبود DHCP رقیب تأیید نشده، آن را فعال نکنید. این قطعه طرح آموزشی است و روی RouterOS آزموده نشده؛ برای تکمیل اجرا، دستور و رفتار را با نسخهٔ خود و مرجع رسمی تطبیق دهید. روی شبکهٔ موجود، به‌جای ساخت سرویس دوم، ابتدا وضعیت فعلی را بخوانید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">۳. دریافت lease در کدام مرحله متوقف شده است؟</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>تبادل رایجِ تخصیص اولیه در <a href="https://www.rfc-editor.org/rfc/rfc2131.html#section-3.1">RFC2131 بخش۳.۱</a> به چهار مرحله خلاصه می‌شود؛ تمدید lease یا کلاینتی که آدرس قبلی را می‌شناسد الزاماً همهٔ این مراحل را تکرار نمی‌کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code>Client        DHCP server
+  DISCOVER -&gt;    find servers
+           &lt;- OFFER
+  REQUEST  -&gt;    choose/confirm parameters
+           &lt;- ACK
+Then compare the client configuration with the agreed plan.</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>بدون شاهد دریافت DISCOVER در سمت سرور، نتیجه نگیرید «pool خراب است»؛ رابط کلاینت، VLAN/مسیر broadcast و در شبکهٔ دیگر relay را بررسی کنید.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>اگر OFFER دیده می‌شود ولی REQUEST یا ACK به نتیجه نمی‌رسد، مسیر رفت‌وبرگشت، انتخاب سرور و پارامترها را بررسی کنید. صرف وجود یک ردیف lease اثبات دریافت تنظیم درست توسط همان کلاینت نیست.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>اگر کلاینت آدرس گرفته، IP/prefix، gateway، DNS و هویت سروری را که پاسخ داده با طرح تطبیق دهید؛ خطای DNS می‌تواند پس از تخصیص صحیح IP باقی بماند.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>برای تشخیص مرحله، دادهٔ هم‌زمانِ کلاینت و سرور لازم است. این شکل خروجی capture واقعی نیست. اگر capture مجاز لازم شد، محدوده/زمان آن و حذف دادهٔ حساس را پیش از اشتراک روشن کنید.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>راهنمای <a href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-dhcp-guidance">عیب‌یابی DHCP مایکروسافت</a> هم دامنهٔ اثر، تغییرات اخیر، ظرفیت scope، آدرس دستیِ خارج‌نشده از scope و وضعیت relay را جدا بررسی می‌کند. جزئیات سرویس Microsoft DHCP را با RouterOS یکسان فرض نکنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">۴. ابتدا وضعیت را بخوانید؛ release و reset آزمون خواندنی نیستند</h2>
+<!-- /wp:heading -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code># RouterOS — inspection only; output can contain private topology/identifiers
+/ip/address/print detail
+/ip/pool/print detail
+/ip/dhcp-server/print detail
+/ip/dhcp-server/network/print detail
+/ip/dhcp-server/lease/print detail
+/ip/dns/print</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>روی کلاینت Windows، مطابق <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig">ipconfig</a>، دستور زیر تنظیمات کامل آداپتورهای فیزیکی و منطقی را نشان می‌دهد. آداپتور واقعاً درگیر، DHCP Enabled، آدرس/prefix، DHCP Server، زمان lease و DNS Servers را بررسی کنید؛ اطلاعات یک VPN یا آداپتور خاموش را به LAN نسبت ندهید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code>ipconfig /all</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>خروجی می‌تواند آدرس، نام دستگاه و شناسهٔ سخت‌افزار داشته باشد؛ نسخهٔ کامل را عمومی منتشر نکنید. /release آدرس DHCP را کنار می‌گذارد و می‌تواند همان مسیر ریموت را قطع کند؛ flushdns هم cache را تغییر می‌دهد. این‌ها جای ثبت شواهد اولیه نیستند و در این مسیر عیب‌یابی اجرا نمی‌شوند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">۵. Reservation، آدرس دستی و تداخل را از هم جدا کنید</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>در reservation/static lease، کلاینت همچنان از DHCP می‌پرسد؛ سرور برای هویت تعیین‌شده آدرس مشخص می‌دهد. IP دستی روی خود دستگاه تنظیم می‌شود و دریافت آن وابسته به DHCP نیست.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>طبق <a href="https://manual.mikrotik.com/docs/network-management/dhcp/">مفاهیم DHCP در RouterOS</a>، client identifier و MAC در تشخیص کلاینت اهمیت دارند؛ همان شناسه‌ای را که سرور واقعاً دیده ثبت کنید. تعویض کارت یا تغییر شناسه می‌تواند تطبیق قبلی را بی‌اثر کند.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>آدرس‌های دستی را در برنامهٔ تخصیص ثبت و از محدودهٔ تخصیص پویای هم‌پوشان خارج کنید. در طرح ساختگی، printer .60 و DNS .53 بیرون pool .100 تا .150 هستند؛ این توصیه به معنی ممنوع‌بودن reservation مدیریت‌شده در خود pool نیست.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>در RouterOS، conflict-detection برای آدرس‌های پویا از ARP و ICMP استفاده می‌کند؛ static lease همان بررسی تعارض را ندارد. بنابراین «static شده» دلیل آزادبودن IP نیست. وضعیت conflict یا declined شاهدی برای بررسی است، نه مجوز پاک‌کردن همهٔ leaseها.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>برای احتمال IP تکراری، زمان اختلال، مالک ثبت‌شدهٔ آدرس، lease همان کلاینت و شواهد ARP/پورت شبکه را کنار هم بگذارید. تغییر MAC به‌تنهایی اثبات تعارض نیست؛ proxy ARP یا افزونگی مجاز هم باید در طرح شناخته شده باشند. پاک‌کردن cache یا تغییر تصادفی IP پیش از ثبت شواهد می‌تواند تشخیص را دشوار کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">۶. DNS خودِ روتر و DNS کلاینت دو آزمون متفاوت‌اند</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در <a href="https://manual.mikrotik.com/docs/network-management/dns/">راهنمای DNS میکروتیک</a>، router resolver می‌تواند برای خود روتر lookup انجام دهد یا به دستگاه‌های دیگر هم پاسخ بدهد. موفقیت resolve روی روتر ثابت نمی‌کند کلاینت همان DNS را می‌پرسد یا به آن دسترسی دارد. کلاینتی که DNS دیگری دریافت کرده، رکورد محلی روتر را لزوماً نمی‌بیند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>مرز مهمِ سرویس:</strong> allow-remote-requests=yes پاسخ‌گویی DNS روی UDP و TCP پورت۵۳ِ آدرس‌های روتر را ممکن می‌کند. در شبکهٔ دارای قواعد سفارشی، دسترسی باید فقط برای کلاینت‌های مورداعتماد و در سمت input مناسب محدود شود و از سمت اینترنت باز نماند. فعال‌کردن این گزینه یک قدم عمومیِ عیب‌یابی نیست. نمونهٔ این درس از DNS جدا استفاده می‌کند و آن را فعال نمی‌کند؛ قواعد firewall را نیز بدون شناخت رابط‌ها و مسیر مدیریت کپی نکنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">۷. به‌جای دو ping متفاوت، یک پرسش DNS کنترل‌شده بپرسید</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>ابتدا نام کاملِ مورد انتظار، نوع رکورد و DNS مجاز را از طرح لاب انتخاب کنید. نمونهٔ زیر برای Windows دارای cmdlet مربوط است؛ مقدار واقعیِ مجاز را خودتان وارد می‌کنید و این متن آن را اجرا نکرده است. <a href="https://learn.microsoft.com/en-us/powershell/module/dnsclient/resolve-dnsname?view=windowsserver2025-ps">مرجع Resolve-DnsName</a>، Server را برای انتخاب resolver، DnsOnly را برای کنارگذاشتن LLMNR/NetBIOS و NoHostsFile را برای کنارگذاشتن Hosts توضیح می‌دهد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code># Windows PowerShell — authorized lab query only, no configuration change
+Get-Command Resolve-DnsName
+$LabDnsName = Read-Host &#x27;Enter the approved full lab record name&#x27;
+$LabDnsServer = Read-Host &#x27;Enter the approved lab DNS server IP&#x27;
+Resolve-DnsName -Name $LabDnsName -Server $LabDnsServer -Type A -DnsOnly -NoHostsFile</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>پاسخ مورد انتظار: نام، نوع و آدرس پاسخ را با همان رکورد طرح مقایسه کنید؛ resolve شدن یک نام عمومی، صحت نام داخلی را اثبات نمی‌کند.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>NXDOMAIN با timeout یکی نیست: اولی پاسخ منفی دربارهٔ وجود نام است؛ timeout یعنی پاسخ در بازهٔ انتظار به ابزار نرسیده است. نام/سرور اشتباه و مسیر دسترسی را جدا بررسی کنید.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>SERVFAIL را با «نام وجود ندارد» یکی نگیرید؛ resolver نتوانسته پاسخ قابل استفاده بدهد. علت می‌تواند به upstream یا فرایند resolution مربوط باشد و نیاز به بررسی همان سرویس دارد.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>حتی NOERROR می‌تواند برای نوع رکورد درخواستی پاسخ خالی داشته باشد. موفقیت DNS هم سلامت برنامه یا مجازبودن ترافیک آن را ثابت نمی‌کند؛ ping به IP دیگر و نامی دیگر فقط یک سرنخ اولیه است.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">برگهٔ پذیرش لاب و گزارش نتیجه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>قبل از اجرا: نسخه‌ها، طرح خصوصیِ جایگزین، رابط/bridge، pool و مالک آدرس‌های دستی، DNS و رکورد آزمون نوشته شده باشند.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>پس از بررسی: تنظیم واقعیِ همان آداپتور و lease/هویت سرور با طرح تطبیق داده شود؛ دریافت آدرس از سرور ناشناس یا با prefix اشتباه پذیرش نیست.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>تصمیم on-link/gateway برای دو مقصد مشخص با prefix و جدول مسیر توضیح داده شود؛ علت احتمالی با نتیجهٔ اندازه‌گیری‌شده مخلوط نشود.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>پرسش یکسانِ نام/نوع/سرور و زمان مشاهده ثبت شود؛ خطای منفی، timeout و موفقیت DNS از آزمون برنامه جدا بمانند.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>اقدام مجاز، روش بازگشت و موارد هنوز بررسی‌نشده ثبت شوند. تا اجرای واقعی، نتیجهٔ هر خانه «اندازه‌گیری نشده» است؛ این متن هیچ لاب موفق یا زمان بازیابی گزارش نمی‌کند.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>اگر مسئله در شبکهٔ واقعی ادامه دارد، <a href="/services/network-support-tehran/">پشتیبانی شبکه تهران</a> برای حضوری تهران و ریموت سراسر ایران، یا <a href="/services/mikrotik-tehran/">خدمات میکروتیک</a> مسیر مرتبط است؛ شرح خطا را پس از حذف اطلاعات حساس بفرستید. جلسهٔ بعد: <a href="/learn/mikrotik/mtcna/static-routing/">مسیریابی استاتیک</a>؛ بازگشت به <a href="/learn/mikrotik/mtcna/">دورهٔ MTCNA</a>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:shortcode -->
+[tn_editorial_note]
+<!-- /wp:shortcode -->

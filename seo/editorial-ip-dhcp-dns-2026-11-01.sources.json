@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "status": "SCOPED_REVIEW_DRAFT_NOT_DEPLOYED",
+  "reviewed": "2026-11-01",
+  "target": {
+    "id": 63,
+    "url": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+    "title_observed": "آدرس‌دهی IP، DHCP و DNS در میکروتیک — MTCNA",
+    "expected_content_sha256": "010a5df48a5326fca34a4a038b68f1b03ae41e04da1f72217636d9c68e1b15bc",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "reader_jobs": [
+    "TN-T001",
+    "TN-T002",
+    "TN-T003",
+    "TN-T004",
+    "TN-T005"
+  ],
+  "sources": [
+    {
+      "id": "MK-IP-ADDRESS",
+      "class": "OFFICIAL",
+      "url": "https://manual.mikrotik.com/docs/cli-reference/ip/address/",
+      "version_or_date": "7.26 observed",
+      "review_depth": "SECTION_REVIEWED",
+      "scope_and_limit": "address/netmask/network, interface/actual-interface fields; no device execution",
+      "reviewed": "2026-11-01"
+    },
+    {
+      "id": "MK-DHCP-CONCEPTS",
+      "class": "OFFICIAL",
+      "url": "https://manual.mikrotik.com/docs/network-management/dhcp/",
+      "version_or_date": "7.26 observed",
+      "review_depth": "SECTION_REVIEWED",
+      "scope_and_limit": "IPv4 client/server/relay, allocation stages, identification and conflict behavior; not full DHCPv6 review",
+      "reviewed": "2026-11-01"
+    },
+    {
+      "id": "MK-DHCP-SERVER",
+      "class": "OFFICIAL",
+      "url": "https://manual.mikrotik.com/docs/network-management/dhcp/server/",
+      "version_or_date": "7.26 observed",
+      "review_depth": "SECTION_REVIEWED",
+      "scope_and_limit": "Pool/network/interface prerequisites, manual configuration and static/dynamic lease distinction; no live setup",
+      "reviewed": "2026-11-01"
+    },
+    {
+      "id": "MK-DNS-C01",
+      "class": "OFFICIAL",
+      "url": "https://manual.mikrotik.com/docs/network-management/dns/",
+      "version_or_date": "7.26 observed",
+      "review_depth": "SECTION_REVIEWED",
+      "scope_and_limit": "Local versus client resolver, trusted input boundary, response status; not full DoH/adlist/forwarder review",
+      "reviewed": "2026-11-01"
+    },
+    {
+      "id": "MS-IPCONFIG-C01",
+      "class": "OFFICIAL",
+      "url": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig",
+      "version_or_date": "Windows10/11 and Server2016–2025 applicability",
+      "review_depth": "SECTION_REVIEWED",
+      "scope_and_limit": "all/display versus release/renew/flush semantics; not executed",
+      "reviewed": "2026-11-01"
+    },
+    {
+      "id": "MS-RESOLVE-C01",
+      "class": "OFFICIAL",
+      "url": "https://learn.microsoft.com/en-us/powershell/module/dnsclient/resolve-dnsname?view=windowsserver2025-ps",
+      "version_or_date": "Docs selector WindowsServer2025-ps; cmdlet availability must be checked on target",
+      "review_depth": "SECTION_REVIEWED",
+      "scope_and_limit": "Name/Server/Type/DnsOnly/NoHostsFile parameters; not executed",
+      "reviewed": "2026-11-01"
+    },
+    {
+      "id": "MS-DHCP-C01",
+      "class": "OFFICIAL",
+      "url": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-dhcp-guidance",
+      "version_or_date": "Supported Windows Server versions shown",
+      "review_depth": "SECTION_REVIEWED",
+      "scope_and_limit": "Troubleshooting checklist, scope/relay/manual-address overlap; Microsoft authorization not generalized to RouterOS",
+      "reviewed": "2026-11-01"
+    },
+    {
+      "id": "RFC2131-C01",
+      "class": "STANDARD",
+      "url": "https://www.rfc-editor.org/rfc/rfc2131.html#section-3.1",
+      "version_or_date": "March1997",
+      "review_depth": "SECTION_REVIEWED",
+      "scope_and_limit": "Section3.1 initial allocation and section2.2 probe context; not an exhaustive RFC/options/renewal audit",
+      "reviewed": "2026-11-01"
+    },
+    {
+      "id": "RFC5737-C01",
+      "class": "STANDARD",
+      "url": "https://www.rfc-editor.org/rfc/rfc5737.html",
+      "version_or_date": "January2010",
+      "review_depth": "SECTION_REVIEWED",
+      "scope_and_limit": "Documentation address blocks and operational limits; not a production lab address plan",
+      "reviewed": "2026-11-01"
+    }
+  ],
+  "technical_execution": "NOT_RUN",
+  "wordpress_qualification": "PENDING",
+  "publication": "NOT_DEPLOYED"
+}

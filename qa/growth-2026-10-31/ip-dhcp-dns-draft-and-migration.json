@@ -1,0 +1,213 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED",
+  "observed_utc": "2026-11-01T00:02:09.869060+00:00",
+  "target": {
+    "id": 63,
+    "url": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+    "title_observed": "آدرس‌دهی IP، DHCP و DNS در میکروتیک — MTCNA",
+    "expected_content_sha256": "010a5df48a5326fca34a4a038b68f1b03ae41e04da1f72217636d9c68e1b15bc",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "body_sha256_lf": "69ff0713547027dfd09975feccd77ead625d97c09f0eb95188d310c56a65305b",
+  "source_count": 9,
+  "source_depth": "Stated primary sections only; no full manual/RFC audit",
+  "blocks": {
+    "blocks": 57,
+    "registered": true,
+    "roundtrip": true,
+    "sanitization": true
+  },
+  "browser": {
+    "scope": "Temporary existing lesson in independently guarded native staging",
+    "status": "PASS",
+    "checks": 21,
+    "observations": [
+      {
+        "width": 1440,
+        "status": 200,
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "status": 200,
+        "h1": 1,
+        "overflow": false
+      }
+    ],
+    "editor": {
+      "blocks": 57,
+      "names": [
+        "core/paragraph",
+        "core/heading",
+        "core/code",
+        "core/list",
+        "core/list-item",
+        "core/shortcode"
+      ],
+      "invalid": [],
+      "changed": true,
+      "restored": true
+    },
+    "page_errors": [],
+    "blocked_external_origins": 2,
+    "page_saves": 0,
+    "production_mutations": 0,
+    "original_posts_meta_users_unchanged_after_cleanup": true,
+    "owned_editor_removed": true,
+    "private_backup_verified": true,
+    "temporary_lesson_restored": true
+  },
+  "links": {
+    "observed_utc": "2026-10-31T23:57:25.098430+00:00",
+    "method": "Unique editorial hrefs; default-TLS unauthenticated GETs; no form actions",
+    "rows": [
+      {
+        "url": "https://learn.microsoft.com/en-us/powershell/module/dnsclient/resolve-dnsname?view=windowsserver2025-ps",
+        "status": 200,
+        "final_url": "https://learn.microsoft.com/en-us/powershell/module/dnsclient/resolve-dnsname?view=windowsserver2025-ps",
+        "bytes": 73868,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-dhcp-guidance",
+        "status": 200,
+        "final_url": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-dhcp-guidance",
+        "bytes": 61104,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig",
+        "status": 200,
+        "final_url": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig",
+        "bytes": 55015,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://manual.mikrotik.com/docs/cli-reference/ip/address/",
+        "status": 200,
+        "final_url": "https://manual.mikrotik.com/docs/cli-reference/ip/address/",
+        "bytes": 53970,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://manual.mikrotik.com/docs/network-management/dhcp/",
+        "status": 200,
+        "final_url": "https://manual.mikrotik.com/docs/network-management/dhcp/",
+        "bytes": 42624,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://manual.mikrotik.com/docs/network-management/dhcp/server/",
+        "status": 200,
+        "final_url": "https://manual.mikrotik.com/docs/network-management/dhcp/server/",
+        "bytes": 111556,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://manual.mikrotik.com/docs/network-management/dns/",
+        "status": 200,
+        "final_url": "https://manual.mikrotik.com/docs/network-management/dns/",
+        "bytes": 84171,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/learn/mikrotik/mtcna/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/learn/mikrotik/mtcna/",
+        "bytes": 51200,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+        "bytes": 62240,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/",
+        "bytes": 63093,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/services/mikrotik-tehran/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/services/mikrotik-tehran/",
+        "bytes": 45397,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/services/network-support-tehran/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/services/network-support-tehran/",
+        "bytes": 53537,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc2131.html#section-3.1",
+        "status": 200,
+        "final_url": "https://www.rfc-editor.org/rfc/rfc2131.html#section-3.1",
+        "bytes": 130604,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc5737.html",
+        "status": 200,
+        "final_url": "https://www.rfc-editor.org/rfc/rfc5737.html",
+        "bytes": 9955,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=a0JMhBdNNgs",
+        "status": 200,
+        "final_url": "https://www.youtube.com/watch?v=a0JMhBdNNgs",
+        "bytes": 1302446,
+        "tls_default_verified": true
+      }
+    ],
+    "all200": true
+  },
+  "migration": {
+    "scoped_assertions": 37,
+    "prior_support_scope_regression": 37,
+    "old_cli_entry_scope_refused_before_registry_extension": true,
+    "operator_windows": {
+      "total": 20,
+      "passed": 19,
+      "skipped": 1,
+      "reason": "Host symlink creation permission unavailable"
+    },
+    "runtime_files_guarded": 8,
+    "runtime_files_to_install": 0
+  },
+  "technical_execution": {
+    "routeros_lab": "NOT_RUN",
+    "windows_network_commands": "NOT_RUN"
+  },
+  "new_articles": 0,
+  "new_urls": 0,
+  "production_mutations": 0,
+  "limits": [
+    "One existing lesson for five C01 jobs; candidate portfolio is not a publication counter",
+    "Conceptual disabled DHCP fragment is not a tested operational script",
+    "RFC5737 addresses are documentation only; replace the complete plan in an authorized isolated private lab",
+    "Native WordPress acceptance does not prove network repair, client behavior or SEO gain",
+    "Immutable operator rehearsal, CI integration, fresh production backup/drift and public acceptance remain separate gates"
+  ]
+}
