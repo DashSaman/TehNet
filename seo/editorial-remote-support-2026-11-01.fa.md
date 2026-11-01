@@ -31,3 +31,8 @@ MyTel production/read-only و freeze، noindex،۲۵کالای استعلامی�
 ## انتشار واقعی
 
 PR52/CI41260264596، Linux۲۲operator/۹privacy PASS با خواندن خلاصهٔ واقعی log؛ source live d2f032f9a5532bccb92b09768d018299abba1dc0 برابر payload/tool/۸guard نسخهٔ qualified98572f4 است. پس از backup تازه/checksum/drift، فقط همان body و تاریخ واقعی01:16:06UTC تغییر کرد؛ repeat بدون تغییر،۹TLS GET و۴۴browser1440/375/no-JS پاس. دادهٔ محافظت‌شده/۸runtime file/containerها ثابت؛۲۵کالا،قابل‌خرید۰،ERP/sandbox false وMyTel write۰. صفر مقاله/URL/runtime install؛ live rollback لازم نشد. manifest و receiptهای draft/rehearsal تاریخی‌اند و بازنویسی نمی‌شوند. هیچ جلسهٔ واقعی، آزمون امنیت ابزار یا نتیجهٔSEO اندازه‌گیری نشده است. انتقال تجربه و وضعیت Git در checkpoint بعد ثبت می‌شود.
+
+
+انتقال منابع/قبولی واقعی/حدود در [-SEO PR15](https://github.com/DashSaman/-SEO/pull/15)، main `9b5ad0972743697fc33ed924545c038d4b46faae` وCI41260665289 ادغام شد؛۴source row/topic/dashboard/continuation،۹privacy test وscan۶۷فایل/۱۵مقصدdashboard پاس،baseline۷۱٪ ثابت. مثال ابزار،جلسهٔ ساختگی و CISA403 حذف‌شده ازپشتوانه صریح‌اند؛قبولیWordPress،آزمون امنیت ابزار یاSEOgain نیست.
+
+NEXT: صفحهٔ موجود /services/mikrotik-tehran/ را برای نیاز مستقل در شناخت نسخه/دسترسی/بازیابی بخوان؛ فقط پس از شاهد، بهبود همان URL را تحقیق کن و درس‌های پذیرفته‌شده را تکرار نکن. انتشارهای قبلی، recovery و۱۰۰کاندیدا بازپخش نشوند؛ preview writers ترتیبی و با قفل مشترک باشند. noindex/خانه/منو/فروشگاه/داده/پرداخت/MyTel freeze و rotationUNKNOWN/historyNEEDS_APPROVAL/originUNDETERMINED/منعforce-push پابرجا؛ گزارش صبح LIVE_NOT_FINAL تا۰۸:۰۰.
