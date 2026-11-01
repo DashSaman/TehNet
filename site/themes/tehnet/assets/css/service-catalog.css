@@ -1,4 +1,8 @@
 /* Scoped service discovery and intake; uses the established theme palette. */
+body.page-id-8 .entry-content{max-width:none}
+body.page-id-8 .tn-main>article.tn-card{padding:clamp(18px,3vw,40px)}
+body.tn-visual .entry-content .tn-svc-hero h2{font-size:clamp(25px,3vw,40px);margin-block:12px 18px;border:0;padding:0}
+body.tn-visual .entry-content .tn-svc-card h3{font-size:20px;margin-block:0 14px}
 .tn-svc-hero,.tn-svc-callout,.tn-svc-intake,.tn-service-receipt{padding:clamp(22px,4vw,44px);border:1px solid var(--tn-border);border-radius:var(--tn-radius-lg);background:var(--tn-surface);margin-block:28px}
 .tn-svc-hero{background:linear-gradient(125deg,var(--tn-turquoise-soft),var(--tn-card));border-inline-start:4px solid var(--tn-accent)}
 .tn-svc-hero h2{font-size:clamp(25px,3vw,40px);line-height:1.65;margin-block:12px 18px;max-width:24ch}

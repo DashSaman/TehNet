@@ -21,6 +21,7 @@ const checks=[]; function check(label,value){assert.ok(value,label);checks.push(
    check(route+' exactly one short service form',await page.locator('[data-tn-service-request]').count()===1);
    if(route==='/')for(const p of ['/learn/','/lab/','/services/','/shop/'])check('Homepage retains '+p,await page.locator(`main a[href="${p}"]`).count()>0);
    else{
+    check('Service catalog has room for readable enterprise cards',await page.locator('main .entry-content').evaluate(e=>e.getBoundingClientRect().width>900));
     for(const id of ['active-network','managed-support','server-planning','security-planning','monitoring-planning','wifi-planning','branch-planning'])check('Browsable category '+id,await page.locator(`#${id}`).count()===1&&await page.locator(`main a[href="#${id}"]`).count()===1);
     for(const slug of ['network-tehran','network-support-tehran','network-setup-tehran','mikrotik-tehran','remote-support','voice-network-readiness'])check('Retains service owner '+slug,await page.locator(`main a[href="/services/${slug}/"]`).count()>0);
     check('Specialist VoIP remains contextual MyTel link',await page.locator('main a[href="https://mytel.one/services/"]').count()>0);
@@ -54,12 +55,14 @@ const checks=[]; function check(label,value){assert.ok(value,label);checks.push(
   check('Array service input rejected server-side',(await post(array)).status()===400);
   check('Malformed email rejected server-side',(await post({...base,tn_email:'not-email'})).status()===400);
   check('Short problem rejected server-side',(await post({...base,tn_message:'کم'})).status()===400);
-  const nojs=await context(false,375);const np=await nojs.newPage();await np.goto(origin+'/',{waitUntil:'networkidle'});const nf=np.locator('[data-tn-service-request]');
+  const nojs=await context(false,375);const np=await nojs.newPage();const nojsRequests=[];
+  np.on('response',r=>{if(r.request().method()==='POST')nojsRequests.push({url:r.url(),status:r.status()});});
+  await np.goto(origin+'/',{waitUntil:'networkidle'});const nf=np.locator('[data-tn-service-request]');
   await fill(nf,'remote-support','nojs');
   const validity=await nf.evaluate(f=>({valid:f.checkValidity(),invalid:[...f.elements].filter(e=>e.willValidate&&!e.validity.valid).map(e=>({name:e.name,message:e.validationMessage}))}));
   fs.writeFileSync(path.join(out,'nojs-before-private.json'),JSON.stringify(validity,null,2));check('No-JS form passes native client validation',validity.valid);
   try{await Promise.all([np.waitForURL('**/support/?tn_ticket=sent&tn_service_receipt=*'),nf.locator('[type=submit]').click()]);}
-  catch(error){fs.writeFileSync(path.join(out,'nojs-failure-private.json'),JSON.stringify({url:np.url(),body:await np.locator('body').innerText()},null,2));await np.screenshot({path:path.join(out,'nojs-failure-private.png'),fullPage:true});throw error;}
+  catch(error){fs.writeFileSync(path.join(out,'nojs-failure-private.json'),JSON.stringify({url:np.url(),posts:nojsRequests,form:await nf.evaluate(f=>({action:f.action,method:f.method,valid:f.checkValidity(),elements:[...f.elements].map(e=>({name:e.name,type:e.type,length:e.value?.length,required:e.required,valid:e.validity?.valid,message:e.validationMessage,associated:e.form===f,disabled:e.disabled}))})),body:await np.locator('body').innerText()},null,2));await np.screenshot({path:path.join(out,'nojs-failure-private.png'),fullPage:true});throw error;}
   const second=(await np.locator('.tn-service-receipt').innerText()).match(/TN-\d+/)?.[0];refs.push(second);
   check('Mobile no-JS request actually saved with distinct reference',!!second&&second!==ref);
   await np.locator('.tn-service-receipt').screenshot({path:path.join(out,'nojs-receipt-375.png')});await nojs.close();
