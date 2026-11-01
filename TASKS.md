@@ -1,4 +1,14 @@
-## CURRENT — P2 و اصلاح پوشش اسکن تکمیل شد؛ تحویل نهایی صبح باقی است
+## CURRENT — تحویل نهایی دورهٔ شبانه؛ گیت‌های باز حفظ شده‌اند
+
+**FINAL_OVERNIGHT_HANDOFF —2026-11-01 07:38 تهران:** [گزارش نهایی](docs/reports/MORNING_HANDOFF_2026-11-01.fa.md) انتشارهای واقعی،پیش‌نویس‌ها،آزمون‌ها،خطاها و باقی‌مانده‌ها را جدا می‌کند. این پایان گزارش این دوره است؛ اتمام کامل فروشگاه/امنیت/SEO یا۱۰۰مقاله ادعا نشده است.
+
+P10 closing:۲۰TLS مسیر TehNet،asset۲۵محصول/hashدو فایل،۲۵browser ابزار دستی و۴۴browser گالری پاس؛۱۳Title/H1/canonical مایتل برابرinventory؛native۱۶فایل مدیریت‌شده وnoindex/۲۵استعلامی/قابل‌خرید۰/ERPوسندباکسfalse. کل۱۶container با snapshot پذیرفته‌شدهٔ گالری ازنظرID/image/StartedAt/running/networks/ports برابرند. شمار۱۵ مربوط به snapshot قدیمی‌تر۱۸:۱۰UTC بود؛ تفاوت زمانی باآن، drift تازه یا compromise را اثبات نمی‌کند. هیچ تغییر سایت/داده/حساب/شبکه یا ارسال فرم/پرداخت واقعی درP10 انجام نشد.
+
+P2 و اصلاح پوشش فایل درPR60/MyTel5/SEO19؛انتقال درSEO20/MyTel6؛رسیدهای عمومی و گزارش منسجم درPR61 ادغام شده‌اند. Public snapshotها source صریح تاریخی دارند؛کپی تمیز و map دقیق فقط خصوصی‌اند. snapshot خصوصی پس ازPR61/SEO20/MyTel6 قبلاً تأیید شد؛این ادغام گزارش آن را دوباره تاریخی می‌کند و آخرین تطبیق خصوصی پس ازادغام انجام می‌شود. پیش از purge آینده همیشه drift تازه بررسی شود؛هیچ force-push مجاز نشده است.
+
+NEXT: اجرای دورهٔ شبانه پس ازثبتCI/ادغام گزارش وcheckpoint خصوصی پایان می‌یابد. انتشارها/recoveryها/۱۰۰نامزد/auditهای بدونتغییر بازپخش نشوند. ادامهٔ کار با دستور تازه و حفظ گیت‌ها:credential UNKNOWN/NOT_ROTATED؛shared history/PR/cache/fork/support NEEDS_APPROVAL؛origin UNDETERMINED؛MyTelproduction READ_ONLY؛noindex وپرداخت بسته حفظ. مدل دقیق/CAD/۳۶۰ مجاز۲۵کالا،تأیید قیمت/موجودی واقعی و اندازه‌گیری rank/traffic/AI citation باقی‌اند. همهٔ این‌ها انجام‌شده اعلام نشده‌اند.
+
+## HISTORICAL CHECKPOINT — P2 و اصلاح پوشش اسکن تکمیل شد؛ تحویل نهایی صبح باقی است
 
 **VERIFIED در دامنهٔ ثبت‌شده —۱ نوامبر:** guard قدیمی در checkout عمیق Windows فقط۱۲۷۶ از۱۵۱۳ فایل را می‌خواند. اصلاح TehNet#60/MyTel#5/-SEO#19 با RED واقعی،۱۲PASS محلی در هر ریپو و CI Linux شامل۱۱PASS/۱SKIP صریح ادغام شد؛ TehNet۲۵operator نیزپاس. همان checkout بدون تغییر۱۵۱۳/۱۵۱۳ خوانده شد. گیت فایل خوانده‌نشده اکنون FAIL است؛ محتوا/خطای OS چاپ نمی‌شود. این اصلاح tooling است، نه اثبات leak تازه یا بستن رخداد.
 
