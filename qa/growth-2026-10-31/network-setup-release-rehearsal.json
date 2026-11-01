@@ -1,0 +1,108 @@
+{
+  "scope": "Exact existing service in owned native staging, no runtime file changes",
+  "source_commit": "5174ff27c4d42fae9e360c019d6adb8cc3685c29",
+  "observed_utc": "2026-11-01T00:48:49.526549+00:00",
+  "results": [
+    {
+      "operation": "check",
+      "status": "READY",
+      "files_pending": 0,
+      "content": {
+        "status": "READY",
+        "pages_pending": 0,
+        "hubs_pending": 1,
+        "protected_digest": "7ce5c54c3cb997c5388b1790be6e7d454bc19b3298f4a397b3d9e71f439f7abd"
+      }
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "files_changed": 0,
+      "content": {
+        "status": "APPLIED",
+        "pages_created": 0,
+        "hubs_updated": 1,
+        "page_ids": [],
+        "protected_digest": "7ce5c54c3cb997c5388b1790be6e7d454bc19b3298f4a397b3d9e71f439f7abd",
+        "protected_state_unchanged": true
+      }
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "files_changed": 0,
+      "content": {
+        "status": "APPLIED",
+        "pages_pending": 0,
+        "hubs_pending": 0,
+        "pages_created": 0,
+        "hubs_updated": 0,
+        "page_ids": [],
+        "protected_state_unchanged": true
+      }
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "files_restored": 0,
+      "content": {
+        "status": "ROLLED_BACK",
+        "hubs_restored": 1,
+        "pages_drafted": 0,
+        "protected_state_unchanged": true
+      }
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "files_restored": 0,
+      "content": {
+        "status": "ROLLED_BACK",
+        "hubs_restored": 0,
+        "pages_drafted": 0,
+        "protected_state_unchanged": true
+      }
+    }
+  ],
+  "production_mutations": 0,
+  "current_metadata_baseline_fixture_verified": true,
+  "tampered_payload_refused": true,
+  "tampered_metadata_refused": true,
+  "http_smoke": [
+    {
+      "path": "/services/network-setup-tehran/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/shop/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/services/voice-network-readiness/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    }
+  ],
+  "original_posts_meta_users_exactly_restored": true,
+  "existing_runtime_unchanged": true,
+  "backup_checksum_verified": true,
+  "status": "VERIFIED_REHEARSAL_NOT_DEPLOYED",
+  "original_metadata_fixture_exactly_restored": true,
+  "completed_utc": "2026-11-01T00:49:05.765581+00:00",
+  "limits": [
+    "Source Cisco direct-GET403 remains a separately recorded partial access result",
+    "No network project tests or actual service delivery",
+    "No production mutation; metadata0.2.1 modeled temporarily and original preview file restored"
+  ]
+}

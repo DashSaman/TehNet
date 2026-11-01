@@ -154,7 +154,8 @@ No production release/backup/rollback, browser/tool/download/network or GSC test
 | P6 existing setup-service ID33 draft | VERIFIED |57 blocks/30 staging-browser,39 native plus37 IP/DNS and37 support regressions; Windows20PASS/1SKIP of21; scope exact/body-only/eight current-runtime guards |
 | Source links | IN_PROGRESS | PARTIAL12x200/one official Cisco403 in direct path; source readable through web tool,3 fragment IDs verified; no all200 claim |
 | Owned staging QA overlap | ROLLED_BACK | Protected-state gate refused; fresh backup/dry-run/exact after-snapshot guard restored only page33 and one owned new revision; original four-table fingerprint exact, journal unchanged; serial39/30 pass and OS-writer-lock rejection/reacquisition tested |
-| ID33 immutable rehearsal / Linux CI / live | READY | Distinct committed bundle and current-metadata fixture; backup/tamper/apply/repeat/rollback/repeat before normal integration and fresh production gates |
+| ID33 immutable rehearsal | VERIFIED | Source5174ff27c4d42fae9e360c019d6adb8cc3685c29; backup/checksum/tamper/check/apply/repeat/4HTTP/rollback/repeat, exact content/current-metadata fixture restoration and unchanged containers |
+| ID33 Linux CI / live | READY | Fresh CI head, normal integration/private snapshot, qualified payload/tool/eight guard equality, then fresh production backup/drift and actual read-only acceptance |
 | P10 morning report | IN_PROGRESS | LIVE_NOT_FINAL;08:00Tehran final remains required |
 
 The JSON anchor-format failure and operator's overlapping shared-preview writers are retained in the receipt; neither warrants weakening serialization/drift protection. No network-project test, article/URL or production write occurred. Run shared-preview writers sequentially; preserve noindex/commerce/customer data/MyTel/security gates.

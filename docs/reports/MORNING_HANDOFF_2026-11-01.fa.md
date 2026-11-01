@@ -1,6 +1,6 @@
 # تحویل صبح TehNet × MyTel × SEO —۱نوامبر۲۰۲۶
 
-**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 04:16 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
+**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 04:19 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
 
 ## ۱. امنیت — گیت‌های باز مقدم‌اند
 
@@ -245,3 +245,11 @@ VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED —۱نوامبر: همان ID33/URL/عنوا
 رسید `qa/growth-2026-10-31/network-setup-draft-and-migration.json` وbrief/source ledger درseo. خطای serialization پیش ازذخیره ردواصلاح شد. اجرای اشتباه هم‌زمان دوQA موجب protected-state drift شد؛ گیت rollback درست متوقف کرد. پس ازdry-run/backup تازه/تطبیق دقیق، فقط ID33 ویکrevision متعلق بههمانQA بازگشت؛ journal اصلی وتمام داده‌های دیگر دست‌نخورده وfingerprint چهارجدول برابر اصل شد. قفل OS مشترک واجرای ترتیبی بعدی پاس شدند؛ این شکست‌ها دررسید حفظ‌اند. صفر تغییرتولید/مقاله/URL جدید؛ MyTel/noindex/فروشگاه/پرداخت وداده محفوظ‌اند.
 
 NEXT: immutable bundle/rehearsal مستقل باmetadata0.2.1 وrestore دقیقpreview0.2.0؛ سپس CI/ادغام عادی/backup/checksum/drift وبرابریpayload/tool/۸guard وپذیرش عمومی درصورت صلاحیت. محدودیتCisco403 نباید به PASS13تبدیل شود. helperهای QA وrehearsal را رویpreview مشترک هم‌زمان اجرا نکن. انتشارهای قبلی را بازپخش نکن؛ گزارشصبحLIVE_NOT_FINAL وامنیتrotationUNKNOWN/historyNEEDS_APPROVAL/originUNDETERMINED/منعforce-push پابرجاست.
+
+## checkpoint rehearsal راه‌اندازی شبکه
+
+## CURRENT — خدمت راه‌اندازی شبکه برای انتشار محدود qualify شد
+
+VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر: source ثابت `5174ff27c4d42fae9e360c019d6adb8cc3685c29` برای همان ID33.۵۷بلوک/۳۰browser/۳۹native جدید/۳۷IPDNS+۳۷support regression؛Windows۲۰PASS/۱SKIP از۲۱. immutable backup/checksum/tamper/check/apply/repeat/۴HTTP/rollback/repeat پاس؛محتوا/meta/users وmetadata0.2.1 fixture بهpreview0.2.0 اصلی دقیقاً بازگشتند،containerها ثابت و۸guard بدون نصبruntime. رسید `qa/growth-2026-10-31/network-setup-release-rehearsal.json`. شکست هم‌زمانیQA قبلی باrecovery دقیق واجرای ترتیبی اصلاح ودررسید اولیه حفظ شده؛بازپخش نشود.
+
+NEXT: PR/CIhead تازه باLinux۲۱test،snapshot خصوصی وادغام عادی؛برابریpayload/tool/۸guard باsource بالا،backup تازه/checksum/drift تولید وپذیرش عمومی. هنوزproduction تغییرنکرده؛قیمت/موجودی/SLA/آزمون شبکه/SEOgain ادعانشده است. لینک‌ها۱۲GET200 ویکCisco403 درمسیرمستقیم‌اند؛محدودیتpartial محفوظ،۱۳لینک200 ننویسید. noindex/فروشگاه/داده/پرداخت/MyTel/security gates پابرجا وگزارشصبحLIVE_NOT_FINAL است.
