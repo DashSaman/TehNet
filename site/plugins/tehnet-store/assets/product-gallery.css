@@ -1,0 +1,3 @@
+.tn-shop.single-product .flex-control-thumbs .tn-gallery-thumb{display:block;width:100%;margin:0;padding:0;border:0;border-radius:inherit;background:transparent;color:inherit;cursor:pointer}
+.tn-shop.single-product .flex-control-thumbs .tn-gallery-thumb img{display:block;width:100%}
+.tn-shop.single-product .flex-control-thumbs .tn-gallery-thumb:focus-visible{outline:3px solid var(--tn-shop-accent,#79e7f7);outline-offset:-4px}

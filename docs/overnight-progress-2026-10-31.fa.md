@@ -353,3 +353,13 @@ NEXT: انتقال نقش source note/خدمت/مقاله وactual acceptance ب
 انتقال دانش در[-SEO PR17](https://github.com/DashSaman/-SEO/pull/17)،main `0e9e741b43fa6a7578dc8239560405737a5341cd` وCI41264733379 ادغام شد؛۹privacy/scan۶۷ و۱۷مقصدdashboard/anchor/ledger/receipt consistency پاس. یکrowمشاهده،دوsourceرسمی موجود وtopicفنی به‌روز شدند؛baseline۷۱٪ ثابت،مدرکnative۱/عمومی۴ وGETهایهمپوشان محفوظ‌اند.
 
 NEXT: ابتداشواهدپذیرفته‌شدهٔshop/media را بخوان؛تنها یک مسیر پوشش‌داده‌نشدهٔکیبورد/focus درفروشگاه/رسانهٔ محصول را باGET-onlyبررسی کن و فقط اگرنقصواقعی داشت،تغییرمحدودبساز. ممیزیtitles/metadataیاانتشار/recoveryقبلی/۱۰۰کاندیدا را بازپخش نکن. مدل دقیقCAD/قیمت/موجودی/قابلیت تجاری بدونشاهد نساز. نزدیک۰۸:۰۰ گزارشصبح را ازشواهدactualتلفیق وواقعاًنهایی کن؛اکنونLIVE_NOT_FINAL است.
+
+## checkpoint پیش‌نویس کیبورد گالری
+
+## CURRENT — اصلاح کیبورد بندانگشتی گالری، هنوز منتشر نشده
+
+VERIFIED_LOCAL_NATIVE_CHECKER_NOT_DEPLOYED: نقص روی کالای واقعی TN-SN-17868 با GET-only بازتولید شد؛ تصاویر بندانگشتی bare img هستند و دکمهٔ کیبورد ندارند. نمایش تمام‌صفحه با Enter/Escape و بازگشت focus از قبل کار می‌کند. کنترل بومی button با label فارسی/aria-current و focus داخلی، اصل img/URL/alt و handler گالری را نگه می‌دارد؛ بدون تغییر عکس یا کاتالوگ. دارایی‌ها فقط روی product بار می‌شوند و به store.js وابسته نیستند. scope دقیق سه فایل و۱۳runtime guard، صفرDB/content/product change.
+
+RED واقعی مرورگر و assets/scope ثبت شد؛۶PHP assets،۲۴PASS/۱SKIP از۲۵Windows operator،۱۸native read-only checker و۱۳offline component برای delayed/multiple/idempotent/click-once پاس. component ساختگی، مدرک بومی FlexSlider نیست. رسید `qa/growth-2026-10-31/gallery-keyboard-draft.json`؛ طرح `docs/superpowers/plans/2026-11-01-gallery-keyboard.md`.
+
+NEXT: commit ثابت و native staging با baselinemetadata0.2.2؛ backup/checksum/drift، واقعی gallery keyboard/pointer/fullscreen1440/375/no-JS، همهٔ۲۵enqueue/قیمت-موجودی/metadata و rollback/repeat/restore دقیقpreview0.2.0. production هنوز تغییر نکرده است. فقط پس ازCI/ادغام عادی/snapshot خصوصی وbackup/drift تازه منتشر کن. publisher/recovery قبلی را تکرار نکن؛writerها ترتیبی و قفل‌دار. MyTelfreeze/noindex/پرداخت/داده و rotationUNKNOWN/historyNEEDS_APPROVAL/refmapSTALE/originUNDETERMINED/منعforce-push پابرجا؛گزارشصبح LIVE_NOT_FINAL تا۰۸:۰۰.

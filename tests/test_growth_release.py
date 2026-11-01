@@ -138,6 +138,18 @@ class ReleaseBoundaries(unittest.TestCase):
         prefixes = [row[2] for row in self.module.CONTENT_SCOPES.values()]
         self.assertEqual(len(set(prefixes)), len(prefixes))
 
+    def test_gallery_keyboard_scope_is_three_files_with_current_runtime_guards(self):
+        scope = 'tehnet-gallery-keyboard-20261101-v1'
+        files, extra, runtime = self.module.scope_spec(scope)
+        self.assertEqual(files, ['site/plugins/tehnet-store/assets/product-gallery.js', 'site/plugins/tehnet-store/assets/product-gallery.css', 'site/plugins/tehnet-store/includes/class-storefront.php'])
+        self.assertEqual(extra, ['content/gallery-keyboard-2026-11-01/manifest.json', 'ops/check-gallery-keyboard-state.php'])
+        self.assertEqual(len(runtime), 13)
+        self.assertIn('site/mu-plugins/tehnet-search-metadata.php', runtime)
+        self.assertIn('site/plugins/tehnet-store/assets/store.js', runtime)
+        self.assertFalse(set(files) & set(runtime))
+        self.assertIn(scope, self.module.GUARDED_SCOPES)
+        self.assertNotIn(scope, self.module.CONTENT_SCOPES)
+
     def test_service_metadata_scope_is_separate_one_file_and_zero_content_writes(self):
         scope = 'tehnet-metadata-service-role-20261101-v1'
         files, extra, runtime = self.module.scope_spec(scope)

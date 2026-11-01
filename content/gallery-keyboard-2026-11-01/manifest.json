@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "key": "tehnet-gallery-keyboard-20261101-v1",
+  "runtime_files": [
+    "plugins/tehnet-store/assets/product-gallery.js",
+    "plugins/tehnet-store/assets/product-gallery.css",
+    "plugins/tehnet-store/includes/class-storefront.php"
+  ],
+  "database_changes_allowed": false,
+  "product_gallery_only": true,
+  "status_at_creation": "QUALIFICATION_IN_PROGRESS_NOT_DEPLOYED"
+}
