@@ -25,3 +25,7 @@ The first PUT returned422 because both `contexts` and `checks` were supplied to 
 **FACT-OFFICIAL:** GitHub provides separate settings for required checks, their app, administrator enforcement and pull-request reviews. Use the actual observed check identity and reconcile existing policies before replacing them. [Official branch-protection API](https://docs.github.com/en/rest/branches/branch-protection#update-branch-protection), reviewed2026-10-31.
 
 **LIMIT:** This makes the bounded guard mandatory in the configured workflow. It does not prove no leak, prevent an owner from later changing policy, purge retained history, rotate credentials or validate Origin protection. Known-value/manual/media audits remain separate. This configuration step changed no production infrastructure and rewrote no shared Git history.
+
+## File enumeration/read coverage —2026-11-01
+
+The guard must read every enumerated tracked file or fail. Windows extended paths avoid false missing files; Git long-path support is per-command. Receipts expose tracked_files and checked_tracked_files separately; missing/unreadable paths produce only a relative path/category, without OS exception text. Twelve Windows regressions pass, including a real deep tracked credential fixture and missing/unreadable-file cases. Linux has one explicitly skipped Windows-only case. The earlier1276/1513 result is incomplete coverage, preserved in the qualification receipt. This correction changes repository tooling only and does not close retained-history/credential/Origin gates.

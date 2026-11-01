@@ -1,10 +1,55 @@
 import importlib.util
 from pathlib import Path
-import hashlib,json,unittest
+import contextlib,hashlib,io,json,os,subprocess,sys,tempfile,unittest
+from unittest import mock
 
 SOURCE=Path(__file__).resolve().parents[1]/'tools/publication_guard.py'
 spec=importlib.util.spec_from_file_location('guard',SOURCE);guard=importlib.util.module_from_spec(spec);spec.loader.exec_module(guard)
 class PublicationGuardTests(unittest.TestCase):
+    def run_guard(self,root):
+        output=io.StringIO()
+        with mock.patch.object(sys,'argv',['guard','--root',str(root)]),contextlib.redirect_stdout(output):
+            result=guard.main()
+        return result,json.loads(output.getvalue())
+    def tracked_fixture(self,root,name='note.txt'):
+        (root/'.publication-policy.json').write_text('{}',encoding='utf-8')
+        (root/name).write_text('ordinary public text',encoding='utf-8')
+        subprocess.run(['git','init','-q',str(root)],capture_output=True,check=True)
+        subprocess.run(['git','-C',str(root),'add','.'],capture_output=True,check=True)
+    def test_missing_tracked_file_fails_closed(self):
+        with tempfile.TemporaryDirectory(prefix='guard-coverage-')as directory:
+            root=Path(directory);self.tracked_fixture(root);(root/'note.txt').unlink()
+            result,receipt=self.run_guard(root)
+            self.assertTrue(result);self.assertEqual(receipt['status'],'FAIL')
+            self.assertEqual(receipt['tracked_files'],2);self.assertEqual(receipt['checked_tracked_files'],1)
+            self.assertIn({'path':'note.txt','category':'unreadable-tracked-file'},receipt['issues'])
+    def test_unreadable_file_does_not_disclose_exception_text(self):
+        with tempfile.TemporaryDirectory(prefix='guard-coverage-')as directory:
+            root=Path(directory);self.tracked_fixture(root);original=Path.read_bytes
+            def read(path):
+                if path.name=='note.txt':raise PermissionError('synthetic-private-exception-fragment')
+                return original(path)
+            with mock.patch.object(Path,'read_bytes',read):result,receipt=self.run_guard(root)
+            self.assertTrue(result);self.assertEqual(receipt['checked_tracked_files'],1)
+            self.assertNotIn('synthetic-private-exception-fragment',json.dumps(receipt))
+            self.assertIn({'path':'note.txt','category':'unreadable-tracked-file'},receipt['issues'])
+    @unittest.skipUnless(os.name=='nt','Actual Windows extended-path behavior')
+    def test_windows_long_tracked_path_is_read_and_scanned(self):
+        with tempfile.TemporaryDirectory(prefix='guard-coverage-')as directory:
+            root=Path(directory);self.tracked_fixture(root)
+            extended=Path('\\\\?\\'+str(root.resolve()));deep=extended
+            while len(str(deep/'proof.txt'))<=285:deep=deep/('segment-'+'x'*42)
+            deep.mkdir(parents=True);file=deep/'proof.txt'
+            try:
+                file.write_text('ghp_'+'Z'*36,encoding='utf-8')
+                subprocess.run(['git','-c','core.longpaths=true','-C',str(root),'add','.'],capture_output=True,check=True)
+                result,receipt=self.run_guard(root)
+                self.assertTrue(result);self.assertEqual(receipt['tracked_files'],3)
+                self.assertEqual(receipt['checked_tracked_files'],3)
+                self.assertIn('credential-format',[row['category']for row in receipt['issues']])
+            finally:
+                file.unlink(missing_ok=True)
+                while deep!=extended:parent=deep.parent;deep.rmdir();deep=parent
     def test_secret_is_reported_without_its_value(self):
         secret='ghp_'+'X'*36
         rows=guard.inspect('file.txt',secret.encode(),{})
