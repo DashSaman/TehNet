@@ -1,0 +1,527 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_FINAL_CLOSING_CHECKS",
+  "observed_utc": "2026-11-01T04:08:34.641633+00:00",
+  "scope": "Closing evidence for the existing overnight mission;not completion of all security,commerce,content or SEO goals",
+  "pre_final_documentation_heads": {
+    "TehNet": "6894fb701181ed5f565c72f3ab39612bdffaae56",
+    "-SEO": "c223f5a9a80aefe164e88fac57d1f19e8117fefc",
+    "mytel.one": "fa57dd3904cf451466a52b285c213bc849b6ba0d"
+  },
+  "public_http_and_native": {
+    "schema": 1,
+    "status": "PASS",
+    "observed_utc": "2026-11-01T04:03:11.367905+00:00",
+    "tehnet_http": [
+      {
+        "path": "/learn/",
+        "status": 200,
+        "h1": 1,
+        "noindex": true,
+        "tls_verification": true,
+        "canonical_verified": true,
+        "article_count": 0,
+        "article_matches_role": true,
+        "gallery_product_only": true
+      },
+      {
+        "path": "/lab/",
+        "status": 200,
+        "h1": 1,
+        "noindex": true,
+        "tls_verification": true,
+        "canonical_verified": true,
+        "article_count": 0,
+        "article_matches_role": true,
+        "gallery_product_only": true
+      },
+      {
+        "path": "/learn/mikrotik/",
+        "status": 200,
+        "h1": 1,
+        "noindex": true,
+        "tls_verification": true,
+        "canonical_verified": true,
+        "article_count": 0,
+        "article_matches_role": true,
+        "gallery_product_only": true
+      },
+      {
+        "path": "/learn/mikrotik/mtcna/",
+        "status": 200,
+        "h1": 1,
+        "noindex": true,
+        "tls_verification": true,
+        "canonical_verified": true,
+        "article_count": 0,
+        "article_matches_role": true,
+        "gallery_product_only": true
+      },
+      {
+        "path": "/learn/mikrotik/mtcna/routeros-winbox/",
+        "status": 200,
+        "h1": 1,
+        "noindex": true,
+        "tls_verification": true,
+        "canonical_verified": true,
+        "article_count": 1,
+        "article_matches_role": true,
+        "gallery_product_only": true
+      },
+      {
+        "path": "/learn/mikrotik/mtcna/static-routing/",
+        "status": 200,
+        "h1": 1,
+        "noindex": true,
+        "tls_verification": true,
+        "canonical_verified": true,
+        "article_count": 1,
+        "article_matches_role": true,
+        "gallery_product_only": true
+      },
+      {
+        "path": "/learn/mikrotik/mtcna/ip-dhcp-dns/",
+        "status": 200,
+        "h1": 1,
+        "noindex": true,
+        "tls_verification": true,
+        "canonical_verified": true,
+        "article_count": 1,
+        "article_matches_role": true,
+        "gallery_product_only": true
+      },
+      {
+        "path": "/lab/voice-network-checklist/",
+        "status": 200,
+        "h1": 1,
+        "noindex": true,
+        "tls_verification": true,
+        "canonical_verified": true,
+        "article_count": 1,
+        "article_matches_role": true,
+        "readiness_instance": 1,
+        "gallery_product_only": true
+      },
+      {
+        "path": "/services/",
+        "status": 200,
+        "h1": 1,
+        "noindex": true,
+        "tls_verification": true,
+        "canonical_verified": true,
+        "article_count": 0,
+        "article_matches_role": true,
+        "gallery_product_only": true
+      },
+      {
+        "path": "/services/network-tehran/",
+        "status": 200,
+        "h1": 1,
+        "noindex": true,
+        "tls_verification": true,
+        "canonical_verified": true,
+        "article_count": 0,
+        "article_matches_role": true,
+        "gallery_product_only": true
+      },
+      {
+        "path": "/services/network-support-tehran/",
+        "status": 200,
+        "h1": 1,
+        "noindex": true,
+        "tls_verification": true,
+        "canonical_verified": true,
+        "article_count": 0,
+        "article_matches_role": true,
+        "gallery_product_only": true
+      },
+      {
+        "path": "/services/network-setup-tehran/",
+        "status": 200,
+        "h1": 1,
+        "noindex": true,
+        "tls_verification": true,
+        "canonical_verified": true,
+        "article_count": 0,
+        "article_matches_role": true,
+        "gallery_product_only": true
+      },
+      {
+        "path": "/services/mikrotik-tehran/",
+        "status": 200,
+        "h1": 1,
+        "noindex": true,
+        "tls_verification": true,
+        "canonical_verified": true,
+        "article_count": 0,
+        "article_matches_role": true,
+        "gallery_product_only": true
+      },
+      {
+        "path": "/services/remote-support/",
+        "status": 200,
+        "h1": 1,
+        "noindex": true,
+        "tls_verification": true,
+        "canonical_verified": true,
+        "article_count": 0,
+        "article_matches_role": true,
+        "gallery_product_only": true
+      },
+      {
+        "path": "/services/voice-network-readiness/",
+        "status": 200,
+        "h1": 1,
+        "noindex": true,
+        "tls_verification": true,
+        "canonical_verified": true,
+        "article_count": 0,
+        "article_matches_role": true,
+        "gallery_product_only": true
+      },
+      {
+        "path": "/",
+        "status": 200,
+        "h1": 1,
+        "noindex": true,
+        "tls_verification": true,
+        "gallery_product_only": true
+      },
+      {
+        "path": "/shop/",
+        "status": 200,
+        "h1": 1,
+        "noindex": true,
+        "tls_verification": true,
+        "gallery_product_only": true
+      },
+      {
+        "path": "/support/?tn_service_context=voice-network",
+        "status": 200,
+        "h1": 1,
+        "noindex": true,
+        "tls_verification": true,
+        "nonce_inside_owning_form": true,
+        "network_context_preserved": true,
+        "gallery_product_only": true
+      },
+      {
+        "path": "/b2b/",
+        "status": 200,
+        "h1": 1,
+        "noindex": true,
+        "tls_verification": true,
+        "nonce_inside_owning_form": true,
+        "gallery_product_only": true
+      },
+      {
+        "path": "/product/tn-sn-17868/",
+        "status": 200,
+        "h1": 1,
+        "noindex": true,
+        "tls_verification": true,
+        "gallery_product_only": true
+      }
+    ],
+    "all_product_asset_routes": 25,
+    "stored_catalog_fields_equal_within_closing_probe": true,
+    "asset_payload_hashes": [
+      {
+        "path": "/wp-content/plugins/tehnet-store/assets/product-gallery.js?ver=0.1.0",
+        "status": 200,
+        "sha256_matches_accepted_payload": true
+      },
+      {
+        "path": "/wp-content/plugins/tehnet-store/assets/product-gallery.css?ver=0.1.0",
+        "status": 200,
+        "sha256_matches_accepted_payload": true
+      }
+    ],
+    "mytel_frozen_routes": [
+      {
+        "url": "https://mytel.one/services/",
+        "status": 200,
+        "title_h1_canonical_equal_inventory": true,
+        "tls_verification": true
+      },
+      {
+        "url": "https://mytel.one/voip-support/",
+        "status": 200,
+        "title_h1_canonical_equal_inventory": true,
+        "tls_verification": true
+      },
+      {
+        "url": "https://mytel.one/call-center/",
+        "status": 200,
+        "title_h1_canonical_equal_inventory": true,
+        "tls_verification": true
+      },
+      {
+        "url": "https://mytel.one/business-pbx/",
+        "status": 200,
+        "title_h1_canonical_equal_inventory": true,
+        "tls_verification": true
+      },
+      {
+        "url": "https://mytel.one/issabel/",
+        "status": 200,
+        "title_h1_canonical_equal_inventory": true,
+        "tls_verification": true
+      },
+      {
+        "url": "https://mytel.one/freepbx/",
+        "status": 200,
+        "title_h1_canonical_equal_inventory": true,
+        "tls_verification": true
+      },
+      {
+        "url": "https://mytel.one/sip-trunk/",
+        "status": 200,
+        "title_h1_canonical_equal_inventory": true,
+        "tls_verification": true
+      },
+      {
+        "url": "https://mytel.one/ivr/",
+        "status": 200,
+        "title_h1_canonical_equal_inventory": true,
+        "tls_verification": true
+      },
+      {
+        "url": "https://mytel.one/call-queue/",
+        "status": 200,
+        "title_h1_canonical_equal_inventory": true,
+        "tls_verification": true
+      },
+      {
+        "url": "https://mytel.one/call-recording/",
+        "status": 200,
+        "title_h1_canonical_equal_inventory": true,
+        "tls_verification": true
+      },
+      {
+        "url": "https://mytel.one/call-reporting/",
+        "status": 200,
+        "title_h1_canonical_equal_inventory": true,
+        "tls_verification": true
+      },
+      {
+        "url": "https://mytel.one/voip-crm/",
+        "status": 200,
+        "title_h1_canonical_equal_inventory": true,
+        "tls_verification": true
+      },
+      {
+        "url": "https://mytel.one/branch-voip/",
+        "status": 200,
+        "title_h1_canonical_equal_inventory": true,
+        "tls_verification": true
+      }
+    ],
+    "native": {
+      "managed_files": 16,
+      "owned_containers_match_accepted_ids_images_and_running": true,
+      "running_container_count_observed": 16,
+      "commerce_indexing": {
+        "blog_public": "0",
+        "products": 25,
+        "purchasable": 0,
+        "erp_ready": false,
+        "sandbox_enabled": false
+      },
+      "operations": "read-only inspect/hash/WP option and product flags; no content/order/account/network changes"
+    },
+    "deliberate_production_mutations": 0,
+    "limits": [
+      "20 TehNet route and25 product asset sets overlap at the sampled product;not45 distinct URLs.",
+      "Stored API equality does not verify market prices,source stock,photographic identity or exact CAD/360.",
+      "MyTel checks cover13 title/H1/canonical baselines;not a performance measurement or full content/asset hash comparison.",
+      "Native16 managed hashes and closed flags do not certify every WordPress file/table or inaccessible service;other services were observed,not changed.",
+      "Historical credential rotation,remote history purge andOrigin uncertainty remain open;no new full audit or native mutation rehearsal was repeated."
+    ]
+  },
+  "browser": {
+    "observed_utc": "2026-11-01T04:01:51.813362+00:00",
+    "status": "PASS",
+    "scope": "Final bounded production guest browser acceptance;desktop/mobile375/no-JS,manual local JSON/reset and one real multi-image product keyboard/pointer/fullscreen",
+    "results": {
+      "manual": {
+        "schema": 1,
+        "observed_utc": "2026-11-01T04:01:36.725Z",
+        "scope": "Read-only production browser; no forms submitted",
+        "passed": 25,
+        "failed": 0,
+        "checks": [
+          "/services/voice-network-readiness/ HTTP200",
+          "/services/voice-network-readiness/ single H1",
+          "/services/voice-network-readiness/ canonical",
+          "/services/voice-network-readiness/ noindex retained",
+          "/services/voice-network-readiness/ desktop no overflow",
+          "/lab/voice-network-checklist/ HTTP200",
+          "/lab/voice-network-checklist/ single H1",
+          "/lab/voice-network-checklist/ canonical",
+          "/lab/voice-network-checklist/ noindex retained",
+          "/lab/voice-network-checklist/ desktop no overflow",
+          "Eight manual fields",
+          "Export enabled by actual deployed JS",
+          "Local JSON schema",
+          "No measurement claim",
+          "Eight answers and selected state",
+          "Reset all states",
+          "Reset returns keyboard focus",
+          "/services/voice-network-readiness/ mobile no overflow",
+          "/lab/voice-network-checklist/ mobile no overflow",
+          "No-JS all questions readable",
+          "No-JS manual fallback visible",
+          "No-JS export remains disabled",
+          "No deployed readiness asset failures",
+          "No page errors",
+          "No unexpected outgoing request attempted"
+        ],
+        "post_requests": 0,
+        "cross_origin_requests": 0
+      },
+      "gallery": {
+        "status": "PASS",
+        "observed_utc": "2026-11-01T04:01:51.585Z",
+        "checks": [
+          "Product inventory GET 1440",
+          "Real multi-image product 1440",
+          "Original thumbnail count 1440",
+          "Every thumbnail is a native keyboard button 1440",
+          "No form submission type 1440",
+          "Position label 1440",
+          "Tab reaches second thumbnail 1440",
+          "Enter selects actual gallery frame and current state 1440",
+          "Selection retains keyboard focus 1440",
+          "Reverse Tab reaches first thumbnail 1440",
+          "Held Space does not page-scroll before activation 1440",
+          "Space selects first actual frame 1440",
+          "Visible inset focus ring 1440",
+          "Pointer selection retained 1440",
+          "Original thumbnail URLs/alt retained 1440",
+          "Fullscreen Escape returns focus 1440",
+          "Inquiry-only unchanged 1440",
+          "No unsupported exact3D or360 1440",
+          "No viewport overflow 1440",
+          "Product inventory GET 375",
+          "Real multi-image product 375",
+          "Original thumbnail count 375",
+          "Every thumbnail is a native keyboard button 375",
+          "No form submission type 375",
+          "Position label 375",
+          "Tab reaches second thumbnail 375",
+          "Enter selects actual gallery frame and current state 375",
+          "Selection retains keyboard focus 375",
+          "Reverse Tab reaches first thumbnail 375",
+          "Held Space does not page-scroll before activation 375",
+          "Space selects first actual frame 375",
+          "Visible inset focus ring 375",
+          "Pointer selection retained 375",
+          "Original thumbnail URLs/alt retained 375",
+          "Fullscreen Escape returns focus 375",
+          "Inquiry-only unchanged 375",
+          "No unsupported exact3D or360 375",
+          "No viewport overflow 375",
+          "No-JS retains original native image references",
+          "No-JS original first image visible",
+          "No-JS does not advertise a nonfunctional new control",
+          "No-JS inquiry-only fallback retained",
+          "No page errors",
+          "GET-only requests"
+        ],
+        "methods": [
+          "GET"
+        ],
+        "page_errors": [],
+        "server_form_or_commerce_mutations": 0,
+        "limits": [
+          "One real multi-image gallery at two widths;not complete WCAG/screen-reader or all-product coverage.",
+          "Source images do not establish photographic origin,exact model,CAD or360 frames."
+        ]
+      }
+    },
+    "production_mutations": 0,
+    "limits": [
+      "25 manual-tool checks and44 gallery checks are separate suites, not69 unique pages.",
+      "One product gallery fully exercised;not all25 product keyboard journeys,WCAG/screen-reader/authenticated/physical-device coverage.",
+      "Manual answers are synthetic self-assessment input and JSON measured=false;not an actual network test."
+    ]
+  },
+  "selected_runtime_comparison": {
+    "observed_utc": "2026-11-01T04:06:38.679746+00:00",
+    "baseline_source": "Retained accepted gallery production release operator log; latest complete docker inspect snapshot",
+    "accepted_source": "4af1ff42ba2d427c9e7d55751b611f0a6cd4a5d4",
+    "accepted_release_completed_utc": "2026-11-01T03:03:13.674637+00:00",
+    "accepted_log_counts": [
+      16
+    ],
+    "accepted_running_count": 16,
+    "current_running_count": 16,
+    "same_ids": true,
+    "same_selected_runtime_state": true,
+    "matched_ids": 16,
+    "compared_fields": [
+      "container ID",
+      "name",
+      "image",
+      "startedAt",
+      "running",
+      "networks",
+      "port bindings"
+    ],
+    "deliberate_mutations": 0,
+    "limits": [
+      "The15-container origin inventory was earlier than the accepted release;its count alone does not establish new drift during P10.",
+      "Exact identities/networks/ports and raw Docker log remain private;no process environment is published.",
+      "This verifies selected runtime state,not application data contents,origin protection orcredential validity."
+    ]
+  },
+  "earlier_inventory_delta": {
+    "observed_utc": "2026-11-01T04:05:20.965659+00:00",
+    "prior_readonly_inventory_utc": "2026-10-31T18:10:09.307835+00:00",
+    "prior_running_count": 15,
+    "current_running_count": 16,
+    "additional_running_names": 1,
+    "no_longer_running_names": 0,
+    "same_names_changed_ids": 1,
+    "shared_names_same_ids": 14,
+    "identity_details": "Private only;purpose/owner of additional running service not verified by this task",
+    "deliberate_mutations": 0,
+    "limits": [
+      "This compares an earlier read-only running inventory with the closing running inventory;not a creation-time attribution.",
+      "P10 separately verified the owned TehNet app/database IDs/images/running state and16 accepted file hashes.",
+      "No container start/stop/restart/removal or network change was made;unknown ownership is not evidence of compromise."
+    ]
+  },
+  "visual_review": {
+    "reviewed": true,
+    "screenshots": [
+      "manual/lab-mobile.png",
+      "gallery/gallery-375.png"
+    ],
+    "viewport_css_px": 375,
+    "notes": [
+      "Manual tool fields/labels/reset/export visible within mobile width.",
+      "Gallery main image/thumbnails/inset focus and inquiry-only fallback visible.",
+      "Displayed product imagery does not prove photographic provenance or exact manufacturer model;brand remains marked unverified."
+    ]
+  },
+  "deliberate_p10_production_mutations": 0,
+  "new_articles_or_product_models": 0,
+  "owner_gates": {
+    "credential": "UNKNOWN_NOT_ROTATED",
+    "shared_history": "NEEDS_APPROVAL_NO_FORCE_PUSH",
+    "support_request": "DRAFT_NOT_SENT",
+    "origin": "UNDETERMINED",
+    "mytel_production": "READ_ONLY",
+    "tehnet_indexing": "KEEP_NOINDEX",
+    "real_payments": "NO_NEW_AUTHORIZATION"
+  },
+  "completion_boundary": "The final report artifact may be published by ordinary CI-backed PR;then current private refs are refreshed and the overnight heartbeat is ended. This does not grant any gated action.",
+  "limits": [
+    "25 manual and44 gallery checks are not69 pages,full WCAG,all-product or authenticated coverage.",
+    "20 route and25 product-asset sets overlap;13 MyTel metadata comparisons are not a performance or full-body comparison.",
+    "Selected native/runtime comparisons do not certify all application tables/files,credential validity or origin protection.",
+    "The report timestamp is actual,not an assertion work continued until exactly08:00."
+  ]
+}
