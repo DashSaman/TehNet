@@ -1,6 +1,6 @@
 # CP03–CP05: three substantive existing-service upgrades
 
-Reviewed:2026-11-01. Status: DRAFT_PENDING_NATIVE_QUALIFICATION. No new article/URL is counted. The owner confirmed general availability of all specialist fields; vendor-specific certifications, SLA, prices and delivery dates remain unverified.
+Reviewed:2026-11-01. Status: VERIFIED_STAGING_NOT_DEPLOYED. No new article/URL is counted. The owner confirmed general availability of all specialist fields; vendor-specific certifications, SLA, prices and delivery dates remain unverified.
 
 | Existing owner | New customer job | Added value | Intent evidence and limit |
 |---|---|---|---|
@@ -18,3 +18,7 @@ Only append the new module to the actual current production body, verified again
 - **FACT-OFFICIAL:** [Google helpful content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) and [crawlable links](https://developers.google.com/search/docs/crawling-indexing/links-crawlable), reviewed2026-11-01. Add original decision support and descriptive real links to existing owners. This is implementation guidance, not a ranking, indexing or AI-citation guarantee.
 
 Technical review was direct: source-to-claim check, explicit version/product limits, synthetic-example labels, no public credentials/IPs/commands, no guarantee inferred from one test, and appropriate network-vs-PBX ownership. Browser checks qualify rendering/routing; they do not qualify RF, Zabbix delivery, firewall effectiveness or response-time promises. Native release must still validate actual block serialization/KSES, apply/repeat/rollback, protected data and exact restoration before any publication.
+
+## Actual staging acceptance
+
+Immutable source `9e59a32df8613b887c7a5cbeca1fdf4ef0a7b0d8`: each existing page passed41 real browser checks (1440/375, JS/no-JS), native block serialization/KSES and check/apply/repeat/rollback/repeat. Original posts/meta/users, guard files and all existing runtimes restored exactly after each target. Production submissions/mutations zero. See [sanitized receipt](../qa/commercial-2026-11-01/depth-staging-verification.json). No physical device, RF, delivery, firewall-security or SEO outcome was tested.
