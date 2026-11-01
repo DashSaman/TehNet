@@ -1,6 +1,6 @@
 # بهبود خدمت موجود پشتیبانی ریموت
 
-وضعیت: VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر۲۰۲۶. این سند کار تحریریه است؛ نه سیاست اجراییِ ازپیش‌تأییدشده، نه گزارش جلسهٔ مشتری.
+وضعیت: DEPLOYED_VERIFIED —۱نوامبر۲۰۲۶. این سند کار تحریریه است؛ نه سیاست اجراییِ ازپیش‌تأییدشده، نه گزارش جلسهٔ مشتری.
 
 هدف همان ID37، `/services/remote-support/`، عنوان «پشتیبانی شبکه از راه دور» و والد8 است. به‌روزرسانی فقط body و تاریخ واقعی؛ URL/عنوان/متا/خلاصه حفظ شوند. صفحهٔ فعلی چهار گام کلی دارد؛ تأیید شخص، جدایی مشاهده/کنترل، توقف هنگام قطع مسیر و بررسی پایان دسترسی را مشخص نمی‌کند. نبود این توضیح، شاهد نبود توانایی خدمت یا تقاضای اندازه‌گیری‌شده نیست.
 
@@ -20,10 +20,14 @@
 
 راهنمای۲۰۲۳CISA/defense در جستجو پیدا شد ولی متن کامل در مسیرهای امتحان‌شده403 داد؛ به‌عنوان منبع خوانده‌شده یا پشتوانهٔ متن استفاده نشد. نتیجهٔ لینک‌های واقعی draft جداست:۱۲GET باTLS معتبر همگی200 و۳fragmentID یکتا.
 
-## پذیرش و انتشار
+## checkpoint تاریخی پذیرش و انتشار
 
 scope دقیق `tehnet-service-remote-support-20261101-v1`؛ ID37/URI/file ثابت، صفر نصبruntime و۸guard نسخهٔ جاری. تست operator وnative پیش از ثبت scope قرمز بودند؛ نتیجهٔ آزمون‌های کامل، editor/mobile/no-JS و بازیابی در receipt درج شود. تمام writerهای preview با قفل خصوصی و به‌ترتیب اجرا شوند. immutable rehearsal/CI/backup/checksum/drift و برابری source/payload/tool/guards پیش‌نیاز انتشارند؛ فعلاً انتشار انجام نشده است.
 
 MyTel production/read-only و freeze، noindex،۲۵کالای استعلامی، خانه/منو/مشتری و پرداخت بسته حفظ شوند. rotation UNKNOWN، history NEEDS_APPROVAL، Origin UNDETERMINED و منع force-push پابرجاست. رتبه، تقاضا، ترافیک یا توصیهٔ AI در این بسته اندازه‌گیری نشده است؛ تعداد مقاله/URL تازه صفر است.
 
 پذیرش واقعی draft/rehearsal:۴۰ بلوک،۳۰ browser/editor،۴۰ native جدید و۳۹ setup/۳۷ support regression؛ Windows۲۱PASS/۱SKIP از۲۲. نسخهٔ ثابت98572f47343208e48118f086431a4faaa16d5483 با backup/checksum/tamper/apply/repeat/۴HTTP/rollback/repeat و بازگردانی دقیق state/metadata fixture پذیرفته شد. خطای selector خصوصی پیش از SSH بود و با pin کامل اصلاح شد؛ هیچ معیار حفاظتی تغییر نکرد. Linux CI و انتشار واقعی هنوز در انتظارند.
+
+## انتشار واقعی
+
+PR52/CI41260264596، Linux۲۲operator/۹privacy PASS با خواندن خلاصهٔ واقعی log؛ source live d2f032f9a5532bccb92b09768d018299abba1dc0 برابر payload/tool/۸guard نسخهٔ qualified98572f4 است. پس از backup تازه/checksum/drift، فقط همان body و تاریخ واقعی01:16:06UTC تغییر کرد؛ repeat بدون تغییر،۹TLS GET و۴۴browser1440/375/no-JS پاس. دادهٔ محافظت‌شده/۸runtime file/containerها ثابت؛۲۵کالا،قابل‌خرید۰،ERP/sandbox false وMyTel write۰. صفر مقاله/URL/runtime install؛ live rollback لازم نشد. manifest و receiptهای draft/rehearsal تاریخی‌اند و بازنویسی نمی‌شوند. هیچ جلسهٔ واقعی، آزمون امنیت ابزار یا نتیجهٔSEO اندازه‌گیری نشده است. انتقال تجربه و وضعیت Git در checkpoint بعد ثبت می‌شود.

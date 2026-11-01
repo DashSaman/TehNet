@@ -1,6 +1,6 @@
 # تحویل صبح TehNet × MyTel × SEO —۱نوامبر۲۰۲۶
 
-**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 04:43 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
+**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 04:46 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
 
 ## ۱. امنیت — گیت‌های باز مقدم‌اند
 
@@ -287,3 +287,13 @@ NEXT: immutable rehearsal مستقل باmetadata0.2.1 وrestoreدقیقpreview0
 VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر: نسخهٔ ثابت `98572f47343208e48118f086431a4faaa16d5483` برای همان ID37.۴۰ بلوک،۳۰ بررسی مرورگر،۴۰ native و۳۹ setup/۳۷ support regression پاس؛ Windows۲۱PASS/۱SKIP از۲۲. تمرین backup/checksum/tamper/check/apply/repeat/۴HTTP/rollback/repeat موفق بود. posts/meta/users و metadata fixture اصلی و containerها دقیقاً حفظ/بازگردانده شدند؛۸ guard و صفر نصب runtime. رسید `qa/growth-2026-10-31/remote-support-release-rehearsal.json`. خطای selector خصوصی پیش از SSH رخ داد؛ پس از اصلاح، تمرین بومی موفق شد. هیچ جلسهٔ ریموت، آزمون امنیت ابزار یا تغییر شبکه اجرا نشده است.
 
 NEXT: CI تازهٔ head، snapshot خصوصی و ادغام عادی؛ برابری payload/tool/۸guard، backup تازه/checksum/drift تولید، انتشار فقط body و پذیرش عمومی.۱۲ لینک TLS200/۳anchor و حدود منابع حفظ شوند. production هنوز تغییر نکرده است. انتشارهای پذیرفته‌شده یا recovery قبلی بازپخش نشوند. MyTel/noindex/فروشگاه/داده/خانه/منو/پرداخت و گیت‌های امنیتی پابرجا؛ گزارش صبح LIVE_NOT_FINAL تا۰۸:۰۰.
+
+## checkpoint انتشار ریموت
+
+## CURRENT — خدمت پشتیبانی ریموت روی سایت تأیید شد
+
+DEPLOYED —۱نوامبر،04:46تهران: [پشتیبانی ریموت](https://tehnet.ir/services/remote-support/) همان ID37/URL/عنوان/والد؛ فقط body و تاریخ واقعی01:16:06UTC تغییر کرد. توضیح مجوز مشاهده/کنترل، توقف، پایان دسترسی و تحویل با۳منبع scoped و مثال ساختگیِ اندازه‌گیری‌نشده. PR52/CI41260264596 با۲۲Linux operator و۹privacy PASS ادغام؛ source live `d2f032f9a5532bccb92b09768d018299abba1dc0` برابر payload/tool/۸guard نسخهٔ qualified `98572f47343208e48118f086431a4faaa16d5483`.
+
+backup تازه/checksum/drift و repeat بدون تغییر؛۹TLS GET و۴۴browser1440/375/no-JS پاس. دادهٔ محافظت‌شده،۸runtime file و containerها ثابت؛۲۵کالا/قابل‌خرید۰،ERP/sandbox false،MyTel write۰. صفر مقاله/URL/runtime install؛ live rollback لازم نشد.۴۰بلوک/۳۰staging-browser/۴۰native+۳۹setup+۳۷support regression و immutable rollback/restore دقیق fixture نیز پاس. رسید `qa/growth-2026-10-31/remote-support-production-release.json`؛۱۲لینکTLS200/۳anchor. CISA کامل403 از پشتوانه حذف؛ حدود NIST2016/Microsoft حفظ‌اند. هیچ جلسهٔ واقعی، تست امنیت ابزار، تغییر شبکه یا SEOgain ادعا نشده است.
+
+NEXT: انتقال source/قبولی واقعی/حدود به -SEO و ثبت CI/commit؛ سپس خواندن صفحهٔ موجود /services/mikrotik-tehran/ برای نیاز مستقل در شناخت نسخه/دسترسی/بازیابی، فقط در صورت شاهد، بدون تکرار درس‌ها یا URL هم‌نیت. انتشارها و recovery قبلی بازپخش نشوند. noindex/خانه/منو/فروشگاه/داده/پرداخت/MyTel freeze و rotationUNKNOWN/historyNEEDS_APPROVAL/originUNDETERMINED/منعforce-push پابرجا؛ گزارش صبح LIVE_NOT_FINAL تا۰۸:۰۰.
