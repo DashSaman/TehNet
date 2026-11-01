@@ -21,23 +21,50 @@
   syncTheme();
   const toggle = document.querySelector('.tn-menu-toggle');
   const nav = document.getElementById('tn-main-menu');
+  const submenus = [];
+  function closeSubmenus(except) {
+    submenus.forEach(function (entry) {
+      if (entry !== except) { entry.item.classList.remove('is-submenu-open'); entry.button.setAttribute('aria-expanded', 'false'); }
+    });
+  }
+  if (nav) nav.querySelectorAll('li.menu-item-has-children').forEach(function (item, index) {
+    const list = item.querySelector(':scope > ul.sub-menu');
+    const link = item.querySelector(':scope > a');
+    if (!list || !link) return;
+    list.id = 'tn-submenu-' + index;
+    const button = document.createElement('button');
+    button.type = 'button'; button.className = 'tn-submenu-toggle';
+    button.setAttribute('aria-label', 'زیرمنوی ' + link.textContent.trim());
+    button.setAttribute('aria-expanded', 'false'); button.setAttribute('aria-controls', list.id);
+    button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
+    item.insertBefore(button, list);
+    const entry = { item: item, button: button };
+    submenus.push(entry);
+    button.addEventListener('click', function () {
+      const open = button.getAttribute('aria-expanded') !== 'true'; closeSubmenus(entry);
+      item.classList.toggle('is-submenu-open', open); button.setAttribute('aria-expanded', String(open));
+    });
+  });
   function setMenu(open, restoreFocus) {
     if (!toggle || !nav) return;
     nav.classList.toggle('is-open', open);
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', open ? 'بستن منو' : 'بازکردن منو');
+    if (!open) closeSubmenus();
     if (restoreFocus) toggle.focus();
   }
   if (toggle && nav) {
     toggle.addEventListener('click', function () { setMenu(toggle.getAttribute('aria-expanded') !== 'true'); });
     nav.addEventListener('click', function (event) { if (event.target.closest('a')) setMenu(false); });
     document.addEventListener('keydown', function (event) {
+      const expanded = submenus.find(function (entry) { return entry.button.getAttribute('aria-expanded') === 'true'; });
+      if (event.key === 'Escape' && expanded) { closeSubmenus(); expanded.button.focus(); event.preventDefault(); return; }
       if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') setMenu(false, true);
     });
     document.addEventListener('click', function (event) {
-      if (!nav.contains(event.target) && !toggle.contains(event.target)) setMenu(false);
+      if (!nav.contains(event.target) && !toggle.contains(event.target)) { setMenu(false); closeSubmenus(); }
     });
-    window.addEventListener('resize', function () { if (innerWidth > 980) setMenu(false); });
+    window.addEventListener('resize', function () { if (innerWidth > 1050) setMenu(false); });
   }
   const motion = document.getElementById('tn-motion-toggle');
   if (motion) motion.addEventListener('click', function () {

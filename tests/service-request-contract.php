@@ -6,7 +6,9 @@ function esc_html($s){return esc_attr($s);}
 function esc_url($s){return esc_attr($s);}
 function admin_url($s){return 'https://example.test/wp-admin/'.$s;}
 function wp_unslash($s){return stripslashes($s);}
+function get_option($key,$fallback=false){return $fallback;}
 function wp_nonce_field($a=-1,$n='_wpnonce',$r=true,$display=true){$s='<input name="'.$n.'" value="synthetic">';if($display)echo $s;return $s;}
+require __DIR__.'/../site/plugins/tehnet-store/includes/class-recaptcha.php';
 require __DIR__.'/../site/plugins/tehnet-store/includes/class-tickets.php';
 $n=0;function check($v,$label){global$n;$n++;if(!$v)throw new RuntimeException('FAIL '.$label);echo 'PASS '.$label."\n";}
 check(is_callable([TehNet_Store_Tickets::class,'service_options']),'existing ticket class owns approved service options');

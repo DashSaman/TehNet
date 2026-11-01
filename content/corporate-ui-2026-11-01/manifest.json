@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "key": "tehnet-corporate-ui-20261101-v1",
+  "menu_location": "primary",
+  "captcha_activation": false,
+  "routes": [
+    {"path":"/", "before_order":0, "before_title":"", "order":1, "title":"", "parent":""},
+    {"path":"/learn/", "before_order":2, "before_title":"", "order":4, "title":"", "parent":""},
+    {"path":"/lab/", "before_order":3, "before_title":"", "order":5, "title":"آزمایشگاه", "parent":""},
+    {"path":"/services/", "before_order":4, "before_title":"", "order":2, "title":"", "parent":""},
+    {"path":"/shop/", "before_order":5, "before_title":"", "order":7, "title":"", "parent":""},
+    {"path":"/about/", "before_order":6, "before_title":"", "order":9, "title":"", "parent":""},
+    {"path":"/contact/", "before_order":7, "before_title":"", "order":10, "title":"", "parent":"/about/"},
+    {"path":"/blog/", "before_order":8, "before_title":"", "order":8, "title":"مجله شبکه", "parent":""},
+    {"path":"/software/", "before_order":9, "before_title":"آرشیو نرم‌افزار", "order":6, "title":"آرشیو نرم‌افزار", "parent":"/lab/"},
+    {"path":"/tunnels/", "before_order":10, "before_title":"مدیریت تونل", "order":3, "title":"مدیریت تونل", "parent":"/services/"}
+  ]
+}

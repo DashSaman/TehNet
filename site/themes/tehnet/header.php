@@ -2,13 +2,13 @@
 defined('ABSPATH') || exit;
 $tn_logo = file_exists(get_theme_file_path('assets/img/tehnet-logo.jpg'));
 ?><!doctype html>
-<html <?php language_attributes(); ?> dir="rtl" data-theme="dark">
+<html <?php language_attributes(); ?> dir="rtl" data-theme="light">
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#080f18">
+    <meta name="theme-color" content="#f6f8fc">
     <meta name="color-scheme" content="dark light">
-    <script>(function(){document.documentElement.classList.add('tn-js');try{var t=localStorage.getItem('tn-theme');document.documentElement.dataset.theme=t==='light'?'light':'dark';}catch(e){document.documentElement.dataset.theme='dark';}})();</script>
+    <script>(function(){document.documentElement.classList.add('tn-js');try{var t=localStorage.getItem('tn-theme');document.documentElement.dataset.theme=t==='dark'?'dark':'light';}catch(e){document.documentElement.dataset.theme='light';}})();</script>
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

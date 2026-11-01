@@ -41,7 +41,6 @@ $tn_icon_grid = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" wid
                 <li><a href="<?php echo esc_url(home_url('/services/')); ?>">خدمات</a></li>
                 <li><a href="<?php echo esc_url(home_url('/shop/')); ?>">فروشگاه</a></li>
                 <li><a href="<?php echo esc_url(home_url('/about/')); ?>">درباره ما</a></li>
-                <li><a href="<?php echo esc_url(home_url('/amirreza-golavar/')); ?>">رزومه امیررضا گل‌آور</a></li>
                 <li><a href="<?php echo esc_url(home_url('/contact/')); ?>">تماس با ما</a></li>
             </ul>
         </div>

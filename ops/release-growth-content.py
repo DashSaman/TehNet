@@ -38,6 +38,22 @@ NETWORK_SETUP_SCOPE = 'tehnet-service-network-setup-20261101-v1'
 REMOTE_SUPPORT_SCOPE = 'tehnet-service-remote-support-20261101-v1'
 MIKROTIK_SERVICE_SCOPE = 'tehnet-service-mikrotik-20261101-v1'
 COMMERCIAL_CATALOG_SCOPE = 'tehnet-commercial-catalog-20261101-v1'
+CORPORATE_SCOPE = 'tehnet-corporate-ui-20261101-v1'
+CORPORATE_FILES = [
+    'site/themes/tehnet/assets/fonts/Estedad.woff2',
+    'site/themes/tehnet/assets/fonts/Estedad-OFL.txt',
+    'site/themes/tehnet/assets/fonts/Estedad-source.json',
+    'site/themes/tehnet/assets/css/corporate.css',
+    'site/themes/tehnet/assets/js/visual-refresh.js',
+    'site/themes/tehnet/footer.php',
+    'site/themes/tehnet/header.php',
+    'site/themes/tehnet/functions.php',
+    'site/plugins/tehnet-store/assets/recaptcha.js',
+    'site/plugins/tehnet-store/includes/class-recaptcha.php',
+    'site/plugins/tehnet-store/tehnet-store.php',
+    'site/plugins/tehnet-store/includes/class-tickets.php',
+    'site/plugins/tehnet-store/includes/class-quotes.php',
+]
 LESSON_SCOPES = {
     EDITORIAL_SCOPE: ('content/growth-editorial-2026-11-01', 'routeros-winbox.html', '/tmp/tn-editorial-release-'),
     ROUTING_SCOPE: ('content/routing-editorial-2026-11-01', 'static-routing.html', '/tmp/tn-routing-release-'),
@@ -49,10 +65,16 @@ CONTENT_SCOPES = {**LESSON_SCOPES,
     REMOTE_SUPPORT_SCOPE: ('content/remote-support-2026-11-01', 'remote-support.html', '/tmp/tn-remote-support-release-'),
     MIKROTIK_SERVICE_SCOPE: ('content/mikrotik-service-2026-11-01', 'mikrotik-service.html', '/tmp/tn-mikrotik-service-release-'),
 }
-GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE, GALLERY_KEYBOARD_SCOPE, COMMERCIAL_CATALOG_SCOPE]
+GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE, GALLERY_KEYBOARD_SCOPE, COMMERCIAL_CATALOG_SCOPE, CORPORATE_SCOPE]
 
 
 def scope_spec(scope):
+    if scope == CORPORATE_SCOPE:
+        return list(CORPORATE_FILES), ['content/corporate-ui-2026-11-01/manifest.json',
+            'ops/migrate-corporate-navigation.php'], [p for p in FILES if p not in CORPORATE_FILES] + [
+                'site/themes/tehnet/assets/css/service-catalog.css',
+                'site/plugins/tehnet-store/includes/class-policy.php',
+                'site/mu-plugins/tehnet-search-metadata.php']
     if scope == COMMERCIAL_CATALOG_SCOPE:
         return ['site/plugins/tehnet-store/includes/class-tickets.php',
                 'site/themes/tehnet/assets/css/service-catalog.css',

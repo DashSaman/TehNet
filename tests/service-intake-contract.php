@@ -6,6 +6,7 @@ function esc_html($s){return esc_attr($s);}
 function esc_url($s){return esc_attr($s);}
 function admin_url($p){return 'https://example.test/wp-admin/'.$p;}
 function wc_get_products($a){return [];}
+function get_option($key,$fallback=false){return $fallback;}
 function wp_unslash($s){return stripslashes($s);}
 function wp_nonce_field($action=-1,$name='_wpnonce',$referer=true,$display=true){
     $value='<input type="hidden" name="'.esc_attr($name).'" value="synthetic-guard">';
@@ -13,6 +14,7 @@ function wp_nonce_field($action=-1,$name='_wpnonce',$referer=true,$display=true)
     if($display)echo $value;
     return $value;
 }
+require __DIR__.'/../site/plugins/tehnet-store/includes/class-recaptcha.php';
 require __DIR__.'/../site/plugins/tehnet-store/includes/class-tickets.php';
 require __DIR__.'/../site/plugins/tehnet-store/includes/class-quotes.php';
 $checks=0;$failures=[];
