@@ -96,7 +96,7 @@ final class TehNet_Store_Tickets {
         $out.='<p><label>ایمیل برای پاسخ <input type="email" name="tn_email" dir="ltr" autocomplete="email" maxlength="120" required></label></p></div>';
         $out.='<p><label>نیاز یا مشکل شما <textarea name="tn_message" rows="4" minlength="10" maxlength="3000" placeholder="مثلاً: ارتباط بین دو بخش قطع می‌شود؛ بررسی اولیه می‌خواهیم." required></textarea></label></p>';
         $out.='<details><summary>اطلاعات سازمان (اختیاری)</summary><p><label>نام سازمان <input name="tn_company" autocomplete="organization" maxlength="120"></label></p></details>';
-        $out.='<p class="tn-request-privacy">فقط شرح کلی نیاز را بنویسید؛ رمز، IP عمومی، آدرس دقیق، فایل تنظیمات یا اطلاعات مشتریان را ارسال نکنید. ثبت درخواست به معنی تأیید ارائه خدمت، قرارداد یا پیش‌فاکتور نیست. پاسخ در همین مسیر تیکت و از طریق ایمیلِ پیکربندی‌شده پیگیری می‌شود؛ زمان پاسخ تضمین نشده است.</p>';
+        $out.='<p class="tn-request-privacy">نام و ایمیل شما برای بررسی و پیگیری درخواست دریافت می‌شود. رمز، IP عمومی، آدرس دقیق یا فایل تنظیمات نفرستید. ارائهٔ خدمت، هزینه و پیش‌فاکتور پس از بررسی دامنه و توافق مشخص می‌شود.</p>';
         $out.='<button class="button button-primary" type="submit">ثبت درخواست و دریافت شماره پیگیری</button></form>';
         return $out;
     }

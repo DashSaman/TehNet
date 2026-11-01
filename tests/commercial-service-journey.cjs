@@ -57,12 +57,13 @@ const checks=[]; function check(label,value){assert.ok(value,label);checks.push(
   check('Short problem rejected server-side',(await post({...base,tn_message:'کم'})).status()===400);
   const nojs=await context(false,375);const np=await nojs.newPage();const nojsRequests=[];
   np.on('response',r=>{if(r.request().method()==='POST')nojsRequests.push({url:r.url(),status:r.status()});});
+  np.on('console',m=>nojsRequests.push({console:m.type(),text:m.text()}));np.on('requestfailed',r=>nojsRequests.push({failed:r.url(),error:r.failure()}));
   await np.goto(origin+'/',{waitUntil:'networkidle'});const nf=np.locator('[data-tn-service-request]');
   await fill(nf,'remote-support','nojs');
   const validity=await nf.evaluate(f=>({valid:f.checkValidity(),invalid:[...f.elements].filter(e=>e.willValidate&&!e.validity.valid).map(e=>({name:e.name,message:e.validationMessage}))}));
   fs.writeFileSync(path.join(out,'nojs-before-private.json'),JSON.stringify(validity,null,2));check('No-JS form passes native client validation',validity.valid);
   try{await Promise.all([np.waitForURL('**/support/?tn_ticket=sent&tn_service_receipt=*'),nf.locator('[type=submit]').click()]);}
-  catch(error){fs.writeFileSync(path.join(out,'nojs-failure-private.json'),JSON.stringify({url:np.url(),posts:nojsRequests,form:await nf.evaluate(f=>({action:f.action,method:f.method,valid:f.checkValidity(),elements:[...f.elements].map(e=>({name:e.name,type:e.type,length:e.value?.length,required:e.required,valid:e.validity?.valid,message:e.validationMessage,associated:e.form===f,disabled:e.disabled}))})),body:await np.locator('body').innerText()},null,2));await np.screenshot({path:path.join(out,'nojs-failure-private.png'),fullPage:true});throw error;}
+  catch(error){fs.writeFileSync(path.join(out,'nojs-failure-private.json'),JSON.stringify({url:np.url(),posts:nojsRequests,form:await nf.evaluate(f=>({action:f.getAttribute('action'),method:f.method,valid:f.checkValidity(),elements:[...f.elements].map(e=>({name:e.name,type:e.type,length:e.value?.length,required:e.required,valid:e.validity?.valid,message:e.validationMessage,associated:e.form===f,disabled:e.disabled}))})),body:await np.locator('body').innerText()},null,2));await np.screenshot({path:path.join(out,'nojs-failure-private.png'),fullPage:true});throw error;}
   const second=(await np.locator('.tn-service-receipt').innerText()).match(/TN-\d+/)?.[0];refs.push(second);
   check('Mobile no-JS request actually saved with distinct reference',!!second&&second!==ref);
   await np.locator('.tn-service-receipt').screenshot({path:path.join(out,'nojs-receipt-375.png')});await nojs.close();
