@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_REPOSITORY_PROPOSAL_NOT_DEPLOYED",
+  "recorded_utc": "2026-11-01T00:27:30.937366+00:00",
+  "mytel": {
+    "pr": "https://github.com/DashSaman/mytel.one/pull/4",
+    "source": "357b1a10e36df1aa0dfa1883027209bdf9bc8484",
+    "merged_main": "da9edecebd7d63aa3677ac8d9f7ed5bb8e55d997",
+    "ci_run": 41256542116,
+    "ci_result": "PASS",
+    "linux_privacy_tests": 9,
+    "private_known_value_scan_tracked_files": 51,
+    "proposal": "docs/CONTEXTUAL_NETWORK_HANDOFF_20261101.fa.md",
+    "source_receipt": "docs/verification/contextual-network-handoff-20261101.json",
+    "read_only_tls_gets": 6,
+    "consistency_checks": 14,
+    "exact_proposals": 2,
+    "overlapping_alternatives_deferred": 2,
+    "site_deployment": "NEEDS_APPROVAL_NOT_DEPLOYED"
+  },
+  "seo_transfer": {
+    "pr": "https://github.com/DashSaman/-SEO/pull/13",
+    "source": "59afdca0888cc6ab865b9ea09b13c95f6ca404bf",
+    "merged_main": "890a60655fed15517b0443e8beb585fc72558582",
+    "ci_run": 41256728562,
+    "ci_result": "PASS",
+    "linux_privacy_tests": 9,
+    "private_known_value_scan_tracked_files": 67,
+    "local_dashboard_destinations": 13,
+    "baseline_percent": 71
+  },
+  "production_writes": 0,
+  "live_links_published": 0,
+  "articles_published": 0,
+  "not_run": [
+    "Browser QA",
+    "Health-tool/download operation",
+    "Network/PBX tests",
+    "GSC/indexing/rank/backlink/AI/lead measurement",
+    "Production release/rollback"
+  ],
+  "security": {
+    "rotation": "UNKNOWN",
+    "history": "NEEDS_APPROVAL",
+    "origin": "UNDETERMINED",
+    "purge_refmap": "STALE_AFTER_NORMAL_MERGES",
+    "force_push": "FORBIDDEN_WHILE_OWNER_ABSENT"
+  },
+  "next": "Inspect current existing network-setup service for a distinct evidence-backed need before drafting; do not replay accepted releases",
+  "morning_handoff": "LIVE_NOT_FINAL"
+}

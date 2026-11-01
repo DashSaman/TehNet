@@ -134,3 +134,15 @@ Scoped acceptance:37 native new/29+27+37 shared regressions,13 operator units,41
 | P10 morning report | IN_PROGRESS | LIVE_NOT_FINAL;08:00Tehran final still required |
 
 Three existing lessons62/64/63 have been improved; zero new articles/URLs in these revisions. Keep page-role metadata, support/service and local-tool changes as separate deliveries. Noindex, inquiry-only commerce, protected data and MyTel freeze remain. Security rotation/history/Origin gates are unchanged. Do not replay accepted releases or rebuild the100-candidate inventory.
+
+## Queue checkpoint — MyTel repository-only proposal, 2026-11-01
+
+| Package | State | Scope / evidence |
+|---|---|---|
+| P6 MyTel contextual proposal | VERIFIED | PR4/357b1a1/main da9edec/CI41256542116;2 exact paragraphs,2 options deferred,6 TLS GETs/14 consistency/9 privacy tests/51-file known-value scan |
+| MyTel actual site edits | NEEDS_APPROVAL | NOT_DEPLOYED; read-only and URL/Title/H1/content/performance freeze retained; no automatic reciprocal links |
+| P9 proposal knowledge transfer | VERIFIED | -SEO PR13/main890a606/CI41256728562; source/topic/dashboard/continuation,9 privacy tests/67 files/13 local dashboard destinations; baseline71% unchanged |
+| P6 next existing setup-service gap | READY | Read /services/network-setup-tehran/ and prove a distinct useful need before drafting or scope registration; no invented capabilities or SLA |
+| P10 final morning report | IN_PROGRESS | LIVE_NOT_FINAL;08:00Tehran final still required |
+
+No production release/backup/rollback, browser/tool/download/network or GSC test in this proposal unit. Public response hash is not a stored-field mutation gate and private Git bundle is not site recovery. Security gates and intentional noindex/closed commerce remain. Normal merges require later refresh of owner-approved purge refmaps; they do not authorize force-push.
