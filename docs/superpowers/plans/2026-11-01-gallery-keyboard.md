@@ -1,6 +1,6 @@
 # P7 native product gallery keyboard selection
 
-Status: DEPLOYED_VERIFIED_TRANSFER_PENDING. Owner's existing overnight authorization covers evidenced bounded UX corrections; no new payment/indexing or MyTel permission is inferred.
+Status: DEPLOYED_VERIFIED_TRANSFERRED. Owner's existing overnight authorization covers evidenced bounded UX corrections; no new payment/indexing or MyTel permission is inferred.
 
 Current evidence: previous media receipts tested pointer selection and fullscreen Escape, but not keyboard selection of inline thumbnail controls. Fresh guest GET-only observation on real TN-SN-17868 found two bare thumbnail images without tabindex/role. Fullscreen Enter/Escape and focus return work. Native compare dialog Escape/focus return also work; a transient body activeElement after Tab is not treated as proof of escaped native-modal focus. A real public regression fails specifically because thumbnails are not native keyboard buttons.
 
@@ -16,7 +16,7 @@ Release scope: exactly product-gallery.js, product-gallery.css and class-storefr
 - [x] Native read-only checker tests; component delayed/multiple/idempotence cases and immutable native staging actual gallery/browser/rollback qualification.
 - [x] Review full relevant diff, private denied-value scan, qualified commit/CI, private snapshot and ordinary integration.
 - [x] Fresh production backup/checksum/drift, scoped release and public keyboard/pointer/fullscreen/mobile/no-JS acceptance; preserve closed commerce/noindex/metadata/data/runtime.
-- [ ] Record actual receipts, transfer evidence to -SEO and update handoff/queue. Final08:00Tehran report remains pending.
+- [x] Record actual receipts, transfer evidence to -SEO and update handoff/queue. Final08:00Tehran report remains pending.
 
 Source reviewed: https://www.w3.org/WAI/ARIA/apg/patterns/button/ , scoped Enter/Space, accessible name and retained focus guidance. Native button semantics are used. No accessibility certification or ranking gain is implied. Raw captures/private config/backups stay outside Git. Existing security gates and no force-push/MyTel production changes remain.
 
@@ -32,4 +32,10 @@ Full raw captures from source30a3ade identified changing text only in existing s
 
 ## Public acceptance timing refinement
 
-Actual PR58/source4af1ff4 published after its qualified native44/CI. Initial public1440 scrollY assertion sampled ongoing native gallery geometry/focus-scroll after selection. A targeted real public probe showed held Space did not scroll before activation;Enter also changed geometry. The updated browser waits for geometry/scroll stability,checks held Space before keyup,then verifies frame/current state. All44 public checks passed with unchanged app payload. A private wrapper summary KeyError occurred after successful Node/receipt because it expected old metadata receipt fields;correct gallery fields were validated. A fresh-source native run of this updated harness remains pending;do not relabel the older native result as the new harness.
+Actual PR58/source4af1ff4 published after its qualified native44/CI. Initial public1440 scrollY assertion sampled ongoing native gallery geometry/focus-scroll after selection. A targeted real public probe showed held Space did not scroll before activation;Enter also changed geometry. The updated browser waits for geometry/scroll stability,checks held Space before keyup,then verifies frame/current state. All44 public checks passed with unchanged app payload. A private wrapper summary KeyError occurred after successful Node/receipt because it expected old metadata receipt fields;correct gallery fields were validated. Updated-source70edb33 native44 passed after actual publication, with identical app payload/tool/13 guards and exact rollback/restore. This separate postpublication confirmation is not a relabeling of the older prepublication result. No live reapply occurred.
+
+## Transfer completed
+
+انتقال شواهد و حدود QA در [-SEO PR18](https://github.com/DashSaman/-SEO/pull/18) ادغام شد؛ main `c4538825de52f8560cf84363edbfd2ca8cbe1fe4`، head آزموده‌شده `704603cca10f7732a9a6fc8098273367587930cd` و CI41268590261. خروجی واقعی CI: ۹ آزمون privacy و guard برای ۶۷ فایل PASS. دو ردیف منبع، anchor گالری در موضوع موجود و ۱۸ مقصد dashboard با بررسی سازگاری تأیید شدند؛ baseline تحقیق ۷۱٪ تغییر نکرد. منبع WAI فقط برای رفتار دکمه استفاده شده؛ هیچ ادعای رتبه یا ممیزی کامل دسترس‌پذیری اضافه نشده است.
+
+NEXT: P2 — نسخهٔ محلی پاک‌سازی تاریخچه و ref map را با snapshot خصوصیِ تازه پس از ادغام‌های عادی بازآماده کن. هیچ force-push، حذف ref مشترک، ارسال درخواست پشتیبانی یا تغییر credential/شبکه مجاز نیست. انتشار و recovery قبلی را تکرار نکن. MyTel production فقط خواندنی، rotation UNKNOWN، history NEEDS_APPROVAL و origin UNDETERMINED می‌مانند؛ noindex و پرداخت بسته حفظ‌اند. گزارش صبح LIVE_NOT_FINAL تا ۰۸:۰۰ است؛ preview به اصل بازگشته و قفل writer آزاد است.
