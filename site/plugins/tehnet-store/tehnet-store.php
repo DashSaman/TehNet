@@ -20,6 +20,7 @@ require_once __DIR__ . '/includes/class-accounting.php';
 require_once __DIR__ . '/includes/class-price-rate.php';
 require_once __DIR__ . '/includes/class-qa.php';
 require_once __DIR__ . '/includes/class-alerts.php';
+require_once __DIR__ . '/includes/class-recaptcha.php';
 require_once __DIR__ . '/includes/class-quotes.php';
 require_once __DIR__ . '/includes/class-tickets.php';
 register_activation_hook(__FILE__,['TehNet_Store_Operations','install']);

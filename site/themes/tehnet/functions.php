@@ -62,6 +62,11 @@ function tehnet_service_catalog_assets(): void {
     wp_enqueue_style('tehnet-service-catalog',get_theme_file_uri($css),['tehnet-visual-refresh'],(string)filemtime(get_theme_file_path($css)));
 }
 add_action('wp_enqueue_scripts','tehnet_service_catalog_assets',21);
+function tehnet_corporate_assets(): void {
+    $css='assets/css/corporate.css';
+    wp_enqueue_style('tehnet-corporate',get_theme_file_uri($css),['tehnet-visual-refresh'],(string)filemtime(get_theme_file_path($css)));
+}
+add_action('wp_enqueue_scripts','tehnet_corporate_assets',22);
 function tehnet_visual_controls(): void {
     echo '<button class="tn-motion-toggle tn-js-only" id="tn-motion-toggle" type="button" aria-pressed="false">توقف حرکت‌های گرافیکی</button>';
 }

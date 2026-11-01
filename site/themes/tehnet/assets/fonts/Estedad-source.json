@@ -1,0 +1,10 @@
+{
+  "upstream": "https://github.com/aminabedi68/Estedad",
+  "commit": "0dbe689787b8c2ea302373cb601d0f352f9f98e5",
+  "license": "SIL Open Font License1.1; accompanying Estedad-OFL.txt",
+  "modified": false,
+  "files_sha256": {
+    "Estedad.woff2": "18a2278ad5c9c2f60e034270ea2d5856d04c4e984e47c65483aa63b41e3c5a1e",
+    "Estedad-OFL.txt": "0417da48fc44780476e074f02f8400028ee704b3e222be5855fa6d960b9200ca"
+  }
+}

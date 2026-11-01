@@ -76,6 +76,7 @@ final class TehNet_Store_Tickets {
         $out.='<p><label>موضوع <input name="tn_subject" maxlength="140" required value="'.esc_attr($service['label']??'').'"></label></p>';
         $out.='<p><label>ارجاع (اختیاری: شماره سفارش/پیش‌فاکتور یا کد کالا) <input name="tn_reference" maxlength="80"></label></p>';
         $out.='<p><label>شرح مشکل <textarea name="tn_message" maxlength="3000" required></textarea></label></p>';
+        $out.=TehNet_Store_Recaptcha::render();
         $out.='<p><button class="button button-primary" type="submit">ثبت تیکت</button></p></form>';
         return $this->service_receipt_notice().$out;
     }
@@ -97,6 +98,7 @@ final class TehNet_Store_Tickets {
         $out.='<p><label>نیاز یا مشکل شما <textarea name="tn_message" rows="4" minlength="10" maxlength="3000" placeholder="مثلاً: ارتباط بین دو بخش قطع می‌شود؛ بررسی اولیه می‌خواهیم." required></textarea></label></p>';
         $out.='<details><summary>اطلاعات سازمان (اختیاری)</summary><p><label>نام سازمان <input name="tn_company" autocomplete="organization" maxlength="120"></label></p></details>';
         $out.='<p class="tn-request-privacy">نام و ایمیل شما برای بررسی و پیگیری درخواست دریافت می‌شود. رمز، IP عمومی، آدرس دقیق یا فایل تنظیمات نفرستید. ارائهٔ خدمت، هزینه و پیش‌فاکتور پس از بررسی دامنه و توافق مشخص می‌شود.</p>';
+        $out.=TehNet_Store_Recaptcha::render();
         $out.='<button class="button button-primary" type="submit">ثبت درخواست و دریافت شماره پیگیری</button></form>';
         return $out;
     }
@@ -131,6 +133,7 @@ final class TehNet_Store_Tickets {
         if($is_service&&(!$service||mb_strlen($company)>120)){wp_die('خدمت معتبر را انتخاب کنید؛ نام سازمان باید حداکثر ۱۲۰ نویسه باشد.',400,['back_link'=>true]);}
         $valid=self::validate_ticket($field('tn_name'),$field('tn_email'),$is_service?$service['label']:$field('tn_subject'),$field('tn_message'),$field('tn_reference'));
         if (!$valid['ok']) { wp_die('نام، ایمیل معتبر و شرح حداقل ۱۰ نویسه‌ای نیاز را بررسی کنید و دوباره تلاش کنید.',400,['back_link'=>true]); }
+        TehNet_Store_Recaptcha::enforce();
         $id=wp_insert_post(['post_type'=>self::CPT,'post_status'=>'private','post_title'=>$valid['subject']],true);
         if (is_wp_error($id)||!$id) { wp_die('ثبت درخواست انجام نشد؛ کمی بعد دوباره تلاش کنید.',500,['back_link'=>true]); }
         update_post_meta($id,'_tn_name',$valid['name']);
@@ -179,6 +182,7 @@ final class TehNet_Store_Tickets {
         echo '<p><label>ایمیل <input type="email" name="tn_email" maxlength="120" required></label></p>';
         echo '<p><label>مقدار موردنیاز (مثلاً ۲.۵ متر یا ۳ عدد) <input name="tn_qty" maxlength="60" required></label></p>';
         echo '<p><label>توضیح (اختیاری) <textarea name="tn_notes" maxlength="1000"></textarea></label></p>';
+        echo TehNet_Store_Recaptcha::render();
         echo '<p><button class="button button-primary" type="submit">ثبت استعلام</button></p>';
         if (isset($_GET['tn_inquiry']) && $_GET['tn_inquiry']==='sent') { echo '<p role="status" class="tn-qa-notice">استعلام شما ثبت شد؛ نتیجه از طریق ایمیل اعلام می‌شود.</p>'; }
         echo '</form></section>';
@@ -195,6 +199,7 @@ final class TehNet_Store_Tickets {
         $message='مقدار: '.$qty.' | کالا: '.$product->get_name().($notes!==''?' | توضیح: '.$notes:'');
         $valid=self::validate_ticket($field('tn_name'),$field('tn_email'),'استعلام قیمت — '.($product->get_sku()?:$product->get_id()),$message,$product->get_sku()?:'');
         if (!$valid['ok']) { wp_die('اطلاعات استعلام نامعتبر است.',400); }
+        TehNet_Store_Recaptcha::enforce();
         $id=wp_insert_post(['post_type'=>self::CPT,'post_status'=>'private','post_title'=>$valid['subject']],true);
         if (is_wp_error($id)) { wp_die('ثبت استعلام انجام نشد.',500); }
         update_post_meta($id,'_tn_name',$valid['name']);

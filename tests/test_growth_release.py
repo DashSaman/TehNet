@@ -31,6 +31,20 @@ class ReleaseBoundaries(unittest.TestCase):
         self.assertIn('site/mu-plugins/tehnet-search-metadata.php', guarded)
         self.assertFalse(set(files) & set(guarded))
 
+    def test_corporate_scope_orders_dependencies_and_keeps_activation_private(self):
+        import json
+        files, extra, guarded = self.module.scope_spec(self.module.CORPORATE_SCOPE)
+        self.assertEqual(len(files), 13)
+        self.assertLess(files.index('site/plugins/tehnet-store/includes/class-recaptcha.php'),files.index('site/plugins/tehnet-store/tehnet-store.php'))
+        self.assertLess(files.index('site/themes/tehnet/assets/css/corporate.css'),files.index('site/themes/tehnet/functions.php'))
+        self.assertFalse(set(files) & set(guarded))
+        self.assertEqual(extra[-1], 'ops/migrate-corporate-navigation.php')
+        manifest=json.loads((SOURCE.parents[1]/extra[0]).read_text(encoding='utf-8'))
+        self.assertFalse(manifest['captcha_activation'])
+        self.assertEqual(len({r['path'] for r in manifest['routes']}),10)
+        tunnel=next(r for r in manifest['routes'] if r['path']=='/tunnels/')
+        self.assertEqual(tunnel['parent'],'/services/')
+
     def test_bundle_member_escape_and_symlink_are_rejected(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

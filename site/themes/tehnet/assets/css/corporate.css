@@ -1,0 +1,51 @@
+/* TehNet corporate presentation. Original CSS; locally hosted Estedad/OFL. */
+@font-face{font-family:Estedad;src:url('../fonts/Estedad.woff2') format('woff2');font-style:normal;font-weight:100 900;font-display:swap}
+html[data-theme="light"]{--tn-bg:#f6f8fc;--tn-card:#fff;--tn-surface:#eef3f9;--tn-heading:#132b48;--tn-ink:#263d56;--tn-muted:#52657b;--tn-accent:#086d86;--tn-link:#086d86;--tn-accent-ink:#fff;--tn-border:#dce5ef;--tn-turquoise-soft:#e9f5f7;--tn-header-bg:rgba(255,255,255,.97);--tn-shadow-sm:0 8px 28px #1639570a}
+html[data-theme="dark"]{--tn-bg:#09131f;--tn-card:#111f30;--tn-surface:#0e1a29;--tn-heading:#f0f5fc;--tn-ink:#d6e1ee;--tn-muted:#adbed2;--tn-accent:#82e5ed;--tn-link:#82e5ed;--tn-accent-ink:#09252b;--tn-border:#2c4158;--tn-turquoise-soft:#102e3b;--tn-header-bg:rgba(9,19,31,.97)}
+body.tn-visual{font-family:Estedad,Vazirmatn,Tahoma,Arial,sans-serif;font-size:17px;line-height:1.95;letter-spacing:normal;text-rendering:optimizeLegibility}
+body.tn-visual :is(button,input,select,textarea){font-family:inherit}
+.tn-visual .tn-container{width:min(calc(100% - 64px),1320px)}
+.tn-visual .tn-main{padding-top:38px}.tn-visual .entry-content{font-size:17px;line-height:2.05}
+.tn-visual :is(.tn-hero h1,.tn-section-title){letter-spacing:normal}
+.tn-visual .tn-hero{gap:48px;min-height:570px;padding:44px 0 52px;background:radial-gradient(ellipse at 12% 40%,#1088a312,transparent 60%)}
+.tn-visual .tn-hero h1{font-size:clamp(35px,4vw,56px);line-height:1.65;font-weight:800}
+.tn-visual .tn-hero-inner>p:not(.tn-kicker){font-size:18px;line-height:2;color:var(--tn-muted)}
+.tn-visual .tn-kicker{font-size:14px;font-weight:650}.tn-visual .tn-chips li{font-size:13px}
+.tn-home-network{border:1px solid var(--tn-border);border-radius:28px;padding:24px;background:linear-gradient(145deg,var(--tn-card),var(--tn-surface));box-shadow:0 20px 65px #1539550d}
+.tn-art-label{font-size:11px;letter-spacing:1.2px}.tn-home-network figcaption{font-size:12px;line-height:1.8;gap:18px}
+.tn-visual :is(.tn-section-sub,.tn-b2b-card p,.tn-journey p,.tn-cta p,.tn-founder-panel p){font-size:16px;line-height:2}
+.tn-visual :is(.tn-journey-link a,.tn-more){font-size:15px}.tn-visual .tn-stat span{font-size:14px}
+.tn-visual :is(.tn-card,.tn-journey,.tn-b2b-card){box-shadow:var(--tn-shadow-sm);border-radius:20px}
+.tn-visual :is(.wp-block-button__link,.wp-element-button,.tn-v-button){font-size:15px;min-height:50px;padding:12px 23px}
+.tn-visual :is(.tn-step p,.tn-svc-step p){font-size:15px;line-height:2}
+/* Gutenberg's flow margin previously displaced steps 2–4 by24px. */
+.tn-visual .tn-svc-process{gap:18px;align-items:stretch;counter-reset:service-step}
+.tn-visual .tn-svc-process>.tn-svc-step{margin:0!important;min-width:0;padding:26px 22px;border:1px solid var(--tn-border);border-top:3px solid var(--tn-accent);border-radius:18px;background:var(--tn-card);box-shadow:var(--tn-shadow-sm)}
+.tn-visual .tn-svc-step h3{font-size:18px;margin:0 0 12px;line-height:1.8}.tn-visual .tn-svc-step p{margin:0}
+.tn-visual .tn-svc-card{padding:28px;border-radius:20px;box-shadow:var(--tn-shadow-sm)}
+.tn-visual .tn-svc-card p{font-size:16px;line-height:2}.tn-visual .tn-svc-card .tn-svc-eyebrow{font-size:13px!important}
+.tn-visual .tn-svc-nav{gap:10px}.tn-visual .tn-svc-nav a{font-size:14px;padding:10px 17px;min-height:46px}
+.tn-visual :is(.tn-service-request label,.tn-service-request summary){font-size:16px}
+.tn-visual .tn-service-request .tn-request-privacy{font-size:14px;line-height:1.9}
+.tn-visual .tn-site-header{border-bottom:1px solid var(--tn-border);box-shadow:0 3px 24px #10294208}
+.tn-visual .tn-header-inner{min-height:94px;gap:24px}.tn-visual .tn-brand-name{font-size:17px;line-height:1.8}.tn-visual .tn-brand-logo{width:48px;height:48px}
+.tn-visual .tn-site-nav{flex:1;min-width:0}.tn-visual .tn-site-nav>ul{display:flex;justify-content:center;gap:6px;flex-wrap:nowrap}
+.tn-visual .tn-site-nav li{position:relative;margin:0;list-style:none}.tn-visual .tn-site-nav li>a{font-size:15px;font-weight:600;line-height:1.7;padding:12px 10px;min-height:48px;white-space:nowrap;border-radius:10px;display:inline-flex;align-items:center;box-sizing:border-box}
+.tn-visual .tn-site-nav li>a:hover,.tn-visual .tn-site-nav .current-menu-item>a{background:var(--tn-turquoise-soft);color:var(--tn-accent)}
+.tn-visual .tn-site-nav .sub-menu{display:block;min-width:240px;padding:10px;border:1px solid var(--tn-border);border-radius:16px;background:var(--tn-card);box-shadow:0 16px 40px #12304b1f;position:absolute;inset-inline-start:0;top:100%;z-index:100;margin:0}
+.tn-visual .tn-site-nav .sub-menu a{display:flex;width:100%;padding:12px 14px;font-size:15px}
+.tn-submenu-toggle{display:none;border:0;border-radius:8px;padding:8px;background:transparent;color:var(--tn-muted);width:32px;height:44px;cursor:pointer}
+.tn-submenu-toggle svg{width:16px;height:16px;transition:transform .18s}.tn-submenu-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+html.tn-js .tn-site-nav .tn-submenu-toggle{display:inline-flex;align-items:center;justify-content:center}
+html.tn-js .tn-site-nav .sub-menu{display:none}html.tn-js .tn-site-nav .is-submenu-open>.sub-menu{display:block}
+html:not(.tn-js) .tn-site-nav .sub-menu{position:static;min-width:0;box-shadow:none;border:0;border-inline-start:2px solid var(--tn-border);border-radius:0;padding:0 8px}
+.tn-visual .tn-header-cta{font-size:14px;font-weight:650;min-height:46px;padding:10px 15px;background:var(--tn-accent);color:var(--tn-accent-ink);border-color:var(--tn-accent)}
+.tn-visual :is(.tn-theme-toggle,.tn-menu-toggle){min-width:44px;width:44px;height:44px}
+.tn-visual :is(a,button,input,select,textarea,summary):focus-visible{outline:3px solid var(--tn-accent);outline-offset:4px}
+.tn-visual .tn-footer-grid{gap:36px}.tn-visual .tn-site-footer{background:var(--tn-surface)}.tn-visual .tn-site-footer p,.tn-visual .tn-site-footer li{font-size:15px;line-height:2}.tn-visual .tn-site-footer h3{font-size:17px}
+.tn-captcha{margin-block:22px;max-width:100%}.tn-captcha p,.tn-captcha noscript{font-size:14px;line-height:1.8}.tn-captcha-widget{min-height:80px;max-width:100%}
+@media(max-width:1190px){.tn-visual .tn-brand-tag{display:none}.tn-visual .tn-header-inner{gap:14px}.tn-visual .tn-site-nav li>a{padding-inline:8px}.tn-visual .tn-header-cta svg{display:none}}
+@media(max-width:1050px){.tn-visual .tn-container{width:calc(100% - 40px)}.tn-visual .tn-header-inner{min-height:80px;flex-wrap:wrap}.tn-visual .tn-header-actions{margin-inline-start:auto}.tn-visual .tn-site-nav{order:3;flex-basis:100%;width:100%;padding-bottom:12px}.tn-visual .tn-site-nav>ul{justify-content:flex-start;flex-wrap:wrap}.tn-visual .tn-site-nav li>a{font-size:16px}html.tn-js .tn-site-nav{display:none}html.tn-js .tn-site-nav.is-open{display:block}html.tn-js .tn-visual .tn-menu-toggle{display:inline-flex}.tn-visual .tn-site-nav>ul>li{width:100%}.tn-visual .tn-site-nav .sub-menu{position:static;width:100%;box-shadow:none;box-sizing:border-box;margin-block:4px 10px;min-width:0}.tn-visual .tn-site-nav li>a{padding:12px 15px}.tn-visual .tn-site-nav .tn-submenu-toggle{float:left}.tn-visual .tn-hero{gap:28px}.tn-visual .tn-main{padding-top:26px}}
+@media(min-width:1051px){html.tn-js .tn-visual .tn-menu-toggle{display:none}}
+@media(max-width:600px){.tn-visual .tn-container{width:calc(100% - 32px)}body.tn-visual{font-size:16px}.tn-visual .entry-content{font-size:16px;line-height:2}.tn-visual .tn-brand-name{font-size:14px}.tn-visual .tn-brand-logo{width:40px;height:40px}.tn-visual .tn-header-cta{font-size:12px;padding-inline:10px}.tn-visual .tn-header-actions{gap:7px}.tn-visual .tn-header-inner{gap:8px}.tn-visual .tn-hero{min-height:0;padding:24px 0 30px;grid-template-columns:1fr}.tn-visual .tn-hero h1{font-size:34px;line-height:1.7}.tn-visual .tn-hero-inner>p:not(.tn-kicker){font-size:16px}.tn-home-network{padding:16px;border-radius:20px}.tn-visual .tn-section{padding-block:42px}.tn-visual .tn-svc-process>.tn-svc-step{padding:24px 20px}.tn-visual .tn-svc-card{padding:24px}.tn-visual .tn-svc-nav a{font-size:13px;padding-inline:13px}.tn-visual .tn-site-footer p,.tn-visual .tn-site-footer li{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.tn-submenu-toggle svg{transition:none}}

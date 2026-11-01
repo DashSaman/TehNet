@@ -62,6 +62,7 @@ final class TehNet_Store_Quotes {
             $out.='</select></label> <label>مقدار <input name="tn_item_qty[]" inputmode="decimal" placeholder="مثلاً 2.5"></label></p>';
         }
         $out.='<p><label>توضیحات <textarea name="tn_notes" maxlength="1000"></textarea></label></p>';
+        $out.=TehNet_Store_Recaptcha::render();
         $out.='<p><button class="button button-primary" type="submit">ثبت درخواست پیش‌فاکتور</button></p></form>';
         return $out;
     }
@@ -80,6 +81,7 @@ final class TehNet_Store_Quotes {
         $hp=$field('tn_hp');
         $valid=self::validate_request($field('tn_company'),$field('tn_contact'),$field('tn_phone'),$field('tn_email'),$items,$field('tn_notes'));
         if ($hp!=='' || !$valid['ok']) { wp_die('اطلاعات درخواست نامعتبر است.',400); }
+        TehNet_Store_Recaptcha::enforce();
         $id=wp_insert_post(['post_type'=>self::CPT,'post_status'=>'private','post_title'=>'B2B — '.$valid['company']],true);
         if (is_wp_error($id)) { wp_die('ثبت درخواست انجام نشد.',500); }
         update_post_meta($id,'_tn_company',$valid['company']);
