@@ -1,0 +1,20 @@
+{
+  "status": "MERGED",
+  "repository": "DashSaman/-SEO",
+  "pull_request": "https://github.com/DashSaman/-SEO/pull/21",
+  "merge_commit": "8d764e356d8f9b4a8844f5afb7696535f4ff60e4",
+  "tested_head": "8072e6b60279688284347456c2cf1011c9ecfdcb",
+  "ci_run": 41314407511,
+  "ci_conclusion": "success",
+  "local_privacy_tests": 12,
+  "known_value_publication_scan": {
+    "checked_files": 68,
+    "status": "PASS"
+  },
+  "dashboard_destinations": 18,
+  "baseline_71_percent_unchanged": true,
+  "actual_source_ids_unique": true,
+  "private_raw_evidence_transferred": false,
+  "site_mutations": 0,
+  "ranking_conversion_or_parity_claim": false
+}

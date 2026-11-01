@@ -16,3 +16,11 @@ Review focus: receipt privacy/cache isolation, array/unknown service rejection, 
 
 - IN_PROGRESS: CP-01/CP-02 implemented locally. Before capture: Home, Services and three TarazNet URLs, desktop/mobile. Isolated native attempts exercised actual private ticket persistence and, in one attempt, both desktop/no-JS requests plus authorized staff visibility. Qualification is incomplete: navigation timeouts and a corrected staff selector prevented a full browser PASS. All attempts were restored; one fixture-owned dashboard draft needed guarded reconciliation before exact restoration. No live writes or parity claim.
 - Latest local checks: 58 Python tests (one explicit host symlink-permission skip), 55 PHP contracts and three PHP syntax checks passed. These do not replace the pending full native journey, immutable release qualification or public before/after verification.
+
+
+## Delivered package — actual outcome
+
+- DEPLOYED_VERIFIED CP01/02: PR64/65, runtime/Home/Services source4aff178; native51 with two actual synthetic private requests and staff trace; exact restore; public139 plus14 TLS GETs. No production submission.
+- DEPLOYED_VERIFIED first CP03/04/05 batch: PR66/sourcefd1209d; three existing content upgrades (monitoring acceptance, Wi-Fi brief, firewall matrix), native41/public41 each, body-only fresh backup/drift/repeat/hash/protected-state checks. Zero new article/URL/runtime; examples remain hypothetical.
+- Published sanitized delivery evidence and reconciled coordination: PR67/CI41314181611. Central reuse: -SEO PR21/CI41314407511 merged. See the dated report/receipts for exact hashes and screenshots.
+- Issue63 OPEN. Further server/virtualization/branch depth and real consented case evidence remain; GSC access actually refused subscription_required, intentional noindex is unchanged and requires separate owner approval. Neither browser counts nor the completed delivery package establish competitive parity/search gains.
