@@ -44,6 +44,8 @@ class ReleaseBoundaries(unittest.TestCase):
         self.assertEqual(len({r['path'] for r in manifest['routes']}),10)
         tunnel=next(r for r in manifest['routes'] if r['path']=='/tunnels/')
         self.assertEqual(tunnel['parent'],'/services/')
+        # wp_get_nav_menu_items normalizes displayed orders; the home DB row is0.
+        self.assertEqual(next(r for r in manifest['routes'] if r['path']=='/')['before_order'],0)
 
     def test_bundle_member_escape_and_symlink_are_rejected(self):
         with tempfile.TemporaryDirectory() as temp:

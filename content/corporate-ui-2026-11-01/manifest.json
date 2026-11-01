@@ -4,7 +4,7 @@
   "menu_location": "primary",
   "captcha_activation": false,
   "routes": [
-    {"path":"/", "before_order":1, "before_title":"", "order":1, "title":"", "parent":""},
+    {"path":"/", "before_order":0, "before_title":"", "order":1, "title":"", "parent":""},
     {"path":"/learn/", "before_order":2, "before_title":"", "order":4, "title":"", "parent":""},
     {"path":"/lab/", "before_order":3, "before_title":"", "order":5, "title":"آزمایشگاه", "parent":""},
     {"path":"/services/", "before_order":4, "before_title":"", "order":2, "title":"", "parent":""},
