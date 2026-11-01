@@ -1,0 +1,261 @@
+{
+  "status": "DEPLOYED_VERIFIED",
+  "source_commit": "5fb1bfa2f3de2153f58babfa9eb98b0689e6e0dd",
+  "qualified_source": "a4c6bfa8e5019e3bce371378cc5cf8afb4054fd7",
+  "observed_utc": "2026-11-01T15:36:29.746275+00:00",
+  "completed_utc": "2026-11-01T15:36:58.952118+00:00",
+  "scope": "tehnet-phone-rtl-20261101-v1",
+  "fresh_backup_checksum_verified": true,
+  "protected_state_unchanged": true,
+  "all_existing_runtimes_unchanged": true,
+  "all_25_image_price_inquiry_api_unchanged": true,
+  "public_css_payload_sha256_matches": true,
+  "isolated_phone_markup_present": true,
+  "actual_versioned_css_route": "/wp-content/themes/tehnet/assets/css/corporate.css?ver=1793547407",
+  "public_gets": [
+    {
+      "url": "https://tehnet.ir/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/services/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/services/network-tehran/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/services/network-support-tehran/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/services/network-setup-tehran/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/services/mikrotik-tehran/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/services/remote-support/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/services/voice-network-readiness/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/learn/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/lab/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/lab/voice-network-checklist/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/shop/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/support/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/b2b/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    }
+  ],
+  "files_changed": 4,
+  "database_rows_written": 0,
+  "repeat_apply_changes": 0,
+  "native_browser_checks": 200,
+  "public_browser_checks": 216,
+  "widths": [
+    1440,
+    375
+  ],
+  "javascript": [
+    false,
+    true
+  ],
+  "public_routes": [
+    {
+      "url": "https://tehnet.ir/",
+      "cases": 4,
+      "phone_observations": 8,
+      "area_code_first_and_number_unbroken": true,
+      "standalone_utility_without_phone": false
+    },
+    {
+      "url": "https://tehnet.ir/services/",
+      "cases": 4,
+      "phone_observations": 8,
+      "area_code_first_and_number_unbroken": true,
+      "standalone_utility_without_phone": false
+    },
+    {
+      "url": "https://tehnet.ir/contact/",
+      "cases": 4,
+      "phone_observations": 8,
+      "area_code_first_and_number_unbroken": true,
+      "standalone_utility_without_phone": false
+    },
+    {
+      "url": "https://tehnet.ir/about/",
+      "cases": 4,
+      "phone_observations": 4,
+      "area_code_first_and_number_unbroken": true,
+      "standalone_utility_without_phone": false
+    },
+    {
+      "url": "https://tehnet.ir/shop/",
+      "cases": 4,
+      "phone_observations": 4,
+      "area_code_first_and_number_unbroken": true,
+      "standalone_utility_without_phone": false
+    },
+    {
+      "url": "https://tehnet.ir/support/",
+      "cases": 4,
+      "phone_observations": 4,
+      "area_code_first_and_number_unbroken": true,
+      "standalone_utility_without_phone": false
+    },
+    {
+      "url": "https://tehnet.ir/b2b/",
+      "cases": 4,
+      "phone_observations": 4,
+      "area_code_first_and_number_unbroken": true,
+      "standalone_utility_without_phone": false
+    },
+    {
+      "url": "https://tehnet.ir/learn/",
+      "cases": 4,
+      "phone_observations": 4,
+      "area_code_first_and_number_unbroken": true,
+      "standalone_utility_without_phone": false
+    },
+    {
+      "url": "https://tehnet.ir/lab/",
+      "cases": 4,
+      "phone_observations": 4,
+      "area_code_first_and_number_unbroken": true,
+      "standalone_utility_without_phone": false
+    },
+    {
+      "url": "https://tehnet.ir/software/",
+      "cases": 4,
+      "phone_observations": 0,
+      "area_code_first_and_number_unbroken": null,
+      "standalone_utility_without_phone": true
+    },
+    {
+      "url": "https://tehnet.ir/services/remote-support/",
+      "cases": 4,
+      "phone_observations": 8,
+      "area_code_first_and_number_unbroken": true,
+      "standalone_utility_without_phone": false
+    },
+    {
+      "url": "https://tehnet.ir/services/mikrotik-tehran/",
+      "cases": 4,
+      "phone_observations": 8,
+      "area_code_first_and_number_unbroken": true,
+      "standalone_utility_without_phone": false
+    },
+    {
+      "url": "https://tehnet.ir/services/network-setup-tehran/",
+      "cases": 4,
+      "phone_observations": 8,
+      "area_code_first_and_number_unbroken": true,
+      "standalone_utility_without_phone": false
+    },
+    {
+      "url": "https://tehnet.ir/services/network-support-tehran/",
+      "cases": 4,
+      "phone_observations": 8,
+      "area_code_first_and_number_unbroken": true,
+      "standalone_utility_without_phone": false
+    },
+    {
+      "url": "https://tehnet.ir/services/network-tehran/",
+      "cases": 4,
+      "phone_observations": 8,
+      "area_code_first_and_number_unbroken": true,
+      "standalone_utility_without_phone": false
+    },
+    {
+      "url": "https://tehnet.ir/product/tn-sn-18002/",
+      "cases": 4,
+      "phone_observations": 4,
+      "area_code_first_and_number_unbroken": true,
+      "standalone_utility_without_phone": false
+    }
+  ],
+  "production_submissions": 0,
+  "phone_setting_and_tel_target_unchanged": true,
+  "invoice_quote_renderers": "Actual native renderer, synthetic in-memory data and print media; no stored document created.",
+  "initial_release": "Full rollback retained in first-release-rollback.json; second attempt used new source/journal and fresh backup and verified the exact stylesheet version enqueued in HTML.",
+  "release_pr": "https://github.com/DashSaman/TehNet/pull/72",
+  "release_acceptance_pr": "https://github.com/DashSaman/TehNet/pull/73",
+  "ci_runs": [
+    41321456987,
+    41321967725
+  ],
+  "red_before": {
+    "area_code_x": 960.234375,
+    "subscriber_x": 878.375
+  },
+  "green_live": {
+    "area_code_x": 878.390625,
+    "subscriber_x": 914.375
+  },
+  "limits": "/software/ independently confirmed to have no business phone, tel link or WordPress footer in JS/no-JS. Initial public test wrongly assumed every route had the shared footer; corrected absence case, with all actual phone-order assertions preserved."
+}
