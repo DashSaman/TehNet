@@ -1,4 +1,18 @@
-## CURRENT — پیشنهاد MyTel در مخزن تکمیل و دانش منتقل شد
+## CURRENT — خدمت راه‌اندازی شبکه برای انتشار محدود qualify شد
+
+VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر: source ثابت `5174ff27c4d42fae9e360c019d6adb8cc3685c29` برای همان ID33.۵۷بلوک/۳۰browser/۳۹native جدید/۳۷IPDNS+۳۷support regression؛Windows۲۰PASS/۱SKIP از۲۱. immutable backup/checksum/tamper/check/apply/repeat/۴HTTP/rollback/repeat پاس؛محتوا/meta/users وmetadata0.2.1 fixture بهpreview0.2.0 اصلی دقیقاً بازگشتند،containerها ثابت و۸guard بدون نصبruntime. رسید `qa/growth-2026-10-31/network-setup-release-rehearsal.json`. شکست هم‌زمانیQA قبلی باrecovery دقیق واجرای ترتیبی اصلاح ودررسید اولیه حفظ شده؛بازپخش نشود.
+
+NEXT: PR/CIhead تازه باLinux۲۱test،snapshot خصوصی وادغام عادی؛برابریpayload/tool/۸guard باsource بالا،backup تازه/checksum/drift تولید وپذیرش عمومی. هنوزproduction تغییرنکرده؛قیمت/موجودی/SLA/آزمون شبکه/SEOgain ادعانشده است. لینک‌ها۱۲GET200 ویکCisco403 درمسیرمستقیم‌اند؛محدودیتpartial محفوظ،۱۳لینک200 ننویسید. noindex/فروشگاه/داده/پرداخت/MyTel/security gates پابرجا وگزارشصبحLIVE_NOT_FINAL است.
+
+## HISTORICAL CHECKPOINT — پیش‌نویس خدمت راه‌اندازی شبکه و scope محدود آزموده شد
+
+VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED —۱نوامبر: همان ID33/URL/عنوان/والد، نیازسنجی امن، طرح و مسئولیت، مثال دفتر صریحاً فرضی، اجرای مرحله‌ای و معیار پذیرش/تحویل.۳منبعprimary باحد نسخه/دامنه؛ هیچ آزمون یا پروژهٔ شبکهٔ واقعی ادعا نشده است.۵۷بلوک/۳۰browser1440/375/no-JS/edit-reset و۳۹native جدید/۳۷regression درسIP/DNS/۳۷regression خدمات پاس؛۲۱Windows case شامل۲۰PASS و۱SKIPsymlink. گیت قدیمی scope را رد کرد؛ scope جدید body-only با۸guard وبدون نصبruntime است. لینک‌هاPARTIAL:۱۲GET200،مرجعCisco403 درمسیرمستقیم و۳fragmentID یکتا؛ متن مرجع ازابزاروب خوانده شد و۱۳لینک200 ادعا نمی‌شود.
+
+رسید `qa/growth-2026-10-31/network-setup-draft-and-migration.json` وbrief/source ledger درseo. خطای serialization پیش ازذخیره ردواصلاح شد. اجرای اشتباه هم‌زمان دوQA موجب protected-state drift شد؛ گیت rollback درست متوقف کرد. پس ازdry-run/backup تازه/تطبیق دقیق، فقط ID33 ویکrevision متعلق بههمانQA بازگشت؛ journal اصلی وتمام داده‌های دیگر دست‌نخورده وfingerprint چهارجدول برابر اصل شد. قفل OS مشترک واجرای ترتیبی بعدی پاس شدند؛ این شکست‌ها دررسید حفظ‌اند. صفر تغییرتولید/مقاله/URL جدید؛ MyTel/noindex/فروشگاه/پرداخت وداده محفوظ‌اند.
+
+NEXT: immutable bundle/rehearsal مستقل باmetadata0.2.1 وrestore دقیقpreview0.2.0؛ سپس CI/ادغام عادی/backup/checksum/drift وبرابریpayload/tool/۸guard وپذیرش عمومی درصورت صلاحیت. محدودیتCisco403 نباید به PASS13تبدیل شود. helperهای QA وrehearsal را رویpreview مشترک هم‌زمان اجرا نکن. انتشارهای قبلی را بازپخش نکن؛ گزارشصبحLIVE_NOT_FINAL وامنیتrotationUNKNOWN/historyNEEDS_APPROVAL/originUNDETERMINED/منعforce-push پابرجاست.
+
+## HISTORICAL CHECKPOINT — پیشنهاد MyTel در مخزن تکمیل و دانش منتقل شد
 
 VERIFIED_REPOSITORY_PROPOSAL_NOT_DEPLOYED —۱نوامبر: دو پاراگراف/anchor/جایگاه دقیق برای /services/ و /branch-voip/ مایتل؛ دو گزینهٔ مشابه به‌علت وجود دارایی آمادگی خود MyTel کنار گذاشته شدند.۶GET باTLS معتبر وبدونredirect،۱۴کنترل تطابق،۹regression حریم خصوصی وscan۵۱فایل بافهرست خصوصی پاس. هیچ تغییر سایت، لینک زنده یا مقاله‌ای منتشر نشد. MyTel canonical context/SECTION16/next prompt وورودی‌های roadmap به‌روز شدند. [MyTel PR4](https://github.com/DashSaman/mytel.one/pull/4)، source `357b1a10e36df1aa0dfa1883027209bdf9bc8484`، main `da9edecebd7d63aa3677ac8d9f7ed5bb8e55d997`، CI41256542116 موفق وادغام عادی. تمام ویرایش‌های احتمالی سایت مایتل NEEDS_APPROVAL؛ URL/Title/H1/content/performance وread-only پابرجاست.
 

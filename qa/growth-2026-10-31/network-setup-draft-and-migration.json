@@ -1,0 +1,211 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED",
+  "observed_utc": "2026-11-01T00:46:59.217316+00:00",
+  "target": {
+    "id": 33,
+    "url": "https://tehnet.ir/services/network-setup-tehran/",
+    "title_observed": "راه‌اندازی شبکه شرکت در تهران",
+    "expected_content_sha256": "09eba56189c561933b6107fbdb2dcca7259450c7b78751ffb5f0df6e2d241818",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "body_sha256_lf": "99c9a9074df2d585345c1813c47a37f65544025f69395266dc840650056267e4",
+  "reader_gap": "Current existing service described needs/settings but lacked concrete acceptance/handover and staged-cutover decisions; no search-demand or missing-capability claim",
+  "sources": {
+    "scoped_primary": 3,
+    "technical_network_execution": "NOT_RUN",
+    "cisco_access": "WEB_TOOL_READ_LOCAL_GET403",
+    "nist_version": "2011_WITH_2019_UPDATE",
+    "routeros_manual_selector": "7.26_NOT_DEVICE_VERSION"
+  },
+  "native_editor": {
+    "registered_blocks": 57,
+    "roundtrip": true,
+    "sanitization": true,
+    "browser_checks": 30,
+    "viewports": [
+      1440,
+      375
+    ],
+    "no_js": true,
+    "editable_unsaved_reset": true,
+    "saved_editor_pages": 0,
+    "mobile_screenshot": "VISUALLY_REVIEWED",
+    "desktop": "AUTOMATED",
+    "page_errors": 0,
+    "original_four_table_fingerprint_restored": true,
+    "owned_account_removed": true
+  },
+  "migration": {
+    "red_before_registration": "CLI_ENTRY_REJECTED",
+    "scoped_native_assertions": 39,
+    "ip_dhcp_dns_regression_assertions": 37,
+    "support_regression_assertions": 37,
+    "negative_identity_path_digest_field_baseline_cases": true,
+    "idempotence_rollback_retention_hook_concurrency": true,
+    "runtime_installs": 0,
+    "current_runtime_guards": 8
+  },
+  "local_operator": {
+    "cases": 21,
+    "passed": 20,
+    "skipped": 1,
+    "skip_reason": "Host lacks symlink creation permission",
+    "linux_ci": "PENDING_FOR_THIS_SOURCE"
+  },
+  "links": {
+    "status": "PARTIAL_ACCESS_CONTEXT_VARIANCE",
+    "unique_tls_gets": 13,
+    "http200": 12,
+    "http403": 1,
+    "restricted_url": "https://www.cisco.com/c/en/us/td/docs/solutions/CVD/Campus/cisco-campus-lan-wlan-design-guide.html",
+    "draft_fragment_ids_checked": 3,
+    "all200": false,
+    "details": [
+      {
+        "url": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final",
+        "status": 200,
+        "final_url": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final",
+        "bytes": 47918,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://manual.mikrotik.com/docs/getting-started/configuration-management/backup/",
+        "status": 200,
+        "final_url": "https://manual.mikrotik.com/docs/getting-started/configuration-management/backup/",
+        "bytes": 44563,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://mytel.one/services/",
+        "status": 200,
+        "final_url": "https://mytel.one/services/",
+        "bytes": 237269,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/b2b/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/b2b/",
+        "bytes": 57160,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/contact/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/contact/",
+        "bytes": 44584,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+        "bytes": 62240,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/services/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/services/",
+        "bytes": 49383,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/services/mikrotik-tehran/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/services/mikrotik-tehran/",
+        "bytes": 45397,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/services/network-support-tehran/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/services/network-support-tehran/",
+        "bytes": 53537,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/services/voice-network-readiness/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/services/voice-network-readiness/",
+        "bytes": 54589,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/shop/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/shop/",
+        "bytes": 113411,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/technical-methodology/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/technical-methodology/",
+        "bytes": 47674,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://www.cisco.com/c/en/us/td/docs/solutions/CVD/Campus/cisco-campus-lan-wlan-design-guide.html",
+        "status": 403,
+        "error_type": "HTTPError"
+      }
+    ]
+  },
+  "qualification_failures": [
+    {
+      "stage": "BLOCK_PREFLIGHT",
+      "cause": "Noncanonical JSON anchor whitespace",
+      "result": "REFUSED_BEFORE_SAVE",
+      "correction": "Match native compact serialization; gate unchanged"
+    },
+    {
+      "stage": "SHARED_QA_STAGING",
+      "cause": "Operator launched editor and migration QA concurrently; owned-account cleanup changed protected state",
+      "result": "FAILED_THEN_EXACT_OWNED_RESTORATION",
+      "recovery": "Dry-run predicted full original state; fresh backup; exact after-snapshot drift guard; only ID33 and one owned new revision restored; original journal unchanged; no broad DB restore",
+      "verification": "Original posts/postmeta/users/usermeta fingerprint exact, original body and zero QA users; subsequent serialized native39/browser30 PASS",
+      "prevention": "Shared OS QA writer lock; concurrent child refusal/reacquisition actually tested"
+    },
+    {
+      "stage": "BROWSER_HARNESS",
+      "cause": "Copied literal expected a different recovery phrase",
+      "correction": "Matched actual equivalent recovery-and-limit wording; acceptance meaning retained"
+    },
+    {
+      "stage": "SOURCE_LINK_GET",
+      "cause": "Official Cisco reference403 in direct tool path",
+      "result": "PARTIAL_RETAINED_NO_ALL200_CLAIM"
+    }
+  ],
+  "publication": {
+    "state": "NOT_DEPLOYED",
+    "immutable_rehearsal": "PENDING",
+    "new_articles": 0,
+    "new_urls": 0,
+    "production_writes": 0,
+    "network_customer_tests": "NOT_RUN"
+  },
+  "preserve": [
+    "intent ownership",
+    "noindex",
+    "inquiry-only commerce",
+    "home/menus/customer data",
+    "real-payment closure",
+    "MyTel production read-only",
+    "rotation UNKNOWN/history NEEDS_APPROVAL/origin UNDETERMINED"
+  ]
+}

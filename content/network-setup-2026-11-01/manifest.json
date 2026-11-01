@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "key": "tehnet-service-network-setup-20261101-v1",
+  "status": "DRAFT_NOT_DEPLOYED",
+  "target": {
+    "id": 33,
+    "url": "https://tehnet.ir/services/network-setup-tehran/",
+    "title_observed": "راه‌اندازی شبکه شرکت در تهران",
+    "expected_content_sha256": "09eba56189c561933b6107fbdb2dcca7259450c7b78751ffb5f0df6e2d241818",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "content_file": "network-setup.html",
+  "content_sha256_lf": "99c9a9074df2d585345c1813c47a37f65544025f69395266dc840650056267e4",
+  "protected": [
+    "home",
+    "menus",
+    "products/all meta",
+    "orders/customers/tickets/quotes",
+    "blog_public",
+    "payments/ERP",
+    "MyTel production"
+  ],
+  "qualification": {
+    "source_review": "SCOPED_PRIMARY_SECTIONS",
+    "network_project_tests": "NOT_RUN",
+    "native_blocks": "PASS_57_REGISTERED_BLOCKS",
+    "browser": "PASS_30_DESKTOP_MOBILE_NOJS_EDITOR",
+    "migration": "PASS_39_SCOPED_ASSERTIONS_AND_37_IPDNS_37_SUPPORT_REGRESSION",
+    "production": "NOT_DEPLOYED",
+    "operator_windows": "20_PASS_1_SYMLINK_PERMISSION_SKIP_OF21",
+    "links": "PARTIAL_12_TLS200_1_CISCO403_AND_3_FRAGMENT_IDS"
+  },
+  "limits": [
+    "Fictional office and proposed acceptance fields are unmeasured, not a customer case or service commitment",
+    "No network commands, scans, device backups/restores or coverage tests executed",
+    "One existing service revision; zero new article/URL/runtime feature",
+    "Vendor/framework documents are not certification, universal equipment advice or legal/contractual requirements"
+  ]
+}

@@ -1,6 +1,6 @@
 # تحویل صبح TehNet × MyTel × SEO —۱نوامبر۲۰۲۶
 
-**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 03:57 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
+**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 04:19 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
 
 ## ۱. امنیت — گیت‌های باز مقدم‌اند
 
@@ -235,3 +235,21 @@ VERIFIED_REPOSITORY_PROPOSAL_NOT_DEPLOYED —۱نوامبر: دو پاراگرا
 رسید `qa/growth-2026-10-31/mytel-contextual-proposal-transfer.json` وحدود درaddendumِ `seo/intent-portfolio-2026-11-01.fa.md`. hash پاسخ عمومی drift guard وردپرس نیست؛ snapshot خصوصی Git، backup سایت نیست. خطای parser درشمردنSVG title باخواندنهمانcapture اصلاح شد؛ نقصtitle سایت ادعا نشد. Browser/tool/download/network/GSC/performance دراین‌بسته اجرا نشد. انتقال source/topic/dashboard/continuation در [-SEO PR13](https://github.com/DashSaman/-SEO/pull/13)، main `890a60655fed15517b0443e8beb585fc72558582` وCI41256728562 ادغام؛۹privacy test/۶۷فایل و۱۳مقصد محلی dashboard پاس، baseline۷۱٪ ثابت.
 
 NEXT: صفحهٔ فعلی /services/network-setup-tehran/ را برای یک نیاز مستقل ومثبت نسبت به پشتیبانی/آمادگی شبکه بخوان؛ فقط پس از شاهد متمایز draft همان URL بساز، ظرفیت/قیمت/تضمین نیافزا. انتشارهای قبلی/۱۰۰کاندیدا یا پاک‌سازی امنیتی را بازپخش نکن. گزارش صبح LIVE_NOT_FINAL وموعد۰۸:۰۰ پابرجاست. rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED؛ force-push درغیاب مالک ممنوع وrefmap پاک‌سازی پس ازmergeهای عادی نیازمندتازه‌سازی است. noindex/فروشگاه/داده/پرداخت وشبکهٔ مشترک حفظ شوند.
+
+## checkpoint پیش‌نویس راه‌اندازی شبکه
+
+## CURRENT — پیش‌نویس خدمت راه‌اندازی شبکه و scope محدود آزموده شد
+
+VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED —۱نوامبر: همان ID33/URL/عنوان/والد، نیازسنجی امن، طرح و مسئولیت، مثال دفتر صریحاً فرضی، اجرای مرحله‌ای و معیار پذیرش/تحویل.۳منبعprimary باحد نسخه/دامنه؛ هیچ آزمون یا پروژهٔ شبکهٔ واقعی ادعا نشده است.۵۷بلوک/۳۰browser1440/375/no-JS/edit-reset و۳۹native جدید/۳۷regression درسIP/DNS/۳۷regression خدمات پاس؛۲۱Windows case شامل۲۰PASS و۱SKIPsymlink. گیت قدیمی scope را رد کرد؛ scope جدید body-only با۸guard وبدون نصبruntime است. لینک‌هاPARTIAL:۱۲GET200،مرجعCisco403 درمسیرمستقیم و۳fragmentID یکتا؛ متن مرجع ازابزاروب خوانده شد و۱۳لینک200 ادعا نمی‌شود.
+
+رسید `qa/growth-2026-10-31/network-setup-draft-and-migration.json` وbrief/source ledger درseo. خطای serialization پیش ازذخیره ردواصلاح شد. اجرای اشتباه هم‌زمان دوQA موجب protected-state drift شد؛ گیت rollback درست متوقف کرد. پس ازdry-run/backup تازه/تطبیق دقیق، فقط ID33 ویکrevision متعلق بههمانQA بازگشت؛ journal اصلی وتمام داده‌های دیگر دست‌نخورده وfingerprint چهارجدول برابر اصل شد. قفل OS مشترک واجرای ترتیبی بعدی پاس شدند؛ این شکست‌ها دررسید حفظ‌اند. صفر تغییرتولید/مقاله/URL جدید؛ MyTel/noindex/فروشگاه/پرداخت وداده محفوظ‌اند.
+
+NEXT: immutable bundle/rehearsal مستقل باmetadata0.2.1 وrestore دقیقpreview0.2.0؛ سپس CI/ادغام عادی/backup/checksum/drift وبرابریpayload/tool/۸guard وپذیرش عمومی درصورت صلاحیت. محدودیتCisco403 نباید به PASS13تبدیل شود. helperهای QA وrehearsal را رویpreview مشترک هم‌زمان اجرا نکن. انتشارهای قبلی را بازپخش نکن؛ گزارشصبحLIVE_NOT_FINAL وامنیتrotationUNKNOWN/historyNEEDS_APPROVAL/originUNDETERMINED/منعforce-push پابرجاست.
+
+## checkpoint rehearsal راه‌اندازی شبکه
+
+## CURRENT — خدمت راه‌اندازی شبکه برای انتشار محدود qualify شد
+
+VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر: source ثابت `5174ff27c4d42fae9e360c019d6adb8cc3685c29` برای همان ID33.۵۷بلوک/۳۰browser/۳۹native جدید/۳۷IPDNS+۳۷support regression؛Windows۲۰PASS/۱SKIP از۲۱. immutable backup/checksum/tamper/check/apply/repeat/۴HTTP/rollback/repeat پاس؛محتوا/meta/users وmetadata0.2.1 fixture بهpreview0.2.0 اصلی دقیقاً بازگشتند،containerها ثابت و۸guard بدون نصبruntime. رسید `qa/growth-2026-10-31/network-setup-release-rehearsal.json`. شکست هم‌زمانیQA قبلی باrecovery دقیق واجرای ترتیبی اصلاح ودررسید اولیه حفظ شده؛بازپخش نشود.
+
+NEXT: PR/CIhead تازه باLinux۲۱test،snapshot خصوصی وادغام عادی؛برابریpayload/tool/۸guard باsource بالا،backup تازه/checksum/drift تولید وپذیرش عمومی. هنوزproduction تغییرنکرده؛قیمت/موجودی/SLA/آزمون شبکه/SEOgain ادعانشده است. لینک‌ها۱۲GET200 ویکCisco403 درمسیرمستقیم‌اند؛محدودیتpartial محفوظ،۱۳لینک200 ننویسید. noindex/فروشگاه/داده/پرداخت/MyTel/security gates پابرجا وگزارشصبحLIVE_NOT_FINAL است.

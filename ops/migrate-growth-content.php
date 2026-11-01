@@ -6,6 +6,7 @@ final class TehNet_Growth_Content_Migration {
         'tehnet-editorial-routing-20261101-v1'=>['id'=>64,'uri'=>'learn/mikrotik/mtcna/static-routing','file'=>'static-routing.html'],
         'tehnet-service-network-support-20261101-v1'=>['id'=>31,'uri'=>'services/network-support-tehran','file'=>'network-support.html'],
         'tehnet-editorial-ip-dhcp-dns-20261101-v1'=>['id'=>63,'uri'=>'learn/mikrotik/mtcna/ip-dhcp-dns','file'=>'ip-dhcp-dns.html'],
+        'tehnet-service-network-setup-20261101-v1'=>['id'=>33,'uri'=>'services/network-setup-tehran','file'=>'network-setup.html'],
     ];
     private array $manifest;
     private string $digest;
