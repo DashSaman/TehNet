@@ -55,7 +55,11 @@ try{
     if((new TehNet_Store_ERP())->ready()||TehNet_Store_Zarinpal_Sandbox::enabled()||get_option('tn_recaptcha_enabled','no')==='yes'||(defined('TN_RECAPTCHA_ENABLED')&&TN_RECAPTCHA_ENABLED))throw new RuntimeException('Closed commerce and inactive CAPTCHA required');
     $protected=hash('sha256',serialize($state));$journal=is_file($file)?json_decode(file_get_contents($file),true,512,JSON_THROW_ON_ERROR):null;
     if($journal&&(($journal['digest']??'')!==$digest||($journal['home']??'')!==$home||($journal['environment']??'')!==$environment||($journal['protected_digest']??'')!==$protected||!in_array($journal['status']??'',['APPLIED','ROLLED_BACK'],true)||$journal['before']!==$before||$journal['after']!==$after))throw new RuntimeException('Protected state or journal drift; preserve evidence');
-    $expected=$journal&&$journal['status']==='APPLIED'?$after:$before;if($current!==$expected)throw new RuntimeException('Editable menu drift; preserve owner changes');
+    $expected=$journal&&$journal['status']==='APPLIED'?$after:$before;
+    if($current!==$expected){
+        $fields=[];foreach($expected as$id=>$value)foreach($value as$key=>$v)if(($current[$id][$key]??null)!==$v)$fields[]=$key.':'.gettype($current[$id][$key]??null).'/'.gettype($v);
+        throw new RuntimeException('Editable menu drift; preserve owner changes; fields='.implode(',',$fields).'; key_order='.(array_keys($current)===array_keys($expected)?'same':'different'));
+    }
     if(!$journal&&$mode==='rollback')throw new RuntimeException('No applied journal');
     if($journal&&$journal['status']==='ROLLED_BACK'&&$mode!=='rollback')throw new RuntimeException('Rolled-back release requires reviewed new attempt');
     $changed=0;
