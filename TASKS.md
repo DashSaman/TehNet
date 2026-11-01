@@ -4,7 +4,7 @@ DEPLOYED —۱نوامبر،03:36تهران: [درس IP/DHCP/DNS](https://tehnet
 
 backup تازه/checksum/drift وrepeat بدون تغییر؛ صفر runtime install/URL/مقالهٔ جدید.۵۷بلوک/۲۱browser staging/۱۵GET لینک،۳۷native/۳۷regression و۲۰Windows case (۱۹PASS/۱SKIPsymlink)، immutable rollback وfixture restore پاس؛ سپس۹HTTPS و۳۵browser عمومی1440/375/no-JS باtimestamp واقعی پاس. دادهٔ محافظت‌شده/۸runtime file/containerها ثابت؛۲۵کالا/قابل‌خرید۰،ERP/sandbox false، MyTel write۰. receipt `qa/growth-2026-10-31/ip-dhcp-dns-production-release.json`، brief/source درseo. سه درس موجود62/64/63 بهبود یافته‌اند؛ شمار۱۰۰کاندیدا به معنی۱۰۰مقاله نیست.
 
-NEXT: انتقال پذیرش واقعی و source/lab limits به -SEO؛ سپس اولین gap مستند با اولویت خدمات/UX یا MyTel proposal خواندنی طبق برنامه. انتشار63/62/64/31/metadata/P4 یا inventory تکرار نشوند. ابزار محلی وdiagnostics نیز qualify/CI شده‌اند. گزارش صبح LIVE_NOT_FINAL؛ rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED وnoindex/پرداخت/MyTel freeze حفظ شوند.
+انتقال source/lesson acceptance وlimits در [-SEO PR12](https://github.com/DashSaman/-SEO/pull/12)، main `b7fda515479fe78a00709fd90a7abee99757d615`، CI41255469730 ادغام شد؛ baseline۷۱٪ وbacklog اصلی ثابت. NEXT: MyTel repository-only proposal را با خواندن canonical context و تأیید cleanup/current SHA آغاز کن؛ جایگاه لینک‌های مرتبط در صفحات موجود، بدون تغییر production URL/Title/H1/performance یا promise تازه. پس از آن gap خدمات/UX اثبات‌شده طبق صف. انتشار63/62/64/31/metadata/P4 یا inventory تکرار نشوند. ابزار محلی وdiagnostics نیز qualify/CI شده‌اند. گزارش صبح LIVE_NOT_FINAL؛ rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED وnoindex/پرداخت/MyTel freeze حفظ شوند.
 
 ## HISTORICAL CHECKPOINT — درس IP/DHCP/DNS و مسیر انتشار qualify شدند
 
