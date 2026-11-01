@@ -1,6 +1,6 @@
 # CP03–CP05: three substantive existing-service upgrades
 
-Reviewed:2026-11-01. Status: VERIFIED_STAGING_NOT_DEPLOYED. No new article/URL is counted. The owner confirmed general availability of all specialist fields; vendor-specific certifications, SLA, prices and delivery dates remain unverified.
+Reviewed:2026-11-01. Status: DEPLOYED_VERIFIED. No new article/URL is counted. The owner confirmed general availability of all specialist fields; vendor-specific certifications, SLA, prices and delivery dates remain unverified.
 
 | Existing owner | New customer job | Added value | Intent evidence and limit |
 |---|---|---|---|
@@ -22,3 +22,7 @@ Technical review was direct: source-to-claim check, explicit version/product lim
 ## Actual staging acceptance
 
 Immutable source `9e59a32df8613b887c7a5cbeca1fdf4ef0a7b0d8`: each existing page passed41 real browser checks (1440/375, JS/no-JS), native block serialization/KSES and check/apply/repeat/rollback/repeat. Original posts/meta/users, guard files and all existing runtimes restored exactly after each target. Production submissions/mutations zero. See [sanitized receipt](../qa/commercial-2026-11-01/depth-staging-verification.json). No physical device, RF, delivery, firewall-security or SEO outcome was tested.
+
+## Actual production delivery
+
+[PR66](https://github.com/DashSaman/TehNet/pull/66), CI41313522605 successful; source `fd1209d200b87554a97e1671f4ef6f97d7e4de22` matched each qualified native bundle/member/tool/guard. Each existing body-only scope passed fresh backup/checksum/drift, apply/repeat, actual stored-body SHA, protected-state/runtime and public HTTPS checks. Each page then passed41 public-browser checks at1440/375 with JS/no-JS, no submission. These are **three live existing-content upgrades**, zero new articles/URLs or runtime installs. [Production receipt](../qa/commercial-2026-11-01/depth-production-verification.json). No device/RF/delivery/security, lead or SEO gain was measured.
