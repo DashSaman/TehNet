@@ -6,11 +6,11 @@
 |---|---|---|---|
 | P0/P1 پاک‌سازی و پیشگیری | VERIFIED within stated scope | سه privacy PR ادغام؛ guard/CI و الزام main در دو public فعال؛ تصاویر جاری/تاریخی OCR شد. رمز/Origin/history گیت‌های جدا دارند. | مطابق matrix؛ مهار جاری را دوباره از صفر شروع نکن |
 | رمز تاریخی | BLOCKED / validity unknown | متن حذف شد؛ rotation انجام نشده؛ حساب/وابستگی قابل‌تأیید نداریم. مقدار در Git/گزارش تکرار نشود. | بررسی مجاز/ارجاع به مالک، بدون آزمون ورود نامعلوم |
-| P2 تمرین تاریخچه | VERIFIED locally / NEEDS_APPROVAL for shared rewrite | v4 پس از merge:۲۰۹۰/۱۱۹۵blob، backup restore/main-tree equal/guard/unit؛ هیچ force-push. refهای جدید معمولی map را قدیمی می‌کنند. | فقط پیش از purge مصوب ref drift تازه بررسی شود؛ OCR/cache حدودش محفوظ |
+| P2 تمرین تاریخچه | VERIFIED local snapshot / shared rewrite NEEDS_APPROVAL | سه clean copy با tree برابر و۱۲Windows/guard کامل؛API اصلی۲۰۲run و۴repo مرتبط/۷payload در دامنهٔ رسید. | map بعد از آخرین merge خصوصی تازه شود؛هیچ force-push مجاز نیست |
 | P3 Origin | BLOCKED on valid route/OOB prerequisites | read-only با TLS روشن؛ مسیر بیرونی مبهم، OOB تأیید نشده؛ live network mutation صفر. | پیش‌نیاز معتبر/طرح محدود؛ به کار مستقل بعدی برو |
 | P4/P5 nonce/context/readiness | DEPLOYED | PR34/main ac506f1؛ backup/checksum/drift تازه،۶فایل/۲صفحه/۲hub؛۸HTTP و۲۵browser عمومی پاس، noindex/commerce/data ثابت. | release را تکرار نکن؛ intent و پرتفوی محتوا گام بعد |
-| P6/P7 خدمات/محتوا/۱۰۰موضوع | Inventory VERIFIED; two existing lessons DEPLOYED; broader batch IN_PROGRESS |100job/20cluster با حد شاهد؛ دو درس62/64 با پذیرش جدا منتشر، مقالهٔ تازه0؛ RouterOS lab NOT_RUN. | UX/SEO و رقابت مستند بعدی؛ market/lab/measurement gates باز |
-| P8/P9 فنی/AI/انتقال | Bounded audit VERIFIED; metadata fix DEPLOYED; broader research IN_PROGRESS | درس privacy/nonce/query و الزام guard در -SEO ادغام؛ source ledger/handoff/progress/dashboard و۷۱٪ حفظ. | baseline/provider research و اندازه‌گیری واقعی بعدی، بدون ادعای rank/citation |
+| P6/P7 خدمات/محتوا/۱۰۰موضوع | Inventory VERIFIED;۳درس/۴خدمت موجود DEPLOYED |۱۰۰job/۲۰cluster نامزد؛صفر مقالهٔ تازه؛همان URLها بهبود یافتند،network lab NOT_RUN. | فقط شکاف مستقل و تحقیق معتبر؛P10 گزارش نهایی باقی |
+| P8/P9 فنی/AI/انتقال | Scoped fixes DEPLOYED / knowledge VERIFIED |metadata0.2.2/گالری کیبورد پذیرفته؛SEO تاPR20،۱۸مقصد/۷۱٪ تحقیق؛guard پوشش فایل اصلاح شد. | rank/traffic/AI citation اندازه‌گیری نشده؛گیت‌های مستقل حفظ شوند |
 | P10 تحویل صبح | LIVE draft, NOT FINAL | docs/reports/MORNING_HANDOFF_2026-11-01.fa.md با آزمون/شکست/گیت واقعی ساخته شد؛ runner ACTIVE. | نزدیک موعد۰۸:۰۰ نتیجه/remaining/remote را نهایی کن |
 
 ## checkpoint آغاز
@@ -397,3 +397,19 @@ NEXT: انتقال شواهد دکمهٔ بومی/گیت‌های QA وactual ac
 انتقال شواهد و حدود QA در [-SEO PR18](https://github.com/DashSaman/-SEO/pull/18) ادغام شد؛ main `c4538825de52f8560cf84363edbfd2ca8cbe1fe4`، head آزموده‌شده `704603cca10f7732a9a6fc8098273367587930cd` و CI41268590261. خروجی واقعی CI: ۹ آزمون privacy و guard برای ۶۷ فایل PASS. دو ردیف منبع، anchor گالری در موضوع موجود و ۱۸ مقصد dashboard با بررسی سازگاری تأیید شدند؛ baseline تحقیق ۷۱٪ تغییر نکرد. منبع WAI فقط برای رفتار دکمه استفاده شده؛ هیچ ادعای رتبه یا ممیزی کامل دسترس‌پذیری اضافه نشده است.
 
 NEXT: P2 — نسخهٔ محلی پاک‌سازی تاریخچه و ref map را با snapshot خصوصیِ تازه پس از ادغام‌های عادی بازآماده کن. هیچ force-push، حذف ref مشترک، ارسال درخواست پشتیبانی یا تغییر credential/شبکه مجاز نیست. انتشار و recovery قبلی را تکرار نکن. MyTel production فقط خواندنی، rotation UNKNOWN، history NEEDS_APPROVAL و origin UNDETERMINED می‌مانند؛ noindex و پرداخت بسته حفظ‌اند. گزارش صبح LIVE_NOT_FINAL تا ۰۸:۰۰ است؛ preview به اصل بازگشته و قفل writer آزاد است.
+
+## checkpoint P2 و بستهٔ پوشش فایل — DONE
+
+## CURRENT — P2 و اصلاح پوشش اسکن تکمیل شد؛ تحویل نهایی صبح باقی است
+
+**VERIFIED در دامنهٔ ثبت‌شده —۱ نوامبر:** guard قدیمی در checkout عمیق Windows فقط۱۲۷۶ از۱۵۱۳ فایل را می‌خواند. اصلاح TehNet#60/MyTel#5/-SEO#19 با RED واقعی،۱۲PASS محلی در هر ریپو و CI Linux شامل۱۱PASS/۱SKIP صریح ادغام شد؛ TehNet۲۵operator نیزپاس. همان checkout بدون تغییر۱۵۱۳/۱۵۱۳ خوانده شد. گیت فایل خوانده‌نشده اکنون FAIL است؛ محتوا/خطای OS چاپ نمی‌شود. این اصلاح tooling است، نه اثبات leak تازه یا بستن رخداد.
+
+کپی محلی پاک‌سازی سه ریپو با backup verify/restore، حفظ tree جاری main، بررسی همهٔ reachable blob/commit/tag برای۹مقدار شناسایی‌شده و الگوی مسیر شخصی،۱۲آزمون Windows و guard کامل تأیید شد. refs۶۹/۱۲/۳۰ مربوط به sourceهای صریح رسید هستند؛ ادغام‌های بعدی map را تاریخی می‌کنند. raw map/مقادیر/backup خصوصی‌اند. هیچ force-push، purge مشترک یا پیام پشتیبانی اجرا نشد.
+
+API سه ریپوی اصلی با pagination کامل و۱۷۸log200 جدید +۲۴قبلی تمام۲۰۲run فهرست‌شده را پوشش داد؛ candidate شناخته‌شده/token صفر. چهار ریپوی عمومی مرتبط مستقل بررسی شدند: یک existing ref و دو ref تازهٔ MyTellPBX،۲۸blob/۲commit/۲tag جدید و Gitleaks کل history آن بدون candidate؛ سه map دیگر بدون تغییر. API مرتبط۱۴release/۲asset/۵artifact/۵run،۵log200 و۷payload/۵۴۵عضو آرشیو بررسی شد. قواعد انتشار و Gitleaks تکمیلی payload نیز candidate صفر دادند. core metadata هر۷ریپو جدا با۲۰۰ بررسی شد؛visibility تغییر نکرد. همهٔ این نتایج bounded هستند؛ wikiهای غیرقابل‌دسترسی، cache/clone و هر secret ناشناخته تضمین نشده‌اند.
+
+دانش و ادامهٔ کار در [-SEO PR20](https://github.com/DashSaman/-SEO/pull/20)، main `c223f5a9a80aefe164e88fac57d1f19e8117fefc`،CI41270210133 و [MyTel PR6](https://github.com/DashSaman/mytel.one/pull/6)،main `fa57dd3904cf451466a52b285c213bc849b6ba0d`،CI41270212234 ادغام شد. Actual CI هرکدام۱۲case/۱skip و guard کامل۶۸/۵۲؛dashboard۱۸مقصد و baseline تحقیق۷۱٪ حفظ شد. تولید MyTel همچنان read-only است.
+
+رسیدها: `qa/security-2026-10-31/history-ref-refresh-2026-11-01.json`، `main-api-refresh-2026-11-01.json`، `publication-file-coverage.json` و دو لایهٔ تکمیلی payload/core metadata. [گزارش یکپارچهٔ زنده](docs/reports/MORNING_HANDOFF_2026-11-01.fa.md) جایگزین انباشت checkpointها شد؛ لاگ تاریخی حفظ است.
+
+NEXT: پس از CI/ادغام عادی این اسناد، private ref snapshot را یک‌بار تازه و clean/tree/قفل writer را ثبت کن. نزدیک۰۸:۰۰ P10: smoke خواندنی نهایی و گزارش نهایی واقعی، سپس پایان برنامه. گزارش اکنون LIVE_NOT_FINAL است. انتشار/recoveryهای گذشته،۱۰۰نامزد و auditهای بدون تغییر بازپخش نشوند. rotation UNKNOWN/NOT_ROTATED،shared history NEEDS_APPROVAL وorigin UNDETERMINED؛noindex/فروشگاه/shop/خانه/منو/داده/پرداخت بسته/MyTel freeze حفظ‌اند. exact CAD/۳۶۰ برای۲۵کالا،آزمون شبکه یا SEO gain ادعا نشده است.

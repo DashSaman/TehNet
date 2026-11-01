@@ -11,3 +11,7 @@
 7. همکاران باید clone/rebase تمیز داشته باشند؛ merge تاریخچهٔ آلوده می‌تواند افشا را برگرداند. پس از اجرا دوباره remote refs و فایل‌های public و direct commit/PR retention بررسی شوند. اعتبار credential جدا revoke/rotate شود.
 
 حذف متن از current تأیید شده، پاک‌سازی کپی محلی تمرین شده، بازنویسی remote/تأیید cache/fork هنوز نشده است. این بلوکر نباید اجرای امنِ مستقلِ سایت و محتوا را متوقف کند.
+
+## Fresh local preparation —2026-11-01
+
+A new three-repository snapshot/rehearsal at explicit source commits is recorded in `qa/security-2026-10-31/history-ref-refresh-2026-11-01.json`. It preserves current main trees and verifies complete file enumeration/read coverage. Later normal merges make those refs historical: re-fetch, create a separate private backup/map and validate no drift before any approved operation. Force-push is still prohibited while the owner is absent, existing protections must not be bypassed, and no remote operation/support request was executed. The exact original/clean maps remain private; the sanitized support draft is still unsent.

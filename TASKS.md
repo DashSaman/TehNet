@@ -1,4 +1,18 @@
-## CURRENT — انتخاب عکس گالری با کیبورد روی سایت تأیید شد
+## CURRENT — P2 و اصلاح پوشش اسکن تکمیل شد؛ تحویل نهایی صبح باقی است
+
+**VERIFIED در دامنهٔ ثبت‌شده —۱ نوامبر:** guard قدیمی در checkout عمیق Windows فقط۱۲۷۶ از۱۵۱۳ فایل را می‌خواند. اصلاح TehNet#60/MyTel#5/-SEO#19 با RED واقعی،۱۲PASS محلی در هر ریپو و CI Linux شامل۱۱PASS/۱SKIP صریح ادغام شد؛ TehNet۲۵operator نیزپاس. همان checkout بدون تغییر۱۵۱۳/۱۵۱۳ خوانده شد. گیت فایل خوانده‌نشده اکنون FAIL است؛ محتوا/خطای OS چاپ نمی‌شود. این اصلاح tooling است، نه اثبات leak تازه یا بستن رخداد.
+
+کپی محلی پاک‌سازی سه ریپو با backup verify/restore، حفظ tree جاری main، بررسی همهٔ reachable blob/commit/tag برای۹مقدار شناسایی‌شده و الگوی مسیر شخصی،۱۲آزمون Windows و guard کامل تأیید شد. refs۶۹/۱۲/۳۰ مربوط به sourceهای صریح رسید هستند؛ ادغام‌های بعدی map را تاریخی می‌کنند. raw map/مقادیر/backup خصوصی‌اند. هیچ force-push، purge مشترک یا پیام پشتیبانی اجرا نشد.
+
+API سه ریپوی اصلی با pagination کامل و۱۷۸log200 جدید +۲۴قبلی تمام۲۰۲run فهرست‌شده را پوشش داد؛ candidate شناخته‌شده/token صفر. چهار ریپوی عمومی مرتبط مستقل بررسی شدند: یک existing ref و دو ref تازهٔ MyTellPBX،۲۸blob/۲commit/۲tag جدید و Gitleaks کل history آن بدون candidate؛ سه map دیگر بدون تغییر. API مرتبط۱۴release/۲asset/۵artifact/۵run،۵log200 و۷payload/۵۴۵عضو آرشیو بررسی شد. قواعد انتشار و Gitleaks تکمیلی payload نیز candidate صفر دادند. core metadata هر۷ریپو جدا با۲۰۰ بررسی شد؛visibility تغییر نکرد. همهٔ این نتایج bounded هستند؛ wikiهای غیرقابل‌دسترسی، cache/clone و هر secret ناشناخته تضمین نشده‌اند.
+
+دانش و ادامهٔ کار در [-SEO PR20](https://github.com/DashSaman/-SEO/pull/20)، main `c223f5a9a80aefe164e88fac57d1f19e8117fefc`،CI41270210133 و [MyTel PR6](https://github.com/DashSaman/mytel.one/pull/6)،main `fa57dd3904cf451466a52b285c213bc849b6ba0d`،CI41270212234 ادغام شد. Actual CI هرکدام۱۲case/۱skip و guard کامل۶۸/۵۲؛dashboard۱۸مقصد و baseline تحقیق۷۱٪ حفظ شد. تولید MyTel همچنان read-only است.
+
+رسیدها: `qa/security-2026-10-31/history-ref-refresh-2026-11-01.json`، `main-api-refresh-2026-11-01.json`، `publication-file-coverage.json` و دو لایهٔ تکمیلی payload/core metadata. [گزارش یکپارچهٔ زنده](docs/reports/MORNING_HANDOFF_2026-11-01.fa.md) جایگزین انباشت checkpointها شد؛ لاگ تاریخی حفظ است.
+
+NEXT: پس از CI/ادغام عادی این اسناد، private ref snapshot را یک‌بار تازه و clean/tree/قفل writer را ثبت کن. نزدیک۰۸:۰۰ P10: smoke خواندنی نهایی و گزارش نهایی واقعی، سپس پایان برنامه. گزارش اکنون LIVE_NOT_FINAL است. انتشار/recoveryهای گذشته،۱۰۰نامزد و auditهای بدون تغییر بازپخش نشوند. rotation UNKNOWN/NOT_ROTATED،shared history NEEDS_APPROVAL وorigin UNDETERMINED؛noindex/فروشگاه/shop/خانه/منو/داده/پرداخت بسته/MyTel freeze حفظ‌اند. exact CAD/۳۶۰ برای۲۵کالا،آزمون شبکه یا SEO gain ادعا نشده است.
+
+## HISTORICAL CHECKPOINT — انتخاب عکس گالری با کیبورد روی سایت تأیید شد
 
 **DEPLOYED_VERIFIED —۱ نوامبر،۰۶:۳۳ تهران:** [TehNet PR58](https://github.com/DashSaman/TehNet/pull/58)،source `4af1ff42ba2d427c9e7d55751b611f0a6cd4a5d4` وCI41267470228 با۲۵Linux operator،۹privacy وscan۱۵۱۰ پاس شد. سه فایل با backup/checksum/drift تازه و برابریpayload/tool/۱۳guard نسخهٔqualified `e4fbe5f720b916869dd23cd5f8e637b297510aee` منتشر شدند؛صفرDB/content/product/media change وrepeat بدونتغییر. عکس اصلی وhandler گالری حفظ شده‌اند؛دکمهٔ بومی،label فارسی،aria-current وfocus داخلی افزوده شدند. محصولات عادی آینده با همین asset محصول پوشش می‌گیرند؛هیچ مدل دقیق یا۳۶۰ تازه‌ای ساخته نشده است.
 

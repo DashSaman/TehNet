@@ -1,0 +1,21 @@
+{
+  "observed_utc": "2026-11-01T03:44:04.703271+00:00",
+  "payloads": 7,
+  "archive_file_members": 545,
+  "archive_limits": 0,
+  "known_or_token_occurrences": 0,
+  "publication_rule_candidates": 0,
+  "candidate_categories": {},
+  "gitleaks_exit": 0,
+  "redacted_gitleaks_candidates": 0,
+  "gitleaks_rule_ids": {},
+  "remote_mutations": 0,
+  "network_requests": 0,
+  "status": "NO_CANDIDATES_IN_BOUNDED_RULES",
+  "limits": [
+    "Cached identical-hash payloads only; arbitrary-secret absence and credential validity are not proven.",
+    "Gitleaks stdin scans a private combined decoded stream; private line ranges retain source provenance.",
+    "No member-path unpacking or payload execution; decoded contents retained in one private scanner stream. No credential login/reset or release/artifact deletion."
+  ],
+  "scanner_stream_storage": "Decoded cached member content was combined in one private scanner stream. No archive members were unpacked to their member paths or executed."
+}

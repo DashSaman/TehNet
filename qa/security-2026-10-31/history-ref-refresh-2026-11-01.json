@@ -1,0 +1,783 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_LOCAL_SNAPSHOT_NOT_REMOTE_PURGE",
+  "observed_utc": "2026-11-01T03:36:27.690233+00:00",
+  "history_snapshot": {
+    "started_utc": "2026-11-01T03:33:07.620483+00:00",
+    "scope": "Fresh read-only snapshots and isolated local filtering; not shared history purge",
+    "filter_tool_sha256": "67447413e273fc76809289111748870b6f6072f08b17efe94863a92d810b7d94",
+    "known_value_count": 9,
+    "remote_mutations": 0,
+    "shared_rewrite": "NEEDS_APPROVAL_NO_FORCE_PUSH",
+    "preparation_diagnostic": null,
+    "repositories": {
+      "TehNet": {
+        "object_counts": {
+          "blob": 2636,
+          "commit": 283,
+          "tag": 0
+        },
+        "known_sensitive_objects": 0,
+        "personal_path_objects": 0,
+        "private_evidence_paths": 0,
+        "source_main": "e4b5ae511256c13b7a7bfea343e6d162882259bf",
+        "refs": 69,
+        "changed_refs": 69,
+        "snapshot_sha256": "503a2095e30b26b98846c750024be35f32b83f01ea1995418224483c4af5d35e",
+        "backup_verified_and_restored": true,
+        "current_main_tree_unchanged": true,
+        "publication_tests": 12,
+        "guard": {
+          "tracked_files": 1515,
+          "checked_tracked_files": 1515,
+          "issues": [],
+          "status": "PASS"
+        },
+        "remote_unchanged_during_rehearsal": true,
+        "intentional_public_contact_values_preserved": 1,
+        "remote_written": false
+      },
+      "mytel.one": {
+        "object_counts": {
+          "blob": 1206,
+          "commit": 168,
+          "tag": 0
+        },
+        "known_sensitive_objects": 0,
+        "personal_path_objects": 0,
+        "private_evidence_paths": 0,
+        "source_main": "15e3813fff4e656472fd47248c6ee1cfc3923c03",
+        "refs": 12,
+        "changed_refs": 12,
+        "snapshot_sha256": "ed68aea441fcfee9a783f9aeaf4b2396d951fe163eb812d40e52108fd0f29784",
+        "backup_verified_and_restored": true,
+        "current_main_tree_unchanged": true,
+        "publication_tests": 12,
+        "guard": {
+          "tracked_files": 52,
+          "checked_tracked_files": 52,
+          "issues": [],
+          "status": "PASS"
+        },
+        "remote_unchanged_during_rehearsal": true,
+        "intentional_public_contact_values_preserved": 0,
+        "remote_written": false
+      },
+      "-SEO": {
+        "object_counts": {
+          "blob": 320,
+          "commit": 235,
+          "tag": 0
+        },
+        "known_sensitive_objects": 0,
+        "personal_path_objects": 0,
+        "private_evidence_paths": 0,
+        "source_main": "fba64193507db0909fdc1d05be53840a04c89321",
+        "refs": 30,
+        "changed_refs": 25,
+        "snapshot_sha256": "f0bd441bb1de1339f66eb496b896417cfe78b48cd5fa296746985924e8206315",
+        "backup_verified_and_restored": true,
+        "current_main_tree_unchanged": true,
+        "publication_tests": 12,
+        "guard": {
+          "tracked_files": 68,
+          "checked_tracked_files": 68,
+          "issues": [],
+          "status": "PASS"
+        },
+        "remote_unchanged_during_rehearsal": true,
+        "intentional_public_contact_values_preserved": 0,
+        "remote_written": false
+      }
+    },
+    "completed_utc": "2026-11-01T03:34:22.466867+00:00"
+  },
+  "coverage_fix_ci": {
+    "TehNet": {
+      "pr": 60,
+      "head": "1a6a013f84efd1501c0def33d3636f9ede810adb",
+      "merge": "e4b5ae511256c13b7a7bfea343e6d162882259bf",
+      "run": 41269368550,
+      "privacy_cases": 12,
+      "privacy_linux_passed": 11,
+      "privacy_linux_skipped": 1,
+      "operator_passed": 25,
+      "files_read": 1515
+    },
+    "mytel.one": {
+      "pr": 5,
+      "head": "2cb58e72af7f9804ac0c017e877934e4a483581a",
+      "merge": "15e3813fff4e656472fd47248c6ee1cfc3923c03",
+      "run": 41269370665,
+      "privacy_cases": 12,
+      "privacy_linux_passed": 11,
+      "privacy_linux_skipped": 1,
+      "files_read": 52
+    },
+    "-SEO": {
+      "pr": 19,
+      "head": "f2836aa48f661e39e99dbdef65b3e2a48a312174",
+      "merge": "fba64193507db0909fdc1d05be53840a04c89321",
+      "run": 41269372685,
+      "privacy_cases": 12,
+      "privacy_linux_passed": 11,
+      "privacy_linux_skipped": 1,
+      "files_read": 68
+    }
+  },
+  "related_advertised_refs": {
+    "observed_utc": "2026-11-01T03:21:32.204088+00:00",
+    "repositories": [
+      {
+        "repo": "DashSaman/MyTellPBX",
+        "snapshot_refs": 10,
+        "current_remote_refs": 12,
+        "refs_unchanged": false,
+        "rescan": "REQUIRED_CHANGED_REFS",
+        "remote_writes": 0
+      },
+      {
+        "repo": "DashSaman/melika",
+        "snapshot_refs": 1,
+        "current_remote_refs": 1,
+        "refs_unchanged": true,
+        "rescan": "NOT_REPEATED_UNCHANGED_REFS",
+        "remote_writes": 0
+      },
+      {
+        "repo": "DashSaman/mytel-webphone",
+        "snapshot_refs": 5,
+        "current_remote_refs": 5,
+        "refs_unchanged": true,
+        "rescan": "NOT_REPEATED_UNCHANGED_REFS",
+        "remote_writes": 0
+      },
+      {
+        "repo": "DashSaman/MytellPhone",
+        "snapshot_refs": 0,
+        "current_remote_refs": 0,
+        "refs_unchanged": true,
+        "rescan": "NOT_REPEATED_UNCHANGED_REFS",
+        "remote_writes": 0
+      }
+    ],
+    "remote_mutations": 0,
+    "limits": [
+      "Compares reachable advertised refs with the exact earlier audited local mirrors; no repeated object scan when unchanged.",
+      "Does not establish absence of inaccessible refs, cache, clone, fork or newly undiscovered sensitive values."
+    ]
+  },
+  "changed_related_history": {
+    "observed_utc": "2026-11-01T03:26:05.894641+00:00",
+    "repo": "DashSaman/MyTellPBX",
+    "changed_existing_refs": 1,
+    "added_refs": 2,
+    "new_reachable_objects_inspected": {
+      "blob": 28,
+      "commit": 2,
+      "tag": 2
+    },
+    "known_value_occurrences_new_objects": 0,
+    "all_reachable_gitleaks_exit": 0,
+    "redacted_scanner_candidates": 0,
+    "backup_bundle_verified": true,
+    "remote_refs_unchanged_during_scan": true,
+    "remote_mutations": 0,
+    "limits": [
+      "Known-value incremental scan covers new reachable blob/commit/tag objects relative to the prior full audited mirror; scanner rerun covers all currently reachable commits.",
+      "No claim about inaccessible refs, hosted caches, forks, media or active credential validity."
+    ]
+  },
+  "related_api": {
+    "repositories": {
+      "DashSaman/MyTellPBX": {
+        "metadata": {
+          "status": {
+            "status": 200,
+            "next_page": false
+          },
+          "visibility": "public",
+          "has_wiki": false,
+          "has_pages": false
+        },
+        "issues": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "issue-comments": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "pull-comments": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "pulls": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "releases": {
+          "count": 10,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "forks": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "artifacts": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "runs": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "pages_api": {
+          "status": 404
+        },
+        "ci_logs": {
+          "inspected_runs": [],
+          "remaining_runs": 0
+        },
+        "release_asset_count": 2,
+        "artifact_payload_scan": "not-needed: no artifacts"
+      },
+      "DashSaman/melika": {
+        "metadata": {
+          "status": {
+            "status": 200,
+            "next_page": false
+          },
+          "visibility": "public",
+          "has_wiki": true,
+          "has_pages": false
+        },
+        "issues": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "issue-comments": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "pull-comments": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "pulls": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "releases": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "forks": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "artifacts": {
+          "count": 5,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "runs": {
+          "count": 5,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "pages_api": {
+          "status": 404
+        },
+        "ci_logs": {
+          "inspected_runs": [
+            {
+              "run_id": 38457837740,
+              "status": 200,
+              "next_page": false,
+              "text_files_scanned": 2,
+              "uncompressed_bytes": 18770
+            },
+            {
+              "run_id": 38457353692,
+              "status": 200,
+              "next_page": false,
+              "text_files_scanned": 2,
+              "uncompressed_bytes": 147344
+            },
+            {
+              "run_id": 38457353670,
+              "status": 200,
+              "next_page": false,
+              "text_files_scanned": 2,
+              "uncompressed_bytes": 18902
+            },
+            {
+              "run_id": 38456057596,
+              "status": 200,
+              "next_page": false,
+              "text_files_scanned": 2,
+              "uncompressed_bytes": 147486
+            },
+            {
+              "run_id": 38455398923,
+              "status": 200,
+              "next_page": false,
+              "text_files_scanned": 2,
+              "uncompressed_bytes": 141748
+            }
+          ],
+          "remaining_runs": 0
+        },
+        "release_asset_count": 0,
+        "artifact_payload_scan": "READY: payload inspection required"
+      },
+      "DashSaman/mytel-webphone": {
+        "metadata": {
+          "status": {
+            "status": 200,
+            "next_page": false
+          },
+          "visibility": "public",
+          "has_wiki": true,
+          "has_pages": false
+        },
+        "issues": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "issue-comments": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "pull-comments": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "pulls": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "releases": {
+          "count": 4,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "forks": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "artifacts": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "runs": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "pages_api": {
+          "status": 404
+        },
+        "ci_logs": {
+          "inspected_runs": [],
+          "remaining_runs": 0
+        },
+        "release_asset_count": 0,
+        "artifact_payload_scan": "not-needed: no artifacts"
+      },
+      "DashSaman/MytellPhone": {
+        "metadata": {
+          "status": {
+            "status": 200,
+            "next_page": false
+          },
+          "visibility": "public",
+          "has_wiki": true,
+          "has_pages": false
+        },
+        "issues": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "issue-comments": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "pull-comments": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "pulls": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "releases": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "forks": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "artifacts": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "runs": {
+          "count": 0,
+          "complete_pagination": true,
+          "page_statuses": [
+            {
+              "status": 200,
+              "next_page": false
+            }
+          ]
+        },
+        "pages_api": {
+          "status": 404
+        },
+        "ci_logs": {
+          "inspected_runs": [],
+          "remaining_runs": 0
+        },
+        "release_asset_count": 0,
+        "artifact_payload_scan": "not-needed: no artifacts"
+      }
+    },
+    "candidate_occurrences": 0,
+    "scope": "Complete listed pagination for four explicitly named related repositories; not every owner repository."
+  },
+  "related_payloads": {
+    "observed_utc": "2026-11-01T03:31:53.825018+00:00",
+    "payloads": [
+      {
+        "repo": "MyTellPBX",
+        "kind": "release",
+        "id": 600169205,
+        "bytes": 1508418,
+        "sha256": "73c8de7ef3252d072110ec75ee52054a10e3fdbb0614c51b3dc38560fce8d920",
+        "archive_file_members": 30,
+        "status": "SCANNED_BOUNDED"
+      },
+      {
+        "repo": "MyTellPBX",
+        "kind": "release",
+        "id": 599128896,
+        "bytes": 1457819,
+        "sha256": "047c559f616d9f38a98c9967d55c4ba2a63e7dcfa0edbdd77c866d6ef2ffcef4",
+        "archive_file_members": 23,
+        "status": "SCANNED_BOUNDED"
+      },
+      {
+        "repo": "melika",
+        "kind": "artifact",
+        "id": 11845105714,
+        "bytes": 1365414,
+        "sha256": "fe6c18784a62f9272ea7597887514cbfb46d8f56f20db2abb083591e2bb5be49",
+        "archive_file_members": 102,
+        "status": "SCANNED_BOUNDED"
+      },
+      {
+        "repo": "melika",
+        "kind": "artifact",
+        "id": 11845075101,
+        "bytes": 1498034,
+        "sha256": "a76766164fdd820d4c5a12366b5168a54b869ba7b0bce3b4eb17b61fd35888cf",
+        "archive_file_members": 108,
+        "status": "SCANNED_BOUNDED"
+      },
+      {
+        "repo": "melika",
+        "kind": "artifact",
+        "id": 11844065038,
+        "bytes": 1479387,
+        "sha256": "8c7d184accd7fff963595843cf8eeaee5fd55575e0473bfc8d92f97d74a1b85e",
+        "archive_file_members": 96,
+        "status": "SCANNED_BOUNDED"
+      },
+      {
+        "repo": "melika",
+        "kind": "artifact",
+        "id": 11844061770,
+        "bytes": 1367054,
+        "sha256": "c4681d2053c33b85b1fa85f13f1b0d1c5816ff49ec2a02459f8b7b6298135b4f",
+        "archive_file_members": 101,
+        "status": "SCANNED_BOUNDED"
+      },
+      {
+        "repo": "melika",
+        "kind": "artifact",
+        "id": 11842195701,
+        "bytes": 1334883,
+        "sha256": "be7e499268c533f5eacbe964177ed4cabd33890078c7de7468ccb9f4fdf8e900",
+        "archive_file_members": 85,
+        "status": "SCANNED_BOUNDED"
+      }
+    ],
+    "known_or_token_occurrences": 0,
+    "archive_limits": 0,
+    "expanded_bytes": 31550723,
+    "archive_file_members": 545,
+    "network_requests": 0,
+    "remote_mutations": 0,
+    "diagnostic": "Initial artifact request used release octet-stream Accept and returned415. Correct documented JSON Accept downloaded all five. Initial depth guard then flagged plain leaf files at depth2; cached identical-hash archives were reinspected with limits only on actual nested archives. Original receipts retained.",
+    "limits": [
+      "Nine identified values and bounded token formats only; no arbitrary-secret proof, binary decompilation, media OCR or account validity test.",
+      "Archive members inspected without extraction or execution; any explicit size/depth/encryption exclusion is not a pass."
+    ]
+  },
+  "wiki_queries": [
+    {
+      "repo": "MyTellPBX",
+      "exit": 128,
+      "accessible_refs": null,
+      "status": "INACCESSIBLE_NOT_ABSENCE_PROOF"
+    },
+    {
+      "repo": "melika",
+      "exit": 128,
+      "accessible_refs": null,
+      "status": "INACCESSIBLE_NOT_ABSENCE_PROOF"
+    },
+    {
+      "repo": "mytel-webphone",
+      "exit": 128,
+      "accessible_refs": null,
+      "status": "INACCESSIBLE_NOT_ABSENCE_PROOF"
+    },
+    {
+      "repo": "MytellPhone",
+      "exit": 128,
+      "accessible_refs": null,
+      "status": "INACCESSIBLE_NOT_ABSENCE_PROOF"
+    }
+  ],
+  "remote_mutations": 0,
+  "owner_gates": {
+    "shared_rewrite_pr_cache_fork_purge": "NEEDS_APPROVAL_NO_FORCE_PUSH",
+    "historical_credential": "UNKNOWN_NOT_ROTATED",
+    "origin": "UNDETERMINED_NO_NETWORK_CHANGES",
+    "support_request": "DRAFT_NOT_SENT"
+  },
+  "limits": [
+    "Exact original/clean ref maps, backups, replacement values, raw API/log/payload captures and findings remain private.",
+    "The local reference snapshot has explicit source main commits; subsequent normal documentation/report merges make it historical. Refresh and compare exact refs again before any approved rewrite.",
+    "Earlier stdout-only unittest summary and partial1276-file Windows guard results are retained separately, not relabeled complete.",
+    "No claim that remote history, PR/cache, forks or old clones have been purged, or that arbitrary/undiscovered secrets, inaccessible wiki content and media are absent.",
+    "remote_mutations=0 refers to the read-only API/local filtering operation, not the separately recorded ordinary PR merges. No shared-history rewrite occurred."
+  ],
+  "main_api_followup": "qa/security-2026-10-31/main-api-refresh-2026-11-01.json",
+  "additional_layers": [
+    "qa/security-2026-10-31/related-payload-candidate-layers.json",
+    "qa/security-2026-10-31/repository-core-metadata.json"
+  ],
+  "knowledge_transfer": {
+    "seo": {
+      "pr": 20,
+      "head": "7d69ac6858c1d5a74c8caf1a3291276d8be21941",
+      "main": "c223f5a9a80aefe164e88fac57d1f19e8117fefc",
+      "ci_run": 41270210133
+    },
+    "mytel": {
+      "pr": 6,
+      "head": "9469cfd8935efb68b809960fc65eb35e57f24f66",
+      "main": "fa57dd3904cf451466a52b285c213bc849b6ba0d",
+      "ci_run": 41270212234
+    },
+    "actual_log_results": {
+      "privacy_cases_each": 12,
+      "linux_passed_each": 11,
+      "windows_only_skips_each": 1,
+      "full_file_counts": {
+        "seo": 68,
+        "mytel": 52
+      }
+    },
+    "dashboard_destinations": 18,
+    "research_baseline": "71% unchanged",
+    "consistency_check": "PASS"
+  }
+}

@@ -1,0 +1,1599 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_SCOPED_READ_ONLY_API_REFRESH",
+  "observed_utc": "2026-11-01T03:40:21.572845+00:00",
+  "repositories": {
+    "DashSaman/TehNet": {
+      "metadata": {
+        "status": {
+          "status": 200,
+          "next_page": false
+        },
+        "visibility": "public",
+        "has_wiki": true,
+        "has_pages": false
+      },
+      "issues": {
+        "count": 60,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "issue-comments": {
+        "count": 1,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "pull-comments": {
+        "count": 0,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "pulls": {
+        "count": 60,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "releases": {
+        "count": 0,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "forks": {
+        "count": 0,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "artifacts": {
+        "count": 0,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "runs": {
+        "count": 133,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": true
+          },
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "pages_api": {
+        "status": 404
+      },
+      "ci_logs": {
+        "inspected_runs": [
+          {
+            "run_id": 41269566275,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 15,
+            "uncompressed_bytes": 62400
+          },
+          {
+            "run_id": 41269368550,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 15,
+            "uncompressed_bytes": 66674
+          },
+          {
+            "run_id": 41269360400,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 15,
+            "uncompressed_bytes": 63166
+          },
+          {
+            "run_id": 41268744233,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 15,
+            "uncompressed_bytes": 61164
+          },
+          {
+            "run_id": 41268691452,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 15,
+            "uncompressed_bytes": 65426
+          },
+          {
+            "run_id": 41268677517,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 15,
+            "uncompressed_bytes": 61934
+          },
+          {
+            "run_id": 41268226666,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 15,
+            "uncompressed_bytes": 61928
+          },
+          {
+            "run_id": 41267542714,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 15,
+            "uncompressed_bytes": 61152
+          },
+          {
+            "run_id": 41267470228,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 15,
+            "uncompressed_bytes": 65434
+          },
+          {
+            "run_id": 41267448594,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 15,
+            "uncompressed_bytes": 61932
+          },
+          {
+            "run_id": 41265000210,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30944
+          },
+          {
+            "run_id": 41264951139,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 33091
+          },
+          {
+            "run_id": 41264933044,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 31362
+          },
+          {
+            "run_id": 41264691188,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 31359
+          },
+          {
+            "run_id": 41264379669,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30940
+          },
+          {
+            "run_id": 41264327217,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 33081
+          },
+          {
+            "run_id": 41264309011,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 31362
+          },
+          {
+            "run_id": 41262554801,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30726
+          },
+          {
+            "run_id": 41262481791,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 32859
+          },
+          {
+            "run_id": 41262446389,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 31142
+          },
+          {
+            "run_id": 41262236374,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 31137
+          },
+          {
+            "run_id": 41262046659,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30729
+          },
+          {
+            "run_id": 41261972202,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 32862
+          },
+          {
+            "run_id": 41261948043,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 31143
+          },
+          {
+            "run_id": 41260830819,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30506
+          },
+          {
+            "run_id": 41260781893,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 32643
+          },
+          {
+            "run_id": 41260761014,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30918
+          },
+          {
+            "run_id": 41260602171,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30919
+          },
+          {
+            "run_id": 41260327262,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30503
+          },
+          {
+            "run_id": 41260264596,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 32644
+          },
+          {
+            "run_id": 41260248968,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30921
+          },
+          {
+            "run_id": 41259243473,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30291
+          },
+          {
+            "run_id": 41259177679,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 32434
+          },
+          {
+            "run_id": 41259174162,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30710
+          },
+          {
+            "run_id": 41258878791,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30707
+          },
+          {
+            "run_id": 41258629841,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30298
+          },
+          {
+            "run_id": 41258579923,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 32431
+          },
+          {
+            "run_id": 41258558186,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30709
+          },
+          {
+            "run_id": 41256959939,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30084
+          },
+          {
+            "run_id": 41256910084,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 32235
+          },
+          {
+            "run_id": 41256905314,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30499
+          },
+          {
+            "run_id": 41255801094,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30499
+          },
+          {
+            "run_id": 41255728331,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30083
+          },
+          {
+            "run_id": 41255648931,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 32224
+          },
+          {
+            "run_id": 41255644326,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30496
+          },
+          {
+            "run_id": 41255397031,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30497
+          },
+          {
+            "run_id": 41255188986,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30081
+          },
+          {
+            "run_id": 41255129086,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 32227
+          },
+          {
+            "run_id": 41255124942,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30497
+          },
+          {
+            "run_id": 41254255130,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30295
+          },
+          {
+            "run_id": 41254185958,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 29886
+          },
+          {
+            "run_id": 41254111873,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 32026
+          },
+          {
+            "run_id": 41254108071,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30302
+          },
+          {
+            "run_id": 41253886230,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 32026
+          },
+          {
+            "run_id": 41253881585,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30309
+          },
+          {
+            "run_id": 41253550861,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 29879
+          },
+          {
+            "run_id": 41253477479,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 32019
+          },
+          {
+            "run_id": 41253473722,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 4,
+            "uncompressed_bytes": 30297
+          },
+          {
+            "run_id": 41252818504,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14322
+          },
+          {
+            "run_id": 41252776250,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14111
+          },
+          {
+            "run_id": 41252739722,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15186
+          },
+          {
+            "run_id": 41252736375,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14324
+          },
+          {
+            "run_id": 41252310736,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14114
+          },
+          {
+            "run_id": 41252270026,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15184
+          },
+          {
+            "run_id": 41252251536,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14321
+          },
+          {
+            "run_id": 41250928413,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14322
+          },
+          {
+            "run_id": 41250922401,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14114
+          },
+          {
+            "run_id": 41250688494,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15183
+          },
+          {
+            "run_id": 41250672684,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14321
+          },
+          {
+            "run_id": 41250345644,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14114
+          },
+          {
+            "run_id": 41250290474,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15184
+          },
+          {
+            "run_id": 41250266935,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14321
+          },
+          {
+            "run_id": 41248629136,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14321
+          },
+          {
+            "run_id": 41248610931,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14120
+          },
+          {
+            "run_id": 41248475353,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15190
+          },
+          {
+            "run_id": 41248457498,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14322
+          },
+          {
+            "run_id": 41248244179,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14114
+          },
+          {
+            "run_id": 41248197017,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15190
+          },
+          {
+            "run_id": 41248182294,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14324
+          },
+          {
+            "run_id": 41246765759,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14324
+          },
+          {
+            "run_id": 41246756811,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14114
+          },
+          {
+            "run_id": 41246648863,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15183
+          },
+          {
+            "run_id": 41246611009,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14321
+          },
+          {
+            "run_id": 41246367455,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14114
+          },
+          {
+            "run_id": 41246291105,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15186
+          },
+          {
+            "run_id": 41246287100,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14321
+          },
+          {
+            "run_id": 41246117337,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15191
+          },
+          {
+            "run_id": 41246114056,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14324
+          },
+          {
+            "run_id": 41245112300,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15184
+          },
+          {
+            "run_id": 41245027120,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14321
+          },
+          {
+            "run_id": 41244265408,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14319
+          },
+          {
+            "run_id": 41244212704,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14120
+          },
+          {
+            "run_id": 41244103808,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15183
+          },
+          {
+            "run_id": 41244099277,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14329
+          },
+          {
+            "run_id": 41243681086,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15191
+          },
+          {
+            "run_id": 41243626267,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14322
+          },
+          {
+            "run_id": 41241219800,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14322
+          },
+          {
+            "run_id": 41241155893,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14116
+          },
+          {
+            "run_id": 41241026792,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15184
+          },
+          {
+            "run_id": 41240986521,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14319
+          },
+          {
+            "run_id": 41240589279,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14121
+          },
+          {
+            "run_id": 41240538610,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15183
+          },
+          {
+            "run_id": 41240534561,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14324
+          },
+          {
+            "run_id": 41240070043,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15190
+          },
+          {
+            "run_id": 41240066273,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14322
+          },
+          {
+            "run_id": 41239149228,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15186
+          },
+          {
+            "run_id": 41239145834,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14322
+          },
+          {
+            "run_id": 41236925205,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15183
+          },
+          {
+            "run_id": 41236918011,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14321
+          },
+          {
+            "run_id": 41234464422,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15191
+          },
+          {
+            "run_id": 41234461165,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14321
+          },
+          {
+            "run_id": 41232283740,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15183
+          },
+          {
+            "run_id": 41232279690,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14324
+          },
+          {
+            "run_id": 41230694445,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15183
+          },
+          {
+            "run_id": 41230647357,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14321
+          }
+        ],
+        "previously_scanned_runs_not_repeated": 18,
+        "unattempted_listed_runs": 0
+      },
+      "release_asset_count": 0,
+      "artifact_payload_scan": "not-needed: no artifacts"
+    },
+    "DashSaman/mytel.one": {
+      "metadata": {
+        "status": {
+          "status": 200,
+          "next_page": false
+        },
+        "visibility": "private",
+        "has_wiki": false,
+        "has_pages": false
+      },
+      "issues": {
+        "count": 5,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "issue-comments": {
+        "count": 0,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "pull-comments": {
+        "count": 0,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "pulls": {
+        "count": 5,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "releases": {
+        "count": 0,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "forks": {
+        "count": 0,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "artifacts": {
+        "count": 0,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "runs": {
+        "count": 9,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "pages_api": {
+        "status": 404
+      },
+      "ci_logs": {
+        "inspected_runs": [
+          {
+            "run_id": 41269569617,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 8,
+            "uncompressed_bytes": 28975
+          },
+          {
+            "run_id": 41269370665,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 8,
+            "uncompressed_bytes": 31101
+          },
+          {
+            "run_id": 41269363234,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 8,
+            "uncompressed_bytes": 29515
+          },
+          {
+            "run_id": 41256597937,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14165
+          },
+          {
+            "run_id": 41256542116,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15230
+          },
+          {
+            "run_id": 41256522379,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14451
+          }
+        ],
+        "previously_scanned_runs_not_repeated": 3,
+        "unattempted_listed_runs": 0
+      },
+      "release_asset_count": 0,
+      "artifact_payload_scan": "not-needed: no artifacts"
+    },
+    "DashSaman/-SEO": {
+      "metadata": {
+        "status": {
+          "status": 200,
+          "next_page": false
+        },
+        "visibility": "public",
+        "has_wiki": true,
+        "has_pages": false
+      },
+      "issues": {
+        "count": 19,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "issue-comments": {
+        "count": 0,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "pull-comments": {
+        "count": 0,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "pulls": {
+        "count": 19,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "releases": {
+        "count": 0,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "forks": {
+        "count": 0,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "artifacts": {
+        "count": 0,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "runs": {
+        "count": 60,
+        "complete_pagination": true,
+        "page_statuses": [
+          {
+            "status": 200,
+            "next_page": false
+          }
+        ]
+      },
+      "pages_api": {
+        "status": 404
+      },
+      "ci_logs": {
+        "inspected_runs": [
+          {
+            "run_id": 41269573157,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 8,
+            "uncompressed_bytes": 28822
+          },
+          {
+            "run_id": 41269372685,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 8,
+            "uncompressed_bytes": 30945
+          },
+          {
+            "run_id": 41269365863,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 8,
+            "uncompressed_bytes": 29444
+          },
+          {
+            "run_id": 41268628883,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 8,
+            "uncompressed_bytes": 27582
+          },
+          {
+            "run_id": 41268590261,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 8,
+            "uncompressed_bytes": 29719
+          },
+          {
+            "run_id": 41268360418,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 8,
+            "uncompressed_bytes": 28206
+          },
+          {
+            "run_id": 41264790198,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14078
+          },
+          {
+            "run_id": 41264733379,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15148
+          },
+          {
+            "run_id": 41264718209,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14416
+          },
+          {
+            "run_id": 41262407871,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14077
+          },
+          {
+            "run_id": 41262309458,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15154
+          },
+          {
+            "run_id": 41262306063,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14421
+          },
+          {
+            "run_id": 41260733591,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14078
+          },
+          {
+            "run_id": 41260665289,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15147
+          },
+          {
+            "run_id": 41260643064,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14414
+          },
+          {
+            "run_id": 41259080918,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14085
+          },
+          {
+            "run_id": 41259043445,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15147
+          },
+          {
+            "run_id": 41259026813,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14414
+          },
+          {
+            "run_id": 41256773173,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14077
+          },
+          {
+            "run_id": 41256728562,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15147
+          },
+          {
+            "run_id": 41256714432,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14413
+          },
+          {
+            "run_id": 41255635380,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14416
+          },
+          {
+            "run_id": 41255555400,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14077
+          },
+          {
+            "run_id": 41255469730,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15147
+          },
+          {
+            "run_id": 41255463903,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14413
+          },
+          {
+            "run_id": 41254098056,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14414
+          },
+          {
+            "run_id": 41254057792,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14077
+          },
+          {
+            "run_id": 41253986712,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15148
+          },
+          {
+            "run_id": 41253982757,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14416
+          },
+          {
+            "run_id": 41252690292,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14414
+          },
+          {
+            "run_id": 41252672173,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14080
+          },
+          {
+            "run_id": 41252616666,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15147
+          },
+          {
+            "run_id": 41252593195,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14414
+          },
+          {
+            "run_id": 41250978982,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14413
+          },
+          {
+            "run_id": 41250973002,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14077
+          },
+          {
+            "run_id": 41250851389,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15145
+          },
+          {
+            "run_id": 41250833005,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14413
+          },
+          {
+            "run_id": 41248690552,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14416
+          },
+          {
+            "run_id": 41248654401,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14077
+          },
+          {
+            "run_id": 41248593559,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15142
+          },
+          {
+            "run_id": 41248574502,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14414
+          },
+          {
+            "run_id": 41246830207,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14414
+          },
+          {
+            "run_id": 41246781114,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14078
+          },
+          {
+            "run_id": 41246718893,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15142
+          },
+          {
+            "run_id": 41246714651,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14416
+          },
+          {
+            "run_id": 41244339962,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14078
+          },
+          {
+            "run_id": 41244260606,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15143
+          },
+          {
+            "run_id": 41244233532,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14342
+          },
+          {
+            "run_id": 41241211941,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14080
+          },
+          {
+            "run_id": 41241154426,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15143
+          },
+          {
+            "run_id": 41241133117,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14342
+          },
+          {
+            "run_id": 41234079171,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14077
+          },
+          {
+            "run_id": 41233783203,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15145
+          },
+          {
+            "run_id": 41233712749,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14397
+          },
+          {
+            "run_id": 41232614764,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14077
+          },
+          {
+            "run_id": 41232491602,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 15150
+          },
+          {
+            "run_id": 41232451372,
+            "status": 200,
+            "next_page": false,
+            "text_files_scanned": 2,
+            "uncompressed_bytes": 14341
+          }
+        ],
+        "previously_scanned_runs_not_repeated": 3,
+        "unattempted_listed_runs": 0
+      },
+      "release_asset_count": 0,
+      "artifact_payload_scan": "not-needed: no artifacts"
+    }
+  },
+  "ci_log_coverage": {
+    "DashSaman/TehNet": {
+      "listed_runs": 133,
+      "new_200_log_archives": 115,
+      "earlier_200_logs_not_repeated": 18,
+      "known_or_token_candidates": 0
+    },
+    "DashSaman/mytel.one": {
+      "listed_runs": 9,
+      "new_200_log_archives": 6,
+      "earlier_200_logs_not_repeated": 3,
+      "known_or_token_candidates": 0
+    },
+    "DashSaman/-SEO": {
+      "listed_runs": 60,
+      "new_200_log_archives": 57,
+      "earlier_200_logs_not_repeated": 3,
+      "known_or_token_candidates": 0
+    }
+  },
+  "new_log_archives": 178,
+  "earlier_log_archives_not_repeated": 24,
+  "all_listed_runs_covered": 202,
+  "known_or_token_occurrences": 0,
+  "mytel_wiki": {
+    "exit": 128,
+    "accessible_refs": false,
+    "status": "INACCESSIBLE_NOT_ABSENCE_PROOF"
+  },
+  "remote_mutations": 0,
+  "limits": [
+    "Snapshot ends at PR60/5/19 and the listed runs, not at later documentation/report merges.",
+    "Scans nine identified values and bounded token patterns in API metadata/body/comments and available CI archives; not arbitrary-secret proof or credential validity.",
+    "PR diff/cache/closed unadvertised refs, forks/old clones and inaccessible wiki/media remain separate; no deletion or shared ref rewrite occurred.",
+    "Exact raw API/log data and private findings are outside Git."
+  ]
+}
