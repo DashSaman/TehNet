@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "SCOPED_REVIEW_NATIVE_DRAFT_NOT_DEPLOYED",
+  "status": "DEPLOYED_VERIFIED",
   "reviewed": "2026-11-01",
   "target": {
     "id": 37,
@@ -56,9 +56,13 @@
   ],
   "editorial_inference": "Proposed before/during/after access-session agreement and handoff template; not a new service policy, legal duty or measured session",
   "technical_execution": "NOT_RUN",
-  "wordpress_qualification": "PASS_40_BLOCKS_30_BROWSER_40_NATIVE",
-  "publication": "NOT_DEPLOYED",
+  "wordpress_qualification": "PASS_40_BLOCKS_30_STAGING_BROWSER_40_NATIVE_22_LINUX_OPERATOR_44_PUBLIC_BROWSER",
+  "publication": "DEPLOYED_VERIFIED",
   "search_market_measurement": "NOT_RUN",
   "excluded_source": "CISA/defense2023 guide discovered but full body403 in attempted paths; not used as reviewed support",
-  "link_check": "12GET200_WITH_DEFAULT_TLS_AND_3_FRAGMENT_IDS"
+  "link_check": "12GET200_WITH_DEFAULT_TLS_AND_3_FRAGMENT_IDS",
+  "production_source": "d2f032f9a5532bccb92b09768d018299abba1dc0",
+  "production_completed_utc": "2026-11-01T01:16:13.582636+00:00",
+  "production_receipt": "qa/growth-2026-10-31/remote-support-production-release.json",
+  "public_browser_checks": 44
 }

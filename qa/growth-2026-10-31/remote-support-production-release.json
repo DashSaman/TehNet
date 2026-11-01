@@ -1,0 +1,254 @@
+{
+  "observed_utc": "2026-11-01T01:15:48.824868+00:00",
+  "scope": "Existing service37 body and actual modification timestamps only; zero runtime files",
+  "source_commit": "d2f032f9a5532bccb92b09768d018299abba1dc0",
+  "baseline_commit": "4392ef203029a2c3ed69c9648604687a3f80e1a6",
+  "status": "DEPLOYED_VERIFIED",
+  "check": {
+    "status": "READY",
+    "files_pending": 0,
+    "content": {
+      "status": "READY",
+      "pages_pending": 0,
+      "hubs_pending": 1,
+      "protected_digest": "209171859f4d2a6e03a89abd6e24461fef9a3aae3484f1d8bbe1515118f5dbfb"
+    }
+  },
+  "apply": {
+    "status": "APPLIED",
+    "files_changed": 0,
+    "content": {
+      "status": "APPLIED",
+      "pages_created": 0,
+      "hubs_updated": 1,
+      "page_ids": [],
+      "protected_digest": "209171859f4d2a6e03a89abd6e24461fef9a3aae3484f1d8bbe1515118f5dbfb",
+      "protected_state_unchanged": true
+    }
+  },
+  "repeat": {
+    "status": "APPLIED",
+    "files_changed": 0,
+    "content": {
+      "status": "APPLIED",
+      "pages_pending": 0,
+      "hubs_pending": 0,
+      "pages_created": 0,
+      "hubs_updated": 0,
+      "page_ids": [],
+      "protected_state_unchanged": true
+    }
+  },
+  "http_smoke": [
+    {
+      "path": "/services/remote-support/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "reviewed_service_sections": true,
+      "auto_loaded_player": false
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true
+    },
+    {
+      "path": "/shop/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true
+    },
+    {
+      "path": "/services/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true
+    },
+    {
+      "path": "/lab/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true
+    },
+    {
+      "path": "/services/voice-network-readiness/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true
+    },
+    {
+      "path": "/lab/voice-network-checklist/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "readiness_instance": true
+    },
+    {
+      "path": "/support/?tn_service_context=voice-network",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "nonce_inside_owning_form": true,
+      "network_context_preserved": true
+    },
+    {
+      "path": "/b2b/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "nonce_inside_owning_form": true
+    }
+  ],
+  "commerce_indexing": {
+    "blog_public": "0",
+    "products": 25,
+    "purchasable": 0,
+    "erp_ready": false,
+    "sandbox_enabled": false
+  },
+  "existing_container_runtime_unchanged": true,
+  "runtime_files_verified_unchanged": 8,
+  "protected_state_unchanged": true,
+  "fresh_backup_checksum_verified": true,
+  "completed_utc": "2026-11-01T01:16:13.582636+00:00",
+  "qualified_source": "98572f47343208e48118f086431a4faaa16d5483",
+  "pr": 52,
+  "ci_head": "9e22cc01173ee81e3fc16a0508ba5ee061d7798f",
+  "ci_run": 41260264596,
+  "linux_operator_tests": 22,
+  "privacy_tests": 9,
+  "private_known_value_scan_files": 1475,
+  "qualified_bundle_equality": [
+    "members",
+    "files",
+    "tool_sha256",
+    "eight runtime guard digests"
+  ],
+  "public_browser": {
+    "status": "PASS",
+    "scope": "Read-only production existing service acceptance; default browser TLS validation",
+    "checks": 44,
+    "observations": [
+      {
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "modified": "2026-11-01T01:16:06+00:00",
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "modified": "2026-11-01T01:16:06+00:00",
+        "overflow": false
+      },
+      {
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "modified": "2026-11-01T01:16:06+00:00",
+        "overflow": false
+      }
+    ],
+    "page_errors": [],
+    "blocked_external_origins": 0,
+    "methods": [
+      "GET"
+    ],
+    "form_submissions": 0,
+    "real_service_delivery": "NOT_TESTED"
+  },
+  "existing_target": {
+    "id": 37,
+    "url": "https://tehnet.ir/services/remote-support/",
+    "title": "پشتیبانی شبکه از راه دور",
+    "parent": 8,
+    "modified_gmt": "2026-11-01T01:16:06+00:00",
+    "changed_fields": [
+      "post_content",
+      "actual modification timestamps"
+    ],
+    "body_sha256_lf": "2f5210b20f6d51559aee901c5a9d56120ff16b150b8c28e95516f646fe0d866c",
+    "preserved": [
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta",
+      "old revisions"
+    ]
+  },
+  "draft_qualification": {
+    "receipt": "qa/growth-2026-10-31/remote-support-draft-and-migration.json",
+    "registered_blocks": 40,
+    "staging_browser": 30,
+    "new_native": 40,
+    "regressions": [
+      39,
+      37
+    ],
+    "windows_operator": {
+      "passed": 21,
+      "skipped": 1,
+      "total": 22
+    },
+    "rehearsal": "qa/growth-2026-10-31/remote-support-release-rehearsal.json"
+  },
+  "source_access": {
+    "primary_pages_scoped": 3,
+    "unique_default_tls_gets": 12,
+    "http200": 12,
+    "draft_fragment_ids": 3,
+    "excluded_cisa_guide": "Full-body403; not used as reviewed support",
+    "nist_limit": "2016 final;2020 Rev3 pre-draft call is not a final revision",
+    "microsoft_limit": "Consent/end-session examples only; no local availability or tool security audit"
+  },
+  "qualification_notes": [
+    "Old inventory digest refused, fresh body exactly matched committed remediation.after",
+    "Private fixture-selector prefix typo failed before SSH/native mutation; exact full selector corrected, immutable rehearsal passed",
+    "Shared-preview writers serial under OS lock; original four-table fingerprint and owned editor restored"
+  ],
+  "new_urls": 0,
+  "new_articles": 0,
+  "runtime_installs": 0,
+  "remote_session_tool_security_or_network_device_tests": "NOT_RUN",
+  "live_rollback": "NOT_NEEDED_NOT_RUN",
+  "search_index_rank_backlink_ai_or_lead_gain": "NOT_MEASURED",
+  "mytel_production_writes": 0,
+  "security": {
+    "rotation": "UNKNOWN",
+    "history": "NEEDS_APPROVAL",
+    "origin": "UNDETERMINED",
+    "purge_refmap": "STALE_AFTER_NORMAL_MERGES",
+    "force_push": "FORBIDDEN_WHILE_OWNER_ABSENT"
+  },
+  "knowledge_transfer": {
+    "pr": "https://github.com/DashSaman/-SEO/pull/15",
+    "source": "a182c356896b2bd7b87c6bc7e21818dbfd2cb551",
+    "merged_main": "9b5ad0972743697fc33ed924545c038d4b46faae",
+    "ci_run": 41260665289,
+    "ci_result": "PASS",
+    "privacy_tests": 9,
+    "private_known_value_scan_files": 67,
+    "dashboard_destinations_checked": 15,
+    "new_source_rows": 4,
+    "baseline_percent": 71
+  }
+}
