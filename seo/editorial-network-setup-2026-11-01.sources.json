@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "status": "SCOPED_REVIEW_NATIVE_DRAFT_NOT_DEPLOYED",
+  "reviewed": "2026-11-01",
+  "target": {
+    "id": 33,
+    "url": "https://tehnet.ir/services/network-setup-tehran/",
+    "title_observed": "راه‌اندازی شبکه شرکت در تهران",
+    "expected_content_sha256": "09eba56189c561933b6107fbdb2dcca7259450c7b78751ffb5f0df6e2d241818",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "baseline_observed_utc": "2026-11-01T00:31:46+00:00",
+  "source_count": 3,
+  "sources": [
+    {
+      "id": "CISCO-SETUP-20261101",
+      "class": "OFFICIAL",
+      "url": "https://www.cisco.com/c/en/us/td/docs/solutions/CVD/Campus/cisco-campus-lan-wlan-design-guide.html",
+      "version_or_date": "Legacy Cisco CVD page,2020-era platform examples; observed2026-11-01",
+      "review_depth": "SECTION_REVIEWED",
+      "scope": "Design requirements/scaling and small-site platform-choice considerations; no specific SKU recommendation or current lifecycle verification",
+      "limit": "Vendor-specific design guidance; not sole design for every company or proof of certification/capability",
+      "access_limit": "Official HTML read via web tool; local urllib HTML and PDF each returned403. Source text reviewed, normal-user accessibility not measured."
+    },
+    {
+      "id": "NIST-SETUP-20261101",
+      "class": "OFFICIAL",
+      "url": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final",
+      "document_url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-128.pdf",
+      "version_or_date": "August2011, updated2019-10-10; current final landing observed2026-11-01",
+      "review_depth": "SECTION_REVIEWED",
+      "scope": "Baseline/change control concepts2.3.7/2.3.8, process3.3.2 and archived-baseline rollback context; not all99 pages",
+      "limit": "US federal security-focused configuration guidance, not an Iranian legal duty, project contract or certification"
+    },
+    {
+      "id": "MK-BACKUP-SETUP-20261101",
+      "class": "OFFICIAL",
+      "url": "https://manual.mikrotik.com/docs/getting-started/configuration-management/backup/",
+      "version_or_date": "Documentation selector7.26 observed; no device version inferred",
+      "review_depth": "SECTION_REVIEWED",
+      "scope": "Backup sensitivity, same-device/version caveats; no command execution, cloud/FTP workflow recommendation or complete backup strategy",
+      "limit": "RouterOS-specific; backup creation does not prove successful recovery"
+    }
+  ],
+  "editorial_inference": "Proposed intake/design/cutover/acceptance/handover template, distinct from emergency network support and voice-readiness assets",
+  "technical_execution": "NOT_RUN",
+  "wordpress_qualification": "PASS_57_BLOCKS_30_BROWSER_39_NATIVE",
+  "publication": "NOT_DEPLOYED",
+  "search_market_measurement": "NOT_RUN"
+}

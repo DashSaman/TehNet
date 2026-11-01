@@ -146,3 +146,15 @@ Three existing lessons62/64/63 have been improved; zero new articles/URLs in the
 | P10 final morning report | IN_PROGRESS | LIVE_NOT_FINAL;08:00Tehran final still required |
 
 No production release/backup/rollback, browser/tool/download/network or GSC test in this proposal unit. Public response hash is not a stored-field mutation gate and private Git bundle is not site recovery. Security gates and intentional noindex/closed commerce remain. Normal merges require later refresh of owner-approved purge refmaps; they do not authorize force-push.
+
+## Queue checkpoint — existing setup-service native draft, 2026-11-01
+
+| Package | State | Evidence / next gate |
+|---|---|---|
+| P6 existing setup-service ID33 draft | VERIFIED |57 blocks/30 staging-browser,39 native plus37 IP/DNS and37 support regressions; Windows20PASS/1SKIP of21; scope exact/body-only/eight current-runtime guards |
+| Source links | IN_PROGRESS | PARTIAL12x200/one official Cisco403 in direct path; source readable through web tool,3 fragment IDs verified; no all200 claim |
+| Owned staging QA overlap | ROLLED_BACK | Protected-state gate refused; fresh backup/dry-run/exact after-snapshot guard restored only page33 and one owned new revision; original four-table fingerprint exact, journal unchanged; serial39/30 pass and OS-writer-lock rejection/reacquisition tested |
+| ID33 immutable rehearsal / Linux CI / live | READY | Distinct committed bundle and current-metadata fixture; backup/tamper/apply/repeat/rollback/repeat before normal integration and fresh production gates |
+| P10 morning report | IN_PROGRESS | LIVE_NOT_FINAL;08:00Tehran final remains required |
+
+The JSON anchor-format failure and operator's overlapping shared-preview writers are retained in the receipt; neither warrants weakening serialization/drift protection. No network-project test, article/URL or production write occurred. Run shared-preview writers sequentially; preserve noindex/commerce/customer data/MyTel/security gates.
