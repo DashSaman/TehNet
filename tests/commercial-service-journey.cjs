@@ -78,7 +78,7 @@ const checks=[]; function check(label,value){assert.ok(value,label);checks.push(
   await Promise.all([sp.waitForURL('**/wp-admin/**'),sp.locator('#wp-submit').click()]);
   await sp.goto(origin+'/wp-admin/admin.php?page=tn-store-tickets',{waitUntil:'networkidle'});
   check('Authorized staff see the same two canonical ticket references',(await sp.locator('body').innerText()).includes(ref)&&(await sp.locator('body').innerText()).includes(second));
-  const own=sp.locator('details.tn-ticket').filter({hasText:marker}).first();check('Staff see persisted service and optional business context',(await own.innerText()).includes('MikroTik')&&(await own.innerText()).includes(marker));
+  const own=sp.locator('details.tn-ticket').filter({hasText:ref});check('Staff see persisted service and optional business context',await own.count()===1&&(await own.innerText()).includes('MikroTik')&&(await own.innerText()).includes(marker));
   await own.screenshot({path:path.join(out,'staff-synthetic-ticket.png')});
   check('No uncaught customer-facing JavaScript errors',errors.length===0);
   fs.writeFileSync(path.join(out,'browser.json'),JSON.stringify({status:'PASS',observed_utc:new Date().toISOString(),checks,passed:checks.length,refs,scope:'Isolated native WordPress only; two synthetic saved tickets, real staff login, no customer notification or payment'},null,2)+'\n');
