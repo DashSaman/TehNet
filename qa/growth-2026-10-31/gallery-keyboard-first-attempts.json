@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "status": "QUALIFICATION_FAILED_RESTORED_NOT_DEPLOYED",
+  "observed_utc": "2026-11-01T02:47:02.039791+00:00",
+  "source_commit": "8d0af8557f840187d118652646d37594b334707b",
+  "attempts": [
+    {
+      "status": "ROLLED_BACK",
+      "step": "Raw native Article before/after comparison after three-file apply/repeat",
+      "failure": "Article arrays differed; first route/details were not retained, so they are not reconstructed.",
+      "recovery": "Applied journal permitted exact three-file rollback; data digest remained equal; original metadata fixture restored.",
+      "product_browser": "NOT_RUN",
+      "production_mutations": 0
+    },
+    {
+      "status": "FAILED_PREFLIGHT_RESTORED",
+      "step": "Reused immutable-source container stage",
+      "observations": [
+        {
+          "/learn/": 1,
+          "/services/voice-network-readiness/": 1,
+          "/learn/mikrotik/mtcna/routeros-winbox/": 1
+        },
+        {
+          "/learn/": 1,
+          "/services/voice-network-readiness/": 1,
+          "/learn/mikrotik/mtcna/routeros-winbox/": 1
+        },
+        {
+          "/learn/": 0,
+          "/services/voice-network-readiness/": 0,
+          "/learn/mikrotik/mtcna/routeros-winbox/": 1
+        }
+      ],
+      "failure": "Rolled-back gallery release needs a reviewed new attempt",
+      "recovery": "No app file apply in this attempt; original metadata fixture restored. Existing journal not deleted/edited.",
+      "production_mutations": 0
+    }
+  ],
+  "interpretation": "Subsequent web reads directly observed old Article roles before the0.2.2 fixture settled. This supports a stale temporary web baseline as the initial comparison cause; first route details were not retained. No application code was changed to make the comparison pass.",
+  "next_gate": "New immutable source commit/bundle/container stage, verify current fixture roles through web SAPI before capturing baseline;retain all original comparisons privately;repeat full qualification and exact rollback. No journal deletion or guard weakening.",
+  "preparation_failures": [
+    "A generator route-marker assertion stopped before creating/executing the remote runner; corrected from exact original source.",
+    "Failure-log extractor originally required a colon after AssertionError; corrected to read full actual traceback.",
+    "A private inline regex command had a shell-quoting syntax error before execution; file-based diagnostics were used."
+  ],
+  "limits": [
+    "No native-gallery browser or production acceptance yet.",
+    "Full raw command logs may contain operational environment data and remain private outside Git.",
+    "These attempts are not counted as successful qualification."
+  ]
+}

@@ -19,3 +19,9 @@ Release scope: exactly product-gallery.js, product-gallery.css and class-storefr
 - [ ] Record actual receipts, transfer evidence to -SEO and update handoff/queue. Final08:00Tehran report remains pending.
 
 Source reviewed: https://www.w3.org/WAI/ARIA/apg/patterns/button/ , scoped Enter/Space, accessible name and retained focus guidance. Native button semantics are used. No accessibility certification or ranking gain is implied. Raw captures/private config/backups stay outside Git. Existing security gates and no force-push/MyTel production changes remain.
+
+## Native qualification failures retained,2026-11-01
+
+Source8d0af85 applied three files/repeated without DB writes,then an Article-array equality assertion failed before the gallery browser ran. Its applied journal rolled back the three managed files and original metadata fixture exactly;protected data digest retained. The first differing route/details were not saved and are not reconstructed. A subsequent direct web probe observed hub/service roles1/1→0/0 while the real lesson stayed1, supporting a temporarily stale web baseline after the0.2.2 fixture write. The next attempt refused the already ROLLED_BACK source journal before any app apply;that journal was preserved,and the temporary fixture restored. Neither attempt qualifies the change.
+
+Revised test preparation: observe expected current metadata roles via web SAPI before baseline capture,retain all before/after comparisons privately,and use a NEW reviewed source commit/bundle/container stage after rollback. No application payload,guard or journal is weakened/changed to pass. Evidence:qa/growth-2026-10-31/gallery-keyboard-first-attempts.json. New full immutable native/browser/rollback qualification remains required;production untouched.
