@@ -1,4 +1,12 @@
-## CURRENT — درس موجود IP/DHCP/DNS روی live تأیید شد
+## CURRENT — پیشنهاد MyTel در مخزن تکمیل و دانش منتقل شد
+
+VERIFIED_REPOSITORY_PROPOSAL_NOT_DEPLOYED —۱نوامبر: دو پاراگراف/anchor/جایگاه دقیق برای /services/ و /branch-voip/ مایتل؛ دو گزینهٔ مشابه به‌علت وجود دارایی آمادگی خود MyTel کنار گذاشته شدند.۶GET باTLS معتبر وبدونredirect،۱۴کنترل تطابق،۹regression حریم خصوصی وscan۵۱فایل بافهرست خصوصی پاس. هیچ تغییر سایت، لینک زنده یا مقاله‌ای منتشر نشد. MyTel canonical context/SECTION16/next prompt وورودی‌های roadmap به‌روز شدند. [MyTel PR4](https://github.com/DashSaman/mytel.one/pull/4)، source `357b1a10e36df1aa0dfa1883027209bdf9bc8484`، main `da9edecebd7d63aa3677ac8d9f7ed5bb8e55d997`، CI41256542116 موفق وادغام عادی. تمام ویرایش‌های احتمالی سایت مایتل NEEDS_APPROVAL؛ URL/Title/H1/content/performance وread-only پابرجاست.
+
+رسید `qa/growth-2026-10-31/mytel-contextual-proposal-transfer.json` وحدود درaddendumِ `seo/intent-portfolio-2026-11-01.fa.md`. hash پاسخ عمومی drift guard وردپرس نیست؛ snapshot خصوصی Git، backup سایت نیست. خطای parser درشمردنSVG title باخواندنهمانcapture اصلاح شد؛ نقصtitle سایت ادعا نشد. Browser/tool/download/network/GSC/performance دراین‌بسته اجرا نشد. انتقال source/topic/dashboard/continuation در [-SEO PR13](https://github.com/DashSaman/-SEO/pull/13)، main `890a60655fed15517b0443e8beb585fc72558582` وCI41256728562 ادغام؛۹privacy test/۶۷فایل و۱۳مقصد محلی dashboard پاس، baseline۷۱٪ ثابت.
+
+NEXT: صفحهٔ فعلی /services/network-setup-tehran/ را برای یک نیاز مستقل ومثبت نسبت به پشتیبانی/آمادگی شبکه بخوان؛ فقط پس از شاهد متمایز draft همان URL بساز، ظرفیت/قیمت/تضمین نیافزا. انتشارهای قبلی/۱۰۰کاندیدا یا پاک‌سازی امنیتی را بازپخش نکن. گزارش صبح LIVE_NOT_FINAL وموعد۰۸:۰۰ پابرجاست. rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED؛ force-push درغیاب مالک ممنوع وrefmap پاک‌سازی پس ازmergeهای عادی نیازمندتازه‌سازی است. noindex/فروشگاه/داده/پرداخت وشبکهٔ مشترک حفظ شوند.
+
+## HISTORICAL CHECKPOINT — درس موجود IP/DHCP/DNS روی live تأیید شد
 
 DEPLOYED —۱نوامبر،03:36تهران: [درس IP/DHCP/DNS](https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/) همان ID63/URL/عنوان/والد، فقط body و تاریخ واقعی تغییر.۹منبع اولیهٔ scoped، پنج نیاز C01 در یک درس با سناریوی ساختگی/مرزDNS/تشخیصlease/prefix/reservation/پذیرش. RouterOS/Windows network commands اجرا نشده و متن صریح است. PR47 وCI41255129086 با۲۰Linux PASS ادغام؛ source live `65f0757940bb4942b2001bf81a4a0d4e9eb905b7` برابر payload/tool/8guardِ qualified `487663b9739cc4a974b9437ee3771e7ee0a315aa`.
 
