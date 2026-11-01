@@ -238,5 +238,17 @@
     "origin": "UNDETERMINED",
     "purge_refmap": "STALE_AFTER_NORMAL_MERGES",
     "force_push": "FORBIDDEN_WHILE_OWNER_ABSENT"
+  },
+  "knowledge_transfer": {
+    "pr": "https://github.com/DashSaman/-SEO/pull/16",
+    "source": "e17ee5bfa07811b759ea5fe6c13612ebc12d8b3d",
+    "merged_main": "b99609baf26c762d0a3f7a1c2260b0a35307d429",
+    "ci_run": 41262309458,
+    "ci_result": "PASS",
+    "privacy_tests": 9,
+    "private_known_value_scan_files": 67,
+    "dashboard_destinations_checked": 16,
+    "new_source_rows": 3,
+    "baseline_percent": 71
   }
 }

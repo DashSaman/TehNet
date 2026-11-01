@@ -1,6 +1,6 @@
 # تحویل صبح TehNet × MyTel × SEO —۱نوامبر۲۰۲۶
 
-**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 05:12 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
+**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 05:16 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
 
 ## ۱. امنیت — گیت‌های باز مقدم‌اند
 
@@ -331,3 +331,9 @@ DEPLOYED —۱نوامبر،05:10تهران: [خدمات MikroTik](https://tehne
 backup تازه/checksum/drift وrepeat بدونتغییر؛۹TLS GET/۴۴browser1440/375/no-JS پاس. دادهٔ محافظت‌شده،۸runtime file وcontainerها ثابت؛۲۵کالا/قابل‌خرید۰،ERP/sandbox false،MyTel write۰. صفرمقاله/URL/runtime install؛ live rollback لازم نشد.۳۹بلوک/۳۰staging/۴۱native+۴۰remote+۳۹setup regression وimmutable rollback/restore دقیقfixture پاس. رسید `qa/growth-2026-10-31/mikrotik-service-production-release.json`؛۱۵لینکTLS200/۳anchor. manual7.26 نسخهٔ دستگاه/توصیهٔارتقا نیست وlegacy frozen منبعجاری نیست. هیچ تست دستگاه/شبکه/VLAN/امنیت/سرعت/بازیابی یاSEOgain ادعا نشده است.
 
 NEXT: انتقال source/قبولی/حدود به-SEO و ثبتCI/commit؛ سپس خواندن صفحهٔ موجود /services/network-tehran/ برای نقش مستقل راهنمای انتخاب خدمت و مسیر درخواست، فقط درصورت شاهد وبدون صفحهٔ هم‌نیت. انتشارها/recovery/۱۰۰کاندیدا بازپخش نشوند. noindex/خانه/منو/فروشگاه/داده/پرداخت/MyTel وrotationUNKNOWN/historyNEEDS_APPROVAL/originUNDETERMINED/منعforce-push پابرجا؛ گزارش صبحLIVE_NOT_FINAL تا۰۸:۰۰.
+
+## تکمیل انتقال خدمت MikroTik
+
+انتقال منابع، پذیرش واقعی و حدود در [-SEO PR16](https://github.com/DashSaman/-SEO/pull/16)، main `b99609baf26c762d0a3f7a1c2260b0a35307d429` و CI41262309458 ادغام شد؛۳source row/topic/dashboard/continuation،۹privacy test وscan۶۷فایل/۱۶مقصد dashboard پاس،baseline۷۱٪ ثابت. نسخهٔ مستند با دستگاه،سایت frozen با مرجع جاری و آزمونWordPress با آزمون روتر/شبکه خلط نشده‌اند.
+
+NEXT: صفحهٔ موجود /services/network-tehran/ را برای نقش مستقل راهنمای انتخاب خدمت و مسیر درخواست بخوان؛ فقط پس از شاهد، بهبود همانURL را تحقیق کن و صفحهٔ هم‌نیت نساز. انتشارهای پذیرفته‌شده، recovery و۱۰۰کاندیدا بازپخش نشوند؛ preview writers ترتیبی و با قفل مشترک باشند. noindex/خانه/منو/فروشگاه/داده/پرداخت/MyTel وrotationUNKNOWN/historyNEEDS_APPROVAL/originUNDETERMINED/منعforce-push پابرجا؛ گزارش صبح LIVE_NOT_FINAL تا۰۸:۰۰.

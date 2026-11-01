@@ -27,3 +27,7 @@ MyTel read-only/freeze، noindex، خانه/منو/فروشگاه، دادهٔ �
 ## انتشار واقعی
 
 PR54/CI41261972202 با۲۳Linux operator/۹privacy PASS و خواندن خلاصهٔ واقعی log؛ source live918c6c2186d5f82196471d3e0a2588661df7bef8 برابر payload/tool/۸guard نسخهٔ qualified73c7211 است. backup تازه/checksum/drift پاس؛ فقط همانbody و تاریخ واقعی01:40:51UTC تغییر کرد وrepeat تغییری نداد.۹TLS GET/۴۴public-browser1440/375/no-JS پاس،داده/۸runtime file/containerها ثابت؛۲۵کالا/قابل‌خرید۰،ERP/sandbox false وMyTel write۰. مقاله/URL/runtime install۰ وlive rollback لازم نشد.۱۵لینک200/۳anchor،حدود نسخه/مدل و نبود تست دستگاه/شبکه/VLAN/امنیت/سرعت/بازیابی/SEOgain باقی‌اند. manifest وreceiptهایdraft/rehearsal checkpoint تاریخی‌اند و بازنویسی نمی‌شوند. انتقالSEO درcheckpoint بعد ثبت می‌شود.
+
+انتقال منابع، پذیرش واقعی و حدود در [-SEO PR16](https://github.com/DashSaman/-SEO/pull/16)، main `b99609baf26c762d0a3f7a1c2260b0a35307d429` و CI41262309458 ادغام شد؛۳source row/topic/dashboard/continuation،۹privacy test وscan۶۷فایل/۱۶مقصد dashboard پاس،baseline۷۱٪ ثابت. نسخهٔ مستند با دستگاه،سایت frozen با مرجع جاری و آزمونWordPress با آزمون روتر/شبکه خلط نشده‌اند.
+
+NEXT: صفحهٔ موجود /services/network-tehran/ را برای نقش مستقل راهنمای انتخاب خدمت و مسیر درخواست بخوان؛ فقط پس از شاهد، بهبود همانURL را تحقیق کن و صفحهٔ هم‌نیت نساز. انتشارهای پذیرفته‌شده، recovery و۱۰۰کاندیدا بازپخش نشوند؛ preview writers ترتیبی و با قفل مشترک باشند. noindex/خانه/منو/فروشگاه/داده/پرداخت/MyTel وrotationUNKNOWN/historyNEEDS_APPROVAL/originUNDETERMINED/منعforce-push پابرجا؛ گزارش صبح LIVE_NOT_FINAL تا۰۸:۰۰.
