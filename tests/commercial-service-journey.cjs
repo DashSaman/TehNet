@@ -28,6 +28,7 @@ const checks=[]; function check(label,value){assert.ok(value,label);checks.push(
     check('No unsupported specialist availability promise',(await page.locator('main').innerText()).includes('به معنی تأیید ظرفیت اجرا'));
    }
    await page.screenshot({path:path.join(out,(route==='/'?'home':'services')+'-1440.png'),fullPage:true});
+   if(route==='/services/')await page.locator('.tn-svc-grid').first().screenshot({path:path.join(out,'service-cards-1440.png')});
    await page.setViewportSize({width:375,height:812});check(route+' mobile RTL and no overflow',await page.evaluate(()=>document.documentElement.dir==='rtl'&&document.documentElement.scrollWidth<=innerWidth));
    await page.screenshot({path:path.join(out,(route==='/'?'home':'services')+'-375.png'),fullPage:true});await page.setViewportSize({width:1440,height:900});
   }
@@ -60,6 +61,7 @@ const checks=[]; function check(label,value){assert.ok(value,label);checks.push(
   np.on('console',m=>nojsRequests.push({console:m.type(),text:m.text()}));np.on('requestfailed',r=>nojsRequests.push({failed:r.url(),error:r.failure()}));
   await np.goto(origin+'/',{waitUntil:'networkidle'});const nf=np.locator('[data-tn-service-request]');
   await fill(nf,'remote-support','nojs');
+  check('Focused no-JS form uses stable immediate scrolling',await np.evaluate(()=>getComputedStyle(document.documentElement).scrollBehavior==='auto'));
   const validity=await nf.evaluate(f=>({valid:f.checkValidity(),invalid:[...f.elements].filter(e=>e.willValidate&&!e.validity.valid).map(e=>({name:e.name,message:e.validationMessage}))}));
   fs.writeFileSync(path.join(out,'nojs-before-private.json'),JSON.stringify(validity,null,2));check('No-JS form passes native client validation',validity.valid);
   try{await Promise.all([np.waitForURL('**/support/?tn_ticket=sent&tn_service_receipt=*'),nf.locator('[type=submit]').click()]);}

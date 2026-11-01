@@ -110,7 +110,7 @@ final class TehNet_Store_Tickets {
         if(!$post||$post->post_type!==self::CPT||$post->post_status!=='private')return '<p class="tn-service-receipt" role="status">این رسید معتبر نیست یا مهلت نمایش آن پایان یافته است. اگر شماره پیگیری دارید، آن را در ارجاع تیکت بنویسید.</p>';
         $state=(string)get_post_meta($id,'_tn_ticket_state',true);
         $label=['open'=>'ثبت‌شده؛ در انتظار بررسی','answered'=>'پاسخ ثبت شده است','closed'=>'بسته‌شده'][$state]??'در انتظار بررسی';
-        return '<section class="tn-service-receipt" role="status"><h2>درخواست شما ثبت شد</h2><p>شماره پیگیری: <strong dir="ltr">TN-'.esc_html((string)$id).'</strong></p><p>وضعیت: '.esc_html($label).'</p><p>این شماره را نگه دارید. رسید یک ساعت نمایش داده می‌شود و جزئیات خصوصی درخواست را نشان نمی‌دهد. برای پیگیری، شماره را در فیلد ارجاع تیکت وارد کنید. ثبت درخواست، رزرو زمان یا تأیید پیش‌فاکتور نیست.</p></section>';
+        return '<section class="tn-service-receipt" role="status"><h2>درخواست شما ثبت شد</h2><p>شماره پیگیری: <strong dir="ltr">TN-'.esc_html((string)$id).'</strong></p><p>وضعیت: '.esc_html($label).'</p><p>این شماره را نگه دارید. رسید موقت حداکثر یک ساعت در دسترس است و جزئیات خصوصی درخواست را نشان نمی‌دهد. برای پیگیری، شماره را در فیلد ارجاع تیکت وارد کنید. ثبت درخواست، رزرو زمان یا تأیید پیش‌فاکتور نیست.</p></section>';
     }
 
     public function protect_service_receipt(): void {
