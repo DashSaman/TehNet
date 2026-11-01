@@ -4,6 +4,8 @@ html[data-theme="light"]{--tn-bg:#f6f8fc;--tn-card:#fff;--tn-surface:#eef3f9;--t
 html[data-theme="dark"]{--tn-bg:#09131f;--tn-card:#111f30;--tn-surface:#0e1a29;--tn-heading:#f0f5fc;--tn-ink:#d6e1ee;--tn-muted:#adbed2;--tn-accent:#82e5ed;--tn-link:#82e5ed;--tn-accent-ink:#09252b;--tn-border:#2c4158;--tn-turquoise-soft:#102e3b;--tn-header-bg:rgba(9,19,31,.97)}
 body.tn-visual{font-family:Estedad,Vazirmatn,Tahoma,Arial,sans-serif;font-size:17px;line-height:1.95;letter-spacing:normal;text-rendering:optimizeLegibility}
 body.tn-visual :is(button,input,select,textarea){font-family:inherit}
+/* Phone links are one LTR unit even inside Persian sentences and RTL buttons. */
+body.tn-visual a[href^="tel:"]{direction:ltr;unicode-bidi:isolate;display:inline-block;white-space:nowrap}
 .tn-visual .tn-container{width:min(calc(100% - 64px),1320px)}
 .tn-visual .tn-main{padding-top:38px}.tn-visual .entry-content{font-size:17px;line-height:2.05}
 .tn-visual :is(.tn-hero h1,.tn-section-title){letter-spacing:normal}
