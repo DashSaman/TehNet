@@ -6,7 +6,7 @@
     "id": 31,
     "url": "https://tehnet.ir/services/network-support-tehran/",
     "title_observed": "پشتیبانی شبکه تهران",
-    "expected_content_sha256": "bfc8e8d2a83fd89cc9d17a2af26dc67f86ccda1e70bedcd519d2d6a1625bbe3a",
+    "expected_content_sha256": "29e476e8be485e4ac1c97885b35ace4497a4036cdf7e4854806f6512a31874d5",
     "change_fields": [
       "post_content"
     ],
@@ -22,7 +22,7 @@
     ]
   },
   "content_file": "network-support.html",
-  "content_sha256_lf": "29e476e8be485e4ac1c97885b35ace4497a4036cdf7e4854806f6512a31874d5",
+  "content_sha256_lf": "73d1b477170f3e9c8c59610e8901a066b10f1e7200a7003dfe3d9ff1a6b1627a",
   "protected": [
     "home",
     "menus",

@@ -6,7 +6,7 @@
     "id": 33,
     "url": "https://tehnet.ir/services/network-setup-tehran/",
     "title_observed": "راه‌اندازی شبکه شرکت در تهران",
-    "expected_content_sha256": "09eba56189c561933b6107fbdb2dcca7259450c7b78751ffb5f0df6e2d241818",
+    "expected_content_sha256": "99c9a9074df2d585345c1813c47a37f65544025f69395266dc840650056267e4",
     "change_fields": [
       "post_content"
     ],
@@ -22,7 +22,7 @@
     ]
   },
   "content_file": "network-setup.html",
-  "content_sha256_lf": "99c9a9074df2d585345c1813c47a37f65544025f69395266dc840650056267e4",
+  "content_sha256_lf": "6042d2dfc40f95c80f6388437b7aebc265d08bd9b51e25271144b43cc61c55e3",
   "protected": [
     "home",
     "menus",

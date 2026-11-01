@@ -6,7 +6,7 @@
     "id": 35,
     "url": "https://tehnet.ir/services/mikrotik-tehran/",
     "title_observed": "خدمات MikroTik تهران",
-    "expected_content_sha256": "647165b37acf55aa4e9ca1faf56ee79754193282e6b2351b995316f04596a379",
+    "expected_content_sha256": "3f4b6e7b5cea0975084b4817ba9a48962fb9eb813df1067bc5f9414febc4ee44",
     "change_fields": [
       "post_content"
     ],
@@ -22,7 +22,7 @@
     ]
   },
   "content_file": "mikrotik-service.html",
-  "content_sha256_lf": "3f4b6e7b5cea0975084b4817ba9a48962fb9eb813df1067bc5f9414febc4ee44",
+  "content_sha256_lf": "ab9d96e52fb50fc3f2d0f535d614c4d6dbd29395d10e32002f608b8cd7c950e7",
   "protected": [
     "home",
     "menus",
