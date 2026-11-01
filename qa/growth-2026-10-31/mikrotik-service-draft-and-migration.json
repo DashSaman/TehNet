@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED",
+  "observed_utc": "2026-11-01T01:36:44.254696+00:00",
+  "target": {
+    "id": 35,
+    "url": "https://tehnet.ir/services/mikrotik-tehran/",
+    "title_observed": "خدمات MikroTik تهران",
+    "expected_content_sha256": "647165b37acf55aa4e9ca1faf56ee79754193282e6b2351b995316f04596a379",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "body_sha256_lf": "3f4b6e7b5cea0975084b4817ba9a48962fb9eb813df1067bc5f9414febc4ee44",
+  "reader_gap": "Existing service list lacks device/version/dependency intake and concrete change acceptance; distinct from accepted configuration lessons, not missing capability or measured demand",
+  "sources": {
+    "primary_pages_scoped": 2,
+    "current_manual_selector": "7.26_NOT_INSTALLED_DEVICE_VERSION",
+    "legacy_help_site": "FROZEN_NOT_USED_AS_CURRENT_SUPPORT",
+    "scope": "Configuration export/import/Safe Mode limits and bridge offload/chip model caveats",
+    "device_network_security_performance_or_recovery_tests": "NOT_RUN"
+  },
+  "native_editor": {
+    "registered_blocks": 39,
+    "roundtrip": true,
+    "sanitization": true,
+    "browser_checks": 30,
+    "viewports": [
+      1440,
+      375
+    ],
+    "no_js": true,
+    "editable_unsaved_reset": true,
+    "saved_editor_pages": 0,
+    "mobile_screenshot": "VISUALLY_REVIEWED",
+    "desktop": "AUTOMATED",
+    "page_errors": 0,
+    "blocked_external_origins": 2,
+    "original_four_table_fingerprint_restored": true,
+    "owned_account_removed": true,
+    "private_backup_verified": true
+  },
+  "migration": {
+    "red_before_registration": "CLI_ENTRY_REJECTED",
+    "native_assertions": 41,
+    "remote_regression": 40,
+    "setup_regression": 39,
+    "negative_identity_path_digest_field_baseline_cases": true,
+    "idempotence_rollback_retention_hook_concurrency": true,
+    "runtime_installs": 0,
+    "current_runtime_guards": 8,
+    "shared_preview_writers": "SERIAL_WITH_OS_LOCK"
+  },
+  "local_operator": {
+    "cases": 23,
+    "passed": 22,
+    "skipped": 1,
+    "skip_reason": "Host lacks symlink creation permission",
+    "linux_ci": "PENDING_FOR_THIS_SOURCE"
+  },
+  "links": {
+    "observed_utc": "2026-11-01T01:34:56.845400+00:00",
+    "method": "Unique non-fragment hrefs via unauthenticated default-TLS GET; fragment IDs checked in draft; no forms submitted",
+    "rows": [
+      {
+        "url": "https://manual.mikrotik.com/docs/bridging-and-switching/",
+        "status": 200,
+        "final_url": "https://manual.mikrotik.com/docs/bridging-and-switching/",
+        "bytes": 561566,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://manual.mikrotik.com/docs/getting-started/configuration-management/",
+        "status": 200,
+        "final_url": "https://manual.mikrotik.com/docs/getting-started/configuration-management/",
+        "bytes": 145745,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/b2b/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/b2b/",
+        "bytes": 57160,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/contact/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/contact/",
+        "bytes": 44584,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/lab/voice-network-checklist/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/lab/voice-network-checklist/",
+        "bytes": 56609,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/learn/mikrotik/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/learn/mikrotik/",
+        "bytes": 49871,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+        "bytes": 62508,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+        "bytes": 62240,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/",
+        "bytes": 63093,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/services/network-setup-tehran/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/services/network-setup-tehran/",
+        "bytes": 64772,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/services/network-support-tehran/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/services/network-support-tehran/",
+        "bytes": 53537,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/services/remote-support/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/services/remote-support/",
+        "bytes": 57788,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/services/voice-network-readiness/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/services/voice-network-readiness/",
+        "bytes": 54589,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/support/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/support/",
+        "bytes": 40825,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/technical-methodology/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/technical-methodology/",
+        "bytes": 47674,
+        "tls_default_verified": true
+      }
+    ],
+    "unique_gets": 15,
+    "fragment_checks": 3,
+    "all200": true
+  },
+  "qualification_notes": [
+    "Private test-preparer syntax failed before execution and was corrected; the prior22-test result was not counted as the new scope red/green. Actual23-test unapproved-scope red and native CLI-entry red were observed before registration, then Windows22PASS/1SKIP and native41 passed. No guard weakened."
+  ],
+  "publication": {
+    "state": "NOT_DEPLOYED",
+    "immutable_rehearsal": "PENDING",
+    "new_articles": 0,
+    "new_urls": 0,
+    "production_writes": 0
+  },
+  "preserve": [
+    "MyTel read-only/freeze",
+    "TehNet noindex",
+    "25 inquiry-only/0purchasable",
+    "home/menus/customer data",
+    "real payments/ERP closed",
+    "rotation UNKNOWN/history NEEDS_APPROVAL/origin UNDETERMINED/no force-push"
+  ]
+}

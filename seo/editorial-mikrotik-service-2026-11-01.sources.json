@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "status": "SCOPED_REVIEW_NATIVE_DRAFT_NOT_DEPLOYED",
+  "reviewed": "2026-11-01",
+  "target": {
+    "id": 35,
+    "url": "https://tehnet.ir/services/mikrotik-tehran/",
+    "title_observed": "خدمات MikroTik تهران",
+    "expected_content_sha256": "647165b37acf55aa4e9ca1faf56ee79754193282e6b2351b995316f04596a379",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "baseline_observed_utc": "2026-11-01T01:30:20+00:00",
+  "baseline_correspondence": "Exact committed16Oct remediation.after for existing35",
+  "source_count": 2,
+  "sources": [
+    {
+      "id": "MK-CONFIG-SERVICE-20261101",
+      "class": "OFFICIAL",
+      "url": "https://manual.mikrotik.com/docs/getting-started/configuration-management/",
+      "version_or_date": "Manual selector7.26 observed2026-11-01; installed device unknown",
+      "review_depth": "SECTION_REVIEWED",
+      "scope": "Export/Import omissions and same-version caveat; Safe Mode risk reduction/history capacity caveat; no command execution or full manual review",
+      "limit": "Not a complete recovery strategy, safe arbitrary script import or approval to upgrade/reset"
+    },
+    {
+      "id": "MK-BRIDGE-SERVICE-20261101",
+      "class": "OFFICIAL",
+      "url": "https://manual.mikrotik.com/docs/bridging-and-switching/",
+      "version_or_date": "Current manual observed2026-11-01; selector7.26",
+      "review_depth": "SECTION_REVIEWED",
+      "scope": "Hardware offload overview/chip-family feature tables and model-specific reset/disconnection warning, around current lines1080–1228",
+      "limit": "No device-specific compatibility/performance/security result; not all2513 lines or frozen legacy documentation"
+    }
+  ],
+  "editorial_inference": "Device/version/dependency intake and proposed acceptance/recovery-window agreement distinct from configuration lessons",
+  "technical_execution": "NOT_RUN",
+  "wordpress_qualification": "PASS_39_BLOCKS_30_BROWSER_41_NATIVE",
+  "publication": "NOT_DEPLOYED",
+  "search_market_measurement": "NOT_RUN",
+  "legacy_source": "help.mikrotik.com observed frozen with2026-02-23 update; current manual navigation followed instead",
+  "link_check": "15GET200_WITH_DEFAULT_TLS_AND_3_FRAGMENT_IDS"
+}
