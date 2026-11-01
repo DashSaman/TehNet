@@ -6,7 +6,7 @@ const origin = process.env.TN_NATIVE_PREVIEW_URL; const marker = process.env.TN_
 assert.equal(process.env.TN_NATIVE_PREVIEW_ISOLATED, '1');
 assert.ok(/^http:\/\/(localhost|127\.0\.0\.1):18085$/.test(origin)); assert.match(marker, /^TNCP63[A-F0-9]{20}$/);
 const email = `${marker.toLowerCase()}@example.invalid`; const out = path.resolve(process.argv[2]);
-const checks=[]; function check(label,value){assert.ok(value,label);checks.push(label);}
+const checks=[]; function check(label,value){assert.ok(value,label);checks.push(label);fs.writeFileSync(path.join(out,'checks-in-progress.json'),JSON.stringify(checks,null,2));}
 (async()=>{
  fs.mkdirSync(out,{recursive:true}); const browser=await chromium.launch({channel:'msedge',headless:true,args:['--host-resolver-rules=MAP localhost 127.0.0.1']});
  const errors=[]; const refs=[];
@@ -25,7 +25,7 @@ const checks=[]; function check(label,value){assert.ok(value,label);checks.push(
     for(const id of ['active-network','managed-support','server-planning','security-planning','monitoring-planning','wifi-planning','branch-planning'])check('Browsable category '+id,await page.locator(`#${id}`).count()===1&&await page.locator(`main a[href="#${id}"]`).count()===1);
     for(const slug of ['network-tehran','network-support-tehran','network-setup-tehran','mikrotik-tehran','remote-support','voice-network-readiness'])check('Retains service owner '+slug,await page.locator(`main a[href="/services/${slug}/"]`).count()>0);
     check('Specialist VoIP remains contextual MyTel link',await page.locator('main a[href="https://mytel.one/services/"]').count()>0);
-    check('No unsupported specialist availability promise',(await page.locator('main').innerText()).includes('به معنی تأیید ظرفیت اجرا'));
+    check('Owner-confirmed specialist services have explicit deliverables',(await page.locator('main').innerText()).includes('خروجی قابل تحویل'));
    }
    await page.screenshot({path:path.join(out,(route==='/'?'home':'services')+'-1440.png'),fullPage:true});
    if(route==='/services/')await page.locator('.tn-svc-grid').first().screenshot({path:path.join(out,'service-cards-1440.png')});
@@ -36,7 +36,9 @@ const checks=[]; function check(label,value){assert.ok(value,label);checks.push(
   check('CTA carries approved service into the form',await form.locator('[name=tn_service_context]').inputValue()==='mikrotik');
   check('Nonce belongs to submitted FormData',await form.evaluate(f=>!!new FormData(f).get('_wpnonce')&&f.querySelector('[name=_wpnonce]').form===f));
   await fill(form,'mikrotik','desktop');await form.locator('details').evaluate(e=>e.open=true);await form.locator('[name=tn_company]').fill(marker);
-  await Promise.all([page.waitForURL('**/support/?tn_ticket=sent&tn_service_receipt=*'),form.locator('[type=submit]').click()]);
+  const desktopEvents=[];page.on('request',r=>desktopEvents.push({request:r.url(),method:r.method()}));page.on('response',r=>desktopEvents.push({response:r.url(),status:r.status()}));page.on('requestfailed',r=>desktopEvents.push({failed:r.url(),error:r.failure()}));
+  try{await Promise.all([page.waitForURL('**/support/?tn_ticket=sent&tn_service_receipt=*',{waitUntil:'domcontentloaded'}),form.locator('[type=submit]').click()]);}
+  catch(error){fs.writeFileSync(path.join(out,'desktop-failure-private.json'),JSON.stringify({url:page.url(),events:desktopEvents,body:await page.locator('body').innerText()},null,2));await page.screenshot({path:path.join(out,'desktop-failure-private.png'),fullPage:true});throw error;}
   const receiptURL=page.url();const notice=page.locator('.tn-service-receipt');
   const ref=(await notice.innerText()).match(/TN-\d+/)?.[0];check('Saved request yields actual reference and open status',!!ref&&(await notice.innerText()).includes('در انتظار بررسی'));refs.push(ref);
   check('Receipt reveals no contact or conversation',!(await notice.innerText()).includes(email)&&!(await notice.innerText()).includes(marker));
@@ -65,7 +67,7 @@ const checks=[]; function check(label,value){assert.ok(value,label);checks.push(
   check('Focused no-JS form uses stable immediate scrolling',await np.evaluate(()=>getComputedStyle(document.documentElement).scrollBehavior==='auto'));
   const validity=await nf.evaluate(f=>({valid:f.checkValidity(),invalid:[...f.elements].filter(e=>e.willValidate&&!e.validity.valid).map(e=>({name:e.name,message:e.validationMessage}))}));
   fs.writeFileSync(path.join(out,'nojs-before-private.json'),JSON.stringify(validity,null,2));check('No-JS form passes native client validation',validity.valid);
-  try{await Promise.all([np.waitForURL('**/support/?tn_ticket=sent&tn_service_receipt=*'),nf.locator('[type=submit]').click()]);}
+  try{await Promise.all([np.waitForURL('**/support/?tn_ticket=sent&tn_service_receipt=*',{waitUntil:'domcontentloaded'}),nf.locator('[type=submit]').click()]);}
   catch(error){fs.writeFileSync(path.join(out,'nojs-failure-private.json'),JSON.stringify({url:np.url(),posts:nojsRequests,form:await nf.evaluate(f=>({action:f.getAttribute('action'),method:f.method,valid:f.checkValidity(),elements:[...f.elements].map(e=>({name:e.name,type:e.type,length:e.value?.length,required:e.required,valid:e.validity?.valid,message:e.validationMessage,associated:e.form===f,disabled:e.disabled}))})),body:await np.locator('body').innerText()},null,2));await np.screenshot({path:path.join(out,'nojs-failure-private.png'),fullPage:true});throw error;}
   const second=(await np.locator('.tn-service-receipt').innerText()).match(/TN-\d+/)?.[0];refs.push(second);
   check('Mobile no-JS request actually saved with distinct reference',!!second&&second!==ref);

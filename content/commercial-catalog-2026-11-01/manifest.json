@@ -9,7 +9,7 @@
       "title_observed": "خدمات",
       "expected_content_sha256": "514df9299d6156a1985e366d0d998044d1cb97674419bf1a2aefe107f0a116c5",
       "content_file": "services.html",
-      "content_sha256_lf": "1ee025954947dcf59ad21710034eadc8760f39ad2596c449d073dea218f376e0",
+      "content_sha256_lf": "82c45ee6ad54996cad5cb989ecc618fb895d4af6e8242043fc11a0ca87547385",
       "change_fields": [
         "post_content"
       ]

@@ -14,7 +14,7 @@ final class TehNet_Store_Tickets {
         return ['key'=>$value,'label'=>$options[$value]];
     }
 
-    /** Intake routing, not a promise of availability, price or specialist capacity. */
+    /** Owner-confirmed service areas; project scope, vendor fit and terms require agreement. */
     public static function service_options(): array {
         return [
             'general-network'=>'انتخاب مسیر مناسب برای نیاز شبکه',
@@ -23,10 +23,10 @@ final class TehNet_Store_Tickets {
             'mikrotik'=>'پیکربندی و عیب‌یابی MikroTik',
             'remote-support'=>'بررسی امکان پشتیبانی از راه دور',
             'voice-network'=>'بررسی آمادگی شبکه برای VoIP',
-            'monitoring-scoping'=>'نیازسنجی مانیتورینگ؛ پس از تأیید دامنه',
-            'server-scoping'=>'نیازسنجی سرور و مجازی‌سازی؛ پس از تأیید دامنه',
-            'security-scoping'=>'نیازسنجی امنیت شبکه؛ پس از تأیید دامنه',
-            'wifi-branch-scoping'=>'نیازسنجی Wi-Fi و شعب؛ پس از تأیید دامنه',
+            'monitoring-scoping'=>'راه‌اندازی و بهبود مانیتورینگ شبکه',
+            'server-scoping'=>'سرور و مجازی‌سازی',
+            'security-scoping'=>'امنیت شبکه و فایروال',
+            'wifi-branch-scoping'=>'Wi-Fi سازمانی و ارتباط شعب',
         ];
     }
 
