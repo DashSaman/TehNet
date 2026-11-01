@@ -1,0 +1,14 @@
+{
+  "status": "ROLLED_BACK",
+  "source_commit": "f5119a0679eeaed9a3847d5461803d9856b35090",
+  "pull_request": "https://github.com/DashSaman/TehNet/pull/69",
+  "ci_run": 41318582449,
+  "ci_conclusion": "success",
+  "files_applied_and_restored": 13,
+  "menu_items_applied_and_restored": 10,
+  "protected_state_unchanged_after_rollback": true,
+  "cause": "The release wrapper incorrectly required noindex on the pre-existing standalone /tunnels/ utility. A fresh read-only HTTPS baseline confirmed this utility has one H1 and no noindex meta; all other tested WordPress destinations retain intentional noindex. No runtime fault was established.",
+  "next_attempt": "Keep the same native-qualified payload; use a reviewed new source/journal, a fresh backup/checksum/drift guard and preserve the measured per-route robots state. Do not delete the rolled-back journal or change tunnel indexing to satisfy a test.",
+  "production_qa_form_submissions": 0,
+  "captcha_enabled": false
+}

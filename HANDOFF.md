@@ -1,3 +1,5 @@
+**انتشار نخست PR69/source f5119a0 بازگشت کامل شد:**۱۳فایل و۱۰آیتم منو با protected-state برابر بازیابی شدند. شرط noindex برای /tunnels/ با خط مبنای واقعی سازگار نبود؛ این ابزار قدیمی یک H1 و از قبل فاقد meta noindex است. وضعیت شاخص‌گذاری آن تغییر نکرد. [رسید rollback](qa/corporate-ui-2026-11-01/first-release-rollback.json). تلاش بعدی فقط با source/journal تازه، backup و payload برابر با staging واجد آزمون؛ انتشار موفق هنوز ادعا نمی‌شود.
+
 ## CURRENT — ظاهر شرکتی و کپچا: staging تأیید، انتشار در انتظار
 
 درخواست تازهٔ مالک: حذف لینک رزومه از فوتر، ترازبندی مراحل همکاری، فونت محلی Estedad/OFL، ناوبری خواناتر و قابل‌ویرایش (مدیریت تونل زیر خدمات)، ظاهر روشن با حفظ انتخاب تیره و اتصال Google v2 به همان چهار intake. [فهرست و برنامه](docs/superpowers/plans/2026-11-01-corporate-ui-captcha.fa.md)، [شاهد staging](qa/corporate-ui-2026-11-01/staging-verification.json)، [عملیات کپچا](docs/recaptcha-operations.fa.md).
