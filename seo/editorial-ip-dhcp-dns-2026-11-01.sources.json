@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "SCOPED_REVIEW_DRAFT_NOT_DEPLOYED",
+  "status": "SCOPED_REVIEW_WITH_ACTUAL_PUBLICATION_RECEIPT",
   "reviewed": "2026-11-01",
   "target": {
     "id": 63,
@@ -112,6 +112,9 @@
     }
   ],
   "technical_execution": "NOT_RUN",
-  "wordpress_qualification": "PENDING",
-  "publication": "NOT_DEPLOYED"
+  "wordpress_qualification": "57 blocks/21 staging-browser/37 native+37 support regression; immutable rollback;9 TLS+35 public-browser actual release",
+  "publication": "DEPLOYED_VERIFIED",
+  "production_source_commit": "65f0757940bb4942b2001bf81a4a0d4e9eb905b7",
+  "production_receipt": "../qa/growth-2026-10-31/ip-dhcp-dns-production-release.json",
+  "limits_unchanged": "RouterOS lab and Windows network commands NOT_RUN; technical section review only"
 }

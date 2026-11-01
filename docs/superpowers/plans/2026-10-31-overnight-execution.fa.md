@@ -123,3 +123,14 @@ Checkpoint clarification: completed boxes refer to the scoped results in the pro
 | P10 final morning report | IN_PROGRESS | LIVE_NOT_FINAL;08:00 Tehran final still required |
 
 Scoped acceptance:37 native new/29+27+37 shared regressions,13 operator units,41 blocks/26 staging-browser checks, immutable backup/tamper/apply/repeat/rollback/repeat, current metadata baseline fixture exactly restored. Production zero runtime installs, eight runtime files/protected data/containers retained, noindex and25 inquiry-only products preserved. No MyTel write or real forms/payments. Credential rotation UNKNOWN, history NEEDS_APPROVAL and Origin UNDETERMINED remain; the unchecked broad tasks above are not silently marked complete.
+
+## Queue checkpoint — third existing lesson, 2026-11-01 03:36Tehran
+
+| Package | State | Scope / evidence |
+|---|---|---|
+| P7 C01 IP/DHCP/DNS existing ID63 | DEPLOYED | PR47/source65f0757940bb4942b2001bf81a4a0d4e9eb905b7;9 scoped primary sources,57 blocks/21 staging-browser,37 native+37 support regression, Linux20PASS, immutable rollback and9 TLS/35 public-browser acceptance; network execution NOT_RUN |
+| P9 third-lesson transfer | VERIFIED | -SEO PR12/mainb7fda515479fe78a00709fd90a7abee99757d615/CI41255469730; candidate topics remain candidates and baseline71% unchanged |
+| P6 MyTel contextual proposal | READY | Read canonical repository context after verifying current sanitized ref; repo-only, no production URL/Title/H1/performance change |
+| P10 morning report | IN_PROGRESS | LIVE_NOT_FINAL;08:00Tehran final still required |
+
+Three existing lessons62/64/63 have been improved; zero new articles/URLs in these revisions. Keep page-role metadata, support/service and local-tool changes as separate deliveries. Noindex, inquiry-only commerce, protected data and MyTel freeze remain. Security rotation/history/Origin gates are unchanged. Do not replay accepted releases or rebuild the100-candidate inventory.

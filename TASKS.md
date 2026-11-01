@@ -1,4 +1,12 @@
-## CURRENT — درس IP/DHCP/DNS و مسیر انتشار qualify شدند
+## CURRENT — درس موجود IP/DHCP/DNS روی live تأیید شد
+
+DEPLOYED —۱نوامبر،03:36تهران: [درس IP/DHCP/DNS](https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/) همان ID63/URL/عنوان/والد، فقط body و تاریخ واقعی تغییر.۹منبع اولیهٔ scoped، پنج نیاز C01 در یک درس با سناریوی ساختگی/مرزDNS/تشخیصlease/prefix/reservation/پذیرش. RouterOS/Windows network commands اجرا نشده و متن صریح است. PR47 وCI41255129086 با۲۰Linux PASS ادغام؛ source live `65f0757940bb4942b2001bf81a4a0d4e9eb905b7` برابر payload/tool/8guardِ qualified `487663b9739cc4a974b9437ee3771e7ee0a315aa`.
+
+backup تازه/checksum/drift وrepeat بدون تغییر؛ صفر runtime install/URL/مقالهٔ جدید.۵۷بلوک/۲۱browser staging/۱۵GET لینک،۳۷native/۳۷regression و۲۰Windows case (۱۹PASS/۱SKIPsymlink)، immutable rollback وfixture restore پاس؛ سپس۹HTTPS و۳۵browser عمومی1440/375/no-JS باtimestamp واقعی پاس. دادهٔ محافظت‌شده/۸runtime file/containerها ثابت؛۲۵کالا/قابل‌خرید۰،ERP/sandbox false، MyTel write۰. receipt `qa/growth-2026-10-31/ip-dhcp-dns-production-release.json`، brief/source درseo. سه درس موجود62/64/63 بهبود یافته‌اند؛ شمار۱۰۰کاندیدا به معنی۱۰۰مقاله نیست.
+
+انتقال source/lesson acceptance وlimits در [-SEO PR12](https://github.com/DashSaman/-SEO/pull/12)، main `b7fda515479fe78a00709fd90a7abee99757d615`، CI41255469730 ادغام شد؛ baseline۷۱٪ وbacklog اصلی ثابت. NEXT: MyTel repository-only proposal را با خواندن canonical context و تأیید cleanup/current SHA آغاز کن؛ جایگاه لینک‌های مرتبط در صفحات موجود، بدون تغییر production URL/Title/H1/performance یا promise تازه. پس از آن gap خدمات/UX اثبات‌شده طبق صف. انتشار63/62/64/31/metadata/P4 یا inventory تکرار نشوند. ابزار محلی وdiagnostics نیز qualify/CI شده‌اند. گزارش صبح LIVE_NOT_FINAL؛ rotation UNKNOWN/history NEEDS_APPROVAL/Origin UNDETERMINED وnoindex/پرداخت/MyTel freeze حفظ شوند.
+
+## HISTORICAL CHECKPOINT — درس IP/DHCP/DNS و مسیر انتشار qualify شدند
 
 VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر: source مستقل ID63 `487663b9739cc4a974b9437ee3771e7ee0a315aa`.۵۷بلوک/۲۱browser/۱۵GET لینک،۳۷native جدید/۳۷regression خدمات و۲۰unit Windows (۱۹PASS/۱SKIPsymlink)؛ immutable check/apply/repeat/۴HTTP/rollback/repeat و رد tamper پاس. صفر runtime install و۸digest محافظت؛ metadata0.2.1 fixture واصل preview0.2.0، posts/meta/users وcontainerها دقیقاً بازگردانده شدند. `qa/growth-2026-10-31/ip-dhcp-dns-release-rehearsal.json` مرجع است؛ production هنوز تغییر نکرده.
 
