@@ -1,6 +1,6 @@
 # تحویل صبح TehNet × MyTel × SEO —۱نوامبر۲۰۲۶
 
-**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 04:29 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
+**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 04:43 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
 
 ## ۱. امنیت — گیت‌های باز مقدم‌اند
 
@@ -269,3 +269,21 @@ NEXT: انتقال source/قبولی واقعی/حدود به -SEO وثبتCI/co
 انتقال source/قبولی واقعی/حدود در [-SEO PR14](https://github.com/DashSaman/-SEO/pull/14)، main `eab10efbcaf7d3e1b4fa5b821f8274c04d08915a` وCI41259043445 ادغام شد؛۴source row/topic/dashboard/continuation،۹privacy test وscan۶۷فایل/۱۴مقصدdashboard پاس،baseline۷۱٪ ثابت. شکستQA وبازیابی دقیق نیزمنتقل شدند؛پاک‌سازی یاSEOgain ازقبولی انتشار استنباط نمی‌شود.
 
 NEXT: محتوای فعلی /services/remote-support/ را باپشتیبانی/راه‌اندازی پذیرفته‌شده مقایسه کن؛فقط اگر نیاز مستقلی دربارهٔ دسترسی مجاز یا پایان جلسه ثابت شد،بهبود همانURL را تحقیق کن. فرضِ نقص یا مجوزخدمت تازه نساز. انتشارهای قبلی و۱۰۰کاندیدا را بازپخش نکن؛preview writers ترتیبی وقفل مشترک باشند. noindex/فروشگاه/داده/خانه/منو/پرداخت/MyTel/security gates پابرجا وگزارشصبحLIVE_NOT_FINAL تا۰۸:۰۰ است.
+
+## checkpoint پیش‌نویس ریموت
+
+## CURRENT — پیش‌نویس پشتیبانی ریموت و محدودهٔ انتشار آزموده شد
+
+VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED —۱نوامبر: همانID37/URL/عنوان/والد، توضیح دسترسی مجاز، مشاهده/کنترل، توقف و پایان دسترسی و تحویل.۳صفحهٔprimary باحدنسخه/دامنه؛مثال صریحاً ساختگی وبدون جلسه/تست امنیت/تغییرشبکه.۴۰بلوک/۳۰browser1440/375/no-JS/edit-reset،۴۰native جدید و۳۹setup+۳۷support regression پاس؛۲۲Windowscase شامل۲۱PASS/۱SKIPsymlink. گیت قدیمی scope را رد کرد؛scope جدید exact/body-only با۸guard/صفرنصبruntime.۱۲GETلینکTLS200 و۳fragmentID پاس. همهٔposts/meta/users وکاربر موقت پس ازQA دقیقاً بازگشتند؛writerهایpreview ترتیبی وباقفل مشترک.
+
+رسید `qa/growth-2026-10-31/remote-support-draft-and-migration.json` وbrief/source درseo. اختلاف اولیه باinventoryقدیمی متوقف وبهafter نسخهٔاصلاح‌شدهٔcommitted تطبیق داده شد؛driftنامعلوم نیست. CISA403 کامل خوانده‌نشده وازپشتوانهٔمتن حذف است؛NIST2016 نهایی بافراخوانپیش‌نویس2020 وMicrosoft فقطمثال ابزارند،نهقانون/گواهی/تعهدخدمت.
+
+NEXT: immutable rehearsal مستقل باmetadata0.2.1 وrestoreدقیقpreview0.2.0،CI/ادغامعادی/snapshotخصوصی،برابریpayload/tool/۸guard،backup/checksum/driftتازه وتحققپذیرشعمومی. فعلاًproductionتغییرنکرده؛انتشارهایپیشین/QA recovery/۱۰۰کاندیدا بازپخش نشوند. MyTel/noindex/فروشگاه/داده/خانه/منو/پرداخت وsecuritygates پابرجا؛گزارشصبحLIVE_NOT_FINAL تا۰۸:۰۰.
+
+## checkpoint تمرین انتشار ریموت
+
+## CURRENT — پشتیبانی ریموت برای انتشار محدود آماده شد
+
+VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر: نسخهٔ ثابت `98572f47343208e48118f086431a4faaa16d5483` برای همان ID37.۴۰ بلوک،۳۰ بررسی مرورگر،۴۰ native و۳۹ setup/۳۷ support regression پاس؛ Windows۲۱PASS/۱SKIP از۲۲. تمرین backup/checksum/tamper/check/apply/repeat/۴HTTP/rollback/repeat موفق بود. posts/meta/users و metadata fixture اصلی و containerها دقیقاً حفظ/بازگردانده شدند؛۸ guard و صفر نصب runtime. رسید `qa/growth-2026-10-31/remote-support-release-rehearsal.json`. خطای selector خصوصی پیش از SSH رخ داد؛ پس از اصلاح، تمرین بومی موفق شد. هیچ جلسهٔ ریموت، آزمون امنیت ابزار یا تغییر شبکه اجرا نشده است.
+
+NEXT: CI تازهٔ head، snapshot خصوصی و ادغام عادی؛ برابری payload/tool/۸guard، backup تازه/checksum/drift تولید، انتشار فقط body و پذیرش عمومی.۱۲ لینک TLS200/۳anchor و حدود منابع حفظ شوند. production هنوز تغییر نکرده است. انتشارهای پذیرفته‌شده یا recovery قبلی بازپخش نشوند. MyTel/noindex/فروشگاه/داده/خانه/منو/پرداخت و گیت‌های امنیتی پابرجا؛ گزارش صبح LIVE_NOT_FINAL تا۰۸:۰۰.

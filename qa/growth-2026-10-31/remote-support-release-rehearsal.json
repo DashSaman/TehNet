@@ -1,0 +1,108 @@
+{
+  "scope": "Exact existing service in owned native staging, no runtime file changes",
+  "source_commit": "98572f47343208e48118f086431a4faaa16d5483",
+  "observed_utc": "2026-11-01T01:13:05.309025+00:00",
+  "results": [
+    {
+      "operation": "check",
+      "status": "READY",
+      "files_pending": 0,
+      "content": {
+        "status": "READY",
+        "pages_pending": 0,
+        "hubs_pending": 1,
+        "protected_digest": "b0d930c064dc1b5a3ef434790ceb586306fac3754efa0c4a4da1be9b3fef83a5"
+      }
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "files_changed": 0,
+      "content": {
+        "status": "APPLIED",
+        "pages_created": 0,
+        "hubs_updated": 1,
+        "page_ids": [],
+        "protected_digest": "b0d930c064dc1b5a3ef434790ceb586306fac3754efa0c4a4da1be9b3fef83a5",
+        "protected_state_unchanged": true
+      }
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "files_changed": 0,
+      "content": {
+        "status": "APPLIED",
+        "pages_pending": 0,
+        "hubs_pending": 0,
+        "pages_created": 0,
+        "hubs_updated": 0,
+        "page_ids": [],
+        "protected_state_unchanged": true
+      }
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "files_restored": 0,
+      "content": {
+        "status": "ROLLED_BACK",
+        "hubs_restored": 1,
+        "pages_drafted": 0,
+        "protected_state_unchanged": true
+      }
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "files_restored": 0,
+      "content": {
+        "status": "ROLLED_BACK",
+        "hubs_restored": 0,
+        "pages_drafted": 0,
+        "protected_state_unchanged": true
+      }
+    }
+  ],
+  "production_mutations": 0,
+  "current_metadata_baseline_fixture_verified": true,
+  "tampered_payload_refused": true,
+  "tampered_metadata_refused": true,
+  "http_smoke": [
+    {
+      "path": "/services/remote-support/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/shop/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/services/voice-network-readiness/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    }
+  ],
+  "original_posts_meta_users_exactly_restored": true,
+  "existing_runtime_unchanged": true,
+  "backup_checksum_verified": true,
+  "status": "VERIFIED_REHEARSAL_NOT_DEPLOYED",
+  "original_metadata_fixture_exactly_restored": true,
+  "completed_utc": "2026-11-01T01:13:20.896062+00:00",
+  "limits": [
+    "No real remote session, tool installation, security audit or network/device mutation",
+    "Zero production writes; metadata0.2.1 modeled temporarily, original preview0.2.0 restored exactly",
+    "Private helper initially formed an invalid Git fixture selector through prefix substitution; failed locally before SSH/native mutation, corrected exact immutable selector before this successful rehearsal"
+  ]
+}

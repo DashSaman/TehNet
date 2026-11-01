@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "key": "tehnet-service-remote-support-20261101-v1",
+  "status": "DRAFT_NOT_DEPLOYED",
+  "target": {
+    "id": 37,
+    "url": "https://tehnet.ir/services/remote-support/",
+    "title_observed": "پشتیبانی شبکه از راه دور",
+    "expected_content_sha256": "5c84ebdffaa8c93e61eea55bdf1871ff07cd68ee7ee1935135d557b3cc6f3e84",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "content_file": "remote-support.html",
+  "content_sha256_lf": "2f5210b20f6d51559aee901c5a9d56120ff16b150b8c28e95516f646fe0d866c",
+  "protected": [
+    "home",
+    "menus",
+    "products/all meta",
+    "orders/customers/tickets/quotes",
+    "blog_public",
+    "payments/ERP",
+    "MyTel production"
+  ],
+  "qualification": {
+    "source_review": "SCOPED_PRIMARY_SECTIONS",
+    "remote_session_tests": "NOT_RUN",
+    "native_blocks": "PASS_40_REGISTERED_BLOCKS",
+    "browser": "PASS_30_DESKTOP_MOBILE_NOJS_EDITOR",
+    "migration": "PASS_40_SCOPED_ASSERTIONS_AND_39_SETUP_37_SUPPORT_REGRESSION",
+    "production": "NOT_DEPLOYED",
+    "operator_windows": "21_PASS_1_SYMLINK_PERMISSION_SKIP_OF22",
+    "links": "PASS_12_TLS200_AND_3_FRAGMENT_IDS"
+  },
+  "limits": [
+    "One existing service body; zero new URL, tool installation or service commitment",
+    "Fictional scenario unmeasured; no remote session, security tool test or device/network mutation",
+    "NIST2016 final with Rev3 pre-draft call observed; not an Iranian legal/contractual duty",
+    "Microsoft tool-specific permission/session examples do not transfer to all tools or prove local availability"
+  ]
+}
