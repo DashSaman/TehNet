@@ -38,4 +38,19 @@
 
 noindex،۲۵کالای استعلامی/قابل‌خرید صفر، ERP/پرداخت بسته، خانه/منو/مالک‌های خدمات و داده‌ها حفظ می‌شوند. credential rotation همچنان UNKNOWN/NOT_ROTATED؛ purge مشترک NEEDS_APPROVAL؛ Origin UNDETERMINED و MyTel production READ_ONLY. این تغییرات گیت‌ها را نمی‌بندند.
 
-کارهای باز Issue63: عمق تخصصی CP03، اعتماد و قرارداد CP04، بستهٔ۳–۵ دارایی محتوایی متمایز CP05 و اندازه‌گیری/مجوز indexability در CP06. فهرست نامزدها مقالهٔ منتشرشده نیست. منابع جاری: [محتوای مردم‌محور Google](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)، [لینک قابل پیمایش](https://developers.google.com/search/docs/crawling-indexing/links-crawlable)؛ تاریخ بازبینی۱نوامبر۲۰۲۶. لینک توصیفی و پاسخ به نیاز کاربر راهنمای اجراست، نه تضمین رتبه.
+وضعیت بسته‌های بعدی در بخش ادامهٔ اجرا آمده است: سه ارتقای محتوایی موجود منتشر شده‌اند؛ عمق باقیمانده، مدرک اعتماد و اندازه‌گیری/مجوز indexability هنوز بازند. فهرست نامزدها مقالهٔ منتشرشده نیست. منابع جاری: [محتوای مردم‌محور Google](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)، [لینک قابل پیمایش](https://developers.google.com/search/docs/crawling-indexing/links-crawlable)؛ تاریخ بازبینی۱نوامبر۲۰۲۶. لینک توصیفی و پاسخ به نیاز کاربر راهنمای اجراست، نه تضمین رتبه.
+
+
+## ادامهٔ اجرا: سه ارتقای محتوایی واقعاً منتشر شد
+
+[PR66](https://github.com/DashSaman/TehNet/pull/66)، CI41313522605 و source `fd1209d200b87554a97e1671f4ef6f97d7e4de22`: سه بدنهٔ موجود، بدون نصب runtime یا URL تازه. برای هرکدام، تطابق بستهٔ qualified، backup/checksum/drift تازه، apply/repeat، hash بدنهٔ ذخیره‌شده، حفاظت داده/runtime و TLS عمومی گذشت؛ سپس۴۱بررسی مرورگر عمومی1440/375/JS/no-JS تأیید شد. هیچ فرم تولید submit نشد.
+
+- [پشتیبانی/مانیتورینگ](https://tehnet.ir/services/network-support-tehran/#monitoring-acceptance)، ID31: سناریوی پذیرش قطع شعبه، کشف/اعلان/تأیید/بازیابی، مسئول پاسخ، سه الگوی همکاری پیشنهادی و FAQ.
+- [راه‌اندازی/Wi-Fi](https://tehnet.ir/services/network-setup-tehran/#wifi-project-brief)، ID33: شرح پروژه، ظرفیت در برابر پوشش، مهمان و کاربرد نماینده، معیار تحویل و FAQ.
+- [MikroTik/فایروال](https://tehnet.ir/services/mikrotik-tehran/#firewall-acceptance)، ID35: تفکیک input/forward/output، ماتریس دسترسی مجاز/منع‌شده، توقف/بازگشت و تحویل.
+
+این سه ارتقای عمیق صفحات موجودند؛ مقالهٔ تازه یا پروژهٔ واقعی مشتری محسوب نمی‌شوند. مثال‌ها فرضی و اندازه‌گیری‌نشده‌اند. منابع رسمی Zabbix/Cisco/MikroTik با تاریخ و محدودیت نسخه/محصول در [brief](../../seo/commercial-depth-2026-11-01.md) و متن صفحات آمده‌اند؛ تست دستگاه، RF، تحویل اعلان، امنیت فایروال یا نتیجهٔ SEO ادعا نشده است. لینک‌های برآورد خدمت از B2B تجهیزات به همان فرم خدمات اصلاح شدند. [قالب مطالعهٔ موردی](../templates/service-case-study-private-workflow.md) فقط گردش‌کار خصوصی با وضعیت رضایت NOT_GRANTED است؛ مشتری یا نتیجهٔ ساختگی منتشر نشده.
+
+[رسید تولید سه ارتقا](../../qa/commercial-2026-11-01/depth-production-verification.json). بررسی دادهٔ GSC Wizard با خطای واقعی `payment_required / subscription_required` متوقف شد؛ retry یا اشتراک پولی انجام نشد. دادهٔ query/rank/traffic/conversion در دسترس این اتصال نیست. [فهرست مسیرهای انتشار برای بررسی مالک](../../seo/commercial-launch-inventory-2026-11-01.json) از همان شواهد واقعی ساخته شده؛ noindex تغییر نکرده و مجوز ایندکس جداست.
+
+باقی‌ماندهٔ دقیق: عمق سرور/مجازی‌سازی و ارتباط شعب فعلاً به کارت‌های تأییدشدهٔ کاتالوگ محدود است؛ مدرک پروژه/رضایت مشتری، SLA/قیمت/برند مشخص، اندازه‌گیری جست‌وجو/تبدیل و تصمیم مالک برای indexability لازم‌اند. Issue63 باز می‌ماند؛ برابری رقابتی ادعا نمی‌شود.

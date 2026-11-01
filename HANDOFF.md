@@ -6,7 +6,11 @@
 
 [گزارش قبل/بعد و خطاهای واقعی](docs/reports/COMMERCIAL_CP01_CP02_2026-11-01.fa.md)، [staging](qa/commercial-2026-11-01/staging-verification.json)، [تولید](qa/commercial-2026-11-01/production-verification.json). Issue63 باز؛ parity/rank/conversion اثبات نشده. CP01/02 معیار اصلی بهبود قابل مشاهده و سفر درخواست واقعی را برآورده کرده‌اند؛ کل Issue تمام نیست.
 
-NEXT: CP03 عمق خدمات تأییدشده، CP04 اعتماد/روش قرارداد و CP05 بسته۳–۵دارایی عمیق متمایز را با منابع/بررسی فنی ادامه بده؛ انتقال دانش دقیق به -SEO. فهرست۱۰۰نامزد مقاله نیست. بازپخش انتشار/QA کامل بدون تغییر لازم نیست. MyTel READ_ONLY،noindex،پرداخت بسته،credential UNKNOWN/NOT_ROTATED/history NEEDS_APPROVAL/origin UNDETERMINED و منعforce-push حفظ‌اند.
+**ادامهٔ همان مأموریت:** سه ارتقای عمیق موجود در پشتیبانی31/راه‌اندازی33/MikroTik35 با PR66/CI41313522605 و source `fd1209d200b87554a97e1671f4ef6f97d7e4de22` منتشر شدند: مانیتورینگ و قرارداد، Wi-Fi و پذیرش، فایروال و ماتریس دسترسی. هرکدام native41 + public41، backup/checksum/drift/apply/repeat/hash/protected-state/runtime تأیید؛ صفر مقاله/URL/runtime تازه و صفر submit تولید. [رسید](qa/commercial-2026-11-01/depth-production-verification.json)، [brief/منابع](seo/commercial-depth-2026-11-01.md). مثال‌ها فرضی‌اند، تست دستگاه/RF/امنیت یا نتیجهٔ فروش نیستند. قالب case-study خصوصی با رضایت NOT_GRANTED آماده است.
+
+CP06: GSC Wizard `payment_required / subscription_required`؛ retry/خرید اشتراک انجام نشد، metrics در دسترس نیست. [launch inventory](seo/commercial-launch-inventory-2026-11-01.json) برای تصمیم مالک آماده است، نه مجوز حذف noindex.
+
+NEXT: انتقال شواهد و commitهای نهایی به -SEO؛ عمق سرور/مجازی‌سازی و ارتباط شعب، مدارک/رضایت واقعی مشتری، مشخصات برند/SLA/قیمت و GSC/indexing approval بازند. Issue63 را نبند و parity/rank/lead uplift ادعا نکن. سه ارتقای موجود منتشر شده‌اند؛ بستهٔ نامزدها یا CI جای نتیجهٔ تجاری را نمی‌گیرد. فهرست۱۰۰نامزد مقاله نیست. بازپخش انتشار/QA کامل بدون تغییر لازم نیست. MyTel READ_ONLY،noindex،پرداخت بسته،credential UNKNOWN/NOT_ROTATED/history NEEDS_APPROVAL/origin UNDETERMINED و منعforce-push حفظ‌اند.
 
 ## CURRENT — تحویل نهایی دورهٔ شبانه؛ گیت‌های باز حفظ شده‌اند
 

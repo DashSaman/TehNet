@@ -1,0 +1,162 @@
+{
+  "status": "APPROVAL_READY_INVENTORY_NOT_INDEXING_APPROVAL",
+  "reviewed_utc": "2026-11-01T14:00:33.452934+00:00",
+  "scope": "Reuse exact public release observations; no repeated site-wide audit",
+  "intentional_noindex_preserved": true,
+  "gsc_access": {
+    "provider": "GSC Wizard",
+    "status": "UNAVAILABLE",
+    "error": "payment_required / subscription_required",
+    "retried": false,
+    "subscription_purchased": false,
+    "queries_rank_traffic_conversion": "UNAVAILABLE"
+  },
+  "robots_txt_and_sitemap": "NOT_RECHECKED_IN_THIS_PACKAGE; existing intentional controls preserved",
+  "routes": [
+    {
+      "url": "https://tehnet.ir/",
+      "status": 200,
+      "h1_count": 1,
+      "noindex_observed": true,
+      "tls_verified": true,
+      "changed_existing_page_id": 5,
+      "indexing_gate": "EXPLICIT_OWNER_APPROVAL_REQUIRED",
+      "canonical": "NOT_RECHECKED_BY_THIS_RECEIPT"
+    },
+    {
+      "url": "https://tehnet.ir/services/",
+      "status": 200,
+      "h1_count": 1,
+      "noindex_observed": true,
+      "tls_verified": true,
+      "changed_existing_page_id": 8,
+      "indexing_gate": "EXPLICIT_OWNER_APPROVAL_REQUIRED",
+      "canonical": "VERIFIED_EXACT_OWNER"
+    },
+    {
+      "url": "https://tehnet.ir/services/network-tehran/",
+      "status": 200,
+      "h1_count": 1,
+      "noindex_observed": true,
+      "tls_verified": true,
+      "changed_existing_page_id": null,
+      "indexing_gate": "EXPLICIT_OWNER_APPROVAL_REQUIRED",
+      "canonical": "NOT_RECHECKED_BY_THIS_RECEIPT"
+    },
+    {
+      "url": "https://tehnet.ir/services/network-support-tehran/",
+      "status": 200,
+      "h1_count": 1,
+      "noindex_observed": true,
+      "tls_verified": true,
+      "changed_existing_page_id": 31,
+      "indexing_gate": "EXPLICIT_OWNER_APPROVAL_REQUIRED",
+      "canonical": "VERIFIED_EXACT_OWNER"
+    },
+    {
+      "url": "https://tehnet.ir/services/network-setup-tehran/",
+      "status": 200,
+      "h1_count": 1,
+      "noindex_observed": true,
+      "tls_verified": true,
+      "changed_existing_page_id": 33,
+      "indexing_gate": "EXPLICIT_OWNER_APPROVAL_REQUIRED",
+      "canonical": "VERIFIED_EXACT_OWNER"
+    },
+    {
+      "url": "https://tehnet.ir/services/mikrotik-tehran/",
+      "status": 200,
+      "h1_count": 1,
+      "noindex_observed": true,
+      "tls_verified": true,
+      "changed_existing_page_id": 35,
+      "indexing_gate": "EXPLICIT_OWNER_APPROVAL_REQUIRED",
+      "canonical": "VERIFIED_EXACT_OWNER"
+    },
+    {
+      "url": "https://tehnet.ir/services/remote-support/",
+      "status": 200,
+      "h1_count": 1,
+      "noindex_observed": true,
+      "tls_verified": true,
+      "changed_existing_page_id": null,
+      "indexing_gate": "EXPLICIT_OWNER_APPROVAL_REQUIRED",
+      "canonical": "NOT_RECHECKED_BY_THIS_RECEIPT"
+    },
+    {
+      "url": "https://tehnet.ir/services/voice-network-readiness/",
+      "status": 200,
+      "h1_count": 1,
+      "noindex_observed": true,
+      "tls_verified": true,
+      "changed_existing_page_id": null,
+      "indexing_gate": "EXPLICIT_OWNER_APPROVAL_REQUIRED",
+      "canonical": "NOT_RECHECKED_BY_THIS_RECEIPT"
+    },
+    {
+      "url": "https://tehnet.ir/learn/",
+      "status": 200,
+      "h1_count": 1,
+      "noindex_observed": true,
+      "tls_verified": true,
+      "changed_existing_page_id": null,
+      "indexing_gate": "EXPLICIT_OWNER_APPROVAL_REQUIRED",
+      "canonical": "NOT_RECHECKED_BY_THIS_RECEIPT"
+    },
+    {
+      "url": "https://tehnet.ir/lab/",
+      "status": 200,
+      "h1_count": 1,
+      "noindex_observed": true,
+      "tls_verified": true,
+      "changed_existing_page_id": null,
+      "indexing_gate": "EXPLICIT_OWNER_APPROVAL_REQUIRED",
+      "canonical": "NOT_RECHECKED_BY_THIS_RECEIPT"
+    },
+    {
+      "url": "https://tehnet.ir/lab/voice-network-checklist/",
+      "status": 200,
+      "h1_count": 1,
+      "noindex_observed": true,
+      "tls_verified": true,
+      "changed_existing_page_id": null,
+      "indexing_gate": "EXPLICIT_OWNER_APPROVAL_REQUIRED",
+      "canonical": "NOT_RECHECKED_BY_THIS_RECEIPT"
+    },
+    {
+      "url": "https://tehnet.ir/shop/",
+      "status": 200,
+      "h1_count": 1,
+      "noindex_observed": true,
+      "tls_verified": true,
+      "changed_existing_page_id": null,
+      "indexing_gate": "EXPLICIT_OWNER_APPROVAL_REQUIRED",
+      "canonical": "NOT_RECHECKED_BY_THIS_RECEIPT"
+    },
+    {
+      "url": "https://tehnet.ir/support/",
+      "status": 200,
+      "h1_count": 1,
+      "noindex_observed": true,
+      "tls_verified": true,
+      "changed_existing_page_id": null,
+      "indexing_gate": "EXPLICIT_OWNER_APPROVAL_REQUIRED",
+      "canonical": "NOT_RECHECKED_BY_THIS_RECEIPT"
+    },
+    {
+      "url": "https://tehnet.ir/b2b/",
+      "status": 200,
+      "h1_count": 1,
+      "noindex_observed": true,
+      "tls_verified": true,
+      "changed_existing_page_id": null,
+      "indexing_gate": "EXPLICIT_OWNER_APPROVAL_REQUIRED",
+      "canonical": "NOT_RECHECKED_BY_THIS_RECEIPT"
+    }
+  ],
+  "limits": [
+    "HTTP/rendering and editorial delivery do not prove indexing or search/lead uplift.",
+    "MyTel is not included in a TehNet indexing approval; its production freeze remains.",
+    "Security incident and payment gates are independent."
+  ]
+}
