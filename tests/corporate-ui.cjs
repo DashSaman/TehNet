@@ -26,13 +26,13 @@ const out=path.resolve(process.argv[2]);const checks=[];const check=(label,value
   await p.locator('.tn-site-header').screenshot({path:path.join(out,'after-header-1440.png')});
   await p.locator('.tn-svc-process').screenshot({path:path.join(out,'after-workflow-1440.png')});
   await p.screenshot({path:path.join(out,'after-services-1440.png'),fullPage:true});
-  await p.locator('#tn-theme-toggle').click();check('Dark theme remains usable',await p.locator('html').getAttribute('data-theme')==='dark');
+  await p.locator('.tn-theme-toggle').click();check('Dark theme remains usable',await p.locator('html').getAttribute('data-theme')==='dark');
   await p.locator('.tn-svc-process').screenshot({path:path.join(out,'after-workflow-dark-1440.png')});
-  await p.reload({waitUntil:'networkidle'});check('Saved dark preference survives reload',await p.locator('html').getAttribute('data-theme')==='dark');await p.locator('#tn-theme-toggle').click();
+  await p.reload({waitUntil:'networkidle'});check('Saved dark preference survives reload',await p.locator('html').getAttribute('data-theme')==='dark');await p.locator('.tn-theme-toggle').click();
   for(const width of [320,375,768,1024,1280,1440]){
    await p.setViewportSize({width,height:900});
    check('No horizontal overflow at'+width,await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
-   if(width<=1050){const toggle=p.locator('#tn-menu-toggle');await toggle.click();check('Touch menu opens at'+width,await toggle.getAttribute('aria-expanded')==='true');await service.click();check('Mobile Services child visible at'+width,await p.locator('.tn-site-nav .sub-menu a[href$="/tunnels/"]').isVisible());await p.keyboard.press('Escape');await toggle.click();}
+   if(width<=1050){const toggle=p.locator('.tn-menu-toggle');await toggle.click();check('Touch menu opens at'+width,await toggle.getAttribute('aria-expanded')==='true');await service.click();check('Mobile Services child visible at'+width,await p.locator('.tn-site-nav .sub-menu a[href$="/tunnels/"]').isVisible());await p.keyboard.press('Escape');await toggle.click();}
    if(width===375)await p.screenshot({path:path.join(out,'after-services-375.png'),fullPage:true});
   }
   await p.setViewportSize({width:1440,height:1000});await p.goto(origin+'/',{waitUntil:'networkidle'});await p.screenshot({path:path.join(out,'after-home-1440.png'),fullPage:true});
