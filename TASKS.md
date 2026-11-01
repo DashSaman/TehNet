@@ -10,7 +10,9 @@
 
 CP06: GSC Wizard `payment_required / subscription_required`؛ retry/خرید اشتراک انجام نشد، metrics در دسترس نیست. [launch inventory](seo/commercial-launch-inventory-2026-11-01.json) برای تصمیم مالک آماده است، نه مجوز حذف noindex.
 
-NEXT: انتقال شواهد و commitهای نهایی به -SEO؛ عمق سرور/مجازی‌سازی و ارتباط شعب، مدارک/رضایت واقعی مشتری، مشخصات برند/SLA/قیمت و GSC/indexing approval بازند. Issue63 را نبند و parity/rank/lead uplift ادعا نکن. سه ارتقای موجود منتشر شده‌اند؛ بستهٔ نامزدها یا CI جای نتیجهٔ تجاری را نمی‌گیرد. فهرست۱۰۰نامزد مقاله نیست. بازپخش انتشار/QA کامل بدون تغییر لازم نیست. MyTel READ_ONLY،noindex،پرداخت بسته،credential UNKNOWN/NOT_ROTATED/history NEEDS_APPROVAL/origin UNDETERMINED و منعforce-push حفظ‌اند.
+انتقال دانش در [-SEO PR21](https://github.com/DashSaman/-SEO/pull/21) ادغام شد؛ main `8d764e356d8f9b4a8844f5afb7696535f4ff60e4`، head آزموده‌شده `8072e6b60279688284347456c2cf1011c9ecfdcb` و CI41314407511 موفق. دو موضوع موجود/هفت ردیف منبع/بازبینی scoped Google و هماهنگی/dashboard به‌روز؛ baseline71٪ و۱۸مقصد ثابت.۱۲privacy محلی،scan۶۸/۶۸،منابع یکتا/لینک‌ها/anchorها پاس. گزارش سه انتشار در TehNet PR67/main `ce29a4a0e8e1c2e88af1745d8d535e0877055192` و CI41314181611 ادغام شد؛ این‌ها تغییر اسنادند و انتشار زنده را تکرار نمی‌کنند.
+
+NEXT: تکمیل عمق خدمات در مالک‌های موجود؛ عمق سرور/مجازی‌سازی و ارتباط شعب، مدارک/رضایت واقعی مشتری، مشخصات برند/SLA/قیمت و GSC/indexing approval بازند. Issue63 را نبند و parity/rank/lead uplift ادعا نکن. سه ارتقای موجود منتشر شده‌اند؛ بستهٔ نامزدها یا CI جای نتیجهٔ تجاری را نمی‌گیرد. فهرست۱۰۰نامزد مقاله نیست. بازپخش انتشار/QA کامل بدون تغییر لازم نیست. MyTel READ_ONLY،noindex،پرداخت بسته،credential UNKNOWN/NOT_ROTATED/history NEEDS_APPROVAL/origin UNDETERMINED و منعforce-push حفظ‌اند.
 
 ## CURRENT — تحویل نهایی دورهٔ شبانه؛ گیت‌های باز حفظ شده‌اند
 
