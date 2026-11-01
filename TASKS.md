@@ -1,4 +1,14 @@
-## CURRENT — خدمت MikroTik برای انتشار محدود آماده شد
+## CURRENT — خدمت MikroTik روی سایت تأیید شد
+
+DEPLOYED —۱نوامبر،05:10تهران: [خدمات MikroTik](https://tehnet.ir/services/mikrotik-tehran/) همانID35/URL/عنوان/والد؛ فقطbody و تاریخ واقعی01:40:51UTC تغییر کرد. اطلاعات مدل/نسخه/وابستگی،هدف تغییر،معیار پذیرش وپنجرهٔ بازیابی با۲منبع جاری و مثالVLAN صریحاً ساختگی/اندازه‌گیری‌نشده. PR54/CI41261972202 با۲۳Linux operator و۹privacy PASS ادغام؛ source live `918c6c2186d5f82196471d3e0a2588661df7bef8` برابر payload/tool/۸guard نسخهٔ qualified `73c72112fac967c71ea4f89c0129cf4a28f87e5a`.
+
+backup تازه/checksum/drift وrepeat بدونتغییر؛۹TLS GET/۴۴browser1440/375/no-JS پاس. دادهٔ محافظت‌شده،۸runtime file وcontainerها ثابت؛۲۵کالا/قابل‌خرید۰،ERP/sandbox false،MyTel write۰. صفرمقاله/URL/runtime install؛ live rollback لازم نشد.۳۹بلوک/۳۰staging/۴۱native+۴۰remote+۳۹setup regression وimmutable rollback/restore دقیقfixture پاس. رسید `qa/growth-2026-10-31/mikrotik-service-production-release.json`؛۱۵لینکTLS200/۳anchor. manual7.26 نسخهٔ دستگاه/توصیهٔارتقا نیست وlegacy frozen منبعجاری نیست. هیچ تست دستگاه/شبکه/VLAN/امنیت/سرعت/بازیابی یاSEOgain ادعا نشده است.
+
+انتقال منابع، پذیرش واقعی و حدود در [-SEO PR16](https://github.com/DashSaman/-SEO/pull/16)، main `b99609baf26c762d0a3f7a1c2260b0a35307d429` و CI41262309458 ادغام شد؛۳source row/topic/dashboard/continuation،۹privacy test وscan۶۷فایل/۱۶مقصد dashboard پاس،baseline۷۱٪ ثابت. نسخهٔ مستند با دستگاه،سایت frozen با مرجع جاری و آزمونWordPress با آزمون روتر/شبکه خلط نشده‌اند.
+
+NEXT: صفحهٔ موجود /services/network-tehran/ را برای نقش مستقل راهنمای انتخاب خدمت و مسیر درخواست بخوان؛ فقط پس از شاهد، بهبود همانURL را تحقیق کن و صفحهٔ هم‌نیت نساز. انتشارهای پذیرفته‌شده، recovery و۱۰۰کاندیدا بازپخش نشوند؛ preview writers ترتیبی و با قفل مشترک باشند. noindex/خانه/منو/فروشگاه/داده/پرداخت/MyTel وrotationUNKNOWN/historyNEEDS_APPROVAL/originUNDETERMINED/منعforce-push پابرجا؛ گزارش صبح LIVE_NOT_FINAL تا۰۸:۰۰.
+
+## HISTORICAL CHECKPOINT — خدمت MikroTik برای انتشار محدود آماده شد
 
 VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر: source ثابت `73c72112fac967c71ea4f89c0129cf4a28f87e5a` برای همان ID35.۳۹بلوک/۳۰browser/۴۱native+۴۰remote+۳۹setup regression؛ Windows۲۲PASS/۱SKIP از۲۳ و۱۵TLS200/۳anchor. تمرین backup/checksum/tamper/check/apply/repeat/۴HTTP/rollback/repeat موفق؛ posts/meta/users وmetadata fixture اصلی دقیقاً بازگشتند وcontainerها ثابت ماندند.۸guard/صفرنصبruntime. رسید `qa/growth-2026-10-31/mikrotik-service-release-rehearsal.json`؛ manual جاری و نسخه/مدل محدودند، مثالVLAN ساختگی و هیچ تست دستگاه/شبکه/امنیت/سرعت/بازیابی اجرا نشده است.
 
