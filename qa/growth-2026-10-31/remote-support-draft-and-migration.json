@@ -1,0 +1,180 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED",
+  "observed_utc": "2026-11-01T01:11:47.136017+00:00",
+  "target": {
+    "id": 37,
+    "url": "https://tehnet.ir/services/remote-support/",
+    "title_observed": "پشتیبانی شبکه از راه دور",
+    "expected_content_sha256": "5c84ebdffaa8c93e61eea55bdf1871ff07cd68ee7ee1935135d557b3cc6f3e84",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "body_sha256_lf": "2f5210b20f6d51559aee901c5a9d56120ff16b150b8c28e95516f646fe0d866c",
+  "reader_gap": "Existing generic remote steps lack concrete approval/view-versus-control/session-stop/end-access checks; not missing service capability or measured demand",
+  "sources": {
+    "primary_pages_scoped": 3,
+    "nist_final": "2016;2020 Rev3 pre-draft call observed, not a final revision",
+    "microsoft": "Tool-specific consent/end-session examples; no installation, audit capability or local availability claim",
+    "cisa": "Full body403; excluded as reviewed support",
+    "remote_session_or_network_execution": "NOT_RUN"
+  },
+  "native_editor": {
+    "registered_blocks": 40,
+    "roundtrip": true,
+    "sanitization": true,
+    "browser_checks": 30,
+    "viewports": [
+      1440,
+      375
+    ],
+    "no_js": true,
+    "editable_unsaved_reset": true,
+    "saved_editor_pages": 0,
+    "mobile_screenshot": "VISUALLY_REVIEWED",
+    "desktop": "AUTOMATED",
+    "page_errors": 0,
+    "blocked_external_origins": 2,
+    "original_four_table_fingerprint_restored": true,
+    "owned_account_removed": true,
+    "private_backup_verified": true
+  },
+  "migration": {
+    "red_before_registration": "CLI_ENTRY_REJECTED",
+    "native_assertions": 40,
+    "setup_regression": 39,
+    "support_regression": 37,
+    "negative_identity_path_digest_field_baseline_cases": true,
+    "idempotence_rollback_retention_hook_concurrency": true,
+    "runtime_installs": 0,
+    "current_runtime_guards": 8,
+    "shared_preview_writers": "SERIAL_WITH_OS_LOCK"
+  },
+  "local_operator": {
+    "cases": 22,
+    "passed": 21,
+    "skipped": 1,
+    "skip_reason": "Host lacks symlink creation permission",
+    "linux_ci": "PENDING_FOR_THIS_SOURCE"
+  },
+  "links": {
+    "observed_utc": "2026-11-01T01:09:29.016927+00:00",
+    "method": "Unique non-fragment hrefs via unauthenticated default-TLS GET; fragment IDs checked in draft; no forms submitted",
+    "rows": [
+      {
+        "url": "https://csrc.nist.gov/pubs/sp/800/46/r2/final",
+        "status": 200,
+        "final_url": "https://csrc.nist.gov/pubs/sp/800/46/r2/final",
+        "bytes": 46002,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://learn.microsoft.com/en-us/windows/client-management/client-tools/quick-assist",
+        "status": 200,
+        "final_url": "https://learn.microsoft.com/en-us/windows/client-management/client-tools/quick-assist",
+        "bytes": 63833,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://support.microsoft.com/en-us/windows/apps/solve-pc-problems-remotely-using-quick-assist",
+        "status": 200,
+        "final_url": "https://support.microsoft.com/en-us/windows/apps/solve-pc-problems-remotely-using-quick-assist",
+        "bytes": 132313,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/b2b/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/b2b/",
+        "bytes": 57160,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/contact/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/contact/",
+        "bytes": 44584,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/lab/voice-network-checklist/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/lab/voice-network-checklist/",
+        "bytes": 56609,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/services/mikrotik-tehran/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/services/mikrotik-tehran/",
+        "bytes": 45397,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/services/network-setup-tehran/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/services/network-setup-tehran/",
+        "bytes": 64772,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/services/network-support-tehran/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/services/network-support-tehran/",
+        "bytes": 53537,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/services/voice-network-readiness/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/services/voice-network-readiness/",
+        "bytes": 54589,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/support/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/support/",
+        "bytes": 40825,
+        "tls_default_verified": true
+      },
+      {
+        "url": "https://tehnet.ir/technical-methodology/",
+        "status": 200,
+        "final_url": "https://tehnet.ir/technical-methodology/",
+        "bytes": 47674,
+        "tls_default_verified": true
+      }
+    ],
+    "unique_gets": 12,
+    "fragment_checks": 3,
+    "all200": true
+  },
+  "baseline_reconciliation": "Old16Oct inventory digest refused before writing; fresh body equals committed remediation manifest.after for ID37; no unexplained drift",
+  "publication": {
+    "state": "NOT_DEPLOYED",
+    "immutable_rehearsal": "PENDING",
+    "new_articles": 0,
+    "new_urls": 0,
+    "production_writes": 0
+  },
+  "preserve": [
+    "MyTel read-only/freeze",
+    "TehNet noindex",
+    "25 inquiry-only/0purchasable",
+    "home/menus/customer data",
+    "real payments/ERP closed",
+    "rotation UNKNOWN/history NEEDS_APPROVAL/origin UNDETERMINED/no force-push"
+  ]
+}

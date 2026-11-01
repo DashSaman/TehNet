@@ -1,4 +1,12 @@
-## CURRENT — خدمت موجود راه‌اندازی شبکه روی live تأیید شد
+## CURRENT — پیش‌نویس پشتیبانی ریموت و محدودهٔ انتشار آزموده شد
+
+VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED —۱نوامبر: همانID37/URL/عنوان/والد، توضیح دسترسی مجاز، مشاهده/کنترل، توقف و پایان دسترسی و تحویل.۳صفحهٔprimary باحدنسخه/دامنه؛مثال صریحاً ساختگی وبدون جلسه/تست امنیت/تغییرشبکه.۴۰بلوک/۳۰browser1440/375/no-JS/edit-reset،۴۰native جدید و۳۹setup+۳۷support regression پاس؛۲۲Windowscase شامل۲۱PASS/۱SKIPsymlink. گیت قدیمی scope را رد کرد؛scope جدید exact/body-only با۸guard/صفرنصبruntime.۱۲GETلینکTLS200 و۳fragmentID پاس. همهٔposts/meta/users وکاربر موقت پس ازQA دقیقاً بازگشتند؛writerهایpreview ترتیبی وباقفل مشترک.
+
+رسید `qa/growth-2026-10-31/remote-support-draft-and-migration.json` وbrief/source درseo. اختلاف اولیه باinventoryقدیمی متوقف وبهafter نسخهٔاصلاح‌شدهٔcommitted تطبیق داده شد؛driftنامعلوم نیست. CISA403 کامل خوانده‌نشده وازپشتوانهٔمتن حذف است؛NIST2016 نهایی بافراخوانپیش‌نویس2020 وMicrosoft فقطمثال ابزارند،نهقانون/گواهی/تعهدخدمت.
+
+NEXT: immutable rehearsal مستقل باmetadata0.2.1 وrestoreدقیقpreview0.2.0،CI/ادغامعادی/snapshotخصوصی،برابریpayload/tool/۸guard،backup/checksum/driftتازه وتحققپذیرشعمومی. فعلاًproductionتغییرنکرده؛انتشارهایپیشین/QA recovery/۱۰۰کاندیدا بازپخش نشوند. MyTel/noindex/فروشگاه/داده/خانه/منو/پرداخت وsecuritygates پابرجا؛گزارشصبحLIVE_NOT_FINAL تا۰۸:۰۰.
+
+## HISTORICAL CHECKPOINT — خدمت موجود راه‌اندازی شبکه روی live تأیید شد
 
 DEPLOYED —۱نوامبر،04:23تهران: [راه‌اندازی شبکه شرکت](https://tehnet.ir/services/network-setup-tehran/) همان ID33/URL/عنوان/والد؛فقطbody وتاریخ واقعی تغییر کرد. طرح/مسئولیت،دفتر صریحاً فرضی،اجرایمرحله‌ای ومعیارپذیرش/تحویل با۳منبعscoped؛آزمون پروژهٔ شبکه واقعی انجام نشد. PR50/CI41258579923 با۲۱Linux operator و۹privacy PASS ادغام؛source live `420e757e7d1a78e67adfeb0f95fc253547740537` برابرpayload/tool/۸guardِ qualified `5174ff27c4d42fae9e360c019d6adb8cc3685c29`.
 

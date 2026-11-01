@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "status": "SCOPED_REVIEW_NATIVE_DRAFT_NOT_DEPLOYED",
+  "reviewed": "2026-11-01",
+  "target": {
+    "id": 37,
+    "url": "https://tehnet.ir/services/remote-support/",
+    "title_observed": "پشتیبانی شبکه از راه دور",
+    "expected_content_sha256": "5c84ebdffaa8c93e61eea55bdf1871ff07cd68ee7ee1935135d557b3cc6f3e84",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "baseline_observed_utc": "2026-11-01T01:05:45+00:00",
+  "baseline_note": "Old16Oct inventory mismatch refused; fresh body exactly equals committed16Oct remediation manifest.after, not unexplained production drift",
+  "source_count": 3,
+  "sources": [
+    {
+      "id": "NIST-REMOTE-20261101",
+      "class": "OFFICIAL",
+      "url": "https://csrc.nist.gov/pubs/sp/800/46/r2/final",
+      "document_url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-46r2.pdf",
+      "version_or_date": "July2016 final; Rev3 pre-draft call linked, observed2026-11-01",
+      "review_depth": "SECTION_REVIEWED",
+      "scope": "3.3.1 authentication/reauthentication,3.3.2 authorization,5.1/5.1.1 permitted methods and organization policy; not all53pages",
+      "limit": "Not current cipher recommendations, a legal duty in Iran, or proof of service implementation"
+    },
+    {
+      "id": "MS-REMOTE-PERMISSION-20261101",
+      "class": "OFFICIAL",
+      "url": "https://learn.microsoft.com/en-us/windows/client-management/client-tools/quick-assist",
+      "version_or_date": "Current documentation observed2026-11-01; no installed version inferred",
+      "review_depth": "SECTION_REVIEWED",
+      "scope": "Trusted user-initiated contact and separate screen-sharing/control consent; current privacy/enterprise capability caveats reviewed",
+      "limit": "Quick Assist example only; no installation, security audit, enterprise session-log capability or local availability inferred"
+    },
+    {
+      "id": "MS-REMOTE-END-20261101",
+      "class": "OFFICIAL",
+      "url": "https://support.microsoft.com/en-us/windows/apps/solve-pc-problems-remotely-using-quick-assist",
+      "version_or_date": "Current help observed2026-11-01",
+      "review_depth": "SECTION_REVIEWED",
+      "scope": "Cancel control versus Leave session distinction; trusted help context",
+      "limit": "No identical buttons/end-of-access semantics assumed for other tools or persistent credentials"
+    }
+  ],
+  "editorial_inference": "Proposed before/during/after access-session agreement and handoff template; not a new service policy, legal duty or measured session",
+  "technical_execution": "NOT_RUN",
+  "wordpress_qualification": "PASS_40_BLOCKS_30_BROWSER_40_NATIVE",
+  "publication": "NOT_DEPLOYED",
+  "search_market_measurement": "NOT_RUN",
+  "excluded_source": "CISA/defense2023 guide discovered but full body403 in attempted paths; not used as reviewed support",
+  "link_check": "12GET200_WITH_DEFAULT_TLS_AND_3_FRAGMENT_IDS"
+}

@@ -1,0 +1,14 @@
+# Existing remote-support page: bounded execution plan
+
+Baseline main:4392ef203029a2c3ed69c9648604687a3f80e1a6. Owner's overnight directive and platform design control this work; no new approval inferred from time. Direct implementation, no additional assistants.
+
+1. VERIFIED read-only: current ID37/title/URI/parent retained. Old16Oct inventory digest refused; fresh body exactly matches committed remediation manifest.after (5c84ebdf...), so no unexplained production drift. Public valid-TLS GET200. Existing four generic steps omit concrete access approval/session stop/end-access checks. Support/setup pages already cover general intake/project handoff; this page owns remote session boundaries.
+2. VERIFIED: scoped primary NIST2016 final (Rev3 pre-draft observed) and Microsoft consent/end-session research; original explanatory intake/session/end-access template with explicitly fictional unmeasured case. CISA full-body403 excluded from reviewed support. No tool install, remote session, infrastructure mutation, security certification or service commitment.
+3. VERIFIED: exact ID37/URI/body scope tests fail against prior migrator/operator before adding registration; native block/editor desktop/mobile/no-JS/anchor/privacy checks. Serialize shared-preview writers with the existing private OS lock. Preserve whole four-table state, owned account/locks and prior page; never replay previous recovery.
+4. READY: Linux CI, small guarded commits; immutable fixed-source bundle, eight current-runtime guards/zero installs; fresh backup/checksum/tamper/apply/repeat/rollback/repeat and exact fixture restoration. No staged writes in parallel.
+5. READY only after qualification: ordinary CI-backed merge, private snapshot before integration, equal qualified payload/tool/guards; fresh production backup/checksum/drift; body-only actual timestamp publication, read-only TLS/browser acceptance and sanitized receipts. MyTel/noindex/commerce/customer/home/menu/security gates remain.
+6. READY: actual outcome and limits to -SEO, continuation/log/morning LIVE_NOT_FINAL. No candidate/article-count inflation, no rankings/traffic/citation benefit inferred.
+
+Ruling: reuse the existing bounded migration/release architecture, registering one exact service scope rather than broadening its target rules. Cost if wrong: native isolation/identity/rollback tests must refuse before publication. Author self-review supplements tests; single focused-assistant allowance already used in overnight mission, no duplicate delegation.
+
+Native acceptance:40 registered blocks/30 desktop/mobile/no-JS/editor checks,40 scoped native+39setup+37support regressions. Windows21PASS/1SKIP of22. Twelve default-TLS GET200 and3 draft fragments. Whole four-table fingerprint and owned editor restored. Mobile screenshot visually reviewed; desktop automated. Immutable rehearsal/Linux CI/live still pending.
