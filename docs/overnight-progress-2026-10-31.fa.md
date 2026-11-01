@@ -327,3 +327,13 @@ NEXT: صفحهٔ موجود /services/network-tehran/ را برای نقش مس�
 VERIFIED_LOCAL_NATIVE_CHECKER_NOT_DEPLOYED:۱۷TLS200؛ چهار service با Article نامتناسب. RED واقعی۷/۷۴ و GREEN۷۴، اپراتور۲۳PASS/۱SKIP از۲۴، checkerبومی۱۸ بدونDBwrite. metadata0.2.2 فقط یک فایل/هفتguard و scope جدید؛ manifest/checker قدیمی حفظ. یادداشت/متن/عنوان/URL/noindex/فروشگاه/MyTel تغییر نکرده‌اند. رسید service-metadata-role-draft.json و طرح2026-11-01-service-metadata-role.md.
 
 NEXT: تمرین immutable با baseline جاری0.2.1، snapshot خصوصی preview0.2.0، browser1440/375/no-JS، backup/checksum/tamper/repeat/rollback و restore دقیق؛ سپس CI/ادغام عادی/backup و drift تازهٔ تولید و پذیرش عمومی. ID29 برای جلوگیری از هاب هم‌نیت بازنویسی نشده است. انتشارهای پذیرفته‌شده/recovery قبلی را بازپخش نکن؛ writerها serial و قفل‌دار. rotationUNKNOWN/historyNEEDS_APPROVAL/refmapSTALE/originUNDETERMINED، منعforce-push و گزارش LIVE_NOT_FINAL تا۰۸:۰۰ پابرجا.
+
+## checkpoint تمرین metadata خدمات
+
+## CURRENT — نقش schema خدمات در staging تأیید شد، live هنوز تغییر نکرده
+
+VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر: چهار service در baseline عمومی Article داشتند. شرط metadata0.2.2 فقط WP page در services یا services/ را مستثنی می‌کند؛۴هاب/درس‌ها،نام مشابه post،note/description/OG/title/canonical/noindex حفظ‌اند. RED واقعی۷/۷۴→GREEN۷۴؛ اپراتور۲۳PASS/۱SKIP از۲۴ و۱۸native checker. scope جدید یک فایل و۷guard؛manifest/checker قدیمی دست‌نخورده.
+
+qualified `dbeb23ee5c206ab38f0ebf37f92d1dd6a6b879d9` با baseline جاری `e20af62df5f324453bc0632060767a6c1f6556d3`: backup/checksum/tamper/check/apply/repeat/۱۷HTTP/۳۸۶browser در۵۱حالت1440/375/no-JS/rollback/repeat پاس. native fixture یک Article خدمات داشت، baseline عمومی چهار مورد؛این دو عدد خلط نشوند. maintext/سایرmetadata وposts/meta/users دقیقاً برابر؛metadata0.2.1 fixture پس ازrollback به اصلpreview0.2.0 بازگشت. receipt `qa/growth-2026-10-31/service-metadata-role-release-rehearsal.json`.
+
+NEXT: CI تازهٔhead،snapshotخصوصی وادغام عادی؛bundle برابرpayload/tool/۷guard،backup/checksum/drift تازهٔتولید وپذیرش عمومی نقش خدمات. هنوز live تغییر نکرده؛انتشارها/recovery قبلی را بازپخش نکن. ID29 برایپرهیزازهاب‌هم‌نیت بازنویسی نشده. noindex/خانه/منو/فروشگاه/داده/پرداخت/MyTel وrotationUNKNOWN/historyNEEDS_APPROVAL/refmapSTALE/originUNDETERMINED/منعforce-push پابرجا؛گزارشصبحLIVE_NOT_FINAL تا۰۸:۰۰.

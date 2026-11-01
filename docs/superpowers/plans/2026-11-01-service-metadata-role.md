@@ -1,6 +1,6 @@
 # P8 service-page metadata role — bounded correction
 
-Status: IN_PROGRESS_NOT_DEPLOYED. Existing approved overnight scope; no new URL/body or indexability change.
+Status: VERIFIED_REHEARSAL_NOT_DEPLOYED. Existing approved overnight scope; no new URL/body or indexability change.
 
 Fresh default-TLS read-only probe of 17 public routes found Article on setup, MikroTik, remote support and manual VoIP readiness service pages. Support and the service hubs currently have none. Existing attributed lessons correctly have Article. The visible source note is attribution, not proof of article intent. Google requires structured data representative of primary content; this is a role correction, not a measured ranking issue or manual action.
 
@@ -10,7 +10,7 @@ Design: exclude WordPress pages whose URI is exactly services or starts services
 
 - [x] Confirm public baseline and local RED; add exact operator scope test.
 - [x] Implement minimal role predicate and new bounded release scope; GREEN PHP/operator and native checker tests.
-- [ ] Rehearse immutable current-production baseline in isolated native staging, with fresh backup/checksum/tamper/apply/repeat, desktop/mobile/no-JS acceptance and exact rollback/restoration of original preview.
+- [x] Rehearse immutable current-production baseline in isolated native staging, with fresh backup/checksum/tamper/apply/repeat, desktop/mobile/no-JS acceptance and exact rollback/restoration of original preview.
 - [ ] Full relevant diff, publication guard, qualified commit/CI, private snapshot and ordinary integration.
 - [ ] Fresh production backup/drift guard, scoped apply and GET-only public acceptance; preserve all protected data/runtime/container state.
 - [ ] Publish sanitized actual receipts and transfer the role lesson to -SEO; update overnight log/handoff. Do not claim SEO gain.
