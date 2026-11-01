@@ -21,8 +21,13 @@ async function numbers(p){return p.locator('body').evaluate(root=>{
   for(const route of routes){
    const response=await p.goto(origin+route,{waitUntil:'networkidle'});check(route+' HTTP200',response.status()===200);
    for(const width of [1440,375]){
-    await p.setViewportSize({width,height:900});await p.evaluate(()=>document.fonts.ready);const data=await numbers(p);check(`${route} ${width} JS=${js} business phone exists`,data.length>0);
-    check(`${route} ${width} JS=${js} 021 before subscriber digits`,data.every(n=>n.ltr&&n.nowrap));check(`${route} ${width} JS=${js} dial target preserved`,data.every(n=>!n.href||n.href==='tel:+982191018746'));
+    await p.setViewportSize({width,height:900});await p.evaluate(()=>document.fonts.ready);const data=await numbers(p);
+    const utilityWithoutContact=route==='/software/'&&data.length===0&&await p.locator('.tn-site-footer,a[href^="tel:"]').count()===0&&!/91018746|۹۱۰۱۸۷۴۶|٩١٠١٨٧٤٦/.test(await p.locator('body').innerText());
+    if(utilityWithoutContact)check(`${route} ${width} JS=${js} standalone utility has no business phone`,true);
+    else{
+     check(`${route} ${width} JS=${js} business phone exists`,data.length>0);
+     check(`${route} ${width} JS=${js} 021 before subscriber digits`,data.every(n=>n.ltr&&n.nowrap));check(`${route} ${width} JS=${js} dial target preserved`,data.every(n=>!n.href||n.href==='tel:+982191018746'));
+    }
     results.push({route,width,js,phones:data});
     if(!js&&route==='/services/')await p.locator('.tn-svc-intake>p').last().screenshot({path:path.join(out,`phone-services-${width}.png`)});
     if(!js&&route==='/contact/'&&width===375)await p.locator('.tn-footer-contact').screenshot({path:path.join(out,'phone-footer-375.png')});

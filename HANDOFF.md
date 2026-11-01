@@ -1,3 +1,15 @@
+## CURRENT — نمایش صحیح شماره تماس منتشر و تأیید شد
+
+**DEPLOYED_VERIFIED —۱نوامبر۲۰۲۶:** شمارهٔ کسب‌وکار `021-91018746` با کد021 در ابتدای نمایش، در shortcode مشترک، فوتر، لینک‌های tel و سر/ته چاپ فاکتور و پیش‌فاکتور اصلاح شد. روش bdi/LTR/isolate/nowrap است؛ شمارهٔ ذخیره‌شده و مقصد تماس تغییر نکرد. [خدمات](https://tehnet.ir/services/#service-request)، [تماس](https://tehnet.ir/contact/)، [رسید و تصاویر](qa/phone-rtl-2026-11-01/production-verification.json).
+
+PR72 و PR73 با CI موفق ادغام شدند؛ source تولید `5fb1bfa2f3de2153f58babfa9eb98b0689e6e0dd`، برابر payload/tool/guards با qualified `a4c6bfa8e5019e3bce371378cc5cf8afb4054fd7`. چهار فایل، صفر تغییر DB/محتوا/منو/سند و backup/checksum/drift تازه؛ repeat بدون تغییر.۲۰۰native-browser روی۱۴مسیر و renderer چاپ واقعی با دادهٔ مصنوعی؛۲۱۶public-browser روی۱۶مسیر (همهٔ۸مالک محتوای دارای شماره + مسیرهای مشترک/محصول)،1440/375 وJS/no-JS تأیید. در ابزار مستقل /software/ اصلاً شماره/فوتر مشترک وجود ندارد؛ این غیاب جداگانه تأیید شده، نه اینکه شمارهٔ فرضی ساخته شود.
+
+تلاش نخست انتشار به‌دلیل کش URL بدون نسخهٔ CSS rollback کامل شد؛ تلاش دوم همان stylesheet نسخه‌دارِ استفاده‌شده در HTML را تأیید کرد. تنظیمات CDN/DNS تغییر نکرد. بازتولید اصلی اکنون سبز است: x ابتدای021 از960 به878 و x ابتدای بخش مشترک از878 به914 رسید؛ یعنی کد شهر واقعاً چپِ بخش بعدی قرار دارد. [گزارش](docs/reports/PHONE_RTL_2026-11-01.fa.md).
+
+noindex/پرداخت بسته،۲۵کالا، data/runtime، MyTel و گیت‌های امنیتی حفظ شدند. CAPTCHA همچنان به محدودیت حساب Google وابسته و غیرفعال است؛ Issue63 باز است. این تحویل فقط اشکال شماره تماس را می‌بندد؛ انتشار مجدد برای commit مستندات لازم نیست.
+
+---
+
 **انتشار نخست اصلاح شماره rollback کامل شد:** چهار فایل با protected-state برابر بازیابی شدند و صفر ردیف DB تغییر کرد. wrapper آدرس بدون نسخهٔ CSS را بررسی کرده بود؛ probe خواندنی، نسخهٔ قبلی در CDN با HIT/Age1878 و آدرس نسخه‌دار واقعی با MISS را نشان داد. تلاش بعدی باید hash همان stylesheet نسخه‌دارِ HTML را با payload واجد آزمون مقایسه کند، با source/journal و backup تازه؛ بدون purge یا تغییر CDN/DNS. [رسید](qa/phone-rtl-2026-11-01/first-release-rollback.json).
 
 ## CURRENT — اصلاح شماره تماس در متن RTL: staging تأیید
