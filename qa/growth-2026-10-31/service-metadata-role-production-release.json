@@ -1,0 +1,849 @@
+{
+  "observed_utc": "2026-11-01T02:15:08.048765+00:00",
+  "scope": "One metadata runtime file; no database or content rows changed",
+  "source_commit": "d2d081ce919c4817e7c746883b9909b6a3b3ae6f",
+  "baseline_commit": "e20af62df5f324453bc0632060767a6c1f6556d3",
+  "status": "DEPLOYED_VERIFIED",
+  "check": {
+    "status": "READY",
+    "files_pending": 1,
+    "content": {
+      "status": "READY",
+      "pages_pending": 0,
+      "hubs_pending": 0,
+      "pages_created": 0,
+      "hubs_updated": 0,
+      "hubs_restored": 0,
+      "pages_drafted": 0,
+      "protected_digest": "c95a760a2f55ebcf91a0fa4ff29bbeb1f4be5d93eeeb944e9dc559804a2ec30a",
+      "protected_state_unchanged": true,
+      "database_rows_written": 0
+    }
+  },
+  "apply": {
+    "status": "APPLIED",
+    "files_changed": 1,
+    "content": {
+      "status": "APPLIED",
+      "pages_pending": 0,
+      "hubs_pending": 0,
+      "pages_created": 0,
+      "hubs_updated": 0,
+      "hubs_restored": 0,
+      "pages_drafted": 0,
+      "protected_digest": "c95a760a2f55ebcf91a0fa4ff29bbeb1f4be5d93eeeb944e9dc559804a2ec30a",
+      "protected_state_unchanged": true,
+      "database_rows_written": 0
+    }
+  },
+  "repeat": {
+    "status": "APPLIED",
+    "files_changed": 0,
+    "content": {
+      "status": "APPLIED",
+      "pages_pending": 0,
+      "hubs_pending": 0,
+      "pages_created": 0,
+      "hubs_updated": 0,
+      "hubs_restored": 0,
+      "pages_drafted": 0,
+      "protected_digest": "c95a760a2f55ebcf91a0fa4ff29bbeb1f4be5d93eeeb944e9dc559804a2ec30a",
+      "protected_state_unchanged": true,
+      "database_rows_written": 0
+    }
+  },
+  "http_smoke": [
+    {
+      "path": "/learn/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/lab/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/learn/mikrotik/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/learn/mikrotik/mtcna/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/learn/mikrotik/mtcna/routeros-winbox/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 1
+    },
+    {
+      "path": "/learn/mikrotik/mtcna/static-routing/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 1
+    },
+    {
+      "path": "/learn/mikrotik/mtcna/ip-dhcp-dns/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 1
+    },
+    {
+      "path": "/lab/voice-network-checklist/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 1,
+      "readiness_instance": true
+    },
+    {
+      "path": "/services/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/services/network-tehran/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/services/network-support-tehran/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/services/network-setup-tehran/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/services/mikrotik-tehran/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/services/remote-support/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/services/voice-network-readiness/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "canonical_verified": true,
+      "article_matches_role": true,
+      "article_count": 0
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true
+    },
+    {
+      "path": "/shop/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true
+    },
+    {
+      "path": "/support/?tn_service_context=voice-network",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "nonce_inside_owning_form": true,
+      "network_context_preserved": true
+    },
+    {
+      "path": "/b2b/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verification": true,
+      "nonce_inside_owning_form": true
+    }
+  ],
+  "commerce_indexing": {
+    "blog_public": "0",
+    "products": 25,
+    "purchasable": 0,
+    "erp_ready": false,
+    "sandbox_enabled": false
+  },
+  "existing_runtime_unchanged": true,
+  "protected_state_unchanged": true,
+  "fresh_backup_checksum_verified": true,
+  "completed_utc": "2026-11-01T02:15:35.543178+00:00",
+  "schema": 1,
+  "qualified_source": "dbeb23ee5c206ab38f0ebf37f92d1dd6a6b879d9",
+  "qualified_payload_tool_runtime_guards_equal": true,
+  "integration": {
+    "pr": 56,
+    "head": "d6f37d5529eccc43520cef127228d05ff79272bf",
+    "merge": "d2d081ce919c4817e7c746883b9909b6a3b3ae6f",
+    "ci_run": 41264327217,
+    "linux_operator_tests": 24,
+    "privacy_tests": 9,
+    "publication_scan_tracked_files": 1495,
+    "ci": "PASS_ACTUAL_LOG_SUMMARIES_READ"
+  },
+  "public_browser": {
+    "status": "PASS",
+    "method": "Native/public service-page-role acceptance, real browser with normal TLS when HTTPS",
+    "checks": 386,
+    "observations": [
+      {
+        "route": "/learn/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/lab/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/routeros-winbox/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/static-routing/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/ip-dhcp-dns/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/lab/voice-network-checklist/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/services/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/services/network-tehran/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/services/network-support-tehran/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/services/network-setup-tehran/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/services/mikrotik-tehran/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/services/remote-support/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/services/voice-network-readiness/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/shop/",
+        "width": 1440,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/lab/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/routeros-winbox/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/static-routing/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/ip-dhcp-dns/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/lab/voice-network-checklist/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/services/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/services/network-tehran/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/services/network-support-tehran/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/services/network-setup-tehran/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/services/mikrotik-tehran/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/services/remote-support/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/services/voice-network-readiness/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/shop/",
+        "width": 375,
+        "javascript": true,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/lab/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/routeros-winbox/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/static-routing/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/learn/mikrotik/mtcna/ip-dhcp-dns/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/lab/voice-network-checklist/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 1,
+        "overflow": false
+      },
+      {
+        "route": "/services/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/services/network-tehran/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/services/network-support-tehran/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/services/network-setup-tehran/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/services/mikrotik-tehran/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/services/remote-support/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/services/voice-network-readiness/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      },
+      {
+        "route": "/shop/",
+        "width": 375,
+        "javascript": false,
+        "status": 200,
+        "articles": 0,
+        "overflow": false
+      }
+    ],
+    "page_errors": [],
+    "blocked_external_origins": 0,
+    "methods": [
+      "GET"
+    ],
+    "form_submissions": 0,
+    "limits": [
+      "Functional acceptance, not a Google rich-result/URL Inspection/SEO measurement"
+    ]
+  },
+  "public_output_comparison": {
+    "status": "PASS",
+    "observed_utc": "2026-11-01T02:15:56.112508+00:00",
+    "method": "Fresh default-TLS public raw HTML compared with captured pre-release public baseline; only Article nodes may differ",
+    "routes": [
+      {
+        "path": "/services/",
+        "status": 200,
+        "tls_verified": true,
+        "visible_text_title_h1_canonical_other_metadata_equal": true,
+        "before_articles": 0,
+        "after_articles": 0
+      },
+      {
+        "path": "/services/network-tehran/",
+        "status": 200,
+        "tls_verified": true,
+        "visible_text_title_h1_canonical_other_metadata_equal": true,
+        "before_articles": 0,
+        "after_articles": 0
+      },
+      {
+        "path": "/services/network-support-tehran/",
+        "status": 200,
+        "tls_verified": true,
+        "visible_text_title_h1_canonical_other_metadata_equal": true,
+        "before_articles": 0,
+        "after_articles": 0
+      },
+      {
+        "path": "/services/network-setup-tehran/",
+        "status": 200,
+        "tls_verified": true,
+        "visible_text_title_h1_canonical_other_metadata_equal": true,
+        "before_articles": 1,
+        "after_articles": 0
+      },
+      {
+        "path": "/services/mikrotik-tehran/",
+        "status": 200,
+        "tls_verified": true,
+        "visible_text_title_h1_canonical_other_metadata_equal": true,
+        "before_articles": 1,
+        "after_articles": 0
+      },
+      {
+        "path": "/services/remote-support/",
+        "status": 200,
+        "tls_verified": true,
+        "visible_text_title_h1_canonical_other_metadata_equal": true,
+        "before_articles": 1,
+        "after_articles": 0
+      },
+      {
+        "path": "/services/voice-network-readiness/",
+        "status": 200,
+        "tls_verified": true,
+        "visible_text_title_h1_canonical_other_metadata_equal": true,
+        "before_articles": 1,
+        "after_articles": 0
+      },
+      {
+        "path": "/learn/",
+        "status": 200,
+        "tls_verified": true,
+        "visible_text_title_h1_canonical_other_metadata_equal": true,
+        "before_articles": 0,
+        "after_articles": 0
+      },
+      {
+        "path": "/lab/",
+        "status": 200,
+        "tls_verified": true,
+        "visible_text_title_h1_canonical_other_metadata_equal": true,
+        "before_articles": 0,
+        "after_articles": 0
+      },
+      {
+        "path": "/learn/mikrotik/",
+        "status": 200,
+        "tls_verified": true,
+        "visible_text_title_h1_canonical_other_metadata_equal": true,
+        "before_articles": 0,
+        "after_articles": 0
+      },
+      {
+        "path": "/learn/mikrotik/mtcna/",
+        "status": 200,
+        "tls_verified": true,
+        "visible_text_title_h1_canonical_other_metadata_equal": true,
+        "before_articles": 0,
+        "after_articles": 0
+      },
+      {
+        "path": "/learn/mikrotik/mtcna/routeros-winbox/",
+        "status": 200,
+        "tls_verified": true,
+        "visible_text_title_h1_canonical_other_metadata_equal": true,
+        "before_articles": 1,
+        "after_articles": 1
+      },
+      {
+        "path": "/learn/mikrotik/mtcna/ip-dhcp-dns/",
+        "status": 200,
+        "tls_verified": true,
+        "visible_text_title_h1_canonical_other_metadata_equal": true,
+        "before_articles": 1,
+        "after_articles": 1
+      },
+      {
+        "path": "/learn/mikrotik/mtcna/static-routing/",
+        "status": 200,
+        "tls_verified": true,
+        "visible_text_title_h1_canonical_other_metadata_equal": true,
+        "before_articles": 1,
+        "after_articles": 1
+      },
+      {
+        "path": "/lab/voice-network-checklist/",
+        "status": 200,
+        "tls_verified": true,
+        "visible_text_title_h1_canonical_other_metadata_equal": true,
+        "before_articles": 1,
+        "after_articles": 1
+      },
+      {
+        "path": "/",
+        "status": 200,
+        "tls_verified": true,
+        "visible_text_title_h1_canonical_other_metadata_equal": true,
+        "before_articles": 0,
+        "after_articles": 0
+      },
+      {
+        "path": "/shop/",
+        "status": 200,
+        "tls_verified": true,
+        "visible_text_title_h1_canonical_other_metadata_equal": true,
+        "before_articles": 0,
+        "after_articles": 0
+      }
+    ],
+    "removed_service_article_nodes": 4,
+    "database_or_form_mutations": 0,
+    "limits": [
+      "Page-output equality and functional acceptance; no ranking/rich-result/URL Inspection evidence"
+    ]
+  },
+  "public_browser_harness_sha256_lf": "51d519106bb71ef9323fda728889f24d271924cd59725d267618024a2b5f900c",
+  "service_article_nodes_removed": 4,
+  "new_urls_articles": 0,
+  "database_rows_written_by_release": 0,
+  "runtime_guard_count": 7,
+  "live_rollback": "NOT_NEEDED_NOT_RUN",
+  "limits": [
+    "One metadata file, not content/date/indexability or service-delivery changes.",
+    "Nineteen production TLS smoke routes and17 before/after comparison routes overlap; they are not36 unique routes.",
+    "Native fixture had one affected Article, public baseline had four; qualification counts stay distinct.",
+    "No Google Rich Results Test/URL Inspection/manual-action/CWV/ranking/traffic/backlink/AI-citation/conversion result.",
+    "MyTel production writes0; noindex/closed commerce/data/security owner gates preserved.",
+    "Exact rollback rehearsed in staging; abrupt host loss not fault injected."
+  ]
+}

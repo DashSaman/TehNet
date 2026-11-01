@@ -1,6 +1,6 @@
 # اصلاح نقش صفحات خدمات در داده‌های ساختاریافته
 
-وضعیت: VERIFIED_REHEARSAL_NOT_DEPLOYED؛ checkpoint نخست تاریخی است. چهار صفحهٔ موجود راه‌اندازی شبکه، MikroTik، ریموت و آمادگی VoIP در بررسی ۱۷ مسیر عمومی با TLS معتبر، Article داشتند. تشخیص مستقیم ماژول با یادداشت منابع همین رفتار را بازتولید کرد؛ کش یا افزونهٔ دیگر برای وقوع آن لازم نبود. صفحهٔ پشتیبانی فعلی و دو هاب خدمات Article نداشتند، اما آزمون مسیرهای خدمات فعلی/آینده نیز از برگشت خطا جلوگیری می‌کند.
+وضعیت: DEPLOYED_VERIFIED؛ baseline و rehearsal checkpointهای تاریخی‌اند. چهار صفحهٔ موجود راه‌اندازی شبکه، MikroTik، ریموت و آمادگی VoIP در بررسی ۱۷ مسیر عمومی با TLS معتبر، Article داشتند. تشخیص مستقیم ماژول با یادداشت منابع همین رفتار را بازتولید کرد؛ کش یا افزونهٔ دیگر برای وقوع آن لازم نبود. صفحهٔ پشتیبانی فعلی و دو هاب خدمات Article نداشتند، اما آزمون مسیرهای خدمات فعلی/آینده نیز از برگشت خطا جلوگیری می‌کند.
 
 یادداشت منبع روی صفحهٔ خدمات، به‌تنهایی مقاله بودن آن را ثابت نمی‌کند. [سیاست Google دربارهٔ داده‌های ساختاریافته](https://developers.google.com/search/docs/appearance/structured-data/sd-policies) بر بازنمایی محتوای اصلی صفحه تأکید دارد؛ [راهنمای Article](https://developers.google.com/search/docs/appearance/structured-data/article) برای صفحات مقاله است. این شواهد، گزارش جریمه یا نتیجهٔ Rich Results/GSC/رتبه نیستند. noindex فعلی به دستور مالک حفظ می‌شود.
 
@@ -14,3 +14,8 @@ RED واقعی: ۷ شکست از۷۴ بررسی ماژول؛ GREEN:۷۴PASS. م�
 ## پذیرش بومی
 
 source dbeb23e با baseline جاری0.2.1،۱۷مقایسهٔHTTP و۳۸۶browser/۵۱حالت پاس؛متن اصلی/سایرmetadata/داده/runtime ثابت،یک Article درfixture خدمات حذف،سپسrollback/repeat واصلpreview0.2.0 دقیقاً بازگشت. baselineعمومی۴مورد بود،نهfixture. backup/checksum/tampergate نیزپاس؛live هنوزتغییرنکرده.
+
+
+## پذیرش زنده
+
+[PR56](https://github.com/DashSaman/TehNet/pull/56)/CI41264327217 با۲۴Linux/۹privacy پاس؛source d2d081c برابرqualified payload/tool/۷guard وbackup/checksum/driftتازه بود. در05:45تهران یک فایل/صفرسطرDB/content/date نصب شد؛۱۹TLS200/۳۸۶browser/۵۱حالت و۱۷مقایسهٔقبل/بعد،فقط حذف۴Articleخدمات و حفظدقیقمتن/سایرmetadata/Article۴درس را تأیید کردند. خانه/فروشگاه/داده/noindex/MyTelfreeze ثابت؛live rollback لازم نشد. دو مجموعهٔ۱۹و۱۷GET همپوشان‌اند. هیچنتیجهٔRichResults/GSC/SEOgain ادعانشده است؛رسیدactualproduction مرجعوضعیتفعلیاست.
