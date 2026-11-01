@@ -81,7 +81,11 @@ def scope_spec(scope):
             'ops/check-phone-display-state.php'], FILES + [
                 'site/plugins/tehnet-core/tehnet-core.php',
                 'site/plugins/tehnet-store/tehnet-store.php',
+                'site/plugins/tehnet-store/includes/class-recaptcha.php',
+                'site/plugins/tehnet-store/assets/recaptcha.js',
                 'site/themes/tehnet/functions.php',
+                'site/themes/tehnet/header.php',
+                'site/themes/tehnet/assets/fonts/Estedad.woff2',
                 'site/themes/tehnet/assets/js/visual-refresh.js',
                 'site/themes/tehnet/assets/css/service-catalog.css']
     if scope == CORPORATE_SCOPE:
