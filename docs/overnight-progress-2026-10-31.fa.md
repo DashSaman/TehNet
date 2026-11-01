@@ -353,3 +353,29 @@ NEXT: انتقال نقش source note/خدمت/مقاله وactual acceptance ب
 انتقال دانش در[-SEO PR17](https://github.com/DashSaman/-SEO/pull/17)،main `0e9e741b43fa6a7578dc8239560405737a5341cd` وCI41264733379 ادغام شد؛۹privacy/scan۶۷ و۱۷مقصدdashboard/anchor/ledger/receipt consistency پاس. یکrowمشاهده،دوsourceرسمی موجود وtopicفنی به‌روز شدند؛baseline۷۱٪ ثابت،مدرکnative۱/عمومی۴ وGETهایهمپوشان محفوظ‌اند.
 
 NEXT: ابتداشواهدپذیرفته‌شدهٔshop/media را بخوان؛تنها یک مسیر پوشش‌داده‌نشدهٔکیبورد/focus درفروشگاه/رسانهٔ محصول را باGET-onlyبررسی کن و فقط اگرنقصواقعی داشت،تغییرمحدودبساز. ممیزیtitles/metadataیاانتشار/recoveryقبلی/۱۰۰کاندیدا را بازپخش نکن. مدل دقیقCAD/قیمت/موجودی/قابلیت تجاری بدونشاهد نساز. نزدیک۰۸:۰۰ گزارشصبح را ازشواهدactualتلفیق وواقعاًنهایی کن؛اکنونLIVE_NOT_FINAL است.
+
+## checkpoint پیش‌نویس کیبورد گالری
+
+## CURRENT — اصلاح کیبورد بندانگشتی گالری، هنوز منتشر نشده
+
+VERIFIED_LOCAL_NATIVE_CHECKER_NOT_DEPLOYED: نقص روی کالای واقعی TN-SN-17868 با GET-only بازتولید شد؛ تصاویر بندانگشتی bare img هستند و دکمهٔ کیبورد ندارند. نمایش تمام‌صفحه با Enter/Escape و بازگشت focus از قبل کار می‌کند. کنترل بومی button با label فارسی/aria-current و focus داخلی، اصل img/URL/alt و handler گالری را نگه می‌دارد؛ بدون تغییر عکس یا کاتالوگ. دارایی‌ها فقط روی product بار می‌شوند و به store.js وابسته نیستند. scope دقیق سه فایل و۱۳runtime guard، صفرDB/content/product change.
+
+RED واقعی مرورگر و assets/scope ثبت شد؛۶PHP assets،۲۴PASS/۱SKIP از۲۵Windows operator،۱۸native read-only checker و۱۳offline component برای delayed/multiple/idempotent/click-once پاس. component ساختگی، مدرک بومی FlexSlider نیست. رسید `qa/growth-2026-10-31/gallery-keyboard-draft.json`؛ طرح `docs/superpowers/plans/2026-11-01-gallery-keyboard.md`.
+
+NEXT: commit ثابت و native staging با baselinemetadata0.2.2؛ backup/checksum/drift، واقعی gallery keyboard/pointer/fullscreen1440/375/no-JS، همهٔ۲۵enqueue/قیمت-موجودی/metadata و rollback/repeat/restore دقیقpreview0.2.0. production هنوز تغییر نکرده است. فقط پس ازCI/ادغام عادی/snapshot خصوصی وbackup/drift تازه منتشر کن. publisher/recovery قبلی را تکرار نکن؛writerها ترتیبی و قفل‌دار. MyTelfreeze/noindex/پرداخت/داده و rotationUNKNOWN/historyNEEDS_APPROVAL/refmapSTALE/originUNDETERMINED/منعforce-push پابرجا؛گزارشصبح LIVE_NOT_FINAL تا۰۸:۰۰.
+
+## Native qualification failures retained,2026-11-01
+
+Source8d0af85 applied three files/repeated without DB writes,then an Article-array equality assertion failed before the gallery browser ran. Its applied journal rolled back the three managed files and original metadata fixture exactly;protected data digest retained. The first differing route/details were not saved and are not reconstructed. A subsequent direct web probe observed hub/service roles1/1→0/0 while the real lesson stayed1, supporting a temporarily stale web baseline after the0.2.2 fixture write. The next attempt refused the already ROLLED_BACK source journal before any app apply;that journal was preserved,and the temporary fixture restored. Neither attempt qualifies the change.
+
+Revised test preparation: observe expected current metadata roles via web SAPI before baseline capture,retain all before/after comparisons privately,and use a NEW reviewed source commit/bundle/container stage after rollback. No application payload,guard or journal is weakened/changed to pass. Evidence:qa/growth-2026-10-31/gallery-keyboard-first-attempts.json. New full immutable native/browser/rollback qualification remains required;production untouched.
+
+## checkpoint تمرین کیبورد گالری
+
+## CURRENT — کیبورد گالری در staging بومی تأیید شد؛ live هنوز تغییر نکرده
+
+VERIFIED_REHEARSAL_NOT_DEPLOYED: source ثابت `e4fbe5f720b916869dd23cd5f8e637b297510aee` با baseline `e4dc26baa15788c21fe7f3a56a8410af8f5bb1f2`. سه فایل،۱۳runtime guard و صفرDB/content/product/image change؛۶PHP assets،۱۸native checker،۱۳component و۲۴PASS/۱SKIP از۲۵Windows operator. آزمون واقعی محصول TN-SN-17868 با Tab/Shift+Tab،Enter/Space،focus داخلی،کلیک،fullscreen/Escape در1440/375 وfallback بدونJS:۴۴بررسی پاس. موبایل بصری بازبینی شد؛عکس‌ها همان منبع قبلی‌اند،مدرک اصل عکاسی/مدل دقیق نیستند.
+
+تمرین backup/checksum/tamper/check/apply/repeat،۱۸HTTP comparison،۲۵product-only asset check و برابریimage/price/inquiry API،rollback/repeat و بازگشت دقیق سه فایل وpreviewmetadata0.2.0 پاس؛داده وcontainerها ثابت. metadata0.2.2 fixture ابتدا از مسیر وب تأیید شد. فقط دو بخش تصادفی related products از مقایسهٔ متن اصلی محصول جدا شدند؛تغییرH1 آزمایشی همچنان شناسایی می‌شود وDB/schema guard سخت باقی است. ۱۸و۲۵ مسیر همپوشان‌اند. چهار تلاش غیرqualified،علت‌ها و بازگشت‌ها دررسیدها محفوظ؛هیچjournal پاک/ضعیف نشد. رسید `qa/growth-2026-10-31/gallery-keyboard-release-rehearsal.json`.
+
+NEXT: CI تازهٔhead،snapshotخصوصی وادغام عادی؛bundle برابرpayload/tool/۱۳guard،backup/checksum/driftتازهٔتولید،انتشار فقط سه فایل وپذیرش عمومی۴۴browser/۲۵asset/image-price حفظ. هنوزDEPLOYED نیست. MyTelfreeze/noindex/فروشگاه/خانه/منو/داده/پرداخت وrotationUNKNOWN/historyNEEDS_APPROVAL/refmapSTALE/originUNDETERMINED/منعforce-push حفظ؛گزارشصبحLIVE_NOT_FINAL تا۰۸:۰۰. publisher/recovery قبلی را بازپخش نکن وwriterهایpreview ترتیبی/قفل‌دار باشند.

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_LOCAL_NATIVE_CHECKER_NOT_DEPLOYED",
+  "observed_utc": "2026-11-01T02:38:42.346884+00:00",
+  "actual_public_red": {
+    "status": "EXPECTED_RED_REAL_PUBLIC_GALLERY",
+    "expected_failure": "Every thumbnail is a native keyboard button 1440",
+    "production_mutations": 0,
+    "observed_utc": "2026-11-01T02:34:40.700137+00:00"
+  },
+  "local_green": {
+    "assets_php_assertions": 6,
+    "windows_operator_cases": 25,
+    "windows_passed": 24,
+    "skipped_symlink_permission": 1,
+    "native_readonly_checker": 18,
+    "offline_browser_component": {
+      "status": "PASS",
+      "checks": [
+        "Delayed native-style thumbnails enhanced",
+        "Already linked image left untouched",
+        "Stable Persian position label",
+        "Enter bridges exactly one original image click",
+        "Current state scoped to each gallery",
+        "Enter retains focus",
+        "Space uses native button activation exactly once",
+        "Image-origin pointer click is not doubled",
+        "Button-origin pointer click is not doubled",
+        "Repeated enhancement never nests controls",
+        "Repeated enhancement never duplicates click bridge",
+        "No form submission",
+        "Original fixture image/alt nodes retained"
+      ],
+      "method": "Offline real-browser component with synthetic DOM and original module;not native WordPress/FlexSlider acceptance"
+    }
+  },
+  "scope": {
+    "key": "tehnet-gallery-keyboard-20261101-v1",
+    "managed_files": 3,
+    "runtime_guards": 13,
+    "database_changes_allowed": false,
+    "product_only_assets": true,
+    "new_photo_model_or_catalog_changes": false
+  },
+  "native_rehearsal": "PENDING",
+  "production": "NOT_DEPLOYED",
+  "preparation_failures": [
+    "The RED harness initially inspected stderr alone, but portable PHP placed its expected fatal assertion on stdout; full output was read and the harness corrected before both actual RED suites reran. No native/production mutation occurred."
+  ],
+  "limits": [
+    "Actual public gap is inline thumbnail keyboard semantics;fullscreen Enter/Escape already works.",
+    "Native comparison-dialog transient body activeElement was not treated as proof of escaped browser modal focus.",
+    "Offline component uses synthetic thumbnail/click fixtures;it is not native WordPress/FlexSlider acceptance.",
+    "No full WCAG/screen-reader/authenticated-session/physical-device validation,SEO gain or exact product/photo/CAD/360 provenance claim."
+  ]
+}

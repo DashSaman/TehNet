@@ -1,0 +1,52 @@
+/* GET-only native/public gallery acceptance; no product/order/form mutation. */
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const {chromium}=require('playwright');
+const base=process.argv[2],out=process.argv[3];
+assert(base==='https://tehnet.ir'||base==='http://localhost:18085'&&process.env.TN_NATIVE_PREVIEW_ISOLATED==='1');
+(async()=>{const browser=await chromium.launch({channel:'msedge',headless:true}),checks=[],errors=[],methods=new Set();let context;
+const check=(v,label)=>{assert(v,label);checks.push(label)};
+try{
+ for(const width of [1440,375]){
+  context=await browser.newContext({viewport:{width,height:850}});
+  await context.route('**/*',r=>{const q=r.request(),u=new URL(q.url());methods.add(q.method());if(!['GET','HEAD'].includes(q.method())||u.origin!==base&&!['data:','blob:'].includes(u.protocol))return r.abort();return r.continue()});
+  const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
+  const response=await context.request.get(base+'/wp-json/wc/store/v1/products?per_page=100');check(response.status()===200,'Product inventory GET '+width);
+  const products=await response.json(),product=products.find(p=>p.sku==='TN-SN-17868');assert(product&&product.images.length>1);
+  const route=new URL(product.permalink).pathname;const navigation=await page.goto(base+route,{waitUntil:'networkidle'});check(navigation.status()===200,'Real multi-image product '+width);
+  const images=page.locator('.flex-control-thumbs li img'),buttons=page.locator('.flex-control-thumbs button.tn-gallery-thumb');
+  check(await images.count()===product.images.length,'Original thumbnail count '+width);
+  check(await buttons.count()===product.images.length,'Every thumbnail is a native keyboard button '+width);
+  const sources=await images.evaluateAll(es=>es.map(e=>({src:e.getAttribute('src'),alt:e.alt})));
+  check(await buttons.first().getAttribute('type')==='button','No form submission type '+width);
+  check((await buttons.nth(1).getAttribute('aria-label')).includes('۲'),'Position label '+width);
+  await buttons.first().focus();await page.keyboard.press('Tab');check(await buttons.nth(1).evaluate(e=>e===document.activeElement),'Tab reaches second thumbnail '+width);
+  await page.keyboard.press('Enter');await page.waitForFunction(()=>document.querySelectorAll('.flex-control-thumbs img')[1].classList.contains('flex-active'));
+  check(await buttons.nth(1).getAttribute('aria-current')==='true'&&await buttons.first().getAttribute('aria-current')==='false','Enter selects actual gallery frame and current state '+width);
+  check(await buttons.nth(1).evaluate(e=>e===document.activeElement),'Selection retains keyboard focus '+width);
+  await page.keyboard.press('Shift+Tab');check(await buttons.first().evaluate(e=>e===document.activeElement),'Reverse Tab reaches first thumbnail '+width);
+  const scroll=await page.evaluate(()=>scrollY);await page.keyboard.press('Space');await page.waitForFunction(()=>document.querySelectorAll('.flex-control-thumbs img')[0].classList.contains('flex-active'));
+  check(await buttons.first().getAttribute('aria-current')==='true','Space selects first actual frame '+width);
+  check(await page.evaluate(y=>Math.abs(scrollY-y)<=2,scroll),'Space does not scroll the page '+width);
+  check(await buttons.first().evaluate(e=>{const s=getComputedStyle(e);return s.outlineStyle!=='none'&&parseFloat(s.outlineWidth)>=2&&parseFloat(s.outlineOffset)<0}),'Visible inset focus ring '+width);
+  await buttons.nth(1).click();await page.waitForFunction(()=>document.querySelectorAll('.flex-control-thumbs img')[1].classList.contains('flex-active'));check(true,'Pointer selection retained '+width);
+  check(JSON.stringify(await images.evaluateAll(es=>es.map(e=>({src:e.getAttribute('src'),alt:e.alt}))))===JSON.stringify(sources),'Original thumbnail URLs/alt retained '+width);
+  const trigger=page.locator('.woocommerce-product-gallery__trigger');await trigger.focus();await page.keyboard.press('Enter');await page.locator('.pswp--open').waitFor();await page.keyboard.press('Escape');check(await trigger.evaluate(e=>e===document.activeElement),'Fullscreen Escape returns focus '+width);
+  check(await page.locator('button.single_add_to_cart_button').count()===0&&await page.locator('#tehnet-inquiry').count()===1,'Inquiry-only unchanged '+width);
+  check(await page.locator('[data-tn-reviewed-model],[data-tn-spin]').count()===0,'No unsupported exact3D or360 '+width);
+  check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),'No viewport overflow '+width);
+  await page.screenshot({path:path.join(out,'gallery-'+width+'.png'),fullPage:false});
+  await context.close();context=null;
+ }
+ context=await browser.newContext({javaScriptEnabled:false,viewport:{width:375,height:850}});
+ await context.route('**/*',r=>{const q=r.request(),u=new URL(q.url());methods.add(q.method());if(!['GET','HEAD'].includes(q.method())||u.origin!==base&&!['data:','blob:'].includes(u.protocol))return r.abort();return r.continue()});
+ const fallback=await context.newPage(),inventory=await context.request.get(base+'/wp-json/wc/store/v1/products?per_page=100'),items=await inventory.json(),item=items.find(p=>p.sku==='TN-SN-17868');
+ await fallback.goto(base+new URL(item.permalink).pathname,{waitUntil:'networkidle'});
+ check(await fallback.locator('.woocommerce-product-gallery__image img').count()===item.images.length,'No-JS retains original native image references');
+ check(await fallback.locator('.woocommerce-product-gallery__image img').first().isVisible(),'No-JS original first image visible');
+ check(await fallback.locator('.tn-gallery-thumb').count()===0,'No-JS does not advertise a nonfunctional new control');
+ check(await fallback.locator('#tehnet-inquiry').count()===1&&await fallback.locator('button.single_add_to_cart_button').count()===0,'No-JS inquiry-only fallback retained');
+ await context.close();context=null;
+ check(errors.length===0,'No page errors');check([...methods].every(m=>['GET','HEAD'].includes(m)),'GET-only requests');
+ const receipt={status:'PASS',observed_utc:new Date().toISOString(),checks,methods:[...methods],page_errors:errors,server_form_or_commerce_mutations:0,limits:['One real multi-image gallery at two widths;not complete WCAG/screen-reader or all-product coverage.','Source images do not establish photographic origin,exact model,CAD or360 frames.']};
+ fs.writeFileSync(path.join(out,'gallery-keyboard-browser.json'),JSON.stringify(receipt,null,2));console.log(JSON.stringify({status:'PASS',checks:checks.length}));
+}finally{if(context)await context.close();await browser.close()}})().catch(e=>{fs.writeFileSync(path.join(out,'failure.json'),JSON.stringify({status:'FAILED',message:e.message},null,2));console.error(e.stack);process.exitCode=1});

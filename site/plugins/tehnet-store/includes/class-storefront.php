@@ -133,6 +133,10 @@ final class TehNet_Store_Storefront {
         wp_enqueue_style('tn-store',plugins_url('assets/store.css',dirname(__DIR__).'/tehnet-store.php'),[], '0.5.3');
         wp_enqueue_script('tn-store',plugins_url('assets/store.js',dirname(__DIR__).'/tehnet-store.php'),[], '0.5.2',true);
         if(is_shop()||is_product_taxonomy()||is_product())wp_enqueue_style('tn-shop-experience',plugins_url('assets/store-experience.css',dirname(__DIR__).'/tehnet-store.php'),['tn-store','tehnet-visual-refresh'],'0.4.0');
+        if(is_product()) {
+            wp_enqueue_script('tn-product-gallery',plugins_url('assets/product-gallery.js',dirname(__DIR__).'/tehnet-store.php'),[],'0.1.0',true);
+            wp_enqueue_style('tn-product-gallery',plugins_url('assets/product-gallery.css',dirname(__DIR__).'/tehnet-store.php'),['tn-shop-experience'],'0.1.0');
+        }
     }
     public function body_classes(array $classes):array {
         if(function_exists('is_shop')&&(is_shop()||is_product_taxonomy()||is_product()))$classes[]='tn-shop';return $classes;
