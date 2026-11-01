@@ -5,7 +5,7 @@ This bounded guard complements a dedicated secret scanner and manual review;
 it does not certify Git history, screenshots, archives or hosted PR caches.
 """
 from pathlib import Path
-import argparse,hashlib,ipaddress,json,re,subprocess,sys
+import argparse,hashlib,ipaddress,json,os,re,subprocess,sys
 
 PRIVATE_KEY=re.compile(rb'-----BEGIN (?:RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----')
 SECRET=re.compile(rb'\b(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,}|sk-(?:proj-)?[A-Za-z0-9_-]{32,}|AKIA[0-9A-Z]{16})\b')
@@ -54,15 +54,20 @@ def main():
     parser.add_argument('--root',type=Path,default=Path.cwd())
     parser.add_argument('--deny-values-file',type=Path,help='Private JSON list outside the repository; never printed')
     args=parser.parse_args();root=args.root.resolve()
-    config=json.loads((root/'.publication-policy.json').read_text(encoding='utf-8'))
+    io_root=root
+    if os.name=='nt'and not str(root).startswith('\\\\?\\'):
+        io_root=Path('\\\\?\\UNC\\'+str(root)[2:]if str(root).startswith('\\\\')else'\\\\?\\'+str(root))
+    config=json.loads((io_root/'.publication-policy.json').read_text(encoding='utf-8'))
     denied=json.loads(args.deny_values_file.read_text(encoding='utf-8'))if args.deny_values_file else []
     if not isinstance(denied,list)or any(not isinstance(v,str)for v in denied):raise ValueError('Expected private string list')
-    paths=subprocess.check_output(['git','-C',str(root),'ls-files','-z']).decode().split('\0')[:-1]
+    paths=subprocess.check_output(['git','-c','core.longpaths=true','-C',str(root),'ls-files','-z']).decode().split('\0')[:-1]
     issues=[];checked=0
     for path in paths:
-        file=root/path
-        if not file.exists():continue
-        checked+=1;issues.extend(inspect(path,file.read_bytes(),config,denied))
-    print(json.dumps({'checked_tracked_files':checked,'issues':issues,'status':'PASS'if not issues else'FAIL'},ensure_ascii=False))
+        try:data=(io_root/path).read_bytes()
+        except OSError:
+            issues.append({'path':path,'category':'unreadable-tracked-file'})
+            continue
+        checked+=1;issues.extend(inspect(path,data,config,denied))
+    print(json.dumps({'tracked_files':len(paths),'checked_tracked_files':checked,'issues':issues,'status':'PASS'if not issues else'FAIL'},ensure_ascii=False))
     return bool(issues)
 if __name__=='__main__':sys.exit(main())

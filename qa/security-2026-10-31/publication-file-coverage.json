@@ -1,0 +1,38 @@
+{
+  "observed_utc": "2026-11-01T03:25:16.947187+00:00",
+  "snapshot_source_main": "ef66dee782cd47db259e169872e4442cc2b44bde",
+  "tracked_paths": 1513,
+  "ordinary_windows_exists": 1276,
+  "extended_windows_exists": 1513,
+  "original_guard_reported": {
+    "checked_tracked_files": 1276,
+    "issues": [],
+    "status": "PASS"
+  },
+  "red_tests": {
+    "total": 12,
+    "passed": 9,
+    "failures": 2,
+    "errors": 1
+  },
+  "green_windows_tests": {
+    "total": 12,
+    "passed": 12,
+    "skipped": 0
+  },
+  "original_checkout_files_modified": 0,
+  "remote_writes": 0,
+  "corrected_guard": {
+    "tracked_files": 1513,
+    "checked_tracked_files": 1513,
+    "issues": [],
+    "status": "PASS"
+  },
+  "guard_sha256_lf": "fa94f6bfc845b4dfe60c754e2fc1c96c3d6513f236eb830cdf7a98b3f8a1e1f1",
+  "status": "VERIFIED_COMPLETE_CURRENT_FILE_COVERAGE",
+  "limits": [
+    "Full reachable-object known-value/path scan and current-file guard are separate checks.",
+    "This does not purge remote history or certify undiscovered secret formats, media, inaccessible refs, forks or caches.",
+    "The earlier1276-file PASS is retained as incomplete filesystem coverage, not relabeled complete."
+  ]
+}
