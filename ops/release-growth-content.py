@@ -37,6 +37,7 @@ IP_DHCP_DNS_SCOPE = 'tehnet-editorial-ip-dhcp-dns-20261101-v1'
 NETWORK_SETUP_SCOPE = 'tehnet-service-network-setup-20261101-v1'
 REMOTE_SUPPORT_SCOPE = 'tehnet-service-remote-support-20261101-v1'
 MIKROTIK_SERVICE_SCOPE = 'tehnet-service-mikrotik-20261101-v1'
+COMMERCIAL_CATALOG_SCOPE = 'tehnet-commercial-catalog-20261101-v1'
 LESSON_SCOPES = {
     EDITORIAL_SCOPE: ('content/growth-editorial-2026-11-01', 'routeros-winbox.html', '/tmp/tn-editorial-release-'),
     ROUTING_SCOPE: ('content/routing-editorial-2026-11-01', 'static-routing.html', '/tmp/tn-routing-release-'),
@@ -48,10 +49,24 @@ CONTENT_SCOPES = {**LESSON_SCOPES,
     REMOTE_SUPPORT_SCOPE: ('content/remote-support-2026-11-01', 'remote-support.html', '/tmp/tn-remote-support-release-'),
     MIKROTIK_SERVICE_SCOPE: ('content/mikrotik-service-2026-11-01', 'mikrotik-service.html', '/tmp/tn-mikrotik-service-release-'),
 }
-GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE, GALLERY_KEYBOARD_SCOPE]
+GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE, GALLERY_KEYBOARD_SCOPE, COMMERCIAL_CATALOG_SCOPE]
 
 
 def scope_spec(scope):
+    if scope == COMMERCIAL_CATALOG_SCOPE:
+        return ['site/plugins/tehnet-store/includes/class-tickets.php',
+                'site/themes/tehnet/assets/css/service-catalog.css',
+                'site/themes/tehnet/functions.php'], [
+            'content/commercial-catalog-2026-11-01/manifest.json',
+            'content/commercial-catalog-2026-11-01/services.html',
+            'content/commercial-catalog-2026-11-01/home.html',
+            'ops/migrate-growth-content.php'], [p for p in FILES if not p.endswith('class-tickets.php')] + [
+                'site/plugins/tehnet-store/tehnet-store.php',
+                'site/plugins/tehnet-store/includes/class-policy.php',
+                'site/mu-plugins/tehnet-search-metadata.php',
+                'site/plugins/tehnet-store/assets/product-gallery.js',
+                'site/plugins/tehnet-store/assets/product-gallery.css',
+                'site/plugins/tehnet-store/includes/class-storefront.php']
     if scope == SCOPE:
         return list(FILES), list(EXTRA), []
     if scope in CONTENT_SCOPES:
@@ -337,6 +352,8 @@ class Release:
         staged = [(self.extra[0], 'manifest.json'), (self.extra[-1], 'migration.php')]
         if self.scope in CONTENT_SCOPES:
             staged.append((self.extra[1], CONTENT_SCOPES[self.scope][1]))
+        if self.scope == COMMERCIAL_CATALOG_SCOPE:
+            staged.extend([(self.extra[1], 'services.html'), (self.extra[2], 'home.html')])
         for source, name in staged:
             self.run(['docker', 'cp', str(member(self.b / 'payload', source)), self.c['app'] + ':' + self.container_stage + '/' + name])
         # Syntax-check every PHP artifact before the first live file write.

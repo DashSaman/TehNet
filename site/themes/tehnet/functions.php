@@ -56,6 +56,12 @@ function tehnet_visual_assets(): void {
     wp_enqueue_script('tehnet-visual-refresh', get_theme_file_uri($js), [], (string) filemtime(get_theme_file_path($js)), true);
 }
 add_action('wp_enqueue_scripts', 'tehnet_visual_assets', 20);
+function tehnet_service_catalog_assets(): void {
+    if (!is_front_page() && !is_page(['services','support']) && !has_shortcode((string)get_post_field('post_content',get_queried_object_id()),'tn_service_request')) return;
+    $css='assets/css/service-catalog.css';
+    wp_enqueue_style('tehnet-service-catalog',get_theme_file_uri($css),['tehnet-visual-refresh'],(string)filemtime(get_theme_file_path($css)));
+}
+add_action('wp_enqueue_scripts','tehnet_service_catalog_assets',21);
 function tehnet_visual_controls(): void {
     echo '<button class="tn-motion-toggle tn-js-only" id="tn-motion-toggle" type="button" aria-pressed="false">توقف حرکت‌های گرافیکی</button>';
 }
