@@ -1,6 +1,6 @@
 # بهبود خدمت موجود MikroTik
 
-وضعیت: VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED —۱نوامبر۲۰۲۶. همان ID35، عنوان «خدمات MikroTik تهران»، URL `/services/mikrotik-tehran/` و والد8. فقط body و تاریخ واقعی تغییر؛ عنوان/slug/meta/excerpt محفوظ. محتوای native/public در01:30:20UTC با after نسخهٔ committed۱۶اکتبر، SHA647165b... منطبق بود؛ GET باTLS معتبر200.
+وضعیت: VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر۲۰۲۶. همان ID35، عنوان «خدمات MikroTik تهران»، URL `/services/mikrotik-tehran/` و والد8. فقط body و تاریخ واقعی تغییر؛ عنوان/slug/meta/excerpt محفوظ. محتوای native/public در01:30:20UTC با after نسخهٔ committed۱۶اکتبر، SHA647165b... منطبق بود؛ GET باTLS معتبر200.
 
 ## نیاز مستقل و مرز intent
 
@@ -21,3 +21,5 @@ scope دقیق `tehnet-service-mikrotik-20261101-v1` باID35/URI/file ثابت�
 MyTel read-only/freeze، noindex، خانه/منو/فروشگاه، دادهٔ مشتری و۲۵کالای استعلامی/صفرقابل‌خرید وپرداخت بسته حفظ شوند. rotationUNKNOWN/historyNEEDS_APPROVAL/originUNDETERMINED/منعforce-push پابرجا؛ گزارش صبح LIVE_NOT_FINAL تا۰۸:۰۰. رتبه، ترافیک، تقاضا یا توصیهٔAI در این بسته اندازه‌گیری نشده است؛ مقاله/URL تازه صفر.
 
 پذیرش بومی:۳۹بلوک/۳۰browser/۴۱native+۴۰remote+۳۹setup،Windows۲۲PASS/۱SKIP از۲۳،۱۵TLS200/۳anchor؛ state وکاربرQA دقیقاً بازگشتند. immutable rehearsal/CI/live هنوز در انتظارند.
+
+تمرین immutable باsource73c72112fac967c71ea4f89c0129cf4a28f87e5a،backup/checksum/tamper/apply/repeat/۴HTTP/rollback/repeat وrestore دقیقstate/metadata fixture موفق بود؛ CI/Linux وlive هنوز در انتظارند.

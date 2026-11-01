@@ -1,4 +1,10 @@
-## CURRENT — پیش‌نویس خدمت MikroTik و محدودهٔ انتشار آزموده شد
+## CURRENT — خدمت MikroTik برای انتشار محدود آماده شد
+
+VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر: source ثابت `73c72112fac967c71ea4f89c0129cf4a28f87e5a` برای همان ID35.۳۹بلوک/۳۰browser/۴۱native+۴۰remote+۳۹setup regression؛ Windows۲۲PASS/۱SKIP از۲۳ و۱۵TLS200/۳anchor. تمرین backup/checksum/tamper/check/apply/repeat/۴HTTP/rollback/repeat موفق؛ posts/meta/users وmetadata fixture اصلی دقیقاً بازگشتند وcontainerها ثابت ماندند.۸guard/صفرنصبruntime. رسید `qa/growth-2026-10-31/mikrotik-service-release-rehearsal.json`؛ manual جاری و نسخه/مدل محدودند، مثالVLAN ساختگی و هیچ تست دستگاه/شبکه/امنیت/سرعت/بازیابی اجرا نشده است.
+
+NEXT: CI تازهٔhead،snapshotخصوصی وادغامعادی؛ برابریpayload/tool/۸guard،backup/checksum/driftتازهٔتولید وپذیرشعمومی. production هنوز تغییر نکرده؛ انتشار/recovery قبلی بازپخش نشوند. noindex/خانه/منو/فروشگاه/داده/پرداخت/MyTel وrotationUNKNOWN/historyNEEDS_APPROVAL/originUNDETERMINED/منعforce-push پابرجا؛ گزارش صبح LIVE_NOT_FINAL تا۰۸:۰۰.
+
+## HISTORICAL CHECKPOINT — پیش‌نویس خدمت MikroTik و محدودهٔ انتشار آزموده شد
 
 VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED —۱نوامبر: همان ID35/URL/عنوان/والد؛ اطلاعات مدل/نسخه/وابستگی، هدف تغییر، پذیرش و پنجرهٔ بازیابی، با۲منبع جاری MikroTik و مثال VLAN صریحاً ساختگی/اندازه‌گیری‌نشده.۳۹بلوک/۳۰browser1440/375/no-JS/edit-reset،۴۱native جدید و۴۰remote+۳۹setup regression پاس؛۲۳Windowscase شامل۲۲PASS/۱SKIPsymlink. scope قدیمی رد شد؛ ثبت جدید exact/body-only با۸guard/صفرنصبruntime است.۱۵GET لینکTLS200 و۳anchor پاس. همهٔposts/meta/users وکاربرQA دقیقاً بازگشتند؛ writerها ترتیبی وباقفل مشترک.
 

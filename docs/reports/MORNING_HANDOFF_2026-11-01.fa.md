@@ -1,6 +1,6 @@
 # تحویل صبح TehNet × MyTel × SEO —۱نوامبر۲۰۲۶
 
-**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 05:06 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
+**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 05:08 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
 
 ## ۱. امنیت — گیت‌های باز مقدم‌اند
 
@@ -313,3 +313,11 @@ VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED —۱نوامبر: همان ID35/URL/عنوا
 رسید `qa/growth-2026-10-31/mikrotik-service-draft-and-migration.json` وbrief/source درseo. manual7.26 نسخهٔ دستگاه یا توصیهٔ ارتقا نیست؛ سایت قدیمی frozen منبع جاری شمرده نشده. هیچ تغییر/آزمون دستگاه،شبکه،VLAN،امنیت،عملکرد یا بازیابی اجرا نشد. خطای محلی آماده‌سازی تست پیش ازاجرا اصلاح شد؛ suiteقدیمی۲۲case به‌جایred/green واقعی۲۳case حساب نشده است.
 
 NEXT: immutable rehearsal مستقل باmetadata جاری وrestore دقیقpreview، CI تازه/ادغام عادی/snapshotخصوصی، برابریpayload/tool/۸guard وbackup/checksum/driftتازه؛ سپس انتشار محدود وپذیرشعمومی اگر واجدگیت بود. production هنوز تغییر نکرده؛ انتشار/recovery/۱۰۰کاندیدا بازپخش نشوند. noindex/خانه/منو/فروشگاه/داده/پرداخت/MyTel وگیت‌های امنیتی پابرجا؛ گزارشصبح LIVE_NOT_FINAL تا۰۸:۰۰.
+
+## checkpoint تمرین انتشار MikroTik
+
+## CURRENT — خدمت MikroTik برای انتشار محدود آماده شد
+
+VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر: source ثابت `73c72112fac967c71ea4f89c0129cf4a28f87e5a` برای همان ID35.۳۹بلوک/۳۰browser/۴۱native+۴۰remote+۳۹setup regression؛ Windows۲۲PASS/۱SKIP از۲۳ و۱۵TLS200/۳anchor. تمرین backup/checksum/tamper/check/apply/repeat/۴HTTP/rollback/repeat موفق؛ posts/meta/users وmetadata fixture اصلی دقیقاً بازگشتند وcontainerها ثابت ماندند.۸guard/صفرنصبruntime. رسید `qa/growth-2026-10-31/mikrotik-service-release-rehearsal.json`؛ manual جاری و نسخه/مدل محدودند، مثالVLAN ساختگی و هیچ تست دستگاه/شبکه/امنیت/سرعت/بازیابی اجرا نشده است.
+
+NEXT: CI تازهٔhead،snapshotخصوصی وادغامعادی؛ برابریpayload/tool/۸guard،backup/checksum/driftتازهٔتولید وپذیرشعمومی. production هنوز تغییر نکرده؛ انتشار/recovery قبلی بازپخش نشوند. noindex/خانه/منو/فروشگاه/داده/پرداخت/MyTel وrotationUNKNOWN/historyNEEDS_APPROVAL/originUNDETERMINED/منعforce-push پابرجا؛ گزارش صبح LIVE_NOT_FINAL تا۰۸:۰۰.

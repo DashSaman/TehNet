@@ -193,3 +193,14 @@ No remote session/tool-security/network-device test was executed. Existing URL/t
 | P10 final morning handoff | IN_PROGRESS | LIVE_NOT_FINAL;08:00Tehran final remains required |
 
 No actual remote session/tool-security/network-device/customer or SEO gain was measured. Shared-preview state/metadata fixture was exactly restored, source/CISA exclusions retained. MyTel/noindex/commerce/data/home/menu/security gates unchanged; owner-approved purge refmap remains stale after normal merges, never force-push in absence.
+
+## Queue checkpoint — existing MikroTik-service qualification
+
+| Package | State | Evidence / next gate |
+|---|---|---|
+| P6 existing MikroTik ID35 draft | VERIFIED |39blocks/30browser/41native+40remote+39setup,Windows22PASS/1SKIP of23;15TLS200/3fragments |
+| ID35 immutable rehearsal | VERIFIED |73c72112fac967c71ea4f89c0129cf4a28f87e5a;backup/checksum/tamper/check/apply/repeat/4HTTP/rollback/repeat,exact content/metadata fixture/container state retained |
+| ID35 Linux CI/live | READY | Fresh CI/ordinary merge/private snapshot,qualified payload/tool/8guard equality and fresh production backup/checksum/drift required |
+| P10 morning report | IN_PROGRESS | LIVE_NOT_FINAL;08:00Tehran final required |
+
+No actual device/VLAN/network/security/performance/recovery or SEO gain measured. Exact page scope,zero runtime installs,MyTel/noindex/commerce/home/menu/data/security gates preserved; serial shared-preview writers,do not replay accepted publishers/recovery.
