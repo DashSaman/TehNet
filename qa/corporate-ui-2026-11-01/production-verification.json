@@ -1,0 +1,206 @@
+{
+  "status": "DEPLOYED",
+  "source_commit": "5306cf2f87a77394381f0f3247a09d5c72e02d43",
+  "qualified_source": "5b615f9ebbdc1382b14101bfeb5e33a742cb2811",
+  "observed_utc": "2026-11-01T15:02:12.573705+00:00",
+  "completed_utc": "2026-11-01T15:02:44.121144+00:00",
+  "scope": "tehnet-corporate-ui-20261101-v1",
+  "public_gets": [
+    {
+      "url": "https://tehnet.ir/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/services/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/services/network-tehran/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/services/network-support-tehran/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/services/network-setup-tehran/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/services/mikrotik-tehran/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/services/remote-support/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/services/voice-network-readiness/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/learn/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/lab/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/lab/voice-network-checklist/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/shop/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/support/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/b2b/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/software/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/tunnels/",
+      "status": 200,
+      "h1": 1,
+      "noindex": false,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/about/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/contact/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/amirreza-golavar/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true,
+      "tls_verified": true
+    }
+  ],
+  "fresh_backup_checksum_verified": true,
+  "protected_state_unchanged": true,
+  "all_existing_runtimes_unchanged": true,
+  "all_25_image_price_inquiry_api_unchanged": true,
+  "public_css_payload_sha256_matches": true,
+  "public_font_and_navigation_sha256_match": true,
+  "footer_profile_link_removed": true,
+  "captcha_enabled": false,
+  "release_pr": "https://github.com/DashSaman/TehNet/pull/69",
+  "acceptance_reconciliation_pr": "https://github.com/DashSaman/TehNet/pull/70",
+  "files_changed": 13,
+  "menu_items_updated": 10,
+  "page_content_changes": 0,
+  "repeat_apply_file_changes": 0,
+  "browser": {
+    "status": "PASS",
+    "observed_utc": "2026-11-01T15:05:05.570Z",
+    "checks": [
+      "/services/ HTTP200",
+      "/services/ local Estedad loaded",
+      "/services/ intentional noindex retained",
+      "/services/ corporate light default",
+      "/services/ footer personal link removed",
+      "/services/ one canonical request form",
+      "/services/ Google CAPTCHA honestly inactive",
+      "/services/ navigation text at least15px",
+      "/services/ tunnel nested under Services and visible",
+      "Workflow aligned within1px",
+      "MyTel specialist referral retained",
+      "/services/ no overflow at320",
+      "/services/ no overflow at375",
+      "/services/ mobile tunnel visible",
+      "/services/ no overflow at768",
+      "/services/ no overflow at1024",
+      "/services/ no overflow at1280",
+      "/services/ no overflow at1440",
+      "/ HTTP200",
+      "/ local Estedad loaded",
+      "/ intentional noindex retained",
+      "/ corporate light default",
+      "/ footer personal link removed",
+      "/ one canonical request form",
+      "/ Google CAPTCHA honestly inactive",
+      "/ navigation text at least15px",
+      "/ tunnel nested under Services and visible",
+      "/ no overflow at320",
+      "/ no overflow at375",
+      "/ mobile tunnel visible",
+      "/ no overflow at768",
+      "/ no overflow at1024",
+      "/ no overflow at1280",
+      "/ no overflow at1440",
+      "No production write request attempted",
+      "No uncaught UI errors"
+    ],
+    "passed": 36,
+    "production_writes": 0
+  },
+  "production_qa_submissions": 0,
+  "rollback": "First attempt f5119a0 fully rolled back; second attempt has a new source/journal and fresh backup. Existing standalone tunnel robots baseline preserved.",
+  "captcha_status": "IMPLEMENTED_DISABLED_GOOGLE_ACCOUNT_RESTRICTED",
+  "provider_live_verification": false,
+  "parity_or_ranking_claim": false
+}
