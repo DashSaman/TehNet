@@ -1,6 +1,6 @@
 # P7 native product gallery keyboard selection
 
-Status: VERIFIED_REHEARSAL_NOT_DEPLOYED. Owner's existing overnight authorization covers evidenced bounded UX corrections; no new payment/indexing or MyTel permission is inferred.
+Status: DEPLOYED_VERIFIED_TRANSFER_PENDING. Owner's existing overnight authorization covers evidenced bounded UX corrections; no new payment/indexing or MyTel permission is inferred.
 
 Current evidence: previous media receipts tested pointer selection and fullscreen Escape, but not keyboard selection of inline thumbnail controls. Fresh guest GET-only observation on real TN-SN-17868 found two bare thumbnail images without tabindex/role. Fullscreen Enter/Escape and focus return work. Native compare dialog Escape/focus return also work; a transient body activeElement after Tab is not treated as proof of escaped native-modal focus. A real public regression fails specifically because thumbnails are not native keyboard buttons.
 
@@ -14,8 +14,8 @@ Release scope: exactly product-gallery.js, product-gallery.css and class-storefr
 - [x] Observe assets/scope RED before implementation.
 - [x] Implement minimal module/style/product-only enqueue and exact three-file scope; local GREEN.
 - [x] Native read-only checker tests; component delayed/multiple/idempotence cases and immutable native staging actual gallery/browser/rollback qualification.
-- [ ] Review full relevant diff, private denied-value scan, qualified commit/CI, private snapshot and ordinary integration.
-- [ ] Fresh production backup/checksum/drift, scoped release and public keyboard/pointer/fullscreen/mobile/no-JS acceptance; preserve closed commerce/noindex/metadata/data/runtime.
+- [x] Review full relevant diff, private denied-value scan, qualified commit/CI, private snapshot and ordinary integration.
+- [x] Fresh production backup/checksum/drift, scoped release and public keyboard/pointer/fullscreen/mobile/no-JS acceptance; preserve closed commerce/noindex/metadata/data/runtime.
 - [ ] Record actual receipts, transfer evidence to -SEO and update handoff/queue. Final08:00Tehran report remains pending.
 
 Source reviewed: https://www.w3.org/WAI/ARIA/apg/patterns/button/ , scoped Enter/Space, accessible name and retained focus guidance. Native button semantics are used. No accessibility certification or ranking gain is implied. Raw captures/private config/backups stay outside Git. Existing security gates and no force-push/MyTel production changes remain.
