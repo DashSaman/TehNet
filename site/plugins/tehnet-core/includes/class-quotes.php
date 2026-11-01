@@ -739,7 +739,7 @@ final class TehNet_Core_Quotes {
     <div class="brand" style="margin-inline-start:auto; text-align:left;">
       <h1><?php echo $e($d['business_name']); ?></h1>
       <p><?php echo $e($d['address']); ?></p>
-      <p>تلفن: <?php echo $e($d['phone']); ?> — <?php echo $e($d['site']); ?></p>
+      <p>تلفن: <?php echo TehNet_Core_Settings::phone_html($d['phone']); ?> — <?php echo $e($d['site']); ?></p>
     </div>
   </div>
   <div class="accent"></div>
@@ -790,7 +790,7 @@ final class TehNet_Core_Quotes {
     <div><?php do_action('tehnet_invoice_stamp',$d); ?>مهر و امضای فروشنده</div>
     <div>امضای خریدار</div>
   </div>
-  <div class="foot"><?php echo $e($d['business_name']); ?> — <?php echo $e($d['address']); ?> — تلفن <?php echo $e($d['phone']); ?><br><?php echo $e($d['youtube']); ?></div>
+  <div class="foot"><?php echo $e($d['business_name']); ?> — <?php echo $e($d['address']); ?> — تلفن <?php echo TehNet_Core_Settings::phone_html($d['phone']); ?><br><?php echo $e($d['youtube']); ?></div>
 </div>
 <div class="printbar"><button onclick="window.print()">چاپ / ذخیره PDF</button></div>
 </body>

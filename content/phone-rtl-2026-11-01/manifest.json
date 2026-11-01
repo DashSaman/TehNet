@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "key": "tehnet-phone-rtl-20261101-v1",
+  "runtime_files": [
+    "plugins/tehnet-core/includes/class-settings.php",
+    "themes/tehnet/footer.php",
+    "plugins/tehnet-core/includes/class-quotes.php",
+    "themes/tehnet/assets/css/corporate.css"
+  ],
+  "database_changes_allowed": false,
+  "phone_display_only": true
+}

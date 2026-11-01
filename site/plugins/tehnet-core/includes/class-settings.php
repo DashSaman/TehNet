@@ -94,15 +94,25 @@ final class TehNet_Core_Settings {
         $value = self::value($key);
         $is_url = str_ends_with($key, '_url');
         printf(
-            '<input class="regular-text" type="%1$s" name="%2$s" value="%3$s">',
+            '<input class="regular-text" type="%1$s" name="%2$s" value="%3$s"%4$s>',
             $is_url ? 'url' : 'text',
             esc_attr($key),
-            esc_attr($value)
+            esc_attr($value),
+            $key === 'tehnet_phone' ? ' dir="ltr" inputmode="tel"' : ''
         );
     }
 
     public function shortcode_phone(): string {
-        return esc_html(self::value('tehnet_phone'));
+        return self::phone_html();
+    }
+
+    /** Isolate the complete number from surrounding RTL text, including print views. */
+    public static function phone_html(?string $phone = null): string {
+        $phone = strtr($phone ?? self::value('tehnet_phone'), [
+            '۰'=>'0','۱'=>'1','۲'=>'2','۳'=>'3','۴'=>'4','۵'=>'5','۶'=>'6','۷'=>'7','۸'=>'8','۹'=>'9',
+            '٠'=>'0','١'=>'1','٢'=>'2','٣'=>'3','٤'=>'4','٥'=>'5','٦'=>'6','٧'=>'7','٨'=>'8','٩'=>'9',
+        ]);
+        return '<bdi dir="ltr" class="tn-phone" style="display:inline-block;direction:ltr;unicode-bidi:isolate;white-space:nowrap">'.esc_html($phone).'</bdi>';
     }
 
     public function shortcode_address(): string {
