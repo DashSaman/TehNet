@@ -1,3 +1,15 @@
+## CURRENT — ظاهر شرکتی منتشر و در سایت اصلی تأیید شد
+
+**DEPLOYED_VERIFIED —۱نوامبر۲۰۲۶:** [خدمات](https://tehnet.ir/services/) و [خانه](https://tehnet.ir/) با Estedad محلی، منوی خواناتر/ویرایش‌پذیر، مدیریت تونل زیر خدمات، مراحل همکاری هم‌تراز و فوتر بدون لینک رزومه منتشر شدند. خود [صفحهٔ رزومه](https://tehnet.ir/amirreza-golavar/) و بدنه/URL صفحات حفظ شده‌اند. theme روشن پیش‌فرض است و انتخاب تیرهٔ قبلی حفظ می‌شود.
+
+PR69/CI41318582449 و PR70/CI41318983648 موفق و ادغام شدند. source تولید `5306cf2f87a77394381f0f3247a09d5c72e02d43`؛ payload/tool/guards برابر native-qualified `5b615f9ebbdc1382b14101bfeb5e33a742cb2811`. انتشار۱۳فایل و۳۰فیلد تحت مالکیت۱۰آیتم منو، backup/checksum/drift تازه و repeat بدون تغییر.۸۰بررسی staging، دو تیکت مصنوعی با رسید/نمایش کارکنان و بازیابی دقیق؛۳۶بررسی مرورگر عمومی و۱۹GET با TLS معتبر، hash فونت/CSS/JS و حفظ۲۵کالا/data/runtime تأیید. QA تولید هیچ فرمی ارسال نکرد. [رسید و تصاویر](qa/corporate-ui-2026-11-01/production-verification.json)، [گزارش فارسی](docs/reports/CORPORATE_UI_2026-11-01.fa.md).
+
+تلاش اول به‌دلیل فرض نادرست wrapper دربارهٔ robots ابزار قدیمی `/tunnels/` کاملاً rollback شد؛ تلاش دوم baseline واقعی را حفظ کرد. noindex وردپرس، پرداخت بسته، MyTel و گیت‌های امنیتی تغییر نکردند. Issue63 باز است و برابری رقابتی/نتیجهٔ سئو ادعا نمی‌شود.
+
+**تنها گیت این بسته: CAPTCHA_ACTIVATION_BLOCKED.** اتصال Google v2 برای همان چهار فرم پیاده و۲۰قرارداد مصنوعی بررسی شد، ولی Google واقعاً فعال نیست: سهمیهٔ پروژه و محدودیت کشور/منطقهٔ حساب مانع ساخت کلید شد. هیچ کلید/پرداخت/درخواست افزایش سهمیه ساخته نشد. [ادامهٔ دقیق پس از دریافت کلید واجد شرایط](docs/recaptcha-operations.fa.md). هیچ fixture یا bypass در تولید قرار نگرفت. انتقال دانش: [-SEO PR22](https://github.com/DashSaman/-SEO/pull/22) ادغام شده است.
+
+---
+
 **انتشار نخست PR69/source f5119a0 بازگشت کامل شد:**۱۳فایل و۱۰آیتم منو با protected-state برابر بازیابی شدند. شرط noindex برای /tunnels/ با خط مبنای واقعی سازگار نبود؛ این ابزار قدیمی یک H1 و از قبل فاقد meta noindex است. وضعیت شاخص‌گذاری آن تغییر نکرد. [رسید rollback](qa/corporate-ui-2026-11-01/first-release-rollback.json). تلاش بعدی فقط با source/journal تازه، backup و payload برابر با staging واجد آزمون؛ انتشار موفق هنوز ادعا نمی‌شود.
 
 ## CURRENT — ظاهر شرکتی و کپچا: staging تأیید، انتشار در انتظار
