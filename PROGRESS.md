@@ -1,3 +1,13 @@
+## CURRENT — Issue63: کاتالوگ تجاری و درخواست خدمات
+
+**VERIFIED_STAGING_NOT_DEPLOYED —۱نوامبر۲۰۲۶:** کاتالوگ هفت‌مسیرهٔ همان Services8 و فرم مستقیم در همان Home5 آماده‌اند. درخواست کوتاه همان tn_ticket خصوصی را می‌سازد؛ دو ثبت واقعی مصنوعی دسکتاپ/موبایل بدون JS، رسید شماره/وضعیت و همان دو مورد در پنل کارکنان در staging ایزوله تأیید شدند.۵۱بررسی مرورگر/HTTP و check/apply/repeat/rollback/repeat گذشت؛ داده و فایل اصلی و runtimeها دقیق برگشتند. [گزارش و قبل/بعد](docs/reports/COMMERCIAL_CP01_CP02_2026-11-01.fa.md)، [رسید](qa/commercial-2026-11-01/staging-verification.json)، source qualified `acda6b6c3e34f44c0657c19e129091e231d1ffb5`.
+
+مالک ارائهٔ همهٔ حوزه‌های مانیتورینگ، سرور/مجازی‌سازی، فایروال، Wi-Fi و اتصال شعب را در همین گفتگو تأیید کرده؛ برند/گواهی/SLA/قیمت/زمان تضمینی هنوز تأیید نشده‌اند. MyTel مالک PBX/IVR/تجارت VoIP است. Issue63 باز و parity اثبات‌نشده است.
+
+بک‌اند جداگانه در [PR64](https://github.com/DashSaman/TehNet/pull/64) ادغام شد؛ main `3100ced7049fd1d9e5b39f58a6614eb329f3b8fe` و CI41311680789 موفق. تولید این بسته هنوز تغییر نکرده؛ QA تولید submit ندارد. محلی۵۸Python/۱skip صریح،۵۵PHP/۳syntax پاس. شکست‌های پیشین و بازیابی محدود fixture در گزارش حفظ‌اند.
+
+NEXT: پس از snapshot خصوصی، آخرین main را عادی ادغام کن؛ PR جداگانهٔ CP01، CI و تطبیق payload/tool/guard با نسخهٔ qualified؛ سپس فقط انتشار مجاز سه فایل/دو بدنه با backup/checksum/drift تازه و rollback آماده و پذیرش عمومی. سپس CP03/04 و۳–۵محتوای عمیق واقعی CP05 و انتقال دانش به -SEO. بسته‌های شبانه/۱۰۰نامزد/audit قبلی تکرار نشوند. noindex/۲۵استعلامی/پرداخت بسته/MyTel READ_ONLY/credential UNKNOWN/NOT_ROTATED/history NEEDS_APPROVAL/origin UNDETERMINED حفظ؛ force-push ممنوع.
+
 ## CURRENT — تحویل نهایی دورهٔ شبانه؛ گیت‌های باز حفظ شده‌اند
 
 **FINAL_OVERNIGHT_HANDOFF —2026-11-01 07:38 تهران:** [گزارش نهایی](docs/reports/MORNING_HANDOFF_2026-11-01.fa.md) انتشارهای واقعی،پیش‌نویس‌ها،آزمون‌ها،خطاها و باقی‌مانده‌ها را جدا می‌کند. این پایان گزارش این دوره است؛ اتمام کامل فروشگاه/امنیت/SEO یا۱۰۰مقاله ادعا نشده است.

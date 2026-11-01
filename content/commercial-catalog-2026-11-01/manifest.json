@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "key": "tehnet-commercial-catalog-20261101-v1",
+  "status": "DRAFT_NOT_DEPLOYED",
+  "targets": [
+    {
+      "id": 8,
+      "uri": "services",
+      "title_observed": "خدمات",
+      "expected_content_sha256": "514df9299d6156a1985e366d0d998044d1cb97674419bf1a2aefe107f0a116c5",
+      "content_file": "services.html",
+      "content_sha256_lf": "82c45ee6ad54996cad5cb989ecc618fb895d4af6e8242043fc11a0ca87547385",
+      "change_fields": [
+        "post_content"
+      ]
+    },
+    {
+      "id": 5,
+      "uri": "home",
+      "title_observed": "خانه",
+      "expected_content_sha256": "1a05541d14cf8721b3ef6ba129167987f876f655289bc7de85ff370c6912f270",
+      "content_file": "home.html",
+      "content_sha256_lf": "6ba0eb044641ff0ab9be439dad2e9f2381356f13d2862599e78faab8fe8259c2",
+      "change_fields": [
+        "post_content"
+      ]
+    }
+  ],
+  "protected": [
+    "six existing service URL owners",
+    "page identity/title/parent/meta",
+    "menus/Learn/Lab/Shop",
+    "all other posts/customers/orders/products",
+    "noindex/payment/ERP",
+    "MyTel production/security incident gates"
+  ]
+}

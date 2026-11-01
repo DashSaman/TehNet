@@ -1,6 +1,7 @@
 <?php
 /** Bounded WP-CLI content migration. Journal and raw snapshots must stay outside Git/web roots. */
 final class TehNet_Growth_Content_Migration {
+    private const CATALOG_SCOPE='tehnet-commercial-catalog-20261101-v1';
     private const EXISTING_PAGE_SCOPES=[
         'tehnet-editorial-routeros-20261101-v1'=>['id'=>62,'uri'=>'learn/mikrotik/mtcna/routeros-winbox','file'=>'routeros-winbox.html'],
         'tehnet-editorial-routing-20261101-v1'=>['id'=>64,'uri'=>'learn/mikrotik/mtcna/static-routing','file'=>'static-routing.html'],
@@ -17,9 +18,10 @@ final class TehNet_Growth_Content_Migration {
     private bool $existingPage=false;
     private string $expectedTitle='';
     private array $pageScope=[];
+    private array $catalogPages=[];
 
     public static function authorizes($authorization,array $requested):bool {
-        return is_string($authorization)&&($authorization==='tehnet-growth-20261031-v1'||isset(self::EXISTING_PAGE_SCOPES[$authorization]))&&($requested['key']??null)===$authorization;
+        return is_string($authorization)&&($authorization==='tehnet-growth-20261031-v1'||$authorization===self::CATALOG_SCOPE||isset(self::EXISTING_PAGE_SCOPES[$authorization]))&&($requested['key']??null)===$authorization;
     }
 
     public function __construct(string $path,string $digest,string $directory,bool $authorizedProduction=false) {
@@ -33,7 +35,20 @@ final class TehNet_Growth_Content_Migration {
         if(!$real||!is_dir($real)||is_link($directory)||($web&&($real===$web||str_starts_with($real,$web.DIRECTORY_SEPARATOR)))||(fileperms($real)&0077)!==0)throw new RuntimeException('Private journal directory outside the web root required');
         $this->manifest=json_decode(file_get_contents($path),true,512,JSON_THROW_ON_ERROR);$this->digest=$digest;$this->directory=$real;
         $m=$this->manifest;
-        if(isset(self::EXISTING_PAGE_SCOPES[$m['key']??''])){
+        if(($m['key']??'')===self::CATALOG_SCOPE){
+            if(($m['schema']??null)!==1||count($m['targets']??[])!==2||(int)get_option('page_on_front')!==5)throw new RuntimeException('Unapproved catalog page roles');
+            $updates=[];$allowed=[8=>['uri'=>'services','file'=>'services.html'],5=>['uri'=>'home','file'=>'home.html']];
+            foreach($m['targets']as$target){
+                $id=$target['id']??0;$scope=$allowed[$id]??null;
+                if(!$scope||isset($this->catalogPages[$id])||($target['uri']??'')!==$scope['uri']||($target['content_file']??'')!==$scope['file']||($target['change_fields']??null)!==['post_content']||!is_string($target['title_observed']??null)||$target['title_observed']==='')throw new RuntimeException('Unapproved catalog target');
+                $bodyPath=dirname($path).'/'.$scope['file'];
+                if(is_link($bodyPath)||!is_file($bodyPath)||!preg_match('/^[a-f0-9]{64}$/D',$target['content_sha256_lf']??'')||!hash_equals($target['content_sha256_lf'],hash_file('sha256',$bodyPath)))throw new RuntimeException('Immutable catalog body mismatch');
+                $this->catalogPages[$id]=['uri'=>$scope['uri'],'title'=>$target['title_observed']];
+                $updates[]=['id'=>$id,'expected_content_sha256'=>$target['expected_content_sha256']??'','replace'=>file_get_contents($bodyPath)];
+            }
+            $this->existingPage=true;
+            $this->manifest=$m=['schema'=>1,'key'=>$m['key'],'pages'=>[],'updates'=>$updates];
+        }elseif(isset(self::EXISTING_PAGE_SCOPES[$m['key']??''])){
             $scope=self::EXISTING_PAGE_SCOPES[$m['key']];$this->pageScope=$scope;
             $target=$m['target']??[];
             if(($m['schema']??null)!==1||($target['id']??null)!==$scope['id']||($target['url']??'')!=='https://tehnet.ir/'.$scope['uri'].'/'||($target['change_fields']??null)!==['post_content']||($m['content_file']??'')!==$scope['file']||!is_string($target['title_observed']??null)||$target['title_observed']==='')throw new RuntimeException('Unapproved existing-page scope');
@@ -47,10 +62,10 @@ final class TehNet_Growth_Content_Migration {
         foreach($m['updates']as$row){
             if(!is_int($row['id']??null)||$row['id']<1||isset($hubs[$row['id']])||!preg_match('/^[a-f0-9]{64}$/D',$row['expected_content_sha256']??''))throw new RuntimeException('Hub manifest identity invalid');
             $hub=get_post($row['id']);if(!$hub||$hub->post_type!=='page'||$hub->post_status!=='publish')throw new RuntimeException('Hub identity missing');
-            $allowed=$this->existingPage?[$this->pageScope['id']=>$this->pageScope['uri']]:[7=>'lab',8=>'services'];
+            $allowed=$this->catalogPages?array_map(static fn($p)=>$p['uri'],$this->catalogPages):($this->existingPage?[$this->pageScope['id']=>$this->pageScope['uri']]:[7=>'lab',8=>'services']);
             if(($production||$this->existingPage)&&(!array_key_exists($hub->ID,$allowed)||get_page_uri($hub)!==$allowed[$hub->ID]))throw new RuntimeException('Unapproved managed page path');
-            if($this->existingPage&&$hub->post_title!==$this->expectedTitle)throw new RuntimeException('Existing page title drift');
-            $this->blocks($row[$this->existingPage?'replace':'append']??'');$hubs[$row['id']]=true;
+            if($this->existingPage&&$hub->post_title!==($this->catalogPages[$hub->ID]['title']??$this->expectedTitle))throw new RuntimeException('Existing page title drift');
+            $this->blocks($row[$this->existingPage?'replace':'append']??'',(bool)$this->catalogPages,$hub->ID===5);$hubs[$row['id']]=true;
         }
         foreach($m['pages']as$row){
             $key=$row['key']??'';$slug=$row['slug']??'';
@@ -61,16 +76,18 @@ final class TehNet_Growth_Content_Migration {
         }
     }
 
-    private function blocks(string $content):void {
+    private function blocks(string $content,bool $catalog=false,bool $home=false):void {
         if($content===''||serialize_blocks(parse_blocks($content))!==$content)throw new RuntimeException('Block serialization mismatch');
-        if($this->existingPage&&wp_kses_post($content)!==$content)throw new RuntimeException('Page sanitization mismatch');
+        if($this->existingPage&&!($catalog&&$home)&&wp_kses_post($content)!==$content)throw new RuntimeException('Page sanitization mismatch');
         $existingPage=$this->existingPage;
-        $walk=static function(array $blocks)use(&$walk,$existingPage):void {foreach($blocks as$b){
+        $walk=static function(array $blocks)use(&$walk,$existingPage,$catalog,$home):void {foreach($blocks as$b){
             if($b['blockName']===null){if(trim($b['innerHTML'])!=='')throw new RuntimeException('Unstructured block content');continue;}
             $allowed=['core/paragraph','core/heading','core/list','core/list-item','core/shortcode'];if($existingPage)$allowed[]='core/code';
+            if($catalog)$allowed=array_merge($allowed,['core/group','core/buttons','core/button','core/columns','core/column']);
+            if($catalog&&$home)$allowed[]='core/html'; // Retain the existing reviewed hero SVG and identity sections.
             if(!in_array($b['blockName'],$allowed,true)||!WP_Block_Type_Registry::get_instance()->is_registered($b['blockName']))throw new RuntimeException('Unapproved block');
-            if($b['blockName']==='core/shortcode'&&!in_array(trim($b['innerHTML']),['[tn_editorial_note]','[tn_voice_network_readiness]'],true))throw new RuntimeException('Unapproved shortcode');
-            if($existingPage&&$b['blockName']==='core/shortcode'&&trim($b['innerHTML'])!=='[tn_editorial_note]')throw new RuntimeException('Unapproved page shortcode');
+            if($b['blockName']==='core/shortcode'&&!in_array(trim($b['innerHTML']),$catalog?['[tn_service_request]']:['[tn_editorial_note]','[tn_voice_network_readiness]'],true))throw new RuntimeException('Unapproved shortcode');
+            if($existingPage&&!$catalog&&$b['blockName']==='core/shortcode'&&trim($b['innerHTML'])!=='[tn_editorial_note]')throw new RuntimeException('Unapproved page shortcode');
             $walk($b['innerBlocks']);
         }};$walk(parse_blocks($content));
     }
@@ -138,7 +155,7 @@ final class TehNet_Growth_Content_Migration {
     }
     private function plan():array {
         $hubs=[];$pages=[];
-        foreach($this->manifest['updates']as$row){$p=get_post($row['id']);if($this->existingPage&&(!$p||$p->post_type!=='page'||$p->post_status!=='publish'||$p->post_title!==$this->expectedTitle||get_page_uri($p)!==$this->pageScope['uri']))throw new RuntimeException('Existing page identity changed');if(hash('sha256',$p->post_content)!==$row['expected_content_sha256'])throw new RuntimeException('Hub body drift; refuse overwrite');$hubs[$p->ID]=$this->snapshot($p->ID);}
+        foreach($this->manifest['updates']as$row){$p=get_post($row['id']);$title=$this->catalogPages[$row['id']]['title']??$this->expectedTitle;$uri=$this->catalogPages[$row['id']]['uri']??($this->pageScope['uri']??'');if($this->existingPage&&(!$p||$p->post_type!=='page'||$p->post_status!=='publish'||$p->post_title!==$title||get_page_uri($p)!==$uri))throw new RuntimeException('Existing page identity changed');if(hash('sha256',$p->post_content)!==$row['expected_content_sha256'])throw new RuntimeException('Hub body drift; refuse overwrite');$hubs[$p->ID]=$this->snapshot($p->ID);}
         foreach($this->manifest['pages']as$row){$path=get_page_uri($row['parent_id']).'/'.$row['slug'];if(get_page_by_path($path,OBJECT,'page'))throw new RuntimeException('New path already exists; do not adopt');$pages[$row['key']]=$path;}
         return ['hubs'=>$hubs,'paths'=>$pages];
     }

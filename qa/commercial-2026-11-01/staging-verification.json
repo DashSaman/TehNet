@@ -1,0 +1,160 @@
+{
+  "status": "VERIFIED_STAGING_NOT_DEPLOYED",
+  "source_commit": "acda6b6c3e34f44c0657c19e129091e231d1ffb5",
+  "observed_utc": "2026-11-01T13:29:32.630101+00:00",
+  "scope": "Existing Home ID5 and Services ID8 bodies; existing ticket component and scoped theme stylesheet; no new URL or business entity",
+  "browser": {
+    "status": "PASS",
+    "checks": [
+      "/ native HTTP200",
+      "/ one H1",
+      "/ intentional noindex",
+      "/ exactly one short service form",
+      "Homepage retains /learn/",
+      "Homepage retains /lab/",
+      "Homepage retains /services/",
+      "Homepage retains /shop/",
+      "/ mobile RTL and no overflow",
+      "/services/ native HTTP200",
+      "/services/ one H1",
+      "/services/ intentional noindex",
+      "/services/ exactly one short service form",
+      "Service catalog has room for readable enterprise cards",
+      "Browsable category active-network",
+      "Browsable category managed-support",
+      "Browsable category server-planning",
+      "Browsable category security-planning",
+      "Browsable category monitoring-planning",
+      "Browsable category wifi-planning",
+      "Browsable category branch-planning",
+      "Retains service owner network-tehran",
+      "Retains service owner network-support-tehran",
+      "Retains service owner network-setup-tehran",
+      "Retains service owner mikrotik-tehran",
+      "Retains service owner remote-support",
+      "Retains service owner voice-network-readiness",
+      "Specialist VoIP remains contextual MyTel link",
+      "Owner-confirmed specialist services have explicit deliverables",
+      "/services/ mobile RTL and no overflow",
+      "CTA carries approved service into the form",
+      "Nonce belongs to submitted FormData",
+      "Saved request yields actual reference and open status",
+      "Receipt reveals no contact or conversation",
+      "Receipt prevents browser/shared caching",
+      "Receipt is not forwarded as a referrer",
+      "Reload keeps same reference without another POST",
+      "Guessed receipt has no success or reference",
+      "Native invalid nonce rejected",
+      "Honeypot rejected before creating a record",
+      "Array service input rejected server-side",
+      "Malformed email rejected server-side",
+      "Short problem rejected server-side",
+      "Focused no-JS form uses stable immediate scrolling",
+      "No-JS form passes native client validation",
+      "Mobile no-JS request actually saved with distinct reference",
+      "Existing per-IP ticket throttle rejects excess request",
+      "Anonymous reply cannot access staff operations",
+      "Authorized staff see the same two canonical ticket references",
+      "Staff see persisted service and optional business context",
+      "No uncaught customer-facing JavaScript errors"
+    ],
+    "passed": 51,
+    "viewports": [
+      1440,
+      375
+    ],
+    "no_javascript_submission": true,
+    "synthetic_private_requests": 2,
+    "canonical_staff_visibility": true
+  },
+  "release": {
+    "check_apply_repeat_rollback_repeat": "PASS",
+    "fresh_backup_checksum": "PASS",
+    "original_posts_meta_users_exactly_restored": true,
+    "original_managed_and_guard_files_restored": true,
+    "existing_runtime_unchanged": true,
+    "production_mutations": 0
+  },
+  "before": {
+    "observed_utc": "2026-11-01T12:13:16.085Z",
+    "pages": [
+      {
+        "url": "https://tehnet.ir/services/",
+        "width": 1440,
+        "status": 200,
+        "forms_in_main": 0,
+        "overflow": false
+      },
+      {
+        "url": "https://tehnet.ir/services/",
+        "width": 375,
+        "status": 200,
+        "forms_in_main": 0,
+        "overflow": false
+      },
+      {
+        "url": "https://tehnet.ir/",
+        "width": 1440,
+        "status": 200,
+        "forms_in_main": 0,
+        "overflow": false
+      },
+      {
+        "url": "https://tehnet.ir/",
+        "width": 375,
+        "status": 200,
+        "forms_in_main": 0,
+        "overflow": false
+      },
+      {
+        "url": "https://taraznet.com/active-network-services/",
+        "width": 1440,
+        "status": 200,
+        "forms_in_main": 0,
+        "overflow": false
+      },
+      {
+        "url": "https://taraznet.com/active-network-services/",
+        "width": 375,
+        "status": 200,
+        "forms_in_main": 0,
+        "overflow": false
+      },
+      {
+        "url": "https://taraznet.com/active-network-services/network-monitoring/",
+        "width": 1440,
+        "status": 200,
+        "forms_in_main": 0,
+        "overflow": false
+      },
+      {
+        "url": "https://taraznet.com/active-network-services/network-monitoring/",
+        "width": 375,
+        "status": 200,
+        "forms_in_main": 0,
+        "overflow": false
+      },
+      {
+        "url": "https://taraznet.com/active-network-services/configure-vmware/",
+        "width": 1440,
+        "status": 200,
+        "forms_in_main": 0,
+        "overflow": false
+      },
+      {
+        "url": "https://taraznet.com/active-network-services/configure-vmware/",
+        "width": 375,
+        "status": 200,
+        "forms_in_main": 0,
+        "overflow": false
+      }
+    ]
+  },
+  "owner_capacity_confirmation": "All five specialist fields confirmed in the current chat; vendor-specific certifications, prices, SLA and deadlines not established",
+  "limits": [
+    "Earlier attempts failed navigation waits and a staff selector; all restored. A fixture-owned dashboard draft required guarded reconciliation.",
+    "Focused smooth scrolling reproduced independently and corrected. Browser waits now target DOM content; intermittent earlier tunnel/navigation timeouts are not claimed to have a universally proven root cause.",
+    "Synthetic request and receipt prove staging behavior, not production conversion, mail delivery, response time, search rankings or competitor parity.",
+    "Real stock, prices, licensed CAD/360, payments, intentional noindex, MyTel production and security incident gates unchanged."
+  ]
+}

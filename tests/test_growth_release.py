@@ -19,6 +19,18 @@ class ReleaseBoundaries(unittest.TestCase):
         cls.module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(cls.module)
 
+    def test_commercial_catalog_scope_owns_only_intake_and_two_pages(self):
+        files, extras, guarded = self.module.scope_spec('tehnet-commercial-catalog-20261101-v1')
+        self.assertEqual(files, ['site/plugins/tehnet-store/includes/class-tickets.php',
+            'site/themes/tehnet/assets/css/service-catalog.css', 'site/themes/tehnet/functions.php'])
+        self.assertEqual(extras, ['content/commercial-catalog-2026-11-01/manifest.json',
+            'content/commercial-catalog-2026-11-01/services.html',
+            'content/commercial-catalog-2026-11-01/home.html', 'ops/migrate-growth-content.php'])
+        self.assertIn('site/plugins/tehnet-store/includes/class-quotes.php', guarded)
+        self.assertIn('site/plugins/tehnet-store/includes/class-policy.php', guarded)
+        self.assertIn('site/mu-plugins/tehnet-search-metadata.php', guarded)
+        self.assertFalse(set(files) & set(guarded))
+
     def test_bundle_member_escape_and_symlink_are_rejected(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
