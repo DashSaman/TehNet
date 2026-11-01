@@ -1,3 +1,13 @@
+## CURRENT — ظاهر شرکتی و کپچا: staging تأیید، انتشار در انتظار
+
+درخواست تازهٔ مالک: حذف لینک رزومه از فوتر، ترازبندی مراحل همکاری، فونت محلی Estedad/OFL، ناوبری خواناتر و قابل‌ویرایش (مدیریت تونل زیر خدمات)، ظاهر روشن با حفظ انتخاب تیره و اتصال Google v2 به همان چهار intake. [فهرست و برنامه](docs/superpowers/plans/2026-11-01-corporate-ui-captcha.fa.md)، [شاهد staging](qa/corporate-ui-2026-11-01/staging-verification.json)، [عملیات کپچا](docs/recaptcha-operations.fa.md).
+
+source واجد آزمون `5b615f9ebbdc1382b14101bfeb5e33a742cb2811`:۸۰بررسی مرورگر (۲۹ظاهر/ناوبری +۵۱سفر موجود)، دو تیکت مصنوعی خصوصی و مشاهده در پنل، apply/repeat/rollback/repeat و بازیابی داده/فایل/runtime تأیید. آزمون Python۲۷ با یک skip، پنج مجموعه قرارداد PHP و lint۴۵فایل. تولید هنوز تغییر نکرده؛ گام بعد PR/CI، backup/checksum تازه و انتشار دقیق۱۳فایل/فقط۳۰فیلد منو با drift guard و rollback. بدنهٔ صفحات، URL، منوهای دیگر، noindex،۲۵کالای استعلامی و MyTel حفظ می‌شوند.
+
+**CAPTCHA_ACTIVATION_BLOCKED:** کنسول Google خطای سهمیهٔ پروژه و سپس محدودیت کشور/منطقهٔ حساب داد؛ هیچ کلید/پرداختی ایجاد نشد. adapter و۲۰قرارداد مصنوعی آماده است؛ Google واقعاً فعال یا provider live verified نیست. حفاظت قبلی nonce/honeypot/throttle حفظ است. Issue63 باز و parity اثبات نشده است.
+
+---
+
 ## CURRENT — Issue63: کاتالوگ و مسیر درخواست روی سایت منتشر شدند
 
 **DEPLOYED_VERIFIED —۱نوامبر۲۰۲۶:** [Services](https://tehnet.ir/services/) همان ID8 با هفت مسیر، شش مالک موجود، توضیح خدمات و خروجی‌ها و فرم کوتاه؛ [خانه](https://tehnet.ir/) همان ID5 با حفظ hero و Learn/Lab/Services/Shop و فرم مستقیم. مالک همهٔ حوزه‌های تخصصی را تأیید کرده؛ برند/گواهی/قیمت/SLA/زمان تضمینی تأیید نشده‌اند. درخواست از همان tn_ticket خصوصی استفاده می‌کند؛ PBX/IVR به MyTel ارجاع دارد.
