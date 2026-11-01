@@ -246,3 +246,9 @@ DEPLOYED —۱نوامبر،04:23تهران: [راه‌اندازی شبکه ش�
 backup تازه/checksum/drift وrepeat بدونتغییر؛۹TLS GET و۴۴browser1440/375/no-JS باtimestamp واقعی00:52:58UTC پاس. دادهٔ محافظت‌شده/۸runtime file/containerهای موجود ثابت؛۲۵کالا/قابل‌خرید۰،ERP/sandbox false،MyTel write۰. صفرمقاله/URL/runtime install؛live rollback لازم نشد.۵۷بلوک/۳۰staging-browser/۳۹native+۳۷IPDNS+۳۷support regression،immutable rollback وrestore دقیقmetadatafixture نیزپاس. receipt `qa/growth-2026-10-31/network-setup-production-release.json` وbrief/source درseo. شکستserialization وهم‌زمانیQA باrecoveryدقیق ثبت‌ومهار شده‌اند؛بازپخش نشوند. لینک‌ها۱۲GET200 ویکCisco403 درمسیرمستقیم باقی‌اند؛نه۱۳PASS،نهآزمونشبکه،نهSEOgain.
 
 NEXT: انتقال source/قبولی واقعی/حدود به -SEO وثبتCI/commit درhandoff؛سپس اولین gap مستقلِ قابل اثبات طبقصف. انتشارهای قبلی/پرتفوی۱۰۰کاندیدا را بازپخش نکن. noindex/فروشگاه/خانه/منو/داده/پرداخت/MyTel freeze وrotationUNKNOWN/historyNEEDS_APPROVAL/originUNDETERMINED/منعforce-push حفظ شوند. گزارشصبحLIVE_NOT_FINAL وموعد۰۸:۰۰ پابرجاست.
+
+## تکمیل انتقال راه‌اندازی شبکه
+
+انتقال source/قبولی واقعی/حدود در [-SEO PR14](https://github.com/DashSaman/-SEO/pull/14)، main `eab10efbcaf7d3e1b4fa5b821f8274c04d08915a` وCI41259043445 ادغام شد؛۴source row/topic/dashboard/continuation،۹privacy test وscan۶۷فایل/۱۴مقصدdashboard پاس،baseline۷۱٪ ثابت. شکستQA وبازیابی دقیق نیزمنتقل شدند؛پاک‌سازی یاSEOgain ازقبولی انتشار استنباط نمی‌شود.
+
+NEXT: محتوای فعلی /services/remote-support/ را باپشتیبانی/راه‌اندازی پذیرفته‌شده مقایسه کن؛فقط اگر نیاز مستقلی دربارهٔ دسترسی مجاز یا پایان جلسه ثابت شد،بهبود همانURL را تحقیق کن. فرضِ نقص یا مجوزخدمت تازه نساز. انتشارهای قبلی و۱۰۰کاندیدا را بازپخش نکن؛preview writers ترتیبی وقفل مشترک باشند. noindex/فروشگاه/داده/خانه/منو/پرداخت/MyTel/security gates پابرجا وگزارشصبحLIVE_NOT_FINAL تا۰۸:۰۰ است.
