@@ -1,0 +1,217 @@
+{
+  "scope": "Three gallery files; no database/content/product changes",
+  "source_commit": "e4fbe5f720b916869dd23cd5f8e637b297510aee",
+  "observed_utc": "2026-11-01T02:58:31.651704+00:00",
+  "results": [
+    {
+      "operation": "check",
+      "status": "READY",
+      "files_pending": 3,
+      "content": {
+        "status": "READY",
+        "pages_pending": 0,
+        "hubs_pending": 0,
+        "pages_created": 0,
+        "hubs_updated": 0,
+        "hubs_restored": 0,
+        "pages_drafted": 0,
+        "protected_digest": "d8e7fe9cf942ee221b8785d1dd026ccc5ee18406ebee8682c77f5a5aeb0d767d",
+        "protected_state_unchanged": true,
+        "database_rows_written": 0
+      }
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "files_changed": 3,
+      "content": {
+        "status": "APPLIED",
+        "pages_pending": 0,
+        "hubs_pending": 0,
+        "pages_created": 0,
+        "hubs_updated": 0,
+        "hubs_restored": 0,
+        "pages_drafted": 0,
+        "protected_digest": "d8e7fe9cf942ee221b8785d1dd026ccc5ee18406ebee8682c77f5a5aeb0d767d",
+        "protected_state_unchanged": true,
+        "database_rows_written": 0
+      }
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "files_changed": 0,
+      "content": {
+        "status": "APPLIED",
+        "pages_pending": 0,
+        "hubs_pending": 0,
+        "pages_created": 0,
+        "hubs_updated": 0,
+        "hubs_restored": 0,
+        "pages_drafted": 0,
+        "protected_digest": "d8e7fe9cf942ee221b8785d1dd026ccc5ee18406ebee8682c77f5a5aeb0d767d",
+        "protected_state_unchanged": true,
+        "database_rows_written": 0
+      }
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "files_restored": 3,
+      "content": {
+        "status": "ROLLED_BACK",
+        "pages_pending": 0,
+        "hubs_pending": 0,
+        "pages_created": 0,
+        "hubs_updated": 0,
+        "hubs_restored": 0,
+        "pages_drafted": 0,
+        "protected_digest": "d8e7fe9cf942ee221b8785d1dd026ccc5ee18406ebee8682c77f5a5aeb0d767d",
+        "protected_state_unchanged": true,
+        "database_rows_written": 0
+      }
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "files_restored": 3,
+      "content": {
+        "status": "ROLLED_BACK",
+        "pages_pending": 0,
+        "hubs_pending": 0,
+        "pages_created": 0,
+        "hubs_updated": 0,
+        "hubs_restored": 0,
+        "pages_drafted": 0,
+        "protected_digest": "d8e7fe9cf942ee221b8785d1dd026ccc5ee18406ebee8682c77f5a5aeb0d767d",
+        "protected_state_unchanged": true,
+        "database_rows_written": 0
+      }
+    }
+  ],
+  "production_mutations": 0,
+  "fixture_web_role_observations": [
+    {
+      "/learn/": 1,
+      "/services/voice-network-readiness/": 1,
+      "/learn/mikrotik/mtcna/routeros-winbox/": 1
+    },
+    {
+      "/learn/": 1,
+      "/services/voice-network-readiness/": 1,
+      "/learn/mikrotik/mtcna/routeros-winbox/": 1
+    },
+    {
+      "/learn/": 0,
+      "/services/voice-network-readiness/": 0,
+      "/learn/mikrotik/mtcna/routeros-winbox/": 1
+    }
+  ],
+  "tampered_payload_refused": true,
+  "tampered_metadata_refused": true,
+  "existing_products_with_scoped_assets": 25,
+  "image_price_commerce_api_equal": true,
+  "nonproduct_assets_absent": true,
+  "native_http_routes": 18,
+  "article_nodes_preserved": true,
+  "current_metadata_baseline_fixture_verified": true,
+  "primary_product_and_other_route_text_metadata_unchanged": true,
+  "random_related_sections_excluded_from_product_text_comparison": [
+    "section.tn-related",
+    "section.related.products"
+  ],
+  "protected_rows_unchanged_after_apply": true,
+  "existing_runtime_unchanged_after_apply": true,
+  "status": "VERIFIED",
+  "original_posts_meta_users_exactly_retained": true,
+  "existing_runtime_unchanged": true,
+  "backup_checksum_verified": true,
+  "all_three_original_managed_files_restored": true,
+  "exact_original_metadata_file_restored": true,
+  "production_metadata_fixture_rolled_back_then_original_preview_restored": true,
+  "browser": {
+    "status": "PASS",
+    "observed_utc": "2026-11-01T02:59:04.092Z",
+    "checks": [
+      "Product inventory GET 1440",
+      "Real multi-image product 1440",
+      "Original thumbnail count 1440",
+      "Every thumbnail is a native keyboard button 1440",
+      "No form submission type 1440",
+      "Position label 1440",
+      "Tab reaches second thumbnail 1440",
+      "Enter selects actual gallery frame and current state 1440",
+      "Selection retains keyboard focus 1440",
+      "Reverse Tab reaches first thumbnail 1440",
+      "Space selects first actual frame 1440",
+      "Space does not scroll the page 1440",
+      "Visible inset focus ring 1440",
+      "Pointer selection retained 1440",
+      "Original thumbnail URLs/alt retained 1440",
+      "Fullscreen Escape returns focus 1440",
+      "Inquiry-only unchanged 1440",
+      "No unsupported exact3D or360 1440",
+      "No viewport overflow 1440",
+      "Product inventory GET 375",
+      "Real multi-image product 375",
+      "Original thumbnail count 375",
+      "Every thumbnail is a native keyboard button 375",
+      "No form submission type 375",
+      "Position label 375",
+      "Tab reaches second thumbnail 375",
+      "Enter selects actual gallery frame and current state 375",
+      "Selection retains keyboard focus 375",
+      "Reverse Tab reaches first thumbnail 375",
+      "Space selects first actual frame 375",
+      "Space does not scroll the page 375",
+      "Visible inset focus ring 375",
+      "Pointer selection retained 375",
+      "Original thumbnail URLs/alt retained 375",
+      "Fullscreen Escape returns focus 375",
+      "Inquiry-only unchanged 375",
+      "No unsupported exact3D or360 375",
+      "No viewport overflow 375",
+      "No-JS retains original native image references",
+      "No-JS original first image visible",
+      "No-JS does not advertise a nonfunctional new control",
+      "No-JS inquiry-only fallback retained",
+      "No page errors",
+      "GET-only requests"
+    ],
+    "methods": [
+      "GET"
+    ],
+    "page_errors": [],
+    "server_form_or_commerce_mutations": 0,
+    "limits": [
+      "One real multi-image gallery at two widths;not complete WCAG/screen-reader or all-product coverage.",
+      "Source images do not establish photographic origin,exact model,CAD or360 frames."
+    ]
+  },
+  "completed_utc": "2026-11-01T02:59:10.216815+00:00",
+  "schema": 1,
+  "scope_key": "tehnet-gallery-keyboard-20261101-v1",
+  "baseline_commit": "e4dc26baa15788c21fe7f3a56a8410af8f5bb1f2",
+  "payload_members": {
+    "site/plugins/tehnet-store/assets/product-gallery.js": "0b2b7bef33da1885bc953cf66502f58856698ca514fba81e9c74ec3acf3a0a65",
+    "site/plugins/tehnet-store/assets/product-gallery.css": "8c52ddd95c22c6b58ab11657aa2a05fb652ae50003c2efe1542805371de8e8c0",
+    "site/plugins/tehnet-store/includes/class-storefront.php": "beb13a09128dc2bc1e52d8e612d9b72686115a564ed6b1912eeb02c3f110cd32",
+    "content/gallery-keyboard-2026-11-01/manifest.json": "60ee0660d76e265395d3e5c86eadd218573e5084b95152552d4897e0f90c3da8",
+    "ops/check-gallery-keyboard-state.php": "245170a74d2ea16202f7446c68a41ac40337576f3c0d47a8797c228b3d120596"
+  },
+  "tool_sha256": "dbf07fd21b547bf5811aa599ef0130ecda8d5b2d4d3758cba4b1234dc01c873f",
+  "managed_files": 3,
+  "runtime_guard_count": 13,
+  "production": "NOT_DEPLOYED",
+  "browser_harness_sha256_lf": "cc43b44fe921ed4af139aae592da41830fd0e5851fe1b8a7e788653e94328e31",
+  "visual_review": "375px actual native screenshot inspected;original catalogue images/labels preserved,not photographic or exact-model verification",
+  "prior_attempts": "Four nonqualified attempts retained in first-attempts/followup-diagnostic/diagnostic-resolution receipts;all owned files/data/metadata fixtures restored,journals retained.",
+  "limits": [
+    "18 raw route comparisons and25 existing-product asset checks overlap;not43 unique routes.",
+    "Primary product text equality excludes only the two existing randomized related-product sections;all protected DB/schema guards retained.",
+    "Native web role probe waits for actual temporary0.2.2 fixture behavior before baseline capture;no cache purge/restart.",
+    "WordPress asset tags parsed structurally across quote styles.",
+    "One real multi-image product at1440/375 plus375no-JS;no full all-product keyboard/WCAG/screen-reader/authenticated/physical-device audit.",
+    "No photo/model/CAD/360/catalog/content/database mutation or SEO gain;abrupt host loss not fault injected."
+  ]
+}
