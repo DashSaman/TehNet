@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "SCOPED_REVIEW_NATIVE_DRAFT_NOT_DEPLOYED",
+  "status": "DEPLOYED_VERIFIED",
   "reviewed": "2026-11-01",
   "target": {
     "id": 33,
@@ -56,7 +56,12 @@
   ],
   "editorial_inference": "Proposed intake/design/cutover/acceptance/handover template, distinct from emergency network support and voice-readiness assets",
   "technical_execution": "NOT_RUN",
-  "wordpress_qualification": "PASS_57_BLOCKS_30_BROWSER_39_NATIVE",
-  "publication": "NOT_DEPLOYED",
-  "search_market_measurement": "NOT_RUN"
+  "wordpress_qualification": "PASS_57_BLOCKS_30_STAGING_BROWSER_39_NATIVE_21_LINUX_OPERATOR_44_PUBLIC_BROWSER",
+  "publication": "DEPLOYED_VERIFIED",
+  "search_market_measurement": "NOT_RUN",
+  "production_source": "420e757e7d1a78e67adfeb0f95fc253547740537",
+  "production_completed_utc": "2026-11-01T00:53:06.559251+00:00",
+  "production_receipt": "qa/growth-2026-10-31/network-setup-production-release.json",
+  "public_browser_checks": 44,
+  "source_access_limit": "PARTIAL_12_200_1_CISCO403_RETAINED"
 }

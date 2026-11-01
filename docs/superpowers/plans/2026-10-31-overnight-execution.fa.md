@@ -159,3 +159,15 @@ No production release/backup/rollback, browser/tool/download/network or GSC test
 | P10 morning report | IN_PROGRESS | LIVE_NOT_FINAL;08:00Tehran final remains required |
 
 The JSON anchor-format failure and operator's overlapping shared-preview writers are retained in the receipt; neither warrants weakening serialization/drift protection. No network-project test, article/URL or production write occurred. Run shared-preview writers sequentially; preserve noindex/commerce/customer data/MyTel/security gates.
+
+## Queue checkpoint — setup-service actual delivery and transfer complete, 2026-11-01
+
+| Package | State | Scope / evidence |
+|---|---|---|
+| P6 existing setup ID33 | DEPLOYED | PR50/source420e757,9 valid-TLS GETs/44 public-browser checks, fresh backup/checksum/drift, zero runtime installs and eight guards retained |
+| Source access observation | VERIFIED | PARTIAL12GET200/one official Cisco403 in direct path,3 fragments; scoped source text reviewed via web, no all200 or unrestricted-access claim |
+| P9 setup-service transfer | VERIFIED | -SEO PR14/maineab10ef/CI41259043445;4 source rows,topic/dashboard/continuation,9 privacy tests/67-file scan/14 destinations; baseline71% unchanged |
+| P6 remote-support current-gap review | READY | Read current existing page against accepted support/setup content; prove a distinct access/session/handoff need before drafting |
+| P10 morning handoff | IN_PROGRESS | LIVE_NOT_FINAL;08:00Tehran final remains required |
+
+Native57 blocks/30 browser/39 assertions+37IPDNS+37support, Windows20PASS/1SKIP and Linux21PASS, immutable rollback/current-metadata restore remain dated qualification. The prior overlapping-QA incident was reconciled exactly; do not replay it or change journal/guards. MyTel production/noindex/commerce/customer data/security gates retained; remote history purge refmap requires later refresh under owner approval, never force-push in absence.

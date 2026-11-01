@@ -236,3 +236,19 @@ NEXT: immutable bundle/rehearsal مستقل باmetadata0.2.1 وrestore دقیق
 VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر: source ثابت `5174ff27c4d42fae9e360c019d6adb8cc3685c29` برای همان ID33.۵۷بلوک/۳۰browser/۳۹native جدید/۳۷IPDNS+۳۷support regression؛Windows۲۰PASS/۱SKIP از۲۱. immutable backup/checksum/tamper/check/apply/repeat/۴HTTP/rollback/repeat پاس؛محتوا/meta/users وmetadata0.2.1 fixture بهpreview0.2.0 اصلی دقیقاً بازگشتند،containerها ثابت و۸guard بدون نصبruntime. رسید `qa/growth-2026-10-31/network-setup-release-rehearsal.json`. شکست هم‌زمانیQA قبلی باrecovery دقیق واجرای ترتیبی اصلاح ودررسید اولیه حفظ شده؛بازپخش نشود.
 
 NEXT: PR/CIhead تازه باLinux۲۱test،snapshot خصوصی وادغام عادی؛برابریpayload/tool/۸guard باsource بالا،backup تازه/checksum/drift تولید وپذیرش عمومی. هنوزproduction تغییرنکرده؛قیمت/موجودی/SLA/آزمون شبکه/SEOgain ادعانشده است. لینک‌ها۱۲GET200 ویکCisco403 درمسیرمستقیم‌اند؛محدودیتpartial محفوظ،۱۳لینک200 ننویسید. noindex/فروشگاه/داده/پرداخت/MyTel/security gates پابرجا وگزارشصبحLIVE_NOT_FINAL است.
+
+## checkpoint انتشار راه‌اندازی شبکه
+
+## CURRENT — خدمت موجود راه‌اندازی شبکه روی live تأیید شد
+
+DEPLOYED —۱نوامبر،04:23تهران: [راه‌اندازی شبکه شرکت](https://tehnet.ir/services/network-setup-tehran/) همان ID33/URL/عنوان/والد؛فقطbody وتاریخ واقعی تغییر کرد. طرح/مسئولیت،دفتر صریحاً فرضی،اجرایمرحله‌ای ومعیارپذیرش/تحویل با۳منبعscoped؛آزمون پروژهٔ شبکه واقعی انجام نشد. PR50/CI41258579923 با۲۱Linux operator و۹privacy PASS ادغام؛source live `420e757e7d1a78e67adfeb0f95fc253547740537` برابرpayload/tool/۸guardِ qualified `5174ff27c4d42fae9e360c019d6adb8cc3685c29`.
+
+backup تازه/checksum/drift وrepeat بدونتغییر؛۹TLS GET و۴۴browser1440/375/no-JS باtimestamp واقعی00:52:58UTC پاس. دادهٔ محافظت‌شده/۸runtime file/containerهای موجود ثابت؛۲۵کالا/قابل‌خرید۰،ERP/sandbox false،MyTel write۰. صفرمقاله/URL/runtime install؛live rollback لازم نشد.۵۷بلوک/۳۰staging-browser/۳۹native+۳۷IPDNS+۳۷support regression،immutable rollback وrestore دقیقmetadatafixture نیزپاس. receipt `qa/growth-2026-10-31/network-setup-production-release.json` وbrief/source درseo. شکستserialization وهم‌زمانیQA باrecoveryدقیق ثبت‌ومهار شده‌اند؛بازپخش نشوند. لینک‌ها۱۲GET200 ویکCisco403 درمسیرمستقیم باقی‌اند؛نه۱۳PASS،نهآزمونشبکه،نهSEOgain.
+
+NEXT: انتقال source/قبولی واقعی/حدود به -SEO وثبتCI/commit درhandoff؛سپس اولین gap مستقلِ قابل اثبات طبقصف. انتشارهای قبلی/پرتفوی۱۰۰کاندیدا را بازپخش نکن. noindex/فروشگاه/خانه/منو/داده/پرداخت/MyTel freeze وrotationUNKNOWN/historyNEEDS_APPROVAL/originUNDETERMINED/منعforce-push حفظ شوند. گزارشصبحLIVE_NOT_FINAL وموعد۰۸:۰۰ پابرجاست.
+
+## تکمیل انتقال راه‌اندازی شبکه
+
+انتقال source/قبولی واقعی/حدود در [-SEO PR14](https://github.com/DashSaman/-SEO/pull/14)، main `eab10efbcaf7d3e1b4fa5b821f8274c04d08915a` وCI41259043445 ادغام شد؛۴source row/topic/dashboard/continuation،۹privacy test وscan۶۷فایل/۱۴مقصدdashboard پاس،baseline۷۱٪ ثابت. شکستQA وبازیابی دقیق نیزمنتقل شدند؛پاک‌سازی یاSEOgain ازقبولی انتشار استنباط نمی‌شود.
+
+NEXT: محتوای فعلی /services/remote-support/ را باپشتیبانی/راه‌اندازی پذیرفته‌شده مقایسه کن؛فقط اگر نیاز مستقلی دربارهٔ دسترسی مجاز یا پایان جلسه ثابت شد،بهبود همانURL را تحقیق کن. فرضِ نقص یا مجوزخدمت تازه نساز. انتشارهای قبلی و۱۰۰کاندیدا را بازپخش نکن؛preview writers ترتیبی وقفل مشترک باشند. noindex/فروشگاه/داده/خانه/منو/پرداخت/MyTel/security gates پابرجا وگزارشصبحLIVE_NOT_FINAL تا۰۸:۰۰ است.
