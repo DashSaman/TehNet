@@ -1,6 +1,6 @@
 # تحویل صبح TehNet × MyTel × SEO —۱نوامبر۲۰۲۶
 
-**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 05:16 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
+**نسخهٔ زنده و هنوز نهایی‌نشده؛ آخرین checkpoint: 2026-11-01 05:51 به‌وقت تهران.** موعد گزارش نهایی۰۸:۰۰ است. این فایل به‌معنی اتمام کل مأموریت نیست؛ اجرای بعدی باید وضعیت و نتیجهٔ واقعی را به‌روز کند. اطلاعات عملیاتی دقیق، credential، raw export و backup عمداً اینجا نیستند.
 
 ## ۱. امنیت — گیت‌های باز مقدم‌اند
 
@@ -357,3 +357,9 @@ DEPLOYED_VERIFIED —۱نوامبر،05:45تهران: metadata0.2.2 با[PR56](h
 ۱۹TLS200 و۳۸۶browser/۵۱حالت1440/375/no-JS پاس؛مقایسهٔ مستقل۱۷مسیرعمومی باbaseline،فقط حذف۴Article خدمات را تأیید کرد:متن/عنوان/H1/canonical/سایرmetadata وArticle۴درس برابر. این۱۹و۱۷مسیر همپوشانی دارند،نه۳۶مسیرمنحصربه‌فرد. nonce/context ابزار/فرم‌ها،خانه/منو/فروشگاه،داده/۷runtime guard/containerها،۲۵کالایاستعلامی/قابل‌خرید۰،ERP/sandboxfalse،noindex وMyTelwrite۰ حفظ‌اند. live rollback لازم نشد. رسید `qa/growth-2026-10-31/service-metadata-role-production-release.json`؛۷۴PHP پساز۷RED،۱۸nativechecker،۱۷nativecomparison/۳۸۶staging وrollback/restoreدقیقpreview نیزثبت‌اند.
 
 NEXT: انتقال نقش source note/خدمت/مقاله وactual acceptance به-SEO،ثبتCI/commit وcheckpoint؛سپس اولین گپ مستقل اثبات‌شده طبقصف. ID29 بههاب هم‌نیت تبدیل نشده. انتشار/recovery/پرتفوی۱۰۰کاندیدا را بازپخش نکن؛writerهایpreview ترتیبی وقفل‌دار. هیچSEOgain/RichResults/GSC/رتبه/ترافیک/AIcitation اندازه‌گیری نشده. rotationUNKNOWN/historyNEEDS_APPROVAL/refmapSTALE/originUNDETERMINED/منعforce-push،MyTelfreeze/noindex/پرداخت وگزارشصبحLIVE_NOT_FINAL تا۰۸:۰۰ پابرجا.
+
+## تکمیل انتقال نقش metadata خدمات
+
+انتقال دانش در[-SEO PR17](https://github.com/DashSaman/-SEO/pull/17)،main `0e9e741b43fa6a7578dc8239560405737a5341cd` وCI41264733379 ادغام شد؛۹privacy/scan۶۷ و۱۷مقصدdashboard/anchor/ledger/receipt consistency پاس. یکrowمشاهده،دوsourceرسمی موجود وtopicفنی به‌روز شدند؛baseline۷۱٪ ثابت،مدرکnative۱/عمومی۴ وGETهایهمپوشان محفوظ‌اند.
+
+NEXT: ابتداشواهدپذیرفته‌شدهٔshop/media را بخوان؛تنها یک مسیر پوشش‌داده‌نشدهٔکیبورد/focus درفروشگاه/رسانهٔ محصول را باGET-onlyبررسی کن و فقط اگرنقصواقعی داشت،تغییرمحدودبساز. ممیزیtitles/metadataیاانتشار/recoveryقبلی/۱۰۰کاندیدا را بازپخش نکن. مدل دقیقCAD/قیمت/موجودی/قابلیت تجاری بدونشاهد نساز. نزدیک۰۸:۰۰ گزارشصبح را ازشواهدactualتلفیق وواقعاًنهایی کن؛اکنونLIVE_NOT_FINAL است.
