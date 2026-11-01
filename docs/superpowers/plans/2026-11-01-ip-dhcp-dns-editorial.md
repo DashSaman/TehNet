@@ -1,6 +1,6 @@
 # Existing IP/DHCP/DNS lesson: diagnose before changing configuration
 
-Status: VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED. Steps1–4 and appropriate native/local operator checks passed;57 blocks,21 browser,15 links,37 native/37 support regression, Windows19PASS/1SKIP of20. Immutable rehearsal and publication remain; no RouterOS/Windows network execution.
+Status: VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED. Steps1–4 and appropriate native/local operator checks passed;57 blocks,21 browser,15 links,37 native/37 support regression, Windows19PASS/1SKIP of20. Immutable rehearsal passed with source487663b9739cc4a974b9437ee3771e7ee0a315aa, including tamper checks/4HTTP/rollback/repeat and exact staging restoration. Normal CI integration/fresh backup/drift/production acceptance remain; no RouterOS/Windows network execution.
 
 Target: existing page63 `/learn/mikrotik/mtcna/ip-dhcp-dns/`, preserve URL/title/parent/meta and the original video link. Five C01 reader jobs already map here; do not create five overlapping articles.
 
