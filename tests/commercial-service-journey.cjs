@@ -8,7 +8,7 @@ assert.ok(/^http:\/\/(localhost|127\.0\.0\.1):18085$/.test(origin)); assert.matc
 const email = `${marker.toLowerCase()}@example.invalid`; const out = path.resolve(process.argv[2]);
 const checks=[]; function check(label,value){assert.ok(value,label);checks.push(label);}
 (async()=>{
- fs.mkdirSync(out,{recursive:true}); const browser=await chromium.launch({channel:'msedge',headless:true});
+ fs.mkdirSync(out,{recursive:true}); const browser=await chromium.launch({channel:'msedge',headless:true,args:['--host-resolver-rules=MAP localhost 127.0.0.1']});
  const errors=[]; const refs=[];
  async function context(js=true,width=1440){const c=await browser.newContext({javaScriptEnabled:js,viewport:{width,height:900}});await c.route('**/*',r=>r.request().url().startsWith(origin+'/')?r.continue():r.abort());return c;}
  async function fill(form,service,suffix){await form.locator('[name=tn_service_context]').selectOption(service);await form.locator('[name=tn_name]').fill('آزمون خصوصی');await form.locator('[name=tn_email]').fill(email);await form.locator('[name=tn_message]').fill(`${marker}-${suffix} درخواست مصنوعی؛ صرفاً آزمون نسخهٔ ایزوله.`);}
@@ -58,6 +58,7 @@ const checks=[]; function check(label,value){assert.ok(value,label);checks.push(
   check('Short problem rejected server-side',(await post({...base,tn_message:'کم'})).status()===400);
   const nojs=await context(false,375);const np=await nojs.newPage();const nojsRequests=[];
   np.on('response',r=>{if(r.request().method()==='POST')nojsRequests.push({url:r.url(),status:r.status()});});
+  np.on('request',r=>{if(r.method()==='POST')nojsRequests.push({request:r.url(),method:'POST'});});
   np.on('console',m=>nojsRequests.push({console:m.type(),text:m.text()}));np.on('requestfailed',r=>nojsRequests.push({failed:r.url(),error:r.failure()}));
   await np.goto(origin+'/',{waitUntil:'networkidle'});const nf=np.locator('[data-tn-service-request]');
   await fill(nf,'remote-support','nojs');
