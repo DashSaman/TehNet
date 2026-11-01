@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "status": "DIAGNOSED_RESTORED_NOT_DEPLOYED",
+  "diagnostic_source_commit": "30a3ade39bf5725f478c31b0f20c8a8b425f83b3",
+  "actual_failure": "Literal double-quoted CSS asset ID check failed before browser; Article/other metadata equality and protected data digest retained.",
+  "raw_capture": "Complete before/after product HTML retained privately; changed text nodes confined to two existing related-product sections.",
+  "cause_checks": {
+    "section_tn_related_and_section_related_products_randomized": true,
+    "primary_main_text_equal_after_excluding_only_those_sections": true,
+    "counterfactual_primary_h1_change_detected": true,
+    "actual_gallery_link_and_script_ids_present": true,
+    "css_id_uses_single_quotes": true,
+    "all_25_native_product_paths_nonroot_and_queryless": true
+  },
+  "evidence_basis": "Actual captured HTML parser/node diff, direct native path probe and existing Storefront related-products random-order code; no rendered product content was modified to pass.",
+  "recovery": "All three applied files rolled back; data digest retained; original metadata fixture restored. Journals preserved.",
+  "test_preparation_changes": "Verify current fixture roles through web SAPI; compare primary product text separately from its two randomized recommendation sections; keep exact DB/schema/other-route guards; parse asset tags structurally independent of attribute quoting; retain full raw comparisons privately.",
+  "application_payload_changed_since_8d0af85": false,
+  "browser_acceptance": "NOT_RUN",
+  "production_mutations": 0,
+  "remaining_gate": "Fresh reviewed immutable source and complete native keyboard/pointer/fullscreen/mobile/no-JS/25-asset/rollback qualification; no successful qualification inferred from diagnostic work."
+}
