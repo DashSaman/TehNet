@@ -1,6 +1,6 @@
 # بهبود خدمت موجود MikroTik
 
-وضعیت: VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر۲۰۲۶. همان ID35، عنوان «خدمات MikroTik تهران»، URL `/services/mikrotik-tehran/` و والد8. فقط body و تاریخ واقعی تغییر؛ عنوان/slug/meta/excerpt محفوظ. محتوای native/public در01:30:20UTC با after نسخهٔ committed۱۶اکتبر، SHA647165b... منطبق بود؛ GET باTLS معتبر200.
+وضعیت: DEPLOYED_VERIFIED —۱نوامبر۲۰۲۶. همان ID35، عنوان «خدمات MikroTik تهران»، URL `/services/mikrotik-tehran/` و والد8. فقط body و تاریخ واقعی تغییر؛ عنوان/slug/meta/excerpt محفوظ. محتوای native/public در01:30:20UTC با after نسخهٔ committed۱۶اکتبر، SHA647165b... منطبق بود؛ GET باTLS معتبر200.
 
 ## نیاز مستقل و مرز intent
 
@@ -14,7 +14,7 @@
 
 این ارجاعات محدودیت‌های فنی را پشتیبانی می‌کنند؛ قالب درخواست/پذیرش، پیشنهاد تحریریه است، نه گواهی سازنده، قرارداد تأییدشده یا نتیجهٔ اجرا. Export پنهان‌ساز همهٔ اطلاعات سازمان نیست؛ در فرم اولیه فایل کامل، رمز، کلید خصوصی و آدرس مدیریتی درخواست نمی‌شود.
 
-## پذیرش و انتشار
+## checkpoint تاریخی پذیرش و انتشار
 
 scope دقیق `tehnet-service-mikrotik-20261101-v1` باID35/URI/file ثابت، صفر نصبruntime و۸guard نسخهٔ جاری. تست operator/native پیش از ثبت scope باید رد شود؛ سپس native rollback/retention/negative cases و regression، browser1440/375/no-JS/anchor/phone/editor edit-reset و بازیابی دقیق state لازم‌اند. writerهای preview ترتیبی با قفل خصوصی باشند. immutable committed bundle، backup/checksum/tamper/repeat/rollback، CI تازه و برابری payload/tool/guards، پیش‌نیاز هر انتشارند. فعلاً production تغییر نکرده است.
 
@@ -23,3 +23,7 @@ MyTel read-only/freeze، noindex، خانه/منو/فروشگاه، دادهٔ �
 پذیرش بومی:۳۹بلوک/۳۰browser/۴۱native+۴۰remote+۳۹setup،Windows۲۲PASS/۱SKIP از۲۳،۱۵TLS200/۳anchor؛ state وکاربرQA دقیقاً بازگشتند. immutable rehearsal/CI/live هنوز در انتظارند.
 
 تمرین immutable باsource73c72112fac967c71ea4f89c0129cf4a28f87e5a،backup/checksum/tamper/apply/repeat/۴HTTP/rollback/repeat وrestore دقیقstate/metadata fixture موفق بود؛ CI/Linux وlive هنوز در انتظارند.
+
+## انتشار واقعی
+
+PR54/CI41261972202 با۲۳Linux operator/۹privacy PASS و خواندن خلاصهٔ واقعی log؛ source live918c6c2186d5f82196471d3e0a2588661df7bef8 برابر payload/tool/۸guard نسخهٔ qualified73c7211 است. backup تازه/checksum/drift پاس؛ فقط همانbody و تاریخ واقعی01:40:51UTC تغییر کرد وrepeat تغییری نداد.۹TLS GET/۴۴public-browser1440/375/no-JS پاس،داده/۸runtime file/containerها ثابت؛۲۵کالا/قابل‌خرید۰،ERP/sandbox false وMyTel write۰. مقاله/URL/runtime install۰ وlive rollback لازم نشد.۱۵لینک200/۳anchor،حدود نسخه/مدل و نبود تست دستگاه/شبکه/VLAN/امنیت/سرعت/بازیابی/SEOgain باقی‌اند. manifest وreceiptهایdraft/rehearsal checkpoint تاریخی‌اند و بازنویسی نمی‌شوند. انتقالSEO درcheckpoint بعد ثبت می‌شود.

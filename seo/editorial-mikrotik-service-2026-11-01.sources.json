@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "SCOPED_REVIEW_NATIVE_DRAFT_NOT_DEPLOYED",
+  "status": "DEPLOYED_VERIFIED",
   "reviewed": "2026-11-01",
   "target": {
     "id": 35,
@@ -46,9 +46,13 @@
   ],
   "editorial_inference": "Device/version/dependency intake and proposed acceptance/recovery-window agreement distinct from configuration lessons",
   "technical_execution": "NOT_RUN",
-  "wordpress_qualification": "PASS_39_BLOCKS_30_BROWSER_41_NATIVE",
-  "publication": "NOT_DEPLOYED",
+  "wordpress_qualification": "PASS_39_BLOCKS_30_STAGING_BROWSER_41_NATIVE_23_LINUX_OPERATOR_44_PUBLIC_BROWSER",
+  "publication": "DEPLOYED_VERIFIED",
   "search_market_measurement": "NOT_RUN",
   "legacy_source": "help.mikrotik.com observed frozen with2026-02-23 update; current manual navigation followed instead",
-  "link_check": "15GET200_WITH_DEFAULT_TLS_AND_3_FRAGMENT_IDS"
+  "link_check": "15GET200_WITH_DEFAULT_TLS_AND_3_FRAGMENT_IDS",
+  "production_source": "918c6c2186d5f82196471d3e0a2588661df7bef8",
+  "production_completed_utc": "2026-11-01T01:40:59.362193+00:00",
+  "production_receipt": "qa/growth-2026-10-31/mikrotik-service-production-release.json",
+  "public_browser_checks": 44
 }
