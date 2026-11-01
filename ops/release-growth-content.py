@@ -34,6 +34,7 @@ SUPPORT_SCOPE = 'tehnet-service-network-support-20261101-v1'
 IP_DHCP_DNS_SCOPE = 'tehnet-editorial-ip-dhcp-dns-20261101-v1'
 NETWORK_SETUP_SCOPE = 'tehnet-service-network-setup-20261101-v1'
 REMOTE_SUPPORT_SCOPE = 'tehnet-service-remote-support-20261101-v1'
+MIKROTIK_SERVICE_SCOPE = 'tehnet-service-mikrotik-20261101-v1'
 LESSON_SCOPES = {
     EDITORIAL_SCOPE: ('content/growth-editorial-2026-11-01', 'routeros-winbox.html', '/tmp/tn-editorial-release-'),
     ROUTING_SCOPE: ('content/routing-editorial-2026-11-01', 'static-routing.html', '/tmp/tn-routing-release-'),
@@ -43,6 +44,7 @@ CONTENT_SCOPES = {**LESSON_SCOPES,
     SUPPORT_SCOPE: ('content/network-support-2026-11-01', 'network-support.html', '/tmp/tn-network-support-release-'),
     NETWORK_SETUP_SCOPE: ('content/network-setup-2026-11-01', 'network-setup.html', '/tmp/tn-network-setup-release-'),
     REMOTE_SUPPORT_SCOPE: ('content/remote-support-2026-11-01', 'remote-support.html', '/tmp/tn-remote-support-release-'),
+    MIKROTIK_SERVICE_SCOPE: ('content/mikrotik-service-2026-11-01', 'mikrotik-service.html', '/tmp/tn-mikrotik-service-release-'),
 }
 GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE]
 
@@ -55,7 +57,7 @@ def scope_spec(scope):
         return [], [directory + '/manifest.json',
                     directory + '/' + body,
                     'ops/migrate-growth-content.php'], FILES + ['site/plugins/tehnet-store/tehnet-store.php'] + (
-                        ['site/mu-plugins/tehnet-search-metadata.php'] if scope in (SUPPORT_SCOPE, IP_DHCP_DNS_SCOPE, NETWORK_SETUP_SCOPE, REMOTE_SUPPORT_SCOPE) else [])
+                        ['site/mu-plugins/tehnet-search-metadata.php'] if scope in (SUPPORT_SCOPE, IP_DHCP_DNS_SCOPE, NETWORK_SETUP_SCOPE, REMOTE_SUPPORT_SCOPE, MIKROTIK_SERVICE_SCOPE) else [])
     if scope == METADATA_SCOPE:
         return ['site/mu-plugins/tehnet-search-metadata.php'], [
             'content/metadata-role-2026-11-01/manifest.json', 'ops/check-metadata-state.php'

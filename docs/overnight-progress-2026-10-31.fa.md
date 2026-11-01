@@ -286,3 +286,21 @@ NEXT: انتقال source/قبولی واقعی/حدود به -SEO و ثبت CI/
 انتقال منابع/قبولی واقعی/حدود در [-SEO PR15](https://github.com/DashSaman/-SEO/pull/15)، main `9b5ad0972743697fc33ed924545c038d4b46faae` وCI41260665289 ادغام شد؛۴source row/topic/dashboard/continuation،۹privacy test وscan۶۷فایل/۱۵مقصدdashboard پاس،baseline۷۱٪ ثابت. مثال ابزار،جلسهٔ ساختگی و CISA403 حذف‌شده ازپشتوانه صریح‌اند؛قبولیWordPress،آزمون امنیت ابزار یاSEOgain نیست.
 
 NEXT: صفحهٔ موجود /services/mikrotik-tehran/ را برای نیاز مستقل در شناخت نسخه/دسترسی/بازیابی بخوان؛ فقط پس از شاهد، بهبود همان URL را تحقیق کن و درس‌های پذیرفته‌شده را تکرار نکن. انتشارهای قبلی، recovery و۱۰۰کاندیدا بازپخش نشوند؛ preview writers ترتیبی و با قفل مشترک باشند. noindex/خانه/منو/فروشگاه/داده/پرداخت/MyTel freeze و rotationUNKNOWN/historyNEEDS_APPROVAL/originUNDETERMINED/منعforce-push پابرجا؛ گزارش صبح LIVE_NOT_FINAL تا۰۸:۰۰.
+
+## checkpoint پیش‌نویس MikroTik
+
+## CURRENT — پیش‌نویس خدمت MikroTik و محدودهٔ انتشار آزموده شد
+
+VERIFIED_NATIVE_DRAFT_NOT_DEPLOYED —۱نوامبر: همان ID35/URL/عنوان/والد؛ اطلاعات مدل/نسخه/وابستگی، هدف تغییر، پذیرش و پنجرهٔ بازیابی، با۲منبع جاری MikroTik و مثال VLAN صریحاً ساختگی/اندازه‌گیری‌نشده.۳۹بلوک/۳۰browser1440/375/no-JS/edit-reset،۴۱native جدید و۴۰remote+۳۹setup regression پاس؛۲۳Windowscase شامل۲۲PASS/۱SKIPsymlink. scope قدیمی رد شد؛ ثبت جدید exact/body-only با۸guard/صفرنصبruntime است.۱۵GET لینکTLS200 و۳anchor پاس. همهٔposts/meta/users وکاربرQA دقیقاً بازگشتند؛ writerها ترتیبی وباقفل مشترک.
+
+رسید `qa/growth-2026-10-31/mikrotik-service-draft-and-migration.json` وbrief/source درseo. manual7.26 نسخهٔ دستگاه یا توصیهٔ ارتقا نیست؛ سایت قدیمی frozen منبع جاری شمرده نشده. هیچ تغییر/آزمون دستگاه،شبکه،VLAN،امنیت،عملکرد یا بازیابی اجرا نشد. خطای محلی آماده‌سازی تست پیش ازاجرا اصلاح شد؛ suiteقدیمی۲۲case به‌جایred/green واقعی۲۳case حساب نشده است.
+
+NEXT: immutable rehearsal مستقل باmetadata جاری وrestore دقیقpreview، CI تازه/ادغام عادی/snapshotخصوصی، برابریpayload/tool/۸guard وbackup/checksum/driftتازه؛ سپس انتشار محدود وپذیرشعمومی اگر واجدگیت بود. production هنوز تغییر نکرده؛ انتشار/recovery/۱۰۰کاندیدا بازپخش نشوند. noindex/خانه/منو/فروشگاه/داده/پرداخت/MyTel وگیت‌های امنیتی پابرجا؛ گزارشصبح LIVE_NOT_FINAL تا۰۸:۰۰.
+
+## checkpoint تمرین انتشار MikroTik
+
+## CURRENT — خدمت MikroTik برای انتشار محدود آماده شد
+
+VERIFIED_REHEARSAL_NOT_DEPLOYED —۱نوامبر: source ثابت `73c72112fac967c71ea4f89c0129cf4a28f87e5a` برای همان ID35.۳۹بلوک/۳۰browser/۴۱native+۴۰remote+۳۹setup regression؛ Windows۲۲PASS/۱SKIP از۲۳ و۱۵TLS200/۳anchor. تمرین backup/checksum/tamper/check/apply/repeat/۴HTTP/rollback/repeat موفق؛ posts/meta/users وmetadata fixture اصلی دقیقاً بازگشتند وcontainerها ثابت ماندند.۸guard/صفرنصبruntime. رسید `qa/growth-2026-10-31/mikrotik-service-release-rehearsal.json`؛ manual جاری و نسخه/مدل محدودند، مثالVLAN ساختگی و هیچ تست دستگاه/شبکه/امنیت/سرعت/بازیابی اجرا نشده است.
+
+NEXT: CI تازهٔhead،snapshotخصوصی وادغامعادی؛ برابریpayload/tool/۸guard،backup/checksum/driftتازهٔتولید وپذیرشعمومی. production هنوز تغییر نکرده؛ انتشار/recovery قبلی بازپخش نشوند. noindex/خانه/منو/فروشگاه/داده/پرداخت/MyTel وrotationUNKNOWN/historyNEEDS_APPROVAL/originUNDETERMINED/منعforce-push پابرجا؛ گزارش صبح LIVE_NOT_FINAL تا۰۸:۰۰.

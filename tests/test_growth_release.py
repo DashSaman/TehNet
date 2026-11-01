@@ -126,6 +126,18 @@ class ReleaseBoundaries(unittest.TestCase):
         prefixes = [row[2] for row in self.module.CONTENT_SCOPES.values()]
         self.assertEqual(len(set(prefixes)), len(prefixes))
 
+    def test_mikrotik_service_scope_is_body_only_current_guarded_and_separate(self):
+        scope = 'tehnet-service-mikrotik-20261101-v1'
+        files, extra, runtime = self.module.scope_spec(scope)
+        self.assertEqual(files, [])
+        self.assertEqual(extra, ['content/mikrotik-service-2026-11-01/manifest.json', 'content/mikrotik-service-2026-11-01/mikrotik-service.html', 'ops/migrate-growth-content.php'])
+        self.assertEqual(len(runtime), 8)
+        self.assertIn('site/mu-plugins/tehnet-search-metadata.php', runtime)
+        self.assertNotIn(scope, self.module.LESSON_SCOPES)
+        self.assertIn(scope, self.module.GUARDED_SCOPES)
+        prefixes = [row[2] for row in self.module.CONTENT_SCOPES.values()]
+        self.assertEqual(len(set(prefixes)), len(prefixes))
+
     def test_metadata_scope_writes_only_its_file_and_has_no_content_migrator(self):
         files, extra, runtime = self.module.scope_spec(self.module.METADATA_SCOPE)
         self.assertEqual(files, ['site/mu-plugins/tehnet-search-metadata.php'])

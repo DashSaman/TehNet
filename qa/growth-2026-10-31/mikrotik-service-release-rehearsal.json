@@ -1,0 +1,108 @@
+{
+  "scope": "Exact existing service in owned native staging, no runtime file changes",
+  "source_commit": "73c72112fac967c71ea4f89c0129cf4a28f87e5a",
+  "observed_utc": "2026-11-01T01:37:49.177691+00:00",
+  "results": [
+    {
+      "operation": "check",
+      "status": "READY",
+      "files_pending": 0,
+      "content": {
+        "status": "READY",
+        "pages_pending": 0,
+        "hubs_pending": 1,
+        "protected_digest": "896a54e2d2c7163225d2db0da20664cb140108a78c10a98816be0c6cc897ffba"
+      }
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "files_changed": 0,
+      "content": {
+        "status": "APPLIED",
+        "pages_created": 0,
+        "hubs_updated": 1,
+        "page_ids": [],
+        "protected_digest": "896a54e2d2c7163225d2db0da20664cb140108a78c10a98816be0c6cc897ffba",
+        "protected_state_unchanged": true
+      }
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "files_changed": 0,
+      "content": {
+        "status": "APPLIED",
+        "pages_pending": 0,
+        "hubs_pending": 0,
+        "pages_created": 0,
+        "hubs_updated": 0,
+        "page_ids": [],
+        "protected_state_unchanged": true
+      }
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "files_restored": 0,
+      "content": {
+        "status": "ROLLED_BACK",
+        "hubs_restored": 1,
+        "pages_drafted": 0,
+        "protected_state_unchanged": true
+      }
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "files_restored": 0,
+      "content": {
+        "status": "ROLLED_BACK",
+        "hubs_restored": 0,
+        "pages_drafted": 0,
+        "protected_state_unchanged": true
+      }
+    }
+  ],
+  "production_mutations": 0,
+  "current_metadata_baseline_fixture_verified": true,
+  "tampered_payload_refused": true,
+  "tampered_metadata_refused": true,
+  "http_smoke": [
+    {
+      "path": "/services/mikrotik-tehran/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/shop/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    },
+    {
+      "path": "/services/voice-network-readiness/",
+      "status": 200,
+      "h1": 1,
+      "noindex": true
+    }
+  ],
+  "original_posts_meta_users_exactly_restored": true,
+  "existing_runtime_unchanged": true,
+  "backup_checksum_verified": true,
+  "status": "VERIFIED_REHEARSAL_NOT_DEPLOYED",
+  "original_metadata_fixture_exactly_restored": true,
+  "completed_utc": "2026-11-01T01:38:04.812979+00:00",
+  "limits": [
+    "No real device/configuration/network/VLAN/security/performance/recovery test",
+    "Zero production writes; temporary current-metadata fixture restored exactly to original preview file",
+    "Proposed service template and fictional VLAN acceptance are unmeasured, not device-specific advice or approval to upgrade/reset"
+  ]
+}
