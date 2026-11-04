@@ -39,3 +39,5 @@
 PR81/CI41862506291 موفق و main `380d6f6f8b423a289dd3010f7b369b768fe7d14b` با bytes برابر native `7d90b4b58d6186edbfab10800d53fd639a1ca9f6` منتشر شد. چهار فایل وpost_content7، backup تازه/checksum، drift و rollback واجد آزمون؛ CSS/JS عمومی با TLS و byte دقیق کنترل شدند.257بررسی مستقل مرورگر زنده و0ارسال فرم؛25قلم و image/price/inquiry، داده‌های محافظت‌شده، runtime، noindex/payment/CAPTCHA/theme/cron حفظ‌اند. [receipt و تصاویر live](../evidence/2026-11-04/network-triage/production-verification.json). این release دوباره اجرا نشود.
 
 صف CI پیشین بدون تغییر runner/account/billing یا rerun از طرف ما پایان یافت؛ علت تأخیر UNKNOWN باقی است. گام بعد، انتشار مشروط B از PR83 است؛ وضعیت‌های مرحلهٔ قبلی در این گزارش، تاریخی‌اند و نتیجهٔ شبکه/تیکت/SEO واقعی محسوب نمی‌شوند.
+
+پس از انتشار B از1114367،257بررسی مستقل ابزار A نیز دوباره روی سایت زنده موفق شد؛ فایل‌های A در guard B حفظ‌اند و0فرم ارسال شد. این regression به‌علت هم‌زیستی دو ابزار در Lab/loader مشترک انجام شد، نه انتشار مجدد A. [رسید مرحلهٔ B](../evidence/2026-11-04/conceptual-routing/production-verification.json).

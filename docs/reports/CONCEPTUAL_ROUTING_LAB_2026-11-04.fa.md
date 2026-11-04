@@ -1,6 +1,6 @@
 # تمرین مفهومی Static Routing —۴نوامبر۲۰۲۶
 
-وضعیت: **VERIFIED_STAGING_NOT_DEPLOYED**. شاخهٔ مستقل `feat/conceptual-routing-lab-20261104` از head PR81 ساخته شده تا تغییرِ FeatureB، head واجد آزمون FeatureA را عوض نکند. **انتشار B به انتشار تأییدشدهٔ A وابسته است**؛ A اکنون با PR81/CI41862506291 و receipt مستقل live257 واقعاً DEPLOYED_VERIFIED است؛ این وابستگی محقق شده.
+وضعیت: **DEPLOYED_VERIFIED**. شاخهٔ مستقل `feat/conceptual-routing-lab-20261104` از head PR81 ساخته شده تا تغییرِ FeatureB، head واجد آزمون FeatureA را عوض نکند. **انتشار B به انتشار تأییدشدهٔ A وابسته است**؛ A اکنون با PR81/CI41862506291 و receipt مستقل live257 واقعاً DEPLOYED_VERIFIED است؛ این وابستگی محقق شده.
 
 چهار گرهٔ فرضی رایانه/R1/R2/سرویس، آدرس‌ها و Gatewayهای مشخص، دو انتخاب مستقل برای مسیر رفت و برگشت، مقایسهٔ prefix و next-hop، نمایش مرحله‌ای بسته و بازخورد پاسخ پیاده شده‌اند. مقصد نامنطبق، next-hop خارج لینک و نبود مسیر از هم جدا هستند. یک مسیرِ صحیح، پاسخ رفت‌وبرگشت موفق محسوب نمی‌شود؛ انتخاب‌نکردن هم نتیجهٔ خرابی واقعی تولید نمی‌کند. تغییر انتخاب، نتیجهٔ قبلی را پاک می‌کند؛ reset و حرکت گام قبل/بعد محدودند.
 
@@ -18,6 +18,12 @@
 
 منطق مدل با5آزمون و هر16جفت انتخاب، رفت‌وبرگشت مستقل، prefix عددی و next-hop بررسی شد. یک آزمون، تعبیر انتخاب‌نشده به قطع مدل را RED کرد؛ با وضعیت NEEDS_CHOICES سبز شد. مجموع9آزمون Node برای A+B موفق؛ scope جدید ابتدا RED و پس از ثبت32آزمون اجرا شد:31PASS/1SKIP Windows. native migration44، renderer7 و مرورگر سایت213 با source `b13ee38391937f4088a794c3298b118639c62ba9` موفق:4فایل/1body، apply/repeat/rollback/repeat، چند نمونهٔ ID مستقل، هر دو ابزار کنار هم،1440/768/375/320 دو تم/no-JS، خطاهای route و پاسخ رفت/برگشت، حرکت گام‌ها و reset. همهٔ داده/revision/files/runtime اولیه دقیقاً بازیابی شدند؛0ارسال و0تغییر production. [receipt و تصاویر](../evidence/2026-11-04/conceptual-routing/native-staging.json). تصویر قبل نمای Lab بدون B و بعد نمای توپولوژی است؛ مقایسهٔ یک viewport یکسان یا بازطراحی کل قالب نیست.
 
-گام بعد: PR/CI؛ rehearsal و cleanup کامل شده‌اند و دوباره اجرا نشوند مگر source تغییر کند. انتشار B تنها بعد از رسید production واقعی A و برابری bundle/backup/checksum/drift/rollback مجاز است. هیچ network/project، ranking، traffic، conversion یا parity اندازه‌گیری نشده؛ Issues63/75 و بازبینی کامل8ضبط بازند.
+## checkpoint تاریخی پیش از انتشار
+
+گام بعد در آن checkpoint: PR/CI؛ rehearsal و cleanup کامل شده‌اند و دوباره اجرا نشوند مگر source تغییر کند. انتشار B تنها بعد از رسید production واقعی A و برابری bundle/backup/checksum/drift/rollback مجاز است. هیچ network/project، ranking، traffic، conversion یا parity اندازه‌گیری نشده؛ Issues63/75 و بازبینی کامل8ضبط بازند.
 
 پیش‌نیاز واقعی A اکنون محقق است: [receipt production](../evidence/2026-11-04/network-triage/production-verification.json). PR83 باید به main retarget و پس از CI همان head، با payload برابر source بومی B و backup/checksum/drift/rollback منتشر شود؛ B در این checkpoint هنوز NOT_DEPLOYED است.
+
+## انتشار واقعی و پذیرش مستقل زنده
+
+PR83/CI41869586872 موفق و main `1114367b892364a892263bca26ecd3b08c326c21`، با payload برابر native `b13ee38391937f4088a794c3298b118639c62ba9` منتشر شد. پیش‌نیاز A receipt/live257 واقعاً کنترل شد؛ چهار فایل وpost_content7 با backup تازه/checksum/drift/rollback، byte دقیق CSS/JS عمومی با TLS و حفظ protected state/runtime/25قلم/noindex/payment/CAPTCHA/theme/cron.213بررسی مستقل زندهٔ B و257regression مستقل A پس از B موفق؛0ارسال فرم. [receipt و تصاویر live](../evidence/2026-11-04/conceptual-routing/production-verification.json). هیچ packet یا پیکربندی واقعی اجرا نشد. وضعیت‌های pending/CI صف‌شدهٔ قبلی تاریخی‌اند؛ این release دوباره اجرا نشود.

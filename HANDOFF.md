@@ -1,4 +1,10 @@
-## CURRENT —2026-11-04 manual triage DEPLOYED_VERIFIED; conceptual B staged
+## CURRENT —2026-11-04 both Lab tools DEPLOYED_VERIFIED
+
+A PR81/CI41862506291 از380d6f6 با native7d90b4b و live257 منتشر شد. B PR83/CI41869586872 از1114367 با nativeb13ee38، پس از کنترل A receipt/live257، منتشر و live213 +regression مستقل A257 موفق شد. هر بسته4runtime-file/post_content7 و0page/backend، backup تازه/checksum/drift/rollback، CSS/JS عمومی باTLS/bytes دقیق،0ارسال فرم؛ protected data/25قلم/runtime/noindex/payment/CAPTCHA/theme/cron محفوظ. receipts: docs/evidence/2026-11-04/network-triage/production-verification.json و conceptual-routing/production-verification.json. Native stagingهای قبلی exact restore شده‌اند؛ هیچ fixture باقی نمانده. هیچ‌کدام از releaseها دوباره اجرا نشود.
+
+گام بعد: اجرای درخواست تازهٔ مالک برای راهنمای تصویری با گزینهٔ برجسته و سناریوی جداگانهٔ لحن/ضبط/زمان‌بندی هر قسمت؛ پایلوتِ تصویر واقعی از Lab موجود، و RouterOS/WinBox فقط پس از دسترسی به لاب واقعی و نسخهٔ ثبت‌شده. PR79 طرح موجود است، بازسازی نشود. تمام فیلم‌ها هنوز full audio/screen UNVERIFIED هستند؛متن قابل نمایشِ7زیرنویس با hash/پوشاندن زمینه‌های خصوصی کامل خوانده شد؛ بخش‌های پوشانده‌شده بررسی نشده و5.5 بی‌متن ماند. هیچ صوت/تصویر کامل تأیید نشد. CAD دقیق25قلم/مجوز و شواهد واقعی مشتری، GSC/CWV/اثر تجاری در این نوبت اثبات نشده‌اند. noindex launch، payment، credential/history/origin و shared-network گیت‌های مستقل دارند؛ MyTel read-only،63/75 باز و parity نامحرز. هیچ اتوماسیون متوقف‌شده‌ای فعال نشد.
+
+## HISTORICAL CHECKPOINT —2026-11-04 manual triage DEPLOYED_VERIFIED; conceptual B staged
 
 PR81/CI41862506291 موفق؛ source380d6f6 با payload برابر native7d90b4b،4فایل/post_content7، backup تازه/checksum/drift/rollback منتشر شد.257بررسی مستقل زنده، دانلود/شروع متن/تم/no-JS و فرم context/nonce/action،0ارسال؛ protected data/25قلم/runtime/noindex/payment/CAPTCHA/theme/cron محفوظ. receipt: docs/evidence/2026-11-04/network-triage/production-verification.json. صف پیشین CI پایان یافت؛ علت UNKNOWN، هیچ runner/billing/rerun تغییر ندادیم. A دوباره اجرا نشود.
 

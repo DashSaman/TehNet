@@ -18,10 +18,24 @@
       "transcript_available": true,
       "transcript_kind": "auto-generated-fa",
       "transcript_sha256": "a386b101e90dff6c5990d5458fd75b878e2b72a48cc23621ed44d4c4e9875db4",
-      "review_scope": "selected-caption-passages-only; full audio/screen review pending",
+      "review_scope": "all available redacted caption text read; full audio/screen review pending",
       "reviewer": null,
       "editor_approval": null,
-      "claims": []
+      "claims": [],
+      "caption_text_review": {
+        "status": "AVAILABLE_REDACTED_TEXT_REVIEWED",
+        "source_hash_verified": true,
+        "export_lines": 236,
+        "line_ranges_read": [
+          [
+            1,
+            236
+          ]
+        ],
+        "method": "Pinned auto-generated Persian captions, private values/IP/MAC/email and credential contexts redacted before reading; redacted content not reviewed",
+        "approved_for_video_attribution": false,
+        "notes": "seo/MTCNA_CAPTION_REVIEW_2026-11-04.fa.md"
+      }
     },
     {
       "id": "a0JMhBdNNgs",
@@ -32,10 +46,24 @@
       "transcript_available": true,
       "transcript_kind": "auto-generated-fa",
       "transcript_sha256": "f992a1b2eee205434983ce68aff56299613bd88ed253a43ba2c55bcaa6bae546",
-      "review_scope": "selected-caption-passages-only; full audio/screen review pending",
+      "review_scope": "all available redacted caption text read; full audio/screen review pending",
       "reviewer": null,
       "editor_approval": null,
-      "claims": []
+      "claims": [],
+      "caption_text_review": {
+        "status": "AVAILABLE_REDACTED_TEXT_REVIEWED",
+        "source_hash_verified": true,
+        "export_lines": 646,
+        "line_ranges_read": [
+          [
+            1,
+            646
+          ]
+        ],
+        "method": "Pinned auto-generated Persian captions, private values/IP/MAC/email and credential contexts redacted before reading; redacted content not reviewed",
+        "approved_for_video_attribution": false,
+        "notes": "seo/MTCNA_CAPTION_REVIEW_2026-11-04.fa.md"
+      }
     },
     {
       "id": "hqjjvQoO7as",
@@ -46,10 +74,24 @@
       "transcript_available": true,
       "transcript_kind": "auto-generated-fa",
       "transcript_sha256": "64c80f870d2a7f186a75e72a0c6cc6496d05aaae0e6c22673eefdacebc79f3f3",
-      "review_scope": "selected-caption-passages-only; full audio/screen review pending",
+      "review_scope": "all available redacted caption text read; full audio/screen review pending",
       "reviewer": null,
       "editor_approval": null,
-      "claims": []
+      "claims": [],
+      "caption_text_review": {
+        "status": "AVAILABLE_REDACTED_TEXT_REVIEWED",
+        "source_hash_verified": true,
+        "export_lines": 537,
+        "line_ranges_read": [
+          [
+            1,
+            537
+          ]
+        ],
+        "method": "Pinned auto-generated Persian captions, private values/IP/MAC/email and credential contexts redacted before reading; redacted content not reviewed",
+        "approved_for_video_attribution": false,
+        "notes": "seo/MTCNA_CAPTION_REVIEW_2026-11-04.fa.md"
+      }
     },
     {
       "id": "Z5EWfUn1Ejw",
@@ -60,10 +102,24 @@
       "transcript_available": true,
       "transcript_kind": "auto-generated-fa",
       "transcript_sha256": "2bb2268468c7d7a4b65a36a0a7042bc7005f3ca557a7839bd24bdff6c8536886",
-      "review_scope": "selected-caption-passages-only; full audio/screen review pending",
+      "review_scope": "all available redacted caption text read; full audio/screen review pending",
       "reviewer": null,
       "editor_approval": null,
-      "claims": []
+      "claims": [],
+      "caption_text_review": {
+        "status": "AVAILABLE_REDACTED_TEXT_REVIEWED",
+        "source_hash_verified": true,
+        "export_lines": 591,
+        "line_ranges_read": [
+          [
+            1,
+            591
+          ]
+        ],
+        "method": "Pinned auto-generated Persian captions, private values/IP/MAC/email and credential contexts redacted before reading; redacted content not reviewed",
+        "approved_for_video_attribution": false,
+        "notes": "seo/MTCNA_CAPTION_REVIEW_2026-11-04.fa.md"
+      }
     },
     {
       "id": "LO4m55Hf-do",
@@ -74,10 +130,24 @@
       "transcript_available": true,
       "transcript_kind": "auto-generated-fa",
       "transcript_sha256": "6b06353346c8d876f37fd4aba566db9d1586771d2c02e7ca840b6229e91e0888",
-      "review_scope": "selected-caption-passages-only; full audio/screen review pending",
+      "review_scope": "all available redacted caption text read; full audio/screen review pending",
       "reviewer": null,
       "editor_approval": null,
-      "claims": []
+      "claims": [],
+      "caption_text_review": {
+        "status": "AVAILABLE_REDACTED_TEXT_REVIEWED",
+        "source_hash_verified": true,
+        "export_lines": 515,
+        "line_ranges_read": [
+          [
+            1,
+            515
+          ]
+        ],
+        "method": "Pinned auto-generated Persian captions, private values/IP/MAC/email and credential contexts redacted before reading; redacted content not reviewed",
+        "approved_for_video_attribution": false,
+        "notes": "seo/MTCNA_CAPTION_REVIEW_2026-11-04.fa.md"
+      }
     },
     {
       "id": "XRIMAowqdM4",
@@ -102,10 +172,24 @@
       "transcript_available": true,
       "transcript_kind": "auto-generated-fa",
       "transcript_sha256": "e71193916b050d9f8878ce41fe1530e646c9f4ef62cbb82b2542d4bfc8b4ae03",
-      "review_scope": "selected-caption-passages-only; full audio/screen review pending",
+      "review_scope": "all available redacted caption text read; full audio/screen review pending",
       "reviewer": null,
       "editor_approval": null,
-      "claims": []
+      "claims": [],
+      "caption_text_review": {
+        "status": "AVAILABLE_REDACTED_TEXT_REVIEWED",
+        "source_hash_verified": true,
+        "export_lines": 881,
+        "line_ranges_read": [
+          [
+            1,
+            881
+          ]
+        ],
+        "method": "Pinned auto-generated Persian captions, private values/IP/MAC/email and credential contexts redacted before reading; redacted content not reviewed",
+        "approved_for_video_attribution": false,
+        "notes": "seo/MTCNA_CAPTION_REVIEW_2026-11-04.fa.md"
+      }
     },
     {
       "id": "OgypQcQS3FA",
@@ -116,10 +200,38 @@
       "transcript_available": true,
       "transcript_kind": "auto-generated-fa",
       "transcript_sha256": "4d302379dde16b2f10e397d1a59bebf52f34f8870e09c064b9a41e71ba203486",
-      "review_scope": "selected-caption-passages-only; full audio/screen review pending",
+      "review_scope": "all available redacted caption text read; full audio/screen review pending",
       "reviewer": null,
       "editor_approval": null,
-      "claims": []
+      "claims": [],
+      "caption_text_review": {
+        "status": "AVAILABLE_REDACTED_TEXT_REVIEWED",
+        "source_hash_verified": true,
+        "export_lines": 232,
+        "line_ranges_read": [
+          [
+            1,
+            232
+          ]
+        ],
+        "method": "Pinned auto-generated Persian captions, private values/IP/MAC/email and credential contexts redacted before reading; redacted content not reviewed",
+        "approved_for_video_attribution": false,
+        "notes": "seo/MTCNA_CAPTION_REVIEW_2026-11-04.fa.md"
+      }
     }
-  ]
+  ],
+  "connected_transcript_lookup": {
+    "provider": "Descript",
+    "method": "read-only project/video/audio search",
+    "queries": [
+      "MTCNA",
+      "میکروتیک",
+      "XRIMAowqdM4"
+    ],
+    "matching_results": 0,
+    "imports": 0,
+    "asr_jobs": 0,
+    "transcript_exports": 0,
+    "does_not_prove_persian_unsupported": true
+  }
 }

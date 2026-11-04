@@ -1,0 +1,63 @@
+{
+  "status": "DEPLOYED_VERIFIED",
+  "scope": "tehnet-lab-conceptual-routing-20261104-v1",
+  "source_commit": "1114367b892364a892263bca26ecd3b08c326c21",
+  "qualified_source": "b13ee38391937f4088a794c3298b118639c62ba9",
+  "observed_utc": "2026-11-04T16:42:37.730253+00:00",
+  "completed_utc": "2026-11-04T16:43:05.876723+00:00",
+  "fresh_backup_checksum_verified": true,
+  "protected_state_unchanged": true,
+  "all_existing_runtimes_unchanged": true,
+  "all_25_image_price_inquiry_fields_unchanged": true,
+  "index_payment_captcha_theme_cron_unchanged": true,
+  "other_public_routes_checked": 5,
+  "schema": 1,
+  "pr": "https://github.com/DashSaman/TehNet/pull/83",
+  "ci_run": "https://github.com/DashSaman/TehNet/actions/runs/41869586872",
+  "owner_id": 7,
+  "runtime_files_changed": 4,
+  "existing_records_updated": 1,
+  "new_pages_created": 0,
+  "customer_submissions": 0,
+  "live_browser_checks": 213,
+  "live_browser_observed_utc": "2026-11-04T16:47:17.233Z",
+  "manual_tool_regression_after_release": {
+    "status": "PASS",
+    "checks": 257,
+    "submissions": 0,
+    "observed_utc": "2026-11-04T16:48:02.659Z"
+  },
+  "public_service_gets": [
+    {
+      "url": "https://tehnet.ir/lab/",
+      "http_status": 200,
+      "h1": 1,
+      "noindex": true,
+      "canonical_preserved": true,
+      "conceptual_lab_and_prior_manual_tool_visible": true,
+      "tls_verified": true
+    }
+  ],
+  "public_assets": [
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/static-routing-lab.css?ver=0.1.0",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/static-routing-lab.js?ver=0.1.0",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    }
+  ],
+  "screenshots_sha256": {
+    "live-routing-1440-light.png": "abc4d51c3bedce316792ee9754dfad9adaa88356f19688ec9fe0f1060c98d105",
+    "live-routing-375-dark.png": "fb8d58ef3db8cb418e9f2962922d187915e8c6a704fa208dff89c3d17630cc00",
+    "live-routing-320-nojs.png": "f83ef8f28f17cd5662bc6ff22c8a6d3503a0a57b194361f2feb6c038509ca631",
+    "live-triage-after-routing-375-light.png": "aaedf2a031b5898ff83c744edcde19b2eae68101e7cd08ae3481feabdb45a129"
+  },
+  "limits": [
+    "Conceptual software model, not RouterOS/GNS3 emulation or actual packets, configuration, customer network/performance outcome.",
+    "No form submissions, production tickets or measured commercial/search/parity gain."
+  ]
+}
