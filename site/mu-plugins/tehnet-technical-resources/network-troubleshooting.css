@@ -1,0 +1,17 @@
+.tn-triage{--triage-line:var(--tn-border,#b9cbd7);padding:clamp(1rem,4vw,2rem);border:1px solid var(--triage-line);border-radius:1.25rem;background:var(--tn-surface,#eef5fa);color:var(--tn-ink,#172f48);line-height:1.85;overflow-wrap:anywhere}
+.tn-triage [hidden]{display:none!important}
+.tn-triage *{box-sizing:border-box;min-width:0}
+.tn-triage h2,.tn-triage h3,.tn-triage h4{line-height:1.5;letter-spacing:normal}
+.tn-triage-eyebrow{font-weight:700;color:var(--tn-link,#067188);font-size:.9em}
+.tn-triage fieldset,.tn-triage article{margin:1.25rem 0;padding:1rem;border:1px solid var(--triage-line);border-radius:.85rem}
+.tn-triage legend,.tn-triage label{font-weight:700}
+.tn-triage label{display:block;margin:.75rem 0 .35rem}
+.tn-triage select,.tn-triage textarea{display:block;width:100%;max-width:100%;padding:.8rem;border:1px solid var(--triage-line);border-radius:.65rem;background:var(--tn-bg,#fff);color:inherit;font:inherit}
+.tn-triage select{font-size:1rem;text-overflow:ellipsis}
+.tn-triage textarea{white-space:pre-wrap;resize:vertical;min-height:13rem}
+.tn-triage-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin:1.25rem 0}
+.tn-triage button,.tn-triage .tn-button{padding:.7rem 1rem;min-height:44px;max-width:100%;border:1px solid var(--tn-accent,#067188);border-radius:.7rem;background:var(--tn-accent,#067188);color:var(--tn-accent-ink,#fff);font:inherit;font-weight:700;cursor:pointer;white-space:normal;display:inline-block;text-decoration:none}
+.tn-triage button:disabled{opacity:.55;cursor:default}
+.tn-triage :is(a,button,select,textarea):focus-visible{outline:3px solid var(--tn-accent,#24aac5);outline-offset:3px}
+.tn-triage [data-tn-triage-result]{padding:1rem;border:2px solid var(--tn-accent,#067188);border-radius:.85rem}
+.tn-triage-boundary{font-size:.92em;border-block-start:1px solid var(--triage-line);padding-block-start:1rem}

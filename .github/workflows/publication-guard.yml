@@ -20,3 +20,4 @@ jobs:
         with:
           persist-credentials: false
       - run: python3 -m unittest discover -s tests -p test_growth_release.py -v
+      - run: node --test tests/network-troubleshooting-unit.cjs

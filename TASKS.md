@@ -1,4 +1,32 @@
-## CURRENT —2026-11-04 catalog discovery VERIFIED_STAGING_NOT_DEPLOYED
+## CURRENT —2026-11-04 manual network triage VERIFIED_STAGING_NOT_DEPLOYED
+
+Source7d90b4b58d6186edbfab10800d53fd639a1ca9f6 با native44 و site-browser257 پس از اصلاح گزارش موبایل qualify شد؛ همهٔ گزارش‌ها از ابتدای متن باز می‌شوند.7مسئله،3مرحله، unknown/text/JSON،1440/768/375/320 دو تم/no-JS، CTA تا فرم/context/nonce/action فعلی و بارگیری شرطی فایل‌ها تأیید.4runtime-file وpost_content7،0page/0backend؛ همهٔ داده/revision/fixture/files/runtime دقیقاً بازیابی،0ارسال و0تغییر production. receipt: docs/evidence/2026-11-04/network-triage/native-staging.json.
+
+گام فوری PR/CI و برابری payload/tool/guards با همین source، انتشار محدود با backup تازه/checksum/drift/rollback و live verify؛ تا receipt deployed نامیده نشود. FeatureB لاب مفهومی، بازبینی کامل8ضبط و شواهد اعتماد بازند. تمام releaseهای پیشین دوباره اجرا نشوند. MyTel read-only، noindex/payment/security/rotation/history/origin/CAPTCHA ثابت؛63/75 باز و parity نامحرز.
+
+## HISTORICAL CHECKPOINT —2026-11-04 triage report-start fix: fresh qualification pending
+
+پس از source312d69c/236، ایراد شروع گزارش از وسط در موبایل بازتولید و اصلاح شد: scrollTop473/selectionStart706 به0/0 رسید. assertion سایت اضافه شد؛ تا native qualification تازه، نسخهٔ جدید منتشر نشود.
+
+## HISTORICAL CHECKPOINT —2026-11-04 manual network triage VERIFIED_STAGING_NOT_DEPLOYED
+
+FeatureA روی Lab7 با source312d69c، native44 و site-browser236 تأیید:7مسئله،3مرحله، manual unknown/text/JSON،1440/768/375/320 دو تم وno-JS، CTA تا context/nonce/action فعلی، بارگیری شرطی فایل‌ها.4runtime-file و1body/0page؛ همهٔ داده/revision/fixture/files/runtime دقیقاً بازیابی،0ارسال و0تغییر production. receipt: docs/evidence/2026-11-04/network-triage/native-staging.json. component renderer38 و browser571/56download شاهد مرحلهٔ قبلی‌اند؛ final CSS/منبع VPN در236بررسی یکپارچه پوشش یافت.
+
+گام فوری PR/CI، برابری immutable native payload/tool/guards، سپس انتشار محدود با backup تازه/checksum/drift/rollback و live verify. تا receipt deployed نامیده نشود. FeatureB لاب مفهومی، بازبینی کامل8ضبط و شواهد اعتماد بازند. آموزش76/77، خدمات78 و کاتالوگ80 قبلاً منتشر و دوباره اجرا نشوند؛ MyTel read-only، noindex/payment و همهٔ گیت‌های امنیتی ثابت.63/75 باز و parity نامحرز.
+
+## HISTORICAL CHECKPOINT —2026-11-04 manual network triage INTEGRATION_READY_NOT_DEPLOYED
+
+FeatureA پیاده شده:7مسئله،3مرحله، شاهد unknown معتبر، دلیل تست امن، متن/JSON محلی، پاک‌شدن گزارش قدیمی، چند نمونه و no-JS، بدون شبکه/credential/تشخیص قطعی/backend تازه. Component renderer واقعی WP38 و browser571 با56دانلود محلی تأیید؛ سپس CSS به --tn-* و عنوان منبع VPN دقیق شد. Node4 و scope31آزمون با30PASS/1SKIP؛ دامنهٔ جدید فقط4runtime-file و post_content7 است. بدنه Lab با ترکیب دقیق دو منبع عمومی به c7ef5a3 تطبیق شد؛ محتوای قبلی و note حفظ‌اند. گزارش docs/reports/NETWORK_TRIAGE_2026-11-04.fa.md.
+
+گام فوری native یکپارچه check/apply/repeat/rollback و browser سایت با context/nonce/action فعلی و حفظ دقیق fixture/data/files/runtime؛ سپس PR/CI و انتشار مجاز با backup/checksum/drift/rollback. تا receipt نهایی، deployed نامیده نشود. FeatureB لاب مفهومی، شواهد اعتماد/فیلم‌ها بازند. آموزش76/77، خدمات78 و کاتالوگ80 قبلاً DEPLOYED_VERIFIED؛ دوباره اجرا نشوند. noindex/پرداخت/MyTel و گیت‌های امنیتی/rotation/history/origin/CAPTCHA ثابت؛63/75 باز و parity نامحرز.
+
+## HISTORICAL CHECKPOINT —2026-11-04 catalog discovery DEPLOYED_VERIFIED; manual triage next
+
+PR80 و CI41853568495 ادغام؛ main4002d5a با payload برابر native5e6e3e9، فقط post_content8/0runtime/Home/page/form/backend تازه منتشر شد. backup/checksum/drift/rollback و حفظ دقیق data/25قلم/runtime/noindex/payments/CAPTCHA/theme/cron؛116بررسی مستقل مرورگر زنده، دو مسیر کارت→جزئیات→فرم موجود با context/nonce/action،0ارسال. receipt: docs/evidence/2026-11-04/service-discovery/production-verification.json. بخش‌های سرور/شعب78 و آموزش76/77 نیز قبلاً منتشر شده‌اند؛ هیچ‌کدام دوباره اجرا نشوند. -SEO#25 با CI41855380111 ادغام؛ baseline71% تغییر نکرد.
+
+بستهٔ مستقل بعد FeatureA تصمیم‌یار دستی شبکه با7مسئله، قواعد قابل بررسی، سؤال مرحله‌ای، پیشنهاد امن، بدون اتصال/داده حساس و خلاصه قابل انتقال دستی به فرم موجود است. تا staging/receipt، قابلیت را deployed معرفی نکنید. FeatureB لاب مفهومی و بازبینی کامل8فیلم/شواهد اعتماد بازند. Issues63/75 باز و parity نامحرز؛ MyTel read-only و تمام گیت‌های امنیت/rotation/history/origin/CAPTCHA/shared-network ثابت‌اند.
+
+## HISTORICAL CHECKPOINT —2026-11-04 catalog discovery VERIFIED_STAGING_NOT_DEPLOYED
 
 دو پیوند Services8 به جزئیات موجود33 با source5e6e3e9، native44 و browser116 تأیید شدند؛ قبل، نبود لینک‌ها واقعاً بازتولید شد. هر دو مسیر کارت→ماژول→فرم با context/nonce/action فعلی، desktop/mobile/no-JS؛0ارسال، تمام داده/revision/file/runtime اولیه دقیقاً بازیابی. scope فقط post_content8 و0Home/runtime/page/form/backend تازه؛ raw HTML/shortcode ناشناس و تصاحب Home رد شدند. receipt: docs/evidence/2026-11-04/service-discovery/native-staging.json.
 

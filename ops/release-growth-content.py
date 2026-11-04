@@ -43,6 +43,13 @@ PHONE_SCOPE = 'tehnet-phone-rtl-20261101-v1'
 EDUCATION_SCOPE = 'tehnet-educational-integrity-20261104-v1'
 SERVER_BRANCH_SCOPE = 'tehnet-service-server-branch-20261104-v1'
 SERVICE_DISCOVERY_SCOPE = 'tehnet-service-discovery-20261104-v1'
+NETWORK_TRIAGE_SCOPE = 'tehnet-lab-network-triage-20261104-v1'
+NETWORK_TRIAGE_FILES = [
+    'site/mu-plugins/tehnet-technical-resources/network-troubleshooting.php',
+    'site/mu-plugins/tehnet-technical-resources/network-troubleshooting.js',
+    'site/mu-plugins/tehnet-technical-resources/network-troubleshooting.css',
+    'site/mu-plugins/tehnet-technical-resources.php',
+]
 EDUCATION_BODIES = ['mtcna.html', 'routeros-winbox.html', 'ip-dhcp-dns.html',
     'static-routing.html', 'nat-masquerade.html', 'firewall-basics.html',
     'queues-troubleshooting.html', 'mtcna-learning-path.html']
@@ -73,6 +80,7 @@ LESSON_SCOPES = {
     IP_DHCP_DNS_SCOPE: ('content/ip-dhcp-dns-editorial-2026-11-01', 'ip-dhcp-dns.html', '/tmp/tn-ip-dhcp-dns-release-'),
 }
 CONTENT_SCOPES = {**LESSON_SCOPES,
+    NETWORK_TRIAGE_SCOPE: ('content/network-triage-2026-11-04', 'lab.html', '/tmp/tn-network-triage-release-'),
     SERVICE_DISCOVERY_SCOPE: ('content/service-discovery-2026-11-04', 'services.html', '/tmp/tn-service-discovery-release-'),
     SUPPORT_SCOPE: ('content/network-support-2026-11-01', 'network-support.html', '/tmp/tn-network-support-release-'),
     NETWORK_SETUP_SCOPE: ('content/network-setup-2026-11-01', 'network-setup.html', '/tmp/tn-network-setup-release-'),
@@ -84,6 +92,11 @@ GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE, GALLE
 
 
 def scope_spec(scope):
+    if scope == NETWORK_TRIAGE_SCOPE:
+        directory, body, _ = CONTENT_SCOPES[scope]
+        return NETWORK_TRIAGE_FILES, [directory + '/manifest.json', directory + '/' + body,
+            'ops/migrate-growth-content.php'], [p for p in scope_spec(EDUCATION_SCOPE)[2]
+                if p not in NETWORK_TRIAGE_FILES]
     if scope in (SERVER_BRANCH_SCOPE, SERVICE_DISCOVERY_SCOPE):
         directory, body, _ = CONTENT_SCOPES[scope]
         # Match the current closed preview dependencies without owning their files.

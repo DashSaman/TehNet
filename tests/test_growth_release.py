@@ -13,6 +13,18 @@ SOURCE = Path(__file__).resolve().parents[1] / 'ops/release-growth-content.py'
 
 
 class ReleaseBoundaries(unittest.TestCase):
+    def test_manual_triage_scope_owns_only_component_files_and_lab_body(self):
+        files, extra, guarded = self.module.scope_spec('tehnet-lab-network-triage-20261104-v1')
+        self.assertEqual(files, [
+            'site/mu-plugins/tehnet-technical-resources/network-troubleshooting.php',
+            'site/mu-plugins/tehnet-technical-resources/network-troubleshooting.js',
+            'site/mu-plugins/tehnet-technical-resources/network-troubleshooting.css',
+            'site/mu-plugins/tehnet-technical-resources.php'])
+        self.assertEqual(extra, ['content/network-triage-2026-11-04/manifest.json',
+            'content/network-triage-2026-11-04/lab.html', 'ops/migrate-growth-content.php'])
+        self.assertTrue(set(files).isdisjoint(guarded))
+        self.assertIn('site/plugins/tehnet-store/includes/class-tickets.php', guarded)
+
     def test_service_discovery_scope_cannot_write_home_or_runtime(self):
         files, extra, guarded = self.module.scope_spec('tehnet-service-discovery-20261104-v1')
         self.assertEqual(files, [])

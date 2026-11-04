@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_STAGING_NOT_DEPLOYED",
+  "scope": "tehnet-lab-network-triage-20261104-v1",
+  "source_commit": "7d90b4b58d6186edbfab10800d53fd639a1ca9f6",
+  "native_migration_checks": 44,
+  "site_browser_checks": 257,
+  "browser_observed_utc": "2026-11-04T15:51:08.560Z",
+  "owner_id": 7,
+  "owner_url": "https://tehnet.ir/lab/",
+  "runtime_files_changed": 4,
+  "existing_bodies_changed": 1,
+  "new_pages": 0,
+  "viewports": [
+    1440,
+    768,
+    375,
+    320
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "no_js_width": 320,
+  "submissions": 0,
+  "production_mutations": 0,
+  "before_tool_absent": true,
+  "request_context": "network-support",
+  "request_verification": "manual tool CTA -> existing service form -> selected context, nonce and tn_ticket_submit; no submission",
+  "manual_report_status": "MANUAL_UNVERIFIED",
+  "all_original_posts_meta_users_revisions_restored": true,
+  "all_original_runtime_files_restored": true,
+  "all_existing_runtimes_unchanged": true,
+  "screenshots_sha256": {
+    "before-lab-375-light.png": "85fdbc8c0e9531042a019c117e192c6a28d88e1e07b6e554fddfce588ce3b3a3",
+    "after-triage-375-light.png": "7eafa9535842b279dcf71bee35bb18f929ddbec86c666c466399be970a21ce60",
+    "after-triage-375-dark.png": "faa7ebccbf07cb550afd3628c77216a1ca0d7558b455db447561a7d3e0ce32c1",
+    "after-triage-320-nojs.png": "a73f464e4170a927e238cdcaa3ec2a03825dd0bb6624e48349a0935fa487026b"
+  },
+  "limits": [
+    "Rule-based manual suggestions, not network measurement, definite diagnosis or actual customer technical outcome.",
+    "Report is not automatically attached to a ticket; canonical request navigation verified read-only.",
+    "No parity, ranking, traffic or conversion result."
+  ],
+  "report_opens_at_beginning": true
+}
