@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "observed_on": "2026-11-04",
+  "course_goal": "40 scoped video-sized MTCNA lessons, each 10-15 min",
+  "wordpress_site": "https://tehnet.ir",
+  "parent_page_id": 40,
+  "source_branch": "content/mtcna-saturday-20261107",
+  "legacy_draft_ids": "232-255",
+  "legacy_draft_count": 24,
+  "additional_drafts": [
+    {
+      "session": 4,
+      "id": 267,
+      "title": "WebFig و Quick Set",
+      "slug": "mtcna-micro-04-quickset-webfig",
+      "origin": "new-original-teaching-draft"
+    },
+    {
+      "session": 8,
+      "id": 268,
+      "title": "Reset، Netinstall و License",
+      "slug": "mtcna-micro-08-reset-netinstall-license",
+      "origin": "new-original-teaching-draft"
+    },
+    {
+      "session": 35,
+      "id": 269,
+      "title": "Netwatch، SNMP، Graphing و CPU Profiler",
+      "slug": "mtcna-micro-35-netwatch-snmp-profile",
+      "origin": "new-original-teaching-draft"
+    },
+    {
+      "session": 37,
+      "id": 262,
+      "title": "پروژهٔ پایانی ۱: IP/DHCP",
+      "slug": "mtcna-micro-37-final-ip-dhcp",
+      "origin": "split-from-original-lesson-24"
+    },
+    {
+      "session": 38,
+      "id": 265,
+      "title": "پروژهٔ پایانی ۲: Firewall/NAT/Queue",
+      "slug": "mtcna-micro-38-final-firewall-nat-queue",
+      "origin": "split-from-original-lesson-24"
+    },
+    {
+      "session": 39,
+      "id": 266,
+      "title": "پروژهٔ پایانی ۳: Acceptance/Recovery",
+      "slug": "mtcna-micro-39-final-acceptance-recovery",
+      "origin": "split-from-original-lesson-24"
+    }
+  ],
+  "observed_total_drafts": 30,
+  "observed_future_count": 0,
+  "unqualified_count": 30,
+  "first_nominal_release": "2026-11-07T09:00:00+03:30",
+  "cadence_days": 3,
+  "status": "PARTIAL_DRAFT_RESTRUCTURE_NOT_SCHEDULED",
+  "unverified": [
+    "raw Gutenberg independent content readback",
+    "RouterOS live lab and recovery",
+    "physical wireless/routerboard tests",
+    "real screenshots",
+    "editor-save",
+    "human technical review",
+    "canonical ownership and unique-url plan",
+    "actual WordPress cron / future status"
+  ],
+  "notes": [
+    "Existing 24 working drafts preserved, no existing published canonical owner changed",
+    "An accidental duplicate test page 263 was moved to WordPress trash; it is not an active draft",
+    "The prior 24-lesson manifest is superseded only as a planning target, not yet rewritten into a 40-lesson executable manifest",
+    "No native WordPress future statuses have been set; automation remains enabled with strict blocking gate"
+  ]
+}
