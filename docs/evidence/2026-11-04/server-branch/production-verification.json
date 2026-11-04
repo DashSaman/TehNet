@@ -1,0 +1,42 @@
+{
+  "status": "DEPLOYED_VERIFIED",
+  "scope": "tehnet-service-server-branch-20261104-v1",
+  "source_commit": "7062a514948b0e6701f84782f20f9b5066db88e6",
+  "qualified_source": "756fec7d4f19ee04b25085ab94dcd544e1ec69c6",
+  "observed_utc": "2026-11-04T14:48:23.508698+00:00",
+  "completed_utc": "2026-11-04T14:48:50.686447+00:00",
+  "fresh_backup_checksum_verified": true,
+  "protected_state_unchanged": true,
+  "all_existing_runtimes_unchanged": true,
+  "all_25_image_price_inquiry_fields_unchanged": true,
+  "index_payment_captcha_theme_cron_unchanged": true,
+  "other_public_routes_checked": 5,
+  "schema": 1,
+  "pr": "https://github.com/DashSaman/TehNet/pull/78",
+  "ci_run": "https://github.com/DashSaman/TehNet/actions/runs/41849968305",
+  "runtime_files_changed": 0,
+  "existing_records_updated": 1,
+  "new_pages_created": 0,
+  "customer_submissions": 0,
+  "live_browser_checks": 106,
+  "live_browser_observed_utc": "2026-11-04T14:50:29.540Z",
+  "public_service_gets": [
+    {
+      "url": "https://tehnet.ir/services/network-setup-tehran/",
+      "http_status": 200,
+      "h1": 1,
+      "noindex": true,
+      "canonical_preserved": true,
+      "both_modules_and_contextual_ctas_visible": true,
+      "tls_verified": true
+    }
+  ],
+  "screenshots_sha256": {
+    "live-server-project-brief-375-light.png": "147c04c5be40dce32bc0dd4ce5d5da310636c5744e1f6f21d188894eb0eeb552",
+    "live-branch-connectivity-brief-375-dark.png": "2ea5fe6925fe7604e51da025b6eb8fe484df01838085d745846cd67076e6c4b8"
+  },
+  "limitations": [
+    "Read-only live journey verifies selected context, nonce and existing ticket action; no production form submission.",
+    "No real customer server, tunnel, recovery, SLA, ranking, traffic or competitor-parity result."
+  ]
+}

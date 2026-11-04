@@ -1,4 +1,10 @@
-## CURRENT —2026-11-04 server/branch VERIFIED_STAGING, not deployed
+## CURRENT —2026-11-04 server/branch DEPLOYED_VERIFIED; catalog discovery next
+
+PR78 و CI41849968305 موفق؛ main7062a51 با payload برابر native756fec7 منتشر شد. فقط post_content33 و0runtime-file/0صفحه/0فرم تازه؛ backup/checksum/drift/rollback و حفظ دقیق داده،25قلم، runtime، noindex/پرداخت/CAPTCHA/theme/cron تأیید.106بررسی مرورگر زنده،1440/375 دو تم و320no-JS، دو CTA تا context/nonce/action فرم موجود؛0ارسال production. receipt: docs/evidence/2026-11-04/server-branch/production-verification.json.
+
+کار مستقل بعد: کارت‌های سرور و شعب در Services8 هنوز فقط لینک درخواست دارند؛ پیوند توصیفی به دو ماژول منتشرشده اضافه شود، بدون تغییر Home یا backend و با scope یک‌صفحه‌ای. سپس تصمیم‌یار دستی/لاب صادقانه و تکمیل شواهد ضبط‌ها. Issues63/75 باز؛ parity، نتیجهٔ سئو و بازبینی کامل فیلم‌ها اعلام نشود. MyTel read-only و همهٔ گیت‌های امنیت/credential/history/origin/CAPTCHA/shared-network ثابت‌اند. releaseهای آموزشی76/77 و سرور78 دوباره اجرا نشوند.
+
+## HISTORICAL CHECKPOINT —2026-11-04 server/branch VERIFIED_STAGING, not deployed
 
 دو ماژول سرور/مجازی‌سازی و اتصال شعب روی همان ID33، source756fec7، با39native و106مرورگر تأیید شدند. هر دو CTA جدید تا انتخاب context/nonce/tn_ticket_submit در فرم موجود، desktop/mobile/no-JS پیموده شدند؛0تیکت جدید در این آزمون خواندنی. داده‌ها/revisionها، fixture موقت Services8، تمام فایل‌ها و runtimeها دقیقاً بازیابی شدند. آزمون اول ناوبری FAILED_RESTORED ثبت است؛ journal حذف یا بازاستفاده نشد. گزارش: `docs/reports/SERVER_BRANCH_SERVICE_2026-11-04.fa.md` و receipt/public screenshots در `docs/evidence/2026-11-04/server-branch/`.
 
