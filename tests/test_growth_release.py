@@ -13,6 +13,14 @@ SOURCE = Path(__file__).resolve().parents[1] / 'ops/release-growth-content.py'
 
 
 class ReleaseBoundaries(unittest.TestCase):
+    def test_service_discovery_scope_cannot_write_home_or_runtime(self):
+        files, extra, guarded = self.module.scope_spec('tehnet-service-discovery-20261104-v1')
+        self.assertEqual(files, [])
+        self.assertEqual(extra, ['content/service-discovery-2026-11-04/manifest.json',
+            'content/service-discovery-2026-11-04/services.html', 'ops/migrate-growth-content.php'])
+        self.assertNotIn('content/commercial-catalog-2026-11-01/home.html', extra)
+        self.assertEqual(guarded, self.module.scope_spec(self.module.EDUCATION_SCOPE)[2])
+
     def test_server_branch_scope_is_one_body_with_current_preview_dependencies(self):
         files, extra, guarded = self.module.scope_spec('tehnet-service-server-branch-20261104-v1')
         self.assertEqual(files, [])

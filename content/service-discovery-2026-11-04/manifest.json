@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "key": "tehnet-service-discovery-20261104-v1",
+  "status": "IMMUTABLE_RELEASE_INPUT_SEE_DATED_RECEIPTS",
+  "target": {
+    "id": 8,
+    "url": "https://tehnet.ir/services/",
+    "title_observed": "خدمات",
+    "expected_content_sha256": "82c45ee6ad54996cad5cb989ecc618fb895d4af6e8242043fc11a0ca87547385",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "content_file": "services.html",
+  "content_sha256_lf": "d42bbd0faa6a2b66d4255adc758571795da6658316148a925160b74f9e1368b0",
+  "limits": [
+    "Only two descriptive links in existing service cards; no new page/form/backend/runtime file.",
+    "Homepage, current canonical ticket request, MyTel referral, noindex and commerce controls remain unchanged."
+  ]
+}

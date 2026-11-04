@@ -1,6 +1,6 @@
 # عمق خدمت سرور و ارتباط شعب —۴نوامبر۲۰۲۶
 
-وضعیت فعلی: **VERIFIED_STAGING، هنوز production منتشر نشده**. منبع qualifyشده `756fec7d4f19ee04b25085ab94dcd544e1ec69c6`؛ Issue63 باز است و parity اعلام نمی‌شود.
+وضعیت فعلی: **DEPLOYED_VERIFIED**؛ [PR78](https://github.com/DashSaman/TehNet/pull/78) ادغام و CI41849968305 موفق شد. فقط بدنهٔ ID33 از main `7062a514948b0e6701f84782f20f9b5066db88e6`، با payload برابر source qualifyشده منتشر شد. منبع qualifyشده `756fec7d4f19ee04b25085ab94dcd544e1ec69c6`؛ Issue63 باز است و parity اعلام نمی‌شود.
 
 دو ماژول کاربردی به همان [صفحهٔ راه‌اندازی شبکه](https://tehnet.ir/services/network-setup-tehran/) اضافه شده‌اند: ورودی امن بررسی، وابستگی‌ها، عوامل برآورد، خروجی پیشنهادی، معیار پذیرش، محدودیت و مثال فرضی. متن‌های قبلی، ازجمله Wi-Fi، حفظ شده‌اند؛ یادداشت ویراستاری به انتهای کل مطلب منتقل و دو پیوند دسترسی سریع اضافه شده‌اند. صفحه، فرم، backend یا URL تازه ساخته نشده است.
 
@@ -33,4 +33,4 @@ fixture صفحهٔ Services فقط برای آزمون فرم موجود به م
 - [بعد؛ ماژول سرور، موبایل روشن](../evidence/2026-11-04/server-branch/after-server-project-brief-375-light.png).
 - [بعد؛ ارتباط شعب، موبایل تیره](../evidence/2026-11-04/server-branch/after-branch-connectivity-brief-375-dark.png).
 
-گام بعد: PR/CI و برابری همهٔ payloadها با source qualifyشده؛ backup تازه/checksum/drift و انتشار مشروط به همان قرارداد، سپس بررسی خواندنی زنده. noindex، پرداخت، MyTel و گیت‌های credential/history/origin/shared-network حفظ می‌شوند. هیچ Hyper-V، تونل، backup/restore مشتری، کارایی شبکه، SLA، رتبه/traffic/AI citation یا conversion در این بسته اندازه‌گیری نشده است.
+انتشار واقعی با backup تازه/checksum، drift guard و rollback واجد آزمون انجام شد. [رسید production](../evidence/2026-11-04/server-branch/production-verification.json)،106بررسی مرورگر زنده و0ارسال فرم؛ noindex،25قلم، داده/فایل‌های دیگر، runtime، theme/menu/cron/CAPTCHA و پرداخت دقیقاً حفظ شدند. [سرور در موبایل روشن](../evidence/2026-11-04/server-branch/live-server-project-brief-375-light.png) و [شعب در موبایل تیره](../evidence/2026-11-04/server-branch/live-branch-connectivity-brief-375-dark.png). گام بعد: پیوند مستقیم دو کارت کاتالوگ به جزئیات همین مالک، سپس تصمیم‌یار دستی و لاب آموزشی؛ انتشار این بسته دوباره اجرا نشود. noindex، پرداخت، MyTel و گیت‌های credential/history/origin/shared-network حفظ می‌شوند. هیچ Hyper-V، تونل، backup/restore مشتری، کارایی شبکه، SLA، رتبه/traffic/AI citation یا conversion در این بسته اندازه‌گیری نشده است.
