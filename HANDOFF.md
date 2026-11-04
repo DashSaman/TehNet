@@ -1,4 +1,10 @@
-## CURRENT —2026-11-04 triage report-start fix: fresh qualification pending
+## CURRENT —2026-11-04 manual network triage VERIFIED_STAGING_NOT_DEPLOYED
+
+Source7d90b4b58d6186edbfab10800d53fd639a1ca9f6 با native44 و site-browser257 پس از اصلاح گزارش موبایل qualify شد؛ همهٔ گزارش‌ها از ابتدای متن باز می‌شوند.7مسئله،3مرحله، unknown/text/JSON،1440/768/375/320 دو تم/no-JS، CTA تا فرم/context/nonce/action فعلی و بارگیری شرطی فایل‌ها تأیید.4runtime-file وpost_content7،0page/0backend؛ همهٔ داده/revision/fixture/files/runtime دقیقاً بازیابی،0ارسال و0تغییر production. receipt: docs/evidence/2026-11-04/network-triage/native-staging.json.
+
+گام فوری PR/CI و برابری payload/tool/guards با همین source، انتشار محدود با backup تازه/checksum/drift/rollback و live verify؛ تا receipt deployed نامیده نشود. FeatureB لاب مفهومی، بازبینی کامل8ضبط و شواهد اعتماد بازند. تمام releaseهای پیشین دوباره اجرا نشوند. MyTel read-only، noindex/payment/security/rotation/history/origin/CAPTCHA ثابت؛63/75 باز و parity نامحرز.
+
+## HISTORICAL CHECKPOINT —2026-11-04 triage report-start fix: fresh qualification pending
 
 پس از source312d69c/236، ایراد شروع گزارش از وسط در موبایل بازتولید و اصلاح شد: scrollTop473/selectionStart706 به0/0 رسید. assertion سایت اضافه شد؛ تا native qualification تازه، نسخهٔ جدید منتشر نشود.
 

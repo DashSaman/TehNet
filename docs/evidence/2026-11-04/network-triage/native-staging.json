@@ -2,10 +2,10 @@
   "schema": 1,
   "status": "VERIFIED_STAGING_NOT_DEPLOYED",
   "scope": "tehnet-lab-network-triage-20261104-v1",
-  "source_commit": "312d69ce548c7656c26838ced9a8b16cd85b0a56",
+  "source_commit": "7d90b4b58d6186edbfab10800d53fd639a1ca9f6",
   "native_migration_checks": 44,
-  "site_browser_checks": 236,
-  "browser_observed_utc": "2026-11-04T15:44:06.857Z",
+  "site_browser_checks": 257,
+  "browser_observed_utc": "2026-11-04T15:51:08.560Z",
   "owner_id": 7,
   "owner_url": "https://tehnet.ir/lab/",
   "runtime_files_changed": 4,
@@ -33,13 +33,14 @@
   "all_existing_runtimes_unchanged": true,
   "screenshots_sha256": {
     "before-lab-375-light.png": "85fdbc8c0e9531042a019c117e192c6a28d88e1e07b6e554fddfce588ce3b3a3",
-    "after-triage-375-light.png": "997b8f82a46f08843067e8224a93ba378132c362793aca91ee5bb311f6fc6a58",
-    "after-triage-375-dark.png": "390f738550e974321d439812b583b3f00fcd9d48d5f619bcad533839fc7b1b89",
+    "after-triage-375-light.png": "7eafa9535842b279dcf71bee35bb18f929ddbec86c666c466399be970a21ce60",
+    "after-triage-375-dark.png": "faa7ebccbf07cb550afd3628c77216a1ca0d7558b455db447561a7d3e0ce32c1",
     "after-triage-320-nojs.png": "a73f464e4170a927e238cdcaa3ec2a03825dd0bb6624e48349a0935fa487026b"
   },
   "limits": [
     "Rule-based manual suggestions, not network measurement, definite diagnosis or actual customer technical outcome.",
     "Report is not automatically attached to a ticket; canonical request navigation verified read-only.",
     "No parity, ranking, traffic or conversion result."
-  ]
+  ],
+  "report_opens_at_beginning": true
 }
