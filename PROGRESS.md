@@ -1,4 +1,10 @@
-## CURRENT —2026-11-04 catalog discovery VERIFIED_STAGING_NOT_DEPLOYED
+## CURRENT —2026-11-04 catalog discovery DEPLOYED_VERIFIED; manual triage next
+
+PR80 و CI41853568495 ادغام؛ main4002d5a با payload برابر native5e6e3e9، فقط post_content8/0runtime/Home/page/form/backend تازه منتشر شد. backup/checksum/drift/rollback و حفظ دقیق data/25قلم/runtime/noindex/payments/CAPTCHA/theme/cron؛116بررسی مستقل مرورگر زنده، دو مسیر کارت→جزئیات→فرم موجود با context/nonce/action،0ارسال. receipt: docs/evidence/2026-11-04/service-discovery/production-verification.json. بخش‌های سرور/شعب78 و آموزش76/77 نیز قبلاً منتشر شده‌اند؛ هیچ‌کدام دوباره اجرا نشوند. -SEO#25 با CI41855380111 ادغام؛ baseline71% تغییر نکرد.
+
+بستهٔ مستقل بعد FeatureA تصمیم‌یار دستی شبکه با7مسئله، قواعد قابل بررسی، سؤال مرحله‌ای، پیشنهاد امن، بدون اتصال/داده حساس و خلاصه قابل انتقال دستی به فرم موجود است. تا staging/receipt، قابلیت را deployed معرفی نکنید. FeatureB لاب مفهومی و بازبینی کامل8فیلم/شواهد اعتماد بازند. Issues63/75 باز و parity نامحرز؛ MyTel read-only و تمام گیت‌های امنیت/rotation/history/origin/CAPTCHA/shared-network ثابت‌اند.
+
+## HISTORICAL CHECKPOINT —2026-11-04 catalog discovery VERIFIED_STAGING_NOT_DEPLOYED
 
 دو پیوند Services8 به جزئیات موجود33 با source5e6e3e9، native44 و browser116 تأیید شدند؛ قبل، نبود لینک‌ها واقعاً بازتولید شد. هر دو مسیر کارت→ماژول→فرم با context/nonce/action فعلی، desktop/mobile/no-JS؛0ارسال، تمام داده/revision/file/runtime اولیه دقیقاً بازیابی. scope فقط post_content8 و0Home/runtime/page/form/backend تازه؛ raw HTML/shortcode ناشناس و تصاحب Home رد شدند. receipt: docs/evidence/2026-11-04/service-discovery/native-staging.json.
 

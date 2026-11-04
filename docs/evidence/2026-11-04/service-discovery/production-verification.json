@@ -1,0 +1,42 @@
+{
+  "status": "DEPLOYED_VERIFIED",
+  "scope": "tehnet-service-discovery-20261104-v1",
+  "source_commit": "4002d5a15266bbb1c3aeefc41c7a366c7e4e33bc",
+  "qualified_source": "5e6e3e9f1e3f8f57b666fb56587b0db1129d47f4",
+  "observed_utc": "2026-11-04T15:13:34.242817+00:00",
+  "completed_utc": "2026-11-04T15:14:01.552988+00:00",
+  "fresh_backup_checksum_verified": true,
+  "protected_state_unchanged": true,
+  "all_existing_runtimes_unchanged": true,
+  "all_25_image_price_inquiry_fields_unchanged": true,
+  "index_payment_captcha_theme_cron_unchanged": true,
+  "other_public_routes_checked": 5,
+  "schema": 1,
+  "pr": "https://github.com/DashSaman/TehNet/pull/80",
+  "ci_run": "https://github.com/DashSaman/TehNet/actions/runs/41853568495",
+  "runtime_files_changed": 0,
+  "existing_records_updated": 1,
+  "new_pages_created": 0,
+  "customer_submissions": 0,
+  "live_browser_checks": 116,
+  "live_browser_observed_utc": "2026-11-04T15:15:49.704Z",
+  "public_service_gets": [
+    {
+      "url": "https://tehnet.ir/services/",
+      "http_status": 200,
+      "h1": 1,
+      "noindex": true,
+      "canonical_preserved": true,
+      "both_catalog_detail_links_and_direct_requests_visible": true,
+      "tls_verified": true
+    }
+  ],
+  "screenshots_sha256": {
+    "live-server-planning-375-light.png": "1bc1b62571ba1efa61d8d53c0cbbc33b78f37bedeede15f1001fe913c1477fc8",
+    "live-branch-planning-375-dark.png": "67a9e650bf2f20aacc75b639c17c643467caa5a2fa00e0a5486ba32fb2192cd5"
+  },
+  "limits": [
+    "Read-only navigation/context/nonce/action acceptance; zero form submissions.",
+    "No rank, traffic, conversion, customer technical outcome or parity claim."
+  ]
+}
