@@ -1,4 +1,10 @@
-## CURRENT —2026-11-04 catalog discovery SOURCE_READY_NOT_DEPLOYED
+## CURRENT —2026-11-04 catalog discovery VERIFIED_STAGING_NOT_DEPLOYED
+
+دو پیوند Services8 به جزئیات موجود33 با source5e6e3e9، native44 و browser116 تأیید شدند؛ قبل، نبود لینک‌ها واقعاً بازتولید شد. هر دو مسیر کارت→ماژول→فرم با context/nonce/action فعلی، desktop/mobile/no-JS؛0ارسال، تمام داده/revision/file/runtime اولیه دقیقاً بازیابی. scope فقط post_content8 و0Home/runtime/page/form/backend تازه؛ raw HTML/shortcode ناشناس و تصاحب Home رد شدند. receipt: docs/evidence/2026-11-04/service-discovery/native-staging.json.
+
+گام فوری PR/CI و برابری payload واجد آزمون؛ سپس فقط انتشار محدود با backup تازه/checksum/drift/rollback و live verify. سرور/شعب78 و آموزش76/77 دوباره اجرا نشوند. پس از بسته، تصمیم‌یار دستی/لاب صادقانه و شواهد ضبط/اعتماد ادامه یابد. noindex/پرداخت/MyTel و تمام گیت‌های امنیتی ثابت؛63/75 باز و parity نامحرز.
+
+## HISTORICAL CHECKPOINT —2026-11-04 catalog discovery SOURCE_READY_NOT_DEPLOYED
 
 دو پیوند توصیفی در کارت سرور/شعب Services8 به جزئیات منتشرشدهٔ33 آماده است؛ artifact جدید، scope فقط post_content8 با0runtime-file/Home/page/form/backend تازه. RED→GREEN مرز انتشار:30آزمون،29PASS/1SKIP Windows؛ syntax Node موفق. native/browser هنوز NOT_RUN؛ گام بعد qualify/apply/repeat/rollback و مسیر کارت→ماژول→فرم زمینه‌دار، سپس PR/CI و انتشار مشروط. گزارش: docs/reports/SERVICE_DISCOVERY_2026-11-04.fa.md.
 

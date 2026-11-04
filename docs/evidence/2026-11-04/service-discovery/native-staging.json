@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_STAGING_NOT_DEPLOYED",
+  "scope": "tehnet-service-discovery-20261104-v1",
+  "source_commit": "5e6e3e9f1e3f8f57b666fb56587b0db1129d47f4",
+  "native_checks": 44,
+  "browser_checks": 116,
+  "browser_observed_utc": "2026-11-04T14:59:40.921Z",
+  "owner_id": 8,
+  "owner_url": "https://tehnet.ir/services/",
+  "new_pages": 0,
+  "runtime_files_changed": 0,
+  "viewports": [
+    1440,
+    375,
+    320
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "no_js_width": 320,
+  "request_contexts": [
+    "server-scoping",
+    "wifi-branch-scoping"
+  ],
+  "request_verification": "catalog card -> existing detailed module -> canonical form, selected context, real nonce and tn_ticket_submit; no submission",
+  "submissions": 0,
+  "production_mutations": 0,
+  "before_gap_reproduced": true,
+  "all_original_posts_meta_users_revisions_restored": true,
+  "all_original_runtime_files_restored": true,
+  "all_existing_runtimes_unchanged": true,
+  "screenshots_sha256": {
+    "before-server-planning-375-light.png": "92160d1024ae81ea66577189564432171d988f0c532ad888175d21dc6b47e479",
+    "after-server-planning-375-light.png": "1bc1b62571ba1efa61d8d53c0cbbc33b78f37bedeede15f1001fe913c1477fc8",
+    "before-branch-planning-375-dark.png": "1ec4469eeb6744cc8c1304a3e1cc62c3b354217e0a0bb4a10703043813df9165",
+    "after-branch-planning-375-dark.png": "58ec689cb4ea501c271cf83b2a873e47b1dfb80cc17ba230bc9bc4ee0fdc9f5a"
+  }
+}
