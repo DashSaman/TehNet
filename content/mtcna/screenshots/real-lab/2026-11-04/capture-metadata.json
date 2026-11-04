@@ -1,0 +1,21 @@
+{
+  "course": "TehNet MTCNA",
+  "capture_date": "2026-11-04",
+  "tool": "WinBox Linux v4.5",
+  "routeros": "CHR 7.25.1",
+  "virtualization": "QEMU software emulation; isolated user networking, host-local forward only",
+  "capture_method": "Real GUI pixel capture using XGetImage from isolated Xvfb display. Cropped existing captures only; no generated software interface.",
+  "crop_pixels": {
+    "left": 120,
+    "top": 100,
+    "width": 1200,
+    "height": 700
+  },
+  "auth_verified": true,
+  "notes": [
+    "Login panel captured before typing destination; later successful authentication to CHR recorded in WinBox log.",
+    "Second screenshot is the mandatory Change Password Now dialog after valid connection, not proof that the password was changed.",
+    "No actual menu traversal, address form, Apply/OK validation or physical radio screenshot captured in this set.",
+    "Files saved to GitHub working branch; WordPress media upload not performed."
+  ]
+}
