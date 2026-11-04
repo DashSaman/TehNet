@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_STAGING_NOT_DEPLOYED",
+  "scope": "tehnet-service-server-branch-20261104-v1",
+  "source_commit": "756fec7d4f19ee04b25085ab94dcd544e1ec69c6",
+  "native_checks": 39,
+  "browser_checks": 106,
+  "browser_observed_utc": "2026-11-04T14:35:07.069Z",
+  "owner_id": 33,
+  "owner_url": "https://tehnet.ir/services/network-setup-tehran/",
+  "new_pages": 0,
+  "runtime_files_changed": 0,
+  "viewports": [
+    1440,
+    375,
+    320
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "no_js_width": 320,
+  "request_contexts": [
+    "server-scoping",
+    "wifi-branch-scoping"
+  ],
+  "request_verification": "new module CTA -> existing form -> selected context, nonce and tn_ticket_submit; read-only, zero new tickets in this run",
+  "submissions": 0,
+  "all_original_posts_meta_users_revisions_restored": true,
+  "all_original_runtime_files_restored": true,
+  "all_existing_runtimes_unchanged": true,
+  "screenshots_sha256": {
+    "before-existing-service-375-light.png": "475d424e465c00a59721d4972ac17a9e660246e04e3202661055f55b9e59fa0e",
+    "after-server-project-brief-375-light.png": "147c04c5be40dce32bc0dd4ce5d5da310636c5744e1f6f21d188894eb0eeb552",
+    "after-branch-connectivity-brief-375-dark.png": "a4a555c4faf064caeaeec93a50ea76d2f37505cc7e0b27996c8aca20d5c0362e"
+  },
+  "production_mutations": 0,
+  "limits": [
+    "No actual server, tunnel, restore, performance or customer project test.",
+    "No rank, traffic, AI citation, conversion or parity claim."
+  ],
+  "operations": [
+    {
+      "operation": "check",
+      "status": "READY",
+      "files_changed": null,
+      "hubs_updated": null,
+      "hubs_restored": null
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "files_changed": 0,
+      "hubs_updated": 1,
+      "hubs_restored": null
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "files_changed": 0,
+      "hubs_updated": 0,
+      "hubs_restored": null
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "files_changed": null,
+      "hubs_updated": null,
+      "hubs_restored": 1
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "files_changed": null,
+      "hubs_updated": null,
+      "hubs_restored": 0
+    }
+  ]
+}

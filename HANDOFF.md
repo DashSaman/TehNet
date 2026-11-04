@@ -1,16 +1,24 @@
-## CURRENT —2026-11-04 service-depth package IN_PROGRESS
+## CURRENT —2026-11-04 server/branch VERIFIED_STAGING, not deployed
+
+دو ماژول سرور/مجازی‌سازی و اتصال شعب روی همان ID33، source756fec7، با39native و106مرورگر تأیید شدند. هر دو CTA جدید تا انتخاب context/nonce/tn_ticket_submit در فرم موجود، desktop/mobile/no-JS پیموده شدند؛0تیکت جدید در این آزمون خواندنی. داده‌ها/revisionها، fixture موقت Services8، تمام فایل‌ها و runtimeها دقیقاً بازیابی شدند. آزمون اول ناوبری FAILED_RESTORED ثبت است؛ journal حذف یا بازاستفاده نشد. گزارش: `docs/reports/SERVER_BRANCH_SERVICE_2026-11-04.fa.md` و receipt/public screenshots در `docs/evidence/2026-11-04/server-branch/`.
+
+گام فوری: PR/CI، برابری immutable payload با756fec7 و انتشار مشروط با backup تازه/checksum/drift/rollback؛ تا receipt، DEPLOYED ننامید. دامنه فقط post_content33 با0runtime-file/0page/form/backend تازه است. پس از این بسته، تصمیم‌یار دستی عیب‌یابی و لاب آموزشیِ صادقانه، و تکمیل بازبینی ضبط‌ها/شواهد اعتماد قابل پیگیری‌اند. noindex، MyTel read-only، پرداخت و تمام گیت‌های امنیتی/credential/history/origin/CAPTCHA/shared-network ثابت‌اند. Issue63/75 باز بمانند؛ از تعداد آزمون یا مستندات، parity/رتبه/traffic/تبدیل نتیجه نگیرید.
+
+PR76/77 واقعاً DEPLOYED_VERIFIED و -SEO#24 ادغام شده‌اند؛ release آموزشی دوباره اجرا نشود. هفت زیرنویس فقط نمونه‌خوانی شده، بازبینی کامل8فیلم و admin-save gate هنوز باز است.
+
+## HISTORICAL CHECKPOINT —2026-11-04 service-depth package IN_PROGRESS
 
 اصلاح آموزشی PR76/77 و انتقال درس رسانه در -SEO#24 واقعاً ادغام/منتشر شده‌اند؛ دوباره اجرا نشوند. اکنون در شاخه feat/server-branch-depth-20261104، دو ماژول سرور/مجازی‌سازی و ارتباط شعب روی همان ID33/URL راه‌اندازی شبکه آماده شده‌اند. منبع فعلی با بدنهٔ زنده به هش6042d2d تطبیق شد. دامنهٔ تازه فقط post_content یک صفحه،0فایل runtime/0فرم/0URL جدید است؛ CTAها به همان server-scoping و wifi-branch-scoping موجود می‌روند. title/excerpt/meta و تمام داده‌های محافظت‌شده باید بمانند.
 
 منابع مشخص Microsoft checkpoint و MikroTik WireGuard peers در4نوامبر خوانده شدند؛ مثال‌ها فرضی‌اند و سرور/شبکه/restore واقعی آزموده نشده است. unittest مرزها RED برای scope غایب و سپس29آزمون با28PASS/1SKIP شد. native staging/مرورگر/production این بسته هنوز NOT_RUN است. مسیر بعد: qualify/apply/repeat/rollback و بررسی CTAهای زمینه‌دار، سپس PR/CI و انتشار مشروط به همان قرارداد. noindex، MyTel، پرداخت و گیت‌های امنیتی ثابت‌اند؛ Issues75/63 باز بمانند.
 
-## CURRENT — 2026-11-04 / DEPLOYED_VERIFIED educational attribution
+## HISTORICAL CHECKPOINT — 2026-11-04 / DEPLOYED_VERIFIED educational attribution
 
 PR76 ادغام و CI41842630607 موفق شد. استقرار محدود از main `75178a11c4f47f9ad5892de345dc547087a42d09` با payload برابر source native `c2373f1`، backup تازه/checksum، preflight/drift و rollback qualifyشده انجام شد. هشت body/excerpt و titleهای62/67 اصلاح شدند؛0فایل runtime/0صفحهٔ تازه/0ارسال فرم production. هشت URL واقعی با TLS و536بررسی مرورگر زنده تأیید شدند. کل داده‌های محافظت‌شده،25قلم و image/price/inquiry، runtimeها، theme/menu، cron، CAPTCHA، noindex و پرداخت بدون تغییر‌اند. receipt: `docs/evidence/2026-11-04/production-verification.json`؛ تصاویر live کنار receipt هستند.
 
 بازبینی کامل صدا/تصویر8ضبط هنوز UNVERIFIED است؛ Issue75/63 باز و parity نامحرز. گیت admin-save سراسری و5.5بدون زیرنویس باقی‌اند. کار مستقل بعد: عمق سرور/مجازی‌سازی و ارتباط شعب در مالک‌های موجود و همان فرم/context تیکت. MyTel read-only و تمام گیت‌های رخداد/rotation/history/origin/shared-network محفوظ‌اند؛ noindex را تغییر ندهید و این release را دوباره اجرا نکنید.
 
-## CURRENT — 2026-11-04 / VERIFIED_STAGING, production not deployed
+## HISTORICAL CHECKPOINT — 2026-11-04 / VERIFIED_STAGING, production not deployed
 
 بستهٔ اصلاح هشت هویت آموزشی Issue75 با source `c2373f16fd1cc3113e01a36f32d241eda2d01ee2` در native staging تأیید شد:42بررسی مهاجرت،536بررسی مرورگر؛ داده‌ها/revisionها، تمام fixtureها و runtimeها دقیقاً بازیابی شدند. production mutation=0. گزارش و تصاویر: `docs/reports/EDUCATIONAL_INTEGRITY_RELEASE_2026-11-04.fa.md` و `docs/evidence/2026-11-04/native-staging.json`. اجرای اولیه به متادیتای ping/enclosureِ post70 برخورد کرد؛ مهار فقط process-local CLI با بازگشت هوک و آزمون cron/meta انجام شد. شمار آزمون، شاهد parity نیست.
 
@@ -18,7 +26,7 @@ PR76 ادغام و CI41842630607 موفق شد. استقرار محدود از m
 
 گام فوری: PR و CI، تطبیق همهٔ member/tool/runtime_guard bytes با source qualifyشده و سپس فقط در دامنهٔ مجاز با backup تازه/checksum/drift/rollback؛ تا receipt، deployment را اعلام نکنید. بعد عمق سرور و اتصال شعب در canonicalهای موجود، همان contextهای server-scoping و wifi-branch-scoping. noindex و MyTel read-only، محدودیت پرداخت و تمام گیت‌های امنیت تاریخی/CAPTCHA/shared infrastructure حفظ شوند.
 
-## CURRENT — 2026-11-04 educational integrity / Issue75
+## HISTORICAL CHECKPOINT — 2026-11-04 educational integrity / Issue75
 
 مالک مأموریت تازه را در `docs/requirements-master-mission-2026-11-04.fa.md` تعیین کرده است. شاخه `feat/educational-integrity-20261104` از main `e4be584` با snapshot خصوصی ساخته شد. baseline خواندنی production:23 فایل مدیریت‌شده بدون drift؛ noindex برقرار،25 محصول، ERP/payment بسته. اصلاح هشت هویت آموزشی در `content/educational-integrity-2026-11-04/` آماده است؛ **هنوز DEPLOYED نیست**. گیت محتوایی و دامنهٔ مهاجرت دقیق، قبل از native staging در حال تکمیل است. آزمون‌های محلی:5 مورد گیت و28 مورد مرز انتشار موفق، یک symlink test به‌علت مجوز Windows skipped. این آمار، تکمیل بازبینی ویدیو یا رقابت تجاری را ثابت نمی‌کند.
 
@@ -26,7 +34,7 @@ PR76 ادغام و CI41842630607 موفق شد. استقرار محدود از m
 
 گام فوری: native check/apply/repeat/rollback، حفظ دقیق داده‌ها و مرورگر دسکتاپ/موبایل/no-JS؛ سپس PR با CI و انتشار تنها پس از qualification همان دامنه. بعد از این بسته، بررسی واقعی3 خدمات/2 آموزش/2 فروشگاه و کارهای تجاری امن ادامه یابد. MyTel read-only؛ noindex و تمام گیت‌های رخداد، پرداخت، CAPTCHA و shared infrastructure حفظ شوند. هیچ force-push، تغییر credential یا خدمت مشترک مجاز نشده است.
 
-## CURRENT — نمایش صحیح شماره تماس منتشر و تأیید شد
+## HISTORICAL CHECKPOINT — نمایش صحیح شماره تماس منتشر و تأیید شد
 
 **DEPLOYED_VERIFIED —۱نوامبر۲۰۲۶:** شمارهٔ کسب‌وکار `021-91018746` با کد021 در ابتدای نمایش، در shortcode مشترک، فوتر، لینک‌های tel و سر/ته چاپ فاکتور و پیش‌فاکتور اصلاح شد. روش bdi/LTR/isolate/nowrap است؛ شمارهٔ ذخیره‌شده و مقصد تماس تغییر نکرد. [خدمات](https://tehnet.ir/services/#service-request)، [تماس](https://tehnet.ir/contact/)، [رسید و تصاویر](qa/phone-rtl-2026-11-01/production-verification.json).
 
@@ -40,7 +48,7 @@ noindex/پرداخت بسته،۲۵کالا، data/runtime، MyTel و گیت‌�
 
 **انتشار نخست اصلاح شماره rollback کامل شد:** چهار فایل با protected-state برابر بازیابی شدند و صفر ردیف DB تغییر کرد. wrapper آدرس بدون نسخهٔ CSS را بررسی کرده بود؛ probe خواندنی، نسخهٔ قبلی در CDN با HIT/Age1878 و آدرس نسخه‌دار واقعی با MISS را نشان داد. تلاش بعدی باید hash همان stylesheet نسخه‌دارِ HTML را با payload واجد آزمون مقایسه کند، با source/journal و backup تازه؛ بدون purge یا تغییر CDN/DNS. [رسید](qa/phone-rtl-2026-11-01/first-release-rollback.json).
 
-## CURRENT — اصلاح شماره تماس در متن RTL: staging تأیید
+## HISTORICAL CHECKPOINT — اصلاح شماره تماس در متن RTL: staging تأیید
 
 درخواست مالک: نمایش صحیح `021-91018746` با کد شهر021 در ابتدا. مشکل اصلی با هندسهٔ کاراکترها بازتولید شد: مقدار درست ذخیره شده بود، ولی در متن فارسی بخش021 در سمت راست شماره ظاهر می‌شد. formatter مشترک با bdi/LTR/isolate و خروجی رقمی ASCII برای shortcode، فوتر و دو جای چاپ فاکتور/پیش‌فاکتور اصلاح شد؛ لینک‌های tel نیز یک واحد LTR هستند. تنظیم ذخیره‌شده، داده سند، تماس مشتریان و محتوای صفحات تغییر نمی‌کنند.
 
@@ -48,7 +56,7 @@ source واجد آزمون `a4c6bfa8e5019e3bce371378cc5cf8afb4054fd7`:۲۰۰بر
 
 ---
 
-## CURRENT — ظاهر شرکتی منتشر و در سایت اصلی تأیید شد
+## HISTORICAL CHECKPOINT — ظاهر شرکتی منتشر و در سایت اصلی تأیید شد
 
 **DEPLOYED_VERIFIED —۱نوامبر۲۰۲۶:** [خدمات](https://tehnet.ir/services/) و [خانه](https://tehnet.ir/) با Estedad محلی، منوی خواناتر/ویرایش‌پذیر، مدیریت تونل زیر خدمات، مراحل همکاری هم‌تراز و فوتر بدون لینک رزومه منتشر شدند. خود [صفحهٔ رزومه](https://tehnet.ir/amirreza-golavar/) و بدنه/URL صفحات حفظ شده‌اند. theme روشن پیش‌فرض است و انتخاب تیرهٔ قبلی حفظ می‌شود.
 
@@ -62,7 +70,7 @@ PR69/CI41318582449 و PR70/CI41318983648 موفق و ادغام شدند. source
 
 **انتشار نخست PR69/source f5119a0 بازگشت کامل شد:**۱۳فایل و۱۰آیتم منو با protected-state برابر بازیابی شدند. شرط noindex برای /tunnels/ با خط مبنای واقعی سازگار نبود؛ این ابزار قدیمی یک H1 و از قبل فاقد meta noindex است. وضعیت شاخص‌گذاری آن تغییر نکرد. [رسید rollback](qa/corporate-ui-2026-11-01/first-release-rollback.json). تلاش بعدی فقط با source/journal تازه، backup و payload برابر با staging واجد آزمون؛ انتشار موفق هنوز ادعا نمی‌شود.
 
-## CURRENT — ظاهر شرکتی و کپچا: staging تأیید، انتشار در انتظار
+## HISTORICAL CHECKPOINT — ظاهر شرکتی و کپچا: staging تأیید، انتشار در انتظار
 
 درخواست تازهٔ مالک: حذف لینک رزومه از فوتر، ترازبندی مراحل همکاری، فونت محلی Estedad/OFL، ناوبری خواناتر و قابل‌ویرایش (مدیریت تونل زیر خدمات)، ظاهر روشن با حفظ انتخاب تیره و اتصال Google v2 به همان چهار intake. [فهرست و برنامه](docs/superpowers/plans/2026-11-01-corporate-ui-captcha.fa.md)، [شاهد staging](qa/corporate-ui-2026-11-01/staging-verification.json)، [عملیات کپچا](docs/recaptcha-operations.fa.md).
 
@@ -72,7 +80,7 @@ source واجد آزمون `5b615f9ebbdc1382b14101bfeb5e33a742cb2811`:۸۰برر
 
 ---
 
-## CURRENT — Issue63: کاتالوگ و مسیر درخواست روی سایت منتشر شدند
+## HISTORICAL CHECKPOINT — Issue63: کاتالوگ و مسیر درخواست روی سایت منتشر شدند
 
 **DEPLOYED_VERIFIED —۱نوامبر۲۰۲۶:** [Services](https://tehnet.ir/services/) همان ID8 با هفت مسیر، شش مالک موجود، توضیح خدمات و خروجی‌ها و فرم کوتاه؛ [خانه](https://tehnet.ir/) همان ID5 با حفظ hero و Learn/Lab/Services/Shop و فرم مستقیم. مالک همهٔ حوزه‌های تخصصی را تأیید کرده؛ برند/گواهی/قیمت/SLA/زمان تضمینی تأیید نشده‌اند. درخواست از همان tn_ticket خصوصی استفاده می‌کند؛ PBX/IVR به MyTel ارجاع دارد.
 
@@ -88,7 +96,7 @@ CP06: GSC Wizard `payment_required / subscription_required`؛ retry/خرید ا�
 
 NEXT: تکمیل عمق خدمات در مالک‌های موجود؛ عمق سرور/مجازی‌سازی و ارتباط شعب، مدارک/رضایت واقعی مشتری، مشخصات برند/SLA/قیمت و GSC/indexing approval بازند. Issue63 را نبند و parity/rank/lead uplift ادعا نکن. سه ارتقای موجود منتشر شده‌اند؛ بستهٔ نامزدها یا CI جای نتیجهٔ تجاری را نمی‌گیرد. فهرست۱۰۰نامزد مقاله نیست. بازپخش انتشار/QA کامل بدون تغییر لازم نیست. MyTel READ_ONLY،noindex،پرداخت بسته،credential UNKNOWN/NOT_ROTATED/history NEEDS_APPROVAL/origin UNDETERMINED و منعforce-push حفظ‌اند.
 
-## CURRENT — تحویل نهایی دورهٔ شبانه؛ گیت‌های باز حفظ شده‌اند
+## HISTORICAL CHECKPOINT — تحویل نهایی دورهٔ شبانه؛ گیت‌های باز حفظ شده‌اند
 
 **FINAL_OVERNIGHT_HANDOFF —2026-11-01 07:38 تهران:** [گزارش نهایی](docs/reports/MORNING_HANDOFF_2026-11-01.fa.md) انتشارهای واقعی،پیش‌نویس‌ها،آزمون‌ها،خطاها و باقی‌مانده‌ها را جدا می‌کند. این پایان گزارش این دوره است؛ اتمام کامل فروشگاه/امنیت/SEO یا۱۰۰مقاله ادعا نشده است.
 
@@ -1009,7 +1017,7 @@ Owner requested public-safe repositories. On branch `security/publication-hygien
 The broader growth mission continues separately on `feat/tehnet-mytel-seo-20261031`: service-intake nonce/context and a manual network-readiness tool are implemented locally, with content drafts. Native staging, live release,100+ candidate portfolio and cross-brand delivery are still pending. Do not replay historical deployments or claim those drafts are live.
 
 
-## CURRENT — P8 نقش metadata خدمات، پیش از انتشار
+## HISTORICAL CHECKPOINT — P8 نقش metadata خدمات، پیش از انتشار
 
 VERIFIED_LOCAL_NATIVE_CHECKER_NOT_DEPLOYED:۱۷TLS200؛ چهار service با Article نامتناسب. RED واقعی۷/۷۴ و GREEN۷۴، اپراتور۲۳PASS/۱SKIP از۲۴، checkerبومی۱۸ بدونDBwrite. metadata0.2.2 فقط یک فایل/هفتguard و scope جدید؛ manifest/checker قدیمی حفظ. یادداشت/متن/عنوان/URL/noindex/فروشگاه/MyTel تغییر نکرده‌اند. رسید service-metadata-role-draft.json و طرح2026-11-01-service-metadata-role.md.
 
