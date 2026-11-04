@@ -1,0 +1,130 @@
+{
+  "schema": 1,
+  "key": "tehnet-educational-integrity-20261104-v1",
+  "targets": [
+    {
+      "id": 40,
+      "type": "page",
+      "uri": "learn/mikrotik/mtcna",
+      "title_observed": "آموزش MTCNA میکروتیک",
+      "expected_content_sha256": "3d05ad0e46bccfe571fab155478788054a3105e4d2f6de274b1af7166625eaa9",
+      "expected_excerpt_sha256": "4490d07571f4a8ae3cf755902f21f6173052194b8791f5448b1b8fbb1c6a0f88",
+      "excerpt": "آرشیو ویدیوهای MTCNA و دسترسی به آموزش‌های نوشتاری مستقل؛ تطبیق موضوعات و زمان‌بندی ویدیوها هنوز نهایی نشده است.",
+      "content_file": "mtcna.html",
+      "content_sha256_lf": "269f88da633401c06787158ecd4c9f0e27bfc085d0a7bdce2325b9fd29229516",
+      "change_fields": [
+        "post_content",
+        "post_excerpt"
+      ]
+    },
+    {
+      "id": 62,
+      "type": "page",
+      "uri": "learn/mikrotik/mtcna/routeros-winbox",
+      "title_observed": "شروع با RouterOS و Winbox — جلسه اول MTCNA",
+      "expected_content_sha256": "a3a3b72026643b3feb9ea8e9cc047d732cbb48480c699330d19d22be47e65a44",
+      "expected_excerpt_sha256": "1b846fd242b22bb40ee4037696a2d0ebe3da48cb9a645edfda5db398b178bcfd",
+      "excerpt": "شروع با RouterOS و Winbox؛ آموزش نوشتاری مستقل با تمرین لاب، بدون انتساب تأییدنشده به یک قسمت ویدیویی.",
+      "content_file": "routeros-winbox.html",
+      "content_sha256_lf": "e451c832bfda2b7736e5a79968b6f2fa23f44dd470085d3cad4049e137e87aec",
+      "change_fields": [
+        "post_content",
+        "post_excerpt",
+        "post_title"
+      ],
+      "title": "شروع با RouterOS و Winbox؛ راهنمای نوشتاری"
+    },
+    {
+      "id": 63,
+      "type": "page",
+      "uri": "learn/mikrotik/mtcna/ip-dhcp-dns",
+      "title_observed": "آدرس‌دهی IP، DHCP و DNS در میکروتیک — MTCNA",
+      "expected_content_sha256": "69ff0713547027dfd09975feccd77ead625d97c09f0eb95188d310c56a65305b",
+      "expected_excerpt_sha256": "c0e48c2729c5235cef5ccf11f4542519a5b2f9f699772bbdb5c2186f8bc996c3",
+      "excerpt": "آدرس‌دهی IP، DHCP و DNS در میکروتیک؛ آموزش نوشتاری مستقل با تمرین لاب، بدون انتساب تأییدنشده به یک قسمت ویدیویی.",
+      "content_file": "ip-dhcp-dns.html",
+      "content_sha256_lf": "32c2876535fae7e118ce3f2168000772078cc824be7b82d58d4b108d8b9727c2",
+      "change_fields": [
+        "post_content",
+        "post_excerpt"
+      ]
+    },
+    {
+      "id": 64,
+      "type": "page",
+      "uri": "learn/mikrotik/mtcna/static-routing",
+      "title_observed": "مسیریابی استاتیک در میکروتیک — MTCNA",
+      "expected_content_sha256": "6e9e6d91e54f3508ee3a4d5f86f578db79e806647cb0b00820be6f67f8f65e63",
+      "expected_excerpt_sha256": "3d3e35c999f71c0c96a336373fe6b01677460f028ae467cdf652a0e7dedf4403",
+      "excerpt": "مسیریابی استاتیک در میکروتیک؛ آموزش نوشتاری مستقل با تمرین لاب، بدون انتساب تأییدنشده به یک قسمت ویدیویی.",
+      "content_file": "static-routing.html",
+      "content_sha256_lf": "ec2b78d1a717339d010a5e6f17f4df309009a1d592c14a80a9462bdaaec22b63",
+      "change_fields": [
+        "post_content",
+        "post_excerpt"
+      ]
+    },
+    {
+      "id": 65,
+      "type": "page",
+      "uri": "learn/mikrotik/mtcna/nat-masquerade",
+      "title_observed": "NAT و Masquerade در میکروتیک — MTCNA",
+      "expected_content_sha256": "d8679aa32b2397f5f05c9a079a59bb4d81b5e993b75ea0b877f7958aa5dbe351",
+      "expected_excerpt_sha256": "76ae8d146cc8abd282f8687fb1f5bc2574d8fe66225dbc8ff4160d720bfc413a",
+      "excerpt": "NAT و Masquerade در میکروتیک؛ آموزش نوشتاری مستقل با تمرین لاب، بدون انتساب تأییدنشده به یک قسمت ویدیویی.",
+      "content_file": "nat-masquerade.html",
+      "content_sha256_lf": "46d3a1b34ac27a62622cc4e2b6d8af80278474dfa5e2d1b125f8c91172f3f6b6",
+      "change_fields": [
+        "post_content",
+        "post_excerpt"
+      ]
+    },
+    {
+      "id": 66,
+      "type": "page",
+      "uri": "learn/mikrotik/mtcna/firewall-basics",
+      "title_observed": "فایروال میکروتیک؛ ساخت قانون با هدف مشخص — MTCNA",
+      "expected_content_sha256": "10d586dfea0974346a7971d465555e936fabf5cee989c82672af7037f58dd175",
+      "expected_excerpt_sha256": "7bb8aafe5234d24a9628efed979654dc556608427bb22c39e687280cffe43126",
+      "excerpt": "فایروال میکروتیک؛ ساخت قانون با هدف مشخص؛ آموزش نوشتاری مستقل با تمرین لاب، بدون انتساب تأییدنشده به یک قسمت ویدیویی.",
+      "content_file": "firewall-basics.html",
+      "content_sha256_lf": "d7189e2ac70f769ad28fe9594f5c3b36e82b572ebcac52757a2edc50ca075cbf",
+      "change_fields": [
+        "post_content",
+        "post_excerpt"
+      ]
+    },
+    {
+      "id": 67,
+      "type": "page",
+      "uri": "learn/mikrotik/mtcna/queues-troubleshooting",
+      "title_observed": "مدیریت پهنای باند و عیب‌یابی پایه — MTCNA",
+      "expected_content_sha256": "b91779b11fcc2612d732e7f550a462f5d9ad1614ac95dfdd9a582c9b31281634",
+      "expected_excerpt_sha256": "27221d16c9a36bedfe5a4a297942206a1534725e6719e84b0e172b56df915508",
+      "excerpt": "Simple Queue و عیب‌یابی در RouterOS؛ راهنمای نوشتاری تکمیلی مستقل، خارج از جلسات ضبط‌شدهٔ MTCNA.",
+      "content_file": "queues-troubleshooting.html",
+      "content_sha256_lf": "c40c75bfd593f0978c9ca5b8a3409b4ff4d640daafe5a707d94f58ca3c397f84",
+      "change_fields": [
+        "post_content",
+        "post_excerpt",
+        "post_title"
+      ],
+      "title": "Simple Queue و عیب‌یابی؛ راهنمای تکمیلی مستقل"
+    },
+    {
+      "id": 70,
+      "type": "post",
+      "uri": "mtcna-learning-path",
+      "title_observed": "مسیر یادگیری میکروتیک؛ دوره MTCNA تهران نتورک",
+      "expected_content_sha256": "c6801de0318d1e15c7b0fc74116e87867a4aa50933d0f961648ab64517287de2",
+      "expected_excerpt_sha256": "fe6dca973e0b644010f3dfccdf3b9b9371ca7ee1035c955b0037c9eb3d89e664",
+      "excerpt": "راهنمای انتخاب ویدیو و آموزش نوشتاری مستقل MTCNA؛ مقالهٔ Queue خارج از جلسات ضبط‌شده است.",
+      "content_file": "mtcna-learning-path.html",
+      "content_sha256_lf": "0f856ac530afe68782f0f85fa08e7797bfdd217a23f9ee529adc644ec128fbb6",
+      "change_fields": [
+        "post_content",
+        "post_excerpt"
+      ]
+    }
+  ]
+}

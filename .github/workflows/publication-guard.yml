@@ -11,6 +11,8 @@ jobs:
           persist-credentials: false
       - run: python3 -m unittest discover -s tests -p test_publication_guard.py -v
       - run: python3 tools/publication_guard.py
+      - run: python3 -m unittest discover -s tests -p test_educational_content_gate.py -v
+      - run: python3 tools/educational_content_gate.py
   release-operator-boundaries:
     runs-on: ubuntu-latest
     steps:

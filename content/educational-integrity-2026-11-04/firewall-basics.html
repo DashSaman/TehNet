@@ -1,0 +1,33 @@
+<!-- wp:paragraph -->
+<p><strong>آموزش نوشتاری مستقل:</strong> این مطلب و تمرین‌های آن، متن پیاده‌شدهٔ ویدیو یا سرفصل تأییدشدهٔ یک قسمت ضبط‌شده نیستند. برای فهرست اصلی ویدیوها و وضعیت تطبیق مطالب، <a href="/learn/mikrotik/mtcna/">آرشیو دورهٔ MTCNA</a> را ببینید. دستورها فقط برای لابِ تحت اختیار شما هستند؛ اجرای آن‌ها روی شبکهٔ واقعی به بررسی و برنامهٔ بازگشت نیاز دارد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph --><p>فایروال میکروتیک فقط زمانی امنیت می‌سازد که بدانید هر قانون <strong>چرا</strong> نوشته شده. در این راهنمای نوشتاری ساختار chain ها را می‌فهمید، شرط‌های طراحی قانون را بررسی می‌کنید و با شمارنده‌ها کارکردشان را اثبات می‌کنید.</p><!-- /wp:paragraph -->
+
+
+
+<!-- wp:heading --><h2 class="wp-block-heading">سه chain اصلی</h2><!-- /wp:heading -->
+<!-- wp:list --><ul><li><strong>input:</strong> ترافیکی که مقصدش خود روتر است (مدیریت، Winbox، DNS).</li><li><strong>forward:</strong> ترافیکی که از میان روتر رد می‌شود (کلاینت‌ها به اینترنت).</li><li><strong>output:</strong> ترافیکی که از خود روتر بیرون می‌رود.</li></ul><!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">قبل از ساخت قانون، مسیر مدیریت را حفظ کنید</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>یک مجموعه قانون عمومی را روی روتر واقعی کپی نکنید. نام ether2 به‌تنهایی ثابت نمی‌کند رابطِ مورداعتماد شماست. ابتدا نقش LAN/WAN، مسیر مدیریت، سرویس‌های لازم، دسترسی از شعب و سیاست IPv6 را ثبت کنید. قانون انتهایی drop می‌تواند دسترسی خودتان را قطع کند؛ Safe Mode جای مسیر بازیابی مستقل و نسخهٔ پشتیبان را نمی‌گیرد.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>FastTrack ممکن است برخی پردازش‌ها مانند Simple Queue را دور بزند؛ استثناهای لازم را برای همان ترافیک در لاب بررسی کنید. بدون اندازه‌گیری، آن را روی کل شبکه خاموش نکنید. این مطلب پیکربندی کامل فایروال سازمانی ارائه نمی‌کند.</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading --><h2 class="wp-block-heading">اثبات با Counter و Log</h2><!-- /wp:heading -->
+<!-- wp:code --><pre class="wp-block-code"><code>/ip firewall filter print stats
+/ip firewall filter print detail</code></pre><!-- /wp:code -->
+<!-- wp:paragraph --><p>افزایش شمارنده نشان می‌دهد ترافیک با آن قانون تطبیق پیدا کرده است؛ صفرماندن آن می‌تواند از نبود ترافیک آزمایشی، شرط، ترتیب، مسیر یا FastTrack باشد. با آزمون کنترل‌شده علت را جدا کنید؛ دادهٔ حساس شبکه را در log عمومی منتشر نکنید.</p><!-- /wp:paragraph -->
+
+<!-- wp:heading --><h2 class="wp-block-heading">چک‌پوینت تمرین نوشتاری</h2><!-- /wp:heading -->
+<!-- wp:list --><ul><li>بتوانید تفاوت مشکل Interface، Route، DNS و Firewall را مرحله‌به‌مرحله جدا کنید.</li><li>هر قانون با هدف مشخص و comment معنادار نوشته شود؛ قانون بی‌دلیل = بدهی آینده.</li></ul><!-- /wp:list -->
+
+<!-- wp:paragraph --><p>مطالعهٔ مرتبط: <a href="/learn/mikrotik/mtcna/queues-troubleshooting/">مدیریت پهنای باند و عیب‌یابی پایه</a> — برگشت به <a href="/learn/mikrotik/mtcna/">صفحه دوره MTCNA</a>.</p><!-- /wp:paragraph -->
+
+<!-- wp:shortcode -->
+[tn_editorial_note]
+<!-- /wp:shortcode -->

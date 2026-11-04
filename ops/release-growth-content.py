@@ -40,6 +40,10 @@ MIKROTIK_SERVICE_SCOPE = 'tehnet-service-mikrotik-20261101-v1'
 COMMERCIAL_CATALOG_SCOPE = 'tehnet-commercial-catalog-20261101-v1'
 CORPORATE_SCOPE = 'tehnet-corporate-ui-20261101-v1'
 PHONE_SCOPE = 'tehnet-phone-rtl-20261101-v1'
+EDUCATION_SCOPE = 'tehnet-educational-integrity-20261104-v1'
+EDUCATION_BODIES = ['mtcna.html', 'routeros-winbox.html', 'ip-dhcp-dns.html',
+    'static-routing.html', 'nat-masquerade.html', 'firewall-basics.html',
+    'queues-troubleshooting.html', 'mtcna-learning-path.html']
 PHONE_FILES = [
     'site/plugins/tehnet-core/includes/class-settings.php',
     'site/themes/tehnet/footer.php',
@@ -72,10 +76,23 @@ CONTENT_SCOPES = {**LESSON_SCOPES,
     REMOTE_SUPPORT_SCOPE: ('content/remote-support-2026-11-01', 'remote-support.html', '/tmp/tn-remote-support-release-'),
     MIKROTIK_SERVICE_SCOPE: ('content/mikrotik-service-2026-11-01', 'mikrotik-service.html', '/tmp/tn-mikrotik-service-release-'),
 }
-GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE, GALLERY_KEYBOARD_SCOPE, COMMERCIAL_CATALOG_SCOPE, CORPORATE_SCOPE, PHONE_SCOPE]
+GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE, GALLERY_KEYBOARD_SCOPE, COMMERCIAL_CATALOG_SCOPE, CORPORATE_SCOPE, PHONE_SCOPE, EDUCATION_SCOPE]
 
 
 def scope_spec(scope):
+    if scope == EDUCATION_SCOPE:
+        directory = 'content/educational-integrity-2026-11-04/'
+        return [], [directory + 'manifest.json', *[directory + f for f in EDUCATION_BODIES],
+            'ops/migrate-growth-content.php'], list(dict.fromkeys(FILES + PHONE_FILES + [
+                'site/plugins/tehnet-store/tehnet-store.php',
+                'site/plugins/tehnet-store/includes/class-recaptcha.php',
+                'site/plugins/tehnet-store/assets/recaptcha.js',
+                'site/mu-plugins/tehnet-search-metadata.php',
+                'site/themes/tehnet/functions.php',
+                'site/themes/tehnet/header.php',
+                'site/themes/tehnet/assets/fonts/Estedad.woff2',
+                'site/themes/tehnet/assets/js/visual-refresh.js',
+                'site/themes/tehnet/assets/css/service-catalog.css']))
     if scope == PHONE_SCOPE:
         return list(PHONE_FILES), ['content/phone-rtl-2026-11-01/manifest.json',
             'ops/check-phone-display-state.php'], FILES + [
@@ -341,6 +358,7 @@ class Release:
         if self.state and (self.state['source_commit'] != m['source_commit'] or self.state['app_id'] != c['app_id'] or self.state['db_id'] != c['db_id']):
             raise RuntimeError('Release journal identity mismatch')
         prefix = {METADATA_SCOPE: '/tmp/tn-metadata-role-',
+                  EDUCATION_SCOPE: '/tmp/tn-educational-integrity-',
                   SERVICE_METADATA_SCOPE: '/tmp/tn-metadata-service-role-',
                   PHONE_SCOPE: '/tmp/tn-phone-rtl-',
                   GALLERY_KEYBOARD_SCOPE: '/tmp/tn-gallery-keyboard-'}.get(
@@ -396,6 +414,8 @@ class Release:
             staged.append((self.extra[1], CONTENT_SCOPES[self.scope][1]))
         if self.scope == COMMERCIAL_CATALOG_SCOPE:
             staged.extend([(self.extra[1], 'services.html'), (self.extra[2], 'home.html')])
+        if self.scope == EDUCATION_SCOPE:
+            staged.extend((source, PurePosixPath(source).name) for source in self.extra[1:-1])
         for source, name in staged:
             self.run(['docker', 'cp', str(member(self.b / 'payload', source)), self.c['app'] + ':' + self.container_stage + '/' + name])
         # Syntax-check every PHP artifact before the first live file write.

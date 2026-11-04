@@ -1,0 +1,65 @@
+<!-- wp:paragraph -->
+<p><strong>راهنمای تکمیلی مستقل — خارج از جلسات ضبط‌شده:</strong> این مقاله آموزش نوشتاری Simple Queue و روش بررسی نتیجه است. آموزش تفصیلی Queue در ویدیوهای منتشرشدهٔ دوره تدریس نشده است؛ اشاره یا مثال کوتاه در یک ویدیو، جای درس مستقل Queue را نمی‌گیرد. این صفحه به قسمت ششم دوره منتسب نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">قبل از محدودکردن پهنای باند چه چیزی را ثبت کنیم؟</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>هدف تمرین، محدودکردن ترافیک یک کلاینت آزمایشگاهی است. نسخهٔ RouterOS، آدرس همان کلاینت، ظرفیت لینک و جهت ترافیک را یادداشت کنید. روی شبکهٔ سازمانی یا روترِ تنها مسیر دسترسی، این نمونه را اجرا نکنید. هیچ عددی در این مثال، ظرفیت واقعی یا توصیهٔ سرویس شما نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">نمونهٔ Simple Queue در لاب</h2>
+<!-- /wp:heading -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code>/queue simple
+add name=lab-cap target=192.0.2.10/32 max-limit=5M/10M comment="Lab only"
+/queue simple print stats</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>192.0.2.10 آدرس مستنداتی است؛ آن را با آدرس کلاینتِ لاب جایگزین کنید. در Simple Queue مقدار نخست max-limit برای upload از target و مقدار دوم برای download به target است. این سقف به معنی تضمین سرعت دریافتی نیست؛ لینک، مسیر و محدودیت‌های دیگر نیز اثر دارند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">اگر محدودیت اعمال نشد</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item --><li>ابتدا مطمئن شوید target همان کلاینت و ترافیک آزمایشی واقعاً از این روتر عبور می‌کند؛ آزمون روی خود روتر، الزاماً آزمونِ مسیر کلاینت نیست.</li><!-- /wp:list-item --><!-- wp:list-item --><li>Simple Queue ترتیب دارد؛ صف‌های قبلی با target هم‌پوشان را بررسی کنید.</li><!-- /wp:list-item --><!-- wp:list-item --><li>طبق مستند MikroTik، ترافیک FastTrack از Simple Queue عبور نمی‌کند. فقط استثنای ترافیک همین آزمایش را با بررسی سیاست فعلی طراحی کنید؛ غیرفعال‌کردن عمومی FastTrack روی شبکهٔ واقعی پیشنهاد این متن نیست.</li><!-- /wp:list-item --><!-- wp:list-item --><li>upload و download را جداگانه از کلاینت آزمایش کنید و شمارندهٔ صف، سقف مشاهده‌شده و شرایط لینک را ثبت کنید؛ نتیجهٔ تست فیزیکی یا تضمین کارایی در این مقاله ادعا نشده است.</li><!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">برگشت از تمرین</h2>
+<!-- /wp:heading -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code>/queue simple remove [find where name="lab-cap" comment="Lab only"]</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>قبل از حذف، با print detail هویت قانون ساخته‌شده را بررسی کنید. این دستور تنها برای قانون همان تمرین است و مجوز تغییر صف‌های موجود شما نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">عیب‌یابی را با شواهد پیش ببرید</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item --><li>لینک و رابط، آدرس کلاینت، مسیر رفت و برگشت، DNS و سپس NAT/فایروال را جداگانه بررسی کنید.</li><!-- /wp:list-item --><!-- wp:list-item --><li>پاسخ‌نگرفتن از یک ping به‌تنهایی خرابی DNS یا قطع اینترنت را ثابت نمی‌کند؛ مقصد یا مسیر ممکن است ICMP را فیلتر کند.</li><!-- /wp:list-item --><!-- wp:list-item --><li>خروجی فنی را پیش از ارسال به پشتیبانی از رمز، آدرس واقعی و مشخصات خصوصی پاک کنید.</li><!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">منبع و مسیر ادامه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>مبنای فنی: <a href="https://manual.mikrotik.com/docs/firewall-and-quality-of-service/queues/">مستند رسمی Queues در RouterOS</a>، بازبینی ۴ نوامبر ۲۰۲۶. این منبع رفتار صف را توضیح می‌دهد و شاهدی برای تدریس آن در ویدیوهای تهران نتورک نیست. <a href="/learn/mikrotik/mtcna/">آرشیو ویدیوهای MTCNA</a> و <a href="/lab/">تمرین‌های لاب</a> مستقل از این راهنمای تکمیلی‌اند. برای بررسی شبکهٔ واقعی، <a href="/services/mikrotik-tehran/">درخواست خدمات میکروتیک</a> را ثبت کنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:shortcode -->
+[tn_editorial_note]
+<!-- /wp:shortcode -->

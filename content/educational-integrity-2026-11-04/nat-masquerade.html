@@ -1,0 +1,32 @@
+<!-- wp:paragraph -->
+<p><strong>آموزش نوشتاری مستقل:</strong> این مطلب و تمرین‌های آن، متن پیاده‌شدهٔ ویدیو یا سرفصل تأییدشدهٔ یک قسمت ضبط‌شده نیستند. برای فهرست اصلی ویدیوها و وضعیت تطبیق مطالب، <a href="/learn/mikrotik/mtcna/">آرشیو دورهٔ MTCNA</a> را ببینید. دستورها فقط برای لابِ تحت اختیار شما هستند؛ اجرای آن‌ها روی شبکهٔ واقعی به بررسی و برنامهٔ بازگشت نیاز دارد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph --><p>NAT همان جادویی است که اجازه می‌دهد ده‌ها دستگاه پشت یک IP عمومی به اینترنت وصل شوند. در این راهنمای نوشتاری با Masquerade آشنا می‌شوید، تفاوت srcnat و dstnat را می‌فهمید و یک پورت‌فوروارد واقعی می‌سازید.</p><!-- /wp:paragraph -->
+
+
+
+<!-- wp:heading --><h2 class="wp-block-heading">Masquerade؛ اشتراک اینترنت</h2><!-- /wp:heading -->
+<!-- wp:code --><pre class="wp-block-code"><code>/ip firewall nat
+add chain=srcnat action=masquerade out-interface=ether1 comment="Internet sharing"</code></pre><!-- /wp:code -->
+<!-- wp:paragraph --><p>یعنی: «هر ترافیکی که قصد خروج از ether1 (سمت اینترنت) را دارد، آدرس مبدااش را با آدرس خود ether1 عوض کن». Masquerade برای لینک‌هایی با IP داینامیک (مثل PPPoE) انتخاب درست است.</p><!-- /wp:paragraph -->
+
+<!-- wp:heading --><h2 class="wp-block-heading">srcnat در برابر dstnat</h2><!-- /wp:heading -->
+<!-- wp:list --><ul><li><strong>srcnat</strong> آدرس <em>مبدأ</em> را تغییر می‌دهد — خروج به اینترنت.</li><li><strong>dstnat</strong> آدرس <em>مقصد</em> را تغییر می‌دهد — رساندن ترافیک ورودی به یک سرور داخلی.</li></ul><!-- /wp:list -->
+
+<!-- wp:heading --><h2 class="wp-block-heading">پورت‌فوروارد به یک سرور داخلی</h2><!-- /wp:heading -->
+<!-- wp:code --><pre class="wp-block-code"><code>/ip firewall nat
+add chain=dstnat action=dst-nat protocol=tcp dst-port=8080 \
+    in-interface=ether1 to-addresses=192.168.10.50 to-ports=80 \
+    comment="Web server publish"</code></pre><!-- /wp:code -->
+<!-- wp:paragraph --><p>درخواست‌های TCP روی پورت ۸۰۸۰ از اینترنت، به پورت ۸۰ سرور داخلی ۱۹۲.۱۶۸.۱۰.۵۰ فرستاده می‌شوند. یادتان باشد در کنار dstnat، عبور این ترافیک در فایروال (chain مربوطه) هم باید مجاز باشد.</p><!-- /wp:paragraph -->
+
+<!-- wp:heading --><h2 class="wp-block-heading">ترتیب پردازش و شمارنده‌ها</h2><!-- /wp:heading -->
+<!-- wp:code --><pre class="wp-block-code"><code>/ip firewall nat print stats</code></pre><!-- /wp:code -->
+<!-- wp:paragraph --><p>قوانین NAT از بالا به پایین بررسی می‌شوند؛ اولین تطبیق برنده است. اگر قاعده‌ای کار نمی‌کند، شمارنده بسته‌ها و جای قانون در لیست را بررسی کنید و برای تست موقت <code>log=yes</code> بگذارید.</p><!-- /wp:paragraph -->
+
+<!-- wp:paragraph --><p>مطالعهٔ مرتبط: <a href="/learn/mikrotik/mtcna/firewall-basics/">فایروال میکروتیک و ساخت قانون با هدف مشخص</a> — برگشت به <a href="/learn/mikrotik/mtcna/">صفحه دوره MTCNA</a>.</p><!-- /wp:paragraph -->
+
+<!-- wp:shortcode -->
+[tn_editorial_note]
+<!-- /wp:shortcode -->
