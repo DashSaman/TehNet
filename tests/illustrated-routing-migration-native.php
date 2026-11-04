@@ -98,11 +98,13 @@ $imageCases=[
     'invented-attachment'=>str_replace('<!-- wp:image {"sizeSlug"','<!-- wp:image {"id":123,"sizeSlug"',$safeContent),
     'extra-image'=>str_replace('src="'.$asset.'"','src="'.$asset.'" data-test="x"',$safeContent),
 ];
-$imageCases['extra-image']=str_replace('</a><figcaption','<img src="'.$asset.'" alt="second image"/></a><figcaption',$safeContent);
+$imageCases['extra-image']=str_replace('</a><figcaption','<img src="'.$asset.'" alt="second image" /></a><figcaption',$safeContent);
 foreach($imageCases as$name=>$injection){
     expect($injection!==$safeContent,'Negative image fixture actually differs: '.$name);
     $content=$injection;$bad=$template;$bad['content_sha256_lf']=hash('sha256',$content);
-    refused(fn()=>attempt($name,$bad),'Unapproved image refused: '.$name);
+    $matched=false;
+    try{attempt($name,$bad);}catch(Throwable $error){$matched=$error->getMessage()==='Only the four original routing captures with descriptive alt are approved';}
+    expect($matched,'Specific image boundary refuses: '.$name);
 }
 $content=$safeContent;
 $content = $safeContent;

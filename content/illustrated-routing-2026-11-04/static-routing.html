@@ -29,11 +29,11 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>در کادر <strong>R1 برای رسیدن به شبکهٔ سرویس</strong>، گزینهٔ <strong><bdi dir="ltr">198.51.100.0/24 → 203.0.113.2</bdi></strong> را انتخاب کنید. فعلاً در کادر R2، <strong>هیچ مسیر static اضافه نشود</strong> را بگذارید و دکمهٔ <strong>بررسی پاسخ در مدل</strong> را بزنید. دلیل انتخاب R1: شبکهٔ مقصد، LAN سرویس است و next-hop، همسایهٔ مستقیم روی لینک میانی است.</p>
+<p>در کادر <strong>R1 برای رسیدن به شبکهٔ سرویس</strong>، گزینهٔ <strong><code dir="ltr">198.51.100.0/24 → 203.0.113.2</code></strong> را انتخاب کنید. فعلاً در کادر R2، <strong>هیچ مسیر static اضافه نشود</strong> را بگذارید و دکمهٔ <strong>بررسی پاسخ در مدل</strong> را بزنید. دلیل انتخاب R1: شبکهٔ مقصد، LAN سرویس است و next-hop، همسایهٔ مستقیم روی لینک میانی است.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"sizeSlug":"full","linkDestination":"media"} -->
-<figure class="wp-block-image size-full"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/r1-forward.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/r1-forward.png" alt="انتخاب مسیر شبکهٔ سرویس از R1 به همسایهٔ مستقیم R2؛ کادر R1 با قاب نارنجی مشخص است."/></a><figcaption class="wp-element-caption">مرحله۱: R1 به شبکهٔ سرویس مسیر دارد؛ برای R2 هنوز مسیر برگشت اضافه نشده است. برای دیدن نوشته‌ها در اندازهٔ اصلی، تصویر را باز کنید.</figcaption></figure>
+<figure class="wp-block-image size-full"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/r1-forward.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/r1-forward.png" alt="انتخاب مسیر شبکهٔ سرویس از R1 به همسایهٔ مستقیم R2؛ کادر R1 با قاب نارنجی مشخص است." /></a><figcaption class="wp-element-caption">مرحله۱: R1 به شبکهٔ سرویس مسیر دارد؛ برای R2 هنوز مسیر برگشت اضافه نشده است. برای دیدن نوشته‌ها در اندازهٔ اصلی، تصویر را باز کنید.</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3} -->
@@ -45,7 +45,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"sizeSlug":"full","linkDestination":"media"} -->
-<figure class="wp-block-image size-full"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/return-missing.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/return-missing.png" alt="کادر R2 روی هیچ مسیر static اضافه نشود است و نتیجه توقف فرضی مسیر برگشت در R2 را توضیح می‌دهد."/></a><figcaption class="wp-element-caption">مرحله۲: این پیام نتیجهٔ مدل با همین دو انتخاب است؛ خروجی روتر یا پاسخ واقعی شبکه نیست. برای دیدن نوشته‌ها در اندازهٔ اصلی، تصویر را باز کنید.</figcaption></figure>
+<figure class="wp-block-image size-full"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/return-missing.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/return-missing.png" alt="کادر R2 روی هیچ مسیر static اضافه نشود است و نتیجه توقف فرضی مسیر برگشت در R2 را توضیح می‌دهد." /></a><figcaption class="wp-element-caption">مرحله۲: این پیام نتیجهٔ مدل با همین دو انتخاب است؛ خروجی روتر یا پاسخ واقعی شبکه نیست. برای دیدن نوشته‌ها در اندازهٔ اصلی، تصویر را باز کنید.</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3} -->
@@ -53,11 +53,11 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>در <strong>R2 برای برگشت به شبکهٔ رایانه</strong>، گزینهٔ <strong><bdi dir="ltr">192.0.2.0/24 → 203.0.113.1</bdi></strong> را انتخاب کنید. سپس روی <strong>بررسی پاسخ در مدل</strong> کلیک کنید؛ صرف تغییر گزینه نتیجهٔ قبلی را پاک می‌کند و باید دوباره بررسی شود. انتظار: مدل هر دو جهت را درست گزارش کند؛ این تأیید محدود به فرض‌های همین تمرین است.</p>
+<p>در <strong>R2 برای برگشت به شبکهٔ رایانه</strong>، گزینهٔ <strong><code dir="ltr">192.0.2.0/24 → 203.0.113.1</code></strong> را انتخاب کنید. سپس روی <strong>بررسی پاسخ در مدل</strong> کلیک کنید؛ صرف تغییر گزینه نتیجهٔ قبلی را پاک می‌کند و باید دوباره بررسی شود. انتظار: مدل هر دو جهت را درست گزارش کند؛ این تأیید محدود به فرض‌های همین تمرین است.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"sizeSlug":"full","linkDestination":"media"} -->
-<figure class="wp-block-image size-full"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/return-correct.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/return-correct.png" alt="هر دو مسیر درست انتخاب شده‌اند و دکمه بررسی پاسخ در مدل با قاب نارنجی دیده می‌شود."/></a><figcaption class="wp-element-caption">مرحله۳: پس از تغییر R2، دکمهٔ مشخص‌شده را دوباره بزنید و متن تازهٔ نتیجه را بخوانید. برای دیدن نوشته‌ها در اندازهٔ اصلی، تصویر را باز کنید.</figcaption></figure>
+<figure class="wp-block-image size-full"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/return-correct.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/return-correct.png" alt="هر دو مسیر درست انتخاب شده‌اند و دکمه بررسی پاسخ در مدل با قاب نارنجی دیده می‌شود." /></a><figcaption class="wp-element-caption">مرحله۳: پس از تغییر R2، دکمهٔ مشخص‌شده را دوباره بزنید و متن تازهٔ نتیجه را بخوانید. برای دیدن نوشته‌ها در اندازهٔ اصلی، تصویر را باز کنید.</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3} -->
@@ -69,7 +69,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:image {"sizeSlug":"full","linkDestination":"media"} -->
-<figure class="wp-block-image size-full"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/return-steps.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/return-steps.png" alt="جهت برگشت انتخاب شده و دکمه گام بعد بسته با قاب نارنجی، زیر متن گام دوم از چهار گام قرار دارد."/></a><figcaption class="wp-element-caption">مرحله۴: در این تصویر یک گام جلو رفته‌ایم؛ متن گام و برجسته‌شدن R2 در توپولوژی را با هم تطبیق دهید. برای دیدن نوشته‌ها در اندازهٔ اصلی، تصویر را باز کنید.</figcaption></figure>
+<figure class="wp-block-image size-full"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/return-steps.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/return-steps.png" alt="جهت برگشت انتخاب شده و دکمه گام بعد بسته با قاب نارنجی، زیر متن گام دوم از چهار گام قرار دارد." /></a><figcaption class="wp-element-caption">مرحله۴: در این تصویر یک گام جلو رفته‌ایم؛ متن گام و برجسته‌شدن R2 در توپولوژی را با هم تطبیق دهید. برای دیدن نوشته‌ها در اندازهٔ اصلی، تصویر را باز کنید.</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->

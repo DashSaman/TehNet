@@ -22,7 +22,7 @@
     ]
   },
   "content_file": "static-routing.html",
-  "content_sha256_lf": "649515b8a195051c75777f41f961b3512f637cb42827e3d28ce92a0e8eb5bb2b",
+  "content_sha256_lf": "e31af644630501aaf9917e2b8dc4210a9a32135f9420bdd14cd22b55979c24e6",
   "images": [
     {
       "file": "r1-forward.png",
