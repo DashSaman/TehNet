@@ -71,13 +71,13 @@ WebFig به آدرس IP و سرویس وب فعال نیاز دارد؛ بدون
 
 ### تصویر ۱: ورود به WinBox
 
-![نمای واقعی صفحهٔ ورود WinBox 4.5، فیلدهای Connect to، Login و Password](https://raw.githubusercontent.com/DashSaman/TehNet/6e095ca7de169e37a80c481613486f83fa4eb71c/content/mtcna/screenshots/real-lab/2026-11-04/01-winbox-login.png)
+![نمای واقعی صفحهٔ ورود WinBox 4.5، فیلدهای Connect to، Login و Password](https://raw.githubusercontent.com/DashSaman/TehNet/164ef3e20e13578a608b4a97406194d202bfa097/content/mtcna/screenshots/real-lab/2026-11-04/01-winbox-login-cropped.png)
 
 در قسمت `Connect to` باید IP **دستگاه خودتان** یا آدرس محلی هدایت‌شده را وارد کنید. مقدار `127.0.0.1:18291` فقط مربوط به همین لاب QEMU است. `Login` نام حساب مجاز و `Password` رمز همان حساب است. هنگام آموزش، رمزها را نشان ندهید و گزینهٔ ذخیرهٔ پسورد را برای دستگاه مشترک فعال نکنید.
 
 ### تصویر ۲: نتیجهٔ احراز هویت و نیاز به تغییر رمز
 
-![نمای واقعی WinBox متصل به CHR 7.25.1 همراه با پنجرهٔ Change Password Now](https://raw.githubusercontent.com/DashSaman/TehNet/6e095ca7de169e37a80c481613486f83fa4eb71c/content/mtcna/screenshots/real-lab/2026-11-04/02-winbox-first-login-password-required.png)
+![نمای واقعی WinBox متصل به CHR 7.25.1 همراه با پنجرهٔ Change Password Now](https://raw.githubusercontent.com/DashSaman/TehNet/164ef3e20e13578a608b4a97406194d202bfa097/content/mtcna/screenshots/real-lab/2026-11-04/02-winbox-first-login-password-required-cropped.png)
 
 پس از اتصال موفق، در نسخهٔ آزمایشی RouterOS پنجرهٔ `Change Password Now` ظاهر شد. این تصویر **اثبات تغییر رمز یا اجرای منوهای IP نیست**؛ تغییر رمز امن قبل از ادامهٔ درس باید جداگانه انجام و تأیید شود. برای دستگاه تازه و شبکهٔ واقعی از گذرواژهٔ قوی، محرمانه و اختصاصی استفاده کنید.
 
