@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "key": "tehnet-service-server-branch-20261104-v1",
+  "status": "SOURCE_READY_NOT_DEPLOYED",
+  "target": {
+    "id": 33,
+    "url": "https://tehnet.ir/services/network-setup-tehran/",
+    "title_observed": "راه‌اندازی شبکه شرکت در تهران",
+    "expected_content_sha256": "6042d2dfc40f95c80f6388437b7aebc265d08bd9b51e25271144b43cc61c55e3",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "content_file": "network-setup.html",
+  "content_sha256_lf": "709c49b6d2e0cffa4d95c3709877ff06d40daa5223a3f39894881b7a429cbe5e",
+  "protected": [
+    "home",
+    "menus",
+    "products/all meta",
+    "orders/customers/tickets/quotes",
+    "blog_public",
+    "payments/ERP",
+    "MyTel production"
+  ],
+  "qualification": {
+    "source_review": "SCOPED_PRIMARY_SECTIONS_2026_11_04",
+    "real_network_or_server_tests": "NOT_RUN",
+    "native_staging": "NOT_RUN",
+    "production": "NOT_DEPLOYED"
+  },
+  "limits": [
+    "Two modules on one existing service owner; no new page, backend or form.",
+    "Fictional examples and proposed acceptance; no real server/network/restore/performance result.",
+    "Existing title/URL/slug/status/excerpt/meta, MyTel and commerce/indexing controls are preserved."
+  ]
+}
