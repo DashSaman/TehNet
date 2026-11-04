@@ -13,6 +13,17 @@ SOURCE = Path(__file__).resolve().parents[1] / 'ops/release-growth-content.py'
 
 
 class ReleaseBoundaries(unittest.TestCase):
+    def test_educational_integrity_scope_owns_eight_bodies_and_zero_runtime(self):
+        spec = importlib.util.spec_from_file_location('education_release', SOURCE)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        files, extra, guard = module.scope_spec(module.EDUCATION_SCOPE)
+        self.assertEqual(files, [])
+        self.assertEqual(len(extra), 10)
+        self.assertEqual(extra[-1], 'ops/migrate-growth-content.php')
+        self.assertIn('site/mu-plugins/tehnet-search-metadata.php', guard)
+        self.assertIn('site/themes/tehnet/assets/css/corporate.css', guard)
+
     @classmethod
     def setUpClass(cls):
         spec = importlib.util.spec_from_file_location('growth_release', SOURCE)

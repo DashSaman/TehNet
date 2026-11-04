@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "scope": "tehnet-educational-integrity-20261104-v1",
+  "status": "VERIFIED_STAGING_NOT_DEPLOYED",
+  "source_commit": "c2373f16fd1cc3113e01a36f32d241eda2d01ee2",
+  "native_checks": 42,
+  "browser_checks": 536,
+  "browser_observed_utc": "2026-11-04T13:50:20.379Z",
+  "viewports": [
+    1440,
+    768,
+    375,
+    320
+  ],
+  "themes": [
+    "dark",
+    "light"
+  ],
+  "no_js_width": 320,
+  "original_ids": [
+    40,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    70
+  ],
+  "new_pages_created": 0,
+  "request_submissions": 0,
+  "production_mutations": 0,
+  "original_posts_meta_users_revisions_restored": true,
+  "original_runtime_files_restored": true,
+  "all_existing_runtimes_unchanged": true,
+  "screenshots_sha256": {
+    "before-67-375-dark.png": "37534b1cc913d7306a73c4e6cafa2d945de7c00608334a883e41115ae61a62fc",
+    "after-67-375-dark.png": "bea716fae6901c6693282971579a127d78e873c7db452ca558bb5c55029c7ea4",
+    "before-40-1440-dark.png": "7b5f1b20223816a2476cb0deba3d2a08e66766b509df18ca91f4a78a2939fddd",
+    "after-40-1440-dark.png": "6a5c1b6ad0af09dde7002c963e83630f2228822973fa672d70ab651cfe9c16b9"
+  },
+  "limitations": [
+    "Seven auto-caption exports, selected passages reviewed; no full audio/screen review marked VERIFIED.",
+    "No competitive parity, ranking, conversion, customer network test or payment result claimed."
+  ],
+  "operation_summaries": [
+    {
+      "operation": "check",
+      "status": "READY",
+      "files_changed": null,
+      "content": {
+        "status": "READY"
+      }
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "files_changed": 0,
+      "content": {
+        "status": "APPLIED",
+        "pages_created": 0,
+        "hubs_updated": 8,
+        "protected_state_unchanged": true
+      }
+    },
+    {
+      "operation": "apply",
+      "status": "APPLIED",
+      "files_changed": 0,
+      "content": {
+        "status": "APPLIED",
+        "pages_created": 0,
+        "hubs_updated": 0,
+        "protected_state_unchanged": true
+      }
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "files_changed": null,
+      "content": {
+        "status": "ROLLED_BACK",
+        "hubs_restored": 8,
+        "pages_drafted": 0,
+        "protected_state_unchanged": true
+      }
+    },
+    {
+      "operation": "rollback",
+      "status": "ROLLED_BACK",
+      "files_changed": null,
+      "content": {
+        "status": "ROLLED_BACK",
+        "hubs_restored": 0,
+        "pages_drafted": 0,
+        "protected_state_unchanged": true
+      }
+    }
+  ]
+}
