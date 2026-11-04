@@ -1,0 +1,388 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-04",
+  "source": "Real WinBox Linux 4.5 connected to QEMU CHR RouterOS 7.25.1",
+  "environment": {
+    "guest_network": "Private Linux network namespace, loopback only",
+    "qemu": "TCG 1 vCPU, 512MiB RAM, guest NAT restrict=on, no production interfaces",
+    "screenshot_method": "X11 XGetImage of real application pixels; 1200x700 crop"
+  },
+  "totals": {
+    "lessons": 40,
+    "png_raw": 160,
+    "different_main_content_region": 127,
+    "lessons_with_four_distinct": 20,
+    "lessons_with_duplication": 20,
+    "fully_validated_four_step_lessons": 0,
+    "separate_verified_ip_address_demonstrations": 1
+  },
+  "limitations": [
+    "Distinct pixel regions are not proof of accurate or complete instructions.",
+    "Stage 03 can be an unsaved form or a read-only view; stage 04 can be focus movement only.",
+    "Some screenshots show old background windows and terminal login issues; they require editorial QA.",
+    "Wireless/Netinstall/RouterBOOT cannot be validated on CHR alone.",
+    "No WordPress media or public articles changed."
+  ],
+  "lessons": [
+    {
+      "lesson": 1,
+      "directory": "lesson-01/",
+      "captured_png": 4,
+      "distinct_main_region": 4,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Different GUI views only; no assertion that configuration succeeded."
+    },
+    {
+      "lesson": 2,
+      "directory": "lesson-02/",
+      "captured_png": 4,
+      "distinct_main_region": 3,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "At least one view repeats within the lesson; not publication-ready."
+    },
+    {
+      "lesson": 3,
+      "directory": "lesson-03/",
+      "captured_png": 4,
+      "distinct_main_region": 2,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "At least one view repeats within the lesson; not publication-ready."
+    },
+    {
+      "lesson": 4,
+      "directory": "lesson-04/",
+      "captured_png": 4,
+      "distinct_main_region": 2,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "At least one view repeats within the lesson; not publication-ready."
+    },
+    {
+      "lesson": 5,
+      "directory": "lesson-05/",
+      "captured_png": 4,
+      "distinct_main_region": 3,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "At least one view repeats within the lesson; not publication-ready."
+    },
+    {
+      "lesson": 6,
+      "directory": "lesson-06/",
+      "captured_png": 4,
+      "distinct_main_region": 4,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Different GUI views only; no assertion that configuration succeeded."
+    },
+    {
+      "lesson": 7,
+      "directory": "lesson-07/",
+      "captured_png": 4,
+      "distinct_main_region": 3,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "At least one view repeats within the lesson; not publication-ready."
+    },
+    {
+      "lesson": 8,
+      "directory": "lesson-08/",
+      "captured_png": 4,
+      "distinct_main_region": 4,
+      "requires_physical_hardware": true,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Hardware-dependent behavior cannot be verified with CHR."
+    },
+    {
+      "lesson": 9,
+      "directory": "lesson-09/",
+      "captured_png": 4,
+      "distinct_main_region": 4,
+      "requires_physical_hardware": true,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Hardware-dependent behavior cannot be verified with CHR."
+    },
+    {
+      "lesson": 10,
+      "directory": "lesson-10/",
+      "captured_png": 4,
+      "distinct_main_region": 4,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Different GUI views only; no assertion that configuration succeeded."
+    },
+    {
+      "lesson": 11,
+      "directory": "lesson-11/",
+      "captured_png": 4,
+      "distinct_main_region": 4,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Different GUI views only; no assertion that configuration succeeded."
+    },
+    {
+      "lesson": 12,
+      "directory": "lesson-12/",
+      "captured_png": 4,
+      "distinct_main_region": 4,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Different GUI views only; no assertion that configuration succeeded."
+    },
+    {
+      "lesson": 13,
+      "directory": "lesson-13/",
+      "captured_png": 4,
+      "distinct_main_region": 3,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "At least one view repeats within the lesson; not publication-ready."
+    },
+    {
+      "lesson": 14,
+      "directory": "lesson-14/",
+      "captured_png": 4,
+      "distinct_main_region": 3,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "At least one view repeats within the lesson; not publication-ready."
+    },
+    {
+      "lesson": 15,
+      "directory": "lesson-15/",
+      "captured_png": 4,
+      "distinct_main_region": 1,
+      "requires_physical_hardware": true,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Hardware-dependent behavior cannot be verified with CHR."
+    },
+    {
+      "lesson": 16,
+      "directory": "lesson-16/",
+      "captured_png": 4,
+      "distinct_main_region": 4,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Different GUI views only; no assertion that configuration succeeded."
+    },
+    {
+      "lesson": 17,
+      "directory": "lesson-17/",
+      "captured_png": 4,
+      "distinct_main_region": 4,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Different GUI views only; no assertion that configuration succeeded."
+    },
+    {
+      "lesson": 18,
+      "directory": "lesson-18/",
+      "captured_png": 4,
+      "distinct_main_region": 4,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Different GUI views only; no assertion that configuration succeeded."
+    },
+    {
+      "lesson": 19,
+      "directory": "lesson-19/",
+      "captured_png": 4,
+      "distinct_main_region": 4,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Different GUI views only; no assertion that configuration succeeded."
+    },
+    {
+      "lesson": 20,
+      "directory": "lesson-20/",
+      "captured_png": 4,
+      "distinct_main_region": 4,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Different GUI views only; no assertion that configuration succeeded."
+    },
+    {
+      "lesson": 21,
+      "directory": "lesson-21/",
+      "captured_png": 4,
+      "distinct_main_region": 4,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Different GUI views only; no assertion that configuration succeeded."
+    },
+    {
+      "lesson": 22,
+      "directory": "lesson-22/",
+      "captured_png": 4,
+      "distinct_main_region": 4,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Different GUI views only; no assertion that configuration succeeded."
+    },
+    {
+      "lesson": 23,
+      "directory": "lesson-23/",
+      "captured_png": 4,
+      "distinct_main_region": 4,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Different GUI views only; no assertion that configuration succeeded."
+    },
+    {
+      "lesson": 24,
+      "directory": "lesson-24/",
+      "captured_png": 4,
+      "distinct_main_region": 1,
+      "requires_physical_hardware": true,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Hardware-dependent behavior cannot be verified with CHR."
+    },
+    {
+      "lesson": 25,
+      "directory": "lesson-25/",
+      "captured_png": 4,
+      "distinct_main_region": 1,
+      "requires_physical_hardware": true,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Hardware-dependent behavior cannot be verified with CHR."
+    },
+    {
+      "lesson": 26,
+      "directory": "lesson-26/",
+      "captured_png": 4,
+      "distinct_main_region": 1,
+      "requires_physical_hardware": true,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Hardware-dependent behavior cannot be verified with CHR."
+    },
+    {
+      "lesson": 27,
+      "directory": "lesson-27/",
+      "captured_png": 4,
+      "distinct_main_region": 3,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "At least one view repeats within the lesson; not publication-ready."
+    },
+    {
+      "lesson": 28,
+      "directory": "lesson-28/",
+      "captured_png": 4,
+      "distinct_main_region": 3,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "At least one view repeats within the lesson; not publication-ready."
+    },
+    {
+      "lesson": 29,
+      "directory": "lesson-29/",
+      "captured_png": 4,
+      "distinct_main_region": 3,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "At least one view repeats within the lesson; not publication-ready."
+    },
+    {
+      "lesson": 30,
+      "directory": "lesson-30/",
+      "captured_png": 4,
+      "distinct_main_region": 2,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "At least one view repeats within the lesson; not publication-ready."
+    },
+    {
+      "lesson": 31,
+      "directory": "lesson-31/",
+      "captured_png": 4,
+      "distinct_main_region": 2,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "At least one view repeats within the lesson; not publication-ready."
+    },
+    {
+      "lesson": 32,
+      "directory": "lesson-32/",
+      "captured_png": 4,
+      "distinct_main_region": 2,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "At least one view repeats within the lesson; not publication-ready."
+    },
+    {
+      "lesson": 33,
+      "directory": "lesson-33/",
+      "captured_png": 4,
+      "distinct_main_region": 3,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "At least one view repeats within the lesson; not publication-ready."
+    },
+    {
+      "lesson": 34,
+      "directory": "lesson-34/",
+      "captured_png": 4,
+      "distinct_main_region": 4,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Different GUI views only; no assertion that configuration succeeded."
+    },
+    {
+      "lesson": 35,
+      "directory": "lesson-35/",
+      "captured_png": 4,
+      "distinct_main_region": 4,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Different GUI views only; no assertion that configuration succeeded."
+    },
+    {
+      "lesson": 36,
+      "directory": "lesson-36/",
+      "captured_png": 4,
+      "distinct_main_region": 3,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "At least one view repeats within the lesson; not publication-ready."
+    },
+    {
+      "lesson": 37,
+      "directory": "lesson-37/",
+      "captured_png": 4,
+      "distinct_main_region": 4,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Different GUI views only; no assertion that configuration succeeded."
+    },
+    {
+      "lesson": 38,
+      "directory": "lesson-38/",
+      "captured_png": 4,
+      "distinct_main_region": 4,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Different GUI views only; no assertion that configuration succeeded."
+    },
+    {
+      "lesson": 39,
+      "directory": "lesson-39/",
+      "captured_png": 4,
+      "distinct_main_region": 4,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "Different GUI views only; no assertion that configuration succeeded."
+    },
+    {
+      "lesson": 40,
+      "directory": "lesson-40/",
+      "captured_png": 4,
+      "distinct_main_region": 3,
+      "requires_physical_hardware": false,
+      "full_four_step_acceptance_verified": false,
+      "notes": "At least one view repeats within the lesson; not publication-ready."
+    }
+  ]
+}
