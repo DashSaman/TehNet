@@ -2,6 +2,18 @@
 
 Checkpoint: 2026-11-04. Course ID: `tehnet-mtcna-routeros7-20261104`.
 
+## 2026-11-04 REAL SCREENSHOT CHECKPOINT (supersedes older zero-screenshot baseline)
+
+Two **authentic WinBox 4.5 application captures** from an isolated, running QEMU MikroTik CHR RouterOS 7.25.1 lab are now committed:
+
+- `content/mtcna/screenshots/real-lab/2026-11-04/01-winbox-login-cropped.png` — real initial WinBox login panel.
+- `content/mtcna/screenshots/real-lab/2026-11-04/02-winbox-first-login-password-required-cropped.png` — real authenticated CHR session prompting mandatory password change.
+- `content/mtcna/screenshots/real-lab/2026-11-04/capture-metadata.json` — source/version/capture/cropping facts.
+
+The log independently recorded CHR login at version 7.25.1 and WinBox auth success; these images **do not** establish changed administrator password, IP menu/form traversal, field entry, Apply/OK, recovery tests, or lesson-level signoff. The mandatory password-change dialog blocked further usable actual GUI examples. No passwords were committed. The entire test VM, WinBox/Xvfb processes and temp files were shut down/removed with memory usage recovered; no shared-host Docker/network settings changed. See the [40-session authentic screenshot specification](SCREENSHOT_RUNBOOK_40.fa.md) for exact per-topic GUI menu, input and result captures still required.
+
+**Current publication boundary:** 2 authentic screenshots across a partial first-login scenario, **zero complete screenshot-verified lessons, zero newly qualified published lessons, zero native WordPress scheduled lessons**. Images are on the GitHub working branch, **not in WordPress media**, due to WPVibe's rolling daily cap. Earlier baseline statements of “zero original application screenshots” below are historical checkpoints before these two captures, not the current image count.
+
 ## Disposition
 
 The bounded static-review findings have been resolved in the source package. The course remains a set of non-public working drafts: **zero lab-verified lessons, zero original application screenshots, zero publication-ready lessons and zero new public releases from this package**. Editor-save validation and scoped site-release qualification remain pending. Existing published course owners are separate from these working drafts.
