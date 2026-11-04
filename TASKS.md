@@ -1,3 +1,9 @@
+## CURRENT — 2026-11-04 MTCNA microcourse READABLE_SOURCE_PREPARED / WP_DRAFT_30 / WP_FUTURE_0
+
+MTCNA TehNet: target 40 concise 10–15 min sessions. Existing 24 WordPress drafts IDs232–255 plus six new drafts IDs262/265/266/267/268/269 remain draft, none native Scheduled. Session mapping has 29 usable current WP draft links and 11 new GitHub-only Markdown sources (01/11/15/18/23/26/28/30/32/36/40); legacy ID255 remains separately for review. Eleven full source drafts, three original explanatory SVG diagrams and a 40-row preview/editor link index are committed to this branch. Sources are not proof of RouterOS execution or real screenshots. WPVibe free cap reached before WP imports/edits; no banked reset consumed. See `content/mtcna/microcourse-drafts/PREVIEW_INDEX.fa.md`, `content/mtcna/microcourse-draft-receipts-2026-11-04.json` and `content/mtcna/MTCNA_OFFICIAL_COVERAGE_GAP_AUDIT_2026-11-04.fa.md`. Official linked syllabus is dated 2016 and requires RouterOS7-specific validation.
+
+Existing publication automation still anchors Saturday 2026-11-07 09:00 Asia/Tehran and every three days. A separate draft-preparation automation begins 2026-11-05 at 16:15 Tehran. **Neither signifies publication.** No material may be marked ready/future/published absent lab execution, original application screenshots, rollback, expert review, Gutenberg editor-save and existing scoped release gates. Keep site noindex, published MTCNA canonical owners40/62–67, YouTube attribution and all unrelated services unchanged. PR82 still needs review/merge qualification; do not overwrite concurrent main work.
+
 ## SCOPED MTCNA CHECKPOINT — 2026-11-04 — DRAFTS_SAVED_SCHEDULE_ACTIVE_LAB_PENDING
 
 بستهٔ آماده‌سازی در PR 82 ثبت شد: https://github.com/DashSaman/TehNet/pull/82 . وضعیت CI همان PR مربوط به حفاظت مخزن است و جای آزمون RouterOS یا صلاحیت انتشار را نمی‌گیرد.
