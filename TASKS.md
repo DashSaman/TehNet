@@ -1,3 +1,9 @@
+## CURRENT —2026-11-04 service-depth package IN_PROGRESS
+
+اصلاح آموزشی PR76/77 و انتقال درس رسانه در -SEO#24 واقعاً ادغام/منتشر شده‌اند؛ دوباره اجرا نشوند. اکنون در شاخه feat/server-branch-depth-20261104، دو ماژول سرور/مجازی‌سازی و ارتباط شعب روی همان ID33/URL راه‌اندازی شبکه آماده شده‌اند. منبع فعلی با بدنهٔ زنده به هش6042d2d تطبیق شد. دامنهٔ تازه فقط post_content یک صفحه،0فایل runtime/0فرم/0URL جدید است؛ CTAها به همان server-scoping و wifi-branch-scoping موجود می‌روند. title/excerpt/meta و تمام داده‌های محافظت‌شده باید بمانند.
+
+منابع مشخص Microsoft checkpoint و MikroTik WireGuard peers در4نوامبر خوانده شدند؛ مثال‌ها فرضی‌اند و سرور/شبکه/restore واقعی آزموده نشده است. unittest مرزها RED برای scope غایب و سپس29آزمون با28PASS/1SKIP شد. native staging/مرورگر/production این بسته هنوز NOT_RUN است. مسیر بعد: qualify/apply/repeat/rollback و بررسی CTAهای زمینه‌دار، سپس PR/CI و انتشار مشروط به همان قرارداد. noindex، MyTel، پرداخت و گیت‌های امنیتی ثابت‌اند؛ Issues75/63 باز بمانند.
+
 ## CURRENT — 2026-11-04 / DEPLOYED_VERIFIED educational attribution
 
 PR76 ادغام و CI41842630607 موفق شد. استقرار محدود از main `75178a11c4f47f9ad5892de345dc547087a42d09` با payload برابر source native `c2373f1`، backup تازه/checksum، preflight/drift و rollback qualifyشده انجام شد. هشت body/excerpt و titleهای62/67 اصلاح شدند؛0فایل runtime/0صفحهٔ تازه/0ارسال فرم production. هشت URL واقعی با TLS و536بررسی مرورگر زنده تأیید شدند. کل داده‌های محافظت‌شده،25قلم و image/price/inquiry، runtimeها، theme/menu، cron، CAPTCHA، noindex و پرداخت بدون تغییر‌اند. receipt: `docs/evidence/2026-11-04/production-verification.json`؛ تصاویر live کنار receipt هستند.

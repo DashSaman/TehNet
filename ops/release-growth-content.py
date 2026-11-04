@@ -41,6 +41,7 @@ COMMERCIAL_CATALOG_SCOPE = 'tehnet-commercial-catalog-20261101-v1'
 CORPORATE_SCOPE = 'tehnet-corporate-ui-20261101-v1'
 PHONE_SCOPE = 'tehnet-phone-rtl-20261101-v1'
 EDUCATION_SCOPE = 'tehnet-educational-integrity-20261104-v1'
+SERVER_BRANCH_SCOPE = 'tehnet-service-server-branch-20261104-v1'
 EDUCATION_BODIES = ['mtcna.html', 'routeros-winbox.html', 'ip-dhcp-dns.html',
     'static-routing.html', 'nat-masquerade.html', 'firewall-basics.html',
     'queues-troubleshooting.html', 'mtcna-learning-path.html']
@@ -75,11 +76,17 @@ CONTENT_SCOPES = {**LESSON_SCOPES,
     NETWORK_SETUP_SCOPE: ('content/network-setup-2026-11-01', 'network-setup.html', '/tmp/tn-network-setup-release-'),
     REMOTE_SUPPORT_SCOPE: ('content/remote-support-2026-11-01', 'remote-support.html', '/tmp/tn-remote-support-release-'),
     MIKROTIK_SERVICE_SCOPE: ('content/mikrotik-service-2026-11-01', 'mikrotik-service.html', '/tmp/tn-mikrotik-service-release-'),
+    SERVER_BRANCH_SCOPE: ('content/server-branch-2026-11-04', 'network-setup.html', '/tmp/tn-server-branch-release-'),
 }
 GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE, GALLERY_KEYBOARD_SCOPE, COMMERCIAL_CATALOG_SCOPE, CORPORATE_SCOPE, PHONE_SCOPE, EDUCATION_SCOPE]
 
 
 def scope_spec(scope):
+    if scope == SERVER_BRANCH_SCOPE:
+        directory, body, _ = CONTENT_SCOPES[scope]
+        # Match the current closed preview dependencies without owning their files.
+        return [], [directory + '/manifest.json', directory + '/' + body,
+            'ops/migrate-growth-content.php'], scope_spec(EDUCATION_SCOPE)[2]
     if scope == EDUCATION_SCOPE:
         directory = 'content/educational-integrity-2026-11-04/'
         return [], [directory + 'manifest.json', *[directory + f for f in EDUCATION_BODIES],

@@ -13,6 +13,16 @@ SOURCE = Path(__file__).resolve().parents[1] / 'ops/release-growth-content.py'
 
 
 class ReleaseBoundaries(unittest.TestCase):
+    def test_server_branch_scope_is_one_body_with_current_preview_dependencies(self):
+        files, extra, guarded = self.module.scope_spec('tehnet-service-server-branch-20261104-v1')
+        self.assertEqual(files, [])
+        self.assertEqual(extra, ['content/server-branch-2026-11-04/manifest.json',
+            'content/server-branch-2026-11-04/network-setup.html', 'ops/migrate-growth-content.php'])
+        for dependency in ['site/plugins/tehnet-store/includes/class-recaptcha.php',
+                'site/plugins/tehnet-store/tehnet-store.php', 'site/mu-plugins/tehnet-search-metadata.php',
+                'site/themes/tehnet/assets/fonts/Estedad.woff2', 'site/themes/tehnet/assets/css/corporate.css']:
+            self.assertIn(dependency, guarded)
+
     def test_educational_integrity_scope_owns_eight_bodies_and_zero_runtime(self):
         spec = importlib.util.spec_from_file_location('education_release', SOURCE)
         module = importlib.util.module_from_spec(spec)
