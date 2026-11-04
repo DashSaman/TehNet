@@ -1,6 +1,6 @@
 # راهنمای تصویری و سناریوی جداگانهٔ ضبط —۴نوامبر۲۰۲۶
 
-وضعیت پایلوت: **VERIFIED_STAGING_NOT_DEPLOYED**.
+وضعیت پایلوت: **DEPLOYED_VERIFIED**.
 
 درخواست تازهٔ مالک: متن مرحله‌ای همراه تصویر، مشخص‌کردن گزینهٔ قابل کلیک و نگهداری جداگانهٔ لحن/شیوه/زمان‌بندی هر قسمت در ریپو. در مقالهٔ موجود64، چهار مرحلهٔ تصویری با نام دقیق و پررنگِ گزینه‌ها، دلیل انتخاب، نتیجهٔ مورد انتظار، alt/شرح کنار تصویر و پیوند اندازهٔ اصلی اضافه شد. متن فنی قبلی حفظ است. طرح آدرس مثال قبلی مقاله با مدل مرورگری متفاوت است؛ این تفاوت صریح نوشته شد.
 
@@ -25,3 +25,9 @@
 ## پذیرش بومی نهایی
 
 Source `795c4a1f4fc2a764e8d5448da05d4e4da0c397ad` با49بررسی native،7بررسی renderer و200بررسی مستقل browser موفق شد؛ apply/repeat/rollback/repeat و exact restore همهٔ داده/revision/meta/فایل/runtime،0تغییر production و0ارسال. چهار PNG و فقط body64؛ مسیر واقعی مقاله به Lab، انتخاب‌ها، full-size، تم‌ها و320no-JS بررسی شد. before تصویر مقالهٔ زندهٔ بدون راهنما و after تصویر staging پس از apply است؛ viewport375 یکسان ولی scroll متفاوت است. [رسید و تصاویر](../evidence/2026-11-04/illustrated-routing/native-staging.json). بسته هنوز منتشر نشده؛ گام بعد PR/CI و برابری payload با همین qualification، backup/checksum/drift/rollback و پذیرش مستقل زنده است.
+
+## انتشار و بررسی مستقل زنده
+
+PR85/CI41885620513 موفق؛ source `f1a6764ee34f77b3ddd8ab88fc6a6e88ada220f3` با payload برابر qualified `795c4a1f4fc2a764e8d5448da05d4e4da0c397ad`، پس از کنترل receipt/live213 واقعیِ ابزار پیشین، backup تازه/checksum/drift/rollback منتشر شد. فقط body64 و4PNG،0runtime اجرایی و0صفحهٔ تازه. HTML/canonical/noindex، هر4بایت تصویر باTLS، هر دو ابزار Lab،5مسیر عمومی و دادهٔ25قلم/کنترل‌های پرداخت/CAPTCHA/theme/cron/runtime بررسی و حفظ شدند.200بررسی مستقل browser روی production، ازجمله بازشدن full-size در موبایل و مسیر واقعی مقاله به تمرین و پاسخ رفت/برگشت، موفق؛0فرم ارسال شد.3تصویر واقعیِ مرحله در صفحهٔ زنده با viewportهای1440x1200 و375x1200 ثبت شد. [رسید و تصاویر live](../evidence/2026-11-04/illustrated-routing/production-verification.json).
+
+این انتشار دوباره اجرا نشود. وضعیت‌های NOT_DEPLOYED در checkpointهای پیشین تاریخی‌اند. گام بعد: لاب CHR/WinBox مجاز با نسخهٔ واقعاً ثبت‌شده، rehearsal و capture واقعیِ پایلوت اولیهٔ PR79؛ سپس گسترش فرمت به درس‌های آماده. هیچ تصویر یا نتیجهٔ جعلی برای پرکردن کمبود لاب ساخته نشده و تمام8ضبط هنوز full audio/screen UNVERIFIED هستند.
