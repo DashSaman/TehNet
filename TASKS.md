@@ -1,8 +1,8 @@
-## CURRENT —2026-11-04 illustrated guide and per-recording scripts IN_PROGRESS
+## CURRENT —2026-11-04 illustrated guide VERIFIED_STAGING_NOT_DEPLOYED
 
-درخواست تازهٔ مالک: پایلوت مصور روی article64 با4تصویر واقعی Lab، گزینه‌های کلیک پررنگ و پیوند اندازهٔ اصلی؛9فایل سناریوی ضبط تازه/72نما با لحن، گویندگی و زمان هدف جدا در content/video-production/2026-11-04/. نه transcript و نه مدت واقعیِ ضبط قدیمی؛0ویدیوی تازه. scope فقط4PNG/body64 و guard هر دو ابزار. وضعیت NOT_DEPLOYED/PENDING_NATIVE_QUALIFICATION؛ report: docs/reports/ILLUSTRATED_ROUTING_2026-11-04.fa.md. تصویر واقعی WinBox برای همهٔ درس‌ها به لاب ایزولهٔ نسخه‌ثبت‌شده وابسته است؛ Docker daemon محلی در دسترس نبود و شبکه/سرویس مشترک تغییر نکرد.
+درخواست تازهٔ مالک: پایلوت مصور روی article64 با4تصویر واقعی Lab، گزینه‌های کلیک پررنگ و پیوند اندازهٔ اصلی؛9فایل سناریوی ضبط تازه/72نما با لحن، گویندگی و زمان هدف جدا در content/video-production/2026-11-04/. نه transcript و نه مدت واقعیِ ضبط قدیمی؛0ویدیوی تازه. scope فقط4PNG/body64 و guard هر دو ابزار. وضعیت VERIFIED_STAGING_NOT_DEPLOYED؛ source795c4a1 با native49/renderer7/browser200 و exact restore،0production/ارسال؛ report: docs/reports/ILLUSTRATED_ROUTING_2026-11-04.fa.md. تصویر واقعی WinBox برای همهٔ درس‌ها به لاب ایزولهٔ نسخه‌ثبت‌شده وابسته است؛ Docker daemon محلی در دسترس نبود و شبکه/سرویس مشترک تغییر نکرد.
 
-گام بعد: native WordPress/image-boundary/repeat/rollback/drift، browser desktop/mobile/no-JS و مسیر مقاله به تمرین، exact restore؛ سپس scan/commit/CI و انتشار مشروط. PR84، receipt زندهٔ A+B و بازبینی متن redacted هفت منبع ادغام شد؛ playback کامل8ضبط همچنان UNVERIFIED و Issues63/75 بازند. هیچ publisher قبلی یا اتوماسیون متوقف‌شده‌ای دوباره اجرا نشود.
+گام بعد: scan/commit/PR/CI؛ انتشار تنها payload یکسان با native، backup تازه/checksum/drift/rollback و سپس پذیرش زنده. سه تلاش قبلی غیرواجد انتشار دقیقاً بازیابی شدند؛ شرح sanitized در report و خام در محل خصوصی است. PR84، receipt زندهٔ A+B و بازبینی متن redacted هفت منبع ادغام شد؛ playback کامل8ضبط همچنان UNVERIFIED و Issues63/75 بازند. هیچ publisher قبلی یا اتوماسیون متوقف‌شده‌ای دوباره اجرا نشود.
 
 ## PREVIOUS —2026-11-04 both Lab tools DEPLOYED_VERIFIED
 

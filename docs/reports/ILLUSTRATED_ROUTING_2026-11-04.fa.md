@@ -1,6 +1,6 @@
 # راهنمای تصویری و سناریوی جداگانهٔ ضبط —۴نوامبر۲۰۲۶
 
-وضعیت پایلوت: **IMPLEMENTED_PENDING_NATIVE_QUALIFICATION؛ NOT_DEPLOYED**.
+وضعیت پایلوت: **VERIFIED_STAGING_NOT_DEPLOYED**.
 
 درخواست تازهٔ مالک: متن مرحله‌ای همراه تصویر، مشخص‌کردن گزینهٔ قابل کلیک و نگهداری جداگانهٔ لحن/شیوه/زمان‌بندی هر قسمت در ریپو. در مقالهٔ موجود64، چهار مرحلهٔ تصویری با نام دقیق و پررنگِ گزینه‌ها، دلیل انتخاب، نتیجهٔ مورد انتظار، alt/شرح کنار تصویر و پیوند اندازهٔ اصلی اضافه شد. متن فنی قبلی حفظ است. طرح آدرس مثال قبلی مقاله با مدل مرورگری متفاوت است؛ این تفاوت صریح نوشته شد.
 
@@ -21,3 +21,7 @@
 سه تلاش staging پیش از پذیرش نهایی متوقف شدند؛ همه با0تغییر production و بازیابی دقیقِ داده/فایل/runtime بسته شدند. اول، adapter خصوصی هنوز filter مسیر بستهٔ پیشین و snapshot فقط7/8 را داشت؛ ورود64 در پوشش snapshot بررسی نشده بود. رکورد64 با snapshot نگه‌داشته‌شده، داخل transaction و فقط پس از تطبیق fingerprint کاملِ تازهٔ پیش از اجرا بازیابی شد؛ cleanup برای فایل/پوشهٔ متعلق به تست که قبلاً حذف شده بود، تکرارپذیر شد. پیش از تلاش بعد، snapshot تمام3fixture و وجود هر دو artifact موردنیاز گیت شدند.
 
 دوم، WordPress واقعی bdi را نپذیرفت و شکل img را canonical کرد. همان markup به code با dir و شکل img پذیرفته‌شده تغییر کرد؛ probe خواندنی native دیگر هیچ diff نداشت. هیچ sanitization guard ضعیف نشد. سوم،49بررسی native قبول شد، اما ساخت دو سطح پوشهٔ تازهٔ تصویر در اپراتور انتشار FileNotFoundError داد. ساخت فقط والدهای لازم با journal پوشه‌های واقعاً ساخته‌شده و حذف فقط پوشهٔ خالیِ متعلق به release در rollback اصلاح شد. آزمون nested-parent/rollback/حفظ فایل نویسندهٔ دیگر/مسیر خارج root ابتدا RED بود؛ سپس36آزمون اپراتور،35PASS/1SKIP Windows شدند. این نتایج، جای پذیرش browser و production نهایی نیستند. لاگ و snapshot خام در محل خصوصی نگهداری می‌شوند.
+
+## پذیرش بومی نهایی
+
+Source `795c4a1f4fc2a764e8d5448da05d4e4da0c397ad` با49بررسی native،7بررسی renderer و200بررسی مستقل browser موفق شد؛ apply/repeat/rollback/repeat و exact restore همهٔ داده/revision/meta/فایل/runtime،0تغییر production و0ارسال. چهار PNG و فقط body64؛ مسیر واقعی مقاله به Lab، انتخاب‌ها، full-size، تم‌ها و320no-JS بررسی شد. before تصویر مقالهٔ زندهٔ بدون راهنما و after تصویر staging پس از apply است؛ viewport375 یکسان ولی scroll متفاوت است. [رسید و تصاویر](../evidence/2026-11-04/illustrated-routing/native-staging.json). بسته هنوز منتشر نشده؛ گام بعد PR/CI و برابری payload با همین qualification، backup/checksum/drift/rollback و پذیرش مستقل زنده است.
