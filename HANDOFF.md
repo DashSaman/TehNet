@@ -1,4 +1,26 @@
-## CURRENT —2026-11-04 manual network triage VERIFIED_STAGING_NOT_DEPLOYED
+## CURRENT —2026-11-04 manual triage DEPLOYED_VERIFIED; conceptual B staged
+
+PR81/CI41862506291 موفق؛ source380d6f6 با payload برابر native7d90b4b،4فایل/post_content7، backup تازه/checksum/drift/rollback منتشر شد.257بررسی مستقل زنده، دانلود/شروع متن/تم/no-JS و فرم context/nonce/action،0ارسال؛ protected data/25قلم/runtime/noindex/payment/CAPTCHA/theme/cron محفوظ. receipt: docs/evidence/2026-11-04/network-triage/production-verification.json. صف پیشین CI پایان یافت؛ علت UNKNOWN، هیچ runner/billing/rerun تغییر ندادیم. A دوباره اجرا نشود.
+
+B sourceb13ee38 با native44/renderer7/site213 واجد آزمون است؛ PR83 اکنون به main retarget و از draft خارج شود، سپس CI دقیق head فعلی و انتشار با شرط A receipt/live257، برابری native bundle وbackup/drift/rollback. تا receipt B، NOT_DEPLOYED. شاخه B/تمام تغییرات حفظ شوند؛ قبل از sync main snapshot خصوصی لازم است. کل دوره/مدل CAD/اعتماد و مسائل امنیتی باز می‌مانند؛ MyTel read-only، noindex/payment،63/75 و parity نامحرز حفظ‌اند.
+
+## HISTORICAL CHECKPOINT —2026-11-04 conceptual Lab VERIFIED_STAGING; A/B production BLOCKED_CI
+
+FeatureB sourceb13ee38391937f4088a794c3298b118639c62ba9 با native44/renderer7/site213 تأیید؛4runtime-file+post_content7،0page/backend، هر دو ابزار مستقل، توپولوژی/انتخاب/حرکت بسته و no-JS در1440/768/375/320 روشن/تیره. تمام original data/revisions/fixture/files/runtime دقیقاً بازیابی؛0ارسال و0تغییر production. receipt: docs/evidence/2026-11-04/conceptual-routing/native-staging.json. مدل محدود است؛ packet/RouterOS واقعی یا سنجش مشتری نیست.
+
+گام بعد PR بازبینی B با base شاخه A؛ سپس فقط پس از CI سبز و production receipt واقعی A، retarget main و gateهای انتشار B. PR81/headbc9f126 و CI41862506291 هنوز queued/runner-unassigned مشاهده شدند؛ علت UNKNOWN، شکست آزمون نیست و bypass/runner/billing/rerun مجاز نشده. برای انتشار A، به شاخه A تمیز برگردید و پس از green CI/merge با snapshot خصوصی latest main را ff کنید؛ publisher A نباید از source شاخه B اجرا شود. هیچ local edit از بین نرود.
+
+خدمات78/کاتالوگ80/آموزش76/77 واقعاً منتشرند؛ دوباره اجرا نشوند. MyTel read-only، noindex/payment/security/rotation/history/origin/CAPTCHA ثابت؛63/75 باز و parity نامحرز. بازبینی کامل8ضبط، CAD دقیق25قلم و شواهد اعتماد/نتیجهٔ واقعی بازند؛ داده ساختگی تولید نشود.
+
+## HISTORICAL CHECKPOINT —2026-11-04 conceptual routing Lab SOURCE_READY; A production BLOCKED_CI
+
+FeatureB در شاخه مستقل feat/conceptual-routing-lab-20261104 پیاده:4گره، مسیر رفت/برگشت مستقل، prefix/next-hop، حرکت گام‌به‌گام و پاسخ محدود آموزشی؛ نه emulator/RouterOS/شبکهٔ واقعی.5آزمون مدل شامل16جفت انتخاب و unknown درست؛ مجموعNode9PASS. scope32 با31PASS/1Windows SKIP پس ازRED.4runtime-file+post_content7، حفظA/محتوای قبلی وguard سه فایلA؛ native/site هنوز NOT_RUN. گزارش docs/reports/CONCEPTUAL_ROUTING_LAB_2026-11-04.fa.md؛ گام بعد native/renderer/site و exact restore.
+
+FeatureA source7d90b4b با native44/site257 واجد آزمون است؛ PR81 headbc9f126، CI41862506291 هنوز queued با0runner assigned برای2job ubuntu-latest. علت صف UNKNOWN؛ نه شکست آزمون و نه مجوز bypass. تا CI سبز، ادغام/production A انجام نشود. شاخه A/head آن را تغییر ندهید. B نیز پیش از production receipt واقعی A منتشر نشود. مرحلهٔ B مستقل و staging مجاز است.
+
+خدمات78 و کاتالوگ80 و آموزش76/77 واقعاً منتشر شده‌اند و دوباره اجرا نشوند. MyTel read-only، noindex/payment/security/rotation/history/origin/CAPTCHA ثابت؛63/75 باز و parity نامحرز. هیچ اتوماسیون متوقف‌شده‌ای فعال نشده است.
+
+## HISTORICAL CHECKPOINT —2026-11-04 manual network triage VERIFIED_STAGING_NOT_DEPLOYED
 
 Source7d90b4b58d6186edbfab10800d53fd639a1ca9f6 با native44 و site-browser257 پس از اصلاح گزارش موبایل qualify شد؛ همهٔ گزارش‌ها از ابتدای متن باز می‌شوند.7مسئله،3مرحله، unknown/text/JSON،1440/768/375/320 دو تم/no-JS، CTA تا فرم/context/nonce/action فعلی و بارگیری شرطی فایل‌ها تأیید.4runtime-file وpost_content7،0page/0backend؛ همهٔ داده/revision/fixture/files/runtime دقیقاً بازیابی،0ارسال و0تغییر production. receipt: docs/evidence/2026-11-04/network-triage/native-staging.json.
 

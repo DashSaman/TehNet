@@ -50,6 +50,13 @@ NETWORK_TRIAGE_FILES = [
     'site/mu-plugins/tehnet-technical-resources/network-troubleshooting.css',
     'site/mu-plugins/tehnet-technical-resources.php',
 ]
+CONCEPTUAL_ROUTING_SCOPE = 'tehnet-lab-conceptual-routing-20261104-v1'
+CONCEPTUAL_ROUTING_FILES = [
+    'site/mu-plugins/tehnet-technical-resources/static-routing-lab.php',
+    'site/mu-plugins/tehnet-technical-resources/static-routing-lab.js',
+    'site/mu-plugins/tehnet-technical-resources/static-routing-lab.css',
+    'site/mu-plugins/tehnet-technical-resources.php',
+]
 EDUCATION_BODIES = ['mtcna.html', 'routeros-winbox.html', 'ip-dhcp-dns.html',
     'static-routing.html', 'nat-masquerade.html', 'firewall-basics.html',
     'queues-troubleshooting.html', 'mtcna-learning-path.html']
@@ -80,6 +87,7 @@ LESSON_SCOPES = {
     IP_DHCP_DNS_SCOPE: ('content/ip-dhcp-dns-editorial-2026-11-01', 'ip-dhcp-dns.html', '/tmp/tn-ip-dhcp-dns-release-'),
 }
 CONTENT_SCOPES = {**LESSON_SCOPES,
+    CONCEPTUAL_ROUTING_SCOPE: ('content/conceptual-routing-2026-11-04', 'lab.html', '/tmp/tn-conceptual-routing-release-'),
     NETWORK_TRIAGE_SCOPE: ('content/network-triage-2026-11-04', 'lab.html', '/tmp/tn-network-triage-release-'),
     SERVICE_DISCOVERY_SCOPE: ('content/service-discovery-2026-11-04', 'services.html', '/tmp/tn-service-discovery-release-'),
     SUPPORT_SCOPE: ('content/network-support-2026-11-01', 'network-support.html', '/tmp/tn-network-support-release-'),
@@ -92,6 +100,11 @@ GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE, GALLE
 
 
 def scope_spec(scope):
+    if scope == CONCEPTUAL_ROUTING_SCOPE:
+        directory, body, _ = CONTENT_SCOPES[scope]
+        guarded = list(dict.fromkeys(scope_spec(EDUCATION_SCOPE)[2] + NETWORK_TRIAGE_FILES))
+        return CONCEPTUAL_ROUTING_FILES, [directory + '/manifest.json', directory + '/' + body,
+            'ops/migrate-growth-content.php'], [p for p in guarded if p not in CONCEPTUAL_ROUTING_FILES]
     if scope == NETWORK_TRIAGE_SCOPE:
         directory, body, _ = CONTENT_SCOPES[scope]
         return NETWORK_TRIAGE_FILES, [directory + '/manifest.json', directory + '/' + body,

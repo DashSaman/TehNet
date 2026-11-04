@@ -13,6 +13,19 @@ SOURCE = Path(__file__).resolve().parents[1] / 'ops/release-growth-content.py'
 
 
 class ReleaseBoundaries(unittest.TestCase):
+    def test_conceptual_routing_scope_preserves_installed_manual_triage(self):
+        files, extra, guarded = self.module.scope_spec('tehnet-lab-conceptual-routing-20261104-v1')
+        self.assertEqual(files, [
+            'site/mu-plugins/tehnet-technical-resources/static-routing-lab.php',
+            'site/mu-plugins/tehnet-technical-resources/static-routing-lab.js',
+            'site/mu-plugins/tehnet-technical-resources/static-routing-lab.css',
+            'site/mu-plugins/tehnet-technical-resources.php'])
+        self.assertEqual(extra, ['content/conceptual-routing-2026-11-04/manifest.json',
+            'content/conceptual-routing-2026-11-04/lab.html', 'ops/migrate-growth-content.php'])
+        for ext in ['php','js','css']:
+            self.assertIn('site/mu-plugins/tehnet-technical-resources/network-troubleshooting.' + ext, guarded)
+        self.assertTrue(set(files).isdisjoint(guarded))
+
     def test_manual_triage_scope_owns_only_component_files_and_lab_body(self):
         files, extra, guarded = self.module.scope_spec('tehnet-lab-network-triage-20261104-v1')
         self.assertEqual(files, [

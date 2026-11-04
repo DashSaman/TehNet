@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_STAGING_NOT_DEPLOYED",
+  "scope": "tehnet-lab-conceptual-routing-20261104-v1",
+  "source_commit": "b13ee38391937f4088a794c3298b118639c62ba9",
+  "native_migration_checks": 44,
+  "native_renderer_checks": 7,
+  "site_browser_checks": 213,
+  "browser_observed_utc": "2026-11-04T16:18:31.054Z",
+  "owner_id": 7,
+  "owner_url": "https://tehnet.ir/lab/",
+  "runtime_files_changed": 4,
+  "existing_bodies_changed": 1,
+  "new_pages": 0,
+  "viewports": [
+    1440,
+    768,
+    375,
+    320
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "no_js_width": 320,
+  "submissions": 0,
+  "production_mutations": 0,
+  "before_tool_absent": true,
+  "prior_manual_tool_preserved": true,
+  "requires_prior_deployed_scope": "tehnet-lab-network-triage-20261104-v1",
+  "all_original_posts_meta_users_revisions_restored": true,
+  "all_original_runtime_files_restored": true,
+  "all_existing_runtimes_unchanged": true,
+  "screenshots_sha256": {
+    "before-routing-375-light.png": "85fdbc8c0e9531042a019c117e192c6a28d88e1e07b6e554fddfce588ce3b3a3",
+    "after-routing-1440-light.png": "84d84b4f0851b3b0273a23aee1b675b5009f25da043899534f818e5a15166ad4",
+    "after-routing-375-dark.png": "fb8d58ef3db8cb418e9f2962922d187915e8c6a704fa208dff89c3d17630cc00",
+    "after-routing-320-nojs.png": "d2b423a052c4a148cb43e13bfe5e725a4ad6f74fa347c5a0f9192fd44ad6f9ec"
+  },
+  "limits": [
+    "Fixed conceptual model with explicit assumptions, not RouterOS/GNS3 emulation, real packets or configuration execution.",
+    "Documentation-only address ranges, no operational destination or customer technical outcome.",
+    "No parity, ranking, traffic or conversion result."
+  ]
+}

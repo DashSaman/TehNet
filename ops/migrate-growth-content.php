@@ -5,6 +5,7 @@ final class TehNet_Growth_Content_Migration {
     private const EDUCATION_SCOPE='tehnet-educational-integrity-20261104-v1';
     private const EDUCATION_PATHS=[40=>'mtcna',62=>'routeros-winbox',63=>'ip-dhcp-dns',64=>'static-routing',65=>'nat-masquerade',66=>'firewall-basics',67=>'queues-troubleshooting',70=>'mtcna-learning-path'];
     private const EXISTING_PAGE_SCOPES=[
+        'tehnet-lab-conceptual-routing-20261104-v1'=>['id'=>7,'uri'=>'lab','file'=>'lab.html','shortcodes'=>['[tn_network_troubleshooting]','[tn_static_routing_lab]']],
         'tehnet-lab-network-triage-20261104-v1'=>['id'=>7,'uri'=>'lab','file'=>'lab.html','shortcodes'=>['[tn_network_troubleshooting]']],
         'tehnet-service-discovery-20261104-v1'=>['id'=>8,'uri'=>'services','file'=>'services.html','catalog'=>true],
         'tehnet-editorial-routeros-20261101-v1'=>['id'=>62,'uri'=>'learn/mikrotik/mtcna/routeros-winbox','file'=>'routeros-winbox.html'],

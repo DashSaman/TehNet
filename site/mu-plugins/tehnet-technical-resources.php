@@ -1,13 +1,14 @@
 <?php
 /** Plugin Name: TehNet Technical Resources
  * Description: Local calculation, manual decision support and visible editorial attribution. No telemetry or router changes.
- * Version: 0.3.0
+ * Version: 0.4.0
  */
 declare(strict_types=1);
 namespace TehNet\TechnicalResources;
 defined('ABSPATH') || exit;
 require_once __DIR__.'/tehnet-technical-resources/network-readiness.php';
 require_once __DIR__.'/tehnet-technical-resources/network-troubleshooting.php';
+require_once __DIR__.'/tehnet-technical-resources/static-routing-lab.php';
 
 function wireguard_mtu(int $path,int $outer_ip): int {
     if (!in_array($outer_ip,[4,6],true) || $path<($outer_ip===6?1280:576) || $path>9000)
