@@ -57,6 +57,11 @@ CONCEPTUAL_ROUTING_FILES = [
     'site/mu-plugins/tehnet-technical-resources/static-routing-lab.css',
     'site/mu-plugins/tehnet-technical-resources.php',
 ]
+ILLUSTRATED_ROUTING_SCOPE = 'tehnet-illustrated-routing-20261104-v1'
+ILLUSTRATED_ROUTING_FILES = [
+    'site/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/' + name + '.png'
+    for name in ['r1-forward', 'return-missing', 'return-correct', 'return-steps']
+]
 EDUCATION_BODIES = ['mtcna.html', 'routeros-winbox.html', 'ip-dhcp-dns.html',
     'static-routing.html', 'nat-masquerade.html', 'firewall-basics.html',
     'queues-troubleshooting.html', 'mtcna-learning-path.html']
@@ -87,6 +92,7 @@ LESSON_SCOPES = {
     IP_DHCP_DNS_SCOPE: ('content/ip-dhcp-dns-editorial-2026-11-01', 'ip-dhcp-dns.html', '/tmp/tn-ip-dhcp-dns-release-'),
 }
 CONTENT_SCOPES = {**LESSON_SCOPES,
+    ILLUSTRATED_ROUTING_SCOPE: ('content/illustrated-routing-2026-11-04', 'static-routing.html', '/tmp/tn-illustrated-routing-release-'),
     CONCEPTUAL_ROUTING_SCOPE: ('content/conceptual-routing-2026-11-04', 'lab.html', '/tmp/tn-conceptual-routing-release-'),
     NETWORK_TRIAGE_SCOPE: ('content/network-triage-2026-11-04', 'lab.html', '/tmp/tn-network-triage-release-'),
     SERVICE_DISCOVERY_SCOPE: ('content/service-discovery-2026-11-04', 'services.html', '/tmp/tn-service-discovery-release-'),
@@ -100,6 +106,11 @@ GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE, GALLE
 
 
 def scope_spec(scope):
+    if scope == ILLUSTRATED_ROUTING_SCOPE:
+        directory, body, _ = CONTENT_SCOPES[scope]
+        guarded = list(dict.fromkeys(scope_spec(EDUCATION_SCOPE)[2] + NETWORK_TRIAGE_FILES + CONCEPTUAL_ROUTING_FILES))
+        return ILLUSTRATED_ROUTING_FILES, [directory + '/manifest.json', directory + '/' + body,
+            'ops/migrate-growth-content.php'], guarded
     if scope == CONCEPTUAL_ROUTING_SCOPE:
         directory, body, _ = CONTENT_SCOPES[scope]
         guarded = list(dict.fromkeys(scope_spec(EDUCATION_SCOPE)[2] + NETWORK_TRIAGE_FILES))
@@ -520,6 +531,22 @@ class Release:
         self.state['files'] = entries
         self.save()
 
+    def create_parents(self, rel, uid, gid):
+        destination = member(self.root, rel)
+        missing = []
+        parent = destination.parent
+        while parent != self.root and not parent.exists():
+            missing.append(parent.relative_to(self.root).as_posix())
+            parent = parent.parent
+        for name in reversed(missing):
+            directory = member(self.root, name)
+            directory.mkdir(mode=0o755)
+            self.state.setdefault('created_directories', []).append(name)
+            self.save()  # Record only directories actually created by this release.
+            directory.chmod(0o755)
+            if uid is not None:
+                os.chown(directory, uid, gid)
+
     def restore_files(self):
         validate_restore(self.root, self.state['files'])
         for rel, row in self.state['files'].items():
@@ -539,6 +566,10 @@ class Release:
                     raise RuntimeError('Private file backup checksum mismatch')
                 atomic_write(path, old, row['mode'], row['uid'], row['gid'])
         self.file_guard()
+        for rel in reversed(self.state.get('created_directories', [])):
+            directory = member(self.root, rel)
+            if directory.exists():
+                directory.rmdir()  # Never recursively remove another writer's files.
 
     def rollback(self):
         if not self.state or self.state['status'] not in ('APPLIED', 'ROLLED_BACK'):
@@ -582,10 +613,7 @@ class Release:
                 row = self.state['files'][rel.removeprefix('site/')]
                 self.file_guard_partial(rel)
                 destination = member(self.root, rel.removeprefix('site/'))
-                if not destination.parent.exists():
-                    destination.parent.mkdir(mode=0o755)
-                    destination.parent.chmod(0o755)
-                    os.chown(destination.parent, row['uid'], row['gid'])
+                self.create_parents(rel.removeprefix('site/'), row['uid'], row['gid'])
                 atomic_write(destination, member(self.b / 'payload', rel).read_bytes(), row['mode'], row['uid'], row['gid'])
             self.file_guard(after=True)
             self.state['status'] = 'FILES_APPLIED'

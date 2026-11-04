@@ -1,0 +1,728 @@
+{
+  "schema": 1,
+  "date": "2026-11-04",
+  "purpose": "New recording production scripts, not transcripts or chapters of existing videos",
+  "actual_recordings_created": 0,
+  "entries": [
+    {
+      "key": "01-routeros-overview",
+      "file": "01-routeros-overview.fa.md",
+      "title": "RouterOS، معماری و انتخاب ابزار مدیریت",
+      "archive_source_id": "Wbj3C0g__zw",
+      "existing_article_url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+      "status": "DRAFT_NEW_RECORDING",
+      "target_duration_seconds": 480,
+      "actual_duration_seconds": null,
+      "technical_rehearsal": null,
+      "editor_approval": null,
+      "existing_video_attribution_approved": false,
+      "source_topic_unknown": false,
+      "shots": [
+        {
+          "index": 1,
+          "target_start_seconds": 0,
+          "target_end_seconds": 60,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 2,
+          "target_start_seconds": 60,
+          "target_end_seconds": 120,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 3,
+          "target_start_seconds": 120,
+          "target_end_seconds": 180,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 4,
+          "target_start_seconds": 180,
+          "target_end_seconds": 240,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 5,
+          "target_start_seconds": 240,
+          "target_end_seconds": 300,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 6,
+          "target_start_seconds": 300,
+          "target_end_seconds": 360,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 7,
+          "target_start_seconds": 360,
+          "target_end_seconds": 420,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 8,
+          "target_start_seconds": 420,
+          "target_end_seconds": 480,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        }
+      ]
+    },
+    {
+      "key": "02-first-access-safe-mode",
+      "file": "02-first-access-safe-mode.fa.md",
+      "title": "اولین اتصال و یک تغییر کوچک قابل بازگشت",
+      "archive_source_id": "a0JMhBdNNgs",
+      "existing_article_url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+      "status": "DRAFT_NEW_RECORDING",
+      "target_duration_seconds": 600,
+      "actual_duration_seconds": null,
+      "technical_rehearsal": null,
+      "editor_approval": null,
+      "existing_video_attribution_approved": false,
+      "source_topic_unknown": false,
+      "shots": [
+        {
+          "index": 1,
+          "target_start_seconds": 0,
+          "target_end_seconds": 75,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 2,
+          "target_start_seconds": 75,
+          "target_end_seconds": 150,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 3,
+          "target_start_seconds": 150,
+          "target_end_seconds": 225,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 4,
+          "target_start_seconds": 225,
+          "target_end_seconds": 300,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 5,
+          "target_start_seconds": 300,
+          "target_end_seconds": 375,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 6,
+          "target_start_seconds": 375,
+          "target_end_seconds": 450,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 7,
+          "target_start_seconds": 450,
+          "target_end_seconds": 525,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 8,
+          "target_start_seconds": 525,
+          "target_end_seconds": 600,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        }
+      ]
+    },
+    {
+      "key": "03-addressing-package-management",
+      "file": "03-addressing-package-management.fa.md",
+      "title": "آدرس‌دهی و مدیریت نسخه؛ دو تمرین جدا",
+      "archive_source_id": "hqjjvQoO7as",
+      "existing_article_url": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+      "status": "DRAFT_NEW_RECORDING",
+      "target_duration_seconds": 660,
+      "actual_duration_seconds": null,
+      "technical_rehearsal": null,
+      "editor_approval": null,
+      "existing_video_attribution_approved": false,
+      "source_topic_unknown": false,
+      "shots": [
+        {
+          "index": 1,
+          "target_start_seconds": 0,
+          "target_end_seconds": 82,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 2,
+          "target_start_seconds": 82,
+          "target_end_seconds": 164,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 3,
+          "target_start_seconds": 164,
+          "target_end_seconds": 246,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 4,
+          "target_start_seconds": 246,
+          "target_end_seconds": 328,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 5,
+          "target_start_seconds": 328,
+          "target_end_seconds": 410,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 6,
+          "target_start_seconds": 410,
+          "target_end_seconds": 492,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 7,
+          "target_start_seconds": 492,
+          "target_end_seconds": 574,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 8,
+          "target_start_seconds": 574,
+          "target_end_seconds": 660,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        }
+      ]
+    },
+    {
+      "key": "04-backup-export-recovery",
+      "file": "04-backup-export-recovery.fa.md",
+      "title": "Backup و Export؛ فایل داشتن با بازیابی موفق فرق دارد",
+      "archive_source_id": "Z5EWfUn1Ejw",
+      "existing_article_url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+      "status": "DRAFT_NEW_RECORDING",
+      "target_duration_seconds": 600,
+      "actual_duration_seconds": null,
+      "technical_rehearsal": null,
+      "editor_approval": null,
+      "existing_video_attribution_approved": false,
+      "source_topic_unknown": false,
+      "shots": [
+        {
+          "index": 1,
+          "target_start_seconds": 0,
+          "target_end_seconds": 75,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 2,
+          "target_start_seconds": 75,
+          "target_end_seconds": 150,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 3,
+          "target_start_seconds": 150,
+          "target_end_seconds": 225,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 4,
+          "target_start_seconds": 225,
+          "target_end_seconds": 300,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 5,
+          "target_start_seconds": 300,
+          "target_end_seconds": 375,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 6,
+          "target_start_seconds": 375,
+          "target_end_seconds": 450,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 7,
+          "target_start_seconds": 450,
+          "target_end_seconds": 525,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 8,
+          "target_start_seconds": 525,
+          "target_end_seconds": 600,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        }
+      ]
+    },
+    {
+      "key": "05-dhcp-client-server",
+      "file": "05-dhcp-client-server.fa.md",
+      "title": "DHCP Client، Server و انتخاب Offer",
+      "archive_source_id": "LO4m55Hf-do",
+      "existing_article_url": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+      "status": "DRAFT_NEW_RECORDING",
+      "target_duration_seconds": 660,
+      "actual_duration_seconds": null,
+      "technical_rehearsal": null,
+      "editor_approval": null,
+      "existing_video_attribution_approved": false,
+      "source_topic_unknown": false,
+      "shots": [
+        {
+          "index": 1,
+          "target_start_seconds": 0,
+          "target_end_seconds": 82,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 2,
+          "target_start_seconds": 82,
+          "target_end_seconds": 164,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 3,
+          "target_start_seconds": 164,
+          "target_end_seconds": 246,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 4,
+          "target_start_seconds": 246,
+          "target_end_seconds": 328,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 5,
+          "target_start_seconds": 328,
+          "target_end_seconds": 410,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 6,
+          "target_start_seconds": 410,
+          "target_end_seconds": 492,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 7,
+          "target_start_seconds": 492,
+          "target_end_seconds": 574,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 8,
+          "target_start_seconds": 574,
+          "target_end_seconds": 660,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        }
+      ]
+    },
+    {
+      "key": "05b-bridge-proposal",
+      "file": "05b-bridge-proposal.fa.md",
+      "title": "پیشنهاد قسمت تازه: Bridge و مرز Broadcast",
+      "archive_source_id": "XRIMAowqdM4",
+      "existing_article_url": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+      "status": "DRAFT_NEW_RECORDING",
+      "target_duration_seconds": 480,
+      "actual_duration_seconds": null,
+      "technical_rehearsal": null,
+      "editor_approval": null,
+      "existing_video_attribution_approved": false,
+      "source_topic_unknown": true,
+      "shots": [
+        {
+          "index": 1,
+          "target_start_seconds": 0,
+          "target_end_seconds": 60,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 2,
+          "target_start_seconds": 60,
+          "target_end_seconds": 120,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 3,
+          "target_start_seconds": 120,
+          "target_end_seconds": 180,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 4,
+          "target_start_seconds": 180,
+          "target_end_seconds": 240,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 5,
+          "target_start_seconds": 240,
+          "target_end_seconds": 300,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 6,
+          "target_start_seconds": 300,
+          "target_end_seconds": 360,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 7,
+          "target_start_seconds": 360,
+          "target_end_seconds": 420,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 8,
+          "target_start_seconds": 420,
+          "target_end_seconds": 480,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        }
+      ]
+    },
+    {
+      "key": "06-dhcp-snooping-arp",
+      "file": "06-dhcp-snooping-arp.fa.md",
+      "title": "DHCP Snooping، Alert و فرق ARP با جدول MAC",
+      "archive_source_id": "I_8T6nu8JNg",
+      "existing_article_url": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+      "status": "DRAFT_NEW_RECORDING",
+      "target_duration_seconds": 720,
+      "actual_duration_seconds": null,
+      "technical_rehearsal": null,
+      "editor_approval": null,
+      "existing_video_attribution_approved": false,
+      "source_topic_unknown": false,
+      "shots": [
+        {
+          "index": 1,
+          "target_start_seconds": 0,
+          "target_end_seconds": 90,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 2,
+          "target_start_seconds": 90,
+          "target_end_seconds": 180,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 3,
+          "target_start_seconds": 180,
+          "target_end_seconds": 270,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 4,
+          "target_start_seconds": 270,
+          "target_end_seconds": 360,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 5,
+          "target_start_seconds": 360,
+          "target_end_seconds": 450,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 6,
+          "target_start_seconds": 450,
+          "target_end_seconds": 540,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 7,
+          "target_start_seconds": 540,
+          "target_end_seconds": 630,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 8,
+          "target_start_seconds": 630,
+          "target_end_seconds": 720,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        }
+      ]
+    },
+    {
+      "key": "07-gns3-environment",
+      "file": "07-gns3-environment.fa.md",
+      "title": "ساخت محیط تمرین GNS3 و CHR با منبع مجاز",
+      "archive_source_id": "OgypQcQS3FA",
+      "existing_article_url": "https://tehnet.ir/lab/gns3-mikrotik/",
+      "status": "DRAFT_NEW_RECORDING",
+      "target_duration_seconds": 720,
+      "actual_duration_seconds": null,
+      "technical_rehearsal": null,
+      "editor_approval": null,
+      "existing_video_attribution_approved": false,
+      "source_topic_unknown": false,
+      "shots": [
+        {
+          "index": 1,
+          "target_start_seconds": 0,
+          "target_end_seconds": 90,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 2,
+          "target_start_seconds": 90,
+          "target_end_seconds": 180,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 3,
+          "target_start_seconds": 180,
+          "target_end_seconds": 270,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 4,
+          "target_start_seconds": 270,
+          "target_end_seconds": 360,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 5,
+          "target_start_seconds": 360,
+          "target_end_seconds": 450,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 6,
+          "target_start_seconds": 450,
+          "target_end_seconds": 540,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 7,
+          "target_start_seconds": 540,
+          "target_end_seconds": 630,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        },
+        {
+          "index": 8,
+          "target_start_seconds": 630,
+          "target_end_seconds": 720,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "PENDING_REAL_LAB_CAPTURE"
+        }
+      ]
+    },
+    {
+      "key": "08-browser-routing-pilot",
+      "file": "08-browser-routing-pilot.fa.md",
+      "title": "ویدیوی پیشنهادی راهنمای تصویری مسیر رفت و برگشت",
+      "archive_source_id": null,
+      "existing_article_url": "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/",
+      "status": "DRAFT_NEW_RECORDING",
+      "target_duration_seconds": 360,
+      "actual_duration_seconds": null,
+      "technical_rehearsal": null,
+      "editor_approval": null,
+      "existing_video_attribution_approved": false,
+      "source_topic_unknown": false,
+      "shots": [
+        {
+          "index": 1,
+          "target_start_seconds": 0,
+          "target_end_seconds": 45,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "EXISTING_BROWSER_PILOT_CAPTURE"
+        },
+        {
+          "index": 2,
+          "target_start_seconds": 45,
+          "target_end_seconds": 90,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "EXISTING_BROWSER_PILOT_CAPTURE"
+        },
+        {
+          "index": 3,
+          "target_start_seconds": 90,
+          "target_end_seconds": 135,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "EXISTING_BROWSER_PILOT_CAPTURE"
+        },
+        {
+          "index": 4,
+          "target_start_seconds": 135,
+          "target_end_seconds": 180,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "EXISTING_BROWSER_PILOT_CAPTURE"
+        },
+        {
+          "index": 5,
+          "target_start_seconds": 180,
+          "target_end_seconds": 225,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "EXISTING_BROWSER_PILOT_CAPTURE"
+        },
+        {
+          "index": 6,
+          "target_start_seconds": 225,
+          "target_end_seconds": 270,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "EXISTING_BROWSER_PILOT_CAPTURE"
+        },
+        {
+          "index": 7,
+          "target_start_seconds": 270,
+          "target_end_seconds": 315,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "EXISTING_BROWSER_PILOT_CAPTURE"
+        },
+        {
+          "index": 8,
+          "target_start_seconds": 315,
+          "target_end_seconds": 360,
+          "actual_start_seconds": null,
+          "actual_end_seconds": null,
+          "capture_status": "EXISTING_BROWSER_PILOT_CAPTURE"
+        }
+      ]
+    }
+  ]
+}

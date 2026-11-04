@@ -13,6 +13,49 @@ SOURCE = Path(__file__).resolve().parents[1] / 'ops/release-growth-content.py'
 
 
 class ReleaseBoundaries(unittest.TestCase):
+    def test_new_nested_media_directories_are_created_and_removed_on_rollback(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp);release=self.module.Release.__new__(self.module.Release)
+            release.root=root;release.state={};release.save=lambda:None
+            release.create_parents('media/lesson/image.png',None,None)
+            self.assertEqual(release.state['created_directories'],['media','media/lesson'])
+            self.assertTrue((root/'media/lesson').is_dir())
+            data=b'owned image';self.module.atomic_write(root/'media/lesson/image.png',data,0o644,None,None)
+            release.files=['site/media/lesson/image.png'];release.state['files']={'media/lesson/image.png':{'old':None,'new':self.module.digest(data)}}
+            release.file_guard=lambda:None;release.restore_files()
+            self.assertFalse((root/'media').exists())
+            release.restore_files()  # absent owned directories stay idempotent
+
+    def test_directory_rollback_preserves_unrelated_new_file(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp);release=self.module.Release.__new__(self.module.Release)
+            release.root=root;release.state={};release.save=lambda:None
+            release.create_parents('media/lesson/image.png',None,None)
+            (root/'media/lesson/foreign.txt').write_bytes(b'foreign')
+            release.files=['site/media/lesson/image.png'];release.state['files']={'media/lesson/image.png':{'old':None,'new':self.module.digest(b'owned')}}
+            release.file_guard=lambda:None
+            with self.assertRaises(OSError):release.restore_files()
+            self.assertEqual((root/'media/lesson/foreign.txt').read_bytes(),b'foreign')
+
+    def test_parent_creation_refuses_escape_without_changing_existing_directories(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp);release=self.module.Release.__new__(self.module.Release)
+            release.root=root;release.state={};release.save=lambda:None
+            mode=root.stat().st_mode
+            with self.assertRaises(ValueError):release.create_parents('../foreign/image.png',None,None)
+            self.assertEqual(root.stat().st_mode,mode)
+            self.assertEqual(list(root.iterdir()),[])
+
+    def test_illustrated_routing_scope_owns_only_four_images_and_existing_article(self):
+        files, extra, guarded = self.module.scope_spec('tehnet-illustrated-routing-20261104-v1')
+        self.assertEqual(len(files), 4)
+        self.assertTrue(all(p.startswith('site/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/') and p.endswith('.png') for p in files))
+        self.assertEqual(extra, ['content/illustrated-routing-2026-11-04/manifest.json',
+            'content/illustrated-routing-2026-11-04/static-routing.html', 'ops/migrate-growth-content.php'])
+        for p in self.module.NETWORK_TRIAGE_FILES + self.module.CONCEPTUAL_ROUTING_FILES:
+            self.assertIn(p, guarded)
+        self.assertTrue(set(files).isdisjoint(guarded))
+
     def test_conceptual_routing_scope_preserves_installed_manual_triage(self):
         files, extra, guarded = self.module.scope_spec('tehnet-lab-conceptual-routing-20261104-v1')
         self.assertEqual(files, [
