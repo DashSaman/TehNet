@@ -200,6 +200,10 @@ final class TehNet_Growth_Content_Migration {
         $previousErrors=$wpdb->suppress_errors(true);$dbLock='tn-growth-'.substr(hash('sha256',$wpdb->dbname),0,24);$held=false;$transaction=false;$committed=false;$journal=null;
         $capture=function($id,$post):void {if(in_array($post->post_type,['page','post'],true))$this->touched[]=(int)$id;};
         $blockMail=static fn()=>false;$blockHttp=static fn()=>new WP_Error('tn_growth_isolated','Outbound HTTP disabled for this CLI migration');
+        // Updating the one existing post must not queue pingback/enclosure jobs.
+        // This hook removal is process-local, and restored on every exit path.
+        $pingPriority=$this->educationTargets?has_action('publish_post','_publish_post_hook'):false;
+        if($pingPriority!==false)remove_action('publish_post','_publish_post_hook',$pingPriority);
         $keepRevisions=function($limit,$post){return in_array((int)$post->ID,array_column($this->manifest['updates'],'id'),true)||get_post_meta($post->ID,'_tn_growth_release',true)===$this->digest?-1:$limit;};
         add_filter('pre_wp_mail',$blockMail,PHP_INT_MAX);add_filter('pre_http_request',$blockHttp,PHP_INT_MAX);
         add_filter('wp_revisions_to_keep',$keepRevisions,PHP_INT_MAX,2);
@@ -242,6 +246,7 @@ final class TehNet_Growth_Content_Migration {
             remove_action('save_post',$capture,1);foreach(array_unique($this->touched)as$id)clean_post_cache($id);
             remove_filter('pre_wp_mail',$blockMail,PHP_INT_MAX);remove_filter('pre_http_request',$blockHttp,PHP_INT_MAX);
             remove_filter('wp_revisions_to_keep',$keepRevisions,PHP_INT_MAX);
+            if($pingPriority!==false)add_action('publish_post','_publish_post_hook',$pingPriority,1);
             if($held)$wpdb->get_var($wpdb->prepare('SELECT RELEASE_LOCK(%s)',$dbLock));$wpdb->suppress_errors($previousErrors);flock($lock,LOCK_UN);fclose($lock);
         }
     }

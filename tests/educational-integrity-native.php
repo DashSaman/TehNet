@@ -10,12 +10,32 @@ function eduExpect(bool $ok,string $label):void{global $educationChecks;if(!$ok)
 function eduState():array{global $wpdb;$r=[];foreach(['posts','postmeta','users','usermeta']as$t){$key=$t==='postmeta'?'meta_id':($t==='usermeta'?'umeta_id':'ID');$r[$t]=$wpdb->get_results("SELECT * FROM {$wpdb->$t} ORDER BY $key",ARRAY_A);}return$r;}
 function eduAttempt(string $name,array $m):TehNet_Growth_Content_Migration{global $educationRoot;$d=$educationRoot.'/'.$name;if(!is_dir($d)){mkdir($d,0700);mkdir($d.'/journal',0700);foreach($m['targets']as$t){$f=basename($t['content_file']);copy(dirname(getenv('TN_TEST_MANIFEST')).'/'.$f,$d.'/'.$f);}file_put_contents($d.'/manifest.json',wp_json_encode($m,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES));}return new TehNet_Growth_Content_Migration($d.'/manifest.json',hash_file('sha256',$d.'/manifest.json'),$d.'/journal');}
 function eduRefused(callable $f,string $label):void{try{$f();}catch(Throwable $e){eduExpect(true,$label);return;}throw new RuntimeException('FAIL: not refused '.$label);}
-$before=eduState();$m=$educationTemplate;
+$before=eduState();$m=$educationTemplate;$cronBefore=get_option('cron');$pingHookBefore=has_action('publish_post','_publish_post_hook');
 eduExpect(TehNet_Growth_Content_Migration::authorizes($m['key'],$m),'Explicit correction scope accepted');
 eduExpect(!TehNet_Growth_Content_Migration::authorizes('tehnet-growth-20261031-v1',$m),'Older scope cannot authorize eight identities');
 $migration=eduAttempt('success',$m);$ready=$migration->run('check');
 eduExpect($ready['hubs_pending']===8&&$ready['pages_pending']===0&&eduState()===$before,'Preflight is read-only for exactly eight existing records');
-$applied=$migration->run('apply');eduExpect($applied['hubs_updated']===8&&$applied['pages_created']===0,'Eight corrections, no new page');
+$observer=static function($id)use($before,$m):void{
+ global $wpdb,$educationRoot;
+ $targets=array_column($m['targets'],null,'id');if(!isset($targets[(int)$id]))return;
+ $old=array_values(array_filter($before['posts'],static fn($p)=>(int)$p['ID']===(int)$id))[0];$t=$targets[(int)$id];
+ $expected=$old;$expected['post_content']=file_get_contents(dirname(getenv('TN_TEST_MANIFEST')).'/'.$t['content_file']);$expected['post_excerpt']=$t['excerpt'];if(isset($t['title']))$expected['post_title']=$t['title'];
+ $actual=$wpdb->get_row($wpdb->prepare("SELECT * FROM {$wpdb->posts} WHERE ID=%d",$id),ARRAY_A);
+ foreach(['post_modified','post_modified_gmt']as$k)$expected[$k]=$actual[$k];
+ $fields=array_keys(array_diff_assoc($actual,$expected));
+ $oldMeta=array_values(array_filter($before['postmeta'],static fn($p)=>(int)$p['post_id']===(int)$id));
+ $newMeta=$wpdb->get_results($wpdb->prepare("SELECT * FROM {$wpdb->postmeta} WHERE post_id=%d ORDER BY meta_id",$id),ARRAY_A);
+ $f=$educationRoot.'/field-diff-private.json';$records=is_file($f)?json_decode(file_get_contents($f),true):[];
+ $changedKeys=[];foreach($newMeta as$row)if(!in_array($row,$oldMeta,true))$changedKeys[]=$row['meta_key'];foreach($oldMeta as$row)if(!in_array($row,$newMeta,true))$changedKeys[]=$row['meta_key'];
+ $known=array_values(array_intersect(array_unique($changedKeys),['_pingme','_encloseme','_wp_old_slug','_wp_old_date','_edit_last','_edit_lock','_wp_page_template']));
+ $records[(int)$id]=['id'=>(int)$id,'unexpected_fields'=>$fields,'meta_equal'=>$oldMeta===$newMeta,'post_equal'=>$expected===$actual,'known_changed_meta_keys'=>$known,'unknown_changed_meta_key_count'=>count(array_diff(array_unique($changedKeys),$known))];
+ file_put_contents($f,wp_json_encode($records));chmod($f,0600);
+};
+add_action('save_post',$observer,PHP_INT_MAX);
+try{$applied=$migration->run('apply');}finally{remove_action('save_post',$observer,PHP_INT_MAX);}
+eduExpect($applied['hubs_updated']===8&&$applied['pages_created']===0,'Eight corrections, no new page');
+eduExpect(get_option('cron')===$cronBefore,'Post update queues no pingback or enclosure event');
+eduExpect(has_action('publish_post','_publish_post_hook')===$pingHookBefore,'CLI-scoped ping hook restored after apply');
 foreach($m['targets']as$t){$q=get_post($t['id']);eduExpect($q->post_content===file_get_contents(dirname(getenv('TN_TEST_MANIFEST')).'/'.$t['content_file'])&&$q->post_excerpt===$t['excerpt'],'Exact body and excerpt '.$t['id']);eduExpect($q->post_title===($t['title']??$t['title_observed'])&&get_page_uri($q)===$t['uri']&&$q->post_type===$t['type'],'Title and unchanged public identity '.$t['id']);}
 $after=eduState();$repeat=eduAttempt('success',$m)->run('apply');
 eduExpect($repeat['hubs_updated']===0&&eduState()===$after,'Fresh-process-equivalent construction permits idempotent repeat');
@@ -48,4 +68,5 @@ $hook=static function($id):void{if((int)$id===70)update_post_meta(70,'_tnqa_forb
 add_action('save_post_post',$hook,50);
 try{eduRefused(fn()=>eduAttempt('hook-drift',$m)->run('apply'),'Post70 hooks cannot expand field scope');}finally{remove_action('save_post_post',$hook,50);}
 eduExpect(eduState()===$before,'Rejected side effect and all eight writes transactionally restored');
+eduExpect(has_action('publish_post','_publish_post_hook')===$pingHookBefore,'CLI-scoped ping hook restored after failure');
 echo 'EDUCATIONAL_NATIVE=PASS checks='.$educationChecks."\n";
