@@ -31,3 +31,8 @@ Source `795c4a1f4fc2a764e8d5448da05d4e4da0c397ad` با49بررسی native،7بر
 PR85/CI41885620513 موفق؛ source `f1a6764ee34f77b3ddd8ab88fc6a6e88ada220f3` با payload برابر qualified `795c4a1f4fc2a764e8d5448da05d4e4da0c397ad`، پس از کنترل receipt/live213 واقعیِ ابزار پیشین، backup تازه/checksum/drift/rollback منتشر شد. فقط body64 و4PNG،0runtime اجرایی و0صفحهٔ تازه. HTML/canonical/noindex، هر4بایت تصویر باTLS، هر دو ابزار Lab،5مسیر عمومی و دادهٔ25قلم/کنترل‌های پرداخت/CAPTCHA/theme/cron/runtime بررسی و حفظ شدند.200بررسی مستقل browser روی production، ازجمله بازشدن full-size در موبایل و مسیر واقعی مقاله به تمرین و پاسخ رفت/برگشت، موفق؛0فرم ارسال شد.3تصویر واقعیِ مرحله در صفحهٔ زنده با viewportهای1440x1200 و375x1200 ثبت شد. [رسید و تصاویر live](../evidence/2026-11-04/illustrated-routing/production-verification.json).
 
 این انتشار دوباره اجرا نشود. وضعیت‌های NOT_DEPLOYED در checkpointهای پیشین تاریخی‌اند. گام بعد: لاب CHR/WinBox مجاز با نسخهٔ واقعاً ثبت‌شده، rehearsal و capture واقعیِ پایلوت اولیهٔ PR79؛ سپس گسترش فرمت به درس‌های آماده. هیچ تصویر یا نتیجهٔ جعلی برای پرکردن کمبود لاب ساخته نشده و تمام8ضبط هنوز full audio/screen UNVERIFIED هستند.
+
+
+## بازبینی لینک منابع —۴نوامبر۲۰۲۶
+
+لینک DHCP در سناریوهای03 و05 با مرجع فعلی و واقعاً خوانده‌شدهٔ [MikroTik DHCP](https://manual.mikrotik.com/docs/network-management/dhcp/) جایگزین شد. selector مستندات7.26، نسخهٔ دستگاه آزمایش‌شده یا پیشنهاد نصب نیست؛ rehearsal، ثبت نسخهٔ لاب و تأیید ضبط همچنان انجام نشده‌اند. این اصلاح فقط مستندات ریپو است و انتشار سایت تکرار نشد.

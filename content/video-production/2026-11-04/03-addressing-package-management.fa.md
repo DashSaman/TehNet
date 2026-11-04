@@ -44,4 +44,4 @@
 منابع برای بازبینی هنگام rehearsal؛ وجود لینک، اجرای موفق یا تأیید کامل متن نیست:
 
 - [منبع رسمی](https://manual.mikrotik.com/docs/getting-started/installation-and-upgrade/)
-- [منبع رسمی](https://manual.mikrotik.com/docs/user-guides/ip-services/dhcp/)
+- [مرجع رسمی DHCP در RouterOS](https://manual.mikrotik.com/docs/network-management/dhcp/)

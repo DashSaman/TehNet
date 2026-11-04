@@ -1,5 +1,7 @@
 ## CURRENT —2026-11-04 illustrated guide DEPLOYED_VERIFIED;9 separate recording scripts
 
+بازبینی نهایی منابع ضبط: لینک‌های DHCP سناریوهای03/05 به مرجع رسمی فعلی اصلاح شد؛ تغییر فقط مستندات است، بدون تکرار انتشار یا تغییر وضعیت ضبط/لاب. شرح در docs/reports/ILLUSTRATED_ROUTING_2026-11-04.fa.md.
+
 PR85/CI41885620513، sourcef1a6764 با payload برابر native795c4a1 منتشر شد: فقط body64/4PNG،0runtime اجرایی/صفحهٔ تازه، backup تازه/checksum/drift/rollback، هر4تصویر باTLS/bytes دقیق و حفظ داده25قلم/noindex/payment/CAPTCHA/theme/cron/runtime. native49/renderer7/staging200 و exact restore؛ سپس200بررسی مستقل production و3تصویر واقعیِ مرحله،0ارسال. URL: https://tehnet.ir/learn/mikrotik/mtcna/static-routing/#illustrated-browser-lab . receipt: docs/evidence/2026-11-04/illustrated-routing/production-verification.json . هیچ publisher پیشین دوباره اجرا نشود.
 
 9سناریوی ضبط تازه/72نما با لحن، گویندگی، گزینهٔ برجسته و زمان هدف جدا در content/video-production/2026-11-04/ است؛0ویدیوی تازه و تمام زمان‌های واقعی/approval null. تصاویر فعلی از ابزار واقعی مفهومی TehNet هستند، نه WinBox یا اجرای RouterOS. گام بعدِ تصویر تمام درس‌ها: محیط CHR/WinBox مجاز، ایزوله و نسخه‌ثبت‌شده؛ daemon محلی در دسترس نبود، شبکه/سرویس مشترک تغییر نکرد. ضبط۵٫۵ بی‌متن و full audiovisual همه8منبع UNVERIFIED، Issues63/75 باز و parity نامحرز. MyTel read-only و گیت‌های امنیت/history/rotation/origin/launch حفظ‌اند.
