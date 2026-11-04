@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "course_id": "tehnet-mtcna-routeros7-20261104",
+  "checkpoint": "2026-11-04",
+  "scope": "24 private WordPress working drafts plus evidence-gated scheduled release controller",
+  "wordpress": {
+    "site": "https://tehnet.ir",
+    "parent": 40,
+    "ids": [
+      232,
+      233,
+      234,
+      235,
+      236,
+      237,
+      238,
+      239,
+      240,
+      241,
+      242,
+      243,
+      244,
+      245,
+      246,
+      247,
+      248,
+      249,
+      250,
+      251,
+      252,
+      253,
+      254,
+      255
+    ],
+    "independent_get_raw_content_exact": 24,
+    "all_status_draft": true,
+    "all_slug_parent_exact": true,
+    "public_owners_readback": [
+      {
+        "id": 67,
+        "modified_gmt": "2026-11-04T14:00:05",
+        "slug": "queues-troubleshooting",
+        "status": "publish",
+        "link": "https://tehnet.ir/learn/mikrotik/mtcna/queues-troubleshooting/",
+        "parent": 40
+      },
+      {
+        "id": 66,
+        "modified_gmt": "2026-11-04T14:00:05",
+        "slug": "firewall-basics",
+        "status": "publish",
+        "link": "https://tehnet.ir/learn/mikrotik/mtcna/firewall-basics/",
+        "parent": 40
+      },
+      {
+        "id": 65,
+        "modified_gmt": "2026-11-04T14:00:05",
+        "slug": "nat-masquerade",
+        "status": "publish",
+        "link": "https://tehnet.ir/learn/mikrotik/mtcna/nat-masquerade/",
+        "parent": 40
+      },
+      {
+        "id": 64,
+        "modified_gmt": "2026-11-04T14:00:04",
+        "slug": "static-routing",
+        "status": "publish",
+        "link": "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/",
+        "parent": 40
+      },
+      {
+        "id": 63,
+        "modified_gmt": "2026-11-04T14:00:04",
+        "slug": "ip-dhcp-dns",
+        "status": "publish",
+        "link": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+        "parent": 40
+      },
+      {
+        "id": 62,
+        "modified_gmt": "2026-11-04T14:00:04",
+        "slug": "routeros-winbox",
+        "status": "publish",
+        "link": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+        "parent": 40
+      },
+      {
+        "id": 40,
+        "modified_gmt": "2026-11-04T14:00:04",
+        "slug": "mtcna",
+        "status": "publish",
+        "link": "https://tehnet.ir/learn/mikrotik/mtcna/",
+        "parent": 26
+      }
+    ],
+    "public_owner_mutations": 0,
+    "editor_save_verified": false
+  },
+  "package": {
+    "lessons": 24,
+    "chapters": 9,
+    "metadata": 24,
+    "whitespace_delimited_word_count": 29722,
+    "schematics": 14,
+    "original_screenshots": 0,
+    "actually_lab_tested_lessons": 0,
+    "publication_ready_lessons": 0,
+    "verified_public_releases": 0
+  },
+  "automation": {
+    "id": "6aeb53b439908191bfdaf9fbace0d08c",
+    "is_enabled": true,
+    "timing_mode": "exact_schedule",
+    "timezone": "Asia/Tehran",
+    "schedule": "BEGIN:VEVENT\nDTSTART;TZID=Asia/Tehran:20261107T090000\nRRULE:FREQ=DAILY;INTERVAL=3;BYHOUR=9;BYMINUTE=0;BYSECOND=0\nEND:VEVENT",
+    "prompt_matches_saved_receipt": true,
+    "next_run_time_returned": null,
+    "first_nominal_local": "2026-11-07T09:00:00+03:30",
+    "first_nominal_utc": "2026-11-07T05:30:00Z"
+  },
+  "validation": {
+    "offline_24_lesson_build": "PASS",
+    "independent_static_reviews": "RESOLVED_WITH_RUNTIME_PENDING",
+    "evidence_reset_guard": "PASS_INITIAL_AND_PROGRESSED_EVIDENCE_FIXTURES",
+    "window_consumption_rules": "STATIC_REVIEW_PASS_NOT_LIVE_EXERCISED",
+    "actual_routeros_lab": "NOT_RUN",
+    "editor_save": "NOT_VERIFIED",
+    "scoped_release_qualification": "NOT_RUN",
+    "wordpress_media_upload": "UNAVAILABLE_PLUGIN_ROUTE_404"
+  },
+  "limitations": [
+    "Execution environment has no usable RouterOS hypervisor or radio hardware.",
+    "Application screenshots and runtime acceptance/recovery evidence are missing.",
+    "The scheduled window can remain blocked; no public release is guaranteed merely by the schedule.",
+    "Published owner pages and the existing noindex launch gate were not changed by this package."
+  ],
+  "source_pull_request": {
+    "number": 82,
+    "url": "https://github.com/DashSaman/TehNet/pull/82",
+    "purpose": "Persist the private-draft preparation package; RouterOS lab gates remain pending"
+  }
+}

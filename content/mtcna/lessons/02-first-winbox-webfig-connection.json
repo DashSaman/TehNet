@@ -1,0 +1,39 @@
+{
+  "number": 2,
+  "title": "اولین اتصال به میکروتیک با WinBox و WebFig",
+  "slug": "first-winbox-webfig-connection",
+  "chapter": 1,
+  "summary": "ورود کنترل‌شده از شبکهٔ مدیریت، ساخت آدرس LAN و تشخیص تفاوت اتصال IP و MAC.",
+  "primary_query": "اتصال اولیه WinBox میکروتیک",
+  "related_queries": [
+    "WebFig چیست",
+    "اتصال MAC WinBox",
+    "آدرس CHR"
+  ],
+  "source_urls": [
+    "https://mikrotik.com/download/winbox",
+    "https://manual.mikrotik.com/docs/management-tools/",
+    "https://manual.mikrotik.com/docs/getting-started/first-time-configuration/",
+    "https://manual.mikrotik.com/docs/cli-reference/ip/address/"
+  ],
+  "capture_plan": [
+    {
+      "id": "02-01",
+      "screen": "WinBox Connect و Neighbors",
+      "purpose": "ثبت هویت R1 و روش اتصال بدون رمز"
+    },
+    {
+      "id": "02-02",
+      "screen": "IP Addresses و اینترفیس ether2",
+      "purpose": "نشان دادن آدرس مدیریت اختصاصی"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "اتصال IP به R1 از LAB-LAN",
+    "تفکیک اتصال MAC از IP",
+    "دسترسی به ترمینال و منوهای مشاهده"
+  ]
+}

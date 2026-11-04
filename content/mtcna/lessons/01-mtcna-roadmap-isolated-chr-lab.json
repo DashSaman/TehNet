@@ -1,0 +1,39 @@
+{
+  "number": 1,
+  "title": "نقشهٔ راه MTCNA و ساخت لابراتوار ایزولهٔ CHR",
+  "slug": "mtcna-roadmap-isolated-chr-lab",
+  "chapter": 1,
+  "summary": "آماده‌سازی یک ماشین CHR با دو شبکهٔ جدا، ثبت نسخه و مسیر بازیابی؛ نقطهٔ شروع دورهٔ مستقل تهنت.",
+  "primary_query": "نصب CHR برای آموزش MTCNA",
+  "related_queries": [
+    "لابراتوار میکروتیک",
+    "نقشه راه MTCNA",
+    "CHR Free"
+  ],
+  "source_urls": [
+    "https://manual.mikrotik.com/docs/getting-started/installation-and-upgrade/install/chr-installation/",
+    "https://manual.mikrotik.com/docs/getting-started/routeros-licensing/chr/chr-licensing/",
+    "https://i.mt.lv/cdn/training_pdf/mtcna_outline_2019181161836.pdf",
+    "https://mikrotik.com/download/changelogs?channelFilter=stable&versionFilter=7.14-7.99"
+  ],
+  "capture_plan": [
+    {
+      "id": "01-01",
+      "screen": "تنظیمات شبکهٔ ماشین مجازی R1",
+      "purpose": "اثبات جدایی دو کارت از شبکهٔ واقعی"
+    },
+    {
+      "id": "01-02",
+      "screen": "کنسول CHR و System Resources",
+      "purpose": "ثبت نسخه و نام اینترفیس‌ها بدون نمایش اطلاعات حساس"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "ساخت R1 با دو اینترفیس جدا",
+    "توضیح تفاوت CHR و RouterBOARD",
+    "ثبت نسخه و امکان بازیابی ماشین"
+  ]
+}

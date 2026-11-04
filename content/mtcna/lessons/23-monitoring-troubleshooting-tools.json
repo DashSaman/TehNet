@@ -1,0 +1,39 @@
+{
+  "number": 23,
+  "title": "عیب‌یابی با Ping، Traceroute، Torch و Log",
+  "slug": "monitoring-troubleshooting-tools",
+  "chapter": 9,
+  "summary": "ترتیب استفاده از ابزارهای تشخیصی، تفسیر محدود خروجی‌ها و ساخت فرضیهٔ قابل‌آزمایش برای خطای آدرس، مسیر و DNS.",
+  "primary_query": "عیب یابی شبکه میکروتیک",
+  "related_queries": [
+    "Torch میکروتیک",
+    "Traceroute RouterOS",
+    "بررسی Log میکروتیک"
+  ],
+  "source_urls": [
+    "https://manual.mikrotik.com/docs/diagnostics-monitoring-and-troubleshooting/ping/",
+    "https://manual.mikrotik.com/docs/diagnostics-monitoring-and-troubleshooting/traceroute/",
+    "https://manual.mikrotik.com/docs/diagnostics-monitoring-and-troubleshooting/torch/",
+    "https://manual.mikrotik.com/docs/diagnostics-monitoring-and-troubleshooting/log/",
+    "https://manual.mikrotik.com/docs/diagnostics-monitoring-and-troubleshooting/"
+  ],
+  "capture_plan": [
+    {
+      "id": "23-01",
+      "screen": "Ping و Traceroute با مبدأ و مقصد ثبت‌شده",
+      "purpose": "ثبت شاهد واقعی پس از اجرای آزمایش؛ تصویر فعلاً موجود نیست"
+    },
+    {
+      "id": "23-02",
+      "screen": "Torch و Log مرتبط با یک خطای کنترل‌شده",
+      "purpose": "ثبت شاهد واقعی پس از اجرای آزمایش؛ تصویر فعلاً موجود نیست"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "انتخاب ابزار بر اساس سؤال تشخیصی",
+    "ثبت خرابی و اصلاح با شاهد مستقل"
+  ]
+}

@@ -1,0 +1,222 @@
+[
+  {
+    "id": "isolated-lab",
+    "title": "An isolated RouterOS lab",
+    "parts": [
+      1,
+      2,
+      7,
+      8,
+      9
+    ],
+    "caption": "طرح آزمایشگاه ایزوله: مدیریت از شبکهٔ داخلی انجام می‌شود؛ اتصال بالادست فقط در صورت فراهم‌بودن در آزمایشگاه است. نشانی‌های شکل طرح هدف هستند؛ در قسمت اول هنوز اختصاص داده نشده‌اند.",
+    "alt": "طرح آزمایشگاه ایزوله: مدیریت از شبکهٔ داخلی انجام می‌شود؛ اتصال بالادست فقط در صورت فراهم‌بودن در آزمایشگاه است.",
+    "kind": "TECHNICAL_SCHEMATIC",
+    "screenshot": false,
+    "wordpress_media_id": null,
+    "wordpress_url": null,
+    "source_url": "https://raw.githubusercontent.com/DashSaman/TehNet/896f70939a5dc24fab76f16ba7bf8dcdfe3ef5da/content/mtcna/assets/isolated-lab.webp",
+    "hosting": "IMMUTABLE_GITHUB_ASSET"
+  },
+  {
+    "id": "safe-change",
+    "title": "A reversible lab change",
+    "parts": [
+      3,
+      4
+    ],
+    "caption": "روند یک تغییر محدود: وضعیت قبلی ثبت می‌شود، دسترسی دوم بررسی می‌شود و راه برگشت پیش از ثبت نهایی آماده است.",
+    "alt": "روند یک تغییر محدود: وضعیت قبلی ثبت می‌شود، دسترسی دوم بررسی می‌شود و راه برگشت پیش از ثبت نهایی آماده است.",
+    "kind": "TECHNICAL_SCHEMATIC",
+    "screenshot": false,
+    "wordpress_media_id": null,
+    "wordpress_url": null,
+    "source_url": "https://raw.githubusercontent.com/DashSaman/TehNet/896f70939a5dc24fab76f16ba7bf8dcdfe3ef5da/content/mtcna/assets/safe-change.webp",
+    "hosting": "IMMUTABLE_GITHUB_ASSET"
+  },
+  {
+    "id": "backup-restore",
+    "title": "Backup and export serve different purposes",
+    "parts": [
+      5
+    ],
+    "caption": "Backup دودویی و Export متنی دو نوع مدرک متفاوت‌اند؛ فایل متنی کامل‌بودن بازیابی را تضمین نمی‌کند و هر بازیابی باید آزمایش شود.",
+    "alt": "Backup دودویی و Export متنی دو نوع مدرک متفاوت‌اند؛ فایل متنی کامل‌بودن بازیابی را تضمین نمی‌کند و هر بازیابی باید آزمایش شود.",
+    "kind": "TECHNICAL_SCHEMATIC",
+    "screenshot": false,
+    "wordpress_media_id": null,
+    "wordpress_url": null,
+    "source_url": "https://raw.githubusercontent.com/DashSaman/TehNet/896f70939a5dc24fab76f16ba7bf8dcdfe3ef5da/content/mtcna/assets/backup-restore.webp",
+    "hosting": "IMMUTABLE_GITHUB_ASSET"
+  },
+  {
+    "id": "upgrade-layers",
+    "title": "RouterOS and RouterBOOT are separate layers",
+    "parts": [
+      6
+    ],
+    "caption": "ارتقای RouterOS و بسته‌ها با ارتقای RouterBOOT یکسان نیست. بخش RouterBOOT برای RouterBOARD سازگار است و در CHR نمایش سخت‌افزاری ندارد.",
+    "alt": "ارتقای RouterOS و بسته‌ها با ارتقای RouterBOOT یکسان نیست. بخش RouterBOOT برای RouterBOARD سازگار است و در CHR نمایش سخت‌افزاری ندارد.",
+    "kind": "TECHNICAL_SCHEMATIC",
+    "screenshot": false,
+    "wordpress_media_id": null,
+    "wordpress_url": null,
+    "source_url": "https://raw.githubusercontent.com/DashSaman/TehNet/896f70939a5dc24fab76f16ba7bf8dcdfe3ef5da/content/mtcna/assets/upgrade-layers.webp",
+    "hosting": "IMMUTABLE_GITHUB_ASSET"
+  },
+  {
+    "id": "bridge-lan",
+    "title": "LAN bridge membership",
+    "parts": [
+      10
+    ],
+    "caption": "فقط پورت‌های داخلیِ تعیین‌شده عضو bridge-lan هستند. پورت WAN بیرون Bridge است؛ ساخت حلقهٔ واقعی بخشی از این تمرین نیست.",
+    "alt": "فقط پورت‌های داخلیِ تعیین‌شده عضو bridge-lan هستند. پورت WAN بیرون Bridge است؛ ساخت حلقهٔ واقعی بخشی از این تمرین نیست.",
+    "kind": "TECHNICAL_SCHEMATIC",
+    "screenshot": false,
+    "wordpress_media_id": null,
+    "wordpress_url": null,
+    "source_url": "https://raw.githubusercontent.com/DashSaman/TehNet/2263992e18e7371da2d3129dcf111fc55599cdab/content/mtcna/assets/bridge-lan.webp",
+    "hosting": "IMMUTABLE_GITHUB_ASSET"
+  },
+  {
+    "id": "routed-lans",
+    "title": "Two LANs need a route in both directions",
+    "parts": [
+      11,
+      12
+    ],
+    "caption": "برای ارتباط دو LAN، هر روتر مسیر شبکهٔ دوردست و میزبان‌ها Gateway درست می‌خواهند. ether3 روی R1 و ether1 روی R2 برای Transit در این سناریو رزرو شده‌اند.",
+    "alt": "برای ارتباط دو LAN، هر روتر مسیر شبکهٔ دوردست و میزبان‌ها Gateway درست می‌خواهند. ether3 روی R1 و ether1 روی R2 برای Transit در این سناریو رزرو شده‌اند.",
+    "kind": "TECHNICAL_SCHEMATIC",
+    "screenshot": false,
+    "wordpress_media_id": null,
+    "wordpress_url": null,
+    "source_url": "https://raw.githubusercontent.com/DashSaman/TehNet/896f70939a5dc24fab76f16ba7bf8dcdfe3ef5da/content/mtcna/assets/routed-lans.webp",
+    "hosting": "IMMUTABLE_GITHUB_ASSET"
+  },
+  {
+    "id": "nat-directions",
+    "title": "NAT changes addresses; firewall decides access",
+    "parts": [
+      13,
+      14
+    ],
+    "caption": "در سناریوی آموزشی، srcnat نشانی مبدأ خروجی و dstnat مقصد ورودی را تغییر می‌دهد. قانون NAT به‌تنهایی مجوز فایروال یا راه‌حل CGNAT نیست.",
+    "alt": "در سناریوی آموزشی، srcnat نشانی مبدأ خروجی و dstnat مقصد ورودی را تغییر می‌دهد. قانون NAT به‌تنهایی مجوز فایروال یا راه‌حل CGNAT نیست.",
+    "kind": "TECHNICAL_SCHEMATIC",
+    "screenshot": false,
+    "wordpress_media_id": null,
+    "wordpress_url": null,
+    "source_url": "https://raw.githubusercontent.com/DashSaman/TehNet/2263992e18e7371da2d3129dcf111fc55599cdab/content/mtcna/assets/nat-directions.webp",
+    "hosting": "IMMUTABLE_GITHUB_ASSET"
+  },
+  {
+    "id": "firewall-chains",
+    "title": "Choose the chain by the packet destination",
+    "parts": [
+      15,
+      16
+    ],
+    "caption": "بسته‌ای که مقصدش خود روتر است در input بررسی می‌شود؛ ترافیک عبوری در forward و بستهٔ تولیدشده به‌دست روتر در output. این نمودار ساده‌شده جایگزین نمودار کامل Packet Flow نیست.",
+    "alt": "بسته‌ای که مقصدش خود روتر است در input بررسی می‌شود؛ ترافیک عبوری در forward و بستهٔ تولیدشده به‌دست روتر در output. این نمودار ساده‌شده جایگزین نمودار کامل Packet Flow نیست.",
+    "kind": "TECHNICAL_SCHEMATIC",
+    "screenshot": false,
+    "wordpress_media_id": null,
+    "wordpress_url": null,
+    "source_url": "https://raw.githubusercontent.com/DashSaman/TehNet/896f70939a5dc24fab76f16ba7bf8dcdfe3ef5da/content/mtcna/assets/firewall-chains.webp",
+    "hosting": "IMMUTABLE_GITHUB_ASSET"
+  },
+  {
+    "id": "wireless-lab",
+    "title": "Wireless evidence requires real radio hardware",
+    "parts": [
+      17,
+      18
+    ],
+    "caption": "آزمون AP و Station به سخت‌افزار و بستهٔ سازگار نیاز دارد. خود Station کلاینت آزمون است و دستگاه جداگانه‌ای پشت آن نشان داده نمی‌شود. CHR رادیو، کانال و کیفیت سیگنال واقعی را شبیه‌سازی نمی‌کند.",
+    "alt": "آزمون AP و Station به سخت‌افزار و بستهٔ سازگار نیاز دارد. خود Station کلاینت آزمون است و دستگاه جداگانه‌ای پشت آن نشان داده نمی‌شود. CHR رادیو، کانال و کیفیت سیگنال واقعی را شبیه‌سازی نمی‌کند.",
+    "kind": "TECHNICAL_SCHEMATIC",
+    "screenshot": false,
+    "wordpress_media_id": null,
+    "wordpress_url": null,
+    "source_url": "https://raw.githubusercontent.com/DashSaman/TehNet/3f684666e7b946e14b8f3441c5a773c5a0480300/content/mtcna/assets/wireless-lab.webp",
+    "hosting": "IMMUTABLE_GITHUB_ASSET"
+  },
+  {
+    "id": "queue-path",
+    "title": "Measure the traffic that actually crosses the queue",
+    "parts": [
+      19,
+      20
+    ],
+    "caption": "آزمون Queue باید ترافیک عبوری میزبان را اندازه بگیرد. محدودیت مجوز CHR، مسیر FastTrack و محل اندازه‌گیری می‌توانند نتیجه را تغییر دهند.",
+    "alt": "آزمون Queue باید ترافیک عبوری میزبان را اندازه بگیرد. محدودیت مجوز CHR، مسیر FastTrack و محل اندازه‌گیری می‌توانند نتیجه را تغییر دهند.",
+    "kind": "TECHNICAL_SCHEMATIC",
+    "screenshot": false,
+    "wordpress_media_id": null,
+    "wordpress_url": null,
+    "source_url": "https://raw.githubusercontent.com/DashSaman/TehNet/896f70939a5dc24fab76f16ba7bf8dcdfe3ef5da/content/mtcna/assets/queue-path.webp",
+    "hosting": "IMMUTABLE_GITHUB_ASSET"
+  },
+  {
+    "id": "pppoe-lab",
+    "title": "PPPoE discovery and IP assignment are different stages",
+    "parts": [
+      21
+    ],
+    "caption": "ابتدا اتصال PPPoE روی بستر لایهٔ دو تشکیل می‌شود؛ سپس نشانی و سیاست‌های IP اعمال می‌شوند. شبکهٔ آزمایش از شبکهٔ کاربران جدا می‌ماند.",
+    "alt": "ابتدا اتصال PPPoE روی بستر لایهٔ دو تشکیل می‌شود؛ سپس نشانی و سیاست‌های IP اعمال می‌شوند. شبکهٔ آزمایش از شبکهٔ کاربران جدا می‌ماند.",
+    "kind": "TECHNICAL_SCHEMATIC",
+    "screenshot": false,
+    "wordpress_media_id": null,
+    "wordpress_url": null,
+    "source_url": "https://raw.githubusercontent.com/DashSaman/TehNet/896f70939a5dc24fab76f16ba7bf8dcdfe3ef5da/content/mtcna/assets/pppoe-lab.webp",
+    "hosting": "IMMUTABLE_GITHUB_ASSET"
+  },
+  {
+    "id": "site-tunnel",
+    "title": "A tunnel does not remove the need for routing and firewall rules",
+    "parts": [
+      22
+    ],
+    "caption": "تونل بین دو روترِ تحت اختیار، به مسیرهای درست، مجوزهای فایروال و بررسی MTU نیاز دارد. WireGuard در این مجموعه آموزش تکمیلی است و جایگاه رسمی در outline قدیمی برای آن ادعا نمی‌شود.",
+    "alt": "تونل بین دو روترِ تحت اختیار، به مسیرهای درست، مجوزهای فایروال و بررسی MTU نیاز دارد. WireGuard در این مجموعه آموزش تکمیلی است و جایگاه رسمی در outline قدیمی برای آن ادعا نمی‌شود.",
+    "kind": "TECHNICAL_SCHEMATIC",
+    "screenshot": false,
+    "wordpress_media_id": null,
+    "wordpress_url": null,
+    "source_url": "https://raw.githubusercontent.com/DashSaman/TehNet/896f70939a5dc24fab76f16ba7bf8dcdfe3ef5da/content/mtcna/assets/site-tunnel.webp",
+    "hosting": "IMMUTABLE_GITHUB_ASSET"
+  },
+  {
+    "id": "diagnostic-lab",
+    "title": "Diagnose one isolated path at a time",
+    "parts": [
+      23
+    ],
+    "caption": "شبکهٔ عیب‌یابی قسمت ۲۳: H1 با نشانی 10.77.10.10/24 به bridge-lan روتر با نشانی 10.77.10.1/24 متصل است. سمت بالادست آزمایشگاهی و جدا از شبکهٔ واقعی است؛ این شکل شاهد اجرای آزمون نیست.",
+    "alt": "شبکهٔ عیب‌یابی قسمت ۲۳: H1 با نشانی 10.77.10.10/24 به bridge-lan روتر با نشانی 10.77.10.1/24 متصل است. سمت بالادست آزمایشگاهی و جدا از شبکهٔ واقعی است؛ این شکل شاهد اجرای آزمون نیست.",
+    "kind": "TECHNICAL_SCHEMATIC",
+    "screenshot": false,
+    "wordpress_media_id": null,
+    "wordpress_url": null,
+    "source_url": "https://raw.githubusercontent.com/DashSaman/TehNet/3f684666e7b946e14b8f3441c5a773c5a0480300/content/mtcna/assets/diagnostic-lab.webp",
+    "hosting": "IMMUTABLE_GITHUB_ASSET"
+  },
+  {
+    "id": "final-project-lab",
+    "title": "Final project: a directly routed branch lab",
+    "parts": [
+      24
+    ],
+    "caption": "پروژهٔ نهایی: سرور S با نشانی 10.77.0.10/24 در شبکهٔ WAN آزمایشی به ether1 روتر R1 با نشانی 10.77.0.2/24 وصل است. H1 برابر 10.77.10.10/24 از bridge-lan دفتر، 10.77.10.1/24، استفاده می‌کند. لینک مستقیم ether3 روتر R1، 10.77.12.1/30، به ether1 روتر R2، 10.77.12.2/30، می‌رسد. bridge-lan شعبه 10.77.20.1/24 است و H2 از DHCP در محدودهٔ 10.77.20.100 تا 10.77.20.199 نشانی می‌گیرد؛ دروازه و DNS آن 10.77.20.1 است. در این توپولوژی تونل وجود ندارد.",
+    "alt": "پروژهٔ نهایی: سرور S با نشانی 10.77.0.10/24 در شبکهٔ WAN آزمایشی به ether1 روتر R1 با نشانی 10.77.0.2/24 وصل است. H1 برابر 10.77.10.10/24 از bridge-lan دفتر، 10.77.10.1/24، استفاده می‌کند. لینک مستقیم ether3 روتر R1، 10.77.12.1/30، به ether1 روتر R2، 10.77.12.2/30، می‌رسد. bridge-lan شعبه 10.77.20.1/24 است و H2 از DHCP در محدودهٔ 10.77.20.100 تا 10.77.20.199 نشانی می‌گیرد؛ دروازه و DNS آن 10.77.20.1 است. در این توپولوژی تونل وجود ندارد.",
+    "kind": "TECHNICAL_SCHEMATIC",
+    "screenshot": false,
+    "wordpress_media_id": null,
+    "wordpress_url": null,
+    "source_url": "https://raw.githubusercontent.com/DashSaman/TehNet/3f684666e7b946e14b8f3441c5a773c5a0480300/content/mtcna/assets/final-project-lab.webp",
+    "hosting": "IMMUTABLE_GITHUB_ASSET"
+  }
+]

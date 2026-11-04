@@ -1,0 +1,41 @@
+{
+  "number": 12,
+  "title": "اتصال دو LAN و اهمیت مسیر برگشت",
+  "slug": "two-lans-return-route",
+  "chapter": 4,
+  "summary": "مسیریابی دو شبکه از طریق لینک /30 بدون پنهان کردن آدرس‌ها با NAT.",
+  "primary_query": "اتصال دو شبکه با static route میکروتیک",
+  "related_queries": [
+    "مسیر برگشت در میکروتیک",
+    "اتصال دو روتر با لینک /30"
+  ],
+  "source_urls": [
+    "https://help.mikrotik.com/docs/spaces/ROS/pages/328084/IP%2BRouting",
+    "https://help.mikrotik.com/docs/spaces/ROS/pages/100892687/ARP"
+  ],
+  "capture_plan": [
+    {
+      "id": "L12-1",
+      "screen": "R1: IP > Addresses",
+      "purpose": "رابط ether3 برای لینک بین روترها"
+    },
+    {
+      "id": "L12-2",
+      "screen": "R1/R2: IP > Routes",
+      "purpose": "دو مسیر متقابل با توضیح مجزا"
+    },
+    {
+      "id": "L12-3",
+      "screen": "Terminal",
+      "purpose": "آزمون با مبدأ LAN و مقصد LAN مقابل"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "ساخت لینک بین روترها بدون تعارض WAN",
+    "تنظیم دو مسیر متقابل",
+    "تفکیک ping روتر از عبور کلاینت"
+  ]
+}

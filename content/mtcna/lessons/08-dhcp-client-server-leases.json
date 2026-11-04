@@ -1,0 +1,44 @@
+{
+  "number": 8,
+  "title": "DHCP Client، DHCP Server و Lease در RouterOS",
+  "slug": "dhcp-client-server-leases",
+  "chapter": 2,
+  "summary": "ساخت DHCP Server محدود به LAN ایزوله و بررسی دریافت اجاره؛ سناریوی جداگانهٔ DHCP Client برای WAN آزمایشگاهی.",
+  "primary_query": "راه اندازی DHCP Server میکروتیک",
+  "related_queries": [
+    "DHCP Client RouterOS",
+    "Static Lease میکروتیک",
+    "DHCP bound"
+  ],
+  "source_urls": [
+    "https://manual.mikrotik.com/docs/network-management/dhcp/",
+    "https://manual.mikrotik.com/docs/network-management/dhcp/client/",
+    "https://manual.mikrotik.com/docs/network-management/dhcp/server/",
+    "https://manual.mikrotik.com/docs/network-management/dns/"
+  ],
+  "capture_plan": [
+    {
+      "id": "08-01",
+      "screen": "DHCP Server و Networks",
+      "purpose": "نمایش سرور روی ether2 و محدودهٔ LAN"
+    },
+    {
+      "id": "08-02",
+      "screen": "DHCP Leases با وضعیت bound",
+      "purpose": "اثبات معیار دریافت اجاره بدون نمایش شناسهٔ شخصی"
+    },
+    {
+      "id": "08-03",
+      "screen": "DHCP Client روی ether1",
+      "purpose": "ثبت حالت bound فقط اگر بالادست DHCP ساخته شده باشد"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "ساخت Pool و Network و Server سازگار",
+    "تأیید اجارهٔ کلاینت و Gateway",
+    "تفکیک DHCP Server LAN و DHCP Client WAN"
+  ]
+}

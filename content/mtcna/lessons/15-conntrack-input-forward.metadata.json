@@ -1,0 +1,42 @@
+{
+  "number": 15,
+  "title": "Connection Tracking و تفاوت input با forward",
+  "slug": "conntrack-input-forward",
+  "chapter": 5,
+  "summary": "مشاهدهٔ دو جریان ICMP مشخص بدون ایجاد سیاست سراسری یا قطع مدیریت.",
+  "primary_query": "تفاوت input و forward میکروتیک",
+  "related_queries": [
+    "connection tracking در RouterOS",
+    "connection state new established related"
+  ],
+  "source_urls": [
+    "https://help.mikrotik.com/docs/spaces/ROS/pages/130220087/Connection%2Btracking",
+    "https://help.mikrotik.com/docs/spaces/ROS/pages/48660608/Filter",
+    "https://manual.mikrotik.com/docs/firewall-and-quality-of-service/packet-flow-in-routeros/"
+  ],
+  "capture_plan": [
+    {
+      "id": "L15-1",
+      "screen": "IP > Firewall > Filter Rules",
+      "purpose": "دو rule مشاهده‌گر در زنجیره‌های متفاوت"
+    },
+    {
+      "id": "L15-2",
+      "screen": "IP > Firewall > Connections",
+      "purpose": "جریان ICMP و زمان انقضا"
+    },
+    {
+      "id": "L15-3",
+      "screen": "Log",
+      "purpose": "پیام محدود با پیشوند اختصاصی"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "تشخیص زنجیره بر اساس مقصد واقعی",
+    "خواندن وضعیت اتصال",
+    "استفاده از شمارنده و لاگ محدود بدون تغییر سیاست عبور"
+  ]
+}

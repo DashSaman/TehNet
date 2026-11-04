@@ -1,0 +1,53 @@
+{
+  "number": 24,
+  "title": "پروژهٔ نهایی MTCNA: شبکهٔ یک شعبهٔ کوچک و عیب‌یابی مرحله‌به‌مرحله",
+  "slug": "final-branch-network-project",
+  "chapter": 9,
+  "summary": "اتصال دو LAN با مسیرهای ثابت، DHCP و DNS شعبه، سیاست Firewall، NAT محدود و Queue همراه با آزمون خرابی و بازگشت.",
+  "primary_query": "پروژه عملی MTCNA میکروتیک",
+  "related_queries": [
+    "شبکه شعبه با میکروتیک",
+    "سناریوی نهایی MTCNA",
+    "عیب یابی مسیر برگشت"
+  ],
+  "source_urls": [
+    "https://manual.mikrotik.com/docs/getting-started/routeros-licensing/chr/chr-licensing/",
+    "https://help.mikrotik.com/docs/spaces/ROS/pages/328084/IP+Routing",
+    "https://help.mikrotik.com/docs/spaces/ROS/pages/24805500/DHCP",
+    "https://help.mikrotik.com/docs/spaces/ROS/pages/37748767/DNS",
+    "https://help.mikrotik.com/docs/spaces/ROS/pages/48660574/Filter",
+    "https://help.mikrotik.com/docs/spaces/ROS/pages/3211299/NAT",
+    "https://help.mikrotik.com/docs/spaces/ROS/pages/328206/Queues",
+    "https://help.mikrotik.com/docs/spaces/ROS/pages/130220087/Connection+tracking"
+  ],
+  "capture_plan": [
+    {
+      "id": "24-01",
+      "screen": "توپولوژی مجازی و route هر دو روتر",
+      "purpose": "ثبت شاهد واقعی پس از اجرای آزمایش؛ تصویر فعلاً موجود نیست"
+    },
+    {
+      "id": "24-02",
+      "screen": "DHCP lease، DNS و HTTP کلاینت شعبه",
+      "purpose": "ثبت شاهد واقعی پس از اجرای آزمایش؛ تصویر فعلاً موجود نیست"
+    },
+    {
+      "id": "24-03",
+      "screen": "ترتیب Firewall، شمارنده NAT و Queue",
+      "purpose": "ثبت شاهد واقعی پس از اجرای آزمایش؛ تصویر فعلاً موجود نیست"
+    },
+    {
+      "id": "24-04",
+      "screen": "خرابی route، اصلاح و بازگشت snapshot",
+      "purpose": "ثبت شاهد واقعی پس از اجرای آزمایش؛ تصویر فعلاً موجود نیست"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "توضیح مسیر رفت و برگشت میان شعبه و سرور",
+    "تفکیک خطای DNS از routing و سرویس",
+    "ثبت آزمون مثبت، منفی، Queue و rollback بدون جعل نتیجه"
+  ]
+}

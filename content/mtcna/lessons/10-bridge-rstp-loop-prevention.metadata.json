@@ -1,0 +1,41 @@
+{
+  "number": 10,
+  "title": "ساخت Bridge و آشنایی با RSTP و جلوگیری از حلقه",
+  "slug": "bridge-rstp-loop-prevention",
+  "chapter": 3,
+  "summary": "ساخت بریج محدود LAN و انتقال حساب‌شدهٔ آدرس با پرهیز از حلقه و عضویت WAN.",
+  "primary_query": "آموزش Bridge و RSTP میکروتیک",
+  "related_queries": [
+    "جلوگیری از loop شبکه",
+    "انتقال IP به bridge-lan"
+  ],
+  "source_urls": [
+    "https://manual.mikrotik.com/docs/bridging-and-switching/",
+    "https://help.mikrotik.com/docs/spaces/ROS/pages/19136718/Layer2%2Bmisconfiguration"
+  ],
+  "capture_plan": [
+    {
+      "id": "L10-1",
+      "screen": "Bridge > Bridges",
+      "purpose": "بررسی protocol-mode و نام بریج"
+    },
+    {
+      "id": "L10-2",
+      "screen": "Bridge > Ports",
+      "purpose": "عضویت دقیق ether2 و ether4"
+    },
+    {
+      "id": "L10-3",
+      "screen": "Bridge > Hosts",
+      "purpose": "یادگیری MAC کلاینت‌ها"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "ساخت بریج LAN بدون WAN",
+    "انتقال صحیح IP به بریج",
+    "توضیح نقش RSTP در مسیر افزونه"
+  ]
+}

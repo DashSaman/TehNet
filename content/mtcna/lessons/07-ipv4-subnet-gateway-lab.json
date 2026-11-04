@@ -1,0 +1,39 @@
+{
+  "number": 7,
+  "title": "آدرس IPv4، Subnet و Gateway با یک لابراتوار ساده",
+  "slug": "ipv4-subnet-gateway-lab",
+  "chapter": 2,
+  "summary": "محاسبهٔ شبکهٔ /24، آدرس‌دهی LAN و WAN مجزا و تشخیص تفاوت مسیر متصل و مسیر پیش‌فرض.",
+  "primary_query": "IP subnet gateway میکروتیک",
+  "related_queries": [
+    "آدرس دهی RouterOS",
+    "ماسک /24",
+    "default route میکروتیک"
+  ],
+  "source_urls": [
+    "https://manual.mikrotik.com/docs/getting-started/networking-fundamentals/",
+    "https://manual.mikrotik.com/docs/cli-reference/ip/address/",
+    "https://manual.mikrotik.com/docs/user-guides/routing-and-networking-protocols/routing-decision/",
+    "https://manual.mikrotik.com/docs/getting-started/first-time-configuration/"
+  ],
+  "capture_plan": [
+    {
+      "id": "07-01",
+      "screen": "IP Addresses دو اینترفیس",
+      "purpose": "نمایش جدایی LAN و WAN و Prefix صحیح"
+    },
+    {
+      "id": "07-02",
+      "screen": "IP Routes در حالت بدون و با بالادست",
+      "purpose": "تفکیک مسیر متصل و Default Route"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "محاسبهٔ محدودهٔ میزبان /24",
+    "تشخیص مقصد محلی و غیرمحلی",
+    "افزودن مسیر پیش‌فرض فقط با Gateway واقعی"
+  ]
+}

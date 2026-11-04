@@ -1,0 +1,42 @@
+{
+  "number": 13,
+  "title": "تفاوت srcnat و masquerade با آزمایش محدود",
+  "slug": "srcnat-masquerade",
+  "chapter": 5,
+  "summary": "ترجمهٔ مبدأ فقط برای یک میزبان و سرویس مشخص در بالادست جداشده.",
+  "primary_query": "تفاوت srcnat و masquerade میکروتیک",
+  "related_queries": [
+    "آموزش NAT در RouterOS",
+    "عیب یابی masquerade"
+  ],
+  "source_urls": [
+    "https://help.mikrotik.com/docs/spaces/ROS/pages/3211299/NAT",
+    "https://manual.mikrotik.com/docs/firewall-and-quality-of-service/connection-tracking/",
+    "https://help.mikrotik.com/docs/spaces/ROS/pages/18350234/Cloud%2BHosted%2BRouter%2BCHR"
+  ],
+  "capture_plan": [
+    {
+      "id": "L13-1",
+      "screen": "IP > Firewall > NAT",
+      "purpose": "شرط‌های محدود و شمارندهٔ قانون آزمایشی"
+    },
+    {
+      "id": "L13-2",
+      "screen": "IP > Firewall > Connections",
+      "purpose": "نشانی اصلی و ترجمهٔ اتصال"
+    },
+    {
+      "id": "L13-3",
+      "screen": "Test HTTP server log",
+      "purpose": "مقایسهٔ مبدأ ثبت‌شده در سرویس آزمایشگاهی"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "تفکیک route و NAT",
+    "انتخاب src-nat برای آدرس ثابت",
+    "خواندن نتیجهٔ NAT در یک اتصال تازه"
+  ]
+}

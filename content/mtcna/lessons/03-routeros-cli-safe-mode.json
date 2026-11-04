@@ -1,0 +1,38 @@
+{
+  "number": 3,
+  "title": "آشنایی با CLI در RouterOS و تمرین امن Safe Mode",
+  "slug": "routeros-cli-safe-mode",
+  "chapter": 1,
+  "summary": "خواندن مسیر فرمان‌ها، استفاده از print و find و تمرین برگشت تغییر با Safe Mode روی یک تغییر کم‌خطر.",
+  "primary_query": "Safe Mode میکروتیک",
+  "related_queries": [
+    "آموزش CLI RouterOS",
+    "دستور print میکروتیک",
+    "Ctrl X RouterOS"
+  ],
+  "source_urls": [
+    "https://manual.mikrotik.com/docs/management-tools/console/",
+    "https://manual.mikrotik.com/docs/getting-started/configuration-management/",
+    "https://manual.mikrotik.com/docs/cli-reference/"
+  ],
+  "capture_plan": [
+    {
+      "id": "03-01",
+      "screen": "Terminal در حالت SAFE",
+      "purpose": "نشان دادن مالکیت Safe Mode و مسیر فرمان"
+    },
+    {
+      "id": "03-02",
+      "screen": "System History پس از تغییر آزمایشی",
+      "purpose": "نمایش تشخیص تغییر قابل برگشت"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "خواندن مسیر مطلق دستور",
+    "انتخاب رکورد بدون اتکا به شمارهٔ موقت",
+    "آزمایش حفظ و برگشت تغییر در Safe Mode"
+  ]
+}
