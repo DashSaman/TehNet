@@ -82,3 +82,27 @@ IPv4 چهار بخش هشت‌بیتی دارد. Prefix برابر ۲۴ یعنی
 | R1 پاسخ می‌گیرد ولی کلاینت نه | Gateway کلاینت، مسیر برگشت و سیاست عبور را بررسی کنید |
 
 سه مقصد 10.77.10.20، 10.77.0.1 و 10.77.11.1 را برای میزبان 10.77.10.10/24 محلی یا غیرمحلی طبقه‌بندی کنید و دلیل بنویسید. معیار قبولی، تشخیص فقط مقصد اول به‌عنوان محلی و توضیح نیاز دو مقصد دیگر به مسیریابی است. برای بازگشت سناریوی WAN، فقط رکوردهای دارای Comment همین درس را حذف کنید: نخست مسیر `TEHNET-L07-DEFAULT` و سپس آدرس `TEHNET-L07-WAN`. آدرس مدیریت ether2 را نگه دارید. اگر سناریوی اختیاری را اجرا نکرده‌اید، هیچ حذف لازم نیست.
+
+## تصاویر واقعی: افزودن IPv4 از WinBox 4.5
+
+در لاب ایزولهٔ واقعی، RouterOS **7.25.1** روی CHR در QEMU اجرا شد و WinBox Linux **4.5** به آن متصل شد. چهار تصویر زیر از خود برنامه ثبت شده‌اند، نه تصویرسازی یا بازسازی منوها. این شواهد صرفاً **ثبت موفق یک IP روی ether2** هستند؛ سایر تمرین‌های درس هنوز به آزمون مستقل نیاز دارند.
+
+### ۱. منوی IP را در ستون کناری باز کنید
+
+![نمای واقعی منوی IP و گزینهٔ Addresses در WinBox 4.5](https://raw.githubusercontent.com/DashSaman/TehNet/8d9d16fd232abfeae633acb7f6c49abd14ddcbc3/content/mtcna/screenshots/real-lab/2026-11-04/winbox40/verified-ip-address-demo/01-menu.png)
+
+### ۲. به IP → Addresses بروید
+
+![جدول واقعی IP Addresses شامل آدرس Dynamic روی ether1 در CHR آزمایشگاهی](https://raw.githubusercontent.com/DashSaman/TehNet/8d9d16fd232abfeae633acb7f6c49abd14ddcbc3/content/mtcna/screenshots/real-lab/2026-11-04/winbox40/verified-ip-address-demo/02-addresses-list.png)
+
+### ۳. New را بزنید و فیلدها را پر کنید
+
+![فرم واقعی Add Address در MikroTik با Address برابر 10.77.10.1/24، Interface برابر ether2 و Comment آزمایشی](https://raw.githubusercontent.com/DashSaman/TehNet/8d9d16fd232abfeae633acb7f6c49abd14ddcbc3/content/mtcna/screenshots/real-lab/2026-11-04/winbox40/verified-ip-address-demo/03-fields-filled.png)
+
+در پنجرهٔ Add Address مقدار **Address** را `10.77.10.1/24` و مقدار **Interface** را `ether2` انتخاب کنید؛ Comment صرفاً شناسهٔ این تمرین است. وجود آدرس Dynamic دیگری روی `ether1` مانع افزودن آدرس جدید روی `ether2` نیست. پیش از هر Apply مطمئن شوید محدودهٔ LAN با شبکهٔ اصلی تداخل ندارد و کنسول جایگزین برقرار است.
+
+### ۴. Apply و نتیجهٔ واقعی را بررسی کنید
+
+![نتیجهٔ واقعی Apply آدرس 10.77.10.1/24 روی ether2 و مشاهدهٔ شبکهٔ 10.77.10.0 در WinBox](https://raw.githubusercontent.com/DashSaman/TehNet/8d9d16fd232abfeae633acb7f6c49abd14ddcbc3/content/mtcna/screenshots/real-lab/2026-11-04/winbox40/verified-ip-address-demo/04-apply-result.png)
+
+در نتیجهٔ ثبت‌شده، RouterOS شبکهٔ `10.77.10.0` را برای این آدرس محاسبه کرد و رکورد در لیست Addresses ظاهر شد. این خروجی واقعی اجرای آزمایش است. با این حال، **پاسخ Ping کلاینت یا موفقیت DHCP در این چهار تصویر اثبات نشده** و نباید به آن نسبت داده شود. پس از آموزش، آدرس آزمایشگاهی را با استفاده از شناسهٔ Comment و مسیر بازیابی مناسب بازگردانید.
