@@ -1,4 +1,12 @@
-## CURRENT —2026-11-04 conceptual routing Lab SOURCE_READY; A production BLOCKED_CI
+## CURRENT —2026-11-04 conceptual Lab VERIFIED_STAGING; A/B production BLOCKED_CI
+
+FeatureB sourceb13ee38391937f4088a794c3298b118639c62ba9 با native44/renderer7/site213 تأیید؛4runtime-file+post_content7،0page/backend، هر دو ابزار مستقل، توپولوژی/انتخاب/حرکت بسته و no-JS در1440/768/375/320 روشن/تیره. تمام original data/revisions/fixture/files/runtime دقیقاً بازیابی؛0ارسال و0تغییر production. receipt: docs/evidence/2026-11-04/conceptual-routing/native-staging.json. مدل محدود است؛ packet/RouterOS واقعی یا سنجش مشتری نیست.
+
+گام بعد PR بازبینی B با base شاخه A؛ سپس فقط پس از CI سبز و production receipt واقعی A، retarget main و gateهای انتشار B. PR81/headbc9f126 و CI41862506291 هنوز queued/runner-unassigned مشاهده شدند؛ علت UNKNOWN، شکست آزمون نیست و bypass/runner/billing/rerun مجاز نشده. برای انتشار A، به شاخه A تمیز برگردید و پس از green CI/merge با snapshot خصوصی latest main را ff کنید؛ publisher A نباید از source شاخه B اجرا شود. هیچ local edit از بین نرود.
+
+خدمات78/کاتالوگ80/آموزش76/77 واقعاً منتشرند؛ دوباره اجرا نشوند. MyTel read-only، noindex/payment/security/rotation/history/origin/CAPTCHA ثابت؛63/75 باز و parity نامحرز. بازبینی کامل8ضبط، CAD دقیق25قلم و شواهد اعتماد/نتیجهٔ واقعی بازند؛ داده ساختگی تولید نشود.
+
+## HISTORICAL CHECKPOINT —2026-11-04 conceptual routing Lab SOURCE_READY; A production BLOCKED_CI
 
 FeatureB در شاخه مستقل feat/conceptual-routing-lab-20261104 پیاده:4گره، مسیر رفت/برگشت مستقل، prefix/next-hop، حرکت گام‌به‌گام و پاسخ محدود آموزشی؛ نه emulator/RouterOS/شبکهٔ واقعی.5آزمون مدل شامل16جفت انتخاب و unknown درست؛ مجموعNode9PASS. scope32 با31PASS/1Windows SKIP پس ازRED.4runtime-file+post_content7، حفظA/محتوای قبلی وguard سه فایلA؛ native/site هنوز NOT_RUN. گزارش docs/reports/CONCEPTUAL_ROUTING_LAB_2026-11-04.fa.md؛ گام بعد native/renderer/site و exact restore.
 

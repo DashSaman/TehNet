@@ -1,6 +1,6 @@
 # تمرین مفهومی Static Routing —۴نوامبر۲۰۲۶
 
-وضعیت: **SOURCE_READY، NATIVE_NOT_RUN، NOT_DEPLOYED**. شاخهٔ مستقل `feat/conceptual-routing-lab-20261104` از head PR81 ساخته شده تا تغییرِ FeatureB، head واجد آزمون FeatureA را عوض نکند. **انتشار B به انتشار تأییدشدهٔ A وابسته است**؛ A هنوز به CI صف‌شدهٔ GitHub وابسته است و production منتشر نشده.
+وضعیت: **VERIFIED_STAGING_NOT_DEPLOYED**. شاخهٔ مستقل `feat/conceptual-routing-lab-20261104` از head PR81 ساخته شده تا تغییرِ FeatureB، head واجد آزمون FeatureA را عوض نکند. **انتشار B به انتشار تأییدشدهٔ A وابسته است**؛ A هنوز به CI صف‌شدهٔ GitHub وابسته است و production منتشر نشده.
 
 چهار گرهٔ فرضی رایانه/R1/R2/سرویس، آدرس‌ها و Gatewayهای مشخص، دو انتخاب مستقل برای مسیر رفت و برگشت، مقایسهٔ prefix و next-hop، نمایش مرحله‌ای بسته و بازخورد پاسخ پیاده شده‌اند. مقصد نامنطبق، next-hop خارج لینک و نبود مسیر از هم جدا هستند. یک مسیرِ صحیح، پاسخ رفت‌وبرگشت موفق محسوب نمی‌شود؛ انتخاب‌نکردن هم نتیجهٔ خرابی واقعی تولید نمی‌کند. تغییر انتخاب، نتیجهٔ قبلی را پاک می‌کند؛ reset و حرکت گام قبل/بعد محدودند.
 
@@ -16,6 +16,6 @@
 
 یک shortcode جدید روی همان Lab7؛ دسترسی سریع به هر دو ابزار و تمام محتوای پیشین/FeatureA حفظ می‌شوند. چهار فایل component/loader، فقط post_content7 و0صفحه/فرم/backend تازه. guard جدید، سه فایل A را نیز کنترل می‌کند؛ scope قبلی A تغییر داده نشده تا qualification قبلی‌اش معتبر بماند. title/excerpt/URL/meta، Home/menu، محصولات و دادهٔ تجاری، noindex/payment/CAPTCHA و MyTel در دامنه نیستند.
 
-منطق مدل با5آزمون و هر16جفت انتخاب، رفت‌وبرگشت مستقل، prefix عددی و next-hop بررسی شد. یک آزمون، تعبیر انتخاب‌نشده به قطع مدل را RED کرد؛ با وضعیت NEEDS_CHOICES سبز شد. مجموع9آزمون Node برای A+B موفق؛ scope جدید ابتدا RED و پس از ثبت32آزمون اجرا شد:31PASS/1SKIP Windows. native migration/renderer و مرورگر واقعی سایت هنوز NOT_RUN؛ تا آن شواهد و CI، تحویل production محسوب نشود.
+منطق مدل با5آزمون و هر16جفت انتخاب، رفت‌وبرگشت مستقل، prefix عددی و next-hop بررسی شد. یک آزمون، تعبیر انتخاب‌نشده به قطع مدل را RED کرد؛ با وضعیت NEEDS_CHOICES سبز شد. مجموع9آزمون Node برای A+B موفق؛ scope جدید ابتدا RED و پس از ثبت32آزمون اجرا شد:31PASS/1SKIP Windows. native migration44، renderer7 و مرورگر سایت213 با source `b13ee38391937f4088a794c3298b118639c62ba9` موفق:4فایل/1body، apply/repeat/rollback/repeat، چند نمونهٔ ID مستقل، هر دو ابزار کنار هم،1440/768/375/320 دو تم/no-JS، خطاهای route و پاسخ رفت/برگشت، حرکت گام‌ها و reset. همهٔ داده/revision/files/runtime اولیه دقیقاً بازیابی شدند؛0ارسال و0تغییر production. [receipt و تصاویر](../evidence/2026-11-04/conceptual-routing/native-staging.json). تصویر قبل نمای Lab بدون B و بعد نمای توپولوژی است؛ مقایسهٔ یک viewport یکسان یا بازطراحی کل قالب نیست.
 
-گام بعد: rehearsal بومی با fixtureهای عمومیِ A و original-state restore، رندر چند نمونه و سایت desktop/tablet/mobile/light/dark/no-JS، سپس PR/CI. انتشار B تنها بعد از رسید production واقعی A و برابری bundle/backup/checksum/drift/rollback مجاز است. هیچ network/project، ranking، traffic، conversion یا parity اندازه‌گیری نشده؛ Issues63/75 و بازبینی کامل8ضبط بازند.
+گام بعد: PR/CI؛ rehearsal و cleanup کامل شده‌اند و دوباره اجرا نشوند مگر source تغییر کند. انتشار B تنها بعد از رسید production واقعی A و برابری bundle/backup/checksum/drift/rollback مجاز است. هیچ network/project، ranking، traffic، conversion یا parity اندازه‌گیری نشده؛ Issues63/75 و بازبینی کامل8ضبط بازند.
