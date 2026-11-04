@@ -1,4 +1,14 @@
-## CURRENT —2026-11-04 manual network triage INTEGRATION_READY_NOT_DEPLOYED
+## CURRENT —2026-11-04 triage report-start fix: fresh qualification pending
+
+پس از source312d69c/236، ایراد شروع گزارش از وسط در موبایل بازتولید و اصلاح شد: scrollTop473/selectionStart706 به0/0 رسید. assertion سایت اضافه شد؛ تا native qualification تازه، نسخهٔ جدید منتشر نشود.
+
+## HISTORICAL CHECKPOINT —2026-11-04 manual network triage VERIFIED_STAGING_NOT_DEPLOYED
+
+FeatureA روی Lab7 با source312d69c، native44 و site-browser236 تأیید:7مسئله،3مرحله، manual unknown/text/JSON،1440/768/375/320 دو تم وno-JS، CTA تا context/nonce/action فعلی، بارگیری شرطی فایل‌ها.4runtime-file و1body/0page؛ همهٔ داده/revision/fixture/files/runtime دقیقاً بازیابی،0ارسال و0تغییر production. receipt: docs/evidence/2026-11-04/network-triage/native-staging.json. component renderer38 و browser571/56download شاهد مرحلهٔ قبلی‌اند؛ final CSS/منبع VPN در236بررسی یکپارچه پوشش یافت.
+
+گام فوری PR/CI، برابری immutable native payload/tool/guards، سپس انتشار محدود با backup تازه/checksum/drift/rollback و live verify. تا receipt deployed نامیده نشود. FeatureB لاب مفهومی، بازبینی کامل8ضبط و شواهد اعتماد بازند. آموزش76/77، خدمات78 و کاتالوگ80 قبلاً منتشر و دوباره اجرا نشوند؛ MyTel read-only، noindex/payment و همهٔ گیت‌های امنیتی ثابت.63/75 باز و parity نامحرز.
+
+## HISTORICAL CHECKPOINT —2026-11-04 manual network triage INTEGRATION_READY_NOT_DEPLOYED
 
 FeatureA پیاده شده:7مسئله،3مرحله، شاهد unknown معتبر، دلیل تست امن، متن/JSON محلی، پاک‌شدن گزارش قدیمی، چند نمونه و no-JS، بدون شبکه/credential/تشخیص قطعی/backend تازه. Component renderer واقعی WP38 و browser571 با56دانلود محلی تأیید؛ سپس CSS به --tn-* و عنوان منبع VPN دقیق شد. Node4 و scope31آزمون با30PASS/1SKIP؛ دامنهٔ جدید فقط4runtime-file و post_content7 است. بدنه Lab با ترکیب دقیق دو منبع عمومی به c7ef5a3 تطبیق شد؛ محتوای قبلی و note حفظ‌اند. گزارش docs/reports/NETWORK_TRIAGE_2026-11-04.fa.md.
 

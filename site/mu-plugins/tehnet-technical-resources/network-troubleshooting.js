@@ -61,7 +61,8 @@
       report = buildReport(model, {problem: problem.value, scope: scope.value, observation: article.querySelector('select').value});
       find('[data-tn-triage-advice]').textContent = report.nextReview;
       find('[data-tn-triage-summary]').value = summary(report); result.hidden = false; download.disabled = false;
-      find('[data-tn-triage-summary]').focus();
+      const textarea = find('[data-tn-triage-summary]');
+      textarea.focus(); textarea.setSelectionRange(0, 0); textarea.scrollTop = 0;
     });
     download.addEventListener('click', () => {
       if (!report) return;

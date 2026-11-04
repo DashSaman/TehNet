@@ -27,6 +27,7 @@ try{
     await root.locator('[data-tn-triage-problem]').selectOption(problem);await root.locator('[data-tn-triage-next]').click();await root.locator('[data-tn-triage-scope]').selectOption('one');await root.locator('[data-tn-triage-next]').click();
     const rule=root.locator('[data-tn-triage-rule="'+problem+'"]');check(await rule.isVisible(),label+'/'+problem+' relevant question');
     await root.locator('[data-tn-triage-build]').click();const report=root.locator('[data-tn-triage-summary]');check((await report.inputValue()).includes('هیچ فرمانی اجرا نشده')&&(await report.inputValue()).includes('تشخیص قطعی'),label+'/'+problem+' unknown observation and honest summary');
+    check(await report.evaluate(e=>e.scrollTop===0&&e.selectionStart===0),label+'/'+problem+' new report starts at beginning');
     const [download]=await Promise.all([page.waitForEvent('download'),root.locator('[data-tn-triage-download]').click()]);const file=path.join(out,'site-report-'+width+'-'+mode+'-'+problem+'.json');await download.saveAs(file);const json=JSON.parse(fs.readFileSync(file,'utf8'));
     check(json.problem===problem&&json.observation==='unknown'&&json.scope==='one'&&json.status==='MANUAL_UNVERIFIED',label+'/'+problem+' real local JSON');
     if(problem==='dns'&&[375,1440].includes(width)){await root.locator('[data-tn-triage-result]').scrollIntoViewIfNeeded();await page.screenshot({path:path.join(out,'after-triage-'+width+'-'+mode+'.png')});}
