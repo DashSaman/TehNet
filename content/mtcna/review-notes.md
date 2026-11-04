@@ -14,6 +14,12 @@ The log independently recorded CHR login at version 7.25.1 and WinBox auth succe
 
 **Current publication boundary:** 2 authentic screenshots across a partial first-login scenario, **zero complete screenshot-verified lessons, zero newly qualified published lessons, zero native WordPress scheduled lessons**. Images are on the GitHub working branch, **not in WordPress media**, due to WPVibe's rolling daily cap. Earlier baseline statements of “zero original application screenshots” below are historical checkpoints before these two captures, not the current image count.
 
+## 2026-11-04 RAW WINBOX 160 SHOTS — REAL APP, NOT LESSON ACCEPTANCE
+
+This new checkpoint supersedes prior screenshot counts, not the existing lab/publication gates. The repository now has **160 genuine raw screenshots** (4 per target session, 40 target sessions), plus **4 separate actual IP Address GUI steps including successful Apply/readback**, plus the 2 original login/first-password captures. The 160 images are real WinBox 4.5 / CHR RouterOS 7.25.1 pixels captured within a loopback-only network namespace, but are **not** 160 distinct accepted lesson steps. Independent QA found 127 distinct central views; 20 lessons had 4 distinct views, 20 had some duplication or inadequate content. WiFi hardware and RouterBOOT are not tested by this CHR. Do not mark 40 lessons technical-review, lab, screenshots, editor-save or release gates as passed from this batch.
+
+The QEMU/WinBox/Xvfb lab was shut down and its /dev/shm files fully deleted after all 160+4 image files were committed to GitHub. No WordPress uploads, no native WP scheduled/future change, no public lessons. See `docs/reports/MTCNA_REAL_WINBOX_CAPTURE_2026-11-04.fa.md` and `content/mtcna/screenshots/real-lab/2026-11-04/winbox40/quality-report.json`. Older zero-screenshot and two-screenshot checkpoints below are historical.
+
 ## Disposition
 
 The bounded static-review findings have been resolved in the source package. The course remains a set of non-public working drafts: **zero lab-verified lessons, zero original application screenshots, zero publication-ready lessons and zero new public releases from this package**. Editor-save validation and scoped site-release qualification remain pending. Existing published course owners are separate from these working drafts.
