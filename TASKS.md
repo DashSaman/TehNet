@@ -1,3 +1,11 @@
+## CURRENT — 2026-11-04 / VERIFIED_STAGING, production not deployed
+
+بستهٔ اصلاح هشت هویت آموزشی Issue75 با source `c2373f16fd1cc3113e01a36f32d241eda2d01ee2` در native staging تأیید شد:42بررسی مهاجرت،536بررسی مرورگر؛ داده‌ها/revisionها، تمام fixtureها و runtimeها دقیقاً بازیابی شدند. production mutation=0. گزارش و تصاویر: `docs/reports/EDUCATIONAL_INTEGRITY_RELEASE_2026-11-04.fa.md` و `docs/evidence/2026-11-04/native-staging.json`. اجرای اولیه به متادیتای ping/enclosureِ post70 برخورد کرد؛ مهار فقط process-local CLI با بازگشت هوک و آزمون cron/meta انجام شد. شمار آزمون، شاهد parity نیست.
+
+مقایسهٔ واقعی7دامنه و3query مرورگر Google در `docs/reports/COMPETITIVE_LEADERSHIP_AUDIT_2026-11-04.fa.md` است؛ ارزیابی متنی محدود، نه امتیاز کلیِ حدسی.7زیرنویس خودکار دریافت، فقط بخش‌های منتخب خوانده شده؛ بازبینی کامل8ضبط و تأیید ویراستار همچنان UNVERIFIED. Issue75 و63 بسته نشوند. گیت مخزن/CI موجود است؛ admin-save gate سراسری هنوز نیست.
+
+گام فوری: PR و CI، تطبیق همهٔ member/tool/runtime_guard bytes با source qualifyشده و سپس فقط در دامنهٔ مجاز با backup تازه/checksum/drift/rollback؛ تا receipt، deployment را اعلام نکنید. بعد عمق سرور و اتصال شعب در canonicalهای موجود، همان contextهای server-scoping و wifi-branch-scoping. noindex و MyTel read-only، محدودیت پرداخت و تمام گیت‌های امنیت تاریخی/CAPTCHA/shared infrastructure حفظ شوند.
+
 ## CURRENT — 2026-11-04 educational integrity / Issue75
 
 مالک مأموریت تازه را در `docs/requirements-master-mission-2026-11-04.fa.md` تعیین کرده است. شاخه `feat/educational-integrity-20261104` از main `e4be584` با snapshot خصوصی ساخته شد. baseline خواندنی production:23 فایل مدیریت‌شده بدون drift؛ noindex برقرار،25 محصول، ERP/payment بسته. اصلاح هشت هویت آموزشی در `content/educational-integrity-2026-11-04/` آماده است؛ **هنوز DEPLOYED نیست**. گیت محتوایی و دامنهٔ مهاجرت دقیق، قبل از native staging در حال تکمیل است. آزمون‌های محلی:5 مورد گیت و28 مورد مرز انتشار موفق، یک symlink test به‌علت مجوز Windows skipped. این آمار، تکمیل بازبینی ویدیو یا رقابت تجاری را ثابت نمی‌کند.
