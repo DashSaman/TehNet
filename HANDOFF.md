@@ -1,4 +1,12 @@
-## CURRENT —2026-11-04 manual network triage VERIFIED_STAGING_NOT_DEPLOYED
+## CURRENT —2026-11-04 conceptual routing Lab SOURCE_READY; A production BLOCKED_CI
+
+FeatureB در شاخه مستقل feat/conceptual-routing-lab-20261104 پیاده:4گره، مسیر رفت/برگشت مستقل، prefix/next-hop، حرکت گام‌به‌گام و پاسخ محدود آموزشی؛ نه emulator/RouterOS/شبکهٔ واقعی.5آزمون مدل شامل16جفت انتخاب و unknown درست؛ مجموعNode9PASS. scope32 با31PASS/1Windows SKIP پس ازRED.4runtime-file+post_content7، حفظA/محتوای قبلی وguard سه فایلA؛ native/site هنوز NOT_RUN. گزارش docs/reports/CONCEPTUAL_ROUTING_LAB_2026-11-04.fa.md؛ گام بعد native/renderer/site و exact restore.
+
+FeatureA source7d90b4b با native44/site257 واجد آزمون است؛ PR81 headbc9f126، CI41862506291 هنوز queued با0runner assigned برای2job ubuntu-latest. علت صف UNKNOWN؛ نه شکست آزمون و نه مجوز bypass. تا CI سبز، ادغام/production A انجام نشود. شاخه A/head آن را تغییر ندهید. B نیز پیش از production receipt واقعی A منتشر نشود. مرحلهٔ B مستقل و staging مجاز است.
+
+خدمات78 و کاتالوگ80 و آموزش76/77 واقعاً منتشر شده‌اند و دوباره اجرا نشوند. MyTel read-only، noindex/payment/security/rotation/history/origin/CAPTCHA ثابت؛63/75 باز و parity نامحرز. هیچ اتوماسیون متوقف‌شده‌ای فعال نشده است.
+
+## HISTORICAL CHECKPOINT —2026-11-04 manual network triage VERIFIED_STAGING_NOT_DEPLOYED
 
 Source7d90b4b58d6186edbfab10800d53fd639a1ca9f6 با native44 و site-browser257 پس از اصلاح گزارش موبایل qualify شد؛ همهٔ گزارش‌ها از ابتدای متن باز می‌شوند.7مسئله،3مرحله، unknown/text/JSON،1440/768/375/320 دو تم/no-JS، CTA تا فرم/context/nonce/action فعلی و بارگیری شرطی فایل‌ها تأیید.4runtime-file وpost_content7،0page/0backend؛ همهٔ داده/revision/fixture/files/runtime دقیقاً بازیابی،0ارسال و0تغییر production. receipt: docs/evidence/2026-11-04/network-triage/native-staging.json.
 

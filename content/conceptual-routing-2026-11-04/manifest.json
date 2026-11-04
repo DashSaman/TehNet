@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "key": "tehnet-lab-conceptual-routing-20261104-v1",
+  "status": "IMMUTABLE_RELEASE_INPUT_SEE_DATED_RECEIPTS",
+  "target": {
+    "id": 7,
+    "url": "https://tehnet.ir/lab/",
+    "title_observed": "Lab",
+    "expected_content_sha256": "b366802f8dcd71b74318b251feafdfbe3b794898c4f4bc06e5f9f2f3625f55dc",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "content_file": "lab.html",
+  "content_sha256_lf": "527a404eef1a68e961628347e343b45e53aa2f9174d56011b805cfb702c20b86",
+  "requires_prior_deployed_scope": "tehnet-lab-network-triage-20261104-v1",
+  "limits": [
+    "Fixed conceptual model; no RouterOS emulator, real packets, device connection or actual configuration execution.",
+    "Documentation-only RFC5737 addresses; working hosts/links/ARP/gateways, main table and no default/ACL/NAT/VRF/ECMP/policy routing assumed.",
+    "Only four component/loader files and one existing Lab body; existing manual triage and all protected business/security controls retained."
+  ]
+}
