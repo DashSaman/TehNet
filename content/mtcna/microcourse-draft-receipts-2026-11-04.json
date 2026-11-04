@@ -56,7 +56,7 @@
   "unqualified_count": 30,
   "first_nominal_release": "2026-11-07T09:00:00+03:30",
   "cadence_days": 3,
-  "status": "PARTIAL_DRAFT_RESTRUCTURE_NOT_SCHEDULED",
+  "status": "SOURCE_PREPARED_11_WP_DRAFT_30_NO_NATIVE_SCHEDULE",
   "unverified": [
     "raw Gutenberg independent content readback",
     "RouterOS live lab and recovery",
@@ -72,5 +72,30 @@
     "An accidental duplicate test page 263 was moved to WordPress trash; it is not an active draft",
     "The prior 24-lesson manifest is superseded only as a planning target, not yet rewritten into a 40-lesson executable manifest",
     "No native WordPress future statuses have been set; automation remains enabled with strict blocking gate"
-  ]
+  ],
+  "source_only_lesson_numbers": [
+    1,
+    11,
+    15,
+    18,
+    23,
+    26,
+    28,
+    30,
+    32,
+    36,
+    40
+  ],
+  "source_only_count": 11,
+  "blueprint_session_count": 40,
+  "new_vector_diagrams": [
+    "content/mtcna/microcourse-drafts/images/quickset-decision.svg",
+    "content/mtcna/microcourse-drafts/images/netinstall-recovery.svg",
+    "content/mtcna/microcourse-drafts/images/monitoring-evidence.svg"
+  ],
+  "preview_link_index": "content/mtcna/microcourse-drafts/PREVIEW_INDEX.fa.md",
+  "observed_wordpress_draft_count": 30,
+  "wordPress_native_scheduled_count": 0,
+  "wordpress_limit_notice": "WPVibe daily fair-use limit encountered on 2026-11-04; no reset used",
+  "preparation_automation_created": true
 }
