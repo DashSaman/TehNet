@@ -55,10 +55,10 @@
 
 ## Task 4: Reconcile and hand off
 
-- [ ] Save course sources, WordPress receipts, schedule and honest readiness counts in an isolated GitHub pull request.
+- [x] Save course sources, WordPress receipts, schedule and honest readiness counts in an isolated GitHub pull request.
 - [x] Prepend a scoped checkpoint to HANDOFF.md, PROGRESS.md and TASKS.md without erasing parallel checkpoints.
 - [x] Run a fresh independent review of the content/scheduling boundary and resolve material findings.
-- [ ] Report completed work and the remaining lab/screenshot dependency without claiming the course has been published.
+- [x] Report completed work and the remaining lab/screenshot dependency without claiming the course has been published.
 
 ## Rulings
 
@@ -71,3 +71,5 @@ A separate branch is used because the previous draft PR and scratch source may s
 ## Verified preparation checkpoint
 
 All 24 sources and metadata files rendered successfully. WordPress IDs 232–255 were independently read back with exact raw-content, slug, parent and draft-status matches on 2026-11-04. Fourteen immutable technical schematics cover all 24 lessons. The saved active automation prompt and schedule match its remote readback; next_run_time is null and is not invented. Source and payload hashes match every receipt. Runtime/lab, original screenshots, editor-save and release qualification remain pending; zero installments are publish-ready.
+
+Source preparation pull request: https://github.com/DashSaman/TehNet/pull/82 . The repository CI status is recorded on that PR; it does not qualify RouterOS runtime results.

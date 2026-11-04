@@ -133,5 +133,10 @@
     "Application screenshots and runtime acceptance/recovery evidence are missing.",
     "The scheduled window can remain blocked; no public release is guaranteed merely by the schedule.",
     "Published owner pages and the existing noindex launch gate were not changed by this package."
-  ]
+  ],
+  "source_pull_request": {
+    "number": 82,
+    "url": "https://github.com/DashSaman/TehNet/pull/82",
+    "purpose": "Persist the private-draft preparation package; RouterOS lab gates remain pending"
+  }
 }

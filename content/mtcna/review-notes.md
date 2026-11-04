@@ -40,3 +40,7 @@ A blocked lesson stays next. There are no catch-up batches and no fixed occurren
 Provision an authorized, isolated CHR lab for lesson 1 with **1 GiB RAM**. Record the RouterOS and WinBox versions actually installed, interface/NIC mapping and network-isolation evidence. Establish a recovery checkpoint, execute the lesson from the documented starting state, and test recovery. Preserve original application screenshots and actual command output with expected-versus-observed results. Complete technical/editorial review, editor-save validation and the existing scoped release qualification before the controller may publish. Physical RouterBOOT and Wi-Fi evidence remain separate later requirements.
 
 The official CHR installation reference is [MikroTik CHR installation](https://manual.mikrotik.com/docs/getting-started/installation-and-upgrade/install/chr-installation/). WordPress status/date behavior is documented in [Pages REST API](https://developer.wordpress.org/rest-api/reference/pages/) and [scheduling a post](https://make.wordpress.org/support/user-manual/posts/schedule-a-post/).
+
+## Source review record
+
+The preparation package is tracked in [pull request 82](https://github.com/DashSaman/TehNet/pull/82). Its repository CI is separate from the unexecuted RouterOS lab and publication qualification.

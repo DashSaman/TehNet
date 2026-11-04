@@ -1,5 +1,7 @@
 ## SCOPED MTCNA CHECKPOINT — 2026-11-04 — DRAFTS_SAVED_SCHEDULE_ACTIVE_LAB_PENDING
 
+بستهٔ آماده‌سازی در PR 82 ثبت شد: https://github.com/DashSaman/TehNet/pull/82 . وضعیت CI همان PR مربوط به حفاظت مخزن است و جای آزمون RouterOS یا صلاحیت انتشار را نمی‌گیرد.
+
 این checkpoint فقط بستهٔ دورهٔ مکتوب تهنت را پوشش می‌دهد و کارهای مستقل زیر را جایگزین نمی‌کند. هویت تأییدشده: TehNet / تهنت / تهران نتورک / Tehran Network؛ کانال https://www.youtube.com/@tehran.network021 . Queue به ویدیوهای قدیمی نسبت داده نشده است.
 
 ۲۴ متن مستقل در ۹ فصل، ۲۴ فراداده، ۲۹٬۷۲۲ واژه و ۱۴ نمودار دقیق SVG/WebP آماده و در content/mtcna ثبت شده‌اند. ۲۴ پیش‌نویس واقعی WordPress با IDهای 232–255 و parent=40 ایجاد شد. بازخوانی مستقل همهٔ raw contentها، status=draft، slug و parent در 2026-11-04T16:16:11Z دقیقاً با payloadها تطبیق داشت. مالکان منتشرشدهٔ 40 و 62–67 همچنان publish هستند؛ این بسته هیچ نوشتهٔ عمومی تازه یا تغییر runtime ایجاد نکرد. جزئیات: ops/mtcna-preparation-2026-11-04.json و content/mtcna/wordpress-receipts.json .
