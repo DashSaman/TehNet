@@ -1,0 +1,105 @@
+{
+  "status": "DEPLOYED_VERIFIED",
+  "scope": "tehnet-educational-integrity-20261104-v1",
+  "source_commit": "75178a11c4f47f9ad5892de345dc547087a42d09",
+  "qualified_source": "c2373f16fd1cc3113e01a36f32d241eda2d01ee2",
+  "observed_utc": "2026-11-04T13:59:44.009231+00:00",
+  "completed_utc": "2026-11-04T14:00:17.271355+00:00",
+  "fresh_backup_checksum_verified": true,
+  "protected_state_unchanged": true,
+  "all_existing_runtimes_unchanged": true,
+  "all_25_image_price_inquiry_fields_unchanged": true,
+  "index_payment_captcha_theme_cron_unchanged": true,
+  "public_educational_gets": [
+    {
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/",
+      "http_status": 200,
+      "h1": 1,
+      "noindex": true,
+      "canonical_preserved": true,
+      "content_role_visible": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+      "http_status": 200,
+      "h1": 1,
+      "noindex": true,
+      "canonical_preserved": true,
+      "content_role_visible": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+      "http_status": 200,
+      "h1": 1,
+      "noindex": true,
+      "canonical_preserved": true,
+      "content_role_visible": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/",
+      "http_status": 200,
+      "h1": 1,
+      "noindex": true,
+      "canonical_preserved": true,
+      "content_role_visible": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/nat-masquerade/",
+      "http_status": 200,
+      "h1": 1,
+      "noindex": true,
+      "canonical_preserved": true,
+      "content_role_visible": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/firewall-basics/",
+      "http_status": 200,
+      "h1": 1,
+      "noindex": true,
+      "canonical_preserved": true,
+      "content_role_visible": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/queues-troubleshooting/",
+      "http_status": 200,
+      "h1": 1,
+      "noindex": true,
+      "canonical_preserved": true,
+      "content_role_visible": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/mtcna-learning-path/",
+      "http_status": 200,
+      "h1": 1,
+      "noindex": true,
+      "canonical_preserved": true,
+      "content_role_visible": true,
+      "tls_verified": true
+    }
+  ],
+  "other_public_routes_checked": 5,
+  "schema": 1,
+  "pr": "https://github.com/DashSaman/TehNet/pull/76",
+  "ci_run": "https://github.com/DashSaman/TehNet/actions/runs/41842630607",
+  "runtime_files_changed": 0,
+  "new_pages_created": 0,
+  "existing_records_updated": 8,
+  "customer_submissions": 0,
+  "live_browser_checks": 536,
+  "live_browser_observed_utc": "2026-11-04T14:03:12.495Z",
+  "screenshots_sha256": {
+    "live-67-375-dark.png": "bea716fae6901c6693282971579a127d78e873c7db452ca558bb5c55029c7ea4",
+    "live-40-1440-dark.png": "1d9429beb131b6876746258972887043ec97ca55b1206539315c3697e3098fb6"
+  },
+  "limitations": [
+    "Full eight-video audio/screen review remains UNVERIFIED.",
+    "No indexing, ranking, traffic, AI citation, conversion or competitor-parity claim."
+  ]
+}
