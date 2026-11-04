@@ -5,6 +5,7 @@ final class TehNet_Growth_Content_Migration {
     private const EDUCATION_SCOPE='tehnet-educational-integrity-20261104-v1';
     private const EDUCATION_PATHS=[40=>'mtcna',62=>'routeros-winbox',63=>'ip-dhcp-dns',64=>'static-routing',65=>'nat-masquerade',66=>'firewall-basics',67=>'queues-troubleshooting',70=>'mtcna-learning-path'];
     private const EXISTING_PAGE_SCOPES=[
+        'tehnet-service-discovery-20261104-v1'=>['id'=>8,'uri'=>'services','file'=>'services.html','catalog'=>true],
         'tehnet-editorial-routeros-20261101-v1'=>['id'=>62,'uri'=>'learn/mikrotik/mtcna/routeros-winbox','file'=>'routeros-winbox.html'],
         'tehnet-editorial-routing-20261101-v1'=>['id'=>64,'uri'=>'learn/mikrotik/mtcna/static-routing','file'=>'static-routing.html'],
         'tehnet-service-network-support-20261101-v1'=>['id'=>31,'uri'=>'services/network-support-tehran','file'=>'network-support.html'],
@@ -90,7 +91,7 @@ final class TehNet_Growth_Content_Migration {
             $allowed=$this->educationTargets?array_map(static fn($p)=>$p['uri'],$this->educationTargets):($this->catalogPages?array_map(static fn($p)=>$p['uri'],$this->catalogPages):($this->existingPage?[$this->pageScope['id']=>$this->pageScope['uri']]:[7=>'lab',8=>'services']));
             if(($production||$this->existingPage)&&(!array_key_exists($hub->ID,$allowed)||get_page_uri($hub)!==$allowed[$hub->ID]))throw new RuntimeException('Unapproved managed page path');
             if($this->existingPage&&!$this->educationTargets&&$hub->post_title!==($this->catalogPages[$hub->ID]['title']??$this->expectedTitle))throw new RuntimeException('Existing page title drift');
-            $this->blocks($row[$this->existingPage?'replace':'append']??'',(bool)$this->catalogPages,$hub->ID===5);$hubs[$row['id']]=true;
+            $this->blocks($row[$this->existingPage?'replace':'append']??'',(bool)$this->catalogPages||!empty($this->pageScope['catalog']),$hub->ID===5);$hubs[$row['id']]=true;
         }
         foreach($m['pages']as$row){
             $key=$row['key']??'';$slug=$row['slug']??'';

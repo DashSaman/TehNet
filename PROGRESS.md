@@ -1,4 +1,10 @@
-## CURRENT —2026-11-04 server/branch DEPLOYED_VERIFIED; catalog discovery next
+## CURRENT —2026-11-04 catalog discovery SOURCE_READY_NOT_DEPLOYED
+
+دو پیوند توصیفی در کارت سرور/شعب Services8 به جزئیات منتشرشدهٔ33 آماده است؛ artifact جدید، scope فقط post_content8 با0runtime-file/Home/page/form/backend تازه. RED→GREEN مرز انتشار:30آزمون،29PASS/1SKIP Windows؛ syntax Node موفق. native/browser هنوز NOT_RUN؛ گام بعد qualify/apply/repeat/rollback و مسیر کارت→ماژول→فرم زمینه‌دار، سپس PR/CI و انتشار مشروط. گزارش: docs/reports/SERVICE_DISCOVERY_2026-11-04.fa.md.
+
+سرور/شعب PR78 واقعاً DEPLOYED_VERIFIED با106بررسی زنده و0ارسال فرم؛ receipt ثبت است و دوباره اجرا نشود. noindex/پرداخت/MyTel و تمام گیت‌های امنیتی ثابت؛ Issues63/75 باز، بازبینی کامل8فیلم UNVERIFIED و parity نامحرز. پس از این بسته، تصمیم‌یار دستی/لاب آموزشی و شواهد اعتماد ادامه یابد.
+
+## HISTORICAL CHECKPOINT —2026-11-04 server/branch DEPLOYED_VERIFIED; catalog discovery next
 
 PR78 و CI41849968305 موفق؛ main7062a51 با payload برابر native756fec7 منتشر شد. فقط post_content33 و0runtime-file/0صفحه/0فرم تازه؛ backup/checksum/drift/rollback و حفظ دقیق داده،25قلم، runtime، noindex/پرداخت/CAPTCHA/theme/cron تأیید.106بررسی مرورگر زنده،1440/375 دو تم و320no-JS، دو CTA تا context/nonce/action فرم موجود؛0ارسال production. receipt: docs/evidence/2026-11-04/server-branch/production-verification.json.
 
