@@ -1,0 +1,57 @@
+{
+  "status": "DEPLOYED_VERIFIED",
+  "scope": "tehnet-lab-network-triage-20261104-v1",
+  "source_commit": "380d6f6f8b423a289dd3010f7b369b768fe7d14b",
+  "qualified_source": "7d90b4b58d6186edbfab10800d53fd639a1ca9f6",
+  "observed_utc": "2026-11-04T16:31:58.564247+00:00",
+  "completed_utc": "2026-11-04T16:32:26.742186+00:00",
+  "fresh_backup_checksum_verified": true,
+  "protected_state_unchanged": true,
+  "all_existing_runtimes_unchanged": true,
+  "all_25_image_price_inquiry_fields_unchanged": true,
+  "index_payment_captcha_theme_cron_unchanged": true,
+  "other_public_routes_checked": 5,
+  "schema": 1,
+  "pr": "https://github.com/DashSaman/TehNet/pull/81",
+  "ci_run": "https://github.com/DashSaman/TehNet/actions/runs/41862506291",
+  "owner_id": 7,
+  "runtime_files_changed": 4,
+  "existing_records_updated": 1,
+  "new_pages_created": 0,
+  "customer_submissions": 0,
+  "live_browser_checks": 257,
+  "live_browser_observed_utc": "2026-11-04T16:34:17.222Z",
+  "public_service_gets": [
+    {
+      "url": "https://tehnet.ir/lab/",
+      "http_status": 200,
+      "h1": 1,
+      "noindex": true,
+      "canonical_preserved": true,
+      "seven_manual_rules_and_canonical_request_visible": true,
+      "tls_verified": true
+    }
+  ],
+  "public_assets": [
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/network-troubleshooting.css?ver=0.1.0",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/network-troubleshooting.js?ver=0.1.0",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    }
+  ],
+  "screenshots_sha256": {
+    "live-triage-375-light.png": "7eafa9535842b279dcf71bee35bb18f929ddbec86c666c466399be970a21ce60",
+    "live-triage-375-dark.png": "faa7ebccbf07cb550afd3628c77216a1ca0d7558b455db447561a7d3e0ce32c1",
+    "live-triage-320-nojs.png": "f4555e8421725a1aa5a6f9cc446c8a40c121de985d912d52b32e236627673eb9"
+  },
+  "limits": [
+    "Rule-based manual evidence organization, not definite diagnosis or measured customer network outcome.",
+    "Local report is not automatically attached to a ticket; live request navigation verified with zero submissions.",
+    "No search ranking, traffic, conversion or competitor-parity result."
+  ]
+}

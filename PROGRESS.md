@@ -1,4 +1,10 @@
-## CURRENT —2026-11-04 conceptual Lab VERIFIED_STAGING; A/B production BLOCKED_CI
+## CURRENT —2026-11-04 manual triage DEPLOYED_VERIFIED; conceptual B staged
+
+PR81/CI41862506291 موفق؛ source380d6f6 با payload برابر native7d90b4b،4فایل/post_content7، backup تازه/checksum/drift/rollback منتشر شد.257بررسی مستقل زنده، دانلود/شروع متن/تم/no-JS و فرم context/nonce/action،0ارسال؛ protected data/25قلم/runtime/noindex/payment/CAPTCHA/theme/cron محفوظ. receipt: docs/evidence/2026-11-04/network-triage/production-verification.json. صف پیشین CI پایان یافت؛ علت UNKNOWN، هیچ runner/billing/rerun تغییر ندادیم. A دوباره اجرا نشود.
+
+B sourceb13ee38 با native44/renderer7/site213 واجد آزمون است؛ PR83 اکنون به main retarget و از draft خارج شود، سپس CI دقیق head فعلی و انتشار با شرط A receipt/live257، برابری native bundle وbackup/drift/rollback. تا receipt B، NOT_DEPLOYED. شاخه B/تمام تغییرات حفظ شوند؛ قبل از sync main snapshot خصوصی لازم است. کل دوره/مدل CAD/اعتماد و مسائل امنیتی باز می‌مانند؛ MyTel read-only، noindex/payment،63/75 و parity نامحرز حفظ‌اند.
+
+## HISTORICAL CHECKPOINT —2026-11-04 conceptual Lab VERIFIED_STAGING; A/B production BLOCKED_CI
 
 FeatureB sourceb13ee38391937f4088a794c3298b118639c62ba9 با native44/renderer7/site213 تأیید؛4runtime-file+post_content7،0page/backend، هر دو ابزار مستقل، توپولوژی/انتخاب/حرکت بسته و no-JS در1440/768/375/320 روشن/تیره. تمام original data/revisions/fixture/files/runtime دقیقاً بازیابی؛0ارسال و0تغییر production. receipt: docs/evidence/2026-11-04/conceptual-routing/native-staging.json. مدل محدود است؛ packet/RouterOS واقعی یا سنجش مشتری نیست.
 
