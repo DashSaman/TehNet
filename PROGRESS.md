@@ -1,4 +1,10 @@
-## CURRENT —2026-11-04 catalog discovery DEPLOYED_VERIFIED; manual triage next
+## CURRENT —2026-11-04 manual network triage INTEGRATION_READY_NOT_DEPLOYED
+
+FeatureA پیاده شده:7مسئله،3مرحله، شاهد unknown معتبر، دلیل تست امن، متن/JSON محلی، پاک‌شدن گزارش قدیمی، چند نمونه و no-JS، بدون شبکه/credential/تشخیص قطعی/backend تازه. Component renderer واقعی WP38 و browser571 با56دانلود محلی تأیید؛ سپس CSS به --tn-* و عنوان منبع VPN دقیق شد. Node4 و scope31آزمون با30PASS/1SKIP؛ دامنهٔ جدید فقط4runtime-file و post_content7 است. بدنه Lab با ترکیب دقیق دو منبع عمومی به c7ef5a3 تطبیق شد؛ محتوای قبلی و note حفظ‌اند. گزارش docs/reports/NETWORK_TRIAGE_2026-11-04.fa.md.
+
+گام فوری native یکپارچه check/apply/repeat/rollback و browser سایت با context/nonce/action فعلی و حفظ دقیق fixture/data/files/runtime؛ سپس PR/CI و انتشار مجاز با backup/checksum/drift/rollback. تا receipt نهایی، deployed نامیده نشود. FeatureB لاب مفهومی، شواهد اعتماد/فیلم‌ها بازند. آموزش76/77، خدمات78 و کاتالوگ80 قبلاً DEPLOYED_VERIFIED؛ دوباره اجرا نشوند. noindex/پرداخت/MyTel و گیت‌های امنیتی/rotation/history/origin/CAPTCHA ثابت؛63/75 باز و parity نامحرز.
+
+## HISTORICAL CHECKPOINT —2026-11-04 catalog discovery DEPLOYED_VERIFIED; manual triage next
 
 PR80 و CI41853568495 ادغام؛ main4002d5a با payload برابر native5e6e3e9، فقط post_content8/0runtime/Home/page/form/backend تازه منتشر شد. backup/checksum/drift/rollback و حفظ دقیق data/25قلم/runtime/noindex/payments/CAPTCHA/theme/cron؛116بررسی مستقل مرورگر زنده، دو مسیر کارت→جزئیات→فرم موجود با context/nonce/action،0ارسال. receipt: docs/evidence/2026-11-04/service-discovery/production-verification.json. بخش‌های سرور/شعب78 و آموزش76/77 نیز قبلاً منتشر شده‌اند؛ هیچ‌کدام دوباره اجرا نشوند. -SEO#25 با CI41855380111 ادغام؛ baseline71% تغییر نکرد.
 

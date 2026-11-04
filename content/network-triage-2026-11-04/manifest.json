@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "key": "tehnet-lab-network-triage-20261104-v1",
+  "status": "IMMUTABLE_RELEASE_INPUT_SEE_DATED_RECEIPTS",
+  "target": {
+    "id": 7,
+    "url": "https://tehnet.ir/lab/",
+    "title_observed": "Lab",
+    "expected_content_sha256": "c7ef5a3ce97f7672dea850517c26f38772f8f14c8bf21d37555bf8a5412e6ad9",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "content_file": "lab.html",
+  "content_sha256_lf": "b366802f8dcd71b74318b251feafdfbe3b794898c4f4bc06e5f9f2f3625f55dc",
+  "previous_public_sources": [
+    "content/remediation-2026-10-16/manifest.json posts7 after.post_content",
+    "content/growth-2026-10-31/manifest.json updates7 append"
+  ],
+  "limits": [
+    "Manual rule-based decision support; no network measurement, definite diagnosis, credentials or router configuration.",
+    "No duplicate ticket system; summaries are transferred manually to the existing request.",
+    "No MyTel, home, menu, product, payment, noindex or shared-infrastructure change."
+  ]
+}

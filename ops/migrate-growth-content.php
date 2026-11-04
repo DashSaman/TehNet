@@ -5,6 +5,7 @@ final class TehNet_Growth_Content_Migration {
     private const EDUCATION_SCOPE='tehnet-educational-integrity-20261104-v1';
     private const EDUCATION_PATHS=[40=>'mtcna',62=>'routeros-winbox',63=>'ip-dhcp-dns',64=>'static-routing',65=>'nat-masquerade',66=>'firewall-basics',67=>'queues-troubleshooting',70=>'mtcna-learning-path'];
     private const EXISTING_PAGE_SCOPES=[
+        'tehnet-lab-network-triage-20261104-v1'=>['id'=>7,'uri'=>'lab','file'=>'lab.html','shortcodes'=>['[tn_network_troubleshooting]']],
         'tehnet-service-discovery-20261104-v1'=>['id'=>8,'uri'=>'services','file'=>'services.html','catalog'=>true],
         'tehnet-editorial-routeros-20261101-v1'=>['id'=>62,'uri'=>'learn/mikrotik/mtcna/routeros-winbox','file'=>'routeros-winbox.html'],
         'tehnet-editorial-routing-20261101-v1'=>['id'=>64,'uri'=>'learn/mikrotik/mtcna/static-routing','file'=>'static-routing.html'],
@@ -105,15 +106,15 @@ final class TehNet_Growth_Content_Migration {
     private function blocks(string $content,bool $catalog=false,bool $home=false):void {
         if($content===''||serialize_blocks(parse_blocks($content))!==$content)throw new RuntimeException('Block serialization mismatch');
         if($this->existingPage&&!($catalog&&$home)&&wp_kses_post($content)!==$content)throw new RuntimeException('Page sanitization mismatch');
-        $existingPage=$this->existingPage;
-        $walk=static function(array $blocks)use(&$walk,$existingPage,$catalog,$home):void {foreach($blocks as$b){
+        $existingPage=$this->existingPage;$scopedShortcodes=$this->pageScope['shortcodes']??[];
+        $walk=static function(array $blocks)use(&$walk,$existingPage,$catalog,$home,$scopedShortcodes):void {foreach($blocks as$b){
             if($b['blockName']===null){if(trim($b['innerHTML'])!=='')throw new RuntimeException('Unstructured block content');continue;}
             $allowed=['core/paragraph','core/heading','core/list','core/list-item','core/shortcode'];if($existingPage)$allowed[]='core/code';
             if($catalog)$allowed=array_merge($allowed,['core/group','core/buttons','core/button','core/columns','core/column']);
             if($catalog&&$home)$allowed[]='core/html'; // Retain the existing reviewed hero SVG and identity sections.
             if(!in_array($b['blockName'],$allowed,true)||!WP_Block_Type_Registry::get_instance()->is_registered($b['blockName']))throw new RuntimeException('Unapproved block');
-            if($b['blockName']==='core/shortcode'&&!in_array(trim($b['innerHTML']),$catalog?['[tn_service_request]']:['[tn_editorial_note]','[tn_voice_network_readiness]'],true))throw new RuntimeException('Unapproved shortcode');
-            if($existingPage&&!$catalog&&$b['blockName']==='core/shortcode'&&trim($b['innerHTML'])!=='[tn_editorial_note]')throw new RuntimeException('Unapproved page shortcode');
+            if($b['blockName']==='core/shortcode'&&!in_array(trim($b['innerHTML']),array_merge($catalog?['[tn_service_request]']:['[tn_editorial_note]','[tn_voice_network_readiness]'],$scopedShortcodes),true))throw new RuntimeException('Unapproved shortcode');
+            if($existingPage&&!$catalog&&$b['blockName']==='core/shortcode'&&!in_array(trim($b['innerHTML']),array_merge(['[tn_editorial_note]'],$scopedShortcodes),true))throw new RuntimeException('Unapproved page shortcode');
             $walk($b['innerBlocks']);
         }};$walk(parse_blocks($content));
     }
