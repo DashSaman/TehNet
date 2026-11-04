@@ -1,0 +1,73 @@
+{
+  "status": "DEPLOYED_VERIFIED",
+  "scope": "tehnet-illustrated-routing-20261104-v1",
+  "source_commit": "f1a6764ee34f77b3ddd8ab88fc6a6e88ada220f3",
+  "observed_utc": "2026-11-04T18:19:27.557351+00:00",
+  "completed_utc": "2026-11-04T18:19:55.649328+00:00",
+  "fresh_backup_checksum_verified": true,
+  "protected_state_unchanged": true,
+  "all_existing_runtimes_unchanged": true,
+  "all_25_image_price_inquiry_fields_unchanged": true,
+  "index_payment_captcha_theme_cron_unchanged": true,
+  "other_public_routes_checked": 5,
+  "public_service_gets": [
+    {
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/",
+      "http_status": 200,
+      "h1": 1,
+      "noindex": true,
+      "canonical_preserved": true,
+      "four_original_images_and_bold_steps_visible": true,
+      "tls_verified": true
+    }
+  ],
+  "public_assets": [
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/r1-forward.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/return-missing.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/return-correct.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/return-steps.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    }
+  ],
+  "schema": 1,
+  "pr": "https://github.com/DashSaman/TehNet/pull/85",
+  "ci_run": "https://github.com/DashSaman/TehNet/actions/runs/41885620513",
+  "qualified_source": "795c4a1f4fc2a764e8d5448da05d4e4da0c397ad",
+  "owner_id": 64,
+  "image_files_changed": 4,
+  "executable_runtime_files_changed": 0,
+  "existing_bodies_updated": 1,
+  "new_pages_created": 0,
+  "customer_submissions": 0,
+  "independent_live_browser_checks": 200,
+  "live_browser_observed_utc": "2026-11-04T18:21:57.710Z",
+  "screenshots_sha256": {
+    "live-image-step-1440-light.png": "3203de154010aa4137ad423b2f510a123b65f3a8227ab307ad51a1ed38a626ef",
+    "live-image-step-375-light.png": "3eb7ce8bc4539435d9eb4d1c6b16def917b04e2bee3aa6f98f253aaa7e60dee7",
+    "live-image-step-375-dark.png": "fdfa018d174c32dc3667014330637cbb1f066b3ce2eb13ac43030ecb3ef1a19d"
+  },
+  "screenshots_viewports": [
+    "1440x1200 light",
+    "375x1200 light",
+    "375x1200 dark"
+  ],
+  "limits": [
+    "Original conceptual-tool screenshots, not actual RouterOS/WinBox or customer network output",
+    "Nine proposed new-recording scripts; actual recorded durations/editorial approvals null; full audiovisual source review remains open",
+    "No measured ranking/traffic/leads/conversion/competitive parity; intentional noindex preserved"
+  ]
+}

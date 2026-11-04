@@ -11,6 +11,6 @@ Spec: owner's follow-up on2026-11-04 and the researched design in PR79, `docs/su
 - [x] Register one bounded article64/media-only release scope. Reject foreign image URLs, raw HTML, other shortcodes and broader targets; retain both existing Lab tools in runtime guards.
 - [x] Native WordPress migration/repeat/rollback/drift acceptance and actual desktop/mobile/no-JS image and journey verification. Restore the original staging data/files/runtime exactly.
 - [x] Store individual recording scripts with tone, screen actions, highlights, narration, target timings/pauses and per-shot capture/technical-review gates. Old source review, proposed timing and actual recording remain separate.
-- [ ] Publication/private-value scan, scoped commit/PR/CI; release only qualified identical payload after fresh backup/checksum/drift/rollback and verify the visible page/images. Update handoff and central SEO evidence.
+- [x] Publication/private-value scan, scoped commit/PR/CI; release only qualified identical payload after fresh backup/checksum/drift/rollback and verify the visible page/images. Update handoff and central SEO evidence.
 
 Constraints: preserve ID/URL/title/excerpt/meta, Learn/Lab/Services/Shop and MyTel independence,25 inquiry products, intentional noindex and payment/CAPTCHA/security gates. No fake WinBox UI/output, video chapters, measured network outcome or recorded duration. No customer form submissions.
