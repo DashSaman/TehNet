@@ -1,4 +1,10 @@
-## CURRENT —2026-11-04 both Lab tools DEPLOYED_VERIFIED
+## CURRENT —2026-11-04 illustrated guide and per-recording scripts IN_PROGRESS
+
+درخواست تازهٔ مالک: پایلوت مصور روی article64 با4تصویر واقعی Lab، گزینه‌های کلیک پررنگ و پیوند اندازهٔ اصلی؛9فایل سناریوی ضبط تازه/72نما با لحن، گویندگی و زمان هدف جدا در content/video-production/2026-11-04/. نه transcript و نه مدت واقعیِ ضبط قدیمی؛0ویدیوی تازه. scope فقط4PNG/body64 و guard هر دو ابزار. وضعیت NOT_DEPLOYED/PENDING_NATIVE_QUALIFICATION؛ report: docs/reports/ILLUSTRATED_ROUTING_2026-11-04.fa.md. تصویر واقعی WinBox برای همهٔ درس‌ها به لاب ایزولهٔ نسخه‌ثبت‌شده وابسته است؛ Docker daemon محلی در دسترس نبود و شبکه/سرویس مشترک تغییر نکرد.
+
+گام بعد: native WordPress/image-boundary/repeat/rollback/drift، browser desktop/mobile/no-JS و مسیر مقاله به تمرین، exact restore؛ سپس scan/commit/CI و انتشار مشروط. PR84، receipt زندهٔ A+B و بازبینی متن redacted هفت منبع ادغام شد؛ playback کامل8ضبط همچنان UNVERIFIED و Issues63/75 بازند. هیچ publisher قبلی یا اتوماسیون متوقف‌شده‌ای دوباره اجرا نشود.
+
+## PREVIOUS —2026-11-04 both Lab tools DEPLOYED_VERIFIED
 
 A PR81/CI41862506291 از380d6f6 با native7d90b4b و live257 منتشر شد. B PR83/CI41869586872 از1114367 با nativeb13ee38، پس از کنترل A receipt/live257، منتشر و live213 +regression مستقل A257 موفق شد. هر بسته4runtime-file/post_content7 و0page/backend، backup تازه/checksum/drift/rollback، CSS/JS عمومی باTLS/bytes دقیق،0ارسال فرم؛ protected data/25قلم/runtime/noindex/payment/CAPTCHA/theme/cron محفوظ. receipts: docs/evidence/2026-11-04/network-triage/production-verification.json و conceptual-routing/production-verification.json. Native stagingهای قبلی exact restore شده‌اند؛ هیچ fixture باقی نمانده. هیچ‌کدام از releaseها دوباره اجرا نشود.
 

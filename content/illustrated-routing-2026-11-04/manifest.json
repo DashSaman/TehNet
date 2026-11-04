@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "key": "tehnet-illustrated-routing-20261104-v1",
+  "status": "IMMUTABLE_RELEASE_INPUT_SEE_DATED_RECEIPTS",
+  "target": {
+    "id": 64,
+    "url": "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/",
+    "title_observed": "مسیریابی استاتیک در میکروتیک — MTCNA",
+    "expected_content_sha256": "ec2b78d1a717339d010a5e6f17f4df309009a1d592c14a80a9462bdaaec22b63",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "content_file": "static-routing.html",
+  "content_sha256_lf": "649515b8a195051c75777f41f961b3512f637cb42827e3d28ce92a0e8eb5bb2b",
+  "images": [
+    {
+      "file": "r1-forward.png",
+      "sha256": "d7ba474529a74e6a28afac252094e361caba4c054a2f6dfc5b7d715b1d783fad",
+      "original_sha256": "c24a5bf6e7a2f3b154fa15e61fc5288756078f4352a81d7ca53327dcad75e837",
+      "width": 648,
+      "height": 740,
+      "highlight_selector": "[data-tn-routing-choice=\"r1\"]"
+    },
+    {
+      "file": "return-missing.png",
+      "sha256": "405772b7f7148a36ef09e78b906d4a4f223eaaaf52d208d7a8b9acd6f75350d2",
+      "original_sha256": "c24a5bf6e7a2f3b154fa15e61fc5288756078f4352a81d7ca53327dcad75e837",
+      "width": 648,
+      "height": 740,
+      "highlight_selector": "[data-tn-routing-choice=\"r2\"]"
+    },
+    {
+      "file": "return-correct.png",
+      "sha256": "e52795fe6586f4b88098fe630b92bed551f6a4719ccb9df18e2c3b2300321264",
+      "original_sha256": "34387a0005989ab9f0ef755eec57327be1fb8ecc8869c3d8fcaf4c329f999b1d",
+      "width": 648,
+      "height": 680,
+      "highlight_selector": "[data-tn-routing-check]"
+    },
+    {
+      "file": "return-steps.png",
+      "sha256": "f98d06b846d113f4c56b4d3c67d43e6ae97c5fb2c0dc1dd04057ec8dbcd5517d",
+      "original_sha256": "d640e6f85f3283f695f6051b9f2cde77cae822da65a455642e441d2642421967",
+      "width": 648,
+      "height": 680,
+      "highlight_selector": "[data-tn-routing-next]"
+    }
+  ],
+  "requires_prior_deployed_scope": "tehnet-lab-conceptual-routing-20261104-v1",
+  "limits": [
+    "Four original TehNet conceptual-tool captures; not fabricated WinBox UI or actual router execution.",
+    "Only article64 body and four image files; no routing tool logic, other pages, metadata or customer systems.",
+    "Independent written tutorial; no existing recorded-video attribution or timing claim."
+  ]
+}

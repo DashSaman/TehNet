@@ -57,6 +57,11 @@ CONCEPTUAL_ROUTING_FILES = [
     'site/mu-plugins/tehnet-technical-resources/static-routing-lab.css',
     'site/mu-plugins/tehnet-technical-resources.php',
 ]
+ILLUSTRATED_ROUTING_SCOPE = 'tehnet-illustrated-routing-20261104-v1'
+ILLUSTRATED_ROUTING_FILES = [
+    'site/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/' + name + '.png'
+    for name in ['r1-forward', 'return-missing', 'return-correct', 'return-steps']
+]
 EDUCATION_BODIES = ['mtcna.html', 'routeros-winbox.html', 'ip-dhcp-dns.html',
     'static-routing.html', 'nat-masquerade.html', 'firewall-basics.html',
     'queues-troubleshooting.html', 'mtcna-learning-path.html']
@@ -87,6 +92,7 @@ LESSON_SCOPES = {
     IP_DHCP_DNS_SCOPE: ('content/ip-dhcp-dns-editorial-2026-11-01', 'ip-dhcp-dns.html', '/tmp/tn-ip-dhcp-dns-release-'),
 }
 CONTENT_SCOPES = {**LESSON_SCOPES,
+    ILLUSTRATED_ROUTING_SCOPE: ('content/illustrated-routing-2026-11-04', 'static-routing.html', '/tmp/tn-illustrated-routing-release-'),
     CONCEPTUAL_ROUTING_SCOPE: ('content/conceptual-routing-2026-11-04', 'lab.html', '/tmp/tn-conceptual-routing-release-'),
     NETWORK_TRIAGE_SCOPE: ('content/network-triage-2026-11-04', 'lab.html', '/tmp/tn-network-triage-release-'),
     SERVICE_DISCOVERY_SCOPE: ('content/service-discovery-2026-11-04', 'services.html', '/tmp/tn-service-discovery-release-'),
@@ -100,6 +106,11 @@ GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE, GALLE
 
 
 def scope_spec(scope):
+    if scope == ILLUSTRATED_ROUTING_SCOPE:
+        directory, body, _ = CONTENT_SCOPES[scope]
+        guarded = list(dict.fromkeys(scope_spec(EDUCATION_SCOPE)[2] + NETWORK_TRIAGE_FILES + CONCEPTUAL_ROUTING_FILES))
+        return ILLUSTRATED_ROUTING_FILES, [directory + '/manifest.json', directory + '/' + body,
+            'ops/migrate-growth-content.php'], guarded
     if scope == CONCEPTUAL_ROUTING_SCOPE:
         directory, body, _ = CONTENT_SCOPES[scope]
         guarded = list(dict.fromkeys(scope_spec(EDUCATION_SCOPE)[2] + NETWORK_TRIAGE_FILES))

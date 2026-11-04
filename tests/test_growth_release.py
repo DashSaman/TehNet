@@ -13,6 +13,16 @@ SOURCE = Path(__file__).resolve().parents[1] / 'ops/release-growth-content.py'
 
 
 class ReleaseBoundaries(unittest.TestCase):
+    def test_illustrated_routing_scope_owns_only_four_images_and_existing_article(self):
+        files, extra, guarded = self.module.scope_spec('tehnet-illustrated-routing-20261104-v1')
+        self.assertEqual(len(files), 4)
+        self.assertTrue(all(p.startswith('site/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/') and p.endswith('.png') for p in files))
+        self.assertEqual(extra, ['content/illustrated-routing-2026-11-04/manifest.json',
+            'content/illustrated-routing-2026-11-04/static-routing.html', 'ops/migrate-growth-content.php'])
+        for p in self.module.NETWORK_TRIAGE_FILES + self.module.CONCEPTUAL_ROUTING_FILES:
+            self.assertIn(p, guarded)
+        self.assertTrue(set(files).isdisjoint(guarded))
+
     def test_conceptual_routing_scope_preserves_installed_manual_triage(self):
         files, extra, guarded = self.module.scope_spec('tehnet-lab-conceptual-routing-20261104-v1')
         self.assertEqual(files, [
