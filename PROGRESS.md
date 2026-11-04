@@ -1,3 +1,9 @@
+## CURRENT — 2026-11-04 / DEPLOYED_VERIFIED educational attribution
+
+PR76 ادغام و CI41842630607 موفق شد. استقرار محدود از main `75178a11c4f47f9ad5892de345dc547087a42d09` با payload برابر source native `c2373f1`، backup تازه/checksum، preflight/drift و rollback qualifyشده انجام شد. هشت body/excerpt و titleهای62/67 اصلاح شدند؛0فایل runtime/0صفحهٔ تازه/0ارسال فرم production. هشت URL واقعی با TLS و536بررسی مرورگر زنده تأیید شدند. کل داده‌های محافظت‌شده،25قلم و image/price/inquiry، runtimeها، theme/menu، cron، CAPTCHA، noindex و پرداخت بدون تغییر‌اند. receipt: `docs/evidence/2026-11-04/production-verification.json`؛ تصاویر live کنار receipt هستند.
+
+بازبینی کامل صدا/تصویر8ضبط هنوز UNVERIFIED است؛ Issue75/63 باز و parity نامحرز. گیت admin-save سراسری و5.5بدون زیرنویس باقی‌اند. کار مستقل بعد: عمق سرور/مجازی‌سازی و ارتباط شعب در مالک‌های موجود و همان فرم/context تیکت. MyTel read-only و تمام گیت‌های رخداد/rotation/history/origin/shared-network محفوظ‌اند؛ noindex را تغییر ندهید و این release را دوباره اجرا نکنید.
+
 ## CURRENT — 2026-11-04 / VERIFIED_STAGING, production not deployed
 
 بستهٔ اصلاح هشت هویت آموزشی Issue75 با source `c2373f16fd1cc3113e01a36f32d241eda2d01ee2` در native staging تأیید شد:42بررسی مهاجرت،536بررسی مرورگر؛ داده‌ها/revisionها، تمام fixtureها و runtimeها دقیقاً بازیابی شدند. production mutation=0. گزارش و تصاویر: `docs/reports/EDUCATIONAL_INTEGRITY_RELEASE_2026-11-04.fa.md` و `docs/evidence/2026-11-04/native-staging.json`. اجرای اولیه به متادیتای ping/enclosureِ post70 برخورد کرد؛ مهار فقط process-local CLI با بازگشت هوک و آزمون cron/meta انجام شد. شمار آزمون، شاهد parity نیست.
