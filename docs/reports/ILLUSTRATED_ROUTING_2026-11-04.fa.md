@@ -15,3 +15,9 @@
 گیت RouterOS/WinBox: Docker CLI موجود بود اما daemon محلی در دسترس نبود؛ QEMU/VM اجراییِ نسخه‌ثبت‌شده تأیید نشد. هیچ daemon/شبکهٔ مشترک، hypervisor، DNS یا SSH تغییر نکرد. پایلوت واقعی WinBox طرح PR79 و گسترش تصاویر به تمام درس‌ها هنوز به لاب ایزوله/نسخه و rehearsal/capture مجاز وابسته است. تصویر ساختگی جایگزین نشده است.
 
 سئوی تصویر: [راهنمای فعلی Google](https://developers.google.com/search/docs/appearance/google-images)، خوانده‌شده۴نوامبر، برای img واقعی، src قابل بازیابی، alt توصیفی و مجاورت متن مرتبط استفاده شد. noindex عمدی حفظ است؛ از این بسته افزایش رتبه/ترافیک/تبدیل یا parity نتیجه‌گیری نمی‌شود. گام بعد: native qualification و browser، guard/commit/CI؛ انتشار فقط payload یکسان واجد backup/checksum/drift/rollback و سپس پذیرش مستقل زنده.
+
+## تلاش‌های غیرواجد انتشار، حفظ‌شده برای ادامه
+
+سه تلاش staging پیش از پذیرش نهایی متوقف شدند؛ همه با0تغییر production و بازیابی دقیقِ داده/فایل/runtime بسته شدند. اول، adapter خصوصی هنوز filter مسیر بستهٔ پیشین و snapshot فقط7/8 را داشت؛ ورود64 در پوشش snapshot بررسی نشده بود. رکورد64 با snapshot نگه‌داشته‌شده، داخل transaction و فقط پس از تطبیق fingerprint کاملِ تازهٔ پیش از اجرا بازیابی شد؛ cleanup برای فایل/پوشهٔ متعلق به تست که قبلاً حذف شده بود، تکرارپذیر شد. پیش از تلاش بعد، snapshot تمام3fixture و وجود هر دو artifact موردنیاز گیت شدند.
+
+دوم، WordPress واقعی bdi را نپذیرفت و شکل img را canonical کرد. همان markup به code با dir و شکل img پذیرفته‌شده تغییر کرد؛ probe خواندنی native دیگر هیچ diff نداشت. هیچ sanitization guard ضعیف نشد. سوم،49بررسی native قبول شد، اما ساخت دو سطح پوشهٔ تازهٔ تصویر در اپراتور انتشار FileNotFoundError داد. ساخت فقط والدهای لازم با journal پوشه‌های واقعاً ساخته‌شده و حذف فقط پوشهٔ خالیِ متعلق به release در rollback اصلاح شد. آزمون nested-parent/rollback/حفظ فایل نویسندهٔ دیگر/مسیر خارج root ابتدا RED بود؛ سپس36آزمون اپراتور،35PASS/1SKIP Windows شدند. این نتایج، جای پذیرش browser و production نهایی نیستند. لاگ و snapshot خام در محل خصوصی نگهداری می‌شوند.

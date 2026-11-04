@@ -531,6 +531,22 @@ class Release:
         self.state['files'] = entries
         self.save()
 
+    def create_parents(self, rel, uid, gid):
+        destination = member(self.root, rel)
+        missing = []
+        parent = destination.parent
+        while parent != self.root and not parent.exists():
+            missing.append(parent.relative_to(self.root).as_posix())
+            parent = parent.parent
+        for name in reversed(missing):
+            directory = member(self.root, name)
+            directory.mkdir(mode=0o755)
+            self.state.setdefault('created_directories', []).append(name)
+            self.save()  # Record only directories actually created by this release.
+            directory.chmod(0o755)
+            if uid is not None:
+                os.chown(directory, uid, gid)
+
     def restore_files(self):
         validate_restore(self.root, self.state['files'])
         for rel, row in self.state['files'].items():
@@ -550,6 +566,10 @@ class Release:
                     raise RuntimeError('Private file backup checksum mismatch')
                 atomic_write(path, old, row['mode'], row['uid'], row['gid'])
         self.file_guard()
+        for rel in reversed(self.state.get('created_directories', [])):
+            directory = member(self.root, rel)
+            if directory.exists():
+                directory.rmdir()  # Never recursively remove another writer's files.
 
     def rollback(self):
         if not self.state or self.state['status'] not in ('APPLIED', 'ROLLED_BACK'):
@@ -593,10 +613,7 @@ class Release:
                 row = self.state['files'][rel.removeprefix('site/')]
                 self.file_guard_partial(rel)
                 destination = member(self.root, rel.removeprefix('site/'))
-                if not destination.parent.exists():
-                    destination.parent.mkdir(mode=0o755)
-                    destination.parent.chmod(0o755)
-                    os.chown(destination.parent, row['uid'], row['gid'])
+                self.create_parents(rel.removeprefix('site/'), row['uid'], row['gid'])
                 atomic_write(destination, member(self.b / 'payload', rel).read_bytes(), row['mode'], row['uid'], row['gid'])
             self.file_guard(after=True)
             self.state['status'] = 'FILES_APPLIED'
