@@ -1,0 +1,37 @@
+{
+  "number": 19,
+  "title": "Simple Queue و محدود کردن پهنای باند یک کلاینت",
+  "slug": "simple-queue-bandwidth",
+  "chapter": 7,
+  "summary": "تعریف جهت upload و download نسبت به target، اندازه‌گیری خط پایه و بررسی اثر FastTrack و محدودیت CHR.",
+  "primary_query": "آموزش Simple Queue میکروتیک",
+  "related_queries": [
+    "محدود کردن سرعت میکروتیک",
+    "target در Simple Queue",
+    "FastTrack و Queue"
+  ],
+  "source_urls": [
+    "https://manual.mikrotik.com/docs/firewall-and-quality-of-service/queues/",
+    "https://help.mikrotik.com/docs/spaces/ROS/pages/18350234/Cloud+Hosted+Router+CHR",
+    "https://manual.mikrotik.com/docs/firewall-and-quality-of-service/connection-tracking/"
+  ],
+  "capture_plan": [
+    {
+      "id": "19-01",
+      "screen": "Simple Queue و target کلاینت",
+      "purpose": "ثبت شاهد واقعی پس از اجرای آزمایش؛ تصویر فعلاً موجود نیست"
+    },
+    {
+      "id": "19-02",
+      "screen": "شمارنده و نمودار انتقال با خط پایه",
+      "purpose": "ثبت شاهد واقعی پس از اجرای آزمایش؛ تصویر فعلاً موجود نیست"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "تعریف سقف مستقل ارسال و دریافت",
+    "مقایسهٔ نتیجهٔ واقعی با خط پایه و سقف مجوز"
+  ]
+}

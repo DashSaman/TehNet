@@ -1,3 +1,15 @@
+## SCOPED MTCNA CHECKPOINT — 2026-11-04 — DRAFTS_SAVED_SCHEDULE_ACTIVE_LAB_PENDING
+
+این checkpoint فقط بستهٔ دورهٔ مکتوب تهنت را پوشش می‌دهد و کارهای مستقل زیر را جایگزین نمی‌کند. هویت تأییدشده: TehNet / تهنت / تهران نتورک / Tehran Network؛ کانال https://www.youtube.com/@tehran.network021 . Queue به ویدیوهای قدیمی نسبت داده نشده است.
+
+۲۴ متن مستقل در ۹ فصل، ۲۴ فراداده، ۲۹٬۷۲۲ واژه و ۱۴ نمودار دقیق SVG/WebP آماده و در content/mtcna ثبت شده‌اند. ۲۴ پیش‌نویس واقعی WordPress با IDهای 232–255 و parent=40 ایجاد شد. بازخوانی مستقل همهٔ raw contentها، status=draft، slug و parent در 2026-11-04T16:16:11Z دقیقاً با payloadها تطبیق داشت. مالکان منتشرشدهٔ 40 و 62–67 همچنان publish هستند؛ این بسته هیچ نوشتهٔ عمومی تازه یا تغییر runtime ایجاد نکرد. جزئیات: ops/mtcna-preparation-2026-11-04.json و content/mtcna/wordpress-receipts.json .
+
+اتوماسیون فعال 6aeb53b439908191bfdaf9fbace0d08c در حالت exact_schedule: نخستین نوبت شنبه ۱۶ آبان ۱۴۰۵ / 2026-11-07 ساعت 09:00 Asia/Tehran (05:30 UTC)، سپس هر سه روز. برنامه و prompt از سرویس بازخوانی و تطبیق داده شدند؛ next_run_time=null بود و ساعت پاسخ تأییدشده‌ای برای آن جعل نشده است. content/mtcna/publication-calendar.fa.md و automation.json مرجع هستند. پنجرهٔ مصرف‌شده، قفل اتمی، تطبیق drift، رسید انتشار و حفظ ترتیب در publication-controller.md الزامی‌اند. توقف‌ها تعداد انتشار موفق را افزایش نمی‌دهند؛ پس از ۲۴ انتشار تأییدشده، همین اتوماسیون متوقف شود.
+
+وضعیت صریح: صفر درس lab-tested، صفر اسکرین‌شات واقعی، صفر درس آمادهٔ انتشار، صفر انتشار تازه. NOT_RUN / MISSING / PENDING حفظ شده‌اند. نمودارها شاهد اجرای نرم‌افزار نیستند. noindex و گیت فعلی انتشار/پرداخت/MyTel دست‌نخورده‌اند. تبدیل مالکان منتشرشده به future یا انتشار پیش‌نویس موازیِ دارای مالک ممنوع است. source-reviewها و guardهای از دست نرفتن شواهد/یک قسمت در هر پنجره اصلاح و بررسی شدند؛ editor-save و صلاحیت انتشار محدود هنوز اجرا نشده‌اند.
+
+گام دقیق بعدی: برای قسمت ۱ یک CHR ایزوله با 1 GiB RAM و دسترسی کنسول آماده شود؛ نسخهٔ نصب‌شده، نگاشت NIC، جدایی شبکه، خروجی واقعی، نقطهٔ بازیابی و آزمون بازگشت همراه تصاویر اصلی ثبت شوند. سپس technical/editorial review، editor-save و scoped release qualification تکمیل شود. Wi-Fi/RouterBOOT به شاهد سخت‌افزار مناسب نیاز دارند. تا آن زمان، اتوماسیون فقط BLOCKED را ثبت کند و قسمت ۱ را در صف نگه دارد. بسته در شاخهٔ content/mtcna-saturday-20261107 است؛ پس از ادغام، نسخهٔ main مرجع باشد. PR 79 صرفاً طرح قدیمی است و به‌عنوان دورهٔ آزموده‌شده تلقی نشود.
+
 ## CURRENT —2026-11-04 catalog discovery VERIFIED_STAGING_NOT_DEPLOYED
 
 دو پیوند Services8 به جزئیات موجود33 با source5e6e3e9، native44 و browser116 تأیید شدند؛ قبل، نبود لینک‌ها واقعاً بازتولید شد. هر دو مسیر کارت→ماژول→فرم با context/nonce/action فعلی، desktop/mobile/no-JS؛0ارسال، تمام داده/revision/file/runtime اولیه دقیقاً بازیابی. scope فقط post_content8 و0Home/runtime/page/form/backend تازه؛ raw HTML/shortcode ناشناس و تصاحب Home رد شدند. receipt: docs/evidence/2026-11-04/service-discovery/native-staging.json.

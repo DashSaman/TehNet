@@ -1,0 +1,37 @@
+{
+  "number": 18,
+  "title": "راه‌اندازی Access Point و Station با امنیت بی‌سیم",
+  "slug": "wireless-ap-station-security",
+  "chapter": 6,
+  "summary": "آموزش مسیرهای جداگانهٔ WiFi و Wireless برای AP و Station، اعتبارسنجی اتصال و تفکیک association از دریافت IP.",
+  "primary_query": "راه اندازی وای فای میکروتیک",
+  "related_queries": [
+    "تنظیم AP میکروتیک",
+    "WPA2 میکروتیک",
+    "station میکروتیک"
+  ],
+  "source_urls": [
+    "https://manual.mikrotik.com/docs/wireless/wifi/",
+    "https://manual.mikrotik.com/docs/wireless/abgn/wireless-interface/",
+    "https://manual.mikrotik.com/docs/wireless/user-guides/wireless-station-modes/"
+  ],
+  "capture_plan": [
+    {
+      "id": "18-01",
+      "screen": "تنظیم امنیت و کشور روی رادیوی واقعی",
+      "purpose": "ثبت شاهد واقعی پس از اجرای آزمایش؛ تصویر فعلاً موجود نیست"
+    },
+    {
+      "id": "18-02",
+      "screen": "Registration Table و تنظیم IP کلاینت",
+      "purpose": "ثبت شاهد واقعی پس از اجرای آزمایش؛ تصویر فعلاً موجود نیست"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "ساخت AP با تنظیم امنیت متناسب با سخت‌افزار",
+    "تفکیک خطای رمز از خطای IP"
+  ]
+}

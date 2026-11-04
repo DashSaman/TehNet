@@ -1,0 +1,41 @@
+{
+  "number": 9,
+  "title": "عیب‌یابی DNS و ARP در میکروتیک",
+  "slug": "dns-arp-troubleshooting",
+  "chapter": 2,
+  "summary": "تفکیک خرابی نام، دسترسی IP و همسایهٔ لایهٔ دو با آزمایش کنترل‌شده.",
+  "primary_query": "عیب یابی DNS و ARP میکروتیک",
+  "related_queries": [
+    "تست DNS در RouterOS",
+    "جدول ARP میکروتیک"
+  ],
+  "source_urls": [
+    "https://manual.mikrotik.com/docs/network-management/dns/",
+    "https://help.mikrotik.com/docs/spaces/ROS/pages/100892687/ARP"
+  ],
+  "capture_plan": [
+    {
+      "id": "L09-1",
+      "screen": "IP > ARP",
+      "purpose": "نمایش همسایهٔ کلاینت پس از ترافیک"
+    },
+    {
+      "id": "L09-2",
+      "screen": "IP > DNS > Static",
+      "purpose": "رکورد آزمایشی با نام و آدرس مشخص"
+    },
+    {
+      "id": "L09-3",
+      "screen": "Terminal",
+      "purpose": "مقایسهٔ پاسخ نام و پاسخ IP"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "تفکیک DNS از اتصال IP",
+    "تشخیص محدودهٔ ARP",
+    "ساخت و حذف رکورد نام محلی"
+  ]
+}

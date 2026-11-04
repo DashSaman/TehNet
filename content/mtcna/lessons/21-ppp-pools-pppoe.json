@@ -1,0 +1,37 @@
+{
+  "number": 21,
+  "title": "PPP، Address Pool و ساخت PPPoE در شبکهٔ ایزوله",
+  "slug": "ppp-pools-pppoe",
+  "chapter": 8,
+  "summary": "راه‌اندازی Server و Client روی لینک اختصاصی، ارتباط Profile و Secret و تشخیص خطای discovery از authentication.",
+  "primary_query": "آموزش PPPoE میکروتیک",
+  "related_queries": [
+    "PPP profile میکروتیک",
+    "IP Pool PPPoE",
+    "عیب یابی PPPoE"
+  ],
+  "source_urls": [
+    "https://manual.mikrotik.com/docs/virtual-private-networks/pppoe/",
+    "https://manual.mikrotik.com/docs/cli-reference/ppp/active/",
+    "https://manual.mikrotik.com/docs/cli-reference/interface/pppoe-server/server/"
+  ],
+  "capture_plan": [
+    {
+      "id": "21-01",
+      "screen": "PPPoE Server و Client روی رابط اختصاصی",
+      "purpose": "ثبت شاهد واقعی پس از اجرای آزمایش؛ تصویر فعلاً موجود نیست"
+    },
+    {
+      "id": "21-02",
+      "screen": "PPP Active و آدرس‌های تخصیص‌یافته",
+      "purpose": "ثبت شاهد واقعی پس از اجرای آزمایش؛ تصویر فعلاً موجود نیست"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "راه‌اندازی نشست PPPoE بدون تغییر مسیر پیش‌فرض",
+    "تمایز احراز هویت PPP از رمزنگاری داده"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "number": 4,
+  "title": "پیکربندی پیش‌فرض، حساب‌ها و سرویس‌های مدیریتی RouterOS",
+  "slug": "default-config-users-management-services",
+  "chapter": 1,
+  "summary": "ممیزی وضع موجود، ساخت حساب مدیریتی جایگزین و کاهش سرویس‌های غیرضروری بدون قطع مسیر ورود.",
+  "primary_query": "امن سازی اولیه میکروتیک",
+  "related_queries": [
+    "کاربر جدید RouterOS",
+    "IP Services میکروتیک",
+    "تنظیمات پیش فرض CHR"
+  ],
+  "source_urls": [
+    "https://manual.mikrotik.com/docs/getting-started/configuration-management/default-configurations/",
+    "https://manual.mikrotik.com/docs/authentication-authorization-accounting/user/",
+    "https://manual.mikrotik.com/docs/getting-started/securing-your-router/",
+    "https://manual.mikrotik.com/docs/system-information-and-utilities/"
+  ],
+  "capture_plan": [
+    {
+      "id": "04-01",
+      "screen": "System Users بدون رمز",
+      "purpose": "نشان دادن حساب جایگزین و گروه آن"
+    },
+    {
+      "id": "04-02",
+      "screen": "IP Services",
+      "purpose": "ثبت سرویس‌های فعال و پورت‌های واقعی"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "ممیزی تنظیمات پیش‌فرض بدون Reset",
+    "آزمایش ورود با حساب جایگزین",
+    "غیرفعال کردن هدفمند سرویس بلااستفاده"
+  ]
+}

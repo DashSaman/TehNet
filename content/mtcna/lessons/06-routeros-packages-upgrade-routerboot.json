@@ -1,0 +1,39 @@
+{
+  "number": 6,
+  "title": "بسته‌های RouterOS، ارتقا و تفاوت RouterBOOT با سیستم‌عامل",
+  "slug": "routeros-packages-upgrade-routerboot",
+  "chapter": 1,
+  "summary": "طراحی ارتقای کنترل‌شده، بررسی معماری و بسته‌ها و تفکیک RouterOS از Bootloader سخت‌افزار.",
+  "primary_query": "آپدیت RouterOS و RouterBOOT",
+  "related_queries": [
+    "پکیج میکروتیک",
+    "Stable RouterOS",
+    "ارتقای CHR"
+  ],
+  "source_urls": [
+    "https://manual.mikrotik.com/docs/getting-started/installation-and-upgrade/",
+    "https://manual.mikrotik.com/docs/getting-started/installation-and-upgrade/routerboot/",
+    "https://manual.mikrotik.com/docs/cli-reference/system/package/update/",
+    "https://mikrotik.com/download/changelogs?channelFilter=stable&versionFilter=7.14-7.99"
+  ],
+  "capture_plan": [
+    {
+      "id": "06-01",
+      "screen": "System Packages و Resources",
+      "purpose": "ثبت نسخه و معماری قبل از اقدام"
+    },
+    {
+      "id": "06-02",
+      "screen": "Check for Updates با کانال Stable",
+      "purpose": "ثبت نسخهٔ پیشنهادشده بدون اجرای ناخواستهٔ نصب"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "ثبت نسخه و معماری و بسته‌ها",
+    "تدوین برنامهٔ ارتقا با بازیابی",
+    "تفکیک RouterBOOT از RouterOS در CHR"
+  ]
+}

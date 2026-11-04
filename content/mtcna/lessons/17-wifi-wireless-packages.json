@@ -1,0 +1,38 @@
+{
+  "number": 17,
+  "title": "انتخاب بستهٔ WiFi یا Wireless و تشخیص قابلیت سخت‌افزار",
+  "slug": "wifi-wireless-packages",
+  "chapter": 6,
+  "summary": "تشخیص بسته، درایور و حالت‌های پشتیبانی‌شده پیش از تنظیم بی‌سیم؛ با حفظ محدودیت CHR و الزام آزمایش روی سخت‌افزار.",
+  "primary_query": "تفاوت WiFi و Wireless میکروتیک",
+  "related_queries": [
+    "بسته wifi-qcom-ac",
+    "Wireless میکروتیک",
+    "قابلیت رادیو RouterOS"
+  ],
+  "source_urls": [
+    "https://manual.mikrotik.com/docs/wireless/wifi/",
+    "https://manual.mikrotik.com/docs/wireless/wifi-ac/",
+    "https://manual.mikrotik.com/docs/wireless/abgn/wireless-interface/",
+    "https://manual.mikrotik.com/docs/wireless/user-guides/wireless-station-modes/"
+  ],
+  "capture_plan": [
+    {
+      "id": "17-01",
+      "screen": "System Resources و Packages",
+      "purpose": "ثبت شاهد واقعی پس از اجرای آزمایش؛ تصویر فعلاً موجود نیست"
+    },
+    {
+      "id": "17-02",
+      "screen": "Interface و مشخصات رادیو",
+      "purpose": "ثبت شاهد واقعی پس از اجرای آزمایش؛ تصویر فعلاً موجود نیست"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "تشخیص بستهٔ مناسب از روی مدل و درایور",
+    "ثبت قابلیت‌ها بدون ادعای آزمایش روی CHR"
+  ]
+}

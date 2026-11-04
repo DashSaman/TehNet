@@ -1,0 +1,38 @@
+{
+  "number": 5,
+  "title": "Backup، Export و Restore در میکروتیک؛ تفاوت و روش امن",
+  "slug": "backup-export-restore-routeros",
+  "chapter": 1,
+  "summary": "ایجاد Backup رمزگذاری‌شده و Export خواندنی، نگهداری خارج روتر و طراحی تمرین Restore روی همان ماشین.",
+  "primary_query": "بکاپ و اکسپورت میکروتیک",
+  "related_queries": [
+    "restore RouterOS",
+    "فایل rsc میکروتیک",
+    "backup رمزگذاری شده"
+  ],
+  "source_urls": [
+    "https://manual.mikrotik.com/docs/getting-started/configuration-management/backup/",
+    "https://manual.mikrotik.com/docs/getting-started/configuration-management/",
+    "https://manual.mikrotik.com/docs/getting-started/configuration-management/list-of-menus-with-sensitive-parameters/"
+  ],
+  "capture_plan": [
+    {
+      "id": "05-01",
+      "screen": "Files شامل backup و rsc",
+      "purpose": "ثبت دو قالب بدون نمایش محتوا یا رمز"
+    },
+    {
+      "id": "05-02",
+      "screen": "System Backup پنجرهٔ Restore پیش از تأیید",
+      "purpose": "نشان دادن انتخاب فایل و شرط توقف"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "توضیح تفاوت Binary Backup و Export",
+    "دانلود امن دو فایل خارج روتر",
+    "طرح بازیابی هم‌نسخه روی همان R1"
+  ]
+}

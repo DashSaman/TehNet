@@ -1,0 +1,39 @@
+{
+  "number": 20,
+  "title": "تقسیم پهنای باند با PCQ، رفتار Burst و اثر FastTrack",
+  "slug": "pcq-burst-fasttrack",
+  "chapter": 7,
+  "summary": "ساخت صف مشترک و classifier مناسب، مطالعهٔ پنجرهٔ Burst و عیب‌یابی عبور ترافیک از مسیر Queue.",
+  "primary_query": "آموزش PCQ میکروتیک",
+  "related_queries": [
+    "تنظیم Burst میکروتیک",
+    "تقسیم پهنای باند کاربران",
+    "FastTrack PCQ"
+  ],
+  "source_urls": [
+    "https://manual.mikrotik.com/docs/firewall-and-quality-of-service/queues/pcq-example/",
+    "https://manual.mikrotik.com/docs/firewall-and-quality-of-service/queues/queue-burst/",
+    "https://manual.mikrotik.com/docs/firewall-and-quality-of-service/connection-tracking/",
+    "https://manual.mikrotik.com/docs/diagnostics-monitoring-and-troubleshooting/torch/",
+    "https://manual.mikrotik.com/docs/firewall-and-quality-of-service/queues/queue-types/"
+  ],
+  "capture_plan": [
+    {
+      "id": "20-01",
+      "screen": "Queue Types و classifier دو جهت",
+      "purpose": "ثبت شاهد واقعی پس از اجرای آزمایش؛ تصویر فعلاً موجود نیست"
+    },
+    {
+      "id": "20-02",
+      "screen": "Queue statistics در سه مرحلهٔ بار",
+      "purpose": "ثبت شاهد واقعی پس از اجرای آزمایش؛ تصویر فعلاً موجود نیست"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "توضیح تقسیم ظرفیت بین جریان‌های فعال PCQ",
+    "توضیح تفاوت پنجرهٔ Burst با مدت تضمینی افزایش سرعت"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "course_id": "tehnet-mtcna-routeros7-20261104",
+  "timezone": "Asia/Tehran",
+  "first_release_window": "2026-11-07T09:00:00+03:30",
+  "cadence_days": 3,
+  "completed_lesson_numbers": [],
+  "next_lesson_number": 1,
+  "verified_release_count": 0,
+  "lock": null,
+  "last_successful_window": null,
+  "windows": [],
+  "operations": [],
+  "current_blockers": [
+    "No executable RouterOS/CHR lab in this environment",
+    "Original application screenshots are missing",
+    "Runtime acceptance and rollback evidence is missing",
+    "Editor-save and scoped release qualification are pending"
+  ]
+}

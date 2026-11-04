@@ -1,0 +1,40 @@
+{
+  "number": 22,
+  "title": "شناخت Tunnelهای قدیمی و آزمایش WireGuard",
+  "slug": "tunnels-legacy-wireguard",
+  "chapter": 8,
+  "summary": "مقایسهٔ محدودیت امنیتی Tunnelها و ساخت یک تونل WireGuard آزمایشگاهی با کلید عمومی، آدرس مجاز و Firewall مشخص.",
+  "primary_query": "آموزش WireGuard میکروتیک",
+  "related_queries": [
+    "تونل میکروتیک MTCNA",
+    "allowed-address در WireGuard",
+    "PPTP و L2TP"
+  ],
+  "source_urls": [
+    "https://i.mt.lv/cdn/training_pdf/mtcna_outline_2019181161836.pdf",
+    "https://help.mikrotik.com/docs/spaces/ROS/pages/2031638/PPTP",
+    "https://manual.mikrotik.com/docs/virtual-private-networks/l2tp/",
+    "https://manual.mikrotik.com/docs/virtual-private-networks/eoip/",
+    "https://manual.mikrotik.com/docs/virtual-private-networks/wireguard/",
+    "https://manual.mikrotik.com/docs/cli-reference/interface/wireguard/peers/"
+  ],
+  "capture_plan": [
+    {
+      "id": "22-01",
+      "screen": "WireGuard Interface و Peer با حذف اطلاعات حساس",
+      "purpose": "ثبت شاهد واقعی پس از اجرای آزمایش؛ تصویر فعلاً موجود نیست"
+    },
+    {
+      "id": "22-02",
+      "screen": "Handshake و ping آدرس داخل تونل",
+      "purpose": "ثبت شاهد واقعی پس از اجرای آزمایش؛ تصویر فعلاً موجود نیست"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "تفکیک مسیر بیرونی و آدرس داخلی تونل",
+    "تشخیص اینکه allowed-address جای route و Firewall را نمی‌گیرد"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "number": 11,
+  "title": "مسیر استاتیک و Default Route در RouterOS",
+  "slug": "static-default-route",
+  "chapter": 4,
+  "summary": "خواندن مسیر متصل و ساخت مسیر پیش‌فرض فقط با بالادست آزمایشگاهی موجود.",
+  "primary_query": "آموزش static route میکروتیک",
+  "related_queries": [
+    "default route در RouterOS",
+    "تفاوت gateway و مقصد route"
+  ],
+  "source_urls": [
+    "https://help.mikrotik.com/docs/spaces/ROS/pages/328084/IP%20Routing",
+    "https://help.mikrotik.com/docs/spaces/ROS/pages/30474256/Moving%20from%20ROSv6%20to%20v7%20with%20examples"
+  ],
+  "capture_plan": [
+    {
+      "id": "L11-1",
+      "screen": "IP > Routes",
+      "purpose": "مسیرهای متصل و پیش‌فرض با فلگ فعال"
+    },
+    {
+      "id": "L11-2",
+      "screen": "IP > Addresses",
+      "purpose": "نگاشت WAN و LAN"
+    },
+    {
+      "id": "L11-3",
+      "screen": "Tools > Ping",
+      "purpose": "آزمون محدود next-hop با مبدأ مشخص"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "تشخیص مقصد مسیر و گیت‌وی",
+    "توضیح کاربرد 0.0.0.0/0",
+    "تفکیک فعال بودن مسیر از دسترسی واقعی"
+  ]
+}

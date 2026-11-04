@@ -1,0 +1,42 @@
+{
+  "number": 14,
+  "title": "Port Forwarding با dstnat و مرزهای CGNAT",
+  "slug": "dstnat-port-forward-cgnat",
+  "chapter": 5,
+  "summary": "انتشار یک سرویس HTTP فقط در بالادست آزمایشگاهی با مجوز forward محدود.",
+  "primary_query": "آموزش port forwarding میکروتیک",
+  "related_queries": [
+    "dstnat و forward در RouterOS",
+    "پورت فوروارد پشت CGNAT"
+  ],
+  "source_urls": [
+    "https://manual.mikrotik.com/docs/firewall-and-quality-of-service/firewall/nat/",
+    "https://manual.mikrotik.com/docs/firewall-and-quality-of-service/packet-flow-in-routeros/",
+    "https://manual.mikrotik.com/docs/firewall-and-quality-of-service/firewall/filter/"
+  ],
+  "capture_plan": [
+    {
+      "id": "L14-1",
+      "screen": "IP > Firewall > NAT",
+      "purpose": "dstnat محدود به مبدأ، WAN و پورت"
+    },
+    {
+      "id": "L14-2",
+      "screen": "IP > Firewall > Filter Rules",
+      "purpose": "forward به مقصد ترجمه‌شده و ترتیب قانون"
+    },
+    {
+      "id": "L14-3",
+      "screen": "IP > Firewall > Connections",
+      "purpose": "مقصد اصلی و نگاشت پاسخ اتصال"
+    }
+  ],
+  "lab_status": "NOT_RUN",
+  "screenshot_status": "MISSING",
+  "content_relationship": "INDEPENDENT_WRITTEN_LESSON",
+  "expected_outcomes": [
+    "ساخت dstnat محدود",
+    "توضیح مقصد پس از ترجمه در forward",
+    "تشخیص محدودیت دسترسی ورودی پشت CGNAT"
+  ]
+}
