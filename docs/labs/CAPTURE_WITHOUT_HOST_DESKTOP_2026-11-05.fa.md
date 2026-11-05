@@ -16,7 +16,7 @@
 
 ## وضعیت موجود و ادامه
 
-سه CHR مستقل7.25.1 و WinBox4.5 مبنای۳۹تصویر و پذیرش DHCP/Undo/Restore/Snooping هستند. دو مقالهٔ موجود، native60/renderer16/browser1590 و exact restore را گذرانده‌اند؛ PR88 هنوز برای merge/production نیازمند تأیید مالک است. دادهٔ مشتری/25قلم/noindex/payment/MyTel و گیت‌های امنیتی حفظ شوند.
+سه CHR مستقل7.25.1 و WinBox4.5 مبنای۳۹تصویر و پذیرش DHCP/Undo/Restore/Snooping هستند. دو مقالهٔ موجود، native60/renderer16/browser1590 و exact restore را گذرانده‌اند؛ PR88 پس از تأیید صریح مالک ادغام و همین دو مقاله با backup/drift/rollback منتشر و مستقلاً پذیرفته شدند؛ این مجوز به بسته‌های دیگر تعمیم داده نمی‌شود. دادهٔ مشتری/25قلم/noindex/payment/MyTel و گیت‌های امنیتی حفظ شوند.
 
 GNS3 Server2.2.61 / Web UI2.2.58 در مهمان جدا اجرا شده؛ پروژهٔ دو node/یک لینک ساخته و تصاویر واقعی گرفته شده‌اند. CHR داخلی هنوز در Load system است؛ console/ping پذیرفته نشده و nodeها برای کاهش مصرف CPU متوقف‌اند. RAM1024/readback و inner TCG تأیید شده‌اند؛ علت boot تعیین نشده. پروژه، image معتبر، overlayها، snapshot پیکربندی و لاگ‌ها در موجودی خصوصی حفظ‌اند. مسیر نسبی API image باید در برابر images_path واقعی تفسیر شود. bootstrap قبلی در مرحله initial متوقف شد و رمز تولیدشده اعمال نشده؛ آن را رمز فعال یا چرخش رمز تاریخی ننامید.
 

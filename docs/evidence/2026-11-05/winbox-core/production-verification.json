@@ -1,0 +1,295 @@
+{
+  "schema": 1,
+  "status": "DEPLOYED_VERIFIED",
+  "scope": "tehnet-winbox-core-guides-20261105-v1",
+  "source_commit": "69243f4bd4814b4abeea5b8deb888ec1ceb13431",
+  "qualified_source": "fedbdccffd4bda2d595bcd1136b10333be6c7f09",
+  "owner_authorization": "Explicit approval for merging PR88 and this bounded release received before execution",
+  "pr_url": "https://github.com/DashSaman/TehNet/pull/88",
+  "approved_pr_head": "0d012c7e83c412d6c3876aa341b43a2d38605230",
+  "ci": {
+    "run_id": 42026474340,
+    "conclusion": "success",
+    "url": "https://github.com/DashSaman/TehNet/actions/runs/42026474340"
+  },
+  "existing_bodies_updated": [
+    62,
+    63
+  ],
+  "original_pngs": 39,
+  "scoped_stylesheets": 1,
+  "executable_runtime_files_changed": 0,
+  "new_pages": 0,
+  "native_checks": 60,
+  "renderer_checks": 16,
+  "staging_browser_checks": 1590,
+  "independent_live_browser_checks": 730,
+  "live_profiles": [
+    "1440-light",
+    "375-light",
+    "375-dark",
+    "320-nojs"
+  ],
+  "submissions": 0,
+  "observed_utc": "2026-11-05T14:37:00.106104+00:00",
+  "completed_utc": "2026-11-05T14:37:34.611775+00:00",
+  "browser_observed_utc": "2026-11-05T14:39:01.461Z",
+  "fresh_backup_checksum_verified": true,
+  "protected_state_unchanged": true,
+  "all_existing_runtimes_unchanged": true,
+  "all_25_image_price_inquiry_fields_unchanged": true,
+  "index_payment_captcha_theme_cron_unchanged": true,
+  "artifact_equal_to_qualified": true,
+  "apply": {
+    "files_changed": 40,
+    "bodies_updated": 2,
+    "new_pages": 0
+  },
+  "repeat": {
+    "files_changed": 0,
+    "bodies_updated": 0
+  },
+  "public_pages": [
+    {
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+      "http_status": 200,
+      "h1": 1,
+      "noindex": true,
+      "canonical_preserved": true,
+      "actual_winbox_images_and_steps_visible": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+      "http_status": 200,
+      "h1": 1,
+      "noindex": true,
+      "canonical_preserved": true,
+      "actual_winbox_images_and_steps_visible": true,
+      "tls_verified": true
+    }
+  ],
+  "public_assets": [
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/01-connected-overview.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/02-interface-inventory.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/03-system-resources-menu.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/04-routeros-version.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/05-safe-mode-active.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/06-safe-mode-comment.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/07-comment-applied.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/08-comment-undone.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/09-bridge-start.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/10-bridge-name.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/11-bridge-created.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/12-bridge-port-select.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/13-bridge-port-apply.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/14-ip-addresses-menu.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/15-static-ip-fields.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/16-static-ip-result.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/17-dhcp-client-bound.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/18-dhcp-setup-start.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/19-dhcp-setup-interface.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/20-dhcp-address-space.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/21-dhcp-gateway.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/22-dhcp-pool.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/23-dhcp-no-external-dns.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/24-dhcp-lease-time.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/25-dhcp-server-created.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/26-dhcp-lease-bound.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/27-files-backup-start.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/28-backup-fields.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/29-backup-and-export-files.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/30-restore-dialog.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/31-reconnected-after-restore.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/32-bridge-ports-forwarding.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/33-snooping-before.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/34-snooping-enabled-fields.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/35-port-dhcp-untrusted.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/36-port-trusted-dhcp.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/37-bridge-mac-hosts.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/38-arp-vs-mac-table.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/39-installed-packages.png",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    },
+    {
+      "url": "https://tehnet.ir/wp-content/themes/tehnet/assets/css/visual-refresh.css",
+      "sha256_matches_qualified": true,
+      "tls_verified": true
+    }
+  ],
+  "screenshots_sha256": {
+    "live-after-62-1440-light.png": "fcfdba91f85bd6476ec6e19f8b570bfa2a858ee1ed933d2065724da7a1dd5865",
+    "live-after-62-375-light.png": "14526d7dccad1854c06cd977350bdd272afe5c6fb4d953c03cd71d73afa1df2c",
+    "live-callout-62-375-light.png": "1106b1525c061807e20bb4580a851e4715e6772cd7a99a503ef21493826c2c41",
+    "live-after-63-1440-light.png": "477d409f3c974e8310b63db5d693fc4af7fd9a3e82b1d627339a33d6ec26f268",
+    "live-after-63-375-light.png": "7a852472e2dfa748a9a3d1b2c398545ff1d27274def7de35862c96cf6d68f6be",
+    "live-callout-63-375-light.png": "3e5a84e6ebe18f51ff0869819157c8bdbea0b7a7d138a48fef021b5c62fe3da1"
+  },
+  "acceptance": [
+    "Actual live original-image bytes and callout stylesheet match immutable qualified payload over valid TLS",
+    "Actual mobile full-size image clicks open the unchanged source images",
+    "Image decoding, responsive width, callout bounds, RTL and no-JS work on live pages",
+    "Five other public routes and both pre-existing Lab tools retained",
+    "Source/title/slug/excerpt/meta roles retained; protected data/catalog/noindex/payment/CAPTCHA/theme/cron/runtime checks passed"
+  ],
+  "limits": [
+    "This is a bounded two-article release; no whole-course, competitor-parity, ranking, traffic, conversion or AI-recommendation result",
+    "Nine scripts remain proposed recordings; actual new recordings0 and actual timing/editor approval null",
+    "Nested GNS3 boot/ping remain unverified; its nodes remain stopped with data preserved",
+    "MyTel production, shared network, historical rotation/history/origin and launch gates are unchanged"
+  ]
+}

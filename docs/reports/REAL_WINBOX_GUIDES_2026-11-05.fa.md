@@ -1,6 +1,6 @@
 # راهنمای واقعی WinBox —۵نوامبر۲۰۲۶
 
-وضعیت: **VERIFIED_STAGING_NOT_DEPLOYED**. Source `fedbdccffd4bda2d595bcd1136b10333be6c7f09`؛ native60، renderer16، browser1590؛ صفر ارسال فرم/تغییر production و بازیابی دقیق داده‌ها و فایل‌های staging. [رسید](../evidence/2026-11-05/winbox-core/native-staging.json).
+وضعیت فعلی: **DEPLOYED_VERIFIED**؛ پذیرش staging در ادامه حفظ شده است. Source `fedbdccffd4bda2d595bcd1136b10333be6c7f09`؛ native60، renderer16، browser1590؛ صفر ارسال فرم/تغییر production و بازیابی دقیق داده‌ها و فایل‌های staging. [رسید](../evidence/2026-11-05/winbox-core/native-staging.json).
 
 دو مقالهٔ موجود تقویت شده‌اند:
 
@@ -29,7 +29,7 @@
 
 گام بعد: PR/CI دقیق head، مقایسهٔ artifact با source واجد staging، سپس فقط انتشار دارای backup تازه/checksum/drift/rollback و پذیرش مستقل زنده. MyTel read-only، noindex/payment و گیت‌های rotation/history/origin/launch حفظ‌اند؛ Issues63/75 باز و parity/اثر SEO نامحرز است.
 
-## گیت انتشار و ادامهٔ بدون دسکتاپ
+## سابقهٔ گیت انتشار و ادامهٔ بدون دسکتاپ
 
 [PR88](https://github.com/DashSaman/TehNet/pull/88) و commitهای `49c80f0`، `fedbdcc` و `2572709` push شدند؛ CI [42022049778](https://github.com/DashSaman/TehNet/actions/runs/42022049778) موفق است. بازبینی خودکار ادغام را به‌دلیل نبود تأیید صریح همین انتشار رد کرد. هیچ merge/main/deploy یا مسیر جایگزین اجرا نشد؛ تأیید ادغام و انتشار محدود از مالک درخواست شده و **NEEDS_APPROVAL** است. ناشر تازه با شرط artifact برابر، backup تازه، checksum/drift/rollback آماده ولی اجرا نشده است. گذشت زمان مجوز نیست.
 
@@ -40,3 +40,18 @@
 خطای مسیر image اصلاح شد: path در پاسخ compute API نسبی است؛ محل واقعی از images_path تنظیمات مهمان و زیرپوشه QEMU گرفته شد. اجرای داخلی با TCG و بدون enable-kvm تأیید شد؛ RAM512 به1024MiB مطابق [توصیهٔ رسمی CHR](https://manual.mikrotik.com/docs/getting-started/installation-and-upgrade/install/chr-installation/) تغییر و readback شد، ولی boot همچنان در Load system مشاهده شد و console/ping پذیرفته نشدند. علت نهایی تعیین نشده؛ افزایش RAM «رفع‌شده» نام‌گذاری نمی‌شود. فقط دو node همان پروژه برای کاهش بار CPU متوقف شدند؛ پروژه/دیسک/تنظیم‌ها حفظ و GNS3_BOOT/PACKETS هنوز IN_PROGRESS هستند. سه CHR مستقلِ مبنای۳۹عکس، پذیرش‌های قبلی خود را دارند و با پایلوت تو‌در‌تو اشتباه نشوند.
 
 گام مستقل بعدی: بررسی boot از همان پروژه و snapshot خصوصی موجود، بدون دوباره‌ساختن آن یا نصب hypervisor/driver/تغییر Windows؛ سپس عکس‌ها و متن واقعی درس GNS3 و پذیرش staging خودش. قواعد ادامهٔ بدون دسکتاپ در [راهنمای لاب](../labs/CAPTURE_WITHOUT_HOST_DESKTOP_2026-11-05.fa.md) است. هیچ تعمیر ACL فراتر از۶فایل، bootstrap مجدد رمز، ناشر قدیمی یا اتوماسیون متوقف‌شده تکرار نشود.
+
+## انتشار تأییدشده و پذیرش مستقل زنده —۵نوامبر۲۰۲۶
+
+مالک صریحاً «ادغام و انتشار محدود تأیید است» را اعلام کرد؛ گیت قبلی فقط برای همین PR88 و دامنهٔ دو درس برداشته شد. head `0d012c7` و CI42026474340 بررسی و PR88 در main با commit `69243f4bd4814b4abeea5b8deb888ec1ceb13431` ادغام شد. snapshot خصوصی قبل از sync گرفته شد. artifact تمام اعضا/فایل‌ها/tool/runtime_guard با source واجد staging `fedbdccffd4bda2d595bcd1136b10333be6c7f09` برابر بود.
+
+ناشر تازه فقط body62/63،۳۹PNG و CSS کادر راهنما را با backup تازه/checksum، drift guard و rollback آزموده‌شده منتشر کرد. apply=40فایل/2بدنه/0صفحه و repeat=0تغییر؛ هیچ ناشر قدیمی یا تاریخچه‌ای replay نشد. همهٔ۴۰فایل عمومی با TLS و bytes دقیق پذیرفته شدند. حالت ERP/payment، CAPTCHA، noindex، theme mods، cron، دادهٔ محافظت‌شده، تصاویر/قیمت/حالت استعلام۲۵محصول و runtime سرویس‌ها حفظ شدند. خانه و فروشگاه جابه‌جا نشدند؛ MyTel production تغییر نکرد.
+
+پذیرش مستقل مرورگر زنده: **730 بررسی موفق** در1440light،375light/dark و320no-JS، بارگذاری۳۹عکس، کادرهای متناسب، RTL/عدم overflow و کلیک واقعی عکس full-size؛0ارسال یا درخواست نوشتن. staging1590 با ماتریس گسترده‌تر و exact restore قبلی، پذیرش جداست. شش عکس زنده و [رسید sanitized](../evidence/2026-11-05/winbox-core/production-verification.json) ثبت شدند.
+
+- [WinBox، Safe Mode و Backup](https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/#winbox-real-lab)
+- [Bridge، IP، DHCP و Snooping](https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/#winbox-ip-lab)
+- [نمای موبایل واقعی WinBox](../evidence/2026-11-05/winbox-core/live-callout-62-375-light.png)
+- [نمای موبایل واقعی IP/DHCP](../evidence/2026-11-05/winbox-core/live-callout-63-375-light.png)
+
+این تأیید شامل -SEO PR27، پرداخت واقعی، حذف noindex، GNS3ِ ناپذیرفته، rewrite/force-push یا شبکهٔ مشترک نیست. GNS3_BOOT/PACKETS و full audiovisual هشت منبع/موضوع۵٫۵ باز مانده‌اند؛ صفر ضبط تازه و actual duration/approval همچنان null. صرف انتشار/تعداد تست، رقابت یا اثر SEO را اثبات نمی‌کند؛63/75 بسته نشوند. ادامهٔ مستقل از پروژهٔ GNS3 موجود و snapshot خصوصی، بدون تصرف دسکتاپ یا تغییر Windows و بدون دوباره‌ساختن محیط انجام شود.
