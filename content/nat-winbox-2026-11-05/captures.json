@@ -1,0 +1,289 @@
+{
+  "schema": 1,
+  "key": "tehnet-nat-winbox-20261105-v1",
+  "source": "Original actual WinBox UI captures; no UI text/state/result substitution",
+  "routeros": "7.25.1 stable",
+  "winbox": "4.5",
+  "device": "CHR x86_64 / QEMU TCG",
+  "scenario": "Masquerade on TN-LAB-R1 for the private client LAN 10.20.0.0/24 toward the simulated remote LAN 198.51.100.0/24 behind TN-LAB-R2; client-side checks shown in a WinBox Terminal window of TN-LAB-CLIENT (GUI-hosted CLI), router-side in WinBox of R1",
+  "capture_session_utc": "2026-11-05T18:00-19:20Z",
+  "display_note": "Captured from the Linux guest Xvfb framebuffer (1536x816 frameless WinBox session; no OS title bar decoration, same session state as the static-routing set). The bottom status bar shows TN-LAB-R1 / 127.0.0.1:18291 (or TN-LAB-CLIENT / 18292 in client-terminal figures) with CHR / 7.25.1 in every capture.",
+  "callout_rule": "Callout boxes are CSS presentation overlays (tn-nat-shot-N classes in visual-refresh.css); original PNG pixels stay unchanged. Clicking a figure opens the unmodified original.",
+  "captures": [
+    {
+      "name": "01-ip-firewall-menu",
+      "marks_px": [
+        {
+          "x": 152,
+          "y": 296,
+          "w": 110,
+          "h": 26,
+          "label": "Firewall"
+        }
+      ],
+      "marks_pct": [
+        {
+          "x": 9.8958,
+          "y": 36.2745,
+          "w": 7.1615,
+          "h": 3.1863
+        }
+      ]
+    },
+    {
+      "name": "02-firewall-window",
+      "marks_px": [
+        {
+          "x": 150,
+          "y": 186,
+          "w": 130,
+          "h": 24,
+          "label": "Firewall window"
+        }
+      ],
+      "marks_pct": [
+        {
+          "x": 9.7656,
+          "y": 22.7941,
+          "w": 8.4635,
+          "h": 2.9412
+        }
+      ]
+    },
+    {
+      "name": "03-nat-empty",
+      "marks_px": [
+        {
+          "x": 330,
+          "y": 186,
+          "w": 50,
+          "h": 22,
+          "label": "NAT"
+        }
+      ],
+      "marks_pct": [
+        {
+          "x": 21.4844,
+          "y": 22.7941,
+          "w": 3.2552,
+          "h": 2.6961
+        }
+      ]
+    },
+    {
+      "name": "04-client-ping-fail",
+      "marks_px": [
+        {
+          "x": 1000,
+          "y": 570,
+          "w": 140,
+          "h": 80,
+          "label": "timeout"
+        }
+      ],
+      "marks_pct": [
+        {
+          "x": 65.1042,
+          "y": 69.8529,
+          "w": 9.1146,
+          "h": 9.8039
+        }
+      ]
+    },
+    {
+      "name": "05-nat-new-dialog",
+      "marks_px": [
+        {
+          "x": 790,
+          "y": 208,
+          "w": 190,
+          "h": 26,
+          "label": "Chain: srcnat"
+        }
+      ],
+      "marks_pct": [
+        {
+          "x": 51.4323,
+          "y": 25.4902,
+          "w": 12.3698,
+          "h": 3.1863
+        }
+      ]
+    },
+    {
+      "name": "06-nat-general-filled",
+      "marks_px": [
+        {
+          "x": 640,
+          "y": 481,
+          "w": 370,
+          "h": 30,
+          "label": "Out. Interface: bridge-lab"
+        }
+      ],
+      "marks_pct": [
+        {
+          "x": 41.6667,
+          "y": 58.9461,
+          "w": 24.0885,
+          "h": 3.6765
+        }
+      ]
+    },
+    {
+      "name": "07-nat-action-masquerade",
+      "marks_px": [
+        {
+          "x": 690,
+          "y": 140,
+          "w": 330,
+          "h": 28,
+          "label": "Action: masquerade"
+        }
+      ],
+      "marks_pct": [
+        {
+          "x": 44.9219,
+          "y": 17.1569,
+          "w": 21.4844,
+          "h": 3.4314
+        }
+      ]
+    },
+    {
+      "name": "08-nat-rule-active",
+      "marks_px": [
+        {
+          "x": 184,
+          "y": 265,
+          "w": 1170,
+          "h": 26,
+          "label": "masq. rule row"
+        }
+      ],
+      "marks_pct": [
+        {
+          "x": 11.9792,
+          "y": 32.4755,
+          "w": 76.1719,
+          "h": 3.1863
+        }
+      ]
+    },
+    {
+      "name": "09-client-ping-ok",
+      "marks_px": [
+        {
+          "x": 700,
+          "y": 540,
+          "w": 440,
+          "h": 90,
+          "label": "replies 0% loss"
+        }
+      ],
+      "marks_pct": [
+        {
+          "x": 45.5729,
+          "y": 66.1765,
+          "w": 28.6458,
+          "h": 11.0294
+        }
+      ]
+    },
+    {
+      "name": "10-nat-counters",
+      "marks_px": [
+        {
+          "x": 1180,
+          "y": 260,
+          "w": 120,
+          "h": 30,
+          "label": "Bytes counter"
+        }
+      ],
+      "marks_pct": [
+        {
+          "x": 76.8229,
+          "y": 31.8627,
+          "w": 7.8125,
+          "h": 3.6765
+        }
+      ]
+    },
+    {
+      "name": "11-nat-conntrack",
+      "marks_px": [
+        {
+          "x": 190,
+          "y": 322,
+          "w": 660,
+          "h": 26,
+          "label": "translated entry 192.0.2.1"
+        }
+      ],
+      "marks_pct": [
+        {
+          "x": 12.3698,
+          "y": 39.4608,
+          "w": 42.9688,
+          "h": 3.1863
+        }
+      ]
+    },
+    {
+      "name": "12-nat-rule-disabled-client-fail",
+      "marks_px": [
+        {
+          "x": 184,
+          "y": 265,
+          "w": 1170,
+          "h": 26,
+          "label": "disabled rule row"
+        }
+      ],
+      "marks_pct": [
+        {
+          "x": 11.9792,
+          "y": 32.4755,
+          "w": 76.1719,
+          "h": 3.1863
+        }
+      ]
+    },
+    {
+      "name": "13-nat-rule-reenabled",
+      "marks_px": [
+        {
+          "x": 184,
+          "y": 265,
+          "w": 1170,
+          "h": 26,
+          "label": "rule active again"
+        }
+      ],
+      "marks_pct": [
+        {
+          "x": 11.9792,
+          "y": 32.4755,
+          "w": 76.1719,
+          "h": 3.1863
+        }
+      ]
+    }
+  ],
+  "sha256": {
+    "01-ip-firewall-menu": "69add5ce1ae03ae9d4622ff93ae8c1c43c3b6325896d410133a5173d88840060",
+    "02-firewall-window": "a937f27c41ec8cc95144c9ee9e3ff4852ffef23c83fe3105e771c7e49912bdb7",
+    "03-nat-empty": "12471e99f4eca4b5c1111840be4b7c00806a83f2c7f34261796b250e20367f1b",
+    "04-client-ping-fail": "4f3f975dab23354811afeca4fc7710a066d3658c616c9cc0da7f80dd185a0f72",
+    "05-nat-new-dialog": "e63fe8a47b0d4486a93078819792850516b129628d36727337ea4b915c37dc0d",
+    "06-nat-general-filled": "a94370e14677ab855f8588384577352da295504384b08e3e1839431bbd5eb42c",
+    "07-nat-action-masquerade": "4564bc072eb4092fac470383a8567e66d410cb1c456e7e5e43dd93fc15ab2b77",
+    "08-nat-rule-active": "c1efb6537932944e696234f99e65f9af3efa6da8595d5b7b256e2d24f6f8f033",
+    "09-client-ping-ok": "17d96024c35a7b719c40eb20cabb13c12382740eaa5c02933b5ca47f86e08d7f",
+    "10-nat-counters": "e127ff8e21f91e3bf7b1df3f79420905259bf8bee8f2145e3d234b34fa0135f6",
+    "11-nat-conntrack": "0eb0e6de05649c15d7cddb2e10321adbe5a2b1c6901d4aa658aebccedb3a8f31",
+    "12-nat-rule-disabled-client-fail": "f41c2fa31733eab4142cabaa5ceee315b304f4613999a831e45679eff96b2f7a",
+    "13-nat-rule-reenabled": "0d25b52981195a2c11017810c0fcbb9760ac7789939af651d3a65c0e4d46a1e4"
+  }
+}

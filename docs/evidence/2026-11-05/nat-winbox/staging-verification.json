@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_STAGING_NOT_DEPLOYED",
+  "scope": "tehnet-nat-winbox-20261105-v1",
+  "source_commit": "a3596e7d2f3c791e2568e1131b4642b8ecf2788a",
+  "existing_body_updated": [
+    65
+  ],
+  "uri": "learn/mikrotik/mtcna/nat-masquerade",
+  "original_pngs": 13,
+  "callout_classes_added": 13,
+  "new_pages": 0,
+  "executable_runtime_files_changed": 0,
+  "title_url_excerpt_meta_untouched": true,
+  "native_checks": 50,
+  "renderer_checks": 8,
+  "staging_browser_checks": 555,
+  "browser_profiles": "1440/768/375/320 light+dark, 320 no-JS; full-size image click; served byte hashes match originals",
+  "before_browser_status": "PASS",
+  "submissions": 0,
+  "production_mutations": 0,
+  "all_original_posts_meta_users_revisions_restored": true,
+  "all_original_runtime_files_restored": true,
+  "all_existing_runtimes_unchanged": true,
+  "apply": {
+    "files_changed": 14,
+    "bodies_updated": 1,
+    "new_pages": 0
+  },
+  "repeat": {
+    "files_changed": 0,
+    "bodies_updated": 0
+  },
+  "rollback": {
+    "status": "ROLLED_BACK",
+    "files_restored": 14
+  },
+  "completed_utc": "2026-11-05T19:41:46.263991+00:00",
+  "screenshots_sha256": {
+    "before-65-375-light.png": "ff437266897a1f94059a19a1216b75967caaa4f82a30a28b1a817c94f31f7abe",
+    "after-65-1440-light.png": "e727db68faff67855af887d926950fdadd4a1bd9e65adc1c843f684082a2cb6d",
+    "after-65-375-light.png": "57b9e12635ae4ca5bb600fd1ebd8dc45cdc759c1b458c83f156accc57eca1951",
+    "callout-65-1440-light.png": "cb22d7638b51fe9555e4a6167be96db6fd1112423b09905ec5e036c736d1e1bc",
+    "callout-65-375-light.png": "47ea489b2607c429c052a8632a4dd92a211b6141b7358ecadd2d449d77ed292a"
+  },
+  "limits": [
+    "Staging qualification only; production publishing needs explicit owner approval",
+    "13 actual CHR7.25.1/WinBox4.5 synthetic-lab captures; the ping successes are an internal lab flow, not internet or real-network performance",
+    "Client-side checks shown in a WinBox Terminal window of TN-LAB-CLIENT (GUI-hosted CLI), labeled as such in the article",
+    "Frameless guest framebuffer session (no OS title bar); bottom status bar carries the connection evidence in every capture"
+  ]
+}
