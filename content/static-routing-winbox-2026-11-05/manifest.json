@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "key": "tehnet-static-routing-winbox-20261105-v1",
+  "targets": [
+    {
+      "id": 64,
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/",
+      "uri": "learn/mikrotik/mtcna/static-routing",
+      "title_observed": "مسیریابی استاتیک در میکروتیک — MTCNA",
+      "content_file": "static-routing.html",
+      "change_fields": [
+        "post_content"
+      ],
+      "expected_content_sha256": "e31af644630501aaf9917e2b8dc4210a9a32135f9420bdd14cd22b55979c24e6",
+      "content_sha256_lf": "8600cecaf83e10036700e50f9668c87733a73f78c29d540d831730a2225db08e"
+    }
+  ]
+}

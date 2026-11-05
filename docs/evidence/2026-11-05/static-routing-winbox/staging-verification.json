@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_STAGING_NOT_DEPLOYED",
+  "scope": "tehnet-static-routing-winbox-20261105-v1",
+  "source_commit": "143804e3e48f5ec7b249e36f0655b51877f52e2f",
+  "existing_body_updated": [
+    64
+  ],
+  "uri": "learn/mikrotik/mtcna/static-routing",
+  "original_pngs": 10,
+  "callout_classes_added": 10,
+  "new_pages": 0,
+  "executable_runtime_files_changed": 0,
+  "title_url_excerpt_meta_untouched": true,
+  "native_checks": 50,
+  "renderer_checks": 8,
+  "staging_browser_checks": 444,
+  "browser_profiles": "1440/768/375/320 light+dark, 320 no-JS; full-size image click; served byte hashes match originals",
+  "before_browser_status": "PASS",
+  "submissions": 0,
+  "production_mutations": 0,
+  "all_original_posts_meta_users_revisions_restored": true,
+  "all_original_runtime_files_restored": true,
+  "all_existing_runtimes_unchanged": true,
+  "apply": {
+    "files_changed": 11,
+    "bodies_updated": 1,
+    "new_pages": 0
+  },
+  "repeat": {
+    "files_changed": 0,
+    "bodies_updated": 0
+  },
+  "rollback": {
+    "status": "ROLLED_BACK",
+    "files_restored": 11
+  },
+  "completed_utc": "2026-11-05T16:59:55.166145+00:00",
+  "screenshots_sha256": {
+    "before-64-375-light.png": "3bd933cb578823b8936afc0da753e5ff5ecc92fe34cbf0ef5437e1d40d36c4d5",
+    "after-64-1440-light.png": "4645e3f66e8f8ba1f71530fc7bd570632dd80a2342b6ef49dacb340be4f93f11",
+    "after-64-375-light.png": "532d052f38a28d56e393b19beb9d8b42db98e4639c0cc2be442770883ae5c6a2",
+    "callout-64-1440-light.png": "50f00440e4364f77f364769d8ffbcd5d163256439a47df105563bc46427b3b9c",
+    "callout-64-375-light.png": "db931711f1c3047dab1efbd518c9d92f333e34b36acbbd464f89bec1afeba363"
+  },
+  "limits": [
+    "Staging qualification only; production publishing needs explicit owner approval",
+    "10 actual CHR7.25.1/WinBox4.5 synthetic-lab captures; not hardware or customer evidence",
+    "The four conceptual browser-model figures remain part of the article and are not WinBox captures",
+    "Guest framebuffer session ran frameless (no OS title bar); bottom status bar shows TN-LAB-R1 target in every capture"
+  ]
+}

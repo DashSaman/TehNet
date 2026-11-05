@@ -4,6 +4,9 @@ final class TehNet_Growth_Content_Migration {
     private const CATALOG_SCOPE='tehnet-commercial-catalog-20261101-v1';
     private const EDUCATION_SCOPE='tehnet-educational-integrity-20261104-v1';
     private const WINBOX_SCOPE='tehnet-winbox-core-guides-20261105-v1';
+    private const ROUTING_WINBOX_SCOPE='tehnet-static-routing-winbox-20261105-v1';
+    private const ROUTING_WINBOX_TARGETS=[64=>['uri'=>'learn/mikrotik/mtcna/static-routing','file'=>'static-routing.html']];
+    private const ROUTING_WINBOX_CAPTURES=['01-ip-menu-routes', '02-routes-before', '03-ping-before-fail', '04-new-route-dialog', '05-new-route-filled', '06-route-applied-active', '07-route-active-list', '08-ping-after-ok', '09-route-disabled', '10-route-reenabled'];
     private const WINBOX_TARGETS=[62=>['uri'=>'learn/mikrotik/mtcna/routeros-winbox','file'=>'routeros-winbox.html'],63=>['uri'=>'learn/mikrotik/mtcna/ip-dhcp-dns','file'=>'ip-dhcp-dns.html']];
     private const WINBOX_CAPTURES=['01-connected-overview', '02-interface-inventory', '03-system-resources-menu', '04-routeros-version', '05-safe-mode-active', '06-safe-mode-comment', '07-comment-applied', '08-comment-undone', '09-bridge-start', '10-bridge-name', '11-bridge-created', '12-bridge-port-select', '13-bridge-port-apply', '14-ip-addresses-menu', '15-static-ip-fields', '16-static-ip-result', '17-dhcp-client-bound', '18-dhcp-setup-start', '19-dhcp-setup-interface', '20-dhcp-address-space', '21-dhcp-gateway', '22-dhcp-pool', '23-dhcp-no-external-dns', '24-dhcp-lease-time', '25-dhcp-server-created', '26-dhcp-lease-bound', '27-files-backup-start', '28-backup-fields', '29-backup-and-export-files', '30-restore-dialog', '31-reconnected-after-restore', '32-bridge-ports-forwarding', '33-snooping-before', '34-snooping-enabled-fields', '35-port-dhcp-untrusted', '36-port-trusted-dhcp', '37-bridge-mac-hosts', '38-arp-vs-mac-table', '39-installed-packages'];
 
@@ -34,7 +37,7 @@ final class TehNet_Growth_Content_Migration {
     private array $educationTargets=[];
 
     public static function authorizes($authorization,array $requested):bool {
-        return is_string($authorization)&&($authorization==='tehnet-growth-20261031-v1'||$authorization===self::CATALOG_SCOPE||$authorization===self::EDUCATION_SCOPE||$authorization===self::WINBOX_SCOPE||isset(self::EXISTING_PAGE_SCOPES[$authorization]))&&($requested['key']??null)===$authorization;
+        return is_string($authorization)&&($authorization==='tehnet-growth-20261031-v1'||$authorization===self::CATALOG_SCOPE||$authorization===self::EDUCATION_SCOPE||$authorization===self::WINBOX_SCOPE||$authorization===self::ROUTING_WINBOX_SCOPE||isset(self::EXISTING_PAGE_SCOPES[$authorization]))&&($requested['key']??null)===$authorization;
     }
 
     public function __construct(string $path,string $digest,string $directory,bool $authorizedProduction=false) {
@@ -48,7 +51,24 @@ final class TehNet_Growth_Content_Migration {
         if(!$real||!is_dir($real)||is_link($directory)||($web&&($real===$web||str_starts_with($real,$web.DIRECTORY_SEPARATOR)))||(fileperms($real)&0077)!==0)throw new RuntimeException('Private journal directory outside the web root required');
         $this->manifest=json_decode(file_get_contents($path),true,512,JSON_THROW_ON_ERROR);$this->digest=$digest;$this->directory=$real;
         $m=$this->manifest;
-        if(($m['key']??'')===self::WINBOX_SCOPE){
+        if(($m['key']??'')===self::ROUTING_WINBOX_SCOPE){
+            if(($m['schema']??null)!==1||count($m['targets']??[])!==1)throw new RuntimeException('Exact one-owner static routing WinBox scope required');
+            $updates=[];
+            foreach($m['targets']as$t){
+                $id=$t['id']??0;$fixed=self::ROUTING_WINBOX_TARGETS[$id]??null;
+                if(!$fixed||isset($this->illustratedPages[$id])||($t['uri']??null)!==$fixed['uri']||($t['url']??null)!=='https://tehnet.ir/'.$fixed['uri'].'/'||($t['content_file']??null)!==$fixed['file']||($t['change_fields']??null)!==['post_content']||!is_string($t['title_observed']??null)||$t['title_observed']==='')throw new RuntimeException('Unapproved illustrated owner or field');
+                if(in_array($id,array_map('intval',[get_option('page_on_front'),get_option('page_for_posts'),get_option('woocommerce_shop_page_id')]),true))throw new RuntimeException('Protected role cannot be an illustrated target');
+                $file=dirname($path).'/'.$fixed['file'];
+                if(!is_file($file)||is_link($file)||!preg_match('/^[a-f0-9]{64}$/D',$t['content_sha256_lf']??'')||!hash_equals($t['content_sha256_lf'],hash_file('sha256',$file)))throw new RuntimeException('Immutable illustrated body mismatch');
+                $body=file_get_contents($file);
+                if(!str_contains($body,'آموزش نوشتاری مستقل')||str_contains($body,'youtube.com')||str_contains($body,'youtu.be'))throw new RuntimeException('Independent written role required; video attribution refused');
+                if(substr_count($body,'tn-lab-shot-r')!==20)throw new RuntimeException('Static routing WinBox section figure count mismatch');
+                $this->illustratedPages[$id]=['uri'=>$fixed['uri'],'title'=>$t['title_observed']];
+                $updates[]=['id'=>$id,'expected_content_sha256'=>$t['expected_content_sha256']??'','replace'=>$body];
+            }
+            $this->pageScope=['images'=>self::ROUTING_WINBOX_CAPTURES,'image_directory'=>'routing-20261105','prior_images'=>[['directory'=>'static-routing-20261104','images'=>['r1-forward','return-missing','return-correct','return-steps']]]];
+            $this->existingPage=true;$this->manifest=$m=['schema'=>1,'key'=>$m['key'],'pages'=>[],'updates'=>$updates];
+        }elseif(($m['key']??'')===self::WINBOX_SCOPE){
             if(($m['schema']??null)!==1||count($m['targets']??[])!==2)throw new RuntimeException('Exact two-owner WinBox scope required');
             $updates=[];
             foreach($m['targets']as$t){
@@ -129,8 +149,8 @@ final class TehNet_Growth_Content_Migration {
     private function blocks(string $content,bool $catalog=false,bool $home=false):void {
         if($content===''||serialize_blocks(parse_blocks($content))!==$content)throw new RuntimeException('Block serialization mismatch');
         if($this->existingPage&&!($catalog&&$home)&&wp_kses_post($content)!==$content)throw new RuntimeException('Page sanitization mismatch');
-        $existingPage=$this->existingPage;$scopedShortcodes=$this->pageScope['shortcodes']??[];$scopedImages=$this->pageScope['images']??[];$imageDirectory=$this->pageScope['image_directory']??'static-routing-20261104';
-        $walk=static function(array $blocks)use(&$walk,$existingPage,$catalog,$home,$scopedShortcodes,$scopedImages,$imageDirectory):void {foreach($blocks as$b){
+        $existingPage=$this->existingPage;$scopedShortcodes=$this->pageScope['shortcodes']??[];$scopedImages=$this->pageScope['images']??[];$imageDirectory=$this->pageScope['image_directory']??'static-routing-20261104';$priorPaths=$this->pageScope['prior_images']??[];$priorSrcs=[];foreach($priorPaths as$priorScope)foreach($priorScope['images']as$name)$priorSrcs[]='/wp-content/mu-plugins/tehnet-technical-resources/learning-media/'.$priorScope['directory'].'/'.$name.'.png';
+        $walk=static function(array $blocks)use(&$walk,$existingPage,$catalog,$home,$scopedShortcodes,$scopedImages,$imageDirectory,$priorPaths,$priorSrcs):void {foreach($blocks as$b){
             if($b['blockName']===null){if(trim($b['innerHTML'])!=='')throw new RuntimeException('Unstructured block content');continue;}
             $allowed=['core/paragraph','core/heading','core/list','core/list-item','core/shortcode'];if($existingPage)$allowed[]='core/code';
             if($catalog)$allowed=array_merge($allowed,['core/group','core/buttons','core/button','core/columns','core/column']);
@@ -140,11 +160,16 @@ final class TehNet_Growth_Content_Migration {
             if($b['blockName']==='core/image'){
                 $image=new WP_HTML_Tag_Processor($b['innerHTML']);
                 $paths=array_map(static fn($name)=>'/wp-content/mu-plugins/tehnet-technical-resources/learning-media/'.$imageDirectory.'/'.$name.'.png',$scopedImages);
-                if(!$image->next_tag('IMG')||!in_array($image->get_attribute('src'),$paths,true)||!is_string($image->get_attribute('alt'))||trim($image->get_attribute('alt'))===''||$image->next_tag('IMG')||isset($b['attrs']['id']))throw new RuntimeException($imageDirectory==='winbox-20261105'?'Only scope-approved original captures with descriptive alt are approved':'Only the four original routing captures with descriptive alt are approved');
+                foreach($priorPaths as$priorScope)$paths=array_merge($paths,array_map(static fn($name)=>'/wp-content/mu-plugins/tehnet-technical-resources/learning-media/'.$priorScope['directory'].'/'.$name.'.png',$priorScope['images']));
+                if(!$image->next_tag('IMG')||!in_array($image->get_attribute('src'),$paths,true)||!is_string($image->get_attribute('alt'))||trim($image->get_attribute('alt'))===''||$image->next_tag('IMG')||isset($b['attrs']['id']))throw new RuntimeException(in_array($imageDirectory,['winbox-20261105','routing-20261105'],true)?'Only scope-approved original captures with descriptive alt are approved':'Only the four original routing captures with descriptive alt are approved');
                 if($imageDirectory==='winbox-20261105'){
                     $anchor=new WP_HTML_Tag_Processor($b['innerHTML']);$picture=new WP_HTML_Tag_Processor($b['innerHTML']);$picture->next_tag('IMG');$src=$picture->get_attribute('src');
                     $name=basename($src,'.png');$number=(int)substr($name,0,2);
                     if(!$anchor->next_tag('A')||$anchor->get_attribute('href')!==$src||($b['attrs']['className']??null)!=='tn-lab-capture tn-lab-shot-'.$number||($b['attrs']['linkDestination']??null)!=='custom')throw new RuntimeException('Original full-size link and matching callout class required');
+                } elseif($imageDirectory==='routing-20261105'){
+                    $anchor=new WP_HTML_Tag_Processor($b['innerHTML']);$picture=new WP_HTML_Tag_Processor($b['innerHTML']);$picture->next_tag('IMG');$src=$picture->get_attribute('src');
+                    $name=basename($src,'.png');$number=(int)substr($name,0,2);
+                    if(!in_array($src,$priorSrcs,true)&&(!$anchor->next_tag('A')||$anchor->get_attribute('href')!==$src||($b['attrs']['className']??null)!=='tn-lab-capture tn-lab-shot-r'.$number||($b['attrs']['linkDestination']??null)!=='custom'))throw new RuntimeException('Original full-size link and matching callout class required');
                 }
             }
             if($b['blockName']==='core/shortcode'&&!in_array(trim($b['innerHTML']),array_merge($catalog?['[tn_service_request]']:['[tn_editorial_note]','[tn_voice_network_readiness]'],$scopedShortcodes),true))throw new RuntimeException('Unapproved shortcode');

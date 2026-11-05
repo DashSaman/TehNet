@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "key": "tehnet-static-routing-winbox-20261105-v1",
+  "source": "Original actual WinBox UI captures; no UI text/state/result substitution",
+  "routeros": "7.25.1 stable",
+  "winbox": "4.5",
+  "device": "CHR x86_64 / QEMU TCG",
+  "scenario": "Static route on TN-LAB-R1 to simulated remote LAN 198.51.100.0/24 attached to TN-LAB-R2 loopback; management loopback-only, no office LAN bridging",
+  "capture_session_utc": "2026-11-05T15:20-15:34Z",
+  "display_note": "Captured from the Linux guest Xvfb framebuffer (1536x816 window). This session's WinBox ran without an OS title-bar decoration (earlier 39-image set included one); the bottom status bar with TN-LAB-R1 / 127.0.0.1:18291 / CHR / 7.25.1 is visible in every capture and is the connection evidence. All ten captures share one consistent session state.",
+  "callout_rule": "Callout boxes are CSS presentation overlays (tn-lab-shot-rN classes in visual-refresh.css); original PNG pixels stay unchanged. Clicking a figure opens the unmodified original.",
+  "captures": [
+    {
+      "name": "01-ip-menu-routes",
+      "step": "Open the IP flyout and locate Routes",
+      "marks_px": [{"x": 148, "y": 506, "w": 100, "h": 24, "label": "Routes"}],
+      "marks_pct": [{"x": 9.6354, "y": 62.0098, "w": 6.5104, "h": 2.9412}]
+    },
+    {
+      "name": "02-routes-before",
+      "step": "Routes list before the change: only the two connected DAC routes exist",
+      "marks_px": [{"x": 412, "y": 258, "w": 860, "h": 50, "label": "DAC connected routes only"}],
+      "marks_pct": [{"x": 26.8229, "y": 31.6176, "w": 55.9896, "h": 6.1275}]
+    },
+    {
+      "name": "03-ping-before-fail",
+      "step": "WinBox Ping tool from R1 to 198.51.100.1 before the route: 100% packet loss, no route to host",
+      "marks_px": [{"x": 990, "y": 483, "w": 140, "h": 112, "label": "no route to host"}],
+      "marks_pct": [{"x": 64.4531, "y": 59.1912, "w": 9.1146, "h": 13.7255}]
+    },
+    {
+      "name": "04-new-route-dialog",
+      "step": "Routes toolbar New button opens Route > New... with Dst. Address focused",
+      "marks_px": [{"x": 683, "y": 252, "w": 344, "h": 30, "label": "Dst. Address"}],
+      "marks_pct": [{"x": 44.4661, "y": 30.8824, "w": 22.3958, "h": 3.6765}]
+    },
+    {
+      "name": "05-new-route-filled",
+      "step": "Dst. Address 198.51.100.0/24 and Gateway 192.0.2.2 filled",
+      "marks_px": [{"x": 683, "y": 292, "w": 310, "h": 30, "label": "Gateway 192.0.2.2"}],
+      "marks_pct": [{"x": 44.4661, "y": 35.7843, "w": 20.1823, "h": 3.6765}]
+    },
+    {
+      "name": "06-route-applied-active",
+      "step": "After Apply: title 198.51.100.0/24->192.0.2.2 and ACTIVE/STATIC badges",
+      "marks_px": [{"x": 544, "y": 676, "w": 108, "h": 20, "label": "ACTIVE | STATIC"}],
+      "marks_pct": [{"x": 35.4167, "y": 82.8431, "w": 7.0313, "h": 2.4510}]
+    },
+    {
+      "name": "07-route-active-list",
+      "step": "Routes list now shows the third route with AS (active, static) flags",
+      "marks_px": [{"x": 412, "y": 302, "w": 860, "h": 28, "label": "AS row"}],
+      "marks_pct": [{"x": 26.8229, "y": 37.0098, "w": 55.9896, "h": 3.4314}]
+    },
+    {
+      "name": "08-ping-after-ok",
+      "step": "Same Ping tool after the route: 0% packet loss with real replies",
+      "marks_px": [{"x": 668, "y": 393, "w": 112, "h": 32, "label": "0 % packet loss"}],
+      "marks_pct": [{"x": 43.4896, "y": 48.1618, "w": 7.2917, "h": 3.9216}]
+    },
+    {
+      "name": "09-route-disabled",
+      "step": "Route selected and Disable pressed: flag XS, row grayed, distance/gateway cleared",
+      "marks_px": [{"x": 412, "y": 302, "w": 860, "h": 28, "label": "XS disabled row"}],
+      "marks_pct": [{"x": 26.8229, "y": 37.0098, "w": 55.9896, "h": 3.4314}]
+    },
+    {
+      "name": "10-route-reenabled",
+      "step": "Enable pressed: flag back to AS with gateway 192.0.2.2 and distance 1",
+      "marks_px": [{"x": 412, "y": 302, "w": 860, "h": 28, "label": "AS active again"}],
+      "marks_pct": [{"x": 26.8229, "y": 37.0098, "w": 55.9896, "h": 3.4314}]
+    }
+  ],
+  "sha256": {
+    "01-ip-menu-routes": "18fc99be2cf055bd0fff82a2cb215ee858078cbd65c8b0cf511a851a407d4f13",
+    "02-routes-before": "e57be26b22edb38a7c05fb38fb507686f9c16e841f4e36ee0a4a57d2316bc719",
+    "03-ping-before-fail": "752b6aecd2231013ca7ff8698c4df2c004be786165db528b8999fba74b8faa3d",
+    "04-new-route-dialog": "2d6f60f78574e0311dbf3e06163785e1904427b53aaf2a8bcb44a8574573d405",
+    "05-new-route-filled": "d91deb8650300346ae93c584d19c4c0dad6bba90d3f3eeabbd76f8dab1742a64",
+    "06-route-applied-active": "9cfc8c47343200e35cfe66f6198ec06bf044f9654fb7f4c54edff27beba81c3d",
+    "07-route-active-list": "b0b60c4e9bf6d0173b3a5e2d815bf2883a12a3239dce24e90f9cce66214bc9b5",
+    "08-ping-after-ok": "c6e4a7f5eef9f096d5c421d91835df74b2deab857df46d2b2f1742db9b1e6bcb",
+    "09-route-disabled": "ec469866447fb7534bdc28b428ec341681b996d4083d593668d45f6b9e00c0fd",
+    "10-route-reenabled": "39b00e40694dc7c52de2bc3fdfbc49bef72535afc50ddd6b8bdf4d5e970ace73"
+  }
+}

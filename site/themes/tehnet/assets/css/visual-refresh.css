@@ -75,3 +75,15 @@ html{scroll-padding-top:110px}body.tn-visual{background:var(--tn-bg);color:var(-
 .tn-lab-shot-37{--tn-callout-x:20.8333%;--tn-callout-y:18.4823%;--tn-callout-w:49.0885%;--tn-callout-h:21.6646%}
 .tn-lab-shot-38{--tn-callout-x:20.7031%;--tn-callout-y:18.4823%;--tn-callout-w:77.5391%;--tn-callout-h:17.1359%}
 .tn-lab-shot-39{--tn-callout-x:19.4010%;--tn-callout-y:18.4823%;--tn-callout-w:26.7578%;--tn-callout-h:8.5679%}
+
+/* TN STATIC ROUTING WINBOX CALLOUTS (2026-11-05): presentation overlays; original PNG pixels stay unchanged. */
+.tn-lab-shot-r1{--tn-callout-x:9.6354%;--tn-callout-y:62.0098%;--tn-callout-w:6.5104%;--tn-callout-h:2.9412%}
+.tn-lab-shot-r2{--tn-callout-x:26.8229%;--tn-callout-y:31.6176%;--tn-callout-w:55.9896%;--tn-callout-h:6.1275%}
+.tn-lab-shot-r3{--tn-callout-x:64.4531%;--tn-callout-y:59.1912%;--tn-callout-w:9.1146%;--tn-callout-h:13.7255%}
+.tn-lab-shot-r4{--tn-callout-x:44.4661%;--tn-callout-y:30.8824%;--tn-callout-w:22.3958%;--tn-callout-h:3.6765%}
+.tn-lab-shot-r5{--tn-callout-x:44.4661%;--tn-callout-y:35.7843%;--tn-callout-w:20.1823%;--tn-callout-h:3.6765%}
+.tn-lab-shot-r6{--tn-callout-x:35.4167%;--tn-callout-y:82.8431%;--tn-callout-w:7.0312%;--tn-callout-h:2.4510%}
+.tn-lab-shot-r7{--tn-callout-x:26.8229%;--tn-callout-y:37.0098%;--tn-callout-w:55.9896%;--tn-callout-h:3.4314%}
+.tn-lab-shot-r8{--tn-callout-x:43.4896%;--tn-callout-y:48.1618%;--tn-callout-w:7.2917%;--tn-callout-h:3.9216%}
+.tn-lab-shot-r9{--tn-callout-x:26.8229%;--tn-callout-y:37.0098%;--tn-callout-w:55.9896%;--tn-callout-h:3.4314%}
+.tn-lab-shot-r10{--tn-callout-x:26.8229%;--tn-callout-y:37.0098%;--tn-callout-w:55.9896%;--tn-callout-h:3.4314%}
