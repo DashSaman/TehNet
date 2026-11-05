@@ -1,4 +1,8 @@
-## CURRENT —2026-11-05 no-host-input operational; PR88 NEEDS_APPROVAL
+## CURRENT —2026-11-05 static-routing WinBox VERIFIED_STAGING_NOT_DEPLOYED
+
+مالک موجود ID64 (static-routing) یک بخش آموزش تصویری واقعی گرفت: ده عکس اصلی WinBox4.5/CHR7.25.1 از framebuffer مهمان بدون هیچ ورودی دسکتاپ؛ مسیر کامل «قبل(DAC)→ping fail(no route to host)→New Route→ACTIVE|STATIC/AS→ping 0%→Disable(XS)/Enable». بدنهٔ قبلی و چهار عکس مفهومی مرورگری حفظ شدند؛ scope فقط 1 post_content + 10PNG(routing-20261105) + CSS کادر. پذیرش: native50/renderer8/browser444(1440-768-375-320 light-dark-noJS، full-size، hash bytes)/قبل-GET PASS؛ apply11فایل/repeat0/rollback کامل و restore دقیق؛ صفر production mutation و صفر ارسال. انتشار production NEEDS_APPROVAL (مجوز PR88 تعمیم نمی‌یابد). source `143804e`؛ رسید docs/evidence/2026-11-05/static-routing-winbox/staging-verification.json و گزارش docs/reports/STATIC_ROUTING_WINBOX_2026-11-05.fa.md. بستهٔ اول همین امروز (رسید live PR88 + پرامپت ادامه) در شاخهٔ docs/winbox-live-evidence-20261105 با commit c33f0b3 push شد.
+
+## HISTORICAL CHECKPOINT —2026-11-05 no-host-input operational; PR88 NEEDS_APPROVAL
 
 WinBox Linux واقعاً به لاب مستقل وصل و framebuffer ثبت شد؛ ادامه بدون ورودی دسکتاپ میزبان/تغییر برق/قفل/driver/شبکه. همان۶فایل ACL با تأیید مالک ترمیم شدند؛ سایر فایل‌های خصوصی قدیمی و گیت‌های امنیتی دست‌نخورده در همین تعمیر. body62/63+39PNG+CSS با sourcefedbdcc، native60/renderer16/browser1590 و exact restore آماده‌اند. PR88/CI42022049778 موفق؛ ادغام در auto-review به‌علت نبود تأیید صریح انتشار رد شد، سؤال تأیید pending است؛0merge/deploy. ناشر تازه آماده ولی اجرا نشده؛ هیچ مسیر جایگزین/force-push مجاز نیست. -SEO PR27/commitd78f2d1/CI42023703979 موفق، هنوز open.
 
