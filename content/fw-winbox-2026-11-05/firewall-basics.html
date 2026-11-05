@@ -1,0 +1,128 @@
+<!-- wp:paragraph -->
+<p><strong>آموزش نوشتاری مستقل:</strong> این مطلب و تمرین‌های آن، متن پیاده‌شدهٔ ویدیو یا سرفصل تأییدشدهٔ یک قسمت ضبط‌شده نیستند. برای فهرست اصلی ویدیوها و وضعیت تطبیق مطالب، <a href="/learn/mikrotik/mtcna/">آرشیو دورهٔ MTCNA</a> را ببینید. دستورها فقط برای لابِ تحت اختیار شما هستند؛ اجرای آن‌ها روی شبکهٔ واقعی به بررسی و برنامهٔ بازگشت نیاز دارد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph --><p>فایروال میکروتیک فقط زمانی امنیت می‌سازد که بدانید هر قانون <strong>چرا</strong> نوشته شده. در این راهنمای نوشتاری ساختار chain ها را می‌فهمید، شرط‌های طراحی قانون را بررسی می‌کنید و با شمارنده‌ها کارکردشان را اثبات می‌کنید.</p><!-- /wp:paragraph -->
+
+
+
+<!-- wp:heading --><h2 class="wp-block-heading">سه chain اصلی</h2><!-- /wp:heading -->
+<!-- wp:list --><ul><li><strong>input:</strong> ترافیکی که مقصدش خود روتر است (مدیریت، Winbox، DNS).</li><li><strong>forward:</strong> ترافیکی که از میان روتر رد می‌شود (کلاینت‌ها به اینترنت).</li><li><strong>output:</strong> ترافیکی که از خود روتر بیرون می‌رود.</li></ul><!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">قبل از ساخت قانون، مسیر مدیریت را حفظ کنید</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>یک مجموعه قانون عمومی را روی روتر واقعی کپی نکنید. نام ether2 به‌تنهایی ثابت نمی‌کند رابطِ مورداعتماد شماست. ابتدا نقش LAN/WAN، مسیر مدیریت، سرویس‌های لازم، دسترسی از شعب و سیاست IPv6 را ثبت کنید. قانون انتهایی drop می‌تواند دسترسی خودتان را قطع کند؛ Safe Mode جای مسیر بازیابی مستقل و نسخهٔ پشتیبان را نمی‌گیرد.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>FastTrack ممکن است برخی پردازش‌ها مانند Simple Queue را دور بزند؛ استثناهای لازم را برای همان ترافیک در لاب بررسی کنید. بدون اندازه‌گیری، آن را روی کل شبکه خاموش نکنید. این مطلب پیکربندی کامل فایروال سازمانی ارائه نمی‌کند.</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading --><h2 class="wp-block-heading">اثبات با Counter و Log</h2><!-- /wp:heading -->
+<!-- wp:code --><pre class="wp-block-code"><code>/ip firewall filter print stats
+/ip firewall filter print detail</code></pre><!-- /wp:code -->
+<!-- wp:paragraph --><p>افزایش شمارنده نشان می‌دهد ترافیک با آن قانون تطبیق پیدا کرده است؛ صفرماندن آن می‌تواند از نبود ترافیک آزمایشی، شرط، ترتیب، مسیر یا FastTrack باشد. با آزمون کنترل‌شده علت را جدا کنید؛ دادهٔ حساس شبکه را در log عمومی منتشر نکنید.</p><!-- /wp:paragraph -->
+
+<!-- wp:heading --><h2 class="wp-block-heading">چک‌پوینت تمرین نوشتاری</h2><!-- /wp:heading -->
+<!-- wp:list --><ul><li>بتوانید تفاوت مشکل Interface، Route، DNS و Firewall را مرحله‌به‌مرحله جدا کنید.</li><li>هر قانون با هدف مشخص و comment معنادار نوشته شود؛ قانون بی‌دلیل = بدهی آینده.</li></ul><!-- /wp:list -->
+
+<!-- wp:paragraph --><p>مطالعهٔ مرتبط: <a href="/learn/mikrotik/mtcna/queues-troubleshooting/">مدیریت پهنای باند و عیب‌یابی پایه</a> — برگشت به <a href="/learn/mikrotik/mtcna/">صفحه دوره MTCNA</a>.</p><!-- /wp:paragraph -->
+
+<!-- wp:shortcode -->
+[tn_editorial_note]
+<!-- /wp:shortcode --><!-- wp:heading {"anchor":"firewall-real-lab"} -->
+<h2 class="wp-block-heading" id="firewall-real-lab">آموزش تصویری واقعی WinBox؛ تفکیک input و forward با آزمون مثبت و منفی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>لاب واقعاً اجراشده در ۵ نوامبر ۲۰۲۶:</strong> RouterOS 7.25.1 stable، WinBox 4.5 و CHR با معماری x86_64 روی QEMU/TCG؛ همان سه روتر درس‌های قبل (R1، R2 و مشتری). عکس‌ها از همان رابط و نتیجهٔ واقعی‌اند و کادرهای صفحه فقط گزینهٔ مربوط را نشان می‌دهند. آدرس‌ها از بازه‌های مستندات‌محور RFC 5737 و مخصوص همین لاب‌اند. هیچ قانونی روی شبکهٔ واقعی کسی اجرا نشده و این تمرین جای سیاست امنیتی شبکهٔ شما را نمی‌گیرد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>تفکیک اصلی این درس:</strong> زنجیرهٔ <strong>input</strong> ترافیکی است که به خودِ روتر می‌رسد (مثل ping به آدرس روتر) و زنجیرهٔ <strong>forward</strong> ترافیکی است که فقط از روی روتر عبور می‌کند (مثل ترافیک مشتری که با NAT از طریق R1 به شبکهٔ پشت R2 می‌رود — میراث درس قبل). قانون‌ها عمداً کوچک و scoped نوشته می‌شوند: فقط مبدأ <code dir="ltr">10.20.0.0/24</code> لاب، بدون هیچ قانون عام یا مسدودکنندهٔ مدیریت؛ دسترسی مدیریتی موجود (WinBox از شبکهٔ مدیریت) در تمام مراحل زنده می‌ماند و در تصاویر همین بخش دیده می‌شود.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۱–۱. وضعیت قبل: لیست Filter خالی و هر دو مسیر سالم</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در WinBox متصل به R1 روی <strong>IP</strong> و بعد <strong>Firewall</strong> کلیک کنید و تب <strong>Filter Rules</strong> را باز کنید. وضعیت قبل: لیست خالی است؛ یعنی هیچ فیلتری جلوی هیچ چیزی را نمی‌گیرد. در همین حالت، ping مشتری به روتر و ping مشتری به مقصدِ دورِ لاب (از مسیر NAT درس قبل) هر دو جواب می‌گیرند؛ این «پذیرشِ قبل» را باید دیده باشید وگرنه قضاوت بعدی بی‌معناست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-fw-shot-1"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-fw-shot-1"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/fw-20261105/01-filter-rules-empty.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/fw-20261105/01-filter-rules-empty.png" alt="تب Filter Rules پنجرهٔ Firewall در TN-LAB-R1 با لیست خالی پیش از هر قانون؛ رابط واقعی WinBox 4.5 روی CHR 7.25.1" width="1536" height="816" /></a><figcaption class="wp-element-caption">وضعیت قبل: لیست Filter Rules خالی است — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۲–۱. قانون input؛ رد کردن ICMP مخصوص مبدأ لاب</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در تب <strong>Filter Rules</strong> دکمهٔ <strong>New</strong> را بزنید. در تب General مقدار <strong>Chain</strong> را روی <code>input</code> بگذارید و <strong>Src. Address</strong> را فقط شبکهٔ خصوصی لاب (<code dir="ltr">10.20.0.0/24</code>) بدهید؛ سپس در تب <strong>Action</strong> مقدار <strong>reject</strong> را انتخاب کنید. Reject به‌جای drop پیام خطا به فرستنده برمی‌گرداند و در خروجی ping هم پیام «network unreachable» دیده می‌شود؛ برای این آزمون آموزشی گزینهٔ گویاتری است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-fw-shot-2"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-fw-shot-2"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/fw-20261105/02-input-reject-action.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/fw-20261105/02-input-reject-action.png" alt="تب Action قانون فیلتر با Chain برابر input، Src. Address برابر 10.20.0.0/24 و Action انتخاب‌شدهٔ reject" width="1536" height="816" /></a><figcaption class="wp-element-caption">قانون input با Action انتخاب‌شدهٔ reject — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+
+
+<!-- wp:paragraph -->
+<p><strong>Apply</strong> را بزنید. نتیجهٔ مورد انتظار در لیست: قانون با زنجیرهٔ input و پرچم فعال دیده می‌شود و بعد از اولین ping منطبق، شمارنده‌اش از صفر بزرگ می‌شود. سپس در ترمینال WinBox مشتری، ping به آدرس روتر را با مبدأ خصوصی اجرا کنید: <code dir="ltr">/ping 192.0.2.1 src-address=10.20.0.10</code>. نتیجهٔ مورد انتظار: هر سه بسته با وضعیت <code dir="ltr">net unreachable</code> — پاسخِ خود قانون reject. نکتهٔ مهم: اگر همان ping را بدون تعیین مبدأ بگیرید، مشتری از آدرس <code dir="ltr">192.0.2.120</code> خودش استفاده می‌کند و قانونِ محدود به <code dir="ltr">10.20.0.0/24</code> اصلاً منطبق نمی‌شود؛ این «جواب دادنِ» ping بی‌مبدأ، شکست قانون نیست؛ دقیقاً معنی scoped بودن آن است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-fw-shot-3"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-fw-shot-3"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/fw-20261105/03-filter-list-input-counter.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/fw-20261105/03-filter-list-input-counter.png" alt="لیست Filter Rules با قانون input reject فعال برای 10.20.0.0/24 و شمارندهٔ نافصفر پس از ping مشتری" width="1536" height="816" /></a><figcaption class="wp-element-caption">قانون input اعمال‌شده با شمارندهٔ منطبق — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-fw-shot-4"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-fw-shot-4"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/fw-20261105/04-client-input-rejected.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/fw-20261105/04-client-input-rejected.png" alt="ترمینال WinBox مشری TN-LAB-CLIENT با نتیجهٔ net unreachable برای ping با مبدأ 10.20.0.10 به روتر" width="1536" height="816" /></a><figcaption class="wp-element-caption">شکست واقعی مشتری: net unreachable از قانون reject — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۳–۱. قانون forward؛ قطع مسیر عبور بدون دست زدن به input</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>برای ترافیک عبوری (مشتری → NAT → شبکهٔ دور)، قانون دوم در زنجیرهٔ <strong>forward</strong> نوشته می‌شود: Chain=<code>forward</code>، <strong>Src. Address</strong>=<code dir="ltr">10.20.0.0/24</code>، <strong>Dst. Address</strong>=<code dir="ltr">198.51.100.0/24</code> و Action=<code>drop</code>. این قانون در عمل مسیر NAT درس قبل را قطع می‌کند؛ قانون NAT هنوز سر جایش است و کانترش ممکن است از جریان‌های قبلی غیرصفر باشد — این را با «کار کردن NAT» اشتباه نگیرید؛ داور، ترافیکِ جدید و کانترِ قانون drop است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>نتیجهٔ مورد انتظار بعد از Apply: ping مشتری به <code dir="ltr">198.51.100.1</code> صددرصد timeout می‌شود، درحالی‌که ping به خود روتر (<code dir="ltr">192.0.2.1</code> با مبدأ <code dir="ltr">192.0.2.120</code>) همچنان جواب می‌گیرد؛ این جفت‌وضعیت، تفکیک input/forward را بدون حدس نشان می‌دهد. شمارندهٔ قانون drop هم با هر بستهٔ انداخته‌شده بزرگ می‌شود.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-fw-shot-5"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-fw-shot-5"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/fw-20261105/05-both-rules-counters.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/fw-20261105/05-both-rules-counters.png" alt="لیست Filter Rules با هر دو قانون؛ input reject با شمارنده و forward drop با شمارندهٔ بسته‌های انداخته‌شده" width="1536" height="816" /></a><figcaption class="wp-element-caption">هر دو قانون با شمارنده‌های واقعی — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۴–۱. بازگشت امن و اثبات آن</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>برای برگشت، هر دو ردیف را انتخاب و <strong>Disable</strong> کنید (پرچم X و ردیف خاکستری). بلافاصله هر دو مسیر قبلی دوباره جواب می‌دهند: ping مشتری به روتر و ping مشتری به مقصد دور لاب. اگر پس از Disable هم ارتباط برنگشت، مشکل از قانون‌های شما نیست؛ فایروال را کنار بگذارید و سراغ مسیریابی و NAT بروید. حذف نهایی (Remove) فقط وقتی است که مطمئن باشید قانون‌ها دیگر لازم نیستند؛ در لاب ما هر دو قانون غیرفعال باقی مانده‌اند تا درس‌های بعدی بتوانند رویشان کار کنند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-fw-shot-6"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-fw-shot-6"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/fw-20261105/06-rules-disabled-rollback.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/fw-20261105/06-rules-disabled-rollback.png" alt="لیست Filter Rules پس از Disable هر دو قانون با پرچم X و ردیف‌های خاکستری" width="1536" height="816" /></a><figcaption class="wp-element-caption">بازگشت امن: هر دو قانون غیرفعال (X) — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+
+
+<!-- wp:paragraph -->
+<p><strong>مکمل CLI (جای‌دهندهٔ GUI نیست):</strong> معادل این دو قانون <code dir="ltr">/ip firewall filter add chain=input protocol=icmp src-address=10.20.0.0/24 action=reject</code> و <code dir="ltr">/ip firewall filter add chain=forward src-address=10.20.0.0/24 dst-address=198.51.100.0/24 action=drop</code> است؛ بازگشت با disable/enable و مشاهدهٔ شمارنده‌ها با <code dir="ltr">/ip firewall filter print stats</code>. در لاب همین درس، خروجی SSH دقیقاً همین کانترها را نشان می‌داد که تصاویر GUI نشان می‌دهند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>این بخش با همان سه CHR مستقل و بدون اتصال به LAN دفتر ثبت شده است؛ دسترسی مدیریتی در تمام مراحل سالم ماند و هیچ قانون عمومی‌ای اعمال نشد. برای محدودهای منابع و نحوهٔ اصلاح، <a href="/technical-methodology/">روش فنی و اصلاح محتوا</a> را ببینید.</p>
+<!-- /wp:paragraph -->
+

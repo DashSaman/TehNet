@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "key": "tehnet-fw-winbox-20261105-v1",
+  "targets": [
+    {
+      "id": 66,
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/firewall-basics/",
+      "uri": "learn/mikrotik/mtcna/firewall-basics",
+      "title_observed": "فایروال میکروتیک؛ ساخت قانون با هدف مشخص — MTCNA",
+      "content_file": "firewall-basics.html",
+      "change_fields": [
+        "post_content"
+      ],
+      "expected_content_sha256": "d7189e2ac70f769ad28fe9594f5c3b36e82b572ebcac52757a2edc50ca075cbf",
+      "content_sha256_lf": "10ef359dc7a5e886d26f0698fdb606afecd3df8e333a840a8329d130e384d316"
+    }
+  ]
+}

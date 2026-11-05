@@ -1,0 +1,142 @@
+{
+  "schema": 1,
+  "key": "tehnet-fw-winbox-20261105-v1",
+  "source": "Original actual WinBox UI captures; no UI text/state/result substitution",
+  "routeros": "7.25.1 stable",
+  "winbox": "4.5",
+  "device": "CHR x86_64 / QEMU TCG",
+  "scenario": "Input-chain ICMP reject for the private client LAN source on TN-LAB-R1 vs forward-chain drop for the NAT path to the simulated remote LAN; management input from the mgmt network untouched throughout; client-side checks in a WinBox Terminal of TN-LAB-CLIENT (GUI-hosted CLI)",
+  "capture_session_utc": "2026-11-05T19:45-20:30Z",
+  "display_note": "Captured from the Linux guest Xvfb framebuffer (1536x816 frameless WinBox session, consistent with the static-routing and NAT sets); bottom status bar shows the connection target in every capture.",
+  "callout_rule": "Callout boxes are CSS presentation overlays (tn-fw-shot-N classes in visual-refresh.css); original PNG pixels stay unchanged.",
+  "captures": [
+    {
+      "name": "01-filter-rules-empty",
+      "marks_px": [
+        {
+          "x": 248,
+          "y": 186,
+          "w": 110,
+          "h": 24,
+          "label": "Filter Rules"
+        }
+      ],
+      "marks_pct": [
+        {
+          "x": 16.1458,
+          "y": 22.7941,
+          "w": 7.1615,
+          "h": 2.9412
+        }
+      ]
+    },
+    {
+      "name": "02-input-reject-action",
+      "marks_px": [
+        {
+          "x": 690,
+          "y": 140,
+          "w": 300,
+          "h": 28,
+          "label": "Action: reject"
+        }
+      ],
+      "marks_pct": [
+        {
+          "x": 44.9219,
+          "y": 17.1569,
+          "w": 19.5312,
+          "h": 3.4314
+        }
+      ]
+    },
+    {
+      "name": "03-filter-list-input-counter",
+      "marks_px": [
+        {
+          "x": 184,
+          "y": 265,
+          "w": 1170,
+          "h": 26,
+          "label": "input reject rule + counter"
+        }
+      ],
+      "marks_pct": [
+        {
+          "x": 11.9792,
+          "y": 32.4755,
+          "w": 76.1719,
+          "h": 3.1863
+        }
+      ]
+    },
+    {
+      "name": "04-client-input-rejected",
+      "marks_px": [
+        {
+          "x": 700,
+          "y": 540,
+          "w": 440,
+          "h": 90,
+          "label": "net unreachable"
+        }
+      ],
+      "marks_pct": [
+        {
+          "x": 45.5729,
+          "y": 66.1765,
+          "w": 28.6458,
+          "h": 11.0294
+        }
+      ]
+    },
+    {
+      "name": "05-both-rules-counters",
+      "marks_px": [
+        {
+          "x": 184,
+          "y": 265,
+          "w": 1170,
+          "h": 60,
+          "label": "both rules + counters"
+        }
+      ],
+      "marks_pct": [
+        {
+          "x": 11.9792,
+          "y": 32.4755,
+          "w": 76.1719,
+          "h": 7.3529
+        }
+      ]
+    },
+    {
+      "name": "06-rules-disabled-rollback",
+      "marks_px": [
+        {
+          "x": 184,
+          "y": 265,
+          "w": 1170,
+          "h": 60,
+          "label": "both rules disabled (X)"
+        }
+      ],
+      "marks_pct": [
+        {
+          "x": 11.9792,
+          "y": 32.4755,
+          "w": 76.1719,
+          "h": 7.3529
+        }
+      ]
+    }
+  ],
+  "sha256": {
+    "01-filter-rules-empty": "1540727355c2cefc87cc10549a5ddbbf3f94f8edf32090416a7bfda46afd0024",
+    "02-input-reject-action": "2734fead454a7a430ad1840c60747901e6a87c3e4211bf76942f81a11129613e",
+    "03-filter-list-input-counter": "9cb572fbc15fbbc489c5d0ace6f1ca5a0d41242a4cfa58b2fdd364903d8dd108",
+    "04-client-input-rejected": "3805e3f8129a6638ae459ec66f2d8339289b81fcc0499e20a16c792ae49ec7f0",
+    "05-both-rules-counters": "1a243700e704283d2029a1b167e7721bd55c9d92e6c298a12b38c4b44d1b1905",
+    "06-rules-disabled-rollback": "59a24b20f355149253a25f7b06364313a3f3f132a3018e93b83357537b6df096"
+  }
+}
