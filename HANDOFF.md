@@ -1,4 +1,12 @@
+## CURRENT —2026-11-05 actual WinBox guides PREPARED_NOT_DEPLOYED
+
+۳۹تصویر اصلی و راهنمای گام‌به‌گام روی body62/63 آماده است؛ scope ثابت شامل۳۹PNG و CSS محدود به کادر راهنماست، بدون عنوان/URL/meta/صفحهٔ تازه.۳۶آزمون operator موفق/یک symlink skip؛ native WordPress و مرورگر هنوز در انتظار اجرا. هفت فایل سناریوی ضبط به شواهد محدود همین لاب لینک شدند؛ ضبط تازه و مدت/approval همچنان null. دستور مالک: هیچ ورودی یا فعال‌سازی پنجرهٔ دسکتاپ میزبان؛ ادامه فقط CLI/headless/نمایشگر مهمان. اصلاح ACL فقط همان۶فایل لاب با اجازهٔ صریح انجام شد؛ تعمیر گسترده ممنوع و سایر فایل‌های قدیمی خصوصی محدود مانده‌اند. Xvfb مهمان آماده است؛ سه وابستگی WinBox هنوز به‌خاطر قفل نصب خودکار مهمان تکمیل نشده‌اند، پس اتصال Linux GUI تأیید نشده. MyTel/noindex/payment/سایر داده‌ها و گیت‌های امنیتی حفظ‌اند. انتشار جدید production صفر؛ گام بعد native snapshot/apply/rollback و QA موبایل/دسکتاپ، سپس CI و انتشار واجد شرایط.
+
 ## CURRENT —2026-11-05 real isolated CHR/WinBox lab IN_PROGRESS
+
+
+دستور مالک۵نوامبر: از این نقطه هیچ کلیک/تایپ/فعال‌کردن پنجره در دسکتاپ میزبان انجام نشود. WinBox اختصاصی این کار بسته شد؛ VMهای headless و کار کد/مرورگر headless ادامه دارند. تنظیمات برق/قفل/نمایشگر تغییر نکند. capture بعدی WinBox فقط از نمایشگر مهمان مستقل؛ با گذشت زمان مجوز تصرف مجدد دسکتاپ فرض نشود.
+
 
 سه CHR۷٫۲۵٫۱ در QEMU TCG قابل‌حمل، فقط مدیریت loopback و Ethernet socket داخلی اجرا شدند؛ بدون installer/driver/host adapter.۳۹عکس اصلی WinBox۴٫۵ در content/winbox-guides-2026-11-05/ ثبت شده‌اند. DHCP واقعی bound و۳/۳ping؛ Safe Mode/Undo برگشت Comment؛ Backup رمزگذاری‌شده واقعاً restore شد و۷پذیرش پس از reboot قبول شد؛ Snooping untrusted=searching و trusted=bound از سرور دوم. فایل‌ها/رازها و لاگ خام خارج Git هستند. محتوای تصویری تازه هنوز staging/published نشده؛ دانلود VM رسمی GNS3 در جریان است. برنامه docs/superpowers/plans/2026-11-05-real-winbox-guides.fa.md. سناریوهای۹قسمت قبلی حفظ‌اند؛ زمان واقعی ضبط و تأیید ویدیو null. انتشارهای قبلی تکرار نشوند.
 

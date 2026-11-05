@@ -1,0 +1,563 @@
+<!-- wp:paragraph -->
+<p><strong>آموزش نوشتاری مستقل:</strong> این مطلب و تمرین‌های آن، متن پیاده‌شدهٔ ویدیو یا سرفصل تأییدشدهٔ یک قسمت ضبط‌شده نیستند. برای فهرست اصلی ویدیوها و وضعیت تطبیق مطالب، <a href="/learn/mikrotik/mtcna/">آرشیو دورهٔ MTCNA</a> را ببینید. دستورها فقط برای لابِ تحت اختیار شما هستند؛ اجرای آن‌ها روی شبکهٔ واقعی به بررسی و برنامهٔ بازگشت نیاز دارد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"anchor":"winbox-ip-lab"} -->
+<h2 class="wp-block-heading" id="winbox-ip-lab">آموزش تصویری IP، Bridge و DHCP با WinBox واقعی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>لاب واقعاً اجراشده در۵نوامبر۲۰۲۶:</strong> RouterOS۷٫۲۵٫۱ stable، WinBox۴٫۵ و CHR با معماری x86_64 روی QEMU/TCG. عکس‌ها از همان رابط و نتیجهٔ واقعی‌اند. کادرهای صفحه فقط گزینهٔ مربوط را نشان می‌دهند و متن/وضعیت نرم‌افزار را تغییر نمی‌دهند. این لاب به LAN دفتر پل نشده؛ مدیریت فقط loopback و اتصال بین سه مهمان فقط Ethernet داخلی است. نام‌ها، MACها و آدرس‌های نمایش‌داده‌شده مخصوص این لاب‌اند. این تصاویر به فیلم‌های قدیمی دوره منتسب نیستند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>پیش‌نیاز: <a href="/learn/mikrotik/mtcna/routeros-winbox/#winbox-real-lab">شناسایی رابط‌ها و بازیابی</a>. مسیرهای این برداشت: <a href="#winbox-bridge">Bridge داخلی</a>، <a href="#winbox-static-ip">آدرس static</a>، <a href="#winbox-dhcp">DHCP و lease واقعی</a>، <a href="#winbox-snooping">Snooping با آزمون منفی/مثبت</a> و <a href="#winbox-arp">ARP در برابر جدول MAC</a>. در LAN هیچ DNS بیرونی توزیع نشده و هیچ ادعای اینترنت یا آزمون Windows DNS در این بخش وجود ندارد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>طرح تمرین:</strong> ether1 هر مهمان برای مدیریت مجزا است. ether2ِ R1 به کلاینت و ether3 آن به R2 فقط با لینک‌های مجازی داخلی متصل‌اند. ابتدا DHCP روی R1 با آدرس <code>192.0.2.1/24</code> ساخته می‌شود. در تمرین Snooping بعدی، DHCP اول خاموش و سرور مستقل R2 با آدرس <code>192.0.2.2</code> فعال می‌شود؛ این دو حالت را با هم اجرا نکنید. آدرس‌های این بخش برای مستندسازی‌اند و به شبکهٔ واقعی منتقل نمی‌شوند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"anchor":"winbox-bridge"} -->
+<h2 class="wp-block-heading" id="winbox-bridge">۱. Bridge را فقط از رابط‌های لاب بسازید</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۱–۱. Bridge → New</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>روی <strong>Bridge</strong> در نوار کناری و <strong>New</strong> کلیک کنید. قبل از اجرا مطمئن شوید کابل یا adapter این رابط‌ها به شبکهٔ دفتر متصل نیست؛ این برداشت فقط از socketهای مجازی داخلی استفاده می‌کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-9"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-9"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/09-bridge-start.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/09-bridge-start.png" alt="دکمهٔ New در پنجرهٔ Bridge خالی؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">دکمهٔ New در پنجرهٔ Bridge خالی — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۱–۲. Name را مشخص کنید</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در تب <strong>General</strong>، <strong>Name=bridge-lab</strong> را وارد و <strong>OK</strong> کنید. این نام مخصوص تمرین است و نباید یک Bridge موجود سازمان را جایگزین کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-10"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-10"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/10-bridge-name.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/10-bridge-name.png" alt="Name برابر bridge-lab و دکمهٔ OK؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">Name برابر bridge-lab و دکمهٔ OK — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۱–۳. نتیجهٔ ساخت و تب Ports</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>وجود <strong>bridge-lab</strong> را در فهرست بررسی و تب <strong>Ports</strong> را باز کنید. ایجاد Bridge به‌تنهایی هیچ پورت LAN را عضو نمی‌کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-11"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-11"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/11-bridge-created.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/11-bridge-created.png" alt="Bridge ساخته‌شده و تب Ports؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">Bridge ساخته‌شده و تب Ports — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۱–۴. پورت کلاینت را انتخاب کنید</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در <strong>Ports → New</strong>، فهرست <strong>Interface</strong> را باز و <strong>ether2</strong> را انتخاب کنید. گزینهٔ پیش‌فرض ether1 در این لاب مدیریت است؛ آن را عضو نکنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-12"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-12"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/12-bridge-port-select.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/12-bridge-port-select.png" alt="انتخاب ether2 به‌جای رابط مدیریت ether1؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">انتخاب ether2 به‌جای رابط مدیریت ether1 — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۱–۵. عضویت را ثبت کنید</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>Interface=ether2</strong> و <strong>Bridge=bridge-lab</strong> را بررسی و <strong>OK</strong> کنید. در آماده‌سازی این لاب، ether3 نیز با فرمان معادل به Bridge افزوده شد؛ تصویر بعد نتیجهٔ واقعی هر دو پورت را نشان می‌دهد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-13"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-13"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/13-bridge-port-apply.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/13-bridge-port-apply.png" alt="دو فیلد Interface و Bridge پیش از ثبت؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">دو فیلد Interface و Bridge پیش از ثبت — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۱–۶. Forwarding و مرز مدیریت</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>پس از زمان لازم برای همگرایی STP، در <strong>Ports</strong> هر دو پورت داخلی <strong>Forwarding=yes</strong> دارند. ether1 عضو نیست؛ این موضوع از CLI هم کنترل شد. پرچم Hardware Offload در CHR، شاهد offload یک سوییچ سخت‌افزاری واقعی نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-32"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-32"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/32-bridge-ports-forwarding.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/32-bridge-ports-forwarding.png" alt="عضویت فقط ether2 و ether3 با Forwarding=yes؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">عضویت فقط ether2 و ether3 با Forwarding=yes — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"anchor":"winbox-static-ip"} -->
+<h2 class="wp-block-heading" id="winbox-static-ip">۲. آدرس IPv4 را روی خود Bridge بگذارید</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۲–۱. IP → Addresses → New</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>از <strong>IP → Addresses</strong> وارد و <strong>New</strong> را بزنید. آدرس پویای ether1 را دست نزنید؛ آدرس LAN یک ردیف جداست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-14"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-14"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/14-ip-addresses-menu.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/14-ip-addresses-menu.png" alt="مسیر IP → Addresses در منوی واقعی WinBox؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">مسیر IP → Addresses در منوی واقعی WinBox — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۲–۲. Address و Interface</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>Address=192.0.2.1/24</strong> و <strong>Interface=bridge-lab</strong> را انتخاب و <strong>OK</strong> کنید. prefix بخشی از آدرس‌دهی است؛ انتخاب عضو فیزیکی به‌جای Bridge را بی‌دلیل جایگزین این طرح نکنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-15"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-15"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/15-static-ip-fields.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/15-static-ip-fields.png" alt="آدرس192.0.2.1/24 روی bridge-lab؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">آدرس192.0.2.1/24 روی bridge-lab — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۲–۳. ردیف نتیجه را بخوانید</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>ردیف <strong>192.0.2.1/24</strong> با network برابر <strong>192.0.2.0</strong> روی bridge-lab دیده می‌شود؛ آدرس مدیریت ether1 جدا مانده است. داشتن این آدرس، به‌تنهایی اینترنت یا DNS نمی‌سازد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-16"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-16"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/16-static-ip-result.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/16-static-ip-result.png" alt="آدرس static ایجادشده در کنار آدرس مدیریت مجزا؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">آدرس static ایجادشده در کنار آدرس مدیریت مجزا — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"anchor":"winbox-dhcp"} -->
+<h2 class="wp-block-heading" id="winbox-dhcp">۳. DHCP Client را با DHCP Server اشتباه نگیرید</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۳–۱. وضعیت DHCP Client</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>از <strong>IP → DHCP Client</strong> وضعیت ether1 را بخوانید. <strong>bound</strong> در این برداشت مربوط به DHCP داخلی QEMU برای مدیریت است؛ سرور ISP یا اینترنت واقعی نیست. برای بررسی LAN قرار است سرویس جدا روی Bridge ساخته شود.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-17"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-17"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/17-dhcp-client-bound.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/17-dhcp-client-bound.png" alt="DHCP Client مدیریت با وضعیت bound؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">DHCP Client مدیریت با وضعیت bound — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۳–۲. DHCP Server → DHCP Setup</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>از <strong>IP → DHCP Server</strong>، در سمت راست <strong>DHCP Setup</strong> را بزنید. این wizard پیکربندی ایجاد می‌کند و ابزار صرفاً خواندنی نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-18"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-18"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/18-dhcp-setup-start.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/18-dhcp-setup-start.png" alt="دکمهٔ DHCP Setup در پنجرهٔ DHCP Server؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">دکمهٔ DHCP Setup در پنجرهٔ DHCP Server — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۳–۳. رابط سرویس</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>DHCP Server Interface=bridge-lab</strong> را انتخاب و <strong>Next</strong> کنید. پیش‌فرض ether1 را در این لاب نپذیرید؛ رابط مدیریت برای این سرویس نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-19"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-19"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/19-dhcp-setup-interface.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/19-dhcp-setup-interface.png" alt="DHCP Server Interface برابر bridge-lab؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">DHCP Server Interface برابر bridge-lab — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۳–۴. فضای آدرس</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>DHCP Address Space=192.0.2.0/24</strong> را با آدرس Bridge تطبیق و <strong>Next</strong> کنید. این مقدار از طرح لاب آمده است، نه یک subnet عمومی برای همهٔ شبکه‌ها.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-20"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-20"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/20-dhcp-address-space.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/20-dhcp-address-space.png" alt="فضای آدرس192.0.2.0/24؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">فضای آدرس192.0.2.0/24 — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۳–۵. Gateway</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>Gateway for DHCP Network=192.0.2.1</strong> را تأیید و <strong>Next</strong> کنید. این مرحله مقدار gateway کلاینت را توزیع می‌کند؛ وجود مسیرهای بعدی یا NAT را اثبات نمی‌کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-21"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-21"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/21-dhcp-gateway.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/21-dhcp-gateway.png" alt="Gateway برابر IP داخلی R1؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">Gateway برابر IP داخلی R1 — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۳–۶. محدودهٔ pool را اصلاح کنید</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در <strong>Addresses to Give Out</strong>، محدودهٔ <strong>192.0.2.100-192.0.2.150</strong> را وارد و <strong>Next</strong> کنید. آدرس ثابت سرورها .1 و .2 بیرون این محدوده‌اند. در wizard ثبت‌شده، مقدار پیشنهادی پیش‌فرض عمداً محدود شد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-22"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-22"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/22-dhcp-pool.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/22-dhcp-pool.png" alt="محدودهٔ pool100 تا150 بدون هم‌پوشانی با سرورها؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">محدودهٔ pool100 تا150 بدون هم‌پوشانی با سرورها — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۳–۷. DNS را آگاهانه انتخاب کنید</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در این لابِ بدون resolver، <strong>Send DNS خاموش</strong> است؛ سپس <strong>Next</strong>. این انتخاب مخصوص تمرین LAN است و توصیهٔ حذف DNS از شبکهٔ سازمان نیست. نسخه‌های دیگر wizard ممکن است صفحهٔ متفاوتی نشان دهند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-23"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-23"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/23-dhcp-no-external-dns.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/23-dhcp-no-external-dns.png" alt="Send DNS خاموش در لاب محدود به LAN؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">Send DNS خاموش در لاب محدود به LAN — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۳–۸. Lease Time</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>Lease Time=00:30:00</strong> را بررسی و <strong>Next</strong> کنید. این یک انتخاب آموزشی است؛ مدت مناسب شبکهٔ واقعی باید با نیاز و ظرفیت همان شبکه تعیین شود.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-24"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-24"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/24-dhcp-lease-time.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/24-dhcp-lease-time.png" alt="Lease Time نیم‌ساعتهٔ این تمرین؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">Lease Time نیم‌ساعتهٔ این تمرین — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۳–۹. نتیجهٔ ساخت سرویس</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در تب <strong>DHCP</strong>، ردیف <strong>dhcp1</strong> روی <strong>bridge-lab</strong> و pool ساخته‌شده را ببینید. خطای Invalid یا نبود رابط درست را با ساخت سرویس دوم پنهان نکنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-25"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-25"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/25-dhcp-server-created.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/25-dhcp-server-created.png" alt="سرویس dhcp1 واقعاً ساخته‌شده روی Bridge؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">سرویس dhcp1 واقعاً ساخته‌شده روی Bridge — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۳–۱۰. پذیرش را هم در کلاینت و هم سرور ببینید</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>روی کلاینت CHR، DHCP فقط برای ether2 فعال شد و مسیر مدیریت حفظ شد. کلاینت <strong>192.0.2.150/24</strong> را از <strong>192.0.2.1</strong> گرفت؛ سه ping به R1 هر سه پاسخ گرفتند. در <strong>Leases</strong> همان MAC ساخته‌شدهٔ کلاینت را باز کنید و <strong>Status: bound</strong> را بخوانید. این نتیجه، اینترنت یا سلامت DNS را ثابت نمی‌کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-26"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-26"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/26-dhcp-lease-bound.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/26-dhcp-lease-bound.png" alt="Lease واقعی192.0.2.150 با Status: bound؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">Lease واقعی192.0.2.150 با Status: bound — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"anchor":"winbox-snooping"} -->
+<h2 class="wp-block-heading" id="winbox-snooping">۴. DHCP Snooping را با شاهد منفی و مثبت بررسی کنید</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>وضعیت شروع جدید:</strong> DHCP محلی R1 خاموش شد؛ R2 روی لینک داخلی سرور فعال با pool .110 تا .120 است. Client روی ether2ِ R1 و سرور روی ether3 آن قرار دارد. پورت مدیریت همچنان خارج Bridge است. این تغییر فقط در لاب مستقل انجام شد؛ فعال‌کردن هم‌زمان دو DHCP ناشناخته روی شبکهٔ کاری روش عیب‌یابی نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۴–۱. Bridge → Security</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در <strong>Bridge</strong> روی bridge-lab دوبار کلیک و تب <strong>Security</strong> را باز کنید. در نسخهٔ این برداشت، <strong>DHCP Snooping</strong> در همین تب است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-33"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-33"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/33-snooping-before.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/33-snooping-before.png" alt="محل DHCP Snooping در تب Security نسخه۷٫۲۵٫۱؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">محل DHCP Snooping در تب Security نسخه۷٫۲۵٫۱ — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۴–۲. Snooping را فعال کنید</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>تیک <strong>DHCP Snooping</strong> را بزنید و <strong>OK</strong> کنید. <strong>IP Source Guard، ARP Inspection و گزینه‌های IPv6 در این تمرین فعال یا آزموده نشدند</strong>؛ اثر آن‌ها را از این تصویر نتیجه نگیرید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-34"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-34"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/34-snooping-enabled-fields.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/34-snooping-enabled-fields.png" alt="DHCP Snooping فعال؛ سایر حفاظت‌ها خاموش؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">DHCP Snooping فعال؛ سایر حفاظت‌ها خاموش — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۴–۳. حالت منفی: پورت سرور untrusted</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در <strong>Bridge → Ports</strong> روی <strong>ether3</strong> دوبار کلیک و <strong>Security</strong> را باز کنید. وقتی <strong>Trusted DHCP خاموش</strong> بود، کلاینت پس از آغاز دوبارهٔ دریافت، در <strong>searching...</strong> ماند و bound نشد. این آزمون فقط برای همین مسیر و همین دو سرور معنا دارد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-35"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-35"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/35-port-dhcp-untrusted.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/35-port-dhcp-untrusted.png" alt="Trusted DHCP خاموش روی پورت سرور آزمایشگاهی؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">Trusted DHCP خاموش روی پورت سرور آزمایشگاهی — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۴–۴. حالت مثبت: فقط پورت سرور مجاز</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>برای همین ether3، <strong>Trusted DHCP</strong> را روشن و <strong>OK</strong> کنید. پس از renew کلاینت، آدرس <strong>192.0.2.120/24</strong> از سرور <strong>192.0.2.2</strong> دریافت شد و سه ping به R1 پاسخ گرفت. پورت کلاینت trusted نشد. نام گزینه در WinBox این نسخه دقیقاً Trusted DHCP است؛ رفتار IPv6 یا کل شبکه از این آزمون نتیجه‌گیری نمی‌شود.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-36"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-36"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/36-port-trusted-dhcp.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/36-port-trusted-dhcp.png" alt="Trusted DHCP فقط روی ether3ِ متصل به R2؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">Trusted DHCP فقط روی ether3ِ متصل به R2 — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"anchor":"winbox-arp"} -->
+<h2 class="wp-block-heading" id="winbox-arp">۵. ARP را با جدول MAC یا lease یکی نگیرید</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۵–۱. Bridge → Hosts</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در <strong>Bridge → Hosts</strong> ستون‌های <strong>MAC Address</strong> و <strong>On Interface</strong> را ببینید. MAC کلاینت روی ether2 و MAC سرور روی ether3 یاد گرفته شده است. این جدولِ لایهٔ دو با نگاشت IP به MAC فرق دارد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-37"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-37"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/37-bridge-mac-hosts.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/37-bridge-mac-hosts.png" alt="Bridge Hosts و نگاشت MAC به پورت داخلی؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">Bridge Hosts و نگاشت MAC به پورت داخلی — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۵–۲. IP → ARP</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>از <strong>IP → ARP</strong> ستون‌های <strong>IP Address، MAC Address، Interface و Status</strong> را مقایسه کنید. در این برداشت، پس از تغییر lease از .150 به .120، ردیف‌های قدیمی هم با <strong>stale</strong> دیده می‌شوند؛ این به معنی داشتن هم‌زمان دو lease فعال نیست. ARP نیز هویت‌سنجی کامل یا دلیل سلامت برنامه نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-38"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-38"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/38-arp-vs-mac-table.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/38-arp-vs-mac-table.png" alt="ARP واقعی و cacheهای stale پس از تغییر آدرس کلاینت؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">ARP واقعی و cacheهای stale پس از تغییر آدرس کلاینت — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><strong>برگشت تمرین:</strong> Snapshot/Backup اختصاصی قبل از این بخش را در همان لاب بازیابی و آدرس، Bridge، DHCP، مسیر مدیریت و کلاینت را دوباره بررسی کنید. در اجرای ثبت‌شده، بازیابی R1 قبلاً واقعاً آزموده شد؛ بازگشت هماهنگ همهٔ مهمان‌ها باید با وضعیتِ انتخاب‌شدهٔ هر بخش انجام شود. فایل یا Export واقعی را در Git یا تیکت عمومی نگذارید. برای مسئلهٔ کاری از <a href="/services/network-support-tehran/">پشتیبانی شبکه تهران نتورک</a> استفاده کنید؛ تمرین بعدی <a href="/learn/mikrotik/mtcna/static-routing/">مسیریابی و مسیر برگشت</a> است.</p>
+<!-- /wp:paragraph -->
+
+
+
+<!-- wp:paragraph -->
+<p>وقتی یک دستگاه IP دارد اما سرویس باز نمی‌شود، «تغییر DNS» یا ساختن دوبارهٔ DHCP نقطهٔ شروع خوبی نیست. ابتدا معلوم کنید آدرس و prefix درست دریافت شده، مقصد چگونه مسیریابی می‌شود و نام را کدام resolver پاسخ می‌دهد. این درس از <a href="/learn/mikrotik/mtcna/">مسیر MTCNA تهران نتورک</a>، رابطهٔ IP، DHCP و DNS را با یک طرح ساختگی و مسیر عیب‌یابی مرحله‌ای توضیح می‌دهد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>دامنه و حد آزمون:</strong> بخش تصویری۵نوامبر۲۰۲۶ روی سه CHR۷٫۲۵٫۱ و WinBox۴٫۵، ساخت Bridge/IP، دریافت DHCP و آزمون Snooping منفی/مثبت را پوشش می‌دهد. طرح IPv4 و LAN داخلی است؛ اینترنت، Windows DNS، VPN و policy routing در این بسته آزموده نشده‌اند. متن نظری و نمونه‌های دیگر با دامنهٔ خود باقی‌اند؛ انتخابگر۷٫۲۶ در منابع، نسخهٔ دستگاه یا توصیهٔ ارتقا نیست. <a href="/learn/mikrotik/mtcna/routeros-winbox/">پشتیبان و روش بازگشت</a> همچنان پیش‌نیاز تغییر است.</p>
+<!-- /wp:paragraph -->
+
+
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">۱. IP و prefix: مقصد کنار من است یا به gateway نیاز دارد؟</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در مرجع <a href="https://manual.mikrotik.com/docs/cli-reference/ip/address/">ip/address</a>، address و netmask برای محاسبهٔ network به‌کار می‌روند. داشتن چهار عدد شبیه هم کافی نیست؛ prefix و مسیر واقعی را هم بررسی کنید. در طرح سادهٔ زیر، کلاینت با /24 مقصد .140 را در همان subnet می‌بیند؛ اگر فقط prefix کلاینت اشتباهاً /25 باشد، .100 و .140 در دو subnet متفاوت قرار می‌گیرند. نتیجه لزوماً قطعی کامل نیست؛ مسیر از gateway و قواعد عبور ممکن است نتیجه را عوض کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code>Illustration only — not customer addresses or a ready-to-run lab
+LAN:       192.0.2.0/24
+Gateway:   192.0.2.1
+DNS:       192.0.2.53  (separate, already prepared lab server)
+Printer:   192.0.2.60  (planned manual address)
+DHCP pool: 192.0.2.100–192.0.2.150
+Client A:  192.0.2.100/24
+Target B:  192.0.2.140/24
+
+A with /24 -&gt; same subnet as B
+A with /25 -&gt; A:192.0.2.0/25, B:192.0.2.128/25</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>این آدرس‌ها مطابق <a href="https://www.rfc-editor.org/rfc/rfc5737.html">RFC5737</a> فقط برای مستندسازی‌اند؛ آن‌ها را به اینترنت نفرستید یا طرح عملیاتی فرض نکنید. برای اجرای لاب، همهٔ آدرس‌ها را یکجا با طرح خصوصیِ مجاز و بدون تعارض جایگزین کنید. هم‌subnet بودن در این مثال جای خواندن جدول مسیر را نمی‌گیرد؛ route اختصاصی‌تر، VPN یا سیاست مسیریابی می‌تواند تصمیم واقعی را تغییر دهد. جزئیات در <a href="/learn/mikrotik/mtcna/static-routing/">درس مسیریابی</a> آمده است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">۲. DHCP چهار جزء جدا دارد؛ DNS همان gateway نیست</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>آدرس روی رابط LAN، خودِ روتر را عضو شبکه می‌کند. روی bridge، رابط واقعی و عضویت پورت‌ها را بررسی کنید؛ نام ether2 در هر دستگاه الزاماً LAN نیست.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>Pool محدودهٔ آدرس‌های قابل تخصیص است؛ آدرس روتر را داخل آن نگذارید.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>DHCP Server سرویس را به رابط و pool متصل می‌کند؛ DHCP Network گزینه‌هایی مانند prefix، gateway و DNS را برای subnet مشخص می‌کند.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>Gateway برای مسیر خروج از subnet است. DNS برای تبدیل نام به پاسخ DNS است؛ یک آدرس می‌تواند هر دو نقش را داشته باشد، اما یکی جای دیگری را نمی‌گیرد. داشتن gateway به‌تنهایی اینترنت یا مسیر بعدی روتر را تضمین نمی‌کند.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>مرجع <a href="https://manual.mikrotik.com/docs/network-management/dhcp/server/">DHCP Server</a> پیش‌نیازهای آدرس، pool، network و رابط را جدا می‌کند. مثال مفهومی زیر تغییر پیکربندی است، نه دستور تعمیر شبکهٔ زنده. فقط روی لاب خالی و جدا، پس از جایگزینی طرح آدرس و با bridge ازقبل‌آمادهٔ lab-lan معنا دارد؛ نام‌های هم‌منظور نباید از قبل وجود داشته باشند. اجرای دوبارهٔ add را idempotent فرض نکنید. DNS نمونه یک سرور جدا و ازقبل‌آماده است؛ این قطعه DNS یا دسترسی اینترنت ایجاد نمی‌کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code># Conceptual only; adapt the entire address plan in an isolated lab.
+# Requires an existing lab-lan bridge with a lab client port.
+/ip/address/add address=192.0.2.1/24 interface=lab-lan comment=&quot;TN-LAB-C01&quot;
+/ip/pool/add name=tn-lab-c01 ranges=192.0.2.100-192.0.2.150
+/ip/dhcp-server/network/add address=192.0.2.0/24 gateway=192.0.2.1 dns-server=192.0.2.53
+/ip/dhcp-server/add name=tn-lab-c01 interface=lab-lan address-pool=tn-lab-c01 disabled=yes</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>سرویس در نمونه عمداً disabled می‌ماند. تا جدابودن لاب، درستی رابط و نبود DHCP رقیب تأیید نشده، آن را فعال نکنید. این قطعه طرح آموزشی است و روی RouterOS آزموده نشده؛ برای تکمیل اجرا، دستور و رفتار را با نسخهٔ خود و مرجع رسمی تطبیق دهید. روی شبکهٔ موجود، به‌جای ساخت سرویس دوم، ابتدا وضعیت فعلی را بخوانید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">۳. دریافت lease در کدام مرحله متوقف شده است؟</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>تبادل رایجِ تخصیص اولیه در <a href="https://www.rfc-editor.org/rfc/rfc2131.html#section-3.1">RFC2131 بخش۳.۱</a> به چهار مرحله خلاصه می‌شود؛ تمدید lease یا کلاینتی که آدرس قبلی را می‌شناسد الزاماً همهٔ این مراحل را تکرار نمی‌کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code>Client        DHCP server
+  DISCOVER -&gt;    find servers
+           &lt;- OFFER
+  REQUEST  -&gt;    choose/confirm parameters
+           &lt;- ACK
+Then compare the client configuration with the agreed plan.</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>بدون شاهد دریافت DISCOVER در سمت سرور، نتیجه نگیرید «pool خراب است»؛ رابط کلاینت، VLAN/مسیر broadcast و در شبکهٔ دیگر relay را بررسی کنید.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>اگر OFFER دیده می‌شود ولی REQUEST یا ACK به نتیجه نمی‌رسد، مسیر رفت‌وبرگشت، انتخاب سرور و پارامترها را بررسی کنید. صرف وجود یک ردیف lease اثبات دریافت تنظیم درست توسط همان کلاینت نیست.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>اگر کلاینت آدرس گرفته، IP/prefix، gateway، DNS و هویت سروری را که پاسخ داده با طرح تطبیق دهید؛ خطای DNS می‌تواند پس از تخصیص صحیح IP باقی بماند.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>برای تشخیص مرحله، دادهٔ هم‌زمانِ کلاینت و سرور لازم است. این شکل خروجی capture واقعی نیست. اگر capture مجاز لازم شد، محدوده/زمان آن و حذف دادهٔ حساس را پیش از اشتراک روشن کنید.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>راهنمای <a href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/troubleshoot-dhcp-guidance">عیب‌یابی DHCP مایکروسافت</a> هم دامنهٔ اثر، تغییرات اخیر، ظرفیت scope، آدرس دستیِ خارج‌نشده از scope و وضعیت relay را جدا بررسی می‌کند. جزئیات سرویس Microsoft DHCP را با RouterOS یکسان فرض نکنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">۴. ابتدا وضعیت را بخوانید؛ release و reset آزمون خواندنی نیستند</h2>
+<!-- /wp:heading -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code># RouterOS — inspection only; output can contain private topology/identifiers
+/ip/address/print detail
+/ip/pool/print detail
+/ip/dhcp-server/print detail
+/ip/dhcp-server/network/print detail
+/ip/dhcp-server/lease/print detail
+/ip/dns/print</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>روی کلاینت Windows، مطابق <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig">ipconfig</a>، دستور زیر تنظیمات کامل آداپتورهای فیزیکی و منطقی را نشان می‌دهد. آداپتور واقعاً درگیر، DHCP Enabled، آدرس/prefix، DHCP Server، زمان lease و DNS Servers را بررسی کنید؛ اطلاعات یک VPN یا آداپتور خاموش را به LAN نسبت ندهید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code>ipconfig /all</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>خروجی می‌تواند آدرس، نام دستگاه و شناسهٔ سخت‌افزار داشته باشد؛ نسخهٔ کامل را عمومی منتشر نکنید. /release آدرس DHCP را کنار می‌گذارد و می‌تواند همان مسیر ریموت را قطع کند؛ flushdns هم cache را تغییر می‌دهد. این‌ها جای ثبت شواهد اولیه نیستند و در این مسیر عیب‌یابی اجرا نمی‌شوند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">۵. Reservation، آدرس دستی و تداخل را از هم جدا کنید</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>در reservation/static lease، کلاینت همچنان از DHCP می‌پرسد؛ سرور برای هویت تعیین‌شده آدرس مشخص می‌دهد. IP دستی روی خود دستگاه تنظیم می‌شود و دریافت آن وابسته به DHCP نیست.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>طبق <a href="https://manual.mikrotik.com/docs/network-management/dhcp/">مفاهیم DHCP در RouterOS</a>، client identifier و MAC در تشخیص کلاینت اهمیت دارند؛ همان شناسه‌ای را که سرور واقعاً دیده ثبت کنید. تعویض کارت یا تغییر شناسه می‌تواند تطبیق قبلی را بی‌اثر کند.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>آدرس‌های دستی را در برنامهٔ تخصیص ثبت و از محدودهٔ تخصیص پویای هم‌پوشان خارج کنید. در طرح ساختگی، printer .60 و DNS .53 بیرون pool .100 تا .150 هستند؛ این توصیه به معنی ممنوع‌بودن reservation مدیریت‌شده در خود pool نیست.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>در RouterOS، conflict-detection برای آدرس‌های پویا از ARP و ICMP استفاده می‌کند؛ static lease همان بررسی تعارض را ندارد. بنابراین «static شده» دلیل آزادبودن IP نیست. وضعیت conflict یا declined شاهدی برای بررسی است، نه مجوز پاک‌کردن همهٔ leaseها.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>برای احتمال IP تکراری، زمان اختلال، مالک ثبت‌شدهٔ آدرس، lease همان کلاینت و شواهد ARP/پورت شبکه را کنار هم بگذارید. تغییر MAC به‌تنهایی اثبات تعارض نیست؛ proxy ARP یا افزونگی مجاز هم باید در طرح شناخته شده باشند. پاک‌کردن cache یا تغییر تصادفی IP پیش از ثبت شواهد می‌تواند تشخیص را دشوار کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">۶. DNS خودِ روتر و DNS کلاینت دو آزمون متفاوت‌اند</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در <a href="https://manual.mikrotik.com/docs/network-management/dns/">راهنمای DNS میکروتیک</a>، router resolver می‌تواند برای خود روتر lookup انجام دهد یا به دستگاه‌های دیگر هم پاسخ بدهد. موفقیت resolve روی روتر ثابت نمی‌کند کلاینت همان DNS را می‌پرسد یا به آن دسترسی دارد. کلاینتی که DNS دیگری دریافت کرده، رکورد محلی روتر را لزوماً نمی‌بیند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>مرز مهمِ سرویس:</strong> allow-remote-requests=yes پاسخ‌گویی DNS روی UDP و TCP پورت۵۳ِ آدرس‌های روتر را ممکن می‌کند. در شبکهٔ دارای قواعد سفارشی، دسترسی باید فقط برای کلاینت‌های مورداعتماد و در سمت input مناسب محدود شود و از سمت اینترنت باز نماند. فعال‌کردن این گزینه یک قدم عمومیِ عیب‌یابی نیست. نمونهٔ این درس از DNS جدا استفاده می‌کند و آن را فعال نمی‌کند؛ قواعد firewall را نیز بدون شناخت رابط‌ها و مسیر مدیریت کپی نکنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">۷. به‌جای دو ping متفاوت، یک پرسش DNS کنترل‌شده بپرسید</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>ابتدا نام کاملِ مورد انتظار، نوع رکورد و DNS مجاز را از طرح لاب انتخاب کنید. نمونهٔ زیر برای Windows دارای cmdlet مربوط است؛ مقدار واقعیِ مجاز را خودتان وارد می‌کنید و این متن آن را اجرا نکرده است. <a href="https://learn.microsoft.com/en-us/powershell/module/dnsclient/resolve-dnsname?view=windowsserver2025-ps">مرجع Resolve-DnsName</a>، Server را برای انتخاب resolver، DnsOnly را برای کنارگذاشتن LLMNR/NetBIOS و NoHostsFile را برای کنارگذاشتن Hosts توضیح می‌دهد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code># Windows PowerShell — authorized lab query only, no configuration change
+Get-Command Resolve-DnsName
+$LabDnsName = Read-Host &#x27;Enter the approved full lab record name&#x27;
+$LabDnsServer = Read-Host &#x27;Enter the approved lab DNS server IP&#x27;
+Resolve-DnsName -Name $LabDnsName -Server $LabDnsServer -Type A -DnsOnly -NoHostsFile</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>پاسخ مورد انتظار: نام، نوع و آدرس پاسخ را با همان رکورد طرح مقایسه کنید؛ resolve شدن یک نام عمومی، صحت نام داخلی را اثبات نمی‌کند.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>NXDOMAIN با timeout یکی نیست: اولی پاسخ منفی دربارهٔ وجود نام است؛ timeout یعنی پاسخ در بازهٔ انتظار به ابزار نرسیده است. نام/سرور اشتباه و مسیر دسترسی را جدا بررسی کنید.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>SERVFAIL را با «نام وجود ندارد» یکی نگیرید؛ resolver نتوانسته پاسخ قابل استفاده بدهد. علت می‌تواند به upstream یا فرایند resolution مربوط باشد و نیاز به بررسی همان سرویس دارد.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>حتی NOERROR می‌تواند برای نوع رکورد درخواستی پاسخ خالی داشته باشد. موفقیت DNS هم سلامت برنامه یا مجازبودن ترافیک آن را ثابت نمی‌کند؛ ping به IP دیگر و نامی دیگر فقط یک سرنخ اولیه است.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">برگهٔ پذیرش لاب و گزارش نتیجه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>قبل از اجرا: نسخه‌ها، طرح خصوصیِ جایگزین، رابط/bridge، pool و مالک آدرس‌های دستی، DNS و رکورد آزمون نوشته شده باشند.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>پس از بررسی: تنظیم واقعیِ همان آداپتور و lease/هویت سرور با طرح تطبیق داده شود؛ دریافت آدرس از سرور ناشناس یا با prefix اشتباه پذیرش نیست.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>تصمیم on-link/gateway برای دو مقصد مشخص با prefix و جدول مسیر توضیح داده شود؛ علت احتمالی با نتیجهٔ اندازه‌گیری‌شده مخلوط نشود.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>پرسش یکسانِ نام/نوع/سرور و زمان مشاهده ثبت شود؛ خطای منفی، timeout و موفقیت DNS از آزمون برنامه جدا بمانند.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>اقدام مجاز، روش بازگشت و موارد هنوز بررسی‌نشده ثبت شوند. برای سناریوهای خارج از بخش تصویریِ واقعاً اجراشده، از جمله آزمون Windows DNS، نتیجه هنوز «اندازه‌گیری نشده» است؛ موفقیت لاب داخلی را به شبکهٔ واقعی تعمیم ندهید.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>اگر مسئله در شبکهٔ واقعی ادامه دارد، <a href="/services/network-support-tehran/">پشتیبانی شبکه تهران</a> برای حضوری تهران و ریموت سراسر ایران، یا <a href="/services/mikrotik-tehran/">خدمات میکروتیک</a> مسیر مرتبط است؛ شرح خطا را پس از حذف اطلاعات حساس بفرستید. جلسهٔ بعد: <a href="/learn/mikrotik/mtcna/static-routing/">مسیریابی استاتیک</a>؛ بازگشت به <a href="/learn/mikrotik/mtcna/">دورهٔ MTCNA</a>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:shortcode -->
+[tn_editorial_note]
+<!-- /wp:shortcode -->

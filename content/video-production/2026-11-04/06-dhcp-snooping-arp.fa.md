@@ -46,3 +46,10 @@
 - [منبع رسمی](https://manual.mikrotik.com/docs/bridging-and-switching/)
 - [منبع رسمی](https://manual.mikrotik.com/docs/getting-started/networking-fundamentals/)
 - [منبع رسمی](https://www.rfc-editor.org/rfc/rfc2131.html)
+
+
+## شواهد واقعیِ بخش نوشتاری —۵نوامبر۲۰۲۶
+
+تصاویر 33–38 در [manifest تصاویر اصلی](../../winbox-guides-2026-11-05/captures.json) ثبت شده‌اند. گزینهٔ واقعی پورت در نسخهٔ این لاب Trusted DHCP است. با untrusted کلاینت searching ماند؛ پس از Trusted DHCP روی ether3، از R2 آدرس192.0.2.120/24 گرفت و3/3ping پاسخ گرفت. Bridge Hosts و ARP/stale ثبت شدند؛ DHCP Alert، IP Source Guard، ARP Inspection و IPv6 در این بسته آزموده نشدند.
+
+این پذیرشِ محدود، ضبط تازه، مدت واقعی نماها، rehearsal کامل سناریو یا تأیید فیلم قدیمی نیست؛ وضعیت DRAFT_NEW_RECORDING و زمان‌های واقعی/approval همچنان null هستند. پس از درخواست تازهٔ مالک، ادامهٔ capture فقط در نمایشگر مستقل مهمان و بدون کلیک/تایپ/فعال‌کردن پنجره در دسکتاپ میزبان مجاز است.

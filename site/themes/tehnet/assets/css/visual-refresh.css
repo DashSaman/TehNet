@@ -28,3 +28,50 @@ html{scroll-padding-top:110px}body.tn-visual{background:var(--tn-bg);color:var(-
 @media (max-width: 980px) {
   html:not(.tn-js) .tn-visual .tn-header-inner { flex-wrap: wrap; padding-block: 12px; }
 }
+
+/* TN REAL WINBOX CALLOUTS: presentation overlays; original PNG pixels stay unchanged. */
+.tn-lab-capture a{display:block;position:relative;isolation:isolate;border-radius:.5rem;overflow:hidden}
+.tn-lab-capture a img{display:block;width:100%;height:auto;margin:0}
+.tn-lab-capture a::after{content:"";position:absolute;left:var(--tn-callout-x);top:var(--tn-callout-y);width:var(--tn-callout-w);height:var(--tn-callout-h);box-sizing:border-box;border:3px solid #ffb32c;border-radius:4px;box-shadow:0 0 0 1px #17212b;pointer-events:none}
+.tn-lab-capture a::before{content:"1";position:absolute;left:var(--tn-callout-x);top:var(--tn-callout-y);transform:translateY(-55%);z-index:1;background:#ffb32c;color:#101820;font:700 13px/1.6 sans-serif;min-width:21px;text-align:center;border-radius:50%;box-shadow:0 0 0 1px #17212b;pointer-events:none}
+.tn-lab-capture a:focus-visible{outline:3px solid var(--tn-accent,#007f91);outline-offset:4px}
+.tn-lab-capture figcaption{line-height:1.9;margin-block:.5rem 1.5rem;color:var(--tn-muted,#53677c)}
+.tn-lab-shot-1{--tn-callout-x:1.9531%;--tn-callout-y:18.9951%;--tn-callout-w:10.9375%;--tn-callout-h:4.9020%}
+.tn-lab-shot-2{--tn-callout-x:14.4531%;--tn-callout-y:22.8886%;--tn-callout-w:33.5286%;--tn-callout-h:13.7087%}
+.tn-lab-shot-3{--tn-callout-x:13.7370%;--tn-callout-y:93.8800%;--tn-callout-w:11.9141%;--tn-callout-h:4.5288%}
+.tn-lab-shot-4{--tn-callout-x:39.7135%;--tn-callout-y:64.8715%;--tn-callout-w:27.5391%;--tn-callout-h:13.0967%}
+.tn-lab-shot-5{--tn-callout-x:82.4870%;--tn-callout-y:3.6720%;--tn-callout-w:9.6354%;--tn-callout-h:4.5288%}
+.tn-lab-shot-6{--tn-callout-x:37.7604%;--tn-callout-y:23.0110%;--tn-callout-w:29.5573%;--tn-callout-h:4.7736%}
+.tn-lab-shot-7{--tn-callout-x:13.9974%;--tn-callout-y:26.8054%;--tn-callout-w:25.5208%;--tn-callout-h:7.5887%}
+.tn-lab-shot-8{--tn-callout-x:13.7370%;--tn-callout-y:26.8054%;--tn-callout-w:32.2917%;--tn-callout-h:4.6512%}
+.tn-lab-shot-9{--tn-callout-x:13.8672%;--tn-callout-y:14.3207%;--tn-callout-w:4.6224%;--tn-callout-h:4.2840%}
+.tn-lab-shot-10{--tn-callout-x:48.5677%;--tn-callout-y:33.6597%;--tn-callout-w:19.7266%;--tn-callout-h:5.0184%}
+.tn-lab-shot-11{--tn-callout-x:22.2656%;--tn-callout-y:23.0110%;--tn-callout-w:10.8073%;--tn-callout-h:4.2840%}
+.tn-lab-shot-12{--tn-callout-x:54.1667%;--tn-callout-y:42.1053%;--tn-callout-w:19.7266%;--tn-callout-h:3.7944%}
+.tn-lab-shot-13{--tn-callout-x:53.6458%;--tn-callout-y:34.0269%;--tn-callout-w:17.8385%;--tn-callout-h:8.8127%}
+.tn-lab-shot-14{--tn-callout-x:13.7370%;--tn-callout-y:11.9951%;--tn-callout-w:11.0026%;--tn-callout-h:4.0392%}
+.tn-lab-shot-15{--tn-callout-x:47.7214%;--tn-callout-y:46.3892%;--tn-callout-w:17.9036%;--tn-callout-h:4.6512%}
+.tn-lab-shot-16{--tn-callout-x:38.8021%;--tn-callout-y:26.8054%;--tn-callout-w:30.2083%;--tn-callout-h:4.5288%}
+.tn-lab-shot-17{--tn-callout-x:35.6771%;--tn-callout-y:23.0110%;--tn-callout-w:48.0469%;--tn-callout-h:4.2840%}
+.tn-lab-shot-18{--tn-callout-x:84.8307%;--tn-callout-y:20.1958%;--tn-callout-w:10.3516%;--tn-callout-h:4.1616%}
+.tn-lab-shot-19{--tn-callout-x:54.5573%;--tn-callout-y:46.6340%;--tn-callout-w:22.3958%;--tn-callout-h:4.8960%}
+.tn-lab-shot-20{--tn-callout-x:54.6224%;--tn-callout-y:47.1236%;--tn-callout-w:22.0052%;--tn-callout-h:4.4064%}
+.tn-lab-shot-21{--tn-callout-x:54.4922%;--tn-callout-y:46.7564%;--tn-callout-w:22.2656%;--tn-callout-h:4.8960%}
+.tn-lab-shot-22{--tn-callout-x:54.4922%;--tn-callout-y:46.8788%;--tn-callout-w:17.7083%;--tn-callout-h:4.5288%}
+.tn-lab-shot-23{--tn-callout-x:54.5573%;--tn-callout-y:47.1236%;--tn-callout-w:1.5625%;--tn-callout-h:4.0392%}
+.tn-lab-shot-24{--tn-callout-x:54.4271%;--tn-callout-y:47.0012%;--tn-callout-w:22.3958%;--tn-callout-h:4.4064%}
+.tn-lab-shot-25{--tn-callout-x:21.4844%;--tn-callout-y:23.0110%;--tn-callout-w:54.4922%;--tn-callout-h:4.5288%}
+.tn-lab-shot-26{--tn-callout-x:52.2786%;--tn-callout-y:42.7173%;--tn-callout-w:15.6250%;--tn-callout-h:8.8127%}
+.tn-lab-shot-27{--tn-callout-x:90.8854%;--tn-callout-y:20.1958%;--tn-callout-w:7.4219%;--tn-callout-h:4.2840%}
+.tn-lab-shot-28{--tn-callout-x:52.6693%;--tn-callout-y:40.3917%;--tn-callout-w:15.4297%;--tn-callout-h:4.4064%}
+.tn-lab-shot-29{--tn-callout-x:19.6615%;--tn-callout-y:27.0502%;--tn-callout-w:39.5182%;--tn-callout-h:8.5679%}
+.tn-lab-shot-30{--tn-callout-x:51.9531%;--tn-callout-y:43.3293%;--tn-callout-w:17.7083%;--tn-callout-h:4.6512%}
+.tn-lab-shot-31{--tn-callout-x:14.8438%;--tn-callout-y:90.5753%;--tn-callout-w:57.2917%;--tn-callout-h:4.5288%}
+.tn-lab-shot-32{--tn-callout-x:26.1068%;--tn-callout-y:22.5214%;--tn-callout-w:65.7552%;--tn-callout-h:11.8727%}
+.tn-lab-shot-33{--tn-callout-x:36.2630%;--tn-callout-y:20.8078%;--tn-callout-w:14.4531%;--tn-callout-h:4.4064%}
+.tn-lab-shot-34{--tn-callout-x:36.1328%;--tn-callout-y:20.9302%;--tn-callout-w:14.4531%;--tn-callout-h:4.4064%}
+.tn-lab-shot-35{--tn-callout-x:43.0990%;--tn-callout-y:21.0526%;--tn-callout-w:11.5234%;--tn-callout-h:4.2840%}
+.tn-lab-shot-36{--tn-callout-x:43.2292%;--tn-callout-y:21.0526%;--tn-callout-w:11.4583%;--tn-callout-h:4.2840%}
+.tn-lab-shot-37{--tn-callout-x:20.8333%;--tn-callout-y:18.4823%;--tn-callout-w:49.0885%;--tn-callout-h:21.6646%}
+.tn-lab-shot-38{--tn-callout-x:20.7031%;--tn-callout-y:18.4823%;--tn-callout-w:77.5391%;--tn-callout-h:17.1359%}
+.tn-lab-shot-39{--tn-callout-x:19.4010%;--tn-callout-y:18.4823%;--tn-callout-w:26.7578%;--tn-callout-h:8.5679%}
