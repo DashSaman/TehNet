@@ -1,3 +1,7 @@
+## CURRENT —2026-11-05 real isolated CHR/WinBox lab IN_PROGRESS
+
+سه CHR۷٫۲۵٫۱ در QEMU TCG قابل‌حمل، فقط مدیریت loopback و Ethernet socket داخلی اجرا شدند؛ بدون installer/driver/host adapter.۳۹عکس اصلی WinBox۴٫۵ در content/winbox-guides-2026-11-05/ ثبت شده‌اند. DHCP واقعی bound و۳/۳ping؛ Safe Mode/Undo برگشت Comment؛ Backup رمزگذاری‌شده واقعاً restore شد و۷پذیرش پس از reboot قبول شد؛ Snooping untrusted=searching و trusted=bound از سرور دوم. فایل‌ها/رازها و لاگ خام خارج Git هستند. محتوای تصویری تازه هنوز staging/published نشده؛ دانلود VM رسمی GNS3 در جریان است. برنامه docs/superpowers/plans/2026-11-05-real-winbox-guides.fa.md. سناریوهای۹قسمت قبلی حفظ‌اند؛ زمان واقعی ضبط و تأیید ویدیو null. انتشارهای قبلی تکرار نشوند.
+
 ## CURRENT —2026-11-04 illustrated guide DEPLOYED_VERIFIED;9 separate recording scripts
 
 بازبینی نهایی منابع ضبط: لینک‌های DHCP سناریوهای03/05 به مرجع رسمی فعلی اصلاح شد؛ تغییر فقط مستندات است، بدون تکرار انتشار یا تغییر وضعیت ضبط/لاب. شرح در docs/reports/ILLUSTRATED_ROUTING_2026-11-04.fa.md.
