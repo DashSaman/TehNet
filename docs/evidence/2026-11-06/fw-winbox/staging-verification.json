@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_STAGING_NOT_DEPLOYED",
+  "scope": "tehnet-fw-winbox-20261105-v1",
+  "source_commit": "1a39bac1d8e4c788fc23c26fdfb802cad8fadb87",
+  "existing_body_updated": [
+    66
+  ],
+  "uri": "learn/mikrotik/mtcna/firewall-basics",
+  "original_pngs": 6,
+  "callout_classes_added": 6,
+  "new_pages": 0,
+  "executable_runtime_files_changed": 0,
+  "title_url_excerpt_meta_untouched": true,
+  "native_checks": 50,
+  "renderer_checks": 8,
+  "staging_browser_checks": 296,
+  "browser_profiles": "1440/768/375/320 light+dark, 320 no-JS; full-size image click; served byte hashes match originals",
+  "before_browser_status": "PASS",
+  "submissions": 0,
+  "production_mutations": 0,
+  "all_original_posts_meta_users_revisions_restored": true,
+  "all_original_runtime_files_restored": true,
+  "all_existing_runtimes_unchanged": true,
+  "apply": {
+    "files_changed": 7,
+    "bodies_updated": 1,
+    "new_pages": 0
+  },
+  "repeat": {
+    "files_changed": 0,
+    "bodies_updated": 0
+  },
+  "rollback": {
+    "status": "ROLLED_BACK",
+    "files_restored": 7
+  },
+  "completed_utc": "2026-11-05T21:04:05.015610+00:00",
+  "screenshots_sha256": {
+    "before-66-375-light.png": "79959800fd967dc74f3ed0ee2d17c144a7f87738c71547d368e09771d6a452c9",
+    "after-66-1440-light.png": "ac048caccb8508f618c28539c58beee24f536a427b13819c6d19e9c36f1d5306",
+    "after-66-375-light.png": "500636db31abe73a08b5601a5c25f17fb067cd7b32bea3cb71e6fbac468a4881",
+    "callout-66-1440-light.png": "be216d47e3dd44259ee3d3129149551299bf2ca24d2444a99892f8841955abfe",
+    "callout-66-375-light.png": "a5f08a7809f5de7bba3c2678d33fe2d66ad29260e9b01f8ea07cf699989fbc9e"
+  },
+  "limits": [
+    "Staging qualification only; production publishing needs explicit owner approval",
+    "6 actual CHR7.25.1/WinBox4.5 synthetic-lab captures; lab-only scoping, not real-network security evidence",
+    "Forward-chain client timeout effect evidenced by real counters (4 dropped packets) and CLI receipts; the input-reject client observable is shown in the GUI terminal capture",
+    "Frameless guest framebuffer session (no OS title bar); bottom status bar carries the connection evidence in every capture"
+  ]
+}
