@@ -1,3 +1,7 @@
+## CURRENT —2026-11-05 WinBox guides VERIFIED_STAGING_NOT_DEPLOYED
+
+Source `fedbdccffd4bda2d595bcd1136b10333be6c7f09`: native60/renderer16/browser1590، before واقعی و after staging، exact restore همهٔ داده/فایل/runtime،0production/ارسال. scope body62/63+39PNG+CSS محدود؛ سناریوهای جدا حفظ و actual duration/approval null. WinBox Linux واقعاً در framebuffer مهمان متصل است؛ هیچ ورودی دسکتاپ میزبان مجاز نیست. گزارش و گام انتشار واجد شرایط: docs/reports/REAL_WINBOX_GUIDES_2026-11-05.fa.md. هیچ publisher قبلی تکرار نشود؛ MyTel/noindex/payment/گیت‌های امنیتی و63/75 حفظ‌اند.
+
 ## CURRENT —2026-11-05 actual WinBox guides PREPARED_NOT_DEPLOYED
 
 ۳۹تصویر اصلی و راهنمای گام‌به‌گام روی body62/63 آماده است؛ scope ثابت شامل۳۹PNG و CSS محدود به کادر راهنماست، بدون عنوان/URL/meta/صفحهٔ تازه.۳۶آزمون operator موفق/یک symlink skip؛ native WordPress و مرورگر هنوز در انتظار اجرا. هفت فایل سناریوی ضبط به شواهد محدود همین لاب لینک شدند؛ ضبط تازه و مدت/approval همچنان null. دستور مالک: هیچ ورودی یا فعال‌سازی پنجرهٔ دسکتاپ میزبان؛ ادامه فقط CLI/headless/نمایشگر مهمان. اصلاح ACL فقط همان۶فایل لاب با اجازهٔ صریح انجام شد؛ تعمیر گسترده ممنوع و سایر فایل‌های قدیمی خصوصی محدود مانده‌اند. Xvfb مهمان آماده است؛ سه وابستگی WinBox هنوز به‌خاطر قفل نصب خودکار مهمان تکمیل نشده‌اند، پس اتصال Linux GUI تأیید نشده. MyTel/noindex/payment/سایر داده‌ها و گیت‌های امنیتی حفظ‌اند. انتشار جدید production صفر؛ گام بعد native snapshot/apply/rollback و QA موبایل/دسکتاپ، سپس CI و انتشار واجد شرایط.

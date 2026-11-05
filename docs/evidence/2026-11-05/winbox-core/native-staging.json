@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_STAGING_NOT_DEPLOYED",
+  "qualified_source": "fedbdccffd4bda2d595bcd1136b10333be6c7f09",
+  "scope": "tehnet-winbox-core-guides-20261105-v1",
+  "native_checks": 60,
+  "renderer_checks": 16,
+  "site_browser_checks": 1590,
+  "existing_bodies_updated": [
+    62,
+    63
+  ],
+  "original_images": 39,
+  "callout_stylesheets": 1,
+  "new_pages": 0,
+  "executable_runtime_changes": 0,
+  "submissions": 0,
+  "production_mutations": 0,
+  "completed_utc": "2026-11-05T11:45:01.085370+00:00",
+  "browser_observed_utc": "2026-11-05T11:44:50.602Z",
+  "isolated_staging": {
+    "internal_network": true,
+    "mail_http_cron_payments_blocked": true
+  },
+  "all_original_posts_meta_users_revisions_restored": true,
+  "all_original_runtime_files_restored": true,
+  "all_existing_runtimes_unchanged": true,
+  "before_surface": "Actual public production before guide;375 viewport; GET-only",
+  "after_surface": "Closed native staging with same375 viewport and selected1440; different scroll positions",
+  "acceptance": [
+    "Two exact existing page identities; no title/excerpt/URL/meta/new page writes",
+    "Native parse/KSES/registered blocks and rendered39 original images",
+    "Apply/check/repeat/rollback/repeat; foreign later edit preserved before any rollback write",
+    "Both rows locked before first save hook; injected hook side effects roll back atomically",
+    "Foreign images, empty alt, invented attachment ID, wrong full-size/callout class and wider target/fields refused",
+    "Desktop/tablet/mobile1440/768/375/320; light/dark and320no-JS",
+    "All image decoding, responsive width, RTL overflow and overlay boundaries verified",
+    "Actual mobile click opens original full-size PNG; all39 served byte hashes match originals"
+  ],
+  "screenshots_sha256": {
+    "before-62-375-light.png": "290dfca65ddd3985e18dd5a8951deb7697b3a357026fe1772ded7d89c8602265",
+    "before-63-375-light.png": "5076f4c64ff78e8639dd6c01b65b5024d96d144a3d966e2c503114648cc3514c",
+    "after-62-1440-light.png": "bccf7be3fe82c8b6f40b8683741ca5096fb087da04891725cf9603372016ad00",
+    "after-63-1440-light.png": "f5a89e7db3f7bbab2f6ef27bada7d5554601956cc80e3988614320fd826c7af4",
+    "after-62-375-light.png": "14526d7dccad1854c06cd977350bdd272afe5c6fb4d953c03cd71d73afa1df2c",
+    "after-63-375-light.png": "7a852472e2dfa748a9a3d1b2c398545ff1d27274def7de35862c96cf6d68f6be",
+    "callout-62-375-light.png": "1106b1525c061807e20bb4580a851e4715e6772cd7a99a503ef21493826c2c41",
+    "callout-63-375-light.png": "2294e7978184b1a4420d504bdb5ca584118c7bf32e80f5c66e41de02edaf8c2b"
+  },
+  "limits": [
+    "39 actual CHR7.25.1/WinBox4.5 synthetic-lab captures; not hardware or customer evidence",
+    "Native/browser checks are qualification evidence, not commercial parity, ranking or conversion gains",
+    "Nine separate video scripts remain proposals; actual recordings0, actual duration/editor approval null",
+    "Linux guest framebuffer verified independently after host desktop input was prohibited; original39 captures predate that steering"
+  ]
+}
