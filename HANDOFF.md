@@ -1,4 +1,8 @@
-## CURRENT —2026-11-05 no-host-input operational; PR88 NEEDS_APPROVAL
+## CURRENT —2026-11-05 NAT masquerade WinBox VERIFIED_STAGING_NOT_DEPLOYED
+
+مالک موجود ID65 (nat-masquerade) بخش تصویری واقعی گرفت: سیزده عکس اصلی WinBox4.5/CHR7.25.1 از framebuffer مهمان بدون ورودی دسکتاپ؛ سناریو تفکیک‌شدهٔ routing/return-path/NAT با LAN خصوصی 10.20.0.0/24 روی R1 (گیت‌وی 10.20.0.1) و مقصد شبیه‌سازی‌شدهٔ 198.51.100.0/24 پشت R2؛ راستی‌آزمایی مشتری در WinBox Terminal مشتری (GUI-hosted CLI) و راستی‌آزمایی روتر با کانتر و رکورد ترجمهٔ Connections (reply-dst=192.0.2.1). قبل/بعد واقعی: timeout مشتری → ping 0% loss؛ Disable→شکست جدید→Enable→بازگشت. بدنهٔ قبلی حفظ شد؛ scope فقط 1 post_content + 13PNG(nat-20261105) + CSS کادر. پذیرش: native50/renderer8/browser555/قبل-GET PASS؛ apply14فایل/repeat0/rollback کامل؛ صفر production mutation و صفر ارسال. انتشار production NEEDS_APPROVAL. source `a3596e7` روی feat/nat-winbox-20261105 (از main؛ بدون حمل فایل‌های PR89)؛ رسید docs/evidence/2026-11-05/nat-winbox/staging-verification.json و گزارش docs/reports/NAT_WINBOX_2026-11-05.fa.md. PR89 (مسیریابی) همچنان open و منتشرنشده. وضعیت لاب: R1 قانون masquerade فعال + آدرس 10.20.0.1/24؛ CLIENT آدرس 10.20.0.10 و WinBox باز در مهمان.
+
+## HISTORICAL CHECKPOINT —2026-11-05 no-host-input operational; PR88 NEEDS_APPROVAL
 
 WinBox Linux واقعاً به لاب مستقل وصل و framebuffer ثبت شد؛ ادامه بدون ورودی دسکتاپ میزبان/تغییر برق/قفل/driver/شبکه. همان۶فایل ACL با تأیید مالک ترمیم شدند؛ سایر فایل‌های خصوصی قدیمی و گیت‌های امنیتی دست‌نخورده در همین تعمیر. body62/63+39PNG+CSS با sourcefedbdcc، native60/renderer16/browser1590 و exact restore آماده‌اند. PR88/CI42022049778 موفق؛ ادغام در auto-review به‌علت نبود تأیید صریح انتشار رد شد، سؤال تأیید pending است؛0merge/deploy. ناشر تازه آماده ولی اجرا نشده؛ هیچ مسیر جایگزین/force-push مجاز نیست. -SEO PR27/commitd78f2d1/CI42023703979 موفق، هنوز open.
 
