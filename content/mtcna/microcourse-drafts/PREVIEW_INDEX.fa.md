@@ -2,6 +2,8 @@
 
 **Checkpoint: 2026-11-04.** ۳۰ صفحهٔ Draft واقعی WordPress وجود دارد. از میان آن‌ها ۲۹ صفحه در ساختار ۴۰ قسمتی جدید نگاشت شده‌اند؛ ID255 پیش‌نویس قدیمی پروژهٔ یک‌قسمتی است و نیازمند تصمیم ویراستاری است. ۱۱ درس جدید فقط در مخزن GitHub متن آماده دارند. هیچ‌کدام `future/scheduled` نیستند.
 
+> **تلاش مستقل ۲۰۲۶-۱۱-۰۵، ساعت ۱۶:۲۰ تهران — نیازمند بازخوانی:** موجودی واقعی WordPress پیش از نوشتن، ۳۰ صفحه با `status=draft` و `parent=40` بود. درخواست ساخت پیش‌نویس جلسهٔ ۱۸، پاسخ موفق با ID **272**، `status=draft` و `parent=40` گرفت؛ اما درخواست‌های مستقل خواندن raw content پاسخ قابل استفاده ندادند و یکی از درخواست‌ها مسدود شد. **تعداد ۳۱، برابری raw/hash، کارکرد Preview و ورود تصاویر به WordPress تأیید نشده‌اند.** هنگام ثبت این گزارش WPVibe Free برابر **۹۳ از ۱۰۰** فراخوانیِ ۲۴ساعته داشت و ادامه برای جلوگیری از مصرف سقف متوقف شد؛ reset استفاده نشد. این یادداشت در شاخهٔ جداگانه ثبت می‌شود و PR82 را تغییر نمی‌دهد. لینک [Edit ID272](https://tehnet.ir/wp-admin/post.php?post=272&action=edit) و [Preview ID272](https://tehnet.ir/?page_id=272&preview=true) از الگوی معتبر سایت و ID پاسخ ساخت تولید شده‌اند، نه با بازکردن مستقل تأیید شده باشند. 
+
 برای لینک Preview باید با حساب مدیر/ویراستار WordPress لاگین باشید. اگر Preview کار نکرد از Edit در مدیریت وردپرس، دکمهٔ Preview را انتخاب کنید.
 
 | جلسهٔ هدف | موضوع | لینک | وضعیت | اولین نوبت اسمی تهران |
@@ -23,7 +25,7 @@
 | 15 | Wireless Bridge و Station Bridge | [متن GitHub](https://github.com/DashSaman/TehNet/blob/content/mtcna-saturday-20261107/content/mtcna/microcourse-drafts/15.md) | فقط منبع؛ در WP ثبت نشده | 2026-12-19 09:00 |
 | 16 | Static Route و Route Flags | [Preview](https://tehnet.ir/?page_id=242&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=242&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2026-12-22 09:00 |
 | 17 | دو LAN و مسیر برگشت | [Preview](https://tehnet.ir/?page_id=243&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=243&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2026-12-25 09:00 |
-| 18 | Dynamic Route و جدول مسیریابی | [متن GitHub](https://github.com/DashSaman/TehNet/blob/content/mtcna-saturday-20261107/content/mtcna/microcourse-drafts/18.md) | فقط منبع؛ در WP ثبت نشده | 2026-12-28 09:00 |
+| 18 | Dynamic Route و جدول مسیریابی | [Edit درخواست ساخت ID272](https://tehnet.ir/wp-admin/post.php?post=272&action=edit) / [Preview نامعتبرسنجی‌نشده](https://tehnet.ir/?page_id=272&preview=true) / [متن GitHub](https://github.com/DashSaman/TehNet/blob/content/mtcna-saturday-20261107/content/mtcna/microcourse-drafts/18.md) | پاسخ Create: Draft / parent 40 / ID272؛ raw REST readback ناموفق؛ هنوز GitHub-only از نظر اعتبارسنجی نهایی | 2026-12-28 09:00 |
 | 19 | Source NAT و Masquerade | [Preview](https://tehnet.ir/?page_id=244&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=244&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2026-12-31 09:00 |
 | 20 | Destination NAT و CGNAT | [Preview](https://tehnet.ir/?page_id=245&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=245&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2027-01-03 09:00 |
 | 21 | Connection Tracking و Chain | [Preview](https://tehnet.ir/?page_id=246&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=246&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2027-01-06 09:00 |
