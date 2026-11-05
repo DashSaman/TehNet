@@ -75,3 +75,11 @@ html{scroll-padding-top:110px}body.tn-visual{background:var(--tn-bg);color:var(-
 .tn-lab-shot-37{--tn-callout-x:20.8333%;--tn-callout-y:18.4823%;--tn-callout-w:49.0885%;--tn-callout-h:21.6646%}
 .tn-lab-shot-38{--tn-callout-x:20.7031%;--tn-callout-y:18.4823%;--tn-callout-w:77.5391%;--tn-callout-h:17.1359%}
 .tn-lab-shot-39{--tn-callout-x:19.4010%;--tn-callout-y:18.4823%;--tn-callout-w:26.7578%;--tn-callout-h:8.5679%}
+
+/* TN FIREWALL WINBOX CALLOUTS (2026-11-05): presentation overlays; original PNG pixels stay unchanged. */
+.tn-fw-shot-1{--tn-callout-x:16.1458%;--tn-callout-y:22.7941%;--tn-callout-w:7.1615%;--tn-callout-h:2.9412%}
+.tn-fw-shot-2{--tn-callout-x:44.9219%;--tn-callout-y:17.1569%;--tn-callout-w:19.5312%;--tn-callout-h:3.4314%}
+.tn-fw-shot-3{--tn-callout-x:11.9792%;--tn-callout-y:32.4755%;--tn-callout-w:76.1719%;--tn-callout-h:3.1863%}
+.tn-fw-shot-4{--tn-callout-x:45.5729%;--tn-callout-y:66.1765%;--tn-callout-w:28.6458%;--tn-callout-h:11.0294%}
+.tn-fw-shot-5{--tn-callout-x:11.9792%;--tn-callout-y:32.4755%;--tn-callout-w:76.1719%;--tn-callout-h:7.3529%}
+.tn-fw-shot-6{--tn-callout-x:11.9792%;--tn-callout-y:32.4755%;--tn-callout-w:76.1719%;--tn-callout-h:7.3529%}

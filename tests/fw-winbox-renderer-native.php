@@ -1,0 +1,5 @@
+<?php
+if(wp_get_environment_type()!=='staging'||home_url('/')!=='http://localhost:18085/'||!WP_HTTP_BLOCK_EXTERNAL||!DISABLE_WP_CRON||(string)get_option('blog_public')!=='0')throw new RuntimeException('Closed staging required');
+$checks=0;$ok=static function(bool$v)use(&$checks):void{if(!$v)throw new RuntimeException('Firewall WinBox renderer failed');++$checks;};
+foreach([66=>6]as$id=>$count){$p=get_post($id);$h=do_blocks($p->post_content);$ok($p->post_type==='page');$ok(substr_count($h,'<figure class="wp-block-image')===$count);$ok(substr_count($h,'<img ')===$count);$ok(substr_count($h,'class="wp-block-image size-full tn-lab-capture tn-fw-shot-')===6);$ok(str_contains($h,'آموزش نوشتاری مستقل')&&str_contains($h,'CHR')&&str_contains($h,'input'));$ok(!str_contains($h,'VideoObject')&&!str_contains($h,'youtube.com')&&!str_contains($h,'youtu.be'));$ok(substr_count($h,'class="tn-lab-capture')===0);$ok(!str_contains($h,'<form'));}
+echo 'FW_WINBOX_RENDERER=PASS checks='.$checks."\n";

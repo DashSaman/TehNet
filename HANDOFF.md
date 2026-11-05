@@ -1,4 +1,8 @@
-## CURRENT —2026-11-05 no-host-input operational; PR88 NEEDS_APPROVAL
+## CURRENT —2026-11-06 firewall WinBox VERIFIED_STAGING_NOT_DEPLOYED
+
+مالک موجود ID66 (firewall-basics) بخش تصویری واقعی گرفت: شش عکس اصلی WinBox4.5/CHR7.25.1 از framebuffer مهمان بدون ورودی دسکتاپ؛ تفکیک عملی input (reject ICMP با مبدأ خصوصی: net unreachable در ترمینال مشتری + کانتر 3/168) و forward (drop مسیر NAT: timeout مشتری + کانتر 4/224)؛ مدیریت زنده ماند؛ هیچ قانون عام اعمال نشد؛ rollback Disable هر دو از GUI با بازگشت هر دو مسیر (SSH+GUI). یک رکورد آلودهٔ آزمایشی بلافاصله با SSH شناسایی/حذف شد (شفاف در گزارش). scope فقط 1 post_content + 6PNG(fw-20261105) + CSS کادر. پذیرش: native50/renderer8/browser296/قبل-GET PASS؛ apply7فایل/repeat0/rollback کامل؛ صفر production mutation و صفر ارسال. انتشار production NEEDS_APPROVAL (مستقل از PR88/89/90). source `d45a666` روی feat/fw-winbox-20261105 (از main)؛ رسید docs/evidence/2026-11-06/fw-winbox/staging-verification.json و گزارش docs/reports/FW_WINBOX_2026-11-06.fa.md. صف: PR89 (مسیریابی)، PR90 (NAT)، این بسته — هر سه open و staging-qualified؛ وضعیت لاب: هر دو قانون فیلتر DISABLED، NAT فعال.
+
+## HISTORICAL CHECKPOINT —2026-11-05 no-host-input operational; PR88 NEEDS_APPROVAL
 
 WinBox Linux واقعاً به لاب مستقل وصل و framebuffer ثبت شد؛ ادامه بدون ورودی دسکتاپ میزبان/تغییر برق/قفل/driver/شبکه. همان۶فایل ACL با تأیید مالک ترمیم شدند؛ سایر فایل‌های خصوصی قدیمی و گیت‌های امنیتی دست‌نخورده در همین تعمیر. body62/63+39PNG+CSS با sourcefedbdcc، native60/renderer16/browser1590 و exact restore آماده‌اند. PR88/CI42022049778 موفق؛ ادغام در auto-review به‌علت نبود تأیید صریح انتشار رد شد، سؤال تأیید pending است؛0merge/deploy. ناشر تازه آماده ولی اجرا نشده؛ هیچ مسیر جایگزین/force-push مجاز نیست. -SEO PR27/commitd78f2d1/CI42023703979 موفق، هنوز open.
 
