@@ -97,5 +97,33 @@
   "observed_wordpress_draft_count": 30,
   "wordPress_native_scheduled_count": 0,
   "wordpress_limit_notice": "WPVibe daily fair-use limit encountered on 2026-11-04; no reset used",
-  "preparation_automation_created": true
+  "preparation_automation_created": true,
+  "subsequent_attempts": [
+    {
+      "date": "2026-11-05",
+      "local_time": "16:20 Asia/Tehran",
+      "original_inventory_confirmed_before_create": {
+        "draft_pages": 30,
+        "parent_page_id": 40
+      },
+      "operation": "wp/v2/pages POST session18",
+      "write_response": {
+        "id": 272,
+        "parent": 40,
+        "status": "draft",
+        "slug": "mtcna-micro-18-dynamic-route-flags-routeros7",
+        "url": "https://tehnet.ir/?page_id=272",
+        "editor_url": "https://tehnet.ir/wp-admin/post.php?post=272&action=edit",
+        "preview_url_pattern": "https://tehnet.ir/?page_id=272&preview=true"
+      },
+      "independent_raw_content_readback": "UNVERIFIED: empty connector responses, one follow-up request blocked",
+      "post_creation_live_draft_count": "NOT_REENUMERATED; do not claim 31 confirmed",
+      "source_only_remaining_verified": "NOT_RECALCULATED; original 11 represents prior checkpoint",
+      "screenshots_uploaded_to_wordpress": 0,
+      "wpvibe_free_account_usage_at_stop": "93/100 rolling 24h",
+      "quota_reset_used": false,
+      "decision": "STOP_NEAR_QUOTA_NO_FURTHER_WP_WRITES",
+      "notes": "No public publication, future schedule, canonical owner changes, or RoboT/CHR restart; creation acknowledgment is not a verified final save."
+    }
+  ]
 }
