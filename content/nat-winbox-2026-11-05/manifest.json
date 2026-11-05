@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "key": "tehnet-nat-winbox-20261105-v1",
+  "targets": [
+    {
+      "id": 65,
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/nat-masquerade/",
+      "uri": "learn/mikrotik/mtcna/nat-masquerade",
+      "title_observed": "NAT و Masquerade در میکروتیک — MTCNA",
+      "content_file": "nat-masquerade.html",
+      "change_fields": [
+        "post_content"
+      ],
+      "expected_content_sha256": "46d3a1b34ac27a62622cc4e2b6d8af80278474dfa5e2d1b125f8c91172f3f6b6",
+      "content_sha256_lf": "0476603086b7bec0cea1802785c25eea71627a729b0c753f817f3771e943173b"
+    }
+  ]
+}

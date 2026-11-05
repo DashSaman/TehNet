@@ -1,0 +1,185 @@
+<!-- wp:paragraph -->
+<p><strong>آموزش نوشتاری مستقل:</strong> این مطلب و تمرین‌های آن، متن پیاده‌شدهٔ ویدیو یا سرفصل تأییدشدهٔ یک قسمت ضبط‌شده نیستند. برای فهرست اصلی ویدیوها و وضعیت تطبیق مطالب، <a href="/learn/mikrotik/mtcna/">آرشیو دورهٔ MTCNA</a> را ببینید. دستورها فقط برای لابِ تحت اختیار شما هستند؛ اجرای آن‌ها روی شبکهٔ واقعی به بررسی و برنامهٔ بازگشت نیاز دارد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph --><p>NAT همان جادویی است که اجازه می‌دهد ده‌ها دستگاه پشت یک IP عمومی به اینترنت وصل شوند. در این راهنمای نوشتاری با Masquerade آشنا می‌شوید، تفاوت srcnat و dstnat را می‌فهمید و یک پورت‌فوروارد واقعی می‌سازید.</p><!-- /wp:paragraph -->
+
+
+
+<!-- wp:heading --><h2 class="wp-block-heading">Masquerade؛ اشتراک اینترنت</h2><!-- /wp:heading -->
+<!-- wp:code --><pre class="wp-block-code"><code>/ip firewall nat
+add chain=srcnat action=masquerade out-interface=ether1 comment="Internet sharing"</code></pre><!-- /wp:code -->
+<!-- wp:paragraph --><p>یعنی: «هر ترافیکی که قصد خروج از ether1 (سمت اینترنت) را دارد، آدرس مبدااش را با آدرس خود ether1 عوض کن». Masquerade برای لینک‌هایی با IP داینامیک (مثل PPPoE) انتخاب درست است.</p><!-- /wp:paragraph -->
+
+<!-- wp:heading --><h2 class="wp-block-heading">srcnat در برابر dstnat</h2><!-- /wp:heading -->
+<!-- wp:list --><ul><li><strong>srcnat</strong> آدرس <em>مبدأ</em> را تغییر می‌دهد — خروج به اینترنت.</li><li><strong>dstnat</strong> آدرس <em>مقصد</em> را تغییر می‌دهد — رساندن ترافیک ورودی به یک سرور داخلی.</li></ul><!-- /wp:list -->
+
+<!-- wp:heading --><h2 class="wp-block-heading">پورت‌فوروارد به یک سرور داخلی</h2><!-- /wp:heading -->
+<!-- wp:code --><pre class="wp-block-code"><code>/ip firewall nat
+add chain=dstnat action=dst-nat protocol=tcp dst-port=8080 \
+    in-interface=ether1 to-addresses=192.168.10.50 to-ports=80 \
+    comment="Web server publish"</code></pre><!-- /wp:code -->
+<!-- wp:paragraph --><p>درخواست‌های TCP روی پورت ۸۰۸۰ از اینترنت، به پورت ۸۰ سرور داخلی ۱۹۲.۱۶۸.۱۰.۵۰ فرستاده می‌شوند. یادتان باشد در کنار dstnat، عبور این ترافیک در فایروال (chain مربوطه) هم باید مجاز باشد.</p><!-- /wp:paragraph -->
+
+<!-- wp:heading --><h2 class="wp-block-heading">ترتیب پردازش و شمارنده‌ها</h2><!-- /wp:heading -->
+<!-- wp:code --><pre class="wp-block-code"><code>/ip firewall nat print stats</code></pre><!-- /wp:code -->
+<!-- wp:paragraph --><p>قوانین NAT از بالا به پایین بررسی می‌شوند؛ اولین تطبیق برنده است. اگر قاعده‌ای کار نمی‌کند، شمارنده بسته‌ها و جای قانون در لیست را بررسی کنید و برای تست موقت <code>log=yes</code> بگذارید.</p><!-- /wp:paragraph -->
+
+<!-- wp:paragraph --><p>مطالعهٔ مرتبط: <a href="/learn/mikrotik/mtcna/firewall-basics/">فایروال میکروتیک و ساخت قانون با هدف مشخص</a> — برگشت به <a href="/learn/mikrotik/mtcna/">صفحه دوره MTCNA</a>.</p><!-- /wp:paragraph -->
+
+<!-- wp:shortcode -->
+[tn_editorial_note]
+<!-- /wp:shortcode --><!-- wp:heading {"anchor":"nat-real-lab"} -->
+<h2 class="wp-block-heading" id="nat-real-lab">آموزش تصویری واقعی WinBox؛ نوشتن masquerade و پذیرش آن</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>لاب واقعاً اجراشده در ۵ نوامبر ۲۰۲۶:</strong> RouterOS 7.25.1 stable، WinBox 4.5 و CHR با معماری x86_64 روی QEMU/TCG. عکس‌ها از همان رابط و نتیجهٔ واقعی‌اند و کادرهای صفحه فقط گزینهٔ مربوط را نشان می‌دهند. سناریوی این لاب کاملاً داخلی است: «LAN خصوصی» <code dir="ltr">10.20.0.0/24</code> روی روتر اول (<code>TN-LAB-R1</code>، گیت‌وی <code dir="ltr">10.20.0.1</code>) و «شبکهٔ راه دور» <code dir="ltr">198.51.100.0/24</code> شبیه‌سازی‌شده روی loopback روتر دوم (<code>TN-LAB-R2</code>). مشتری لاب (<code>TN-LAB-CLIENT</code>) آدرس <code dir="ltr">10.20.0.10</code> دارد. هیچ‌کدام از این pingها اینترنت نیستند؛ «مقصد دور» فقط یک شبکهٔ آزمایشی داخل همین لاب است و موفقیت این تمرین هیچ ادعایی دربارهٔ اینترنت یا شبکهٔ واقعی نمی‌شود.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>تفکیک سه مفهوم</strong> که در این تمرین از هم جدا می‌شوند: <strong>مسیریابی</strong> یعنی مشتری بداند بستهٔ مقاصد دور را به چه کسی بدهد (گیت‌وی R1)؛ <strong>مسیر برگشت</strong> یعنی مقصد بتواند پاسخ را به آدرس فرستنده برساند؛ و <strong>NAT</strong> یعنی روتر آدرس مبدأ را با آدرس خودش عوض کند تا وقتی راه برگشت مستقیم وجود ندارد، پاسخ به روتر بیاید و او به مشتری تحویل دهد. در این لاب، R2 عمداً هیچ مسیری به <code dir="ltr">10.20.0.0/24</code> ندارد؛ همان چیزی که NAT را ضروری می‌کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۱–۱. قبل از هر تغییری: جدول NAT خالی و شکست واقعی مشتری</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در WinBox متصل به R1 روی <strong>IP</strong> بروید و <strong>Firewall</strong> را باز کنید؛ پنجرهٔ Firewall چند تب دارد که همین تمرین سه تای آن را نشان می‌دهد: <strong>NAT</strong>، <strong>Connections</strong> و بخش‌های مرتبط در تب Filter.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-nat-shot-1"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-nat-shot-1"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/01-ip-firewall-menu.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/01-ip-firewall-menu.png" alt="فهرست فرعی منوی IP در WinBox متصل به TN-LAB-R1 با گزینهٔ Firewall قابل انتخاب؛ رابط واقعی WinBox 4.5 روی CHR 7.25.1" width="1536" height="816" /></a><figcaption class="wp-element-caption">باز کردن پنجرهٔ Firewall از منوی IP — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-nat-shot-2"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-nat-shot-2"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/02-firewall-window.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/02-firewall-window.png" alt="پنجرهٔ Firewall در WinBox با تب‌های Filter Rules، NAT، Mangle و Connections؛ وضعیت اولیه پیش از نوشتن قانون" width="1536" height="816" /></a><figcaption class="wp-element-caption">پنجرهٔ Firewall باز شد؛ تب‌های اصلی — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+
+
+<!-- wp:paragraph -->
+<p>تب <strong>NAT</strong> را باز کنید. وضعیت قبل: لیست خالی است؛ هیچ قانون NAT تعریف نشده. همین «قبلِ دیده‌شده» مبنای قضاوت بعدی است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-nat-shot-3"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-nat-shot-3"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/03-nat-empty.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/03-nat-empty.png" alt="تب NAT پنجرهٔ Firewall در TN-LAB-R1 با لیست قوانین خالی پیش از افزودن masquerade" width="1536" height="816" /></a><figcaption class="wp-element-caption">وضعیت قبل: لیست NAT خالی است — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+
+
+<!-- wp:paragraph -->
+<p>حالا شکست واقعی را از خود مشتری ثبت کنید. در WinBox متصل به مشتری (TN-LAB-CLIENT) یک <strong>New Terminal</strong> باز کنید و <code dir="ltr">/ping 198.51.100.1</code> را اجرا کنید. نتیجهٔ مورد انتظار پیش از NAT: صددرصد timeout؛ چون R2 راه برگشت به <code dir="ltr">10.20.0.0/24</code> ندارد. اگر همین ping از خودِ R1 اجرا شود جواب می‌گیرد؛ چون R1 و R2 هر دو در <code dir="ltr">192.0.2.0/24</code> مشترک‌اند — این تضاد عمداً نقش NAT را نشان می‌دهد، نه ایراد مسیریابی.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-nat-shot-4"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-nat-shot-4"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/04-client-ping-fail.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/04-client-ping-fail.png" alt="ترمینال WinBox مشتری TN-LAB-CLIENT با نتیجهٔ timeout صددرصد ping به 198.51.100.1 پیش از نوشتن قانون NAT" width="1536" height="816" /></a><figcaption class="wp-element-caption">شکست واقعی مشتری پیش از NAT: صددرصد timeout — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۲–۱. نوشتن قانون masquerade از GUI</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در تب <strong>NAT</strong> دکمهٔ <strong>New</strong> را بزنید. پنجرهٔ <strong>NAT Rule &gt; New...</strong> باز می‌شود و مقدار <strong>Chain</strong> به‌صورت پیش‌فرض <code>srcnat</code> است؛ برای ترافیک خروجی به مقصد دور، همین درست است و دست نمی‌خورد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-nat-shot-5"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-nat-shot-5"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/05-nat-new-dialog.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/05-nat-new-dialog.png" alt="پنجرهٔ NAT Rule جدید در WinBox با Chain پیش‌فرض srcnat در تب General" width="1536" height="816" /></a><figcaption class="wp-element-caption">پنجرهٔ قانون تازه؛ Chain پیش‌فرض srcnat — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+
+
+<!-- wp:paragraph -->
+<p>در تب General دو شرط مطابق این سناریو پر می‌شود: <strong>Dst. Address</strong> = شبکهٔ مقصد (<code dir="ltr">198.51.100.0/24</code>) و <strong>Out. Interface</strong> = رابط خروجیِ همان مسیر (<code>bridge-lab</code> در این لاب؛ در شبکهٔ شما معمولاً رابط WAN). دقت کنید علامت نقیض («!») روی Out. Interface فعال نباشد؛ وگرنه قانون معنای «هر رابط به‌جز» می‌گیرد و ترافیک موردنظر شما را از دست می‌دهد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-nat-shot-6"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-nat-shot-6"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/06-nat-general-filled.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/06-nat-general-filled.png" alt="تب General قانون NAT با Dst. Address برابر 198.51.100.0/24 و Out. Interface برابر bridge-lab" width="1536" height="816" /></a><figcaption class="wp-element-caption">شرط‌های قانون: Dst. Address و Out. Interface — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+
+
+<!-- wp:paragraph -->
+<p>سپس به تب <strong>Action</strong> بروید و در فیلد Action مقدار <strong>masquerade</strong> را انتخاب کنید. masquerade یعنی «آدرس مبدأ را با آدرسِ خودِ رابط خروجی عوض کن» و برای رابط‌هایی با IP متغیر انتخاب رایج است؛ اگر آدرس خروجی ثابت است، src-nat هم معادل همین کار با نگاشت ثابت است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-nat-shot-7"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-nat-shot-7"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/07-nat-action-masquerade.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/07-nat-action-masquerade.png" alt="تب Action قانون NAT با Action انتخاب‌شدهٔ masquerade" width="1536" height="816" /></a><figcaption class="wp-element-caption">انتخاب Action: masquerade — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+
+
+<!-- wp:paragraph -->
+<p><strong>Apply</strong> را بزنید. نتیجهٔ مورد انتظار: قانون در لیست NAT با نشان masq. ظاهر می‌شود و بعد از اولین ترافیکِ منطبق، ستون شمارنده (Packets/Bytes) از صفر بزرگ می‌شود. اگر قانون ساخته شد ولی هرگز کانتر نخورد، شرط‌ها با مسیر واقعی بسته نمی‌شوند؛ Out. Interface و Dst. Address را با مسیر واقعیِ بسته مقایسه کنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-nat-shot-8"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-nat-shot-8"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/08-nat-rule-active.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/08-nat-rule-active.png" alt="لیست NAT پس از Apply با قانون masq. برای شبکهٔ 198.51.100.0/24 روی bridge-lab" width="1536" height="816" /></a><figcaption class="wp-element-caption">قانون اعمال‌شده در لیست NAT — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۳–۱. پذیرش واقعی؛ مشتری، نه روتر</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در ترمینال WinBox مشتری دوباره <code dir="ltr">/ping 198.51.100.1</code> را اجرا کنید. نتیجهٔ مورد انتظار: replyهای واقعی با TTL و زمان پاسخ و در پایان خلاصهٔ <code dir="ltr">packet-loss=0%</code>. این همان مرحله‌ای است که تفاوت «روتر خودش می‌رسد» و «مشتری پشت روتر می‌رسد» را عملی نشان می‌دهد؛ و باز هم تأکید: این موفقیت، موفقیتِ یک جریان داخلیِ لاب است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-nat-shot-9"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-nat-shot-9"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/09-client-ping-ok.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/09-client-ping-ok.png" alt="ترمینال WinBox مشتری پس از قانون NAT با ping موفق به 198.51.100.1 و خلاصهٔ packet-loss=0%" width="1536" height="816" /></a><figcaption class="wp-element-caption">پذیرش واقعی از مشتری: پاسخ‌ها و 0% loss — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+
+
+<!-- wp:paragraph -->
+<p>دو شاهد مکمل روی R1، اثر قانون را از دید خود روتر نشان می‌دهند: اول، شمارندهٔ قانون بعد از جریان مشتری بزرگ شده است؛ دوم، در تب <strong>Connections</strong> رکورد جریانِ مشتری دیده می‌شود که <strong>Reply Dst. Address</strong> آن <code dir="ltr">192.0.2.1</code> است — یعنی پاسخ‌ها به آدرس NAT‌شده برمی‌گردند، نه به <code dir="ltr">10.20.0.10</code>. همین رکورد است که نقش masquerade را بدون حدس نشان می‌دهد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-nat-shot-10"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-nat-shot-10"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/10-nat-counters.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/10-nat-counters.png" alt="لیست NAT با شمارندهٔ Bytes قانون masquerade پس از ترافیک واقعی مشتری" width="1536" height="816" /></a><figcaption class="wp-element-caption">شمارندهٔ قانون پس از ترافیک مشتری — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-nat-shot-11"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-nat-shot-11"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/11-nat-conntrack.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/11-nat-conntrack.png" alt="تب Connections با رکورد جریان 10.20.0.10 به 198.51.100.1 و Reply Dst. Address برابر 192.0.2.1" width="1536" height="816" /></a><figcaption class="wp-element-caption">رکورد ترجمه در Connections: پاسخ به 192.0.2.1 برمی‌گردد — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۴–۱. conntrack در برابر تغییر قانون؛ بازگشت امن</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>برای دیدن مرز «قانون» و «اتصالِ موجود»، ردیف قانون را انتخاب و <strong>Disable</strong> کنید. پرچم قانون X می‌شود و pingهای <strong>جدید</strong> مشتری دوباره timeout می‌گیرند. اما اگر یک جریان قبلی هنوز در تب Connections زنده باشد، ممکن است تا پایان timeout خودش به کار ادامه دهد؛ این اثر conntrack است، نه بی‌اثری قانون. برای آزمون تمیز، رکورد جریانِ همین تمرین (مقصد <code dir="ltr">198.51.100.1</code> از مبدأ مشتری) را از Connections حذف کنید و ping جدید بگیرید. برگشت کامل: <strong>Enable</strong> قانون؛ Remove فقط وقتی است که بخواهید قانون برای همیشه حذف شود. مسیرهای DAC و تنظیمات مدیریت را دست نزنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-nat-shot-12"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-nat-shot-12"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/12-nat-rule-disabled-client-fail.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/12-nat-rule-disabled-client-fail.png" alt="لیست NAT پس از Disable قانون؛ پرچم X و ردیف غیرفعال همراه با timeoutهای جدید مشتری در ترمینال" width="1536" height="816" /></a><figcaption class="wp-element-caption">بازگشت امن: Disable قانون و شکست دوبارهٔ ping جدید — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-nat-shot-13"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-nat-shot-13"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/13-nat-rule-reenabled.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/13-nat-rule-reenabled.png" alt="لیست NAT پس از Enable دوباره با ردیف فعال masq. و شمارندهٔ جریان" width="1536" height="816" /></a><figcaption class="wp-element-caption">بازگشت: Enable و ردیف فعال دوباره — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+
+
+<!-- wp:paragraph -->
+<p><strong>مکمل CLI (جای‌دهندهٔ GUI نیست):</strong> معادل همین قانون <code dir="ltr">/ip firewall nat add chain=srcnat action=masquerade dst-address=198.51.100.0/24 out-interface=bridge-lab</code> است و مشاهدهٔ ترجمه با <code dir="ltr">/ip firewall connection print</code> (رکورد جریان مشتری باید reply-dst معادل آدرس خروجی R1 نشان دهد). در لاب همین درس، خروجی SSH همان ترجمه را تأیید می‌کرد که تصاویر GUI نشان می‌دهند. مسئولیت‌ها را با هم قاطی نکنید: اگر مقصد، مسیر برگشت به شبکهٔ خصوصی شما را دارد، NAT لازم نیست و اضافه کردن آن فقط ردپای آدرس‌ها را مخفی می‌کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>این بخش با همان سه CHR مستقل و بدون اتصال به LAN دفتر ثبت شده است. برای محدودهای منابع و نحوهٔ اصلاح، <a href="/technical-methodology/">روش فنی و اصلاح محتوا</a> را ببینید.</p>
+<!-- /wp:paragraph -->
+

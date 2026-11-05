@@ -60,6 +60,19 @@ class ReleaseBoundaries(unittest.TestCase):
         self.assertIn('site/themes/tehnet/functions.php', guarded)
         self.assertTrue(set(files).isdisjoint(guarded))
 
+    def test_nat_winbox_scope_owns_only_thirteen_images_callout_css_and_existing_article(self):
+        files, extra, guarded = self.module.scope_spec('tehnet-nat-winbox-20261105-v1')
+        self.assertEqual(len(files), 14)
+        self.assertEqual(sum(p.endswith('.png') for p in files), 13)
+        self.assertEqual([p for p in files if not p.endswith('.png')],
+            ['site/themes/tehnet/assets/css/visual-refresh.css'])
+        self.assertEqual(extra, ['content/nat-winbox-2026-11-05/manifest.json',
+            'content/nat-winbox-2026-11-05/nat-masquerade.html', 'ops/migrate-growth-content.php'])
+        for path in self.module.NETWORK_TRIAGE_FILES + self.module.CONCEPTUAL_ROUTING_FILES:
+            self.assertIn(path, guarded)
+        self.assertIn('site/themes/tehnet/functions.php', guarded)
+        self.assertTrue(set(files).isdisjoint(guarded))
+
     def test_illustrated_routing_scope_owns_only_four_images_and_existing_article(self):
         files, extra, guarded = self.module.scope_spec('tehnet-illustrated-routing-20261104-v1')
         self.assertEqual(len(files), 4)

@@ -62,6 +62,11 @@ WINBOX_CORE_FILES = [
     'site/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/' + name + '.png'
     for name in ['01-connected-overview', '02-interface-inventory', '03-system-resources-menu', '04-routeros-version', '05-safe-mode-active', '06-safe-mode-comment', '07-comment-applied', '08-comment-undone', '09-bridge-start', '10-bridge-name', '11-bridge-created', '12-bridge-port-select', '13-bridge-port-apply', '14-ip-addresses-menu', '15-static-ip-fields', '16-static-ip-result', '17-dhcp-client-bound', '18-dhcp-setup-start', '19-dhcp-setup-interface', '20-dhcp-address-space', '21-dhcp-gateway', '22-dhcp-pool', '23-dhcp-no-external-dns', '24-dhcp-lease-time', '25-dhcp-server-created', '26-dhcp-lease-bound', '27-files-backup-start', '28-backup-fields', '29-backup-and-export-files', '30-restore-dialog', '31-reconnected-after-restore', '32-bridge-ports-forwarding', '33-snooping-before', '34-snooping-enabled-fields', '35-port-dhcp-untrusted', '36-port-trusted-dhcp', '37-bridge-mac-hosts', '38-arp-vs-mac-table', '39-installed-packages']
 ] + ['site/themes/tehnet/assets/css/visual-refresh.css']
+NAT_WINBOX_SCOPE = 'tehnet-nat-winbox-20261105-v1'
+NAT_WINBOX_FILES = [
+    'site/mu-plugins/tehnet-technical-resources/learning-media/nat-20261105/' + name + '.png'
+    for name in ['01-ip-firewall-menu', '02-firewall-window', '03-nat-empty', '04-client-ping-fail', '05-nat-new-dialog', '06-nat-general-filled', '07-nat-action-masquerade', '08-nat-rule-active', '09-client-ping-ok', '10-nat-counters', '11-nat-conntrack', '12-nat-rule-disabled-client-fail', '13-nat-rule-reenabled']
+] + ['site/themes/tehnet/assets/css/visual-refresh.css']
 ILLUSTRATED_ROUTING_SCOPE = 'tehnet-illustrated-routing-20261104-v1'
 ILLUSTRATED_ROUTING_FILES = [
     'site/mu-plugins/tehnet-technical-resources/learning-media/static-routing-20261104/' + name + '.png'
@@ -107,7 +112,7 @@ CONTENT_SCOPES = {**LESSON_SCOPES,
     MIKROTIK_SERVICE_SCOPE: ('content/mikrotik-service-2026-11-01', 'mikrotik-service.html', '/tmp/tn-mikrotik-service-release-'),
     SERVER_BRANCH_SCOPE: ('content/server-branch-2026-11-04', 'network-setup.html', '/tmp/tn-server-branch-release-'),
 }
-GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE, GALLERY_KEYBOARD_SCOPE, COMMERCIAL_CATALOG_SCOPE, CORPORATE_SCOPE, PHONE_SCOPE, EDUCATION_SCOPE, WINBOX_CORE_SCOPE]
+GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE, GALLERY_KEYBOARD_SCOPE, COMMERCIAL_CATALOG_SCOPE, CORPORATE_SCOPE, PHONE_SCOPE, EDUCATION_SCOPE, WINBOX_CORE_SCOPE, NAT_WINBOX_SCOPE]
 
 
 def scope_spec(scope):
@@ -116,6 +121,11 @@ def scope_spec(scope):
         guarded = list(dict.fromkeys(scope_spec(EDUCATION_SCOPE)[2] + NETWORK_TRIAGE_FILES + CONCEPTUAL_ROUTING_FILES))
         return WINBOX_CORE_FILES, [directory + 'manifest.json', directory + 'routeros-winbox.html',
             directory + 'ip-dhcp-dns.html', 'ops/migrate-growth-content.php'], [p for p in guarded if p not in WINBOX_CORE_FILES]
+    if scope == NAT_WINBOX_SCOPE:
+        directory = 'content/nat-winbox-2026-11-05/'
+        guarded = list(dict.fromkeys(scope_spec(EDUCATION_SCOPE)[2] + NETWORK_TRIAGE_FILES + CONCEPTUAL_ROUTING_FILES))
+        return NAT_WINBOX_FILES, [directory + 'manifest.json', directory + 'nat-masquerade.html',
+            'ops/migrate-growth-content.php'], [p for p in guarded if p not in NAT_WINBOX_FILES]
     if scope == ILLUSTRATED_ROUTING_SCOPE:
         directory, body, _ = CONTENT_SCOPES[scope]
         guarded = list(dict.fromkeys(scope_spec(EDUCATION_SCOPE)[2] + NETWORK_TRIAGE_FILES + CONCEPTUAL_ROUTING_FILES))
@@ -416,6 +426,7 @@ class Release:
         prefix = {METADATA_SCOPE: '/tmp/tn-metadata-role-',
                   EDUCATION_SCOPE: '/tmp/tn-educational-integrity-',
                   WINBOX_CORE_SCOPE: '/tmp/tn-winbox-core-guides-',
+                  NAT_WINBOX_SCOPE: '/tmp/tn-nat-winbox-',
                   SERVICE_METADATA_SCOPE: '/tmp/tn-metadata-service-role-',
                   PHONE_SCOPE: '/tmp/tn-phone-rtl-',
                   GALLERY_KEYBOARD_SCOPE: '/tmp/tn-gallery-keyboard-'}.get(
@@ -471,7 +482,7 @@ class Release:
             staged.append((self.extra[1], CONTENT_SCOPES[self.scope][1]))
         if self.scope == COMMERCIAL_CATALOG_SCOPE:
             staged.extend([(self.extra[1], 'services.html'), (self.extra[2], 'home.html')])
-        if self.scope in (EDUCATION_SCOPE, WINBOX_CORE_SCOPE):
+        if self.scope in (EDUCATION_SCOPE, WINBOX_CORE_SCOPE, NAT_WINBOX_SCOPE):
             staged.extend((source, PurePosixPath(source).name) for source in self.extra[1:-1])
         for source, name in staged:
             self.run(['docker', 'cp', str(member(self.b / 'payload', source)), self.c['app'] + ':' + self.container_stage + '/' + name])
