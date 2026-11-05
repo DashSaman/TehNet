@@ -712,7 +712,20 @@
           "actual_end_seconds": null,
           "capture_status": "PENDING_REAL_LAB_CAPTURE"
         }
-      ]
+      ],
+      "written_lab_acceptance": {
+        "status": "INFRASTRUCTURE_ONLY_BOOT_PACKETS_PENDING",
+        "date": "2026-11-05",
+        "server": "2.2.61",
+        "web_ui": "2.2.58",
+        "nodes": 2,
+        "links": 1,
+        "routeros_boot_verified": false,
+        "ping_verified": false,
+        "nodes_stopped_to_reduce_cpu": true,
+        "host_desktop_input": false,
+        "evidence": "../../../docs/evidence/2026-11-05/winbox-core/independent-lab.json"
+      }
     },
     {
       "key": "08-browser-routing-pilot",

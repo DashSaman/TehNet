@@ -1,3 +1,9 @@
+## CURRENT —2026-11-05 no-host-input operational; PR88 NEEDS_APPROVAL
+
+WinBox Linux واقعاً به لاب مستقل وصل و framebuffer ثبت شد؛ ادامه بدون ورودی دسکتاپ میزبان/تغییر برق/قفل/driver/شبکه. همان۶فایل ACL با تأیید مالک ترمیم شدند؛ سایر فایل‌های خصوصی قدیمی و گیت‌های امنیتی دست‌نخورده در همین تعمیر. body62/63+39PNG+CSS با sourcefedbdcc، native60/renderer16/browser1590 و exact restore آماده‌اند. PR88/CI42022049778 موفق؛ ادغام در auto-review به‌علت نبود تأیید صریح انتشار رد شد، سؤال تأیید pending است؛0merge/deploy. ناشر تازه آماده ولی اجرا نشده؛ هیچ مسیر جایگزین/force-push مجاز نیست. -SEO PR27/commitd78f2d1/CI42023703979 موفق، هنوز open.
+
+GNS3 دو node/یک لینک واقعی و graph دارد؛ مسیر image نسبی اصلاح شد. Server2.2.61/Web UI2.2.58، TCG و RAM1024 readback شدند؛ CHR در Load system مانده، console/ping ناموفق و علت نامعلوم. فقط nodeهای همین پروژه برای کاهش CPU متوقف و دیسک/پروژه حفظ شدند؛ دوباره create/bootstrap اجرا نشود. این پایلوت با سه CHR مستقلِ موفقِ۳۹عکس اشتباه نشود. گزارش و ادامهٔ دقیق: docs/reports/REAL_WINBOX_GUIDES_2026-11-05.fa.md و docs/labs/CAPTURE_WITHOUT_HOST_DESKTOP_2026-11-05.fa.md؛ جزئیات/لاگ/راز فقط در ledger خصوصی.9سناریو/72نمای پیشنهادی،0ضبط تازه،actual duration/approval null؛ full8sourceAV/موضوع5.5/SEO gain/parity نامحرز،63/75 باز و MyTel/noindex/payment حفظ‌اند.
+
 ## CURRENT —2026-11-05 WinBox guides VERIFIED_STAGING_NOT_DEPLOYED
 
 Source `fedbdccffd4bda2d595bcd1136b10333be6c7f09`: native60/renderer16/browser1590، before واقعی و after staging، exact restore همهٔ داده/فایل/runtime،0production/ارسال. scope body62/63+39PNG+CSS محدود؛ سناریوهای جدا حفظ و actual duration/approval null. WinBox Linux واقعاً در framebuffer مهمان متصل است؛ هیچ ورودی دسکتاپ میزبان مجاز نیست. گزارش و گام انتشار واجد شرایط: docs/reports/REAL_WINBOX_GUIDES_2026-11-05.fa.md. هیچ publisher قبلی تکرار نشود؛ MyTel/noindex/payment/گیت‌های امنیتی و63/75 حفظ‌اند.
