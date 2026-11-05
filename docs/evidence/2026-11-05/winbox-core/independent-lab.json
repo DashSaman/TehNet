@@ -1,0 +1,34 @@
+{
+  "status": "PROJECT_PRESERVED_NODES_STOPPED",
+  "server": "2.2.61",
+  "web_ui": "2.2.58",
+  "nodes": 2,
+  "links": 1,
+  "ram_mib": 1024,
+  "actual_router_label": "TN-GNS3-R3",
+  "boot_acceptance": "UNVERIFIED_LOAD_SYSTEM",
+  "ping_acceptance": "NOT_VERIFIED",
+  "reason": "Avoid unnecessary nested-TCG CPU load while preserving isolated lab state",
+  "host_desktop_input": false,
+  "host_power_settings_changed": false,
+  "production_mutations": 0,
+  "observed_utc": "2026-11-05T12:18:34Z",
+  "independent_winbox_framebuffer": {
+    "status": "READY",
+    "winbox": "4.5",
+    "host_desktop_input": false,
+    "host_power_settings_changed": false,
+    "observed_utc": "2026-11-05T11:51:51Z"
+  },
+  "screenshots_sha256": {
+    "independent-guest-winbox.png": "eb35d0fb0f157160d63e4f93a97c43db5119330f2a7eb715b315f4f5248f8e0c",
+    "gns3-project-list.png": "0fde8ff84fcbafb1d7fd2167436c888824ef9a2cbfd6e90a3635e24a4d7ace12",
+    "gns3-project-started.png": "a1d7434912cd8d34591d739a51c2ee5058b5269dc17309fab2941bc4e5df6a70"
+  },
+  "limits": [
+    "GNS3 graph screenshot records earlier started state; nodes subsequently stopped to reduce CPU",
+    "Green node/link and running QEMU are not proof of RouterOS boot or working packets",
+    "Core39 captures and native qualification are independent of this unfinished GNS3 pilot",
+    "No live website changes or host desktop/power/driver/network adapter changes"
+  ]
+}

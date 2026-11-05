@@ -45,3 +45,10 @@
 
 - [منبع رسمی](https://www.rfc-editor.org/rfc/rfc2131.html)
 - [مرجع رسمی DHCP در RouterOS](https://manual.mikrotik.com/docs/network-management/dhcp/)
+
+
+## شواهد واقعیِ بخش نوشتاری —۵نوامبر۲۰۲۶
+
+تصاویر 17–26 در [manifest تصاویر اصلی](../../winbox-guides-2026-11-05/captures.json) ثبت شده‌اند. DHCP Setup واقعاً در WinBox اجرا شد؛ کلاینت192.0.2.150/24 از R1 گرفت و3/3ping داخلی پاسخ گرفت. Send DNS خاموش بود؛ اینترنت یا Windows DNS آزموده نشد.
+
+این پذیرشِ محدود، ضبط تازه، مدت واقعی نماها، rehearsal کامل سناریو یا تأیید فیلم قدیمی نیست؛ وضعیت DRAFT_NEW_RECORDING و زمان‌های واقعی/approval همچنان null هستند. پس از درخواست تازهٔ مالک، ادامهٔ capture فقط در نمایشگر مستقل مهمان و بدون کلیک/تایپ/فعال‌کردن پنجره در دسکتاپ میزبان مجاز است.

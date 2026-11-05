@@ -1,0 +1,394 @@
+<!-- wp:paragraph -->
+<p><strong>آموزش نوشتاری مستقل:</strong> این مطلب و تمرین‌های آن، متن پیاده‌شدهٔ ویدیو یا سرفصل تأییدشدهٔ یک قسمت ضبط‌شده نیستند. برای فهرست اصلی ویدیوها و وضعیت تطبیق مطالب، <a href="/learn/mikrotik/mtcna/">آرشیو دورهٔ MTCNA</a> را ببینید. دستورها فقط برای لابِ تحت اختیار شما هستند؛ اجرای آن‌ها روی شبکهٔ واقعی به بررسی و برنامهٔ بازگشت نیاز دارد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"anchor":"winbox-real-lab"} -->
+<h2 class="wp-block-heading" id="winbox-real-lab">آموزش تصویری واقعی WinBox؛ اتصال، تغییر قابل بازگشت و Backup</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>لاب واقعاً اجراشده در۵نوامبر۲۰۲۶:</strong> RouterOS۷٫۲۵٫۱ stable، WinBox۴٫۵ و CHR با معماری x86_64 روی QEMU/TCG. عکس‌ها از همان رابط و نتیجهٔ واقعی‌اند. کادرهای صفحه فقط گزینهٔ مربوط را نشان می‌دهند و متن/وضعیت نرم‌افزار را تغییر نمی‌دهند. این لاب به LAN دفتر پل نشده؛ مدیریت فقط loopback و اتصال بین سه مهمان فقط Ethernet داخلی است. نام‌ها، MACها و آدرس‌های نمایش‌داده‌شده مخصوص این لاب‌اند. این تصاویر به فیلم‌های قدیمی دوره منتسب نیستند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>از <a href="#winbox-inventory">شناسایی دستگاه و رابط‌ها</a>، <a href="#winbox-safe-mode">Safe Mode و Undo</a>، <a href="#winbox-packages">خواندن نسخهٔ Package</a> یا <a href="#winbox-backup">Backup و بازیابی</a> شروع کنید. این بخش روی CHR انجام شده؛ ورود MAC، RouterBOOT، سخت‌افزار بی‌سیم، upgrade/downgrade و Import کامل در این بسته آزموده نشده‌اند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"anchor":"winbox-inventory"} -->
+<h2 class="wp-block-heading" id="winbox-inventory">۱. پیش از تغییر، دستگاه و رابط‌ها را بشناسید</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۱–۱. اتصال مدیریتی و Interfaces</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>پس از اتصال به <strong>IP و پورت مدیریتِ مجاز لاب خودتان</strong>، نام دستگاه را در نوار پایین بخوانید؛ اینجا <code>TN-LAB-R1</code> است. در نوار کناری روی <strong>Interfaces</strong> کلیک کنید. نشانی loopback تصویر فقط به VM همین رایانه می‌رسد و نشانی روتر شما نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-1"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-1"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/01-connected-overview.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/01-connected-overview.png" alt="دکمهٔ Interfaces در پنجرهٔ WinBox متصل به TN-LAB-R1؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="816" /></a><figcaption class="wp-element-caption">دکمهٔ Interfaces در پنجرهٔ WinBox متصل به TN-LAB-R1 — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۱–۲. نقش رابط‌ها را تطبیق دهید</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>سه رابط Ethernet دیده می‌شود. در این طرح <strong>ether1 فقط مدیریت</strong>، <strong>ether2 مسیر کلاینت داخلی</strong> و <strong>ether3 اتصال مهمان دوم</strong> است. نام ether1 در شبکه‌های دیگر الزاماً WAN نیست. پرچم R به‌تنهایی سلامت سرویس یا دسترسی اینترنت را ثابت نمی‌کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-2"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-2"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/02-interface-inventory.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/02-interface-inventory.png" alt="فهرست واقعی سه رابط ether1، ether2 و ether3؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">فهرست واقعی سه رابط ether1، ether2 و ether3 — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۱–۳. از System به Resources بروید</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>روی <strong>System → Resources</strong> کلیک کنید؛ اعداد نسخه را از همین دستگاه بخوانید، نه از تیتر صفحهٔ دانلود یا شمارهٔ انتخابگر مستندات.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-3"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-3"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/03-system-resources-menu.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/03-system-resources-menu.png" alt="مسیر System → Resources در WinBox۴٫۵؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">مسیر System → Resources در WinBox۴٫۵ — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۱–۴. نسخه و معماری را ثبت کنید</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در پنجرهٔ <strong>Resources</strong> به پایین اسکرول کنید. <strong>Architecture Name=x86_64</strong> و <strong>Version=7.25.1</strong> در این برداشت دیده می‌شود. CHR یک روتر مجازی است؛ وجود منوی WiFi در WinBox، داشتن رادیوی واقعی را ثابت نمی‌کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-4"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-4"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/04-routeros-version.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/04-routeros-version.png" alt="نسخه۷٫۲۵٫۱ و معماری x86_64 خوانده‌شده از CHR؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">نسخه۷٫۲۵٫۱ و معماری x86_64 خوانده‌شده از CHR — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"anchor":"winbox-safe-mode"} -->
+<h2 class="wp-block-heading" id="winbox-safe-mode">۲. یک Comment را در Safe Mode تغییر دهید و برگردانید</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۲–۱. Safe Mode را فعال کنید</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در لاب مستقل، روی <strong>Safe Mode</strong> بالای پنجره کلیک کنید. نشان سبز، فعال‌شدن آن را در همین نشست نشان می‌دهد. این آزمون، جای Backup یا دسترسی جایگزین نیست؛ بازگشت پس از قطع غیرعادی در این برداشت آزمایش نشده است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-5"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-5"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/05-safe-mode-active.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/05-safe-mode-active.png" alt="نشان سبز Safe Mode روی روتر آزمایشگاهی؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">نشان سبز Safe Mode روی روتر آزمایشگاهی — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۲–۲. Comment رابط غیرمدیریتی را تغییر دهید</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در <strong>Interfaces</strong> ردیف <strong>ether2</strong> را انتخاب و <strong>Comment</strong> را بزنید. متن آزمایشی <code>TN-SAFE-MODE-DEMO</code> را وارد و <strong>OK</strong> کنید. هیچ آدرس، مسیر یا سرویس مدیریت در این مرحله تغییر نمی‌کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-6"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-6"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/06-safe-mode-comment.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/06-safe-mode-comment.png" alt="Comment آزمایشی ether2 و دکمهٔ OK؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">Comment آزمایشی ether2 و دکمهٔ OK — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۲–۳. نتیجه را ببینید؛ سپس Undo</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>متن Comment اکنون بالای ether2 دیده می‌شود. روی پیکان <strong>Undo</strong> در نوار بالای WinBox کلیک کنید؛ چند لحظه برای پاسخ روتر صبر کنید. صرف فشردن دکمه اثبات برگشت نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-7"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-7"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/07-comment-applied.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/07-comment-applied.png" alt="Comment واقعاً اعمال‌شده و پیکان Undo؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">Comment واقعاً اعمال‌شده و پیکان Undo — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۲–۴. برگشت را تأیید و Safe Mode را تمام کنید</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Comment نمونه دیگر کنار ether2 نیست؛ خواندن مستقل تنظیم رابط از CLI هم خالی‌بودن آن را تأیید کرد. اکنون <strong>Safe Mode</strong> را دوباره بزنید تا حالت خاتمه یابد. در این تمرین فقط Undo و برگشت این Comment آزموده شد، نه تمام حالت‌های خرابی اتصال.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-8"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-8"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/08-comment-undone.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/08-comment-undone.png" alt="ether2 پس از Undo، بدون Comment آزمایشی؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">ether2 پس از Undo، بدون Comment آزمایشی — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"anchor":"winbox-packages"} -->
+<h2 class="wp-block-heading" id="winbox-packages">۳. نسخهٔ Package را بخوانید؛ ارتقا را جدا تصمیم بگیرید</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۳–۱. System → Packages</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>روی <strong>System → Packages</strong> کلیک و ستون‌های <strong>Installed</strong> و <strong>Version</strong> را بررسی کنید؛ routeros با نسخه۷٫۲۵٫۱ نصب است. در این لاب <strong>Apply Changes، Downgrade یا دانلود Upgrade اجرا نشده</strong>. پیش از نصب نسخهٔ دیگر، منبع/معماری/بسته‌ها و بازیابی همان نسخه باید جدا آزموده شوند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-39"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-39"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/39-installed-packages.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/39-installed-packages.png" alt="بستهٔ واقعی routeros۷٫۲۵٫۱ در System → Packages؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">بستهٔ واقعی routeros۷٫۲۵٫۱ در System → Packages — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"anchor":"winbox-backup"} -->
+<h2 class="wp-block-heading" id="winbox-backup">۴. فایل داشتن را با بازیابی موفق اشتباه نگیرید</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۴–۱. Files → Backup</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>روی <strong>Files</strong> و سپس <strong>Backup</strong> در سمت راست کلیک کنید. پیش از ساخت فایل، محل امنِ خارج روتر و دسترسی به رمز را مشخص کنید؛ این فایل برای دانلود عمومی مقاله نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-27"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-27"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/27-files-backup-start.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/27-files-backup-start.png" alt="مسیر Files → Backup؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">مسیر Files → Backup — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۴–۲. نام، رمز و Encryption را بررسی کنید</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در فرم <strong>Backup Config</strong>، با علامت <strong>+</strong> فیلدهای اختیاری <strong>Name</strong> و <strong>Password</strong> را فعال کنید. نام این تمرین <code>tn-lab-checkpoint</code> است؛ رمز واقعی در عکس عمداً وارد نشده. <strong>Encryption=aes-sha256</strong> و <strong>Don’t Encrypt خاموش</strong> را بررسی کنید. در اجرای ثبت‌شده، ساخت نهایی Backup رمزگذاری‌شده و Export از مسیر خصوصی CLI انجام شد؛ ثبت نهایی این فایل از فرم تصویری انجام نشد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-28"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-28"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/28-backup-fields.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/28-backup-fields.png" alt="فیلدهای Name، Password و Encryption بدون نمایش هیچ رمز؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">فیلدهای Name، Password و Encryption بدون نمایش هیچ رمز — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۴–۳. وجود دو نوع فایل را تأیید کنید</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در <strong>Files</strong>، پسوند <strong>.backup</strong> را از <strong>.rsc</strong> جدا کنید. Backup رمزگذاری‌شده و Export پیش‌فرض واقعاً ساخته و از روتر به محل خصوصی منتقل شدند؛ وجود هر دو راز لاب در Export بررسی و رد شد. پنهان‌بودن رمز، کل Export را برای انتشار عمومی بی‌خطر نمی‌کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-29"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-29"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/29-backup-and-export-files.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/29-backup-and-export-files.png" alt="فایل واقعی Backup و Export با پسوند و اندازهٔ متفاوت؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">فایل واقعی Backup و Export با پسوند و اندازهٔ متفاوت — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۴–۴. Restore عملیات جدا و همراه reboot است</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>فقط فایل Backup همین لاب را انتخاب و <strong>Restore</strong> را باز کنید. <strong>Backup File</strong> و رمز اختصاصی همان فایل را بررسی کنید. بازیابی روی شبکهٔ کاری یا تنها مسیر مدیریت را از روی عکس اجرا نکنید. در این آزمون، فرم تصویری بررسی شد و اجرای واقعی load از CLI خصوصیِ همان VM انجام گرفت.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-30"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-30"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/30-restore-dialog.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/30-restore-dialog.png" alt="فرم واقعی Restore؛ فایل انتخاب‌شده و محل رمز؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">فرم واقعی Restore؛ فایل انتخاب‌شده و محل رمز — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">۴–۵. نتیجهٔ واقعی بازیابی را بپذیرید</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>پس از تهیهٔ Backup، Comment متفاوتی برای آزمون اضافه شد. با load و reboot همان CHR، آن تغییر از بین رفت؛ <strong>هویت، نسخه، IP داخلی، DHCP، جدا بودن رابط مدیریت و کلید SSH</strong> دوباره تأیید شدند. WinBox نیز به روتر برگشت. این شواهد فقط بازیابی همین VM و نسخه را پوشش می‌دهند؛ زمان آن SLA یا برآورد بازیابی سازمان شما نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-lab-shot-31"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-lab-shot-31"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/31-reconnected-after-restore.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/31-reconnected-after-restore.png" alt="WinBox دوباره متصل پس از بازیابی واقعی CHR؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب مجزا" width="1536" height="817" /></a><figcaption class="wp-element-caption">WinBox دوباره متصل پس از بازیابی واقعی CHR — کادر رنگی راهنمای مطالعه است؛ برای دیدن تصویر اصلیِ بدون کادر روی عکس بزنید.</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><strong>تمرین پذیرش:</strong> نقش هر رابط را توضیح دهید، Comment اولیه را بخوانید، فقط همان Comment را عوض/Undo کنید و مقدار پیشین را دوباره بخوانید. برای Backup، وجود فایل بیرون روتر، دسترسی به رمز و آزمون پس از بازیابی را جدا ثبت کنید. <a href="/learn/mikrotik/mtcna/ip-dhcp-dns/#winbox-ip-lab">ادامهٔ تصویری: IP، Bridge و DHCP</a>؛ برای شبکهٔ کاری از <a href="/services/mikrotik-tehran/">خدمات میکروتیک تهران نتورک</a> استفاده کنید و فایل خام یا رمز در درخواست نفرستید.</p>
+<!-- /wp:paragraph -->
+
+
+
+<!-- wp:paragraph -->
+<p>برای شروع کار با RouterOS، فقط وصل‌شدن به Winbox کافی نیست؛ باید بدانید کدام وضعیت را ذخیره کرده‌اید، چه چیزی در فایل شما نیست و اگر تغییر نتیجه نداد از کجا برمی‌گردید. در این راهنمای نوشتاری از مسیر <a href="/learn/mikrotik/mtcna/">MTCNA تهران نتورک</a>، اتصال اولیه را به یک برنامهٔ کوچکِ تغییر و بازیابی وصل می‌کنیم. هدف، تمرین روی روتر آزمایشگاهی خودتان است؛ شبکهٔ سازمان یا دستگاهی که تنها راه دسترسی آن همین نشست است، محل این تمرین نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>دامنه و نسخه:</strong> بخش تصویری این صفحه در۵نوامبر۲۰۲۶ روی CHR۷٫۲۵٫۱ و WinBox۴٫۵ اجرا شد؛ اتصال IP، Comment/Safe Mode/Undo، Backup و restore همان VM آزموده شدند. متن نظری اولیه با منابع۱نوامبر حفظ شده است؛ نسخه۷٫۲۶ در انتخابگر آن منابع، نسخهٔ دستگاه یا توصیهٔ نصب نیست. restore سخت‌افزار، Import، MAC access، ارتقا و قطع ناگهانیِ Safe Mode در این بسته آزموده نشده‌اند.</p>
+<!-- /wp:paragraph -->
+
+
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">اتصال به Winbox: اول دستگاه و مسیر را بشناسید</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Winbox را از <a href="https://mikrotik.com/download/winbox">صفحهٔ رسمی دانلود MikroTik</a> بگیرید. مستند فعلی <a href="https://manual.mikrotik.com/docs/management-tools/winbox/">Winbox</a> نسخهٔ ۴ را برای Windows، Linux و macOS معرفی می‌کند؛ ظاهر نسخهٔ ۳ قدیمی ممکن است متفاوت باشد. در صورت امکان با IP مدیریتیِ مجاز وصل شوید. Neighbors فهرست دستگاه‌های کشف‌شده در شبکهٔ لایهٔ دو است، نه فهرست تضمینیِ همهٔ روترها؛ دیده‌نشدن روتر به‌تنهایی ثابت نمی‌کند دستگاه خاموش است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>اتصال MAC می‌تواند در دسترسی محلیِ مجاز مفید باشد، اما به مسیر لایهٔ دو و تنظیمات MAC access وابسته است و جای دسترسی مدیریتی پایدار را نمی‌گیرد. <a href="https://manual.mikrotik.com/docs/management-tools/mac-server/">راهنمای MAC server</a> محدودکردن این دسترسی به رابط‌های مورداعتماد را توضیح می‌دهد. برای پیداکردن دستگاه، فایروال شبکهٔ واقعی را خاموش یا دسترسی مدیریت را عمومی نکنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>پیش از ورود، مشخص کنید این دستگاهِ آزمایشگاهی متعلق به شماست و تغییر آن روی کاربر دیگری اثر ندارد.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>پس از ورود، مدل، نسخهٔ RouterOS، نام رابط‌های متصل و نقش هر کابل را در یادداشت خصوصی ثبت کنید. نامی مانند «LAN» بدون تطبیق با کابل واقعی کافی نیست.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>روش ورود دوباره و مسیر جایگزین را پیش از تغییر امتحان کنید. داشتن فایل بکاپ روی همان روتر، راه ورود به دستگاهِ ازدسترس‌خارج‌شده ایجاد نمی‌کند.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Backup و Export کدام نیاز را جواب می‌دهند؟</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>Backup باینری:</strong> برای برگشت پیکربندی همان دستگاه در نظر گرفته می‌شود. <a href="https://manual.mikrotik.com/docs/getting-started/configuration-management/backup/">راهنمای رسمی Backup</a> دربارهٔ انتقال MAC addressها و ناسازگاریِ بازیابی روی دستگاه دیگر هشدار می‌دهد؛ فایل باینری را الگوی عمومی انتقال به هر روتر هم‌مدل ندانید. همان راهنما، بازیابی با همان نسخهٔ RouterOS و پشتیبان جداگانه برای پایگاه‌های Dude و User Manager را مطرح می‌کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Export متنی:</strong> برای خواندن، مقایسه و بازبینی دستورهای پیکربندی مفید است. مطابق <a href="https://manual.mikrotik.com/docs/getting-started/configuration-management/">Configuration Management</a>، export پیش‌فرض تنظیمات ویرایش‌شده را می‌آورد و پیش‌فرض‌های سیستم را کنار می‌گذارد. رمز کاربران سیستم، کلید SSH کاربران، گواهی‌های نصب‌شده و پایگاه‌های Dude و User Manager را جایگزینِ کامل پشتیبان نمی‌کند. مخفی‌بودن پارامترهای حساس نیز به معنی بی‌خطر بودن تمام متن نیست؛ نام‌ها، نشانی‌ها و توضیحات را پیش از اشتراک بازبینی کنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>اگر هدف، برگشت همین روتر پس از تغییر است، Backup رمزگذاری‌شده و مدارک نسخه/دستگاه را آماده کنید؛ فایل تنها یکی از اجزای برنامهٔ بازگشت است.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>اگر هدف، فهمیدن تفاوت دو وضعیت است، Export قبل و بعد را به‌صورت خصوصی مقایسه کنید؛ خروجی کامل را در تیکت عمومی یا Git قرار ندهید.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>اگر هدف، انتقال به دستگاه دیگر است، Export را ابتدا به‌عنوان متن و مجموعه‌ای از دستورهای نیازمند تطبیق بررسی کنید؛ نام و تعداد رابط‌ها و نسخهٔ مقصد را برابر فرض نکنید.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">بستهٔ قبل از تغییر: فایل، رمز، نسخه و کپی خارج از روتر</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در پنجرهٔ Backup دستگاه، رمز قوی و اختصاصی انتخاب و گزینهٔ ذخیرهٔ بدون رمزگذاری را غیرفعال نگه دارید. <a href="https://manual.mikrotik.com/docs/cli-reference/system/backup/save/">مرجع backup save</a> می‌گوید نبودِ password فایل را بدون رمزگذاری ذخیره می‌کند و <code>dont-encrypt=yes</code> حتی با وجود password، رمزگذاری را کنار می‌گذارد. یک رمز نمونهٔ مقاله را کپی نکنید و رمز واقعی را در اسکرین‌شات یا فایل دستورهای مشترک ننویسید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>برای Export آزمایشگاهی، نمونهٔ مستند زیر فایل می‌سازد؛ دستور فقط خواندنی نیست و باید روی روتر مجاز با فضای کافی اجرا شود. پارامتر آشکارسازی اطلاعات حساس به آن اضافه نشده است. معادل این دستور با نام فایل <code>tn-lab-readable</code> در لاب تصویری اجرا و به محل خصوصی منتقل شد؛ نام زیر نمونه است:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code>/export file=before-lab</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>پس از ساخت فایل، وجود آن را در Files بررسی و یک نسخه را به محل امن خارج از روتر منتقل کنید. فقط نام فایل را در دفتر تغییر ثبت کنید؛ فایل و رمز بازیابی را در همان پوشهٔ عمومی نگذارید. در این تمرین، برای هر بسته چهار چیز ثبت کنید: دستگاه/نسخهٔ مبدأ، زمان تهیه، محل امنِ نسخهٔ خارج از روتر و مسئول دسترسی به رمز. کپی ناقص یا فایلی که مسئول بازیابی نمی‌تواند آن را پیدا کند، برای حادثه آماده نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Safe Mode: یک تغییر کوچک، یک آزمون مشخص</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>با دکمهٔ Safe Mode در Winbox یا <code>Ctrl+X</code> در ترمینال می‌توان این حالت را گرفت. راهنمای رسمی می‌گوید تغییرهای ثبت‌شده، از جمله تغییرهای نشست‌های دیگر، با قطع غیرعادیِ نشست مالک پس از timeout برمی‌گردند؛ <code>Ctrl+D</code> برای برگشت تغییرها و <code>/quit</code> رفتار یکسانی ندارند. پرشدن تاریخچه می‌تواند Safe Mode را خاتمه دهد. برای اتمام موفق در ترمینال، آزادکردن حالت با <code>Ctrl+X</code> تغییرها را نگه می‌دارد؛ قطع اتصال را با این تصمیم اشتباه نگیرید. پیش از اتکا، رفتار را در نسخهٔ لاب خود بررسی کنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>برای تمرین، فقط یک تغییرِ غیرحیاتی و قابل تشخیص در دستگاهِ جدا انجام دهید و قبل و بعد آن را یادداشت کنید. هم‌زمان شخص دیگری روی همان روتر کار نکند. نتیجهٔ موردانتظار را پیش از کلیک بنویسید: «این مقدار عوض شود؛ اتصال مدیریتی برقرار بماند؛ بتوانم مقدار قبلی را تشخیص دهم». اگر هر سه را بررسی نکرده‌اید، وارد تغییر دوم نشوید. Safe Mode را جایگزین Backup، دسترسی جایگزین یا مجوز تغییر در تولید حساب نکنید؛ در تمرین Safe Mode فقط Comment/Undo انجام می‌شود؛ آزمون Restore در بخش تصویری جداگانه و روی همان VM مستقل است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Import و Restore را از هم جدا تمرین کنید</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Restore باینری با <a href="https://manual.mikrotik.com/docs/cli-reference/system/backup/load/">backup load</a> پس از تأیید، روتر را reboot می‌کند. این عملیات می‌تواند مسیر مدیریت را عوض کند؛ آن را در نشستِ تنها راه دسترسی شروع نکنید. برای آزمایشِ مجازِ بازیابی، پنجرهٔ قطعی و راه دسترسی مستقل را پیشاپیش مشخص کنید. موفقیتِ پیام load به‌تنهایی، پذیرش سلامت سرویس نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Import یک فایل <code>.rsc</code> را به‌عنوان دستور اجرا می‌کند؛ «فایل متنی» به معنی بی‌اثر بودن نیست. <a href="https://manual.mikrotik.com/docs/cli-reference/import/">مرجع import</a> حالت dry-run را برای شبیه‌سازی معرفی می‌کند؛ راهنمای Configuration Management آن را همراه verbose توضیح می‌دهد. پشتیبانی و نحو دقیق را در نسخهٔ خود بررسی کنید. dry-run را تأیید دسترسی، سرویس‌دهی یا سازگاری تمام دستگاه‌ها ندانید. در این درس دستور اجرایی import یا reset برای کپی مستقیم ارائه نشده است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">سناریوی آموزشی: چرا دو فایل داریم ولی هنوز آمادهٔ بازیابی نیستیم؟</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>فرض کنید در لاب، Backup و Export گرفته‌اید اما هر دو فقط روی دیسک همان روتر مانده‌اند. می‌خواهید تغییر بعدی را شروع کنید. تصمیم درستِ این سناریو، توقف کوتاه برای کامل‌کردن بستهٔ قبل از تغییر است: کپی خارج از دستگاه، مشخصات نسخه، راه ورود جایگزین و معیار آزمون هنوز معلوم نیست. این یک مثال طراحی تمرین است، نه گزارش حادثهٔ مشتری یا آزمون انجام‌شدهٔ تهران نتورک.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>وضعیت پایه را بنویسید: از کدام مسیر وارد می‌شوید و کدام سرویسِ همان لاب باید کار کند؟</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>یک تغییر کوچک انتخاب کنید؛ هم‌زمان IP، VLAN و فایروال را تغییر ندهید. نتیجهٔ موردانتظار و شرط توقف را تعیین کنید.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>بعد از تغییر، همان آزمونِ پایه را تکرار کنید. اگر متفاوت شد، نتیجهٔ واقعی را ثبت کنید؛ با تغییرهای تصادفی بعدی علت را پنهان نکنید.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>بازیابی واقعی را در تمرین جداگانه و با امکان قطعی انجام دهید. زمان شروع/پایان را همان‌جا اندازه بگیرید؛ از مقاله یا اندازهٔ فایل، زمان بازیابی نسازید.</li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">فرم پذیرش بازیابی: چه مدرکی باید باقی بماند؟</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>برای تمرینِ خودتان، فهرست زیر را در یک سند خصوصی تکمیل کنید. «نامشخص» یک نتیجهٔ معتبر است؛ خانهٔ خالی را با «موفق» پر نکنید. هیچ عدد عمومی برای زمان قابل‌قبول یا تضمینِ بازیابی در این فرم تعیین نشده است؛ معیار باید با نیاز همان سرویس توافق شود.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>مبدأ و مقصد: مدل/نسخه، نام رابط‌های موردنیاز و دلیل سازگاری؛ بدون انتشار شماره‌سریال یا نشانی حساس.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>ورودی: نام بسته، تاریخ، محل امن و امکان دسترسی مجاز به رمز؛ فایل واقعی یا رمز را به این فرم عمومی ضمیمه نکنید.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>آزمون پایه: ورود مدیریتی و آزمونِ سرویس منتخبِ لاب قبل از تغییر، با انتظار روشن.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>نتیجهٔ پس از بازیابی: مشاهدهٔ واقعیِ همان دو آزمون و تفاوت باقی‌مانده؛ صرف روشن‌شدن دستگاه کافی نیست.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>زمان و تصمیم: بازهٔ اندازه‌گیری‌شده، محدودیت، نتیجهٔ قبول/رد/نامشخص، مسئول و گام بعدی.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">خطاهای رایج و قدم بعدی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>فایل هست اما خارج از روتر کپی نشده: ابتدا دسترسی به نسخهٔ مستقل را کامل کنید.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Export گرفته‌اید و انتظار دارید همهٔ رمزها و گواهی‌ها بازگردند: دامنهٔ Export و اجزای جداگانهٔ بازیابی را دوباره بررسی کنید.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>MAC در Neighbors دیده می‌شود ولی ورود ندارید: دیده‌شدن را با دسترسی مجاز و قابل استفاده یکی ندانید؛ توپولوژی و محدودیت مدیریت را بررسی کنید.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>بعد از restore فقط Ping جواب می‌دهد: معیار پذیرش را به ورود مدیریتی و سرویس واقعیِ منتخب گسترش دهید.</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>لاب با شبکهٔ سازمانی مشترک است: پیش از تمرینِ دارای قطعی، آن را جدا کنید یا برنامهٔ تغییر مستقل و مجاز داشته باشید.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>جلسهٔ بعد: <a href="/learn/mikrotik/mtcna/ip-dhcp-dns/">آدرس‌دهی IP، DHCP و DNS</a>. برای طراحی محیط تمرین، <a href="/lab/gns3-mikrotik/">راهنمای لاب GNS3 میکروتیک</a> و <a href="/lab-before-production/">اصول لاب پیش از شبکهٔ عملیاتی</a> را بخوانید. اگر برای بررسی تغییر یا برنامهٔ بازیابیِ شبکهٔ موجود نیاز به کمک دارید، <a href="/services/mikrotik-tehran/">خدمات میکروتیک تهران نتورک</a> دامنهٔ بررسی را توضیح می‌دهد؛ هزینه و امکان اجرا پس از نیازسنجی مشخص می‌شوند. رمز، Backup یا دسترسی زنده را در پیام اولیه نفرستید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">منابع و مرز آزمون</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>منابع فنی سازنده در بخش‌های مرتبط همین درس لینک شده‌اند: Winbox، MAC server، Configuration Management و Backup، به‌همراه مرجع save/load/import. بازبینی منبع با آزمون محصول یکی نیست. این نسخه، راهنمای آموزشی و برنامهٔ پیشنهادی تمرین است؛ آزمایشِ restore روی مدل/نسخهٔ شما، تضمینِ امنیت یا زمان رفع قطعی ایجاد نمی‌کند. <a href="/technical-methodology/">روش منابع و اصلاح محتوا</a> توضیح می‌دهد چگونه شاهد و محدودیت را از هم جدا می‌کنیم.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:shortcode -->
+[tn_editorial_note]
+<!-- /wp:shortcode -->

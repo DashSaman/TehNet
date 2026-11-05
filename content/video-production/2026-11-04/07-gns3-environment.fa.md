@@ -46,3 +46,9 @@
 - [منبع رسمی](https://docs.gns3.com/docs/getting-started/setup-wizard-gns3-vm)
 - [منبع رسمی](https://docs.gns3.com/docs-3.1-en/gns3-vm/gns3-vm-usage)
 - [منبع رسمی](https://manual.mikrotik.com/docs/getting-started/routeros-licensing/chr/chr-licensing/)
+
+## پذیرش محدود لاب —۵نوامبر۲۰۲۶
+
+VM رسمی GNS3 با hash ناشر تأیید و headless اجرا شد. Server2.2.61 با Web UI2.2.58، compute محلی، تصویر CHR7.25.1 معتبر، پروژهٔ دو node/یک لینک داخلی و graph واقعی ثبت شدند. [شواهد](../../../docs/evidence/2026-11-05/winbox-core/independent-lab.json). شروع پروژه از API انجام شد؛ ویزارد GUI به‌عنوان اجراشده ادعا نمی‌شود.
+
+boot داخلی CHR هنوز Load system و console/ping ناموفق است؛ RAM1024 و inner TCG واقعی تأیید شدند ولی علت نهایی نامشخص است. nodeهای پروژه برای کاهش مصرف CPU متوقف و تمام دیسک‌ها حفظ شدند. این سناریو هنوز DRAFT_NEW_RECORDING/PENDING_TECHNICAL_REHEARSAL است؛ هیچ ضبط تازه، مدت واقعی یا تأیید تدوین وجود ندارد. ادامه فقط framebuffer مستقل مهمان و مرورگر headless، بدون ورودی دسکتاپ یا تغییرات Windows میزبان.

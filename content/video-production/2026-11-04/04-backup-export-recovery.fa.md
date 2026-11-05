@@ -45,3 +45,10 @@
 
 - [منبع رسمی](https://manual.mikrotik.com/docs/getting-started/configuration-management/backup/)
 - [منبع رسمی](https://manual.mikrotik.com/docs/getting-started/configuration-management/)
+
+
+## شواهد واقعیِ بخش نوشتاری —۵نوامبر۲۰۲۶
+
+تصاویر 27–31 در [manifest تصاویر اصلی](../../winbox-guides-2026-11-05/captures.json) ثبت شده‌اند. فرم‌های Backup/Restore در WinBox بررسی شدند؛ ایجاد نهایی Backup رمزگذاری‌شده، Export و load/reboot از CLI خصوصی اجرا شدند. هفت پذیرش پس از restore قبول شد. فایل/رمز خام خارج Git است؛ این شواهد اجرای همهٔ کلیک‌های نهایی GUI نیست.
+
+این پذیرشِ محدود، ضبط تازه، مدت واقعی نماها، rehearsal کامل سناریو یا تأیید فیلم قدیمی نیست؛ وضعیت DRAFT_NEW_RECORDING و زمان‌های واقعی/approval همچنان null هستند. پس از درخواست تازهٔ مالک، ادامهٔ capture فقط در نمایشگر مستقل مهمان و بدون کلیک/تایپ/فعال‌کردن پنجره در دسکتاپ میزبان مجاز است.

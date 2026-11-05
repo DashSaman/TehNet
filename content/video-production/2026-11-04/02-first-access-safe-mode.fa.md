@@ -45,3 +45,10 @@
 
 - [منبع رسمی](https://manual.mikrotik.com/docs/management-tools/console/)
 - [منبع رسمی](https://manual.mikrotik.com/docs/getting-started/configuration-management/)
+
+
+## شواهد واقعیِ بخش نوشتاری —۵نوامبر۲۰۲۶
+
+تصاویر 05–08 در [manifest تصاویر اصلی](../../winbox-guides-2026-11-05/captures.json) ثبت شده‌اند. Safe Mode سبز، Comment واقعی ether2 و Undo با تأیید خالی‌شدن Comment؛ بازگشت پس از قطع ناگهانی آزمایش نشده است.
+
+این پذیرشِ محدود، ضبط تازه، مدت واقعی نماها، rehearsal کامل سناریو یا تأیید فیلم قدیمی نیست؛ وضعیت DRAFT_NEW_RECORDING و زمان‌های واقعی/approval همچنان null هستند. پس از درخواست تازهٔ مالک، ادامهٔ capture فقط در نمایشگر مستقل مهمان و بدون کلیک/تایپ/فعال‌کردن پنجره در دسکتاپ میزبان مجاز است.

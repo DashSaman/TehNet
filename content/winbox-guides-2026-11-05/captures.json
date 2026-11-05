@@ -1,0 +1,865 @@
+{
+  "schema": 1,
+  "source": "Original actual WinBox UI captures; no UI text/state/result substitution",
+  "routeros": "7.25.1 stable",
+  "winbox": "4.5",
+  "device": "CHR x86_64 / QEMU TCG",
+  "captures": [
+    {
+      "name": "01-connected-overview",
+      "lesson": "01",
+      "observed_utc": "2026-11-05T10:17:35.965Z",
+      "width": 1536,
+      "height": 816,
+      "sha256": "7aeedbe5398c61fad0f09928de39e9ef3c3971bb070e194cc3462c3b9e8ed106",
+      "marks": [
+        {
+          "x": 30,
+          "y": 155,
+          "w": 168,
+          "h": 40,
+          "label": "Interfaces"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "02-interface-inventory",
+      "lesson": "01",
+      "observed_utc": "2026-11-05T10:17:44.616Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "a1a41c333fa5116b57184d421eb0bf491166c2d5551030bf08ec51c6d977f0ed",
+      "marks": [
+        {
+          "x": 222,
+          "y": 187,
+          "w": 515,
+          "h": 112,
+          "label": "ether1 / ether2 / ether3"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "03-system-resources-menu",
+      "lesson": "01",
+      "observed_utc": "2026-11-05T10:17:53.116Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "c934e0d0814eb018e8bdfd14cb2965790f05d622e54c67eab47b15d1d810072a",
+      "marks": [
+        {
+          "x": 211,
+          "y": 767,
+          "w": 183,
+          "h": 37,
+          "label": "Resources"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "04-routeros-version",
+      "lesson": "01",
+      "observed_utc": "2026-11-05T10:18:21.187Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "532b7220a6228823a33b7f5df9b2a2d4419775ae2e37be5c7994a32659a3de3d",
+      "marks": [
+        {
+          "x": 610,
+          "y": 530,
+          "w": 423,
+          "h": 107,
+          "label": "Architecture / Version7.25.1"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "05-safe-mode-active",
+      "lesson": "02",
+      "observed_utc": "2026-11-05T10:18:33.818Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "f7c4d204293b486fe21b21f2369f68034bb4cbe8e7e143a6b359d0069ca0a58f",
+      "marks": [
+        {
+          "x": 1267,
+          "y": 30,
+          "w": 148,
+          "h": 37,
+          "label": "Safe Mode active"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "06-safe-mode-comment",
+      "lesson": "02",
+      "observed_utc": "2026-11-05T10:18:58.073Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "d6eec0b3e952ae4d7a8b839a27f3a98bde412e67f3728aef1d91b437aadea26b",
+      "marks": [
+        {
+          "x": 580,
+          "y": 188,
+          "w": 454,
+          "h": 39,
+          "label": "Comment"
+        },
+        {
+          "x": 1039,
+          "y": 188,
+          "w": 64,
+          "h": 40,
+          "label": "OK"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "07-comment-applied",
+      "lesson": "02",
+      "observed_utc": "2026-11-05T10:19:14.917Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "060ff967b422548b075d042472d784675db2194aa040e15c2696928c8b701e08",
+      "marks": [
+        {
+          "x": 215,
+          "y": 219,
+          "w": 392,
+          "h": 62,
+          "label": "Observed comment"
+        },
+        {
+          "x": 1203,
+          "y": 31,
+          "w": 31,
+          "h": 35,
+          "label": "Undo"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "08-comment-undone",
+      "lesson": "02",
+      "observed_utc": "2026-11-05T10:19:25.541Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "20ef3fbc8d545de32c19b0d6a7091a022356edc6db965aa084abb9e54b35def7",
+      "marks": [
+        {
+          "x": 211,
+          "y": 219,
+          "w": 496,
+          "h": 38,
+          "label": "ether2 restored"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "09-bridge-start",
+      "lesson": "05b",
+      "observed_utc": "2026-11-05T10:20:33.701Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "02b82453adc8f3039e7465f17155a034aca19dd72e44da3e934eef629e21a9a5",
+      "marks": [
+        {
+          "x": 213,
+          "y": 117,
+          "w": 71,
+          "h": 35,
+          "label": "New"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "10-bridge-name",
+      "lesson": "05b",
+      "observed_utc": "2026-11-05T10:21:03.912Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "52632fd9b39bfade231bc819fa7277b39a27b861304d8e8f2b6c902b673a00ff",
+      "marks": [
+        {
+          "x": 746,
+          "y": 275,
+          "w": 303,
+          "h": 41,
+          "label": "Name = bridge-lab"
+        },
+        {
+          "x": 1247,
+          "y": 697,
+          "w": 65,
+          "h": 36,
+          "label": "OK"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "11-bridge-created",
+      "lesson": "05b",
+      "observed_utc": "2026-11-05T10:21:49.273Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "56d2c2ee0e0b4b76e381d8c5c231cbc0429e81f4192da6589a68185839aca97e",
+      "marks": [
+        {
+          "x": 342,
+          "y": 188,
+          "w": 166,
+          "h": 35,
+          "label": "bridge-lab"
+        },
+        {
+          "x": 439,
+          "y": 74,
+          "w": 72,
+          "h": 41,
+          "label": "Ports"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "12-bridge-port-select",
+      "lesson": "05b",
+      "observed_utc": "2026-11-05T10:22:06.495Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "c0d7c77e525f1c7d92bd9951fd74bae1c8a1225c083b21ca7d7cdfe0f1e72e2c",
+      "marks": [
+        {
+          "x": 832,
+          "y": 344,
+          "w": 303,
+          "h": 31,
+          "label": "ether2 (lab client)"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "13-bridge-port-apply",
+      "lesson": "05b",
+      "observed_utc": "2026-11-05T10:22:12.978Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "e07ddefbf20bc63889115b7ee86177b15107ccf6efec4e83522ddc05be24b074",
+      "marks": [
+        {
+          "x": 824,
+          "y": 278,
+          "w": 274,
+          "h": 72,
+          "label": "ether2 / bridge-lab"
+        },
+        {
+          "x": 1163,
+          "y": 697,
+          "w": 69,
+          "h": 36,
+          "label": "OK"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "14-ip-addresses-menu",
+      "lesson": "03",
+      "observed_utc": "2026-11-05T10:22:56.476Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "91887f2c95d5771fc20bbda3464dc8af598c5fcc898f6154d0e079fcd2ae777d",
+      "marks": [
+        {
+          "x": 211,
+          "y": 98,
+          "w": 169,
+          "h": 33,
+          "label": "IP → Addresses"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "15-static-ip-fields",
+      "lesson": "03",
+      "observed_utc": "2026-11-05T10:23:33.478Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "3af700ae46c6667b00715b1f6924da3d387ff3453028c075b6abd2f4ddb8e94a",
+      "marks": [
+        {
+          "x": 733,
+          "y": 379,
+          "w": 275,
+          "h": 38,
+          "label": "Address192.0.2.1/24"
+        },
+        {
+          "x": 731,
+          "y": 460,
+          "w": 277,
+          "h": 36,
+          "label": "Interface bridge-lab"
+        },
+        {
+          "x": 1076,
+          "y": 548,
+          "w": 69,
+          "h": 41,
+          "label": "OK"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "16-static-ip-result",
+      "lesson": "03",
+      "observed_utc": "2026-11-05T10:23:42.253Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "61fda9593a00186ccb644c80adf6746104fe095d4ffe634ea2b5e7b757361593",
+      "marks": [
+        {
+          "x": 596,
+          "y": 219,
+          "w": 464,
+          "h": 37,
+          "label": "Observed192.0.2.1/24 on bridge-lab"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "17-dhcp-client-bound",
+      "lesson": "05",
+      "observed_utc": "2026-11-05T10:23:55.198Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "70a25bb15d47a88929bd6d1d1ae33541e64241d406648a85393a0719252a6acf",
+      "marks": [
+        {
+          "x": 548,
+          "y": 188,
+          "w": 738,
+          "h": 35,
+          "label": "ether1 / dynamic address / bound"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "18-dhcp-setup-start",
+      "lesson": "05",
+      "observed_utc": "2026-11-05T10:24:06.849Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "089a7089c65d14c3739a3fda0133204c2b51e7753f1d065fd3b279f539acc0ac",
+      "marks": [
+        {
+          "x": 1303,
+          "y": 165,
+          "w": 159,
+          "h": 34,
+          "label": "DHCP Setup"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "19-dhcp-setup-interface",
+      "lesson": "05",
+      "observed_utc": "2026-11-05T10:24:26.310Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "00ef1d574c994d3bdec35dfa721a68e0fc3b9e0b4377dcb0ecdc2ed098191027",
+      "marks": [
+        {
+          "x": 838,
+          "y": 381,
+          "w": 344,
+          "h": 40,
+          "label": "bridge-lab"
+        },
+        {
+          "x": 1124,
+          "y": 474,
+          "w": 85,
+          "h": 35,
+          "label": "Next"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "20-dhcp-address-space",
+      "lesson": "05",
+      "observed_utc": "2026-11-05T10:24:33.191Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "79ebb51d4bc04c042205b9b3fc9b78928ee540353ed76a48eb3208e050e7ace2",
+      "marks": [
+        {
+          "x": 839,
+          "y": 385,
+          "w": 338,
+          "h": 36,
+          "label": "192.0.2.0/24"
+        },
+        {
+          "x": 1127,
+          "y": 475,
+          "w": 81,
+          "h": 34,
+          "label": "Next"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "21-dhcp-gateway",
+      "lesson": "05",
+      "observed_utc": "2026-11-05T10:24:39.465Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "1728f7fc0e716e6ac88416f176b4f6715ca7c06a2a04c345450827049b56251a",
+      "marks": [
+        {
+          "x": 837,
+          "y": 382,
+          "w": 342,
+          "h": 40,
+          "label": "Gateway192.0.2.1"
+        },
+        {
+          "x": 1127,
+          "y": 474,
+          "w": 81,
+          "h": 36,
+          "label": "Next"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "22-dhcp-pool",
+      "lesson": "05",
+      "observed_utc": "2026-11-05T10:25:06.560Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "683dbbfae1e78ae82bd7d213efab9c2eb1ca00cc5ef5d455379cf7df34c47e9b",
+      "marks": [
+        {
+          "x": 837,
+          "y": 383,
+          "w": 272,
+          "h": 37,
+          "label": "192.0.2.100–192.0.2.150"
+        },
+        {
+          "x": 1126,
+          "y": 474,
+          "w": 84,
+          "h": 37,
+          "label": "Next"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "23-dhcp-no-external-dns",
+      "lesson": "05",
+      "observed_utc": "2026-11-05T10:25:14.383Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "acecf6928ce570b449c2b7474a5a3942c384e168366dac2f04dbaa7a80750b32",
+      "marks": [
+        {
+          "x": 838,
+          "y": 385,
+          "w": 24,
+          "h": 33,
+          "label": "Send DNS unchecked (isolated lab)"
+        },
+        {
+          "x": 1127,
+          "y": 474,
+          "w": 81,
+          "h": 36,
+          "label": "Next"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "24-dhcp-lease-time",
+      "lesson": "05",
+      "observed_utc": "2026-11-05T10:25:21.288Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "ad62b3c2a4bd1c060f8ca225641b6297ad2fc82b8edf2ffd9647547996893775",
+      "marks": [
+        {
+          "x": 836,
+          "y": 384,
+          "w": 344,
+          "h": 36,
+          "label": "Lease Time00:30:00"
+        },
+        {
+          "x": 1127,
+          "y": 474,
+          "w": 81,
+          "h": 36,
+          "label": "Next"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "25-dhcp-server-created",
+      "lesson": "05",
+      "observed_utc": "2026-11-05T10:25:55.504Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "b7de8bcb2b08198a9730b2bce81924faf260996d1b4cca53e0d5a1b75a4c5e57",
+      "marks": [
+        {
+          "x": 330,
+          "y": 188,
+          "w": 837,
+          "h": 37,
+          "label": "dhcp1 / bridge-lab / pool / lease"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "26-dhcp-lease-bound",
+      "lesson": "05",
+      "observed_utc": "2026-11-05T10:26:36.255Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "d7080485a11357279436fd7aab6b23036f447c9d8edf133f064a8827d4c1a60b",
+      "marks": [
+        {
+          "x": 803,
+          "y": 349,
+          "w": 240,
+          "h": 72,
+          "label": "Actual address and synthetic MAC"
+        },
+        {
+          "x": 802,
+          "y": 592,
+          "w": 194,
+          "h": 33,
+          "label": "Status: bound"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "27-files-backup-start",
+      "lesson": "04",
+      "observed_utc": "2026-11-05T10:26:49.269Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "8e0bb7fe0c6f94f5b6256af09962a9c17d7d049941b0b15378a6545de9de4d9c",
+      "marks": [
+        {
+          "x": 1396,
+          "y": 165,
+          "w": 114,
+          "h": 35,
+          "label": "Files → Backup"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "28-backup-fields",
+      "lesson": "04",
+      "observed_utc": "2026-11-05T10:28:18.083Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "f40bfd73e8fac586fa81ddb9cefd42cff6698ae020b2c713da4207adef1d6414",
+      "marks": [
+        {
+          "x": 809,
+          "y": 330,
+          "w": 237,
+          "h": 36,
+          "label": "Name"
+        },
+        {
+          "x": 809,
+          "y": 369,
+          "w": 237,
+          "h": 36,
+          "label": "Private password required (not shown)"
+        },
+        {
+          "x": 809,
+          "y": 407,
+          "w": 272,
+          "h": 70,
+          "label": "aes-sha256 / encryption enabled"
+        },
+        {
+          "x": 912,
+          "y": 498,
+          "w": 201,
+          "h": 37,
+          "label": "Backup Config"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "29-backup-and-export-files",
+      "lesson": "04",
+      "observed_utc": "2026-11-05T10:29:47.820Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "ade265e6e51b4e776ea67c039110956c45419e34f61912f44541fd39b438a36b",
+      "marks": [
+        {
+          "x": 302,
+          "y": 221,
+          "w": 607,
+          "h": 70,
+          "label": "Encrypted .backup / redacted .rsc"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "30-restore-dialog",
+      "lesson": "04",
+      "observed_utc": "2026-11-05T10:30:36.063Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "9d836b2b705a043f36599ed97d11443c5d0865dbbc36896b6054d03d15d955fc",
+      "marks": [
+        {
+          "x": 798,
+          "y": 354,
+          "w": 272,
+          "h": 38,
+          "label": "Selected .backup"
+        },
+        {
+          "x": 793,
+          "y": 395,
+          "w": 43,
+          "h": 36,
+          "label": "Private backup password"
+        },
+        {
+          "x": 967,
+          "y": 473,
+          "w": 133,
+          "h": 37,
+          "label": "Restore (reboots guest)"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "31-reconnected-after-restore",
+      "lesson": "04",
+      "observed_utc": "2026-11-05T10:33:58.421Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "6e84028fd3a76fa6068f99110bcb43c464db6485869ca53b85a872f5f0ec56c8",
+      "marks": [
+        {
+          "x": 228,
+          "y": 740,
+          "w": 880,
+          "h": 37,
+          "label": "Reconnected after actual guest restore; uptime reset"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "32-bridge-ports-forwarding",
+      "lesson": "05b",
+      "observed_utc": "2026-11-05T10:34:05.473Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "a6f5c77cd8ecd6faf73163a1d4c6215b4318890a87cb8529beae07a6952eb891",
+      "marks": [
+        {
+          "x": 401,
+          "y": 184,
+          "w": 1010,
+          "h": 97,
+          "label": "Only ether2/ether3; forwarding yes"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "33-snooping-before",
+      "lesson": "06",
+      "observed_utc": "2026-11-05T10:34:24.178Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "6af795d238795f76d8b80ba23aa8626e9957157eed89499f0ae878c26f8c2847",
+      "marks": [
+        {
+          "x": 557,
+          "y": 170,
+          "w": 222,
+          "h": 36,
+          "label": "DHCP Snooping unchecked"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "34-snooping-enabled-fields",
+      "lesson": "06",
+      "observed_utc": "2026-11-05T10:34:37.562Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "8be6eed513ccd03fd9f93738ab30f46c45a93704ce917085a442f1991213a50e",
+      "marks": [
+        {
+          "x": 555,
+          "y": 171,
+          "w": 222,
+          "h": 36,
+          "label": "DHCP Snooping enabled"
+        },
+        {
+          "x": 515,
+          "y": 283,
+          "w": 262,
+          "h": 73,
+          "label": "Other protections remain unchecked"
+        },
+        {
+          "x": 1244,
+          "y": 477,
+          "w": 72,
+          "h": 37,
+          "label": "OK"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "35-port-dhcp-untrusted",
+      "lesson": "06",
+      "observed_utc": "2026-11-05T10:35:26.084Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "14ffd31fecc825ec1de41c92268ec1b6e0abb5598628b66ea83df31911ca41ca",
+      "marks": [
+        {
+          "x": 662,
+          "y": 172,
+          "w": 177,
+          "h": 35,
+          "label": "Trusted DHCP unchecked"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "36-port-trusted-dhcp",
+      "lesson": "06",
+      "observed_utc": "2026-11-05T10:35:40.105Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "be3bc83777f66c3f2c3f44e451d584fb0f8a5465a0e83a806869a68273ee2991",
+      "marks": [
+        {
+          "x": 664,
+          "y": 172,
+          "w": 176,
+          "h": 35,
+          "label": "Trusted DHCP on ether3"
+        },
+        {
+          "x": 1176,
+          "y": 366,
+          "w": 68,
+          "h": 36,
+          "label": "OK"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "37-bridge-mac-hosts",
+      "lesson": "06",
+      "observed_utc": "2026-11-05T10:37:31.789Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "a159954e2cd2e5c6798d34cced0861321fe13cfbcdabd5e77778854b36401909",
+      "marks": [
+        {
+          "x": 320,
+          "y": 151,
+          "w": 754,
+          "h": 177,
+          "label": "MAC → On Interface / Bridge; not IP → MAC"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "38-arp-vs-mac-table",
+      "lesson": "06",
+      "observed_utc": "2026-11-05T10:37:46.240Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "bcdde5d5764ab464cc98ebc05091db19c4eab4f3179dba0bcd88059dcb61e5e5",
+      "marks": [
+        {
+          "x": 318,
+          "y": 151,
+          "w": 1191,
+          "h": 140,
+          "label": "IP → MAC / Interface / Status; stale entries are not active leases"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    },
+    {
+      "name": "39-installed-packages",
+      "lesson": "03",
+      "observed_utc": "2026-11-05T10:39:51.531Z",
+      "width": 1536,
+      "height": 817,
+      "sha256": "ce919de87434d4385dce36578b33b8b7bae125abb62582660292ba6a0284aad2",
+      "marks": [
+        {
+          "x": 298,
+          "y": 151,
+          "w": 411,
+          "h": 70,
+          "label": "Installed routeros7.25.1; no upgrade executed"
+        }
+      ],
+      "source": "Actual WinBox4.5 connected to isolated CHR7.25.1; synthetic lab only"
+    }
+  ]
+}

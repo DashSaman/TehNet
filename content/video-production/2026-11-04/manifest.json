@@ -82,7 +82,17 @@
           "actual_end_seconds": null,
           "capture_status": "PENDING_REAL_LAB_CAPTURE"
         }
-      ]
+      ],
+      "written_lab_acceptance": {
+        "status": "PARTIAL_ACTUAL_LAB_ACCEPTANCE",
+        "date": "2026-11-05",
+        "routeros": "7.25.1 stable",
+        "winbox": "4.5",
+        "device": "CHR x86_64 / QEMU TCG",
+        "capture_ids": "01–04",
+        "description": "اتصال IP به CHR، فهرست رابط‌ها و نسخه/معماری واقعی؛ مقایسهٔ مدل‌های سخت‌افزار و ورود MAC اجرا نشده‌اند.",
+        "manifest": "../../winbox-guides-2026-11-05/captures.json"
+      }
     },
     {
       "key": "02-first-access-safe-mode",
@@ -162,7 +172,17 @@
           "actual_end_seconds": null,
           "capture_status": "PENDING_REAL_LAB_CAPTURE"
         }
-      ]
+      ],
+      "written_lab_acceptance": {
+        "status": "PARTIAL_ACTUAL_LAB_ACCEPTANCE",
+        "date": "2026-11-05",
+        "routeros": "7.25.1 stable",
+        "winbox": "4.5",
+        "device": "CHR x86_64 / QEMU TCG",
+        "capture_ids": "05–08",
+        "description": "Safe Mode سبز، Comment واقعی ether2 و Undo با تأیید خالی‌شدن Comment؛ بازگشت پس از قطع ناگهانی آزمایش نشده است.",
+        "manifest": "../../winbox-guides-2026-11-05/captures.json"
+      }
     },
     {
       "key": "03-addressing-package-management",
@@ -242,7 +262,17 @@
           "actual_end_seconds": null,
           "capture_status": "PENDING_REAL_LAB_CAPTURE"
         }
-      ]
+      ],
+      "written_lab_acceptance": {
+        "status": "PARTIAL_ACTUAL_LAB_ACCEPTANCE",
+        "date": "2026-11-05",
+        "routeros": "7.25.1 stable",
+        "winbox": "4.5",
+        "device": "CHR x86_64 / QEMU TCG",
+        "capture_ids": "14–17 و39",
+        "description": "آدرس192.0.2.1/24 روی bridge-lab، وضعیت DHCP Client و نسخهٔ Package خوانده شدند؛ upgrade/downgrade اجرا نشده است.",
+        "manifest": "../../winbox-guides-2026-11-05/captures.json"
+      }
     },
     {
       "key": "04-backup-export-recovery",
@@ -322,7 +352,17 @@
           "actual_end_seconds": null,
           "capture_status": "PENDING_REAL_LAB_CAPTURE"
         }
-      ]
+      ],
+      "written_lab_acceptance": {
+        "status": "PARTIAL_ACTUAL_LAB_ACCEPTANCE",
+        "date": "2026-11-05",
+        "routeros": "7.25.1 stable",
+        "winbox": "4.5",
+        "device": "CHR x86_64 / QEMU TCG",
+        "capture_ids": "27–31",
+        "description": "فرم‌های Backup/Restore در WinBox بررسی شدند؛ ایجاد نهایی Backup رمزگذاری‌شده، Export و load/reboot از CLI خصوصی اجرا شدند. هفت پذیرش پس از restore قبول شد. فایل/رمز خام خارج Git است؛ این شواهد اجرای همهٔ کلیک‌های نهایی GUI نیست.",
+        "manifest": "../../winbox-guides-2026-11-05/captures.json"
+      }
     },
     {
       "key": "05-dhcp-client-server",
@@ -402,7 +442,17 @@
           "actual_end_seconds": null,
           "capture_status": "PENDING_REAL_LAB_CAPTURE"
         }
-      ]
+      ],
+      "written_lab_acceptance": {
+        "status": "PARTIAL_ACTUAL_LAB_ACCEPTANCE",
+        "date": "2026-11-05",
+        "routeros": "7.25.1 stable",
+        "winbox": "4.5",
+        "device": "CHR x86_64 / QEMU TCG",
+        "capture_ids": "17–26",
+        "description": "DHCP Setup واقعاً در WinBox اجرا شد؛ کلاینت192.0.2.150/24 از R1 گرفت و3/3ping داخلی پاسخ گرفت. Send DNS خاموش بود؛ اینترنت یا Windows DNS آزموده نشد.",
+        "manifest": "../../winbox-guides-2026-11-05/captures.json"
+      }
     },
     {
       "key": "05b-bridge-proposal",
@@ -482,7 +532,17 @@
           "actual_end_seconds": null,
           "capture_status": "PENDING_REAL_LAB_CAPTURE"
         }
-      ]
+      ],
+      "written_lab_acceptance": {
+        "status": "PARTIAL_ACTUAL_LAB_ACCEPTANCE",
+        "date": "2026-11-05",
+        "routeros": "7.25.1 stable",
+        "winbox": "4.5",
+        "device": "CHR x86_64 / QEMU TCG",
+        "capture_ids": "09–13 و32",
+        "description": "bridge-lab و عضویت ether2 از GUI، افزودن ether3 از CLI آماده‌سازی، Forwarding=yes و خارج‌بودن ether1 از Bridge تأیید شد. این مبحث همچنان پیشنهاد مستقل ضبط تازه است و موضوع فیلم۵٫۵ را ثابت نمی‌کند.",
+        "manifest": "../../winbox-guides-2026-11-05/captures.json"
+      }
     },
     {
       "key": "06-dhcp-snooping-arp",
@@ -562,7 +622,17 @@
           "actual_end_seconds": null,
           "capture_status": "PENDING_REAL_LAB_CAPTURE"
         }
-      ]
+      ],
+      "written_lab_acceptance": {
+        "status": "PARTIAL_ACTUAL_LAB_ACCEPTANCE",
+        "date": "2026-11-05",
+        "routeros": "7.25.1 stable",
+        "winbox": "4.5",
+        "device": "CHR x86_64 / QEMU TCG",
+        "capture_ids": "33–38",
+        "description": "گزینهٔ واقعی پورت در نسخهٔ این لاب Trusted DHCP است. با untrusted کلاینت searching ماند؛ پس از Trusted DHCP روی ether3، از R2 آدرس192.0.2.120/24 گرفت و3/3ping پاسخ گرفت. Bridge Hosts و ARP/stale ثبت شدند؛ DHCP Alert، IP Source Guard، ARP Inspection و IPv6 در این بسته آزموده نشدند.",
+        "manifest": "../../winbox-guides-2026-11-05/captures.json"
+      }
     },
     {
       "key": "07-gns3-environment",
@@ -642,7 +712,20 @@
           "actual_end_seconds": null,
           "capture_status": "PENDING_REAL_LAB_CAPTURE"
         }
-      ]
+      ],
+      "written_lab_acceptance": {
+        "status": "INFRASTRUCTURE_ONLY_BOOT_PACKETS_PENDING",
+        "date": "2026-11-05",
+        "server": "2.2.61",
+        "web_ui": "2.2.58",
+        "nodes": 2,
+        "links": 1,
+        "routeros_boot_verified": false,
+        "ping_verified": false,
+        "nodes_stopped_to_reduce_cpu": true,
+        "host_desktop_input": false,
+        "evidence": "../../../docs/evidence/2026-11-05/winbox-core/independent-lab.json"
+      }
     },
     {
       "key": "08-browser-routing-pilot",

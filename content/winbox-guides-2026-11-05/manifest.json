@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "key": "tehnet-winbox-core-guides-20261105-v1",
+  "targets": [
+    {
+      "id": 62,
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+      "uri": "learn/mikrotik/mtcna/routeros-winbox",
+      "title_observed": "شروع با RouterOS و Winbox؛ راهنمای نوشتاری",
+      "content_file": "routeros-winbox.html",
+      "change_fields": [
+        "post_content"
+      ],
+      "expected_content_sha256": "e451c832bfda2b7736e5a79968b6f2fa23f44dd470085d3cad4049e137e87aec",
+      "content_sha256_lf": "206ab78cb000b0b3852936501184e56e3fea7bf4c1e10149d10772d3594cfbfa"
+    },
+    {
+      "id": 63,
+      "url": "https://tehnet.ir/learn/mikrotik/mtcna/ip-dhcp-dns/",
+      "uri": "learn/mikrotik/mtcna/ip-dhcp-dns",
+      "title_observed": "آدرس‌دهی IP، DHCP و DNS در میکروتیک — MTCNA",
+      "content_file": "ip-dhcp-dns.html",
+      "change_fields": [
+        "post_content"
+      ],
+      "expected_content_sha256": "32c2876535fae7e118ce3f2168000772078cc824be7b82d58d4b108d8b9727c2",
+      "content_sha256_lf": "229678d9f4b056f686a2ec1ecb97804238bfbace5b0240425f4c214e0fd44903"
+    }
+  ]
+}

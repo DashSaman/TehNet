@@ -1,3 +1,25 @@
+## CURRENT —2026-11-05 no-host-input operational; PR88 NEEDS_APPROVAL
+
+WinBox Linux واقعاً به لاب مستقل وصل و framebuffer ثبت شد؛ ادامه بدون ورودی دسکتاپ میزبان/تغییر برق/قفل/driver/شبکه. همان۶فایل ACL با تأیید مالک ترمیم شدند؛ سایر فایل‌های خصوصی قدیمی و گیت‌های امنیتی دست‌نخورده در همین تعمیر. body62/63+39PNG+CSS با sourcefedbdcc، native60/renderer16/browser1590 و exact restore آماده‌اند. PR88/CI42022049778 موفق؛ ادغام در auto-review به‌علت نبود تأیید صریح انتشار رد شد، سؤال تأیید pending است؛0merge/deploy. ناشر تازه آماده ولی اجرا نشده؛ هیچ مسیر جایگزین/force-push مجاز نیست. -SEO PR27/commitd78f2d1/CI42023703979 موفق، هنوز open.
+
+GNS3 دو node/یک لینک واقعی و graph دارد؛ مسیر image نسبی اصلاح شد. Server2.2.61/Web UI2.2.58، TCG و RAM1024 readback شدند؛ CHR در Load system مانده، console/ping ناموفق و علت نامعلوم. فقط nodeهای همین پروژه برای کاهش CPU متوقف و دیسک/پروژه حفظ شدند؛ دوباره create/bootstrap اجرا نشود. این پایلوت با سه CHR مستقلِ موفقِ۳۹عکس اشتباه نشود. گزارش و ادامهٔ دقیق: docs/reports/REAL_WINBOX_GUIDES_2026-11-05.fa.md و docs/labs/CAPTURE_WITHOUT_HOST_DESKTOP_2026-11-05.fa.md؛ جزئیات/لاگ/راز فقط در ledger خصوصی.9سناریو/72نمای پیشنهادی،0ضبط تازه،actual duration/approval null؛ full8sourceAV/موضوع5.5/SEO gain/parity نامحرز،63/75 باز و MyTel/noindex/payment حفظ‌اند.
+
+## CURRENT —2026-11-05 WinBox guides VERIFIED_STAGING_NOT_DEPLOYED
+
+Source `fedbdccffd4bda2d595bcd1136b10333be6c7f09`: native60/renderer16/browser1590، before واقعی و after staging، exact restore همهٔ داده/فایل/runtime،0production/ارسال. scope body62/63+39PNG+CSS محدود؛ سناریوهای جدا حفظ و actual duration/approval null. WinBox Linux واقعاً در framebuffer مهمان متصل است؛ هیچ ورودی دسکتاپ میزبان مجاز نیست. گزارش و گام انتشار واجد شرایط: docs/reports/REAL_WINBOX_GUIDES_2026-11-05.fa.md. هیچ publisher قبلی تکرار نشود؛ MyTel/noindex/payment/گیت‌های امنیتی و63/75 حفظ‌اند.
+
+## CURRENT —2026-11-05 actual WinBox guides PREPARED_NOT_DEPLOYED
+
+۳۹تصویر اصلی و راهنمای گام‌به‌گام روی body62/63 آماده است؛ scope ثابت شامل۳۹PNG و CSS محدود به کادر راهنماست، بدون عنوان/URL/meta/صفحهٔ تازه.۳۶آزمون operator موفق/یک symlink skip؛ native WordPress و مرورگر هنوز در انتظار اجرا. هفت فایل سناریوی ضبط به شواهد محدود همین لاب لینک شدند؛ ضبط تازه و مدت/approval همچنان null. دستور مالک: هیچ ورودی یا فعال‌سازی پنجرهٔ دسکتاپ میزبان؛ ادامه فقط CLI/headless/نمایشگر مهمان. اصلاح ACL فقط همان۶فایل لاب با اجازهٔ صریح انجام شد؛ تعمیر گسترده ممنوع و سایر فایل‌های قدیمی خصوصی محدود مانده‌اند. Xvfb مهمان آماده است؛ سه وابستگی WinBox هنوز به‌خاطر قفل نصب خودکار مهمان تکمیل نشده‌اند، پس اتصال Linux GUI تأیید نشده. MyTel/noindex/payment/سایر داده‌ها و گیت‌های امنیتی حفظ‌اند. انتشار جدید production صفر؛ گام بعد native snapshot/apply/rollback و QA موبایل/دسکتاپ، سپس CI و انتشار واجد شرایط.
+
+## CURRENT —2026-11-05 real isolated CHR/WinBox lab IN_PROGRESS
+
+
+دستور مالک۵نوامبر: از این نقطه هیچ کلیک/تایپ/فعال‌کردن پنجره در دسکتاپ میزبان انجام نشود. WinBox اختصاصی این کار بسته شد؛ VMهای headless و کار کد/مرورگر headless ادامه دارند. تنظیمات برق/قفل/نمایشگر تغییر نکند. capture بعدی WinBox فقط از نمایشگر مهمان مستقل؛ با گذشت زمان مجوز تصرف مجدد دسکتاپ فرض نشود.
+
+
+سه CHR۷٫۲۵٫۱ در QEMU TCG قابل‌حمل، فقط مدیریت loopback و Ethernet socket داخلی اجرا شدند؛ بدون installer/driver/host adapter.۳۹عکس اصلی WinBox۴٫۵ در content/winbox-guides-2026-11-05/ ثبت شده‌اند. DHCP واقعی bound و۳/۳ping؛ Safe Mode/Undo برگشت Comment؛ Backup رمزگذاری‌شده واقعاً restore شد و۷پذیرش پس از reboot قبول شد؛ Snooping untrusted=searching و trusted=bound از سرور دوم. فایل‌ها/رازها و لاگ خام خارج Git هستند. محتوای تصویری تازه هنوز staging/published نشده؛ دانلود VM رسمی GNS3 در جریان است. برنامه docs/superpowers/plans/2026-11-05-real-winbox-guides.fa.md. سناریوهای۹قسمت قبلی حفظ‌اند؛ زمان واقعی ضبط و تأیید ویدیو null. انتشارهای قبلی تکرار نشوند.
+
 ## CURRENT —2026-11-04 illustrated guide DEPLOYED_VERIFIED;9 separate recording scripts
 
 بازبینی نهایی منابع ضبط: لینک‌های DHCP سناریوهای03/05 به مرجع رسمی فعلی اصلاح شد؛ تغییر فقط مستندات است، بدون تکرار انتشار یا تغییر وضعیت ضبط/لاب. شرح در docs/reports/ILLUSTRATED_ROUTING_2026-11-04.fa.md.
