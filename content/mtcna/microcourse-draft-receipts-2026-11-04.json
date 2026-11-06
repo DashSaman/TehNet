@@ -124,6 +124,151 @@
       "quota_reset_used": false,
       "decision": "STOP_NEAR_QUOTA_NO_FURTHER_WP_WRITES",
       "notes": "No public publication, future schedule, canonical owner changes, or RoboT/CHR restart; creation acknowledgment is not a verified final save."
+    },
+    {
+      "date": "2026-11-06",
+      "local_time": "16:19–16:31 Asia/Tehran",
+      "operation": "WPVibe direct core REST inventory and two draft page creates; independently verified raw on three pages; GitHub index/receipt reconciliation",
+      "initial_drafts_recounted": 31,
+      "new_drafts_this_run": 2,
+      "final_drafts_readback": 33,
+      "mapped_session_drafts": 32,
+      "source_only_remaining": 8,
+      "verified_previous_attempt_page": 272,
+      "verified_new_ids": [
+        275,
+        276
+      ],
+      "wp_future_count": 0,
+      "media_uploads_succeeded": 0,
+      "limit_check": "WPVibe usage 0/100 at start, no reset used",
+      "stop_reason": "Run cap of two scoped editorial lessons reached; authentic four-step Apply/readback/rollback screenshots and technical/lab/editor gate still missing; media upload plugin route 404",
+      "no_publication_or_schedule": true
     }
-  ]
+  ],
+  "latest_verified_checkpoint": {
+    "observed_on": "2026-11-06",
+    "observed_local_time": "2026-11-06T16:31:00+03:30",
+    "site": "https://tehnet.ir",
+    "parent_page_id": 40,
+    "draft_count": 33,
+    "mapped_session_draft_count": 32,
+    "unassigned_legacy_draft_id": 255,
+    "github_only_lesson_numbers": [
+      1,
+      15,
+      23,
+      26,
+      28,
+      30,
+      32,
+      40
+    ],
+    "github_only_count": 8,
+    "future_count": 0,
+    "draft_ids": [
+      232,
+      233,
+      234,
+      235,
+      236,
+      237,
+      238,
+      239,
+      240,
+      241,
+      242,
+      243,
+      244,
+      245,
+      246,
+      247,
+      248,
+      249,
+      250,
+      251,
+      252,
+      253,
+      254,
+      255,
+      262,
+      265,
+      266,
+      267,
+      268,
+      269,
+      272,
+      275,
+      276
+    ],
+    "raw_readback_method": "WordPress core REST /wp/v2/pages?slug=<exact>&status=draft&context=edit&_fields=id,parent,status,slug,modified,content.raw,excerpt.raw,title.raw; independent GET",
+    "raw_hash_algorithm": "FNV-1a32 over UTF-16 JS string; noncryptographic content fingerprint; length and structure separately checked",
+    "reconciled_previous_attempt": {
+      "lesson": 18,
+      "id": 272,
+      "status": "draft",
+      "parent": 40,
+      "raw_chars": 7647,
+      "raw_hash": "6a949108",
+      "modified": "2026-11-05T16:20:09"
+    },
+    "drafts_created_and_verified_this_run": [
+      {
+        "lesson": 11,
+        "id": 275,
+        "status": "draft",
+        "parent": 40,
+        "raw_chars": 9770,
+        "raw_hash": "77a14e3d",
+        "slug": "mtcna-micro-11-dhcp-client-wan-routeros7",
+        "modified": "2026-11-06T16:28:06",
+        "h2_count": 8,
+        "inline_images": 3,
+        "real_winbox_images": 2,
+        "schematics": 1,
+        "real_image_paths": [
+          "content/mtcna/screenshots/real-lab/2026-11-04/winbox40/lesson-11/02-panel.png",
+          "content/mtcna/screenshots/real-lab/2026-11-04/winbox40/lesson-11/03-form-or-readonly.png"
+        ],
+        "browser_editor_preview_verified": false,
+        "rest_link": "https://tehnet.ir/?page_id=275",
+        "editor_url_pattern": "https://tehnet.ir/wp-admin/post.php?post=275&action=edit",
+        "preview_url_pattern": "https://tehnet.ir/?page_id=275&preview=true",
+        "lesson_lab_apply_rollback": "NOT_RUN",
+        "wordpress_media_uploaded": false
+      },
+      {
+        "lesson": 36,
+        "id": 276,
+        "status": "draft",
+        "parent": 40,
+        "raw_chars": 7792,
+        "raw_hash": "1385eff1",
+        "slug": "mtcna-micro-36-supout-files-the-dude",
+        "modified": "2026-11-06T16:30:41",
+        "h2_count": 8,
+        "inline_images": 2,
+        "real_winbox_images": 1,
+        "schematics": 1,
+        "real_image_paths": [
+          "content/mtcna/screenshots/real-lab/2026-11-04/winbox40/lesson-36/02-panel.png"
+        ],
+        "browser_editor_preview_verified": false,
+        "rest_link": "https://tehnet.ir/?page_id=276",
+        "editor_url_pattern": "https://tehnet.ir/wp-admin/post.php?post=276&action=edit",
+        "preview_url_pattern": "https://tehnet.ir/?page_id=276&preview=true",
+        "supout_generated": "NOT_RUN",
+        "the_dude_tested": "NOT_RUN",
+        "wordpress_media_uploaded": false
+      }
+    ],
+    "media_upload_attempt": {
+      "tried": 2,
+      "succeeded": 0,
+      "blocked_reason": "WPVibe plugin-backed upload_media returned 404 no /wp-json/wpvibe/v1 route; core WordPress REST remains available for pages; no plugin installed and no credential fallback; Gutenberg images link to immutable GitHub commit content"
+    },
+    "draft_status_release_gate": "NOT_READY_NOT_SCHEDULED",
+    "site_mutations": "POST /wp/v2/pages twice, both explicit status=draft and parent=40; no existing page, media attachment, canonical published page, cron, theme, settings, users, commerce or other service changed",
+    "host_vm_actions": "NONE; did not restart the removed QEMU lab or touch RoboT"
+  }
 }
