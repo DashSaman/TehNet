@@ -7,9 +7,24 @@
   "completed_lesson_numbers": [],
   "next_lesson_number": 1,
   "verified_release_count": 0,
-  "lock": null,
+  "lock": {
+    "window_id": "2026-11-07T09:00:00+03:30",
+    "operation_key": "tehnet-mtcna40:lesson-01:window-20261107T0900+0330:eligibility",
+    "automation_id": "6aeb53b439908191bfdaf9fbace0d08c",
+    "purpose": "eligibility-audit-and-one-unpublished-editorial-action",
+    "public_wp_mutations_allowed": false,
+    "acquired_at": "2026-11-07T09:00:10+03:30"
+  },
   "last_successful_window": null,
-  "windows": [],
+  "windows": [
+    {
+      "window_id": "2026-11-07T09:00:00+03:30",
+      "lesson_number": 1,
+      "status": "CHECKING",
+      "operation_key": "tehnet-mtcna40:lesson-01:window-20261107T0900+0330:eligibility",
+      "public_writes": 0
+    }
+  ],
   "operations": [],
   "current_blockers": [
     "No executable RouterOS/CHR lab in this environment",
