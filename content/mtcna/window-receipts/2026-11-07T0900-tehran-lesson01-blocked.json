@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "observed_on": "2026-11-07",
+  "window_id": "2026-11-07T09:00:00+03:30",
+  "timezone": "Asia/Tehran",
+  "operation_key": "tehnet-mtcna40:lesson-01:window-20261107T0900+0330:eligibility",
+  "lesson_number": 1,
+  "course_goal_lessons": 40,
+  "latest_executable_manifest_lessons": 24,
+  "status": "BLOCKED_NOT_PUBLISHED",
+  "release_status": "NOT_READY",
+  "scheduled_or_future": false,
+  "public_release_performed": false,
+  "completed_count_delta": 0,
+  "next_lesson": 1,
+  "original_site_indexing_policy": "unchanged",
+  "github_branch": "content/mtcna-saturday-20261107",
+  "github_source_path": "content/mtcna/microcourse-drafts/01.md",
+  "github_source_blob_sha": "b67089b956afe0a0850d8c11d144c9c623e43410",
+  "private_editorial_action": {
+    "kind": "one lesson source-expanded and saved as an unpublished WordPress draft",
+    "draft_id": 278,
+    "wordpress_parent": 40,
+    "wordpress_status": "draft",
+    "draft_slug": "mtcna-micro-01-intro-routeros-chr",
+    "draft_title": "MTCNA | قسمت ۱: MTCNA چیست؟ RouterOS، RouterBOARD و CHR",
+    "wordpress_last_modified": "2026-11-07T09:04:02",
+    "admin_edit_url": "https://tehnet.ir/wp-admin/post.php?post=278&action=edit",
+    "rest_metadata_readback_verified": true,
+    "raw_content_hash_roundtrip": "NOT_VERIFIED",
+    "gutenberg_editor_ui_save": "NOT_VERIFIED",
+    "planned_minutes": "12 (unmeasured)",
+    "independent_lab_execution": false,
+    "canonical_owner": 40,
+    "independent_public_page_created": false
+  },
+  "current_wordpress": {
+    "mapped_course_drafts": 34,
+    "wp_future_pages": 0,
+    "published_owners": [
+      40,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67
+    ],
+    "legacy_draft_preserved": 232,
+    "unqualified_drafts": "all",
+    "other_preparation_automation_draft_ids_seen": [
+      272,
+      275,
+      276
+    ],
+    "source_only_lesson_numbers_remaining": [
+      15,
+      23,
+      26,
+      28,
+      30,
+      32,
+      40
+    ]
+  },
+  "blocked_gates": [
+    "40-row executable mapping/manifest, unique canonical section owner/anchor and approved URL/readback are not complete; legacy course-manifest.json is 24 lessons",
+    "Lesson 01 10–15 minute duration is a proposed 12-minute storyboard, not a measured recorded run",
+    "Independent RouterOS technical expert review is pending",
+    "Lesson-specific observed RouterOS version, console outputs, NIC mapping, network isolation, tested recovery/Snapshot and rollback receipts are missing",
+    "160 raw WinBox photos are not validated lesson-01 success/rollback steps; no complete original screenshot sequence and no WP media verification",
+    "WordPress REST write and metadata readback do not prove Gutenberg editor-save or full raw-content hash roundtrip",
+    "Canonical hub40 scoped merge with individual anchor and hash not reviewed/qualified",
+    "Scoped production release qualification is not complete; PR82 remains open and unmerged",
+    "NO allowed publish, native future, or canonical owner conversion"
+  ],
+  "audit_sources": [
+    "content/mtcna/10-15min-course-plan-2026-11-04.fa.md",
+    "content/mtcna/microcourse-drafts/PREVIEW_INDEX.fa.md",
+    "content/mtcna/microcourse-draft-receipts-2026-11-04.json",
+    "content/mtcna/screenshots/real-lab/2026-11-04/winbox40/quality-report.json",
+    "content/mtcna/publication-controller.md",
+    "content/mtcna/publication-ledger.json",
+    "https://github.com/DashSaman/TehNet/pull/82"
+  ],
+  "atomic_window_guard": {
+    "acquired_cas_commit": "760edeef821c7aa636f436f5ce151bdb9622f7e0",
+    "released_after_blocked_resolution": "PENDING_LEDGER_FINALIZATION"
+  },
+  "created_by": "scheduled-publication-audit; one private editorial action only"
+}
