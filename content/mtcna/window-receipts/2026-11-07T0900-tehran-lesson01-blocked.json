@@ -85,7 +85,8 @@
   ],
   "atomic_window_guard": {
     "acquired_cas_commit": "760edeef821c7aa636f436f5ce151bdb9622f7e0",
-    "released_after_blocked_resolution": "PENDING_LEDGER_FINALIZATION"
+    "released_after_blocked_resolution": true,
+    "ledger_finalize_cas_commit": "548e485258b7f936c551c8a602039d8cfd172857"
   },
   "created_by": "scheduled-publication-audit; one private editorial action only"
 }
