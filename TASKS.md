@@ -1,3 +1,10 @@
+## MTCNA 40×10–15min — 2026-11-07 first publication window BLOCKED
+
+- [x] Create and independently verify metadata for **one private editorial Draft**: lesson 01 source augmented; WordPress **ID278** remains draft; record first-window BLOCKED receipt and ledger CAS (not a publication).
+- [ ] Coordinate with separate preparation automation: reconcile 34 current WP Drafts / 7 GitHub-only sources; replace old 24-row execution manifest with reviewed 40-row canonical owner, URL, independent content hash, anchor and WP ID mapping before any release.
+- [ ] For **lesson 01** gather real versioned RouterOS/CHR run, NIC-isolation evidence, actual acceptance outputs and tested rollback, authentic lesson-specific screenshots, measured 10–15 min runtime, expert review, Gutenberg UI save/readback and scoped release qualification. Its canonical published hub40 must not be replaced by duplicate page278.
+- [ ] Retain zero future/zero new public releases until all gates pass; do not advance lesson 02, turn published owner40/62–67 to future, re-create active lab, or change noindex/commerce/MyTel/user data.
+
 ## CURRENT — 2026-11-04 MTCNA authentic WinBox screenshots COMMITTED / LAB CLEANED / WP NOT_UPDATED
 
 160 genuine WinBox 4.5 PNG captures from isolated QEMU CHR RouterOS 7.25.1, four per target session across 40, have been committed and verified on GitHub. Another 4 screenshots demonstrate actual IP → Addresses GUI field entry `10.77.10.1/24` on `ether2` and successful Apply/readback. All were recorded from real GUI pixels, not synthesized. QA found 20/40 sessions with four distinct main-area views and 127 distinct main-area views in the 160 raw captures; duplicate/unsaved-field views and wireless-without-radio are NOT eligible to stand in for complete validated tutorials. See `docs/reports/MTCNA_REAL_WINBOX_CAPTURE_2026-11-04.fa.md`, `content/mtcna/screenshots/real-lab/2026-11-04/winbox40/README.fa.md`, and `quality-report.json`.
