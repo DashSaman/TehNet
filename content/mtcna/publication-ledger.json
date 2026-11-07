@@ -7,29 +7,43 @@
   "completed_lesson_numbers": [],
   "next_lesson_number": 1,
   "verified_release_count": 0,
-  "lock": {
-    "window_id": "2026-11-07T09:00:00+03:30",
-    "operation_key": "tehnet-mtcna40:lesson-01:window-20261107T0900+0330:eligibility",
-    "automation_id": "6aeb53b439908191bfdaf9fbace0d08c",
-    "purpose": "eligibility-audit-and-one-unpublished-editorial-action",
-    "public_wp_mutations_allowed": false,
-    "acquired_at": "2026-11-07T09:00:10+03:30"
-  },
+  "lock": null,
   "last_successful_window": null,
   "windows": [
     {
       "window_id": "2026-11-07T09:00:00+03:30",
       "lesson_number": 1,
-      "status": "CHECKING",
+      "status": "BLOCKED",
       "operation_key": "tehnet-mtcna40:lesson-01:window-20261107T0900+0330:eligibility",
-      "public_writes": 0
+      "public_writes": 0,
+      "checked_at": "2026-11-07T09:04:30+03:30",
+      "release_count": 0,
+      "private_editorial_draft_id": 278,
+      "receipt_path": "content/mtcna/window-receipts/2026-11-07T0900-tehran-lesson01-blocked.json",
+      "reason": "40-row executable mapping and lesson-specific expert/lab/rollback/screenshots/measured-duration/Gutenberg/scoped-release gates are missing; only private Draft 278 prepared",
+      "idempotency": "same window and lesson key; no publication receipt; lesson 01 must remain next"
     }
   ],
-  "operations": [],
+  "operations": [
+    {
+      "operation_key": "tehnet-mtcna40:lesson-01:window-20261107T0900+0330:eligibility",
+      "window_id": "2026-11-07T09:00:00+03:30",
+      "lesson_number": 1,
+      "type": "ELIGIBILITY_ASSESSMENT",
+      "result": "BLOCKED",
+      "public_write": false,
+      "private_editorial_wp_id": 278,
+      "receipt_path": "content/mtcna/window-receipts/2026-11-07T0900-tehran-lesson01-blocked.json"
+    }
+  ],
   "current_blockers": [
-    "No executable RouterOS/CHR lab in this environment",
-    "Original application screenshots are missing",
-    "Runtime acceptance and rollback evidence is missing",
-    "Editor-save and scoped release qualification are pending"
-  ]
+    "40-row executable manifest/approved owner mapping is missing; existing course-manifest.json and ledger schema still target 24 legacy lessons",
+    "Lesson 01 expert and source review pending; planned duration 12 minutes has not been measured",
+    "Lesson-specific RouterOS execution version/NIC isolation, acceptance outputs and tested checkpoint/rollback missing",
+    "160 genuine raw WinBox screenshots exist, but none constitute a fully validated four-step lesson-01 flow; no verified WP images",
+    "REST Draft 278 readback confirms metadata only; Gutenberg editor UI save and complete raw body hash were not verified",
+    "Scoped canonical hub40 merge and production release qualification absent; PR82 open/unmerged"
+  ],
+  "last_assessed_window": "2026-11-07T09:00:00+03:30",
+  "last_assessment_result": "BLOCKED"
 }
