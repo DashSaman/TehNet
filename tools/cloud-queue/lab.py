@@ -155,6 +155,18 @@ def shot(name):
                      "original_ui_pixels": True})
     print("TN_CLOUD_IMAGE_METADATA " + json.dumps(CAPTURES[-1]), flush=True)
 
+def safe_display_diagnostics(process, env):
+    # Fixed labels/flags only: never print stderr, argv, OCR text or screenshot pixels.
+    stderr = (ROOT / "winbox-stderr.log").read_text(errors="replace")
+    known = ["could not connect to display", "could not load the qt platform plugin",
+             "xcb-cursor", "cannot open shared object file", "no qt platform plugin",
+             "segmentation fault", "connection refused", "invalid password", "authentication failed"]
+    names = subprocess.run(["xdotool", "search", "--onlyvisible", "--name", "."],
+                           capture_output=True, env=env).stdout.decode().split()
+    flags = {"window_count": len(names), "process_exit": process.poll(),
+             "stderr_categories": [x for x in known if x in stderr.lower()]}
+    RESULT["display_diagnostics"] = flags
+
 def click(x, y):
     xdo("mousemove", str(x), str(y), "click", "1")
     time.sleep(.8)
@@ -217,7 +229,7 @@ try:
     profile = ROOT / "profile"; profile.mkdir()
     env = {**os.environ, "DISPLAY":":99", "HOME":str(profile), "XDG_CONFIG_HOME":str(profile),
            "QT_QUICK_BACKEND":"software", "QT_XCB_GL_INTEGRATION":"none"}
-    start([wb, "127.0.0.1:18291", "admin", PASSWORD], "winbox", env)
+    wb_process = start([wb, "127.0.0.1:18291", "admin", PASSWORD], "winbox", env)
     wid = None
     for _ in range(45):
         p = subprocess.run(["xdotool","search","--onlyvisible","--name","TN-LAB-R1"], capture_output=True, env=env)
@@ -225,6 +237,7 @@ try:
         if len(ids)==1:
             wid=ids[0];break
         time.sleep(1)
+    if not wid: safe_display_diagnostics(wb_process, env)
     assert wid, "Connected actual WinBox window required"
     xdo("windowsize",wid,"1536","960"); xdo("windowmove",wid,"0","0")
     time.sleep(2)
