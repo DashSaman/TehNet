@@ -29,4 +29,8 @@ try{
  }
  if(!before){const ctx=await browser.newContext();for(const shot of captures.captures){const response=await ctx.request.get(origin+prefix+shot.name+'.png');check(response.status()===200&&crypto.createHash('sha256').update(await response.body()).digest('hex')===shot.sha256,'Served original bytes '+shot.name);}await ctx.close();}
  check(writes===0,'Zero form submissions or writes');const result={status:'PASS',passed:checks.length,checks,origin,observed_utc:new Date().toISOString(),submissions:0};fs.writeFileSync(path.join(out,before?'before-browser.json':'browser.json'),JSON.stringify(result,null,2));console.log(JSON.stringify({status:'PASS',checks:checks.length,submissions:0}));
-}finally{await browser.close();}})().catch(e=>{console.error(e);process.exitCode=1;});
+}finally{await browser.close();}})().catch(e=>{
+ const message=String(e.message||'').replace(/\/(?:tmp|home|root)\/[^\s'"]+/g,'<CLOUD_TEMP_PATH>').slice(0,450);
+ console.log('TN_BROWSER_ERROR '+JSON.stringify({name:e.name,message}));
+ process.exitCode=1;
+});

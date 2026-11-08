@@ -61,6 +61,10 @@ def run(args,timeout=180,env=None,allow_failure=False):
             first=re.sub(r"\b(?:\d{1,3}\.){3}\d{1,3}\b","<REDACTED_ADDRESS>",first)
             first=re.sub(r"/(?:[A-Za-z0-9_.-]+/)+[A-Za-z0-9_.-]*","<REDACTED_PATH>",first)
             RESULT["sanitized_cli_error"]=first[:220]
+        for line in text.splitlines():
+            if line.startswith("TN_BROWSER_ERROR "):
+                detail=json.loads(line.split(" ",1)[1])
+                RESULT["browser_error"]={"name":str(detail["name"])[:60],"message":str(detail["message"])[:450]}
         RESULT["failed_safe_command"]=RESULT["last_safe_command"]
 
         missing=re.findall(r"Call to undefined function ([A-Za-z0-9_\\]+)\(",text)
