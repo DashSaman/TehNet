@@ -33,7 +33,7 @@ cat > /var/www/html/wp-content/mu-plugins/tn-isolation.php <<'"'"'PHP'"'"'
 add_filter("pre_wp_mail","__return_false",PHP_INT_MAX);
 add_filter("pre_http_request",static function($pre,$args,$url){if($url==="https://www.google.com/recaptcha/api/siteverify"&&hash_equals(getenv("TN_FIXTURE_PASSWORD"),(string)($args["body"]["response"]??"")))return ["headers"=>[],"body"=>wp_json_encode(["success"=>true,"hostname"=>"localhost","challenge_ts"=>gmdate("c")]),"response"=>["code"=>200,"message"=>"OK"]];return new WP_Error("closed_fixture","Blocked");},PHP_INT_MAX,3);
 add_filter("woocommerce_available_payment_gateways","__return_empty_array",PHP_INT_MAX);
-add_filter("wp_robots",static function($r){if(file_exists("/lab/CONFLICT")&&is_page(29))$r["noindex"]=true;return $r;},999);
+add_filter("wp_robots",static function($r){if(file_exists(ABSPATH."wp-content/tn-fixture-conflict-flag")&&is_page(29))$r["noindex"]=true;return $r;},999);
 PHP
 cd /var/www/html
 php /lab/wp --allow-root config create --dbname=wordpress --dbuser=root --dbpass="$TN_FIXTURE_PASSWORD" --dbhost=db --skip-check --extra-php <<'"'"'PHP'"'"'

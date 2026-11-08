@@ -14,7 +14,7 @@ if phase=="prepare":
   if row["old"] is None:
    if dst.is_file():dst.unlink()
   else:dst.write_bytes(subprocess.check_output(["git","show",baseline+":"+rel]))
- config={"environment":"staging","app":app,"db":db,"app_id":op.Release.inspect if False else json.loads(subprocess.check_output(["docker","inspect",app]))[0]["Id"],"db_id":json.loads(subprocess.check_output(["docker","inspect",db]))[0]["Id"],"network":os.environ["TN_STAGE_NET"],"staging_app_bindings":{},"source_commit":source,"baseline_commit":baseline,"bundle_manifest_sha256":op.file_digest(lab/"bundle/bundle.json"),"release_dir":str(lab/"private-release"),"wp_cli":"/lab/wp","wp_user":"1"}
+ config={"environment":"staging","app":app,"db":db,"app_id":json.loads(subprocess.check_output(["docker","inspect",app]))[0]["Id"],"db_id":json.loads(subprocess.check_output(["docker","inspect",db]))[0]["Id"],"network":os.environ["TN_STAGE_NET"],"staging_app_bindings":{},"source_commit":source,"baseline_commit":baseline,"bundle_manifest_sha256":op.file_digest(lab/"bundle/bundle.json"),"release_dir":str(lab/"private-release"),"wp_cli":"/lab/wp","wp_user":"1"}
  (lab/"config.json").write_text(json.dumps(config));(lab/"config.json").chmod(0o600)
 elif phase in ("apply","rollback"):
  release=op.Release(lab/"config.json",lab/"bundle")
