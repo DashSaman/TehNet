@@ -60,15 +60,21 @@ test -f "$stage_root/READY"
 export TN_STAGE_APP="$stage_app" TN_STAGE_DB="$stage_db" TN_STAGE_NET="$stage_net" TN_FIXTURE_PASSWORD="$stage_password"
 sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/commercial-decision-release.py "$stage_root" prepare
 sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/index-decision-release.py "$stage_root" prepare
-docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/commercial-decision-native.php baseline-routes
-sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/commercial-decision-release.py "$stage_root" apply
-docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/commercial-decision-native.php accept
 stage_app_pid="$(docker inspect -f '{{.State.Pid}}' "$stage_app")"
 sudo nsenter --target "$stage_app_pid" --net -- node -e 'const fs=require("node:fs"),net=require("node:net");net.createServer(c=>{const u=net.connect(80,"127.0.0.1");c.pipe(u);u.pipe(c);c.on("error",()=>u.destroy());u.on("error",()=>c.destroy());}).listen(18085,"127.0.0.1");fs.writeFileSync(process.argv[1]+"/relay.pid",String(process.pid),{mode:0o600});' "$stage_root" >"$stage_root/relay.log" 2>&1 &
 stage_relay_launcher="$!"
 sleep 1
 stage_relay_pid="$(sudo cat "$stage_root/relay.pid")"
 case "$stage_relay_pid" in ""|*[!0-9]*) exit 1;; esac
+# Bootstrap both public and admin-post request contexts before the immutable DB baseline.
+# This is the disposable fixture only; no form action/POST, customer or external request.
+for stage_path in / /services/ /shop/ /cart-2/ /tn-checkout/ /tn-account/ /wp-admin/admin-post.php; do
+ stage_http="$(sudo nsenter --target "$stage_app_pid" --net -- curl --silent --show-error --max-time 30 --output /dev/null --write-out '%{http_code}' "http://localhost:18085$stage_path")"
+ case "$stage_http" in 200|301|302|400) :;; *) echo "TN_FIXTURE_BOOTSTRAP_FAILED status=$stage_http"; exit 1;; esac
+done
+docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/commercial-decision-native.php baseline-routes
+sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/commercial-decision-release.py "$stage_root" apply
+docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/commercial-decision-native.php accept
 sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/index-decision-release.py "$stage_root" runtime
 docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/index-decision-native.php off
 sudo nsenter --target "$stage_app_pid" --net -- env NODE_PATH="$stage_root/pw/node_modules" PLAYWRIGHT_BROWSERS_PATH="$stage_root/browsers" node tests/index-decision-browser.cjs off "$stage_root"

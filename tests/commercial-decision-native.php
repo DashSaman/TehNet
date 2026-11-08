@@ -39,7 +39,7 @@ if($phase==='seed'){
  $j=json_decode(file_get_contents('/lab/private-release/content-journal-private.json'),true,512,JSON_THROW_ON_ERROR);
  $rc=new ReflectionClass(TehNet_Growth_Content_Migration::class);$instance=$rc->newInstanceWithoutConstructor();$p=$rc->getProperty('manifest');$p->setAccessible(true);$p->setValue($instance,['updates'=>array_map(static fn($r)=>['id'=>$r['id']],$m['targets'])]);
  $method=$rc->getMethod('protectedState');$method->setAccessible(true);$current=$method->invoke($instance,$j['page_ids']);$diff=[];foreach($current as$key=>$value)if(($j['protected'][$key]??null)!==$value)$diff[]=$key;
- echo 'TN_DECISION_PROTECTED_DIFF '.wp_json_encode(['changed_keys'=>$diff,'production_mutations'=>0])."\n";
+ echo 'TN_DECISION_PROTECTED_DIFF '.wp_json_encode(['changed_keys'=>$diff,'original_missing_keys'=>array_values(array_diff($diff,array_keys($j['protected']))),'production_mutations'=>0])."\n";
  $table=$wpdb->prefix.'woocommerce_sessions';$ck(!$diff||$diff===[$table],'Only test-owned anonymous Woo session state may require cleanup; no guard exclusion');
  $old=json_decode(file_get_contents('/lab/sessions-before-private.json'),true,512,JSON_THROW_ON_ERROR);$rows=$wpdb->get_results("SELECT * FROM `$table` ORDER BY session_id",ARRAY_A);$added=[];$found=[];
  foreach($rows as$row){$id=$row['session_id'];if(array_key_exists($id,$old)){$ck(hash('sha256',serialize($row))===$old[$id],'Original Woo session row unchanged');$found[$id]=true;}else $added[]=(int)$id;}
