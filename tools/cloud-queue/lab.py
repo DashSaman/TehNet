@@ -7,6 +7,7 @@ import shutil, socket, struct, subprocess, tempfile, time, urllib.request, zipfi
 import paramiko
 from PIL import Image
 from prompt_state import select_prompt
+from queue_values import exact_queue_limits
 
 ROOT = Path(tempfile.mkdtemp(prefix="tn-queue-cloud-"))
 os.umask(0o077)
@@ -183,7 +184,7 @@ def queue_state(node):
         fields[key] = match[1].strip()
     RESULT["latest_queue_readback"] = fields
     assert fields["COUNT"] == "1" and fields["TARGET"] == "192.0.2.10/32"
-    assert fields["LIMIT"] == "64000/128000", "GUI-entered upload/download limits must match exactly"
+    exact_queue_limits(fields["LIMIT"])
     assert fields["DISABLED"] in ("true", "false", "yes", "no")
     assert re.fullmatch(r"\d+/\d+", fields["BYTES"])
     return fields
