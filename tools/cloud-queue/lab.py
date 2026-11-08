@@ -139,36 +139,21 @@ def ros(node, command, pty=False, timeout=60):
     finally:
         c.close()
 
-def measure_receive(node, server, label):
-    # A finite as-value result, not an interactive terminal stream or a public test server.
-    assert server in ("192.0.2.10", "203.0.113.1")
-    command = (':local r [/tool bandwidth-test address=' + server +
-               ' protocol=udp direction=receive duration=6s connection-count=1' +
-               ' remote-tx-speed=256k random-data=no user=admin password="' + PASSWORD +
-               '" as-value]; :put ("TN_RX_BPS=" . ($r->"rx-total-average")); ' +
-               ':put ("TN_STATUS=" . ($r->"status"))')
-    try:
-        output = ros(node, command, timeout=18)
-    except (TimeoutError, RuntimeError, AssertionError, paramiko.SSHException) as error:
-        RESULT.setdefault("rate_failure_categories", {})[label] = [type(error).__name__]
-        return None
-    match = re.search(r"(?:^|[\r\n])TN_RX_BPS=(\d+)", output)
-    status = re.search(r"(?:^|[\r\n])TN_STATUS=([^\r\n]*)", output)
-    RESULT.setdefault("rate_output_metadata", {})[label] = {
-        "bytes":len(output), "numeric_receive_value":bool(match),
-        "done_testing":bool(status and status[1].strip()=="done testing")}
-    if not match or not status or status[1].strip()!="done testing":
-        RESULT.setdefault("rate_failure_categories", {})[label] = [
-            token for token in ("not allowed by device-mode", "can not connect", "can not start test",
-                                "authentication failed", "remote is busy", "disconnected")
-            if token in output.lower()]
-        return None
-    rate = int(match[1])
-    if not (0 < rate < 600000):
-        RESULT.setdefault("rate_failure_categories", {})[label] = ["outside expected bounded range"]
-        return None
-    RESULT.setdefault("measured_receive_bps", {})[label] = rate
-    return rate
+def measure_ping(node, destination, label):
+    assert destination in ("192.0.2.10","203.0.113.1")
+    output = ros(node, "/ping " + destination + " count=20 size=1000 interval=100ms")
+    counts = re.search(r"sent=(\d+)\s+received=(\d+)\s+packet-loss=(\d+)%", output)
+    average = re.search(r"avg-rtt=([^\s]+)", output)
+    assert counts and average, "Finite ICMP count/latency observation required"
+    parts = list(re.finditer(r"(\d+(?:\.\d+)?)(ns|us|µs|ms|s)",average[1]))
+    assert parts and "".join(p[0] for p in parts)==average[1], "Unrecognized RouterOS latency unit"
+    factors = {"ns":.000001,"us":.001,"µs":.001,"ms":1,"s":1000}
+    delay = sum(float(p[1])*factors[p[2]] for p in parts)
+    observed = {"sent":int(counts[1]),"received":int(counts[2]),
+                "packet_loss_percent":int(counts[3]),"average_rtt_ms":round(delay,3)}
+    RESULT.setdefault("icmp_observations",{})[label]=observed
+    assert observed["sent"]==20 and observed["received"]==20 and observed["packet_loss_percent"]==0, "Twenty real ICMP replies required"
+    return delay
 
 def queue_state(node):
     output = ros(node, ':local q [/queue simple find where name="tn-cloud-cap"]; ' +
@@ -284,11 +269,12 @@ try:
     assert "QUEUES=0" in empty and "FASTTRACK=0" in empty
     RESULT["baseline"] = {"ping_5_of_5": True, "queue_empty": True, "fasttrack_absent": True, "nat_required": False,
                            "documentation_address_topology": True, "all_three_identities_versions_verified": True}
-    phase = "bounded-traffic-baseline"
-    for endpoint in (client, r2):
-        ros(endpoint, "/tool bandwidth-server set enabled=yes authenticate=yes max-sessions=1")
-    base_up = measure_receive(r2, "192.0.2.10", "baseline_upload")
-    base_down = measure_receive(client, "203.0.113.1", "baseline_download")
+    phase = "icmp-baseline"
+    # No bandwidth-test endpoint is used; the rate-tool attempts remain unqualified.
+    for endpoint in (client,r2):
+        ros(endpoint,"/tool bandwidth-server set enabled=no")
+    base_up = measure_ping(client,"203.0.113.1","baseline_client_initiated")
+    base_down = measure_ping(r2,"192.0.2.10","baseline_r2_initiated")
     phase = "display"
     (ROOT / "frames").mkdir()
     start(["Xvfb", ":99", "-screen", "0", "1536x960x24", "-nolisten", "tcp", "-fbdir", ROOT / "frames"], "xvfb")
@@ -336,15 +322,11 @@ try:
     assert first["DISABLED"] in ("false","no"), "New GUI queue must be enabled"
     shot("q06-applied-general")
     phase = "active-queue-measurement"
-    active_up = measure_receive(r2,"192.0.2.10","active_upload")
-    active_down = measure_receive(client,"203.0.113.1","active_download")
-    ros(client,"/ping 203.0.113.1 src-address=192.0.2.10 count=20 size=1000 interval=100ms")
+    active_up = measure_ping(client,"203.0.113.1","active_client_initiated")
+    active_down = measure_ping(r2,"192.0.2.10","active_r2_initiated")
     active = queue_state(r1)
     assert all(int(n)>0 for n in active["BYTES"].split("/")), "Both actual Queue byte counters must increase"
-    # A rate diagnostic must not prevent the independent, actual GUI/counter exercise.
-    measured_active = all(x is not None for x in (base_up,base_down,active_up,active_down))
-    if measured_active:
-        assert active_up < base_up * .70 and active_down < base_down * .85, "Both measured directions must show a real limiting effect"
+    assert active_up > base_up+5 and active_down > base_down+5, "Controlled ICMP load must show an actual latency effect"
     click(703,304)
     shot("q07-active-statistics")
     phase = "gui-disable-recovery"
@@ -354,22 +336,22 @@ try:
     disabled = queue_state(r1)
     assert disabled["DISABLED"] in ("true","yes"), "GUI Disable must read back true"
     shot("q08-disabled-general")
-    disabled_up = measure_receive(r2,"192.0.2.10","disabled_upload")
-    disabled_down = measure_receive(client,"203.0.113.1","disabled_download")
-    measured_disabled = measured_active and disabled_up is not None and disabled_down is not None
-    if measured_disabled:
-        assert disabled_up > active_up * 1.3 and disabled_down > active_down * 1.15, "Disable must restore measured flow"
+    disabled_up = measure_ping(client,"203.0.113.1","disabled_client_initiated")
+    disabled_down = measure_ping(r2,"192.0.2.10","disabled_r2_initiated")
+    assert disabled_up+5 < active_up and disabled_down+5 < active_down, "Disable must reverse the measured latency effect"
+    disabled_after=queue_state(r1)
+    assert disabled_after["BYTES"]==disabled["BYTES"], "Disabled queue counters must remain unchanged under the same traffic"
     phase = "gui-reenable"
     click(691,340)
     click(1048,689)
     reenabled = queue_state(r1)
     assert reenabled["DISABLED"] in ("false","no"), "GUI Enable must read back false"
     shot("q09-reenabled-general")
-    again_up = measure_receive(r2,"192.0.2.10","reenabled_upload")
-    again_down = measure_receive(client,"203.0.113.1","reenabled_download")
-    rates_verified = measured_disabled and again_up is not None and again_down is not None
-    if rates_verified:
-        assert again_up < disabled_up * .70 and again_down < disabled_down * .85, "Re-enable must restore the measured limiting effect"
+    again_up = measure_ping(client,"203.0.113.1","reenabled_client_initiated")
+    again_down = measure_ping(r2,"192.0.2.10","reenabled_r2_initiated")
+    assert again_up > disabled_up+5 and again_down > disabled_down+5, "Re-enable must restore the measured latency effect"
+    final_state=queue_state(r1)
+    assert all(int(new)>int(old) for new,old in zip(final_state["BYTES"].split("/"),active["BYTES"].split("/"))), "Both queue byte counters must increase again after GUI re-enable"
     click(703,304)
     shot("q10-reenabled-statistics")
     phase = "owned-rule-cleanup"
@@ -385,13 +367,14 @@ try:
     after = ros(client,"/ping 203.0.113.1 src-address=192.0.2.10 count=5 size=500 interval=100ms")
     assert re.search(r"sent=5\s+received=5\s+packet-loss=0%",after), "Cleanup must retain the original data path"
     assert "TN-LAB-R1" in ros(r1,":put [/system identity get name]"), "Management must survive all Queue changes"
-    RESULT.update(status=("LAB_QUEUE_VERIFIED_PENDING_MEDIA_REVIEW" if rates_verified else "GUI_COUNTERS_VERIFIED_RATE_UNVERIFIED"), captures=CAPTURES,
+    RESULT.update(status="LAB_FLOW_VERIFIED_PENDING_MEDIA_REVIEW", captures=CAPTURES,
                   queue_created_by="Actual WinBox GUI; command-line readback only",
-                  active_counters=active, disable_enable_actual=True, receive_rate_effect_verified=rates_verified,
+                  active_counters=active, disable_enable_actual=True, receive_rate_effect_verified=False,
+                  latency_effect_verified=True, queue_readbacks={"active":active,"disabled":disabled_after,"reenabled":final_state},
                   cleanup={"only_owned_rule_removed":True,"servers_disabled":True,"queue_empty":True,
                            "ping_5_of_5":True,"management_retained":True},
-                  limits=["Synthetic 256k offered traffic on CHR free license/TCG only; not internet, hardware or customer capacity.",
-                          "Receive rates are measured independently at each destination; upload/download refer to192.0.2.10.",
+                  limits=["Controlled20x1000-byte ICMP probes in both initiation directions on CHR/TCG only; not internet, hardware or customer capacity.",
+                          "ICMP latency/counter effect is verified; separate receive-rate/throughput measurement is NOT qualified.",
                           "All new screenshots still require visual acceptance; website/native staging not qualified.",
                           "No new production body or image was published."])
 except BaseException as e:
