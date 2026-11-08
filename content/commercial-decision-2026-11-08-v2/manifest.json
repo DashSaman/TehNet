@@ -1,0 +1,141 @@
+{
+  "schema": 1,
+  "key": "tehnet-commercial-decision-20261108-v2",
+  "supersedes": "PR94 v1 candidate bodies for owner8/29; baseline is live owner bodies, never deploy both successively",
+  "status": "PREPARED_NOT_QUALIFIED_NOT_DEPLOYED",
+  "targets": [
+    {
+      "id": 8,
+      "type": "page",
+      "uri": "services",
+      "url": "https://tehnet.ir/services/",
+      "content_file": "services.html",
+      "title_observed": "خدمات",
+      "expected_content_sha256": "d42bbd0faa6a2b66d4255adc758571795da6658316148a925160b74f9e1368b0",
+      "expected_excerpt_sha256": "0749d60a30b612feec2361a56700def9a0a0550f85b0169a30db066a78b18b39",
+      "content_sha256_lf": "130de122301c55e7980f6dace4f576b5254a0a325bd75cea5d09faec72bf990d",
+      "change_fields": [
+        "post_content"
+      ]
+    },
+    {
+      "id": 29,
+      "type": "page",
+      "uri": "services/network-tehran",
+      "url": "https://tehnet.ir/services/network-tehran/",
+      "content_file": "network-tehran.html",
+      "title_observed": "خدمات شبکه تهران",
+      "expected_content_sha256": "16b9789a148a48da56b3353ab982c7030105f3b0cadc1d9fd4d025860d4ebe26",
+      "expected_excerpt_sha256": "125e36b24aec2f89f2fe05707abb5da776be2982eb49bb0488c4a1e0dde93b08",
+      "content_sha256_lf": "abe760a97700b3a7b5eb8a2205f724e2b7ab3818d1afe02342c6fa2b28d5eff0",
+      "change_fields": [
+        "post_content",
+        "post_excerpt",
+        "post_title"
+      ],
+      "title": "خدمات شبکه تهران؛ انتخاب خدمت و تعیین دامنهٔ پروژه",
+      "excerpt": "برای قطعی، راه‌اندازی، پشتیبانی، میکروتیک، Wi-Fi یا سرور مسیر مناسب را انتخاب کنید؛ ورودی، خروجی و حدود خدمات حضوری تهران و ریموت روشن است."
+    },
+    {
+      "id": 31,
+      "type": "page",
+      "uri": "services/network-support-tehran",
+      "url": "https://tehnet.ir/services/network-support-tehran/",
+      "content_file": "network-support.html",
+      "title_observed": "پشتیبانی شبکه تهران",
+      "expected_content_sha256": "73d1b477170f3e9c8c59610e8901a066b10f1e7200a7003dfe3d9ff1a6b1627a",
+      "expected_excerpt_sha256": "fda3f249eed935adc9350f0803b272da9cd7c02e4670a77d93953fcaa7cd0600",
+      "content_sha256_lf": "f0ecdcfe014371ac22df9647512a6ccd73b18d52a357c4fc681e442ff3ec37de",
+      "change_fields": [
+        "post_content",
+        "post_excerpt",
+        "post_title"
+      ],
+      "title": "پشتیبانی شبکه تهران؛ رخداد، نگهداری و گزارش تحویل",
+      "excerpt": "رفع مسئله، نگهداری و مانیتورینگ را با دامنه، گزارش و مسئول پیگیری روشن مقایسه کنید؛ حضوری تهران و ریموت مشروط، بدون SLA آماده."
+    },
+    {
+      "id": 33,
+      "type": "page",
+      "uri": "services/network-setup-tehran",
+      "url": "https://tehnet.ir/services/network-setup-tehran/",
+      "content_file": "network-setup.html",
+      "title_observed": "راه‌اندازی شبکه شرکت در تهران",
+      "expected_content_sha256": "709c49b6d2e0cffa4d95c3709877ff06d40daa5223a3f39894881b7a429cbe5e",
+      "expected_excerpt_sha256": "67aa0ae9684bab45c3625b3fc03e19ec6f425140cad7715e18d794d6f80007f4",
+      "content_sha256_lf": "d378d09aaf24a038cb685c9a0a0d0726674c5e876d28f6955492848bd11ae78e",
+      "change_fields": [
+        "post_content",
+        "post_excerpt",
+        "post_title"
+      ],
+      "title": "راه‌اندازی شبکه شرکت در تهران؛ نیازسنجی تا پذیرش",
+      "excerpt": "ورودی پروژه، کاربرگ نیازسنجی، طراحی، پنجرهٔ تغییر و معیار تحویل شبکه شرکت در تهران؛ مسیر سرور، Wi-Fi و شعب با دامنهٔ جدا."
+    },
+    {
+      "id": 35,
+      "type": "page",
+      "uri": "services/mikrotik-tehran",
+      "url": "https://tehnet.ir/services/mikrotik-tehran/",
+      "content_file": "mikrotik-service.html",
+      "title_observed": "خدمات MikroTik تهران",
+      "expected_content_sha256": "ab9d96e52fb50fc3f2d0f535d614c4d6dbd29395d10e32002f608b8cd7c950e7",
+      "expected_excerpt_sha256": "e82c6cdbfab267e99f9a54f3c53264159fe49bb7bda13fc01c80f9a7446ee7fb",
+      "content_sha256_lf": "118f34b1ec9eb08531d18e52bbedf8e25f4d7745928214b4388e6d39ede41f15",
+      "change_fields": [
+        "post_content",
+        "post_excerpt",
+        "post_title"
+      ],
+      "title": "خدمات میکروتیک تهران؛ بررسی RouterOS و تغییر کنترل‌شده",
+      "excerpt": "برای آموزش یا تغییر RouterOS مسیر مناسب را انتخاب کنید؛ مدل و نسخه، دسترسی امن، آزمون فایروال و بازگشت پیش از اجرا بررسی می‌شوند."
+    }
+  ],
+  "pages": [
+    {
+      "key": "A1",
+      "slug": "network-support-contract-guide",
+      "parent_id": 0,
+      "title": "قرارداد پشتیبانی شبکه؛ پیش از توافق چه چیزهایی را روشن کنیم؟",
+      "excerpt": "برگهٔ مقایسهٔ دامنهٔ پشتیبانی شبکه؛ شمول تجهیزات، پاسخ و رفع، ارجاع، گزارش، پذیرش و پایان دسترسی با نمونهٔ فرضی.",
+      "content_file": "network-support-contract-guide.html",
+      "content_sha256_lf": "2eea6a0936cf24ca323164ab04a0f2170d9968c651183ba5a89703a9105bfe16"
+    },
+    {
+      "key": "A2",
+      "slug": "network-project-proposal-checklist",
+      "parent_id": 0,
+      "title": "پیشنهادهای اجرای شبکه را چگونه هم‌دامنه مقایسه کنیم؟",
+      "excerpt": "worksheet مقایسهٔ پیشنهاد شبکه؛ فرض‌ها، پسیو و اکتیو، تجهیزات و مجوز، تحویل، آزمون و هزینهٔ نگهداری با دو مثال فرضی.",
+      "content_file": "network-project-proposal-checklist.html",
+      "content_sha256_lf": "df3f21f1244b2eb164ef88a32a3bce8dc6b41619b9b3bb4a2dfb1780ae65520a"
+    },
+    {
+      "key": "A3",
+      "slug": "business-server-planning-guide",
+      "parent_id": 0,
+      "title": "نیازسنجی سرور شرکت؛ پیش از انتخاب CPU و RAM چه بپرسیم؟",
+      "excerpt": "برگهٔ نیازسنجی سرور و VM با ستون منبع داده و UNKNOWN؛ برنامه، وابستگی، همزمانی، رشد داده، مجوز و بازیابی پیش از انتخاب سخت‌افزار.",
+      "content_file": "business-server-planning-guide.html",
+      "content_sha256_lf": "fa6ff400db24ad816155416bad5a98a1c54438af4ac12e0f3932006025133d9d"
+    },
+    {
+      "key": "A4",
+      "slug": "server-backup-restore-acceptance",
+      "parent_id": 0,
+      "title": "اسنپ‌شات، بکاپ و آزمون بازیابی؛ چه مدرکی تحویل بگیریم؟",
+      "excerpt": "تفاوت checkpoint و backup با مثال نسخه‌دار و ماتریس پذیرش بازیابی؛ RPO/RTO موردنیاز را از نتیجهٔ واقعاً آزموده جدا کنید.",
+      "content_file": "server-backup-restore-acceptance.html",
+      "content_sha256_lf": "8fea9b8ecf76962b21784ce18edd066cde8092c9acd20b558aa6ed1280863290"
+    },
+    {
+      "key": "N1",
+      "slug": "server-virtualization-tehran",
+      "parent_id": 8,
+      "title": "سرور و مجازی‌سازی در تهران؛ از نیازسنجی تا تحویل سرویس",
+      "excerpt": "نیازسنجی، استقرار و مهاجرت سرور و VM با تعیین وابستگی برنامه، مجوز، پنجرهٔ تغییر و معیار پذیرش؛ حضوری تهران و ریموت مشروط.",
+      "content_file": "server-virtualization-tehran.html",
+      "content_sha256_lf": "b79aba49434a8e6931607db123388b0a169caff85db057b441b615bc7cfcfd1d"
+    }
+  ]
+}

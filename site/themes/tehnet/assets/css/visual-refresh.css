@@ -75,3 +75,10 @@ html{scroll-padding-top:110px}body.tn-visual{background:var(--tn-bg);color:var(-
 .tn-lab-shot-37{--tn-callout-x:20.8333%;--tn-callout-y:18.4823%;--tn-callout-w:49.0885%;--tn-callout-h:21.6646%}
 .tn-lab-shot-38{--tn-callout-x:20.7031%;--tn-callout-y:18.4823%;--tn-callout-w:77.5391%;--tn-callout-h:17.1359%}
 .tn-lab-shot-39{--tn-callout-x:19.4010%;--tn-callout-y:18.4823%;--tn-callout-w:26.7578%;--tn-callout-h:8.5679%}
+
+/* Buyer decision worksheets: scoped table overflow and print clarity. */
+.tn-visual .entry-content .tn-decision-table{max-width:100%;overflow-x:auto;margin-block:1.5rem;border:1px solid var(--tn-border);border-radius:.65rem}
+.tn-visual .entry-content .tn-decision-table table{width:100%;min-width:44rem;border-collapse:collapse;table-layout:fixed;background:var(--tn-card);color:var(--tn-ink);font-size:.9rem;line-height:1.9}
+.tn-visual .entry-content .tn-decision-table th,.tn-visual .entry-content .tn-decision-table td{padding:.8rem;vertical-align:top;overflow-wrap:anywhere;text-align:start;border:1px solid var(--tn-border)}
+.tn-visual .entry-content .tn-decision-table th{color:var(--tn-heading);background:var(--tn-surface)}
+@media print{.tn-visual .entry-content .tn-decision-table{overflow:visible;break-inside:auto}.tn-visual .entry-content .tn-decision-table table{min-width:0;font-size:9pt;background:#fff;color:#111}.tn-visual .entry-content .tn-decision-table th{background:#eee;color:#111}.tn-decision-table tr{break-inside:avoid}.tn-decision-table th,.tn-decision-table td{border-color:#888!important}}

@@ -1,0 +1,78 @@
+<!-- wp:paragraph -->
+<p>انتخاب CPU و RAM باید پاسخ یک workload روشن باشد، نه نقطهٔ شروع آن. ابتدا بنویسید کدام کارِ کسب‌وکار باید انجام شود، چه برنامه‌ای آن را اجرا می‌کند و به چه داده، شبکه و مجوزی وابسته است. اگر این ورودی‌ها نامعلوم‌اند، پیشنهاد ظرفیت قطعی فقط یک حدس است. این مقاله فرم آماده‌سازی اطلاعات طراحی است؛ مدل سرور، ظرفیت قابل تحویل یا benchmark برای شرکت شما تعیین نمی‌کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"anchor":"start-with-work"} -->
+<h2 class="wp-block-heading" id="start-with-work">از کار کاربر به سرویس و وابستگی برسید</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>برای هر برنامه یک زنجیرهٔ ساده بنویسید: کاربر مجاز → برنامه → داده/احراز هویت → مسیر شبکه → مقصد پشتیبان. سپس بپرسید چه چیزی در ساعت شلوغ متفاوت می‌شود. تعداد حساب‌های سازمان با تعداد کاربران همزمان یکی نیست و نام «نرم‌افزار اداری» میزان مصرف یا روش backup آن را مشخص نمی‌کند. ورودی معتبر می‌تواند گزارش مجاز ابزار، اطلاعات فروشندهٔ همان نسخه یا مشاهدهٔ مستند تیم باشد؛ چیزی که دیده نشده UNKNOWN بماند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"anchor":"planning-sheet"} -->
+<h2 class="wp-block-heading" id="planning-sheet">فرم خالی نیازسنجی؛ آمادهٔ چاپ و CSV</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table {"className":"tn-decision-table"} -->
+<figure class="wp-block-table tn-decision-table"><table class="has-fixed-layout"><thead><tr><th>ورودی</th><th>پاسخ فعلی</th><th>منبع داده</th><th>سؤال باز</th><th>مسئول تأیید</th></tr></thead><tbody><tr><td>کار برنامه و ساعات حساس</td><td>UNKNOWN</td><td>مالک فرایند</td><td>کدام کار نباید متوقف شود؟</td><td>UNKNOWN</td></tr><tr><td>کاربران و همزمانی</td><td>UNKNOWN</td><td>مشاهده/مالک برنامه</td><td>الگوی ساعت شلوغ چیست؟</td><td>UNKNOWN</td></tr><tr><td>داده و رشد</td><td>UNKNOWN</td><td>گزارش مجاز</td><td>نوع داده و روند رشد؟</td><td>UNKNOWN</td></tr><tr><td>وابستگی برنامه</td><td>UNKNOWN</td><td>فروشنده/مستند نسخه</td><td>دیتابیس، DNS، هویت یا سرویس جانبی؟</td><td>UNKNOWN</td></tr><tr><td>نسخه و حق استفاده</td><td>UNKNOWN</td><td>مدرک تأمین/فروشنده</td><td>پشتیبانی روی کدام بستر معتبر است؟</td><td>UNKNOWN</td></tr><tr><td>شبکه و دسترسی</td><td>UNKNOWN</td><td>مسئول شبکه</td><td>کاربر در دفتر است یا شعبه؟</td><td>UNKNOWN</td></tr><tr><td>backup و بازیابی</td><td>UNKNOWN</td><td>مسئول داده</td><td>مقصد مستقل و آزمون کاربر چیست؟</td><td>UNKNOWN</td></tr><tr><td>پنجره تغییر و برگشت</td><td>UNKNOWN</td><td>مدیر مجاز</td><td>شرط توقف و فرد تصمیم‌گیر؟</td><td>UNKNOWN</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p><a href="/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-1.csv">دریافت CSV جدول 1</a> · <a href="/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-print.html">نسخهٔ چاپی کاربرگ‌ها</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>ستون منبع را حذف نکنید. «فروشنده گفته» بدون نسخه و تاریخ، با اندازه‌گیری همان workload برابر نیست؛ «تجربهٔ پروژهٔ قبلی» هم دادهٔ محیط جدید نیست. نسخهٔ عمومی برگه نباید شناسهٔ مشتری، نشانی مدیریتی، رمز یا محتوای داده را داشته باشد. جزئیات حساس فقط در مسیر امن و پس از تعیین دامنه بررسی می‌شوند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"anchor":"deployment-options"} -->
+<h2 class="wp-block-heading" id="deployment-options">گزینهٔ استقرار را با فرض‌های یکسان مقایسه کنید</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table {"className":"tn-decision-table"} -->
+<figure class="wp-block-table tn-decision-table"><table class="has-fixed-layout"><thead><tr><th>گزینهٔ نامزد</th><th>چه پرسشی را حل می‌کند؟</th><th>وابستگی که باید بررسی شود</th><th>از چه نتیجه‌ای پرهیز کنیم؟</th></tr></thead><tbody><tr><td>سرویس روی میزبان موجود</td><td>آیا می‌توان از دارایی فعلی استفاده کرد؟</td><td>ظرفیت، سلامت، سازگاری و مجوز</td><td>موجودبودن یعنی کافی‌بودن نیست</td></tr><tr><td>VM روی میزبان مناسب</td><td>آیا تفکیک و مدیریت workloadها مفید است؟</td><td>منابع فیزیکی، ذخیره‌سازی، شبکه و بستر پشتیبانی</td><td>VM سخت‌افزار فیزیکی را حذف نمی‌کند</td></tr><tr><td>میزبان یا محیط مستقل</td><td>آیا مرز خرابی/مدیریت جدا لازم است؟</td><td>هزینهٔ تهیه و نگهداری و بازیابی</td><td>استقلال اسمی، اثبات تداوم سرویس نیست</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p><a href="/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-2.csv">دریافت CSV جدول 2</a> · <a href="/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-print.html">نسخهٔ چاپی کاربرگ‌ها</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><a href="https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/overview">معرفی رسمی Hyper-V در Windows Server و Windows</a> نمونه‌ای از مجازی‌سازی سخت‌افزار و اجرای VM روی میزبان است؛ قابلیت‌ها با edition و بستر فرق دارند. از این منبع نتیجه نمی‌گیریم هر برنامه، مجوز یا سخت‌افزار با هر محصول سازگار است یا تهران نتورک همین محصول را برای هر پروژه عرضه می‌کند. VM الزاماً ارزان‌تر نیست؛ هزینهٔ بستر، مجوز، ذخیره، backup و نگهداری نیز باید در دامنه بیایند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"anchor":"fictional-office"} -->
+<h2 class="wp-block-heading" id="fictional-office">سناریوی فرضی کامل: دفتر با فایل و برنامهٔ اداری</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>فرض کنید یک دفتر می‌خواهد فایل‌های مشترک و برنامهٔ اداری را از یک سیستم قدیمی جدا کند. برنامه هنوز باید با فروشنده تطبیق داده شود و هیچ اندازه‌گیری منابع انجام نشده است. فرض سناریو این است که کاربران داخل دفتر کار می‌کنند و مسئول مجاز برنامه برای آزمون حضور دارد؛ برای شعبه یا دسترسی بیرونی طراحی جدا لازم است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table {"className":"tn-decision-table"} -->
+<figure class="wp-block-table tn-decision-table"><table class="has-fixed-layout"><thead><tr><th>نیاز فرضی</th><th>وضعیت مشاهده</th><th>اطلاعاتی که هنوز لازم است</th><th>تصمیم مجاز فعلی</th></tr></thead><tbody><tr><td>کار با فایل مشترک</td><td>نیاز کسب‌وکار توصیف شده</td><td>حجم، رشد، مجوز پوشه و کار نماینده</td><td>تعریف معیار، نه انتخاب ظرفیت</td></tr><tr><td>برنامهٔ اداری</td><td>نسخه و وابستگی نامعلوم</td><td>تأیید فروشنده و روش backup برنامه</td><td>انتخاب بستر تا تأیید باز است</td></tr><tr><td>پنجره مهاجرت</td><td>هنوز توافق نشده</td><td>زمان مجاز، مسیر برگشت و مسئول</td><td>تاریخ اجرای قطعی اعلام نشود</td></tr><tr><td>نیاز بازیابی</td><td>فقط خواستهٔ کلی مطرح است</td><td>نقطهٔ دادهٔ قابل قبول و زمان موردنیاز</td><td>نیاز بنویسید؛ نتیجهٔ اندازه‌گیری نسازید</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p><a href="/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-3.csv">دریافت CSV جدول 3</a> · <a href="/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-print.html">نسخهٔ چاپی کاربرگ‌ها</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>خروجی این جلسه یک فهرست سؤال و طرح بررسی است، نه فهرست قطعات نهایی. در مرحلهٔ بعد، نسخه‌های مجاز، سلامت دارایی، workload و شرایط نگهداری بررسی می‌شوند؛ سپس گزینهٔ بستر و معیار تحویل با فرض‌های مستند مقایسه می‌شود. هیچ تعداد کاربر، CPU/RAM یا زمان بازیابی از این مثال قابل تضمین نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"anchor":"accept-before-order"} -->
+<h2 class="wp-block-heading" id="accept-before-order">پیش از سفارش چه خروجی بخواهیم؟</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>از مجری بخواهید ورودی‌های تأییدشده و ناشناخته، دلیل انتخاب بستر، اقلام داخل/خارج دامنه، وابستگی برنامه و آزمون کاربر را ثبت کند. روشن‌شدن VM فقط یک مشاهدهٔ فنی است؛ تحویل سرویس به کارکرد برنامه و دسترسی مجاز نیاز دارد. هزینهٔ اولیه و هزینهٔ دوره‌ای را جدا ببینید و برای backup، مقصد و شیوهٔ آزمون بازیابی را مستقل بنویسید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>برای دامنهٔ اجرا <a href="/services/server-virtualization-tehran/">سرور و مجازی‌سازی در تهران</a>، برای بستر شبکه <a href="/services/network-setup-tehran/">راه‌اندازی شبکه</a> و برای مدرک بازیابی <a href="/server-backup-restore-acceptance/">راهنمای پذیرش backup/restore</a> را ببینید. <a href="/services/?tn_service_context=server-scoping#service-request">درخواست نیازسنجی سرور را در سامانهٔ موجود ثبت کنید</a>؛ همین برگهٔ غیرحساس برای شروع کافی است.</p>
+<!-- /wp:paragraph -->
+<!-- wp:shortcode -->
+[tn_editorial_note]
+<!-- /wp:shortcode -->

@@ -96,7 +96,11 @@ LESSON_SCOPES = {
     ROUTING_SCOPE: ('content/routing-editorial-2026-11-01', 'static-routing.html', '/tmp/tn-routing-release-'),
     IP_DHCP_DNS_SCOPE: ('content/ip-dhcp-dns-editorial-2026-11-01', 'ip-dhcp-dns.html', '/tmp/tn-ip-dhcp-dns-release-'),
 }
+DECISION_SCOPE = 'tehnet-commercial-decision-20261108-v2'
+DECISION_FILES = ["site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-support-contract-guide-1.csv","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-support-contract-guide-print.html","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-project-proposal-checklist-1.csv","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-project-proposal-checklist-2.csv","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-project-proposal-checklist-print.html","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-1.csv","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-2.csv","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-3.csv","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-print.html","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/server-backup-restore-acceptance-1.csv","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/server-backup-restore-acceptance-2.csv","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/server-backup-restore-acceptance-print.html","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/.htaccess","site/themes/tehnet/assets/css/visual-refresh.css"]
+DECISION_BODIES = ["services.html","network-tehran.html","network-support.html","network-setup.html","mikrotik-service.html","network-support-contract-guide.html","network-project-proposal-checklist.html","business-server-planning-guide.html","server-backup-restore-acceptance.html","server-virtualization-tehran.html"]
 CONTENT_SCOPES = {**LESSON_SCOPES,
+    DECISION_SCOPE: ('content/commercial-decision-2026-11-08-v2', 'services.html', '/tmp/tn-commercial-decision-'),
     ILLUSTRATED_ROUTING_SCOPE: ('content/illustrated-routing-2026-11-04', 'static-routing.html', '/tmp/tn-illustrated-routing-release-'),
     CONCEPTUAL_ROUTING_SCOPE: ('content/conceptual-routing-2026-11-04', 'lab.html', '/tmp/tn-conceptual-routing-release-'),
     NETWORK_TRIAGE_SCOPE: ('content/network-triage-2026-11-04', 'lab.html', '/tmp/tn-network-triage-release-'),
@@ -111,6 +115,10 @@ GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE, GALLE
 
 
 def scope_spec(scope):
+    if scope == DECISION_SCOPE:
+        directory = 'content/commercial-decision-2026-11-08-v2/'
+        return list(DECISION_FILES), [directory + 'manifest.json', *[directory + f for f in DECISION_BODIES],
+            'ops/migrate-growth-content.php'], [p for p in dict.fromkeys(scope_spec(EDUCATION_SCOPE)[2] + NETWORK_TRIAGE_FILES + CONCEPTUAL_ROUTING_FILES) if p not in DECISION_FILES]
     if scope == WINBOX_CORE_SCOPE:
         directory = 'content/winbox-guides-2026-11-05/'
         guarded = list(dict.fromkeys(scope_spec(EDUCATION_SCOPE)[2] + NETWORK_TRIAGE_FILES + CONCEPTUAL_ROUTING_FILES))
@@ -471,7 +479,7 @@ class Release:
             staged.append((self.extra[1], CONTENT_SCOPES[self.scope][1]))
         if self.scope == COMMERCIAL_CATALOG_SCOPE:
             staged.extend([(self.extra[1], 'services.html'), (self.extra[2], 'home.html')])
-        if self.scope in (EDUCATION_SCOPE, WINBOX_CORE_SCOPE):
+        if self.scope in (EDUCATION_SCOPE, WINBOX_CORE_SCOPE, DECISION_SCOPE):
             staged.extend((source, PurePosixPath(source).name) for source in self.extra[1:-1])
         for source, name in staged:
             self.run(['docker', 'cp', str(member(self.b / 'payload', source)), self.c['app'] + ':' + self.container_stage + '/' + name])

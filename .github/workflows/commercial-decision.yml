@@ -1,0 +1,25 @@
+name: Commercial decision v2 isolated acceptance
+on:
+  push:
+    branches: [feat/seo-readiness-20261108]
+    paths: ['content/commercial-decision-2026-11-08-v2/**', 'site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/**', 'site/themes/tehnet/assets/css/visual-refresh.css', 'ops/release-growth-content.py', 'ops/migrate-growth-content.php', 'tests/commercial-decision-*', 'tests/fixtures/decision-v2-public-pages.json', '.github/workflows/commercial-decision.yml']
+permissions:
+  contents: read
+concurrency:
+  group: commercial-decision-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  native:
+    if: github.repository == 'DashSaman/TehNet' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - run: python3 tools/publication_guard.py
+      - run: python3 -m compileall -q ops/release-growth-content.py tests/commercial-decision-release.py
+      - run: node --check tests/commercial-decision-browser.cjs
+      - name: Native publisher and actual theme in disposable WordPress
+        run: bash tests/commercial-decision-native.sh

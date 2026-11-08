@@ -1,0 +1,94 @@
+{
+  "review_date": "2026-11-08",
+  "review_type": "Narrow primary-source technical desk review; no human external reviewer or customer test claimed",
+  "items": [
+    {
+      "name": "Google",
+      "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+      "scope": "محتوای متمایز، قابل استفاده و دارای شاهد؛ نه تضمین توصیهٔ AI یا رتبه",
+      "used": [
+        "S1",
+        "A1",
+        "A2",
+        "A3",
+        "A4"
+      ],
+      "status": "READ"
+    },
+    {
+      "name": "NIST SP800-128 upd1",
+      "url": "https://csrc.nist.gov/pubs/sp/800/128/upd1/final",
+      "scope": "مفهوم baseline و تغییر کنترل‌شده؛ نه حقوق قرارداد ایران یا گواهی مجری",
+      "used": [
+        "A1",
+        "A2"
+      ],
+      "status": "READ"
+    },
+    {
+      "name": "Microsoft Hyper-V",
+      "url": "https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/overview",
+      "scope": "مجازی‌سازی سخت‌افزار؛ انتخاب edition/نسخه/مجوز و سازگاری برنامه همچنان مشروط",
+      "used": [
+        "N1",
+        "A3"
+      ],
+      "status": "READ"
+    },
+    {
+      "name": "Microsoft checkpoints",
+      "url": "https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/checkpoints",
+      "scope": "standard در برابر production و تفاوت با full backup؛ دامنهٔ نسخه‌های نوشته‌شده",
+      "used": [
+        "A4"
+      ],
+      "status": "READ"
+    },
+    {
+      "name": "Azure VM Backup",
+      "url": "https://learn.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction",
+      "scope": "snapshot می‌تواند جزء فرایند backup باشد؛ سازگاری و مقصد مهم است",
+      "used": [
+        "A4"
+      ],
+      "status": "READ"
+    },
+    {
+      "name": "Azure restore VM",
+      "url": "https://learn.microsoft.com/en-us/azure/backup/backup-azure-arm-restore-vms",
+      "scope": "نوع مقصد و پیش‌شرط‌های متفاوت؛ هیچ اجرای restore/عرضهٔ سرویس Azure ادعا نشده",
+      "used": [
+        "A4"
+      ],
+      "status": "READ"
+    },
+    {
+      "name": "MikroTik Configuration Management",
+      "url": "https://help.mikrotik.com/docs/spaces/ROS/pages/328155/Configuration+Management",
+      "scope": "Safe Mode و محدودیت آن؛ این نسخهٔ help frozen است، رفتار با نسخهٔ نصب‌شده تطبیق شود",
+      "used": [
+        "S4"
+      ],
+      "status": "READ"
+    },
+    {
+      "name": "MikroTik Filter جاری",
+      "url": "https://manual.mikrotik.com/docs/firewall-and-quality-of-service/firewall/filter/",
+      "scope": "نسخهٔ نمایش‌داده‌شده7.26؛ input و forward متمایزند، config قابل کپی عمومی منتشر نشده",
+      "used": [
+        "S4"
+      ],
+      "status": "READ"
+    }
+  ],
+  "unavailable": [
+    {
+      "name": "Proxmox vzdump chapter",
+      "status": "403_NOT_REVIEWED_NOT_USED"
+    },
+    {
+      "name": "Guessed current MikroTik configuration-management URL",
+      "status": "UNAVAILABLE; frozen official page read, no claim of current manual validation"
+    }
+  ]
+}
