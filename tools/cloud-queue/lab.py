@@ -141,6 +141,27 @@ def ros(node, command, pty=False, timeout=60):
     finally:
         c.close()
 
+def data_readiness(node):
+    ip2={"r1":"192.0.2.1/24","client":"192.0.2.10/24","r2":"198.51.100.2/24"}[node["name"]]
+    destination="192.0.2.0/24" if node["name"]=="r2" else "203.0.113.0/24"
+    command=(':put ("LINK2=" . [/interface get ether2 running]); '+
+             ':put ("IP2=" . [/ip address print count-only where address="'+ip2+'" interface=ether2]); '+
+             ':put ("ROUTE=" . [/ip route print count-only where dst-address="'+destination+'" active=yes])')
+    expected={"LINK2":"true","IP2":"1","ROUTE":"1"}
+    if node["name"]=="r1":
+        command+='; :put ("LINK3=" . [/interface get ether3 running])'
+        expected["LINK3"]="true"
+    elif node["name"]=="r2":
+        command+='; :put ("SELFROUTE=" . [/ip route print count-only where dst-address="203.0.113.0/24" active=yes])'
+        expected["SELFROUTE"]="1"
+    text=ros(node,command)
+    observed={}
+    for key in expected:
+        match=re.search(r"(?:^|[\r\n])"+key+r"=(\d+|true|false|yes|no)",text)
+        assert match,"Missing public lab-readiness field: "+key
+        observed[key]=match[1]
+    return observed==expected,observed
+
 def measure_ping(node, destination, label):
     assert destination in ("192.0.2.10","203.0.113.1")
     source = "192.0.2.10" if node["name"]=="client" else "203.0.113.1"
@@ -264,6 +285,15 @@ try:
     for n in nodes:
         version = ros(n, ':put ("VERSION=" . [/system resource get version]); :put ("IDENTITY=" . [/system identity get name])')
         assert "VERSION=7.25.1" in version and "IDENTITY="+n["identity"] in version
+    phase = "network-readiness"
+    deadline=time.monotonic()+12
+    while True:
+        states=[data_readiness(n) for n in nodes]
+        RESULT.setdefault("data_readiness_observations",[]).append({n["name"]:value[1] for n,value in zip(nodes,states)})
+        if all(state[0] for state in states):break
+        assert time.monotonic()<deadline,"Configured synthetic data links/routes not ready"
+        time.sleep(.5)
+    phase = "network-baseline"
     # Allow cold ARP/route adjacency to settle; the measured five-packet test is separate.
     ros(client, "/ping 203.0.113.1 src-address=192.0.2.10 count=3 size=500 interval=300ms")
     before = ros(client, "/ping 203.0.113.1 src-address=192.0.2.10 count=5 size=500 interval=100ms")

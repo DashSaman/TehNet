@@ -48,6 +48,19 @@ def run(args,timeout=180,env=None,allow_failure=False):
                "Original full-size link and matching callout class required","Exact Queue figure class required",
                "Protected runtime drift","Managed-file drift","Bundle checksum mismatch","Parse error")
         RESULT["safe_command_categories"]=[value for value in known if value.lower() in text.lower()]
+        for line in text.splitlines():
+            if line.startswith("TN_NATIVE_ERROR="):
+                detail=json.loads(line.split("=",1)[1])
+                RESULT["native_error"]={key:detail[key] for key in ("class","file","line","message","checks")}
+        first=next((line for line in text.splitlines() if line.startswith(("Error:","PHP Fatal error:","PHP Parse error:"))),None)
+        if first:
+            for secret in (DB_PASSWORD,DB_ROOT_PASSWORD,ADMIN_PASSWORD):
+                first=first.replace(secret,"<REDACTED_FRESH_LAB_SECRET>")
+            first=re.sub(r"\b(?:\d{1,3}\.){3}\d{1,3}\b","<REDACTED_ADDRESS>",first)
+            first=re.sub(r"/(?:[A-Za-z0-9_.-]+/)+[A-Za-z0-9_.-]*","<REDACTED_PATH>",first)
+            RESULT["sanitized_cli_error"]=first[:220]
+        RESULT["failed_safe_command"]=RESULT["last_safe_command"]
+
         missing=re.findall(r"Call to undefined function ([A-Za-z0-9_\\]+)\(",text)
         if missing:RESULT["missing_php_functions"]=missing
         categories=re.findall(rb"(?:RuntimeException: (FAIL: [^\r\n]+|Closed [^\r\n]+|Exact [^\r\n]+)|AssertionError: ([^\r\n]+))",result.stdout+result.stderr)
@@ -266,6 +279,7 @@ echo hash('sha256',wp_json_encode($state));
                 print("TN_STAGE_IMAGE "+json.dumps({"name":key,"sha256":RESULT["screenshots"][key],
                       "synthetic_cloud_fixture_only":True,"base64":base64.b64encode(p.read_bytes()).decode()}),flush=True)
 except BaseException as error:
+    RESULT["failed_safe_command"]=RESULT.get("failed_safe_command",RESULT.get("last_safe_command"))
     RESULT.update(status="FAILED",failed_phase=PHASE,error_type=type(error).__name__,
                   error_message=str(error)[:200] if isinstance(error,(AssertionError,RuntimeError)) else "See safe phase classification",
                   raw_diagnostics_exported=False)

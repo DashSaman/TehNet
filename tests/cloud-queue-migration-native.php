@@ -1,4 +1,5 @@
 <?php
+try {
 /** Exact existing owner67; only the disposable closed cloud fixture is allowed. */
 if(wp_get_environment_type()!=='staging'||home_url('/')!=='http://localhost:18085/'||!WP_HTTP_BLOCK_EXTERNAL||!DISABLE_WP_CRON||(string)get_option('blog_public')!=='0')throw new RuntimeException('Closed cloud staging required');
 define('TN_GROWTH_LIBRARY_ONLY',true);require getenv('TN_TEST_MIGRATION');
@@ -60,3 +61,11 @@ $locked=false;$otherHook=static function()use(&$locked):void{global$wpdb;$other=
 ok(db_state()===$before,'Concurrent case exactly restored');
 remove_filter('wp_revisions_to_keep',$keep,10);
 echo 'QUEUE_CLOUD_NATIVE=PASS checks='.$checks."\n";
+
+} catch(Throwable $error) {
+    $file=basename($error->getFile());
+    $owned=in_array($file,['cloud-queue-migration-native.php','migrate-growth-content.php'],true);
+    $message=$owned&&$error instanceof RuntimeException?$error->getMessage():'NON_PUBLIC_EXCEPTION_MESSAGE_SUPPRESSED';
+    echo 'TN_NATIVE_ERROR='.json_encode(['class'=>get_class($error),'file'=>$file,'line'=>$error->getLine(),'message'=>$message,'checks'=>$checks??0],JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES)."\n";
+    exit(1);
+}
