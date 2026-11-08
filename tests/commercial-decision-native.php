@@ -1,5 +1,6 @@
 <?php
 try {
+if(!defined('WP_CLI')||!WP_CLI||wp_get_environment_type()!=='staging'||home_url('/')!=='http://localhost:18085/'||!DISABLE_WP_CRON||!WP_HTTP_BLOCK_EXTERNAL)throw new RuntimeException('Owned isolated cloud fixture required');
 $phase=$args[0]??'seed';$root='/src/content/commercial-decision-2026-11-08-v2/';$m=json_decode(file_get_contents($root.'manifest.json'),true,512,JSON_THROW_ON_ERROR);
 $checks=[];$ck=static function($yes,$label)use(&$checks){if(!$yes)throw new RuntimeException($label);$checks[]=$label;};
 if($phase==='seed'){
@@ -17,6 +18,7 @@ if($phase==='seed'){
 }elseif($phase==='baseline-routes'){
  global$wpdb;$original=$wpdb->get_row("SELECT option_value,autoload FROM {$wpdb->options} WHERE option_name='rewrite_rules'",ARRAY_A);file_put_contents('/lab/rewrite-before-private.json',wp_json_encode($original));chmod('/lab/rewrite-before-private.json',0600);
  $ck(url_to_postid(home_url('/lab/voice-network-checklist/'))===0,'Reproduced generic tn_lab shadow before bounded route repair');
+ $rows=$wpdb->get_results("SELECT * FROM {$wpdb->prefix}woocommerce_sessions ORDER BY session_id",ARRAY_A);$owned=[];foreach($rows as$row)$owned[$row['session_id']]=hash('sha256',serialize($row));file_put_contents('/lab/sessions-before-private.json',wp_json_encode($owned));chmod('/lab/sessions-before-private.json',0600);
 }elseif($phase==='accept'){
  global$wpdb;$original=json_decode(file_get_contents('/lab/rewrite-before-private.json'),true);$ck($wpdb->get_row("SELECT option_value,autoload FROM {$wpdb->options} WHERE option_name='rewrite_rules'",ARRAY_A)===$original,'Stored rewrite_rules unchanged');
  foreach([76=>'gns3-mikrotik',188=>'wireguard-mtu',207=>'voice-network-checklist']as$id=>$slug)$ck(url_to_postid(home_url('/lab/'.$slug.'/'))===$id,'Actual WordPress resolver reaches known public Lab page '.$id);
@@ -31,6 +33,20 @@ if($phase==='seed'){
  $id=(int)$ids[0];$ck(get_post_status($id)==='private'&&get_post_meta($id,'_tn_service_context',true)==='server-scoping'&&get_post_meta($id,'_tn_request_kind',true)==='service'&&get_post_meta($id,'_tn_ticket_state',true)==='open'&&get_post_meta($id,'_tn_email',true)==='fixture@example.invalid'&&count(get_post_meta($id,'_tn_thread',true))===1,'Server request persisted in existing private ticket infrastructure');
  wp_delete_post($id,true);$wpdb->query($wpdb->prepare("DELETE FROM {$wpdb->options} WHERE option_name LIKE %s OR option_name LIKE %s",$wpdb->esc_like('_transient_tn_service_receipt_').'%',$wpdb->esc_like('_transient_timeout_tn_service_receipt_').'%'));
  $ck($wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->posts} WHERE post_type='tn_ticket'")==='0','Owned ticket removed');
+}elseif($phase==='cleanup-http-state'){
+ global$wpdb;
+ define('TN_GROWTH_LIBRARY_ONLY',true);require '/src/ops/migrate-growth-content.php';
+ $j=json_decode(file_get_contents('/lab/private-release/content-journal-private.json'),true,512,JSON_THROW_ON_ERROR);
+ $rc=new ReflectionClass(TehNet_Growth_Content_Migration::class);$instance=$rc->newInstanceWithoutConstructor();$p=$rc->getProperty('manifest');$p->setAccessible(true);$p->setValue($instance,['updates'=>array_map(static fn($r)=>['id'=>$r['id']],$m['targets'])]);
+ $method=$rc->getMethod('protectedState');$method->setAccessible(true);$current=$method->invoke($instance,$j['page_ids']);$diff=[];foreach($current as$key=>$value)if(($j['protected'][$key]??null)!==$value)$diff[]=$key;
+ echo 'TN_DECISION_PROTECTED_DIFF '.wp_json_encode(['changed_keys'=>$diff,'production_mutations'=>0])."\n";
+ $table=$wpdb->prefix.'woocommerce_sessions';$ck(!$diff||$diff===[$table],'Only test-owned anonymous Woo session state may require cleanup; no guard exclusion');
+ $old=json_decode(file_get_contents('/lab/sessions-before-private.json'),true,512,JSON_THROW_ON_ERROR);$rows=$wpdb->get_results("SELECT * FROM `$table` ORDER BY session_id",ARRAY_A);$added=[];$found=[];
+ foreach($rows as$row){$id=$row['session_id'];if(array_key_exists($id,$old)){$ck(hash('sha256',serialize($row))===$old[$id],'Original Woo session row unchanged');$found[$id]=true;}else $added[]=(int)$id;}
+ $ck(count($found)===count($old)&&count($added)<=100,'Original sessions preserved and owned fixture delta bounded');
+ foreach($added as$id)$ck($wpdb->delete($table,['session_id'=>$id])===1,'Delete only added session in closed synthetic fixture');
+ $ck($method->invoke($instance,$j['page_ids'])===$j['protected'],'All canonical protected fingerprints exactly restored after owned HTTP cleanup');
+ echo 'TN_DECISION_OWNED_HTTP_CLEANUP '.wp_json_encode(['new_synthetic_wc_sessions_removed'=>count($added),'original_rows_preserved'=>true,'production_mutations'=>0])."\n";
 }elseif($phase==='rollback-accept'){
  global$wpdb;$original=json_decode(file_get_contents('/lab/rewrite-before-private.json'),true);$ck($wpdb->get_row("SELECT option_value,autoload FROM {$wpdb->options} WHERE option_name='rewrite_rules'",ARRAY_A)===$original,'Rollback preserves stored rewrite_rules byte value/autoload');$ck(url_to_postid(home_url('/lab/voice-network-checklist/'))===0,'Original Lab resolver behavior restored with owned file rollback');
 

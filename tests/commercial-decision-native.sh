@@ -80,6 +80,7 @@ docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/
 sudo nsenter --target "$stage_app_pid" --net -- env NODE_PATH="$stage_root/pw/node_modules" PLAYWRIGHT_BROWSERS_PATH="$stage_root/browsers" node tests/index-decision-browser.cjs restored "$stage_root"
 sudo nsenter --target "$stage_app_pid" --net -- env NODE_PATH="$stage_root/pw/node_modules" PLAYWRIGHT_BROWSERS_PATH="$stage_root/browsers" TN_FIXTURE_PASSWORD="$stage_password" node tests/commercial-decision-browser.cjs "$stage_root"
 docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/commercial-decision-native.php verify-ticket
+docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/commercial-decision-native.php cleanup-http-state
 sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/commercial-decision-release.py "$stage_root" rollback
 docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/commercial-decision-native.php rollback-accept
 docker exec "$stage_app" mkdir -m 700 -p /tmp/tn-editorial-native-decision-v2/evidence
