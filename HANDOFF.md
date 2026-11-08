@@ -1,3 +1,7 @@
+## SCOPED MTCNA — 2026-11-08 private Draft 280; raw REST readback BLOCKED
+
+Latest live scoped inventory: 35 WordPress Draft pages under parent 40 (34 before this run), six GitHub-only sessions 15/26/28/30/32/40, zero native future pages by REST. Lesson 23 saved as Draft ID280; independent GET confirmed metadata/slug/parent/status/excerpt, but repeatedly returned `{}` for content.raw. Do not assume a verified body hash or Gutenberg editor-save. Two authentic partial WinBox 4.5 / CHR 7.25.1 captures were referenced externally (not uploaded to WP); full four-step validation, rollback and technical review are missing. Canonical source and PR82 were untouched; source receipts/report on branch `content/mtcna-prep-20261108-scoped-280`. **NEXT: first verify raw body of ID280 and reconcile with response payload (drift guard); do not create more until resolved.** No publication, no schedule, no new lab, no RoboT or unrelated service changes. [Report](docs/reports/MTCNA_DRAFT_PREP_2026-11-08.fa.md).
+
 ## CURRENT — 2026-11-07 MTCNA 40-session first window BLOCKED; one private editorial draft SAVED
 
 First window ID **2026-11-07T09:00:00+03:30**: lesson **01** stayed next, public releases **0**, native WordPress future schedules **0**. Project ledger acquired a CAS-guard lock, recorded a stable idempotency operation and a BLOCKED window, then released the lock. Receipt: `content/mtcna/window-receipts/2026-11-07T0900-tehran-lesson01-blocked.json`.
