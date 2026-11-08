@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "ID": "E",
+      "intent": "تصمیم محدود visibility و XML",
+      "owner": "۱۶ مسیر مصرح",
+      "file": "seo/index-decision-2026-11-08-v2/activation-manifest.json",
+      "source": "noindex-provenance + official WP/Google",
+      "status": "IN_PROGRESS",
+      "blocker": "Cloud acceptance pending; production/merge/index activation separately NEEDS_APPROVAL",
+      "acceptance": "OFF→allowlist16/XML→rollback in actual native cloud WordPress; no global blog_public flip",
+      "rollback": "Option exact absent row, then Core bootstrap/class with file drift guards"
+    },
+    {
+      "ID": "S1",
+      "intent": "انتخابگر خدمات با ماتریس مسئله/ورودی/خروجی/owner، حضوری/ریموت و همان CTA.",
+      "owner": "https://tehnet.ir/services/network-tehran/",
+      "file": "content/commercial-decision-2026-11-08-v2/network-tehran.html",
+      "source": "content/commercial-decision-2026-11-08-v2/sources.json + existing owner",
+      "status": "IN_PROGRESS",
+      "blocker": "Full fixture journey/rollback acceptance pending; release requires approval",
+      "acceptance": "Exact body/title/excerpt, old anchors/meta, actual theme RTL/mobile/no-JS, canonical ticket",
+      "rollback": "Restore owner post fields/meta/revisions exactly through canonical journal"
+    },
+    {
+      "ID": "S3",
+      "intent": "تفکیک رخداد، نگهداری، توسعه و پایش؛ قالب موارد باز و لینک راهنمای قرارداد.",
+      "owner": "https://tehnet.ir/services/network-support-tehran/",
+      "file": "content/commercial-decision-2026-11-08-v2/network-support.html",
+      "source": "content/commercial-decision-2026-11-08-v2/sources.json + existing owner",
+      "status": "IN_PROGRESS",
+      "blocker": "Full fixture journey/rollback acceptance pending; release requires approval",
+      "acceptance": "Exact body/title/excerpt, old anchors/meta, actual theme RTL/mobile/no-JS, canonical ticket",
+      "rollback": "Restore owner post fields/meta/revisions exactly through canonical journal"
+    },
+    {
+      "ID": "S2",
+      "intent": "کاربرگ خالی و نمونهٔ فرضی نیازسنجی؛ خلاصهٔ سرور به N1 منتقل، anchor حفظ شد.",
+      "owner": "https://tehnet.ir/services/network-setup-tehran/",
+      "file": "content/commercial-decision-2026-11-08-v2/network-setup.html",
+      "source": "content/commercial-decision-2026-11-08-v2/sources.json + existing owner",
+      "status": "IN_PROGRESS",
+      "blocker": "Full fixture journey/rollback acceptance pending; release requires approval",
+      "acceptance": "Exact body/title/excerpt, old anchors/meta, actual theme RTL/mobile/no-JS, canonical ticket",
+      "rollback": "Restore owner post fields/meta/revisions exactly through canonical journal"
+    },
+    {
+      "ID": "S4",
+      "intent": "جدول مسیر مطالعه و درخواست خدمت RouterOS با معیار پذیرش و منابع سازنده.",
+      "owner": "https://tehnet.ir/services/mikrotik-tehran/",
+      "file": "content/commercial-decision-2026-11-08-v2/mikrotik-service.html",
+      "source": "content/commercial-decision-2026-11-08-v2/sources.json + existing owner",
+      "status": "IN_PROGRESS",
+      "blocker": "Full fixture journey/rollback acceptance pending; release requires approval",
+      "acceptance": "Exact body/title/excerpt, old anchors/meta, actual theme RTL/mobile/no-JS, canonical ticket",
+      "rollback": "Restore owner post fields/meta/revisions exactly through canonical journal"
+    },
+    {
+      "ID": "A1",
+      "intent": "قرارداد پشتیبانی شبکه؛ پیش از توافق چه چیزهایی را روشن کنیم؟",
+      "owner": "https://tehnet.ir/network-support-contract-guide/",
+      "file": "content/commercial-decision-2026-11-08-v2/network-support-contract-guide.html",
+      "source": "content/commercial-decision-2026-11-08-v2/sources.json",
+      "status": "IN_PROGRESS",
+      "blocker": "Full fixture acceptance pending; page not created on production; release needs approval",
+      "acceptance": "Complete Gutenberg+Markdown, correct schema/CTA, no duplicate intent; A pages CSV/print exact bytes",
+      "rollback": "Draft owned new page; restore owned static assets only"
+    },
+    {
+      "ID": "A2",
+      "intent": "پیشنهادهای اجرای شبکه را چگونه هم‌دامنه مقایسه کنیم؟",
+      "owner": "https://tehnet.ir/network-project-proposal-checklist/",
+      "file": "content/commercial-decision-2026-11-08-v2/network-project-proposal-checklist.html",
+      "source": "content/commercial-decision-2026-11-08-v2/sources.json",
+      "status": "IN_PROGRESS",
+      "blocker": "Full fixture acceptance pending; page not created on production; release needs approval",
+      "acceptance": "Complete Gutenberg+Markdown, correct schema/CTA, no duplicate intent; A pages CSV/print exact bytes",
+      "rollback": "Draft owned new page; restore owned static assets only"
+    },
+    {
+      "ID": "A3",
+      "intent": "نیازسنجی سرور شرکت؛ پیش از انتخاب CPU و RAM چه بپرسیم؟",
+      "owner": "https://tehnet.ir/business-server-planning-guide/",
+      "file": "content/commercial-decision-2026-11-08-v2/business-server-planning-guide.html",
+      "source": "content/commercial-decision-2026-11-08-v2/sources.json",
+      "status": "IN_PROGRESS",
+      "blocker": "Full fixture acceptance pending; page not created on production; release needs approval",
+      "acceptance": "Complete Gutenberg+Markdown, correct schema/CTA, no duplicate intent; A pages CSV/print exact bytes",
+      "rollback": "Draft owned new page; restore owned static assets only"
+    },
+    {
+      "ID": "A4",
+      "intent": "اسنپ‌شات، بکاپ و آزمون بازیابی؛ چه مدرکی تحویل بگیریم؟",
+      "owner": "https://tehnet.ir/server-backup-restore-acceptance/",
+      "file": "content/commercial-decision-2026-11-08-v2/server-backup-restore-acceptance.html",
+      "source": "content/commercial-decision-2026-11-08-v2/sources.json",
+      "status": "IN_PROGRESS",
+      "blocker": "Full fixture acceptance pending; page not created on production; release needs approval",
+      "acceptance": "Complete Gutenberg+Markdown, correct schema/CTA, no duplicate intent; A pages CSV/print exact bytes",
+      "rollback": "Draft owned new page; restore owned static assets only"
+    },
+    {
+      "ID": "N1",
+      "intent": "سرور و مجازی‌سازی در تهران؛ از نیازسنجی تا تحویل سرویس",
+      "owner": "https://tehnet.ir/services/server-virtualization-tehran/",
+      "file": "content/commercial-decision-2026-11-08-v2/server-virtualization-tehran.html",
+      "source": "content/commercial-decision-2026-11-08-v2/sources.json",
+      "status": "IN_PROGRESS",
+      "blocker": "Full fixture acceptance pending; page not created on production; release needs approval",
+      "acceptance": "Complete Gutenberg+Markdown, correct schema/CTA, no duplicate intent; A pages CSV/print exact bytes",
+      "rollback": "Draft owned new page; restore owned static assets only"
+    }
+  ],
+  "counts": {
+    "complete_main_texts": 9,
+    "existing_owners_in_release": 5,
+    "new_candidate_pages": 5,
+    "articles": 4,
+    "staging_verified_changes": "PENDING_FULL_RUN",
+    "production_pages_changed": 0,
+    "indexed_urls_confirmed": "UNKNOWN_NO_PROPERTY_DATA"
+  },
+  "notes": [
+    "READY means prepared and qualified, not DEPLOYED or indexed.",
+    "PR94v1 body-only is superseded for owner8/29 by this distinct v2 scope; not double-deploy.",
+    "Owner-approved private-list exception applies only current SEO branch."
+  ]
+}

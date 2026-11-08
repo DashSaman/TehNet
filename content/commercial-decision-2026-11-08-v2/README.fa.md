@@ -1,5 +1,5 @@
 # بستهٔ تصمیم تجاری نسخهٔ دوم — PR94
-وضعیت فعلی: PREPARED؛ تا ثبت رسید cloud، پذیرش اجرایی ادعا نمی‌شود. هیچ تغییر production، ادغام یا تغییر noindex مجاز/انجام نشده است.
+وضعیت پایه: PREPARED؛ [رسید پذیرش و وضعیت جاری](../../seo/commercial-decision-2026-11-08-v2/verification.json) مرجع qualification است؛ تا ثبت رسید cloud، پذیرش اجرایی ادعا نمی‌شود. هیچ تغییر production، ادغام یا تغییر noindex مجاز/انجام نشده است.
 
 این بسته owner8 را فقط در بدنه، و owner29/31/33/35 را در بدنه، عنوان و excerpt تغییر می‌دهد. تغییر title/excerpt دامنهٔ صریح v2 است و به مجوز body-only نسخهٔ اول نسبت داده نمی‌شود. پنج صفحهٔ جدید از نوع page هستند: N1 فرزند Services و A1–A4 صفحات تحریریهٔ ریشه با Gutenberg و انتساب واقعی سازمان. blog69 و home5 تغییر ندارند. از ساخت post جدید، taxonomy یا سامانهٔ فرم موازی خبری نیست.
 
@@ -12,3 +12,5 @@
 اسکن فهرست خصوصی قدیمی: NOT_RUN_OWNER_APPROVED_BRANCH_EXCEPTION فقط برای `feat/seo-readiness-20261108`. فایل/سیستم مالک خوانده نمی‌شود. اسکن الگوی اسرار روی کد تازه پیش از commit و publication_guard در cloud انجام می‌شود؛ این اسکن پاکی تاریخچه یا چرخش credential را ثابت نمی‌کند.
 
 تأییدها جدا هستند: (۱) merge دامنهٔ نهایی PR94، (۲) انتشار محدود محتوا/دارایی با backup تازه، drift و rollback، (۳) نصب/فعال‌سازی کنترل index فقط در allowlist تأییدشده. هیچ‌کدام از حاضرشدن متن، CI، یا تأیید مصرف‌شدهٔ PR88 نتیجه نمی‌شوند. PR89–91 و PR93 مستقل‌اند؛ تغییر فایل مشترک publisher/CSS نیازمند reconciliation آخرین main است.
+
+شکاف مسیر Lab در staging: tn_lab با rewrite عمومی lab، pageهای موجود76/188/207 را می‌پوشاند. class-content-types.php در همین scope فقط برای این سه مسیرِ دارای هویت publish تأییدشده، rule خواندنی دقیق را مقدم می‌کند. گزینهٔ ذخیره‌شدهٔ rewrite_rules، ساختار permalink و URLها تغییر نمی‌کنند؛ وجود CPT هم‌نام باعث عدم override و نیاز به reconciliation می‌شود. rollback همین فایل قبلی را برمی‌گرداند. اثر production هنوز مشاهده/منتشر نشده است.

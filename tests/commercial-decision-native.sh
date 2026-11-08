@@ -58,14 +58,13 @@ test -f "$stage_root/READY"
 export TN_STAGE_APP="$stage_app" TN_STAGE_DB="$stage_db" TN_STAGE_NET="$stage_net" TN_FIXTURE_PASSWORD="$stage_password"
 sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/commercial-decision-release.py "$stage_root" prepare
 sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/index-decision-release.py "$stage_root" prepare
+docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/commercial-decision-native.php baseline-routes
 sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/commercial-decision-release.py "$stage_root" apply
 docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/commercial-decision-native.php accept
 stage_app_pid="$(docker inspect -f '{{.State.Pid}}' "$stage_app")"
 sudo nsenter --target "$stage_app_pid" --net -- node -e 'const net=require("node:net");net.createServer(c=>{const u=net.connect(80,"127.0.0.1");c.pipe(u);u.pipe(c);c.on("error",()=>u.destroy());u.on("error",()=>c.destroy());}).listen(18085,"127.0.0.1");' >"$stage_root/relay.log" 2>&1 &
 stage_relay_pid="$!"
 sleep 1
-sudo nsenter --target "$stage_app_pid" --net -- env NODE_PATH="$stage_root/pw/node_modules" PLAYWRIGHT_BROWSERS_PATH="$stage_root/browsers" TN_FIXTURE_PASSWORD="$stage_password" node tests/commercial-decision-browser.cjs "$stage_root"
-docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/commercial-decision-native.php verify-ticket
 sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/index-decision-release.py "$stage_root" runtime
 docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/index-decision-native.php off
 sudo nsenter --target "$stage_app_pid" --net -- env NODE_PATH="$stage_root/pw/node_modules" PLAYWRIGHT_BROWSERS_PATH="$stage_root/browsers" node tests/index-decision-browser.cjs off "$stage_root"
@@ -75,6 +74,8 @@ sudo nsenter --target "$stage_app_pid" --net -- env NODE_PATH="$stage_root/pw/no
 sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/index-decision-release.py "$stage_root" rollback
 docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/index-decision-native.php restored
 sudo nsenter --target "$stage_app_pid" --net -- env NODE_PATH="$stage_root/pw/node_modules" PLAYWRIGHT_BROWSERS_PATH="$stage_root/browsers" node tests/index-decision-browser.cjs restored "$stage_root"
+sudo nsenter --target "$stage_app_pid" --net -- env NODE_PATH="$stage_root/pw/node_modules" PLAYWRIGHT_BROWSERS_PATH="$stage_root/browsers" TN_FIXTURE_PASSWORD="$stage_password" node tests/commercial-decision-browser.cjs "$stage_root"
+docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/commercial-decision-native.php verify-ticket
 sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/commercial-decision-release.py "$stage_root" rollback
 docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/commercial-decision-native.php rollback-accept
 docker exec "$stage_app" mkdir -m 700 -p /tmp/tn-editorial-native-decision-v2/evidence

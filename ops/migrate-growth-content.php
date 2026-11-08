@@ -225,7 +225,7 @@ final class TehNet_Growth_Content_Migration {
             $rows=$wpdb->get_results("SELECT * FROM `$table`$where ORDER BY `".implode('`,`',$order).'`',ARRAY_A);if($wpdb->last_error)throw new RuntimeException('Protected table read failed');
             $result[$table]=hash('sha256',serialize($rows));
         }
-        $keys=['blog_public','tn_index_policy_20261108','home','siteurl','active_plugins','stylesheet','template','show_on_front','page_on_front','page_for_posts','woocommerce_shop_page_id','woocommerce_cart_page_id','woocommerce_checkout_page_id','woocommerce_myaccount_page_id','tn_store_settings','woocommerce_cod_settings','woocommerce_bacs_settings','woocommerce_cheque_settings','woocommerce_tn_zarinpal_sandbox_settings'];
+        $keys=['blog_public','rewrite_rules','tn_index_policy_20261108','home','siteurl','active_plugins','stylesheet','template','show_on_front','page_on_front','page_for_posts','woocommerce_shop_page_id','woocommerce_cart_page_id','woocommerce_checkout_page_id','woocommerce_myaccount_page_id','tn_store_settings','woocommerce_cod_settings','woocommerce_bacs_settings','woocommerce_cheque_settings','woocommerce_tn_zarinpal_sandbox_settings'];
         $options=$wpdb->get_results($wpdb->prepare("SELECT option_name,option_value,autoload FROM {$wpdb->options} WHERE option_name IN (".implode(',',array_fill(0,count($keys),'%s')).') ORDER BY option_name',...$keys),ARRAY_A);if($wpdb->last_error)throw new RuntimeException('Protected options read failed');
         $result['selected_options']=hash('sha256',serialize($options));
         $result['commerce']=['erp'=>(new TehNet_Store_ERP())->ready(),'sandbox'=>TehNet_Store_Zarinpal_Sandbox::enabled(),'environment'=>wp_get_environment_type()];

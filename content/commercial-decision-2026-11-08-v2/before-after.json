@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "before_source": "Public REST owner bodies captured 2026-11-08; same exact SHA baselines used in synthetic native fixture. Not screenshots.",
+  "after_source": "Candidate Gutenberg bodies; actual rendered acceptance receipt recorded separately after cloud success.",
+  "production_mutations": 0,
+  "owners": [
+    {
+      "id": 8,
+      "url": "https://tehnet.ir/services/",
+      "before_title": "خدمات",
+      "after_title": "خدمات",
+      "before_excerpt_sha256": "0749d60a30b612feec2361a56700def9a0a0550f85b0169a30db066a78b18b39",
+      "after_excerpt": "خدمات شبکه تهران نتورک؛ بررسی نیاز، طراحی و پشتیبانی حضوری تهران یا ریموت در ایران، با تعیین محدودهٔ کار.",
+      "before_body_sha256": "d42bbd0faa6a2b66d4255adc758571795da6658316148a925160b74f9e1368b0",
+      "after_body_sha256": "130de122301c55e7980f6dace4f576b5254a0a325bd75cea5d09faec72bf990d",
+      "before_body_source": "tests/fixtures/decision-v2-public-pages.json page.id=8",
+      "after_body_source": "content/commercial-decision-2026-11-08-v2/services.html",
+      "change": "کاتالوگ: کارت سرور به N1 مستقل وصل شد و چهار راهنمای تصمیم لینک ورودی گرفت؛ فرم/منو/خانه دست نخورده.",
+      "old_anchor_policy": "PRESERVE_ALL; native acceptance checks each anchor"
+    },
+    {
+      "id": 29,
+      "url": "https://tehnet.ir/services/network-tehran/",
+      "before_title": "خدمات شبکه تهران",
+      "after_title": "خدمات شبکه تهران؛ انتخاب خدمت و تعیین دامنهٔ پروژه",
+      "before_excerpt_sha256": "125e36b24aec2f89f2fe05707abb5da776be2982eb49bb0488c4a1e0dde93b08",
+      "after_excerpt": "برای قطعی، راه‌اندازی، پشتیبانی، میکروتیک، Wi-Fi یا سرور مسیر مناسب را انتخاب کنید؛ ورودی، خروجی و حدود خدمات حضوری تهران و ریموت روشن است.",
+      "before_body_sha256": "16b9789a148a48da56b3353ab982c7030105f3b0cadc1d9fd4d025860d4ebe26",
+      "after_body_sha256": "abe760a97700b3a7b5eb8a2205f724e2b7ab3818d1afe02342c6fa2b28d5eff0",
+      "before_body_source": "tests/fixtures/decision-v2-public-pages.json page.id=29",
+      "after_body_source": "content/commercial-decision-2026-11-08-v2/network-tehran.html",
+      "change": "انتخابگر خدمات با ماتریس مسئله/ورودی/خروجی/owner، حضوری/ریموت و همان CTA.",
+      "old_anchor_policy": "PRESERVE_ALL; native acceptance checks each anchor"
+    },
+    {
+      "id": 31,
+      "url": "https://tehnet.ir/services/network-support-tehran/",
+      "before_title": "پشتیبانی شبکه تهران",
+      "after_title": "پشتیبانی شبکه تهران؛ رخداد، نگهداری و گزارش تحویل",
+      "before_excerpt_sha256": "fda3f249eed935adc9350f0803b272da9cd7c02e4670a77d93953fcaa7cd0600",
+      "after_excerpt": "رفع مسئله، نگهداری و مانیتورینگ را با دامنه، گزارش و مسئول پیگیری روشن مقایسه کنید؛ حضوری تهران و ریموت مشروط، بدون SLA آماده.",
+      "before_body_sha256": "73d1b477170f3e9c8c59610e8901a066b10f1e7200a7003dfe3d9ff1a6b1627a",
+      "after_body_sha256": "f0ecdcfe014371ac22df9647512a6ccd73b18d52a357c4fc681e442ff3ec37de",
+      "before_body_source": "tests/fixtures/decision-v2-public-pages.json page.id=31",
+      "after_body_source": "content/commercial-decision-2026-11-08-v2/network-support.html",
+      "change": "تفکیک رخداد، نگهداری، توسعه و پایش؛ قالب موارد باز و لینک راهنمای قرارداد.",
+      "old_anchor_policy": "PRESERVE_ALL; native acceptance checks each anchor"
+    },
+    {
+      "id": 33,
+      "url": "https://tehnet.ir/services/network-setup-tehran/",
+      "before_title": "راه‌اندازی شبکه شرکت در تهران",
+      "after_title": "راه‌اندازی شبکه شرکت در تهران؛ نیازسنجی تا پذیرش",
+      "before_excerpt_sha256": "67aa0ae9684bab45c3625b3fc03e19ec6f425140cad7715e18d794d6f80007f4",
+      "after_excerpt": "ورودی پروژه، کاربرگ نیازسنجی، طراحی، پنجرهٔ تغییر و معیار تحویل شبکه شرکت در تهران؛ مسیر سرور، Wi-Fi و شعب با دامنهٔ جدا.",
+      "before_body_sha256": "709c49b6d2e0cffa4d95c3709877ff06d40daa5223a3f39894881b7a429cbe5e",
+      "after_body_sha256": "d378d09aaf24a038cb685c9a0a0d0726674c5e876d28f6955492848bd11ae78e",
+      "before_body_source": "tests/fixtures/decision-v2-public-pages.json page.id=33",
+      "after_body_source": "content/commercial-decision-2026-11-08-v2/network-setup.html",
+      "change": "کاربرگ خالی و نمونهٔ فرضی نیازسنجی؛ خلاصهٔ سرور به N1 منتقل، anchor حفظ شد.",
+      "old_anchor_policy": "PRESERVE_ALL; native acceptance checks each anchor"
+    },
+    {
+      "id": 35,
+      "url": "https://tehnet.ir/services/mikrotik-tehran/",
+      "before_title": "خدمات MikroTik تهران",
+      "after_title": "خدمات میکروتیک تهران؛ بررسی RouterOS و تغییر کنترل‌شده",
+      "before_excerpt_sha256": "e82c6cdbfab267e99f9a54f3c53264159fe49bb7bda13fc01c80f9a7446ee7fb",
+      "after_excerpt": "برای آموزش یا تغییر RouterOS مسیر مناسب را انتخاب کنید؛ مدل و نسخه، دسترسی امن، آزمون فایروال و بازگشت پیش از اجرا بررسی می‌شوند.",
+      "before_body_sha256": "ab9d96e52fb50fc3f2d0f535d614c4d6dbd29395d10e32002f608b8cd7c950e7",
+      "after_body_sha256": "118f34b1ec9eb08531d18e52bbedf8e25f4d7745928214b4388e6d39ede41f15",
+      "before_body_source": "tests/fixtures/decision-v2-public-pages.json page.id=35",
+      "after_body_source": "content/commercial-decision-2026-11-08-v2/mikrotik-service.html",
+      "change": "جدول مسیر مطالعه و درخواست خدمت RouterOS با معیار پذیرش و منابع سازنده.",
+      "old_anchor_policy": "PRESERVE_ALL; native acceptance checks each anchor"
+    }
+  ],
+  "new_pages": [
+    {
+      "key": "A1",
+      "url": "https://tehnet.ir/network-support-contract-guide/",
+      "before": "NO_PUBLISHED_OR_DRAFT_SLUG_COLLISION_IN_READ_INVENTORY; not created in production",
+      "after_body_source": "content/commercial-decision-2026-11-08-v2/network-support-contract-guide.html",
+      "model": "page",
+      "article_schema": true,
+      "note": "Candidate URL, not a live release claim"
+    },
+    {
+      "key": "A2",
+      "url": "https://tehnet.ir/network-project-proposal-checklist/",
+      "before": "NO_PUBLISHED_OR_DRAFT_SLUG_COLLISION_IN_READ_INVENTORY; not created in production",
+      "after_body_source": "content/commercial-decision-2026-11-08-v2/network-project-proposal-checklist.html",
+      "model": "page",
+      "article_schema": true,
+      "note": "Candidate URL, not a live release claim"
+    },
+    {
+      "key": "A3",
+      "url": "https://tehnet.ir/business-server-planning-guide/",
+      "before": "NO_PUBLISHED_OR_DRAFT_SLUG_COLLISION_IN_READ_INVENTORY; not created in production",
+      "after_body_source": "content/commercial-decision-2026-11-08-v2/business-server-planning-guide.html",
+      "model": "page",
+      "article_schema": true,
+      "note": "Candidate URL, not a live release claim"
+    },
+    {
+      "key": "A4",
+      "url": "https://tehnet.ir/server-backup-restore-acceptance/",
+      "before": "NO_PUBLISHED_OR_DRAFT_SLUG_COLLISION_IN_READ_INVENTORY; not created in production",
+      "after_body_source": "content/commercial-decision-2026-11-08-v2/server-backup-restore-acceptance.html",
+      "model": "page",
+      "article_schema": true,
+      "note": "Candidate URL, not a live release claim"
+    },
+    {
+      "key": "N1",
+      "url": "https://tehnet.ir/services/server-virtualization-tehran/",
+      "before": "NO_PUBLISHED_OR_DRAFT_SLUG_COLLISION_IN_READ_INVENTORY; not created in production",
+      "after_body_source": "content/commercial-decision-2026-11-08-v2/server-virtualization-tehran.html",
+      "model": "page",
+      "article_schema": false,
+      "note": "Candidate URL, not a live release claim"
+    }
+  ]
+}

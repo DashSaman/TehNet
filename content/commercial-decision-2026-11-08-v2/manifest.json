@@ -2,7 +2,7 @@
   "schema": 1,
   "key": "tehnet-commercial-decision-20261108-v2",
   "supersedes": "PR94 v1 candidate bodies for owner8/29; baseline is live owner bodies, never deploy both successively",
-  "status": "PREPARED_NOT_QUALIFIED_NOT_DEPLOYED",
+  "status": "PREPARED_REQUIRES_MATCHING_ACCEPTANCE_RECEIPT_AND_OWNER_RELEASE_APPROVAL",
   "targets": [
     {
       "id": 8,

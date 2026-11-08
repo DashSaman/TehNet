@@ -2,7 +2,7 @@ name: Commercial decision v2 isolated acceptance
 on:
   push:
     branches: [feat/seo-readiness-20261108]
-    paths: ['content/commercial-decision-2026-11-08-v2/**', 'site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/**', 'site/themes/tehnet/assets/css/visual-refresh.css', 'ops/release-growth-content.py', 'ops/migrate-growth-content.php', 'tests/commercial-decision-*', 'tests/index-decision-*', 'site/plugins/tehnet-core/includes/class-index-policy.php', 'site/plugins/tehnet-core/tehnet-core.php', 'ops/migrate-index-policy.php', 'seo/index-decision-2026-11-08-v2/**', 'tests/fixtures/decision-v2-public-pages.json', '.github/workflows/commercial-decision.yml']
+    paths: ['content/commercial-decision-2026-11-08-v2/**', 'site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/**', 'site/themes/tehnet/assets/css/visual-refresh.css', 'ops/release-growth-content.py', 'ops/migrate-growth-content.php', 'tests/commercial-decision-*', 'tests/index-decision-*', 'site/plugins/tehnet-core/includes/class-index-policy.php', 'site/plugins/tehnet-core/includes/class-content-types.php', 'site/plugins/tehnet-core/tehnet-core.php', 'ops/migrate-index-policy.php', 'seo/index-decision-2026-11-08-v2/**', 'tests/fixtures/decision-v2-public-pages.json', '.github/workflows/commercial-decision.yml', '!content/commercial-decision-2026-11-08-v2/*.md', '!content/commercial-decision-2026-11-08-v2/action-board.json', '!content/commercial-decision-2026-11-08-v2/before-after.json', '!seo/index-decision-2026-11-08-v2/README.fa.md', '!seo/index-decision-2026-11-08-v2/inventory.json']
 permissions:
   contents: read
 concurrency:
