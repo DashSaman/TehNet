@@ -1,3 +1,7 @@
+## SCOPED PROGRESS — 2026-11-08 MTCNA private Draft 280 / partial readback
+
+WPVibe Free was available (0/100 at start; no reset used). WordPress parent40 Draft inventory: 34 before, 35 after. Created lesson23 page280, `status=draft`. Independently confirmed metadata and excerpt by REST; `content.raw` independent GET returned empty `{}`, so raw hash/complete Gutenberg readback remains NOT_VERIFIED. Two authentic but incomplete WinBox screenshots referenced from GitHub; no media upload, RouterOS test, rollback, editor-save, Ready, Future or Publish. GitHub-only now 6; PR82 open mergeable=false, canonical branch unaffected. Separate source branch `content/mtcna-prep-20261108-scoped-280` updated preview index, receipts and [evidence report](docs/reports/MTCNA_DRAFT_PREP_2026-11-08.fa.md). Next: reconcile raw content/readback of page280 first.
+
 ## CURRENT — 2026-11-07 MTCNA 40-session first window: BLOCKED / private Draft 278
 
 Window **2026-11-07 09:00 Asia/Tehran** checked with a GitHub CAS lock/ledger and stable idempotency operation; **0** qualified publications and **0** native future statuses, lesson **01** remains next. Private editorial work on lesson 01 only: new 12-minute unmeasured teaching storyboard in `content/mtcna/microcourse-drafts/01.md`; WordPress **ID278** independently read back as **draft**, parent40. REST metadata verified, but full body hash and Gutenberg admin-save not verified. No live owner, index/robots policy, media or runtime changed.
