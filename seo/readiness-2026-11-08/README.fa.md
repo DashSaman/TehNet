@@ -1,3 +1,7 @@
+# CURRENT — PR94 full frontend و تشخیص noindex
+**VERIFIED_FULL_FRONTEND_AND_SYNTHETIC_TICKET_NOT_DEPLOYED**. [گزارش۳۲۷frontend/۳۳native/تیکتخصوصی](full-frontend-report.fa.md)، [رسیدکامل](full-frontend-verification.json) و [منبع production noindexاحرازشده باSSH](noindex-provenance.fa.md) مرجع فعلی‌اند. noindex/liveدست‌نخورده، merge/deployتأییدندارند. فقط آزمون خودکار و۰تصویر طبق انتخاب مالک. Googlechallengeواقعی و exactruntime/PHPpatch/fullSQLrestore/canonicalpublisherqualified نیستند. پیکربندیخواندنیSSHموجودفقطپسازتصریحمالکبهکاررفت؛ هیچسیستممحلیبرایlab/browserاستفاده نشد.
+
+## HISTORICAL — بستهٔ آمادگی و component-only پیش از fullfrontend/SSH
 # بستهٔ آمادگی ایندکس و کشف خدمات —۸ نوامبر۲۰۲۶
 READY_FOR_REVIEW_NOT_DEPLOYED. این بسته noindex، CDN، robots، sitemap، پرداخت، CAPTCHA یا MyTel را تغییر نمی‌دهد. manifest صرفاً پیشنهاد غیرفعال۱۱URL عمومی است؛ تأیید readiness هر URL و مجوز انتشار هنوز لازم است. خارج فهرست، policy فعلی حفظ می‌شود؛ کالای استعلامی با رفع noindex قابل خرید نمی‌شود.
 

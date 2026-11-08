@@ -1,3 +1,15 @@
+# منبع noindex — production احراز شد؛ تغییر نکرد
+Recorded: 2026-11-08 15:13:35 UTC
+
+**CONFIRMED_READ_ONLY**: پس از تصریح تازهٔ مالک برای استفاده از SSH موجود، فقط تشخیص خواندنی روی وردپرسِ دارای hostname مجاز tehnet.ir اجرا شد. مقدار واقعی `blog_public="0"` است؛ callback هستهٔ `wp_robots_noindex` در priority10 ثبت و خروجی تابع `noindex=true,nofollow=true` خوانده شد. `wp_sitemaps_enabled` هیچ فیلتر اضافی نداشت و sitemap هسته واقعاً false بود. sourceِ سراسریِ مورد مشاهده **Settings→Reading→Discourage search engines** است. گزینه، فایل سایت، CDN، پرداخت و noindex تغییر نکردند.
+
+[رسید کامل پاک‌سازی‌شده](full-frontend-verification.json) هم‌بستگی این خواندن با meta عمومی و sitemap404 را ثبت می‌کند. producer اختصاصی رسید تیکت همچنان مستقل است و باید حفظ شود. کشف این گزینه مجوز global blog_public toggle یا حذف noindex از URLهای خصوصی نیست.
+
+اتصال از پروفایل SSH موجود با BatchMode، StrictHostKeyChecking و UpdateHostKeys=no بود؛ فقط پیکربندی همان اتصال موجود خوانده شد و تنظیم/فایل پروژه/مرورگر/VM محلی تغییر نکرد. هیچ credential، شناسهٔ عملیاتی، IP یا مسیر خصوصی در رسید/Git نیست و هیچ secret تولید به runner عمومی منتقل نشد. تلاش اول یک containerپیش‌نمایش با homeغیرproduction را تشخیص داد و بدون خواندن نتیجهٔ production کنار گذاشت؛ سپس فقط containerدارای دامنهٔ موردنظر پذیرفته شد.
+
+WordPressزنده7.1.4/PHP8.3.32/theme0.5.1 احراز شد؛ image پایه WordPress7.0.2 دارد، پس نسخهٔ runtimeاز imageاستنباط نشد. fixtureوردپرس7.1.4/PHP8.3.36 بود؛ patchPHPدقیقاً یکسان نیست و release readiness از این receipt نتیجه نمی‌شود.
+
+## تاریخچهٔ مانع و روش بازتولید
 # منبع noindex — تفکیک مشاهده، بازتولید و گیت دسترسی
 Reviewed:2026-11-08. هیچ تنظیم production تغییر نکرده است.
 

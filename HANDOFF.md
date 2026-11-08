@@ -1,4 +1,18 @@
-## CURRENT —2026-11-08 SEO readiness / PR94; intentional noindex preserved
+## CURRENT —2026-11-08 PR94 full frontend/ticket verified; production noindex source confirmed and preserved
+
+[PR94](https://github.com/DashSaman/TehNet/pull/94): **VERIFIED_FULL_FRONTEND_AND_SYNTHETIC_TICKET_NOT_DEPLOYED**. [run42492885346](https://github.com/DashSaman/TehNet/actions/runs/42492885346)، source0f3040118afed1d8e10f31606b9ad0f0f5f858ec:۳۲۷fullfrontend/۳۳native/۴unit، قالب واقعی/CSS/JS/فونت200،۱۴۴۰/۷۶۸/۳۷۵/۳۲۰،toggleروشن/تیره/منوی موبایل،no-JSروشن،RTL/no-overflow/H1/canonical/noindex و۵negativeHTTP پذیرفته شدند. dark/no-JS درmarkupفعلی موجود نیست؛ آن راPASSنشمارید. طبق انتخاب مالک فقط آزمون خودکار؛۰اسکرین‌شات/بازبینی دستی تصویر.
+
+کلیک واقعی owner29→فرم موجود8/contextعمومی→POSTnative→رسید بدون داده خصوصی→تیکتcanonical private/open+thread درDB→حذف همان رکورد و رسید آزموده شد. CAPTCHA روشن است؛ فقط transportپاسخGoogle درfixtureساختگی کنترل می‌شود، نه چالش واقعیGoogle/کلیدlive/تحویلایمیل. outboundHTTP/mail/payment/cronبسته‌اند. app/DB/networkحذف‌شدن مستقل احراز شد؛ relaystopدرcleanupدرخواست شد، خروج مستقلش جدا ثبت نشد؛ VMGitHubموقتی است. [رسید کامل](seo/readiness-2026-11-08/full-frontend-verification.json) و [گزارش محدوده](seo/readiness-2026-11-08/full-frontend-report.fa.md).
+
+**منبع productionاحراز شد:** پس از تصریح تازهٔ مالک به استفاده ازSSHموجود، فقط تشخیصخواندنی بادامنهٔتهنت اجراشد؛ blog_publicواقعی="0"، callbackهستهwp_robots_noindex ثبت و خروجیnoindex/nofollow خوانده شد؛ core sitemap_enabled=false و بدون فیلتراضافی بود. این تنظیم Reading/Discourage search engines منبعسراسری است؛ producerاختصاصیreceiptنیزعمداًحفظ شود. هیچoption/file/CDN/noindexتغییرنکرد. [provenance](seo/readiness-2026-11-08/noindex-provenance.fa.md). مانعقبلیconnectorWPVibe404/RESTبدونblog_public باSSHحل شد؛ نصبplugin/snippet لازم نشد. فقطپروفایلSSHموجودبرایاتصالخواندهشد؛ مرورگر/VM/فایلپروژه/تنظیم محلی تغییرنکرد وsecretبهcloud/Gitنرفت.
+
+runtimeزندهWP7.1.4/PHP8.3.32/theme0.5.1 خوانده شد؛ fixturePHP8.3.36 است، پس exact-runtime equivalence ادعا نشود. imageپایهcore7.0.2 دارد اما WordPressواقعی ازvolume7.1.4 است؛ نسخه‌راازimageاستنباط نکنید. sourceproducerاکنونconfirmed است؛ indexabilityactivation،scopecanonicalpublisher،productionbackup/checksum/drift/rollback وmerge/deploy هنوز گیتجدا/NEEDS_APPROVAL هستند. noindex1۱کاندید وreceipt/privacy/commerceاستثناها خودکاربرداشته نشوند.
+
+بدنه‌های پیشنهادیPR94فقط8/29،بدونtitle/H1/URL/excerpt/meta/صفحه یا فرم جدید؛ server/branch33،firewall35،monitoring31 ازقبلبودند. نمونهتحویل صریحاًفرضی؛ caseواقعی/مدرکمتخصصبدونشاهد BLOCKED. GSC/Bingدادهندادند؛ رتبه/لید/AIcitation/parityنامحرز. MyTelread-only/primaryPBX،inquiry-only،payment/CAPTCHA وsecurity/history/rotation/originحفظ‌اند.
+
+استثنای اسکنقدیمی NOT_RUN_OWNER_APPROVED_BRANCH_EXCEPTION فقطهمینشاخهباsource-pattern/publication_guardابریاست؛ بهmain/-SEO/historyتعمیمندارد. PR88liveپیشینتکرارنشود؛ PR89–91/93و94منتظرmerge/deployجدا. QueueدرPR93/c4c76adqualifiedsyntheticاست؛ maincheckpointقدیمیآنبستهراreplayنکنید. گامبعدپسازبازبینی:طراحیscopeبرگشت‌پذیرانتشاربدنه8/29 و تصمیمصریحURLهایindex؛ بدونمجوزهیچlivewriteنکنید.
+
+## HISTORICAL CHECKPOINT —2026-11-08 SEO readiness before full frontend and SSH source confirmation
 
 [PR94](https://github.com/DashSaman/TehNet/pull/94)، شاخه feat/seo-readiness-20261108: بستهٔ محدود SEO جدید، نه replay لاب یا بازنویسی خدمات. بدنهٔ زندهٔ۷صفحه از REST خوانده شد؛ server/branch33،firewall35،monitoring31 از قبل موجودند. بدنه8 فقط دو لینک عمیق به پذیرش فایروال/مانیتورینگ می‌گیرد؛ بدنه29 به ownerهای تخصصی و فرم موجود services هدایت می‌شود؛ هیچ صفحه/فرم/نرخ/SLA/schema تازه ساخته نشده است. عنوان/H1/URL/excerpt/meta محفوظ‌اند. متن قبل/بعد و hash دقیق در content/service-readiness-2026-11-08/ است.
 

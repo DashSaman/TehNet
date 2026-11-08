@@ -40,9 +40,12 @@
   ],
   "qualification": {
     "cloud_native": "VERIFIED_AUTHORING_RENDER_ONLY",
-    "component_browser": "VERIFIED_NOT_FULL_FRONTEND",
+    "full_frontend": "VERIFIED_AUTOMATED_327_WITH_REAL_THEME_ASSETS",
+    "synthetic_ticket_persistence": "VERIFIED_ONE_PRIVATE_TICKET_AND_OWNED_RECORD_REMOVAL",
+    "google_challenge": "NOT_TESTED_TRANSPORT_FIXTURE_ONLY",
+    "manual_visual_review": "NOT_RUN_OWNER_CHOICE",
     "production": "NOT_DEPLOYED",
     "canonical_release_scope": "NOT_IMPLEMENTED",
-    "receipt": "../../seo/readiness-2026-11-08/verification.json"
+    "receipt": "../../seo/readiness-2026-11-08/full-frontend-verification.json"
   }
 }
