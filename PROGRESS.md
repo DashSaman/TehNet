@@ -1,4 +1,20 @@
-## CURRENT —2026-11-08 Queue lab verified in free cloud; website staging pending
+## CURRENT —2026-11-08 Queue cloud lab and synthetic website staging VERIFIED; NOT_DEPLOYED
+
+**[PR93](https://github.com/DashSaman/TehNet/pull/93): VERIFIED_SYNTHETIC_CLOUD_STAGING_NOT_DEPLOYED.** تمام دسترسی به سیستم، فایل، VM و مرورگر متصل محلی مالک همچنان ممنوع است؛ مجوزهای قدیمی۶/۸فایل تعمیم ندارند. ادامه فقط از connectorهای مجاز و runner ابری؛ راز/دیسک/backup/denied-list محلی منتقل نشود.
+
+بستهٔ Queue برای بدنهٔ موجود۶۷ تکمیل شد: ۱۲عکس واقعی WinBox4.5/CHR7.25.1، مراحل کلیک با گزینه‌های پررنگ، کادر CSS مستقل و لینک اصل تمام‌اندازه؛ [پیش‌نمایش قابل مرور](content/queue-winbox-cloud-2026-11-08/README.fa.md). [لاب واقعی](https://github.com/DashSaman/TehNet/actions/runs/42483186544) و [رسید لاب](docs/evidence/2026-11-08/cloud-queue/lab-verification.json) قبلاً پذیرفته و هر۱۲PNG بازبینی/hash شدند. نرخ مستقل/ظرفیت مشتری NOT_QUALIFIED؛ missing reply در ping با Dropped صف یکی نیست.
+
+**[staging نهایی42489095686](https://github.com/DashSaman/TehNet/actions/runs/42489095686)، source683830a2696e471eff7e6969083465b68111a728:** همان operator/migrator موجود، scope ثابت یک بدنه+۱۲PNG+CSS؛ ۵۲native مثبت/منفی،۸renderer،۴before و۵۱۸after browser در۱۴۴۰/۷۶۸/۳۷۵/۳۲۰، روشن/تیره/no-JS/full-size/served hashes. ۱۳فایل اعمال، تکرار۰؛ rollback و تکرار آن، ردیف‌های fixture/گزینه‌های محافظت‌شده و فایل/پوشه‌های آزمون را برگرداندند؛ checksum backup SQL پاس، restore کامل SQL/DR اجرا نشده است. WooCommerce11.2.1، Core0.3.1 و Store0.7.0 واقعی در fixture فعال بودند؛ HTTP/mail/cron/payment بسته و ERP/sandbox خاموش. همهٔ relay/container/network همان job حذف شدند؛۰ارسال فرم،۰دسترسی محلی و۰mutation production.
+
+[رسید کامل و۵۱۸label](docs/evidence/2026-11-08/cloud-queue/native-staging.json)، [قبل موبایل](docs/evidence/2026-11-08/cloud-queue/staging/before-67-375-light.png)، [بعد/کادر کلیک موبایل](docs/evidence/2026-11-08/cloud-queue/staging/callout-67-375-light.png)، [گزارش بسته](docs/reports/QUEUE_CLOUD_2026-11-08.fa.md). تصاویر frontend مربوط به fixture ساختگی‌اند؛ تصویر قبل ابتدای مقاله و بعد لنگر بخش تازه است، نه pixel-diff هم‌موقعیت. خواندن authenticated سایت فقط metadata منتخب داد؛ تطابق کامل WP/PHP/DB production **NOT_ESTABLISHED**. شکست نصب fixture با Woo و اصلاح ترتیب حفظ شده‌اند.
+
+وضعیت انتشار: PR88 قبلاً DEPLOYED_VERIFIED و مجوزش مصرف شده؛ تکرار نشود. PR89/90/91 طبق مشاهدهٔ۸نوامبر OPEN/NOT_MERGED، headهای3c52cea/9a082ff/48b9d7a، VERIFIED_STAGING_NOT_DEPLOYED؛ هرکدام merge/deploy جدا **NEEDS_APPROVAL**. PR93 draft نیز مجوز merge/production ندارد. گام بعد: بازبینی همین diff و تعیین مجوز محدود؛ انتشار فقط پس از runtime/drift/backup/checksum/rollback و دسترسی امنِ مجاز، بدون محلی و بدون انتقال secret production به runner عمومی.
+
+دو تأیید فقط همین شاخه: private denied-list **NOT_RUN_OWNER_APPROVED_BRANCH_EXCEPTION** با source-pattern scan+publication_guard ابری؛ و فقط پیکسل تازهٔ همین لاب ساختگی در لاگ عمومی/PNG مخزن. main/شاخه دیگر/-SEO زیر این استثنا نیستند. [درس قابل انتقال](seo/lessons/2026-11-08-cloud-queue-evidence.fa.md) آمادهٔ بازبینی مرکزی است؛ -SEO PR27 همچنان جدا و unmerged، شمارش/درصد مرکزی تغییر نکرده‌اند.
+
+مستند ضبط هدف۶دقیقه جداست؛ ضبط تازه۰ و زمان واقعی/approval null. AV کامل ویدیوهای موجود، GNS3 و شکاف‌های تجاری Issues63/75 بسته نشده‌اند. MyTel read-only/برند اصلی VoIP، noindex،payment/CAPTCHA، خانه/منو/Shop و گیت‌های security/history/rotation/origin حفظ‌اند؛ رتبه/ترافیک/AI citation یا parity احراز نشده‌اند.
+
+## HISTORICAL CHECKPOINT —2026-11-08 lab verified; website staging then pending
 
 تمام دسترسی به سیستم/فایل/VM/مرورگر متصل محلی مالک ممنوع است؛ headless یا مخفی بودن مجوز نیست. اجازه‌های قدیمی6/8فایل لاب مجوز ادامهٔ محلی نیستند؛ چهار VM همان کار قبلاً متوقف شدند و دوباره روشن/تعمیر نشوند. ادامه فقط connector مخزن/وب و runner ابری است؛ credential، دیسک، backup یا denied-list محلی منتقل نشود.
 

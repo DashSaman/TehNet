@@ -1,8 +1,8 @@
 # راهنمای تصویری Queue — اصل تصاویر لاب ابری
 
-**LAB_VERIFIED_MEDIA_REVIEWED؛ سایت هنوز STAGING_QUALIFIED یا DEPLOYED نیست.**
+**VERIFIED_SYNTHETIC_CLOUD_STAGING_NOT_DEPLOYED؛ این راهنما هنوز روی سایت زنده منتشر نشده است.**
 
-[اجرای واقعی](https://github.com/DashSaman/TehNet/actions/runs/42483186544)، source `4d5c3bafaf2d5b856b65625a5eca8f2b67ce4c22`؛ هر12PNG اصلی بدون تغییر پیکسل و با hash کنترل‌شده‌اند. راهنمای Gutenberg، CSS کادرهای نمایشی و manifest فقط برای همان owner67 آماده‌اند؛ operator/native/browser هنوز تکمیل و آزموده نشده است. تصاویر این پیش‌نمایش، اصل بدون کادرند؛ کادر CSS فقط در صفحهٔ staging مربوط نمایش داده خواهد شد.
+[اجرای واقعی](https://github.com/DashSaman/TehNet/actions/runs/42483186544)، source `4d5c3bafaf2d5b856b65625a5eca8f2b67ce4c22`؛ هر12PNG اصلی بدون تغییر پیکسل و با hash کنترل‌شده‌اند. راهنمای Gutenberg، CSS کادرهای نمایشی و manifest فقط برای همان owner67 آماده‌اند؛ scope محدود در همان operator/migrator موجود تکمیل و native/مرورگر/rollback روی fixture ساختگی ابری آزموده شده‌اند؛ رسید و محدودیت runtime در [شواهد staging](../../docs/evidence/2026-11-08/cloud-queue/native-staging.json) آمده‌اند. تصاویر این پیش‌نمایش، اصل بدون کادرند؛ کادر CSS در صفحهٔ staging آزموده شده است؛ [تصویر واقعی موبایل با کادر کلیک](../../docs/evidence/2026-11-08/cloud-queue/staging/callout-67-375-light.png) را ببینید.
 
 ## 1. اتصال و انتخاب Queues
 
