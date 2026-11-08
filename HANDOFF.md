@@ -1,4 +1,20 @@
-## CURRENT —2026-11-08 verified handoff; Queue next; PR89–91 NEEDS_APPROVAL
+## CURRENT —2026-11-08 SEO readiness / PR94; intentional noindex preserved
+
+[PR94](https://github.com/DashSaman/TehNet/pull/94)، شاخه feat/seo-readiness-20261108: بستهٔ محدود SEO جدید، نه replay لاب یا بازنویسی خدمات. بدنهٔ زندهٔ۷صفحه از REST خوانده شد؛ server/branch33،firewall35،monitoring31 از قبل موجودند. بدنه8 فقط دو لینک عمیق به پذیرش فایروال/مانیتورینگ می‌گیرد؛ بدنه29 به ownerهای تخصصی و فرم موجود services هدایت می‌شود؛ هیچ صفحه/فرم/نرخ/SLA/schema تازه ساخته نشده است. عنوان/H1/URL/excerpt/meta محفوظ‌اند. متن قبل/بعد و hash دقیق در content/service-readiness-2026-11-08/ است.
+
+baseline خواندنی ابری تازه:۱۱URL عمومی200/self-canonical/یکH1 و noindex,nofollow؛ robots200؛ wp-sitemap.xml404؛ X-Robots-Tag در این مسیر غایب. index-policy.json پیشنهاد غیرفعال با استثناهای حساب/درخواست/خرید است؛ هیچ indexability/CDN/WAF/پرداختی عوض نشده. منبع دقیق productionِ noindex و تنظیم مؤثر کنترل جدید GSC AI **UNKNOWN** هستند؛ بدون احراز منبع و تأیید محدود فعال‌سازی نکنید.
+
+مرجع -SEO پوشهٔ تحقیق۸نوامبر404 داشت، ولی سه سند در docs/ اصلی واقعاً خوانده شدند؛ خواندن پوشهٔ ناموجود ادعا نشود. GSC و Bing INVALID_ARGUMENT دادند؛ داده TehNet یا صفرِ رتبه/AI citation احراز نشد. Google راهنمای۲۰۲۶ گزارش مستقل Generative AI و کنترل Include/Exclude/Inherit را دارد؛ با Google-Extended و Web report یکی نشوند. جزئیات منابع و control در seo/readiness-2026-11-08/ است.
+
+قالب گزارش تحویل صریحاً فرضی آماده است؛ متخصص/Case واقعی دارای شاهد و رضایت انتشار **BLOCKED** است و جعل نشود. ۴unit/۳۳native/۱۴۴component browser در source630c6f3/run42491528157 پاس‌اند؛ receipt و [جدول تغییر/محدودیت‌ها](seo/readiness-2026-11-08/README.fa.md) ثبت شد. مرورگر harness محتوایی است، نه frontend کامل/font/CAPTCHA.  authoring/render روی fixture با canonical publisher، تحویل واقعی خدمت، CAPTCHA یا انتشار زنده برابر نیست. merge/deploy/indexability هنوز **NEEDS_APPROVAL**.
+
+مالک فقط برای همین شاخه استثنای NOT_RUN_OWNER_APPROVED_BRANCH_EXCEPTION اسکن denied-list قدیمی را با source-pattern scan/publication_guard ابری تأیید کرد. هیچ فایل محلی جز پیوست تازهٔ خود مالک خوانده نشد؛ سیستم/VM/مرورگر/فهرست خصوصی محلی ممنوع‌اند. secret قدیمی/production به cloud عمومی نرود؛ استثنا به main/-SEO/history/rotation تعمیم ندارد.
+
+Queue در [PR93](https://github.com/DashSaman/TehNet/pull/93)/c4c76ad واقعاً در cloud و synthetic staging پذیرفته است و هنوز منتشر نشده؛ checkpoint قدیمی main دربارهٔ Queue جای این receipt نیست. PR88 قبلاً live و تأییدش مصرف‌شده؛ PR89–91/93 مجوز merge/production جدا لازم دارند. MyTel read-only و برند PBX/IVR، inquiry-only25قلم، noindex عمدی، payment/CAPTCHA و گیت‌های security/history/rotation/origin حفظ‌اند؛ Issues63/75 و parity/SEO/customer gain بازند.
+
+گام بعد: بعد از بازبینی PR94، احراز فقط‌خواندنی producerهای indexability و کنترل مؤثر GSC؛ تعیین URLهای مجاز و بستهٔ برگشت‌پذیر فعال‌سازی. برای بدنه‌های8/29، پیش از انتشار مجاز باید scope دقیق canonical publisher، fresh native/full-frontend QA،backup/checksum/drift/rollback احراز شود. Case واقعی و اختیار شبکه/برند جدید را از روی متن رقیب یا گذشت زمان فرض نکنید.
+
+## HISTORICAL CHECKPOINT —2026-11-08 main handoff before SEO PR94
 
 PR88 واقعاً ادغام و منتشر شده است؛ source `69243f4`، دو owner62/63 و39PNG. [رسید production](docs/evidence/2026-11-05/winbox-core/production-verification.json) و شش تصویر زنده از commit شواهد `c33f0b3` به این PR مستندات منتقل و hash هر6تصویر دوباره تطبیق شدند. تأیید PR88 مصرف شده؛ ناشر آن دوباره اجرا نشود. بررسی خواندنی8نوامبر،14/25تصویر و anchorهای هر دو درس را روی سایت نشان داد؛ آزمون‌های60native/16renderer/1590staging/730live مربوط به receipt5نوامبرند، نه اجرای تازه.
 

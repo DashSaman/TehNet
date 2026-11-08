@@ -39,8 +39,10 @@
     "MyTel"
   ],
   "qualification": {
-    "cloud_native": "PENDING",
+    "cloud_native": "VERIFIED_AUTHORING_RENDER_ONLY",
+    "component_browser": "VERIFIED_NOT_FULL_FRONTEND",
     "production": "NOT_DEPLOYED",
-    "canonical_release_scope": "NOT_IMPLEMENTED"
+    "canonical_release_scope": "NOT_IMPLEMENTED",
+    "receipt": "../../seo/readiness-2026-11-08/verification.json"
   }
 }

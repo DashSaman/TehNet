@@ -30,6 +30,18 @@ READY_FOR_REVIEW_NOT_DEPLOYED. این بسته noindex، CDN، robots، sitemap�
 schema source فعلی LocalBusiness است؛ schema plugin تازه، Review/aggregateRating/FAQ یا مدرک جعلی اضافه نشده. GBP ایران، outreach، backlink و ثبت انبوه اجرا نشده‌اند.
 
 ## آزمون و ادامه
-workflow فقط GitHub-hosted عمومی standard با contents:read، timeout۱۵دقیقه، بدون cache/artifact/مرورگر محلی. native fixture تازه WordPress7.1.4 با Core/Store برای authoring/render است؛ WooCommerce/مرورگر/شباهت کامل production/تست canonical publisher و SQL restore در آن اجرا نمی‌شوند. نتایج بعد از job ثبت می‌شوند، نه پیشاپیش PASS.
+workflow فقط GitHub-hosted عمومی standard با contents:read، timeout۱۵دقیقه، بدون cache/artifact/مرورگر محلی. native fixture تازه WordPress7.1.4 با Core/Store برای authoring/render است؛ WooCommerce11.2.1 پس از شکست نخستِ shortcode به fixture افزوده شد؛ مرورگر/شباهت کامل production/تست canonical publisher و SQL restore اجرا نمی‌شوند. نتایج بعد از job ثبت می‌شوند، نه پیشاپیش PASS.
 پذیرش خصوصی denied-list فقط همین شاخه طبق تأیید مالک NOT_RUN_OWNER_APPROVED_BRANCH_EXCEPTION است؛ source-pattern و publication_guard ابری جایگزین محدود. هیچ راز قدیمی یا فایل سیستم مالک خوانده نشد؛ تنها پیوست جدید خودش خوانده شد.
 PR93/Queue کامل در شاخهٔ خودش c4c76ad و VERIFIED_SYNTHETIC_CLOUD_STAGING_NOT_DEPLOYED است؛ main قدیمی‌تر است. PR88 تکرار نشود؛ PR89–91/93 merge/deploy تأیید جدا می‌خواهند. MyTel read-only و برند تخصصی VoIP، noindex، inquiry-only، payment/CAPTCHA و گیت‌های امنیت حفظ‌اند.
+
+
+## نتیجهٔ واقعی بسته
+[PR94](https://github.com/DashSaman/TehNet/pull/94)، [run42491528157](https://github.com/DashSaman/TehNet/actions/runs/42491528157)، source630c6f3d34ab4c94919090e5cf6da64125439f8a:۴unit،۳۳native و۱۴۴component browser پاس شدند. receipt کامل/labelها: [verification.json](verification.json). native parse/serialize/KSES، ذخیره واقعی دو بدنه، حفاظت title/slug/parent/excerpt/meta، رندر shortcode واقعی باWoo11.2.1/Core/Store، باقی‌بودن noindex و بازگرداندن بدنه‌های fixture را آزمود. مرورگر1440/768/375/320، روشن/تیره/JS/no-JS،RTL/overflow و href فرم وMyTel را بررسی کرد؛ harness محتوایی با CSSسورس و قواعد wrapper/wrapping است، نه frontend کامل یا فونت/CAPTCHA.۰ارسال و۰mutation production؛ اسکرین‌شات صادر نشد.
+
+[baseline تازه](baseline.json):۱۱صفحه200/self-canonical/یکH1/noindex,nofollow؛ robots200؛wp-sitemap.xml404. X-Robots-Tag در همین مسیر غایب؛ producer دقیق هنوز نامحرز. دریافت درست از runner، محدودیت ابزار وب قبلی را رفع کرد؛ پاسخ17اکتبر Parallel همچنان برای وضعیت امروز معتبر نیست.
+
+شکست‌ها حفظ‌اند: run42490996662 به نبود shortcode رسید؛ Store آن را فقط با WooCommerce register می‌کند، پس fixture با asset رسمیِ hash-checked تکمیل و IDsپیش ازactivationرزرو شدند. run42491227421 موفق ولی receiptشمارنده۰ به‌علت scope محلی/global در WP-CLI داشت؛ proof۳۳تایی شمرده نشد. run42491336435 با counter/label صریح۳۳پاس، و run42491528157 با۱۴۴browser پاس شد.
+
+[کنترل‌ها و گزارش جدید AI](ai-controls.fa.md) و [مقایسه محدود رقبا](competitor-delta.fa.md) جدا ثبت‌اند. منبع metadata سورس: MUsearch-metadata بدون تغییر robots، CoreLocalBusiness و canonical قالب؛ producer productionblog_public هنوز فقط فرضیه است. structured data افزوده نشد.
+
+DONE: خواندن فعلی ownerها، baseline محدود، diff دو بدنه و template فرضی، native/component acceptance، منابع control جدید. READY_FOR_REVIEW: دو بدنه و policy غیرفعال۱۱URL. BLOCKED/UNKNOWN: case واقعی دارای اجازه، شواهد متخصص، GSC/Bingوکنترل مؤثر، source دقیقnoindex/CDN، activation، canonical release rehearsal وfull-frontend acceptance. این‌ها ادعای پایان سئو یا parity نیستند.
