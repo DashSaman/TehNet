@@ -32,6 +32,7 @@ cat > /var/www/html/wp-content/mu-plugins/tn-isolation.php <<'"'"'PHP'"'"'
 add_filter("pre_wp_mail","__return_false",PHP_INT_MAX);
 add_filter("pre_http_request",static function($pre,$args,$url){if($url==="https://www.google.com/recaptcha/api/siteverify"&&hash_equals(getenv("TN_FIXTURE_PASSWORD"),(string)($args["body"]["response"]??"")))return ["headers"=>[],"body"=>wp_json_encode(["success"=>true,"hostname"=>"localhost","challenge_ts"=>gmdate("c")]),"response"=>["code"=>200,"message"=>"OK"]];return new WP_Error("closed_fixture","Blocked");},PHP_INT_MAX,3);
 add_filter("woocommerce_available_payment_gateways","__return_empty_array",PHP_INT_MAX);
+add_filter("wp_robots",static function($r){if(file_exists("/lab/CONFLICT")&&is_page(29))$r["noindex"]=true;return $r;},999);
 PHP
 cd /var/www/html
 php /lab/wp --allow-root config create --dbname=wordpress --dbuser=root --dbpass="$TN_FIXTURE_PASSWORD" --dbhost=db --skip-check --extra-php <<'"'"'PHP'"'"'
@@ -56,6 +57,7 @@ for n in {1..120}; do test -f "$stage_root/READY" && break; if test "$(docker in
 test -f "$stage_root/READY"
 export TN_STAGE_APP="$stage_app" TN_STAGE_DB="$stage_db" TN_STAGE_NET="$stage_net" TN_FIXTURE_PASSWORD="$stage_password"
 sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/commercial-decision-release.py "$stage_root" prepare
+sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/index-decision-release.py "$stage_root" prepare
 sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/commercial-decision-release.py "$stage_root" apply
 docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/commercial-decision-native.php accept
 stage_app_pid="$(docker inspect -f '{{.State.Pid}}' "$stage_app")"
@@ -64,9 +66,18 @@ stage_relay_pid="$!"
 sleep 1
 sudo nsenter --target "$stage_app_pid" --net -- env NODE_PATH="$stage_root/pw/node_modules" PLAYWRIGHT_BROWSERS_PATH="$stage_root/browsers" TN_FIXTURE_PASSWORD="$stage_password" node tests/commercial-decision-browser.cjs "$stage_root"
 docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/commercial-decision-native.php verify-ticket
+sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/index-decision-release.py "$stage_root" runtime
+docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/index-decision-native.php off
+sudo nsenter --target "$stage_app_pid" --net -- env NODE_PATH="$stage_root/pw/node_modules" PLAYWRIGHT_BROWSERS_PATH="$stage_root/browsers" node tests/index-decision-browser.cjs off "$stage_root"
+sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/index-decision-release.py "$stage_root" activate
+docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/index-decision-native.php active
+sudo nsenter --target "$stage_app_pid" --net -- env NODE_PATH="$stage_root/pw/node_modules" PLAYWRIGHT_BROWSERS_PATH="$stage_root/browsers" node tests/index-decision-browser.cjs active "$stage_root"
+sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/index-decision-release.py "$stage_root" rollback
+docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/index-decision-native.php restored
+sudo nsenter --target "$stage_app_pid" --net -- env NODE_PATH="$stage_root/pw/node_modules" PLAYWRIGHT_BROWSERS_PATH="$stage_root/browsers" node tests/index-decision-browser.cjs restored "$stage_root"
 sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/commercial-decision-release.py "$stage_root" rollback
 docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/commercial-decision-native.php rollback-accept
-docker logs "$stage_app" 2>&1 | sed -n '/TN_DECISION_NATIVE /p'
+docker logs "$stage_app" 2>&1 | sed -n '/TN_DECISION_NATIVE /p; /TN_INDEX_NATIVE /p'
 cleanup
 trap - EXIT
 if docker inspect "$stage_app" >/dev/null 2>&1 || docker inspect "$stage_db" >/dev/null 2>&1 || docker network inspect "$stage_net" >/dev/null 2>&1; then echo TN_DECISION_CLEANUP_FAILED; exit 1; fi

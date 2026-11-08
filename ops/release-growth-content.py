@@ -96,6 +96,9 @@ LESSON_SCOPES = {
     ROUTING_SCOPE: ('content/routing-editorial-2026-11-01', 'static-routing.html', '/tmp/tn-routing-release-'),
     IP_DHCP_DNS_SCOPE: ('content/ip-dhcp-dns-editorial-2026-11-01', 'ip-dhcp-dns.html', '/tmp/tn-ip-dhcp-dns-release-'),
 }
+INDEX_RUNTIME_SCOPE = 'tehnet-index-runtime-20261108-v1'
+INDEX_ACTIVATION_SCOPE = 'tehnet-index-allowlist-20261108-v1'
+INDEX_RUNTIME_FILES = ['site/plugins/tehnet-core/includes/class-index-policy.php', 'site/plugins/tehnet-core/tehnet-core.php']
 DECISION_SCOPE = 'tehnet-commercial-decision-20261108-v2'
 DECISION_FILES = ["site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-support-contract-guide-1.csv","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-support-contract-guide-print.html","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-project-proposal-checklist-1.csv","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-project-proposal-checklist-2.csv","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-project-proposal-checklist-print.html","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-1.csv","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-2.csv","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-3.csv","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-print.html","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/server-backup-restore-acceptance-1.csv","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/server-backup-restore-acceptance-2.csv","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/server-backup-restore-acceptance-print.html","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/.htaccess","site/themes/tehnet/assets/css/visual-refresh.css"]
 DECISION_BODIES = ["services.html","network-tehran.html","network-support.html","network-setup.html","mikrotik-service.html","network-support-contract-guide.html","network-project-proposal-checklist.html","business-server-planning-guide.html","server-backup-restore-acceptance.html","server-virtualization-tehran.html"]
@@ -111,10 +114,16 @@ CONTENT_SCOPES = {**LESSON_SCOPES,
     MIKROTIK_SERVICE_SCOPE: ('content/mikrotik-service-2026-11-01', 'mikrotik-service.html', '/tmp/tn-mikrotik-service-release-'),
     SERVER_BRANCH_SCOPE: ('content/server-branch-2026-11-04', 'network-setup.html', '/tmp/tn-server-branch-release-'),
 }
-GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE, GALLERY_KEYBOARD_SCOPE, COMMERCIAL_CATALOG_SCOPE, CORPORATE_SCOPE, PHONE_SCOPE, EDUCATION_SCOPE, WINBOX_CORE_SCOPE]
+GUARDED_SCOPES = [INDEX_RUNTIME_SCOPE, INDEX_ACTIVATION_SCOPE, *CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE, GALLERY_KEYBOARD_SCOPE, COMMERCIAL_CATALOG_SCOPE, CORPORATE_SCOPE, PHONE_SCOPE, EDUCATION_SCOPE, WINBOX_CORE_SCOPE]
 
 
 def scope_spec(scope):
+    if scope in (INDEX_RUNTIME_SCOPE, INDEX_ACTIVATION_SCOPE):
+        directory = 'seo/index-decision-2026-11-08-v2/'
+        owned = INDEX_RUNTIME_FILES if scope == INDEX_RUNTIME_SCOPE else []
+        name = 'runtime-manifest.json' if scope == INDEX_RUNTIME_SCOPE else 'activation-manifest.json'
+        guards = list(dict.fromkeys(scope_spec(EDUCATION_SCOPE)[2] + NETWORK_TRIAGE_FILES + CONCEPTUAL_ROUTING_FILES + DECISION_FILES + INDEX_RUNTIME_FILES))
+        return list(owned), [directory + name, 'ops/migrate-index-policy.php'], [p for p in guards if p not in owned]
     if scope == DECISION_SCOPE:
         directory = 'content/commercial-decision-2026-11-08-v2/'
         return list(DECISION_FILES), [directory + 'manifest.json', *[directory + f for f in DECISION_BODIES],
@@ -421,7 +430,9 @@ class Release:
         self.state = json.loads(self.receipt_path.read_text()) if self.receipt_path.exists() else None
         if self.state and (self.state['source_commit'] != m['source_commit'] or self.state['app_id'] != c['app_id'] or self.state['db_id'] != c['db_id']):
             raise RuntimeError('Release journal identity mismatch')
-        prefix = {METADATA_SCOPE: '/tmp/tn-metadata-role-',
+        prefix = {INDEX_RUNTIME_SCOPE: '/tmp/tn-index-runtime-',
+                  INDEX_ACTIVATION_SCOPE: '/tmp/tn-index-activation-',
+                  METADATA_SCOPE: '/tmp/tn-metadata-role-',
                   EDUCATION_SCOPE: '/tmp/tn-educational-integrity-',
                   WINBOX_CORE_SCOPE: '/tmp/tn-winbox-core-guides-',
                   SERVICE_METADATA_SCOPE: '/tmp/tn-metadata-service-role-',

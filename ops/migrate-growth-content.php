@@ -55,6 +55,7 @@ final class TehNet_Growth_Content_Migration {
 
         if(($m['key']??'')===self::DECISION_SCOPE){
             if(($m['schema']??null)!==1||count($m['targets']??[])!==5||count($m['pages']??[])!==5)throw new RuntimeException('Exact decision package required');
+            if(get_option('tn_index_policy_20261108',null)!==null)throw new RuntimeException('Decision package requires index activation absent');
             $this->decision=true;$updates=[];$pages=[];$seen=[];
             foreach($m['targets']as$t){
                 $id=$t['id']??0;$fixed=self::DECISION_TARGETS[$id]??null;

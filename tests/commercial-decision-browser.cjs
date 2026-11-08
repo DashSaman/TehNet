@@ -2,6 +2,7 @@
 const fs=require('node:fs'),assert=require('node:assert/strict');
 const {chromium}=require('playwright');
 const origin='http://localhost:18085',checks=[],assets=new Map();let posts=0;
+const metadata=JSON.parse(fs.readFileSync('content/commercial-decision-2026-11-08-v2/metadata.json','utf8'));
 const ck=(v,s)=>{assert.ok(v,s);checks.push(s);};
 (async()=>{
  const browser=await chromium.launch({headless:true});
@@ -17,6 +18,9 @@ const ck=(v,s)=>{assert.ok(v,s);checks.push(s);};
    const response=await page.goto(origin+pathname,{waitUntil:'networkidle'});const key=pathname+width+'/'+dark+'/'+javaScriptEnabled;
    ck(response.status()===200,key+' full WordPress HTTP200');
    ck(await page.locator('h1').count()===1,key+' exactly one H1');
+   const wanted=metadata.find(t=>new URL(t.url).pathname===pathname);ck((await page.locator('h1').innerText()).trim()===wanted.h1,key+' proposed H1 really visible');ck(await page.locator('meta[name=description]').getAttribute('content')===wanted.meta,key+' native excerpt supplies exact meta description');
+   const article=await page.locator('script[type="application/ld+json"]').evaluateAll(es=>es.map(e=>{try{return JSON.parse(e.textContent)}catch{return null}}).filter(x=>x&&x['@type']==='Article'));
+   ck(article.length===(wanted.id&&String(wanted.id).startsWith('A')?1:0),key+' truthful article/service schema role');
    ck((await page.locator('meta[name=robots]').getAttribute('content')).includes('noindex'),key+' noindex retained');
    ck(await page.locator('link[rel=canonical]').getAttribute('href')===origin+pathname,key+' self canonical');
    ck(await page.locator('html').getAttribute('data-theme')===(dark?'dark':'light'),key+' actual theme state');
@@ -45,7 +49,7 @@ const ck=(v,s)=>{assert.ok(v,s);checks.push(s);};
  await ctx.route('**/*',r=>{const u=new URL(r.request().url());if(u.origin!==origin)return r.abort();if(r.request().method()==='POST'){ck(u.pathname==='/wp-admin/admin-post.php','POST restricted to synthetic canonical endpoint');posts++;}return r.continue();});
  const page=await ctx.newPage();
  await page.goto(origin+'/services/server-virtualization-tehran/',{waitUntil:'networkidle'});
- await page.locator('a[href="/services/?tn_service_context=server-scoping#service-request"]').click();await page.waitForURL('**/services/?tn_service_context=server-scoping#service-request');
+ await page.getByRole('link',{name:'ثبت درخواست بررسی سرور و مجازی‌سازی',exact:true}).click();await page.waitForURL('**/services/?tn_service_context=server-scoping#service-request');
  const f=page.locator('form.tn-service-request');ck(await f.locator('[name=tn_service_context]').inputValue()==='server-scoping','Actual hub click prefills approved service context');
  const form=await f.evaluate(f=>Object.fromEntries(new FormData(f)));
  const base={...form,tn_name:'آزمون ساختگی',tn_email:'fixture@example.invalid',tn_message:'این درخواست ساختگی فقط در لاب ابری ایجاد می‌شود.',tn_company:'نمونهٔ ساختگی'};

@@ -1,0 +1,283 @@
+{
+  "schema": 1,
+  "date": "2026-11-08",
+  "scope": "WordPress published page inventory, 32 pages; 2 published posts and drafts excluded by policy; not full server/file inventory",
+  "source": "Bounded core REST identities plus already-proven read-only noindex source",
+  "published_pages": [
+    {
+      "id": 206,
+      "path": "/services/voice-network-readiness/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "CANDIDATE_NEEDS_OWNER_APPROVAL",
+      "reason": "Scoped service/company candidate"
+    },
+    {
+      "id": 207,
+      "path": "/lab/voice-network-checklist/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "RETAIN_NOINDEX",
+      "reason": "Outside approved first batch; separate editorial/commerce review"
+    },
+    {
+      "id": 196,
+      "path": "/support/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "RETAIN_NOINDEX",
+      "reason": "Outside approved first batch; separate editorial/commerce review"
+    },
+    {
+      "id": 194,
+      "path": "/b2b/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "RETAIN_NOINDEX",
+      "reason": "Outside approved first batch; separate editorial/commerce review"
+    },
+    {
+      "id": 187,
+      "path": "/technical-methodology/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "CANDIDATE_NEEDS_OWNER_APPROVAL",
+      "reason": "Scoped service/company candidate"
+    },
+    {
+      "id": 188,
+      "path": "/lab/wireguard-mtu/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "RETAIN_NOINDEX",
+      "reason": "Outside approved first batch; separate editorial/commerce review"
+    },
+    {
+      "id": 109,
+      "path": "/tn-checkout/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "RETAIN_NOINDEX",
+      "reason": "Outside approved first batch; separate editorial/commerce review"
+    },
+    {
+      "id": 110,
+      "path": "/tn-account/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "RETAIN_NOINDEX",
+      "reason": "Outside approved first batch; separate editorial/commerce review"
+    },
+    {
+      "id": 107,
+      "path": "/cart-2/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "RETAIN_NOINDEX",
+      "reason": "Outside approved first batch; separate editorial/commerce review"
+    },
+    {
+      "id": 80,
+      "path": "/amirreza-golavar/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "RETAIN_NOINDEX",
+      "reason": "Outside approved first batch; separate editorial/commerce review"
+    },
+    {
+      "id": 76,
+      "path": "/lab/gns3-mikrotik/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "RETAIN_NOINDEX",
+      "reason": "Outside approved first batch; separate editorial/commerce review"
+    },
+    {
+      "id": 69,
+      "path": "/blog/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "RETAIN_NOINDEX",
+      "reason": "Outside approved first batch; separate editorial/commerce review"
+    },
+    {
+      "id": 67,
+      "path": "/learn/mikrotik/mtcna/queues-troubleshooting/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "RETAIN_NOINDEX",
+      "reason": "Outside approved first batch; separate editorial/commerce review"
+    },
+    {
+      "id": 66,
+      "path": "/learn/mikrotik/mtcna/firewall-basics/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "RETAIN_NOINDEX",
+      "reason": "Outside approved first batch; separate editorial/commerce review"
+    },
+    {
+      "id": 65,
+      "path": "/learn/mikrotik/mtcna/nat-masquerade/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "RETAIN_NOINDEX",
+      "reason": "Outside approved first batch; separate editorial/commerce review"
+    },
+    {
+      "id": 64,
+      "path": "/learn/mikrotik/mtcna/static-routing/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "RETAIN_NOINDEX",
+      "reason": "Outside approved first batch; separate editorial/commerce review"
+    },
+    {
+      "id": 63,
+      "path": "/learn/mikrotik/mtcna/ip-dhcp-dns/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "RETAIN_NOINDEX",
+      "reason": "Outside approved first batch; separate editorial/commerce review"
+    },
+    {
+      "id": 62,
+      "path": "/learn/mikrotik/mtcna/routeros-winbox/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "RETAIN_NOINDEX",
+      "reason": "Outside approved first batch; separate editorial/commerce review"
+    },
+    {
+      "id": 40,
+      "path": "/learn/mikrotik/mtcna/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "RETAIN_NOINDEX",
+      "reason": "Outside approved first batch; separate editorial/commerce review"
+    },
+    {
+      "id": 37,
+      "path": "/services/remote-support/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "CANDIDATE_NEEDS_OWNER_APPROVAL",
+      "reason": "Scoped service/company candidate"
+    },
+    {
+      "id": 35,
+      "path": "/services/mikrotik-tehran/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "CANDIDATE_NEEDS_OWNER_APPROVAL",
+      "reason": "Scoped service/company candidate"
+    },
+    {
+      "id": 33,
+      "path": "/services/network-setup-tehran/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "CANDIDATE_NEEDS_OWNER_APPROVAL",
+      "reason": "Scoped service/company candidate"
+    },
+    {
+      "id": 31,
+      "path": "/services/network-support-tehran/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "CANDIDATE_NEEDS_OWNER_APPROVAL",
+      "reason": "Scoped service/company candidate"
+    },
+    {
+      "id": 29,
+      "path": "/services/network-tehran/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "CANDIDATE_NEEDS_OWNER_APPROVAL",
+      "reason": "Scoped service/company candidate"
+    },
+    {
+      "id": 26,
+      "path": "/learn/mikrotik/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "RETAIN_NOINDEX",
+      "reason": "Outside approved first batch; separate editorial/commerce review"
+    },
+    {
+      "id": 11,
+      "path": "/contact/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "CANDIDATE_NEEDS_OWNER_APPROVAL",
+      "reason": "Scoped service/company candidate"
+    },
+    {
+      "id": 10,
+      "path": "/about/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "CANDIDATE_NEEDS_OWNER_APPROVAL",
+      "reason": "Scoped service/company candidate"
+    },
+    {
+      "id": 9,
+      "path": "/shop/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "RETAIN_NOINDEX",
+      "reason": "Outside approved first batch; separate editorial/commerce review"
+    },
+    {
+      "id": 8,
+      "path": "/services/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "CANDIDATE_NEEDS_OWNER_APPROVAL",
+      "reason": "Scoped service/company candidate"
+    },
+    {
+      "id": 7,
+      "path": "/lab/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "RETAIN_NOINDEX",
+      "reason": "Outside approved first batch; separate editorial/commerce review"
+    },
+    {
+      "id": 6,
+      "path": "/learn/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "RETAIN_NOINDEX",
+      "reason": "Outside approved first batch; separate editorial/commerce review"
+    },
+    {
+      "id": 5,
+      "path": "/",
+      "current": "PUBLISHED_IDENTITY_ONLY; current blog_public0 source proven; do not infer per-URL inspection",
+      "proposed": "CANDIDATE_NEEDS_OWNER_APPROVAL",
+      "reason": "Scoped service/company candidate"
+    }
+  ],
+  "new_proposed_pages": [
+    {
+      "path": "/network-support-contract-guide/",
+      "current": "NOT_CREATED_PRODUCTION",
+      "proposed": "CANDIDATE_AFTER_CONTENT_RELEASE_AND_OWNER_APPROVAL"
+    },
+    {
+      "path": "/network-project-proposal-checklist/",
+      "current": "NOT_CREATED_PRODUCTION",
+      "proposed": "CANDIDATE_AFTER_CONTENT_RELEASE_AND_OWNER_APPROVAL"
+    },
+    {
+      "path": "/business-server-planning-guide/",
+      "current": "NOT_CREATED_PRODUCTION",
+      "proposed": "CANDIDATE_AFTER_CONTENT_RELEASE_AND_OWNER_APPROVAL"
+    },
+    {
+      "path": "/server-backup-restore-acceptance/",
+      "current": "NOT_CREATED_PRODUCTION",
+      "proposed": "CANDIDATE_AFTER_CONTENT_RELEASE_AND_OWNER_APPROVAL"
+    },
+    {
+      "path": "/services/server-virtualization-tehran/",
+      "current": "NOT_CREATED_PRODUCTION",
+      "proposed": "CANDIDATE_AFTER_CONTENT_RELEASE_AND_OWNER_APPROVAL"
+    }
+  ],
+  "exceptions": [
+    "/cart-2/",
+    "/tn-checkout/",
+    "/tn-account/",
+    "/b2b/",
+    "/support/",
+    "/shop/",
+    "/product/*",
+    "/software/",
+    "/tunnels/",
+    "/wp-admin/*",
+    "/wp-login.php",
+    "/wp-json/*",
+    "/*?*",
+    "attachment/media",
+    "all unlisted pages/posts/taxonomy/search/feed",
+    "uploads/logs/backup/private files: access control remains required"
+  ],
+  "legacy_aliases": [
+    "/cart/",
+    "/checkout/",
+    "/my-account/"
+  ],
+  "note": "Do not confuse draft commerce aliases with actual published page slugs. software/tunnels are independent applications with existing header policy; not managed by this module."
+}
