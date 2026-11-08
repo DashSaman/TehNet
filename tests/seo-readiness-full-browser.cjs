@@ -7,9 +7,11 @@ const ck=(v,s)=>{assert.ok(v,s);checks.push(s);};
  const browser=await chromium.launch({headless:true});
  try{
  for(const width of [1440,768,375,320])for(const dark of [false,true])for(const javaScriptEnabled of [true,false]){
+  if(!javaScriptEnabled&&dark)continue; // Current server markup is light without JS; do not claim unsupported dark mode.
   const context=await browser.newContext({viewport:{width,height:900},javaScriptEnabled,colorScheme:dark?'dark':'light'});
+  if(javaScriptEnabled)await context.addInitScript(t=>localStorage.setItem('tn-theme',t),dark?'dark':'light');
   await context.route('**/*',r=>{const u=new URL(r.request().url());return u.origin===origin&&r.request().method()==='GET'?r.continue():r.abort();});
-  const page=await context.newPage();
+  const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.name));
   page.on('response',r=>{if(/\.(css|woff2?)(\?|$)/.test(r.url()))assets.set(r.url(),r.status());});
   for(const pathname of ['/services/','/services/network-tehran/']){
    const response=await page.goto(origin+pathname,{waitUntil:'networkidle'});const key=pathname+width+'/'+dark+'/'+javaScriptEnabled;
@@ -17,7 +19,12 @@ const ck=(v,s)=>{assert.ok(v,s);checks.push(s);};
    ck(await page.locator('h1').count()===1,key+' exactly one H1');
    ck((await page.locator('meta[name=robots]').getAttribute('content')).includes('noindex'),key+' noindex retained');
    ck(await page.locator('link[rel=canonical]').getAttribute('href')===origin+pathname,key+' self canonical');
+   ck(await page.locator('html').getAttribute('data-theme')===(dark?'dark':'light'),key+' actual theme state');
    await page.evaluate(()=>document.fonts.ready);
+   if(javaScriptEnabled){
+    const toggle=page.locator('.tn-theme-toggle');await toggle.click();ck(await page.locator('html').getAttribute('data-theme')===(dark?'light':'dark'),key+' theme toggle changes state');await toggle.click();
+    const menu=page.locator('.tn-menu-toggle');if(await menu.isVisible()){await menu.click();ck(await menu.getAttribute('aria-expanded')==='true',key+' mobile menu expands');await menu.click();ck(await menu.getAttribute('aria-expanded')==='false',key+' mobile menu closes');}
+   }else ck(!(await page.locator('.tn-theme-toggle').isVisible()),key+' no-JS does not offer inactive theme control');
    ck(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),key+' actual theme no overflow');
    ck(await page.locator('html').getAttribute('dir')==='rtl',key+' actual RTL');
    ck(await page.evaluate(()=>document.fonts.size>0&&[...document.fonts].some(f=>f.status==='loaded')),key+' actual local font loaded');
@@ -27,7 +34,7 @@ const ck=(v,s)=>{assert.ok(v,s);checks.push(s);};
     ck(await page.locator('.tn-service-request').evaluate(f=>new FormData(f).has('_wpnonce')),key+' nonce belongs to actual form');
    }else ck(await page.locator('a[href="/services/?tn_service_context=general-network#service-request"]').count()===1,key+' hub CTA retained');
   }
-  await context.close();
+  ck(errors.length===0,'No uncaught JavaScript errors in full theme context');await context.close();
  }
  ck(assets.size>0&&[...assets.values()].every(s=>s===200),'All observed real CSS/font assets200');
  const ctx=await browser.newContext({viewport:{width:375,height:900}});
@@ -57,6 +64,6 @@ const ck=(v,s)=>{assert.ok(v,s);checks.push(s);};
  }
  const nojs=await browser.newContext({javaScriptEnabled:false});await nojs.route('**/*',r=>r.request().url().startsWith(origin+'/')?r.continue():r.abort());const p=await nojs.newPage();await p.goto(origin+'/services/',{waitUntil:'networkidle'});ck(await p.locator('.tn-captcha noscript a').count()===1,'No-JS CAPTCHA explains alternative contact path');await nojs.close();
  await ctx.close();
- console.log('TN_P94_FULL_BROWSER '+JSON.stringify({status:'PASS',checks:checks.length,labels:checks,viewports:[1440,768,375,320],no_js:true,real_theme_css_and_fonts:true,screenshots_exported:0,canonical_form_posts:1,negative_http_tests:5,production_mutations:0,captcha:'Enabled; isolated server-transport fixture only; Google challenge NOT_TESTED',noindex_preserved:true}));
+ console.log('TN_P94_FULL_BROWSER '+JSON.stringify({status:'PASS',checks:checks.length,labels:checks,viewports:[1440,768,375,320],no_js:true,no_js_dark_mode:'NOT_AVAILABLE_CURRENT_SERVER_LIGHT_MARKUP',real_theme_css_and_fonts:true,screenshots_exported:0,canonical_form_posts:1,negative_http_tests:5,production_mutations:0,captcha:'Enabled; isolated server-transport fixture only; Google challenge NOT_TESTED',noindex_preserved:true}));
  }finally{await browser.close();}
 })().catch(e=>{console.error('TN_P94_FULL_BROWSER '+JSON.stringify({status:'FAIL',class:e.name,label:String(e.message).replace(/tn_service_receipt=[A-Za-z0-9]+/g,'tn_service_receipt=REDACTED').slice(0,500)}));process.exitCode=1;});
