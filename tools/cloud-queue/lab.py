@@ -68,6 +68,8 @@ def serial_wait(s, patterns, timeout=50):
     raise RuntimeError("Fresh guest console not ready in " + phase)
 
 def bootstrap(node):
+    sequence = {"node": node["name"], "steps": []}
+    RESULT.setdefault("boot_sequences", []).append(sequence)
     port = node["serial"]
     end = time.monotonic() + 100
     while True:
@@ -90,6 +92,7 @@ def bootstrap(node):
                     "prompt": rb"\[[^\n]+\]\s*>"}
         for _ in range(8):
             key, _ = serial_wait(s, patterns, 60)
+            sequence["steps"].append(key)
             if key == "license":
                 s.sendall(b"n\r\n")
             elif key in ("new", "repeat"):

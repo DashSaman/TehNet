@@ -1,7 +1,5 @@
 name: Isolated Queue cloud lab
 on:
-  push:
-    branches: [lab/cloud-queue-20261108]
   pull_request:
     branches: [main]
     paths:
@@ -11,7 +9,7 @@ permissions:
   contents: read
 concurrency:
   group: queue-cloud-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   queue-lab:
     if: github.repository == 'DashSaman/TehNet' && github.event.repository.private == false && (github.ref == 'refs/heads/lab/cloud-queue-20261108' || github.head_ref == 'lab/cloud-queue-20261108')
