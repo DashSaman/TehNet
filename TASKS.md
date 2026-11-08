@@ -1,3 +1,12 @@
+## MTCNA draft-only checkpoint — 2026-11-08 / STOP ON CONTENT READBACK
+
+- [x] Verify WPVibe Free quota available (0/100 initially, no reset) and WordPress inventory 34 Drafts under parent40.
+- [x] Review canonical microcourse plan/runbook and authentic screenshot quality; inspect lesson23 real Firewall views.
+- [x] Create **one** scoped lesson23 WordPress Draft (ID280, parent40, status=draft); metadata/excerpt REST readback verified; final inventory 35 Drafts, 6 source-only, 0 future.
+- [ ] **BLOCKER:** independently retrieve `content.raw` for ID280 (current GET returns `{}`); validate saved body/hash and Gutenberg editor-save before further creates.
+- [ ] Lab: capture accurate filled-field, Apply/OK, counters and rollback evidence on authorized isolated CHR; existing 2 referenced captures are only blank table/unsaved form, WordPress media upload NOT_DONE.
+- [ ] Expert, editorial and canonical owner gates; no Ready/Scheduled. Preserve noindex, publish owners, RoboT and all unrelated systems.
+
 ## MTCNA 40×10–15min — 2026-11-07 first publication window BLOCKED
 
 - [x] Create and independently verify metadata for **one private editorial Draft**: lesson 01 source augmented; WordPress **ID278** remains draft; record first-window BLOCKED receipt and ledger CAS (not a publication).
