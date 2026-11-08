@@ -1,0 +1,43 @@
+name: Isolated Queue cloud lab
+on:
+  push:
+    branches: [lab/cloud-queue-20261108]
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/queue-cloud-lab.yml'
+      - 'tools/cloud-queue/**'
+permissions:
+  contents: read
+concurrency:
+  group: queue-cloud-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  queue-lab:
+    if: github.repository == 'DashSaman/TehNet' && github.event.repository.private == false && (github.ref == 'refs/heads/lab/cloud-queue-20261108' || github.head_ref == 'lab/cloud-queue-20261108')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Public-file guard
+        run: python3 tools/publication_guard.py
+      - name: Install isolated test prerequisites
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends qemu-system-x86 qemu-utils xvfb xdotool python3-paramiko python3-pil unzip libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libxcb-cursor0 libxkbcommon-x11-0
+      - name: Verify remote executor
+        run: |
+          test "$RUNNER_ENVIRONMENT" = github-hosted
+          qemu-system-x86_64 --version | head -1
+          Xvfb -help 2>&1 | head -3 || true
+          python3 -c "import paramiko; from PIL import Image; print('CLOUD_PREREQUISITES_READY')"
+      - name: Run actual lab when its reviewed source is present
+        run: |
+          if test -f tools/cloud-queue/lab.py; then
+            python3 tools/cloud-queue/lab.py
+          else
+            echo 'BOOTSTRAP_ONLY; no Queue acceptance or screenshots yet'
+          fi
