@@ -1,4 +1,18 @@
-## CURRENT —2026-11-08 cloud Queue IN_PROGRESS; all local access prohibited
+## CURRENT —2026-11-08 Queue lab verified in free cloud; website staging pending
+
+تمام دسترسی به سیستم/فایل/VM/مرورگر متصل محلی مالک ممنوع است؛ headless یا مخفی بودن مجوز نیست. اجازه‌های قدیمی6/8فایل لاب مجوز ادامهٔ محلی نیستند؛ چهار VM همان کار قبلاً متوقف شدند و دوباره روشن/تعمیر نشوند. ادامه فقط connector مخزن/وب و runner ابری است؛ credential، دیسک، backup یا denied-list محلی منتقل نشود.
+
+[PR93](https://github.com/DashSaman/TehNet/pull/93)، شاخه `lab/cloud-queue-20261108`: **LAB_VERIFIED_MEDIA_REVIEWED_NOT_STAGED**. [run42483186544](https://github.com/DashSaman/TehNet/actions/runs/42483186544)، source4d5c3ba واقعاً روی runner استاندارد عمومی ubuntu-24.04 رایگان، بدون artifact/cache/larger runner اجرا شد. سه CHR7.25.1، WinBox4.5، مدیریت loopback/restrict، لینک داخلی و Xvfb مجزا؛0دسترسی محلی/production. ساخت قانون از GUI، Target192.0.2.10/32،64k/128k، readback، Bytes، Disable/Enable، حذف فقط قانون خود تمرین و5/5ping/مدیریت نهایی پذیرفته شدند.8آزمون واحد پاس؛ شکست واقعی قالب64k قبلاً RED شد. هر12PNG واقعی بازبینی بصری و hash مستقل تطبیق شدند؛ فایل‌ها بدون تغییر پیکسل‌اند. [رسید لاب](docs/evidence/2026-11-08/cloud-queue/lab-verification.json)، [راهنمای قابل مرور](content/queue-winbox-cloud-2026-11-08/README.fa.md) و [جزئیات محدودیت‌ها](docs/labs/CLOUD_QUEUE_2026-11-08.fa.md).
+
+تأخیر میانگین پاسخ‌های دریافت‌شده با بار همسان100ms، فعال حدود21–25ms و با Disable حدود2ms بود و پس از Enable دوباره بالا رفت؛ missing reply و Drop یکی نیستند. Dropped صف0/0 بود؛ نرخ مستقل دریافت/ظرفیت اینترنت یا سخت‌افزار **NOT_QUALIFIED** است. تمام فرایندهای همان اجرای پذیرفته‌شده متوقف شدند. شکست‌های قبلی و آزمایش کم‌بار بدون اثر حفظ‌اند؛ CI به‌تنهایی parity یا انتشار نیست.
+
+بدنهٔ موجود67 با12تصویر/گزینه‌های پررنگ، CSS کادرهای جدا، manifest محدود post_content و سناریوی جداگانهٔ ویدیوی هدف6دقیقه آمادهٔ staging است؛0ویدیوی تازه، زمان واقعی/approval null. **native WordPress، browser/restore و اتصال محدود به operator/migrator هنوز تکمیل/اجرا نشده‌اند**. گام بعد دقیق: افزودن scope ثابت همین67/12PNG/CSS به زیرساخت موجود، fixture ابریِ ساختگی با شبکه/ایمیل/پرداخت بسته، native مثبت/منفی/rollback و مرورگر desktop/mobile/no-JS/full-size/bytes. عنوان/URL/excerpt/meta و صفحات/قوانین/داده‌های دیگر حفظ شوند؛ سیستم موازی ساخته نشود. هنوز0merge/deploy و هیچ body/image production منتشر نشده است.
+
+دو تأیید مالک فقط همین شاخه: denied-list قدیمی **NOT_RUN_OWNER_APPROVED_BRANCH_EXCEPTION** با source-pattern scan+publication_guard ابری جایگزین محدود؛ و فقط تصاویر تازهٔ لاب ساختگی برای base64 لاگ عمومی PR93 و PNG همین مخزن. این‌ها مجوز main، ارسال راز قدیمی، تصاویر مشتری/محلی یا production نیستند. PR93 draft و merge/deploy **NEEDS_APPROVAL پس از qualification** است.
+
+PR88 DEPLOYED_VERIFIED و تأییدش مصرف‌شده؛ ناشر تکرار نشود. PR89/90/91 در بازبینی تازه8نوامبر همچنان OPEN/NOT_MERGED با headهای3c52cea/9a082ff/48b9d7a و VERIFIED_STAGING_NOT_DEPLOYED هستند؛ merge/production هرکدام **NEEDS_APPROVAL**. -SEO PR27 با48981c2 و CI42475914234 به رسید live تطبیق یافته ولی ادغام نشده؛ استثنای scan این شاخه به -SEO یا شاخه‌های دیگر تعمیم ندارد. MyTel read-only، noindex عمدی، payment/CAPTCHA و گیت‌های امنیت/history/rotation/origin و Issues63/75 حفظ‌اند؛ parity/SEO/customer gain نامحرز.
+
+## HISTORICAL CHECKPOINT —2026-11-08 cloud Queue IN_PROGRESS; all local access prohibited
 
 دستور آخر مالک، هرگونه دسترسی به سیستم و مرورگر متصل محلی را منع می‌کند؛ حتی headless، فایل، VM و مرورگر مخفی مجاز نیستند. اجازه‌های قدیمی6/8فایل لاب، مجوز ادامهٔ محلی نیستند. چهار VM همان کار قبلاً متوقف شدند؛ دوباره روشن/تعمیر نشوند. ادامه فقط با connector مخزن/وب و runner ابری GitHub است؛ هیچ دیسک، credential، backup یا فهرست خصوصی قدیمی منتقل نشود.
 

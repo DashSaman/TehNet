@@ -1,0 +1,224 @@
+<!-- wp:paragraph -->
+<p><strong>راهنمای تکمیلی مستقل — خارج از جلسات ضبط‌شده:</strong> این مقاله آموزش نوشتاری Simple Queue و روش بررسی نتیجه است. آموزش تفصیلی Queue در ویدیوهای منتشرشدهٔ دوره تدریس نشده است؛ اشاره یا مثال کوتاه در یک ویدیو، جای درس مستقل Queue را نمی‌گیرد. این صفحه به قسمت ششم دوره منتسب نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">قبل از محدودکردن پهنای باند چه چیزی را ثبت کنیم؟</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>هدف تمرین، محدودکردن ترافیک یک کلاینت آزمایشگاهی است. نسخهٔ RouterOS، آدرس همان کلاینت، ظرفیت لینک و جهت ترافیک را یادداشت کنید. روی شبکهٔ سازمانی یا روترِ تنها مسیر دسترسی، این نمونه را اجرا نکنید. هیچ عددی در این مثال، ظرفیت واقعی یا توصیهٔ سرویس شما نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">نمونهٔ Simple Queue در لاب</h2>
+<!-- /wp:heading -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code>/queue simple
+add name=lab-cap target=192.0.2.10/32 max-limit=5M/10M comment="Lab only"
+/queue simple print stats</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>192.0.2.10 آدرس مستنداتی است؛ آن را با آدرس کلاینتِ لاب جایگزین کنید. در Simple Queue مقدار نخست max-limit برای upload از target و مقدار دوم برای download به target است. این سقف به معنی تضمین سرعت دریافتی نیست؛ لینک، مسیر و محدودیت‌های دیگر نیز اثر دارند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">اگر محدودیت اعمال نشد</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item --><li>ابتدا مطمئن شوید target همان کلاینت و ترافیک آزمایشی واقعاً از این روتر عبور می‌کند؛ آزمون روی خود روتر، الزاماً آزمونِ مسیر کلاینت نیست.</li><!-- /wp:list-item --><!-- wp:list-item --><li>Simple Queue ترتیب دارد؛ صف‌های قبلی با target هم‌پوشان را بررسی کنید.</li><!-- /wp:list-item --><!-- wp:list-item --><li>طبق مستند MikroTik، ترافیک FastTrack از Simple Queue عبور نمی‌کند. فقط استثنای ترافیک همین آزمایش را با بررسی سیاست فعلی طراحی کنید؛ غیرفعال‌کردن عمومی FastTrack روی شبکهٔ واقعی پیشنهاد این متن نیست.</li><!-- /wp:list-item --><!-- wp:list-item --><li>upload و download را جداگانه از کلاینت آزمایش کنید و شمارندهٔ صف، سقف مشاهده‌شده و شرایط لینک را ثبت کنید؛ نتیجهٔ تست فیزیکی یا تضمین کارایی در این مقاله ادعا نشده است.</li><!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">برگشت از تمرین</h2>
+<!-- /wp:heading -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code>/queue simple remove [find where name="lab-cap" comment="Lab only"]</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>قبل از حذف، با print detail هویت قانون ساخته‌شده را بررسی کنید. این دستور تنها برای قانون همان تمرین است و مجوز تغییر صف‌های موجود شما نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">عیب‌یابی را با شواهد پیش ببرید</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item --><li>لینک و رابط، آدرس کلاینت، مسیر رفت و برگشت، DNS و سپس NAT/فایروال را جداگانه بررسی کنید.</li><!-- /wp:list-item --><!-- wp:list-item --><li>پاسخ‌نگرفتن از یک ping به‌تنهایی خرابی DNS یا قطع اینترنت را ثابت نمی‌کند؛ مقصد یا مسیر ممکن است ICMP را فیلتر کند.</li><!-- /wp:list-item --><!-- wp:list-item --><li>خروجی فنی را پیش از ارسال به پشتیبانی از رمز، آدرس واقعی و مشخصات خصوصی پاک کنید.</li><!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">منبع و مسیر ادامه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>مبنای فنی: <a href="https://manual.mikrotik.com/docs/firewall-and-quality-of-service/queues/">مستند رسمی Queues در RouterOS</a>، بازبینی ۴ نوامبر ۲۰۲۶. این منبع رفتار صف را توضیح می‌دهد و شاهدی برای تدریس آن در ویدیوهای تهران نتورک نیست. <a href="/learn/mikrotik/mtcna/">آرشیو ویدیوهای MTCNA</a> و <a href="/lab/">تمرین‌های لاب</a> مستقل از این راهنمای تکمیلی‌اند. برای بررسی شبکهٔ واقعی، <a href="/services/mikrotik-tehran/">درخواست خدمات میکروتیک</a> را ثبت کنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"anchor":"winbox-queue-cloud"} -->
+<h2 class="wp-block-heading" id="winbox-queue-cloud">تمرین تصویری Simple Queue در WinBox واقعی</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>این تمرین مستقل با WinBox۴٫۵ و CHR۷٫۲۵٫۱ در لاب ابریِ مجزا اجرا شده است؛ تصاویر، رابط واقعی‌اند. این راهنما ادامهٔ نوشتهٔ همین صفحه است و به ویدیوهای قبلی MTCNA منتسب نیست. مثال دستوریِ بالاتر و تمرین تصویری زیر، نام و اعداد متفاوت دارند؛ مقدارهای این تمرین را فقط در لاب مجاز و مستقل خودتان به‌کار ببرید.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>توپولوژی: کلاینت <code>192.0.2.10/24</code> به ether2 روتر R1 با آدرس <code>192.0.2.1/24</code> وصل است؛ ether3 روتر R1 با <code>198.51.100.1/24</code> به R2 با <code>198.51.100.2/24</code> می‌رسد. مقصد روی R2، <code>203.0.113.1/24</code> است. مسیر شبکهٔ مقصد از R1 به R2 و مسیر برگشت LAN کلاینت از R2 به R1 از قبل برقرار است. ether1 مدیریت جداست؛ NAT و FastTrack در این نمونه لازم/فعال نیستند. این آدرس‌ها فقط نمونهٔ مستنداتی‌اند.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p><strong>شرط شروع:</strong> این برداشت از صف خالیِ لاب تازه شروع شده است. مثال دستوریِ <code>lab-cap</code> بالاتر را هم‌زمان با <code>tn-cloud-cap</code> فعال نکنید؛ دو Target هم‌پوشان و ترتیب صف‌ها می‌توانند نتیجه را تغییر دهند. اگر مثال قبلی را اجرا کرده‌اید، فقط همان قانون را پس از تطبیق Name و Comment و در محدودهٔ مجاز لاب برگردانید؛ هیچ صف موجود دیگری را حذف نکنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">1. اتصال و انتخاب Queues</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>در نوار پایین، هویت <strong>TN-LAB-R1</strong> و نسخه را بخوانید. مدیریت این لاب از مسیر جداست؛ سپس روی <strong>Queues</strong> کلیک کنید. نشانی loopback عکس فقط داخل میزبان همین لاب کاربرد دارد.</p>
+<!-- /wp:paragraph -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-queue-shot-1"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-queue-shot-1"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/01-connected-baseline.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/01-connected-baseline.png" alt="منوی واقعی Queues و نام دستگاه متصل؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب ابری مستقل" width="1536" height="960" /></a><figcaption class="wp-element-caption">منوی واقعی Queues و نام دستگاه متصل — کادرِ راهنما لایهٔ نمایشی است؛ با کلیک، اصل بدون کادر را در اندازهٔ کامل ببینید.</figcaption></figure>
+<!-- /wp:image -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">2. ساخت صف تازه</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>در زبانهٔ <strong>Simple Queues</strong>، جدول اولیهٔ خالی را ببینید و <strong>New</strong> را بزنید. روی روتر واقعی، خالی‌بودن یا مالکیت هیچ قانون قبلی را فرض نکنید.</p>
+<!-- /wp:paragraph -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-queue-shot-2"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-queue-shot-2"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/02-queues-window.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/02-queues-window.png" alt="جدول اولیهٔ Simple Queues و دکمهٔ New؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب ابری مستقل" width="1536" height="960" /></a><figcaption class="wp-element-caption">جدول اولیهٔ Simple Queues و دکمهٔ New — کادرِ راهنما لایهٔ نمایشی است؛ با کلیک، اصل بدون کادر را در اندازهٔ کامل ببینید.</figcaption></figure>
+<!-- /wp:image -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">3. پیش‌فرض Target را بررسی کنید</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>در فرم تازه، <strong>Name</strong> و <strong>Target</strong> را پیدا کنید. مقدار پیش‌فرض <code>0.0.0.0/0</code> را بدون بررسی ذخیره نکنید؛ در این تمرین فقط یک کلاینت هدف است.</p>
+<!-- /wp:paragraph -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-queue-shot-3"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-queue-shot-3"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/03-new-dialog.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/03-new-dialog.png" alt="فرم واقعی New Simple Queue پیش از ورود مشخصات؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب ابری مستقل" width="1536" height="960" /></a><figcaption class="wp-element-caption">فرم واقعی New Simple Queue پیش از ورود مشخصات — کادرِ راهنما لایهٔ نمایشی است؛ با کلیک، اصل بدون کادر را در اندازهٔ کامل ببینید.</figcaption></figure>
+<!-- /wp:image -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">4. نام، Target و نشانهٔ مالکیت</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>در <strong>Name</strong> مقدار <code>tn-cloud-cap</code>، در <strong>Target</strong> مقدار <code>192.0.2.10/32</code> و در <strong>Comment</strong> مقدار <code>TN-CLOUD-QUEUE-LAB</code> را وارد کنید. Comment برای تشخیص قانون همین تمرین است.</p>
+<!-- /wp:paragraph -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-queue-shot-4"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-queue-shot-4"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/04-name-target.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/04-name-target.png" alt="Name و Target و Comment واردشده در WinBox؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب ابری مستقل" width="1536" height="960" /></a><figcaption class="wp-element-caption">Name و Target و Comment واردشده در WinBox — کادرِ راهنما لایهٔ نمایشی است؛ با کلیک، اصل بدون کادر را در اندازهٔ کامل ببینید.</figcaption></figure>
+<!-- /wp:image -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">5. دو جهت Max Limit</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>زیر <strong>Target Upload</strong> مقدار <code>64k</code> و زیر <strong>Target Download</strong> مقدار <code>128k</code> را بنویسید. اولی سقف از Target و دومی سقف به Target است؛ واحد بیت‌برثانیه است. این دو عدد پیشنهاد تنظیم شبکهٔ سازمانی نیستند.</p>
+<!-- /wp:paragraph -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-queue-shot-5"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-queue-shot-5"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/05-upload-download-limits.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/05-upload-download-limits.png" alt="دو فیلد واقعی Max Limit برای ارسال و دریافت Target؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب ابری مستقل" width="1536" height="960" /></a><figcaption class="wp-element-caption">دو فیلد واقعی Max Limit برای ارسال و دریافت Target — کادرِ راهنما لایهٔ نمایشی است؛ با کلیک، اصل بدون کادر را در اندازهٔ کامل ببینید.</figcaption></figure>
+<!-- /wp:image -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">6. Apply و بازخوانی مقدار</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>روی <strong>Apply</strong> بزنید. نام صف در عنوان فرم و مقادیر ذخیره‌شده را دوباره بخوانید؛ مقدارگذاریِ داخل فرم به‌تنهایی اثبات ذخیره نیست.</p>
+<!-- /wp:paragraph -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-queue-shot-6"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-queue-shot-6"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/06-applied-general.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/06-applied-general.png" alt="صف ذخیره‌شده با نام tn-cloud-cap و دکمهٔ Apply؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب ابری مستقل" width="1536" height="960" /></a><figcaption class="wp-element-caption">صف ذخیره‌شده با نام tn-cloud-cap و دکمهٔ Apply — کادرِ راهنما لایهٔ نمایشی است؛ با کلیک، اصل بدون کادر را در اندازهٔ کامل ببینید.</figcaption></figure>
+<!-- /wp:image -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">7. Statistics و ترافیک همان مسیر</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>روی <strong>Statistics</strong> بروید. ترافیک از کلاینت و R2، با مبدأ صریح همان توپولوژی، از R1 عبور داده شده است. <strong>Bytes</strong> و <strong>Dropped</strong> را جدا بخوانید؛ missing reply در ping الزاماً Drop صف نیست.</p>
+<!-- /wp:paragraph -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-queue-shot-7"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-queue-shot-7"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/07-active-statistics.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/07-active-statistics.png" alt="شمارنده‌های واقعی صف پس از ترافیک آزمایش؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب ابری مستقل" width="1536" height="960" /></a><figcaption class="wp-element-caption">شمارنده‌های واقعی صف پس از ترافیک آزمایش — کادرِ راهنما لایهٔ نمایشی است؛ با کلیک، اصل بدون کادر را در اندازهٔ کامل ببینید.</figcaption></figure>
+<!-- /wp:image -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">8. غیرفعال‌کردن همین صف</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>به <strong>General</strong> برگردید، تیک <strong>Enabled</strong> همین قانون را بردارید و <strong>Apply</strong> بزنید. همان بار آزمایشی تکرار می‌شود؛ قانون دیگری تغییر نمی‌کند.</p>
+<!-- /wp:paragraph -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-queue-shot-8"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-queue-shot-8"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/08-disabled-general.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/08-disabled-general.png" alt="Enabled خاموش در همان صف آزمایشگاهی؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب ابری مستقل" width="1536" height="960" /></a><figcaption class="wp-element-caption">Enabled خاموش در همان صف آزمایشگاهی — کادرِ راهنما لایهٔ نمایشی است؛ با کلیک، اصل بدون کادر را در اندازهٔ کامل ببینید.</figcaption></figure>
+<!-- /wp:image -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">9. فعال‌کردن دوباره</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>تیک <strong>Enabled</strong> را دوباره بزنید و <strong>Apply</strong> کنید. مقدار Target و دو سقف باید همان مقدار قبلی بمانند.</p>
+<!-- /wp:paragraph -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-queue-shot-9"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-queue-shot-9"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/09-reenabled-general.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/09-reenabled-general.png" alt="Enabled روشن پس از فعال‌سازی دوباره همان صف؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب ابری مستقل" width="1536" height="960" /></a><figcaption class="wp-element-caption">Enabled روشن پس از فعال‌سازی دوباره همان صف — کادرِ راهنما لایهٔ نمایشی است؛ با کلیک، اصل بدون کادر را در اندازهٔ کامل ببینید.</figcaption></figure>
+<!-- /wp:image -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">10. مقایسهٔ دوبارهٔ شمارنده‌ها</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>روی <strong>Statistics</strong> بزنید و افزایش دوبارهٔ <strong>Bytes</strong> را با حالت غیرفعال مقایسه کنید. نتیجهٔ آزمایش همان برداشت پایین آمده است؛ این تصویر جای تست سرعت اینترنت نیست.</p>
+<!-- /wp:paragraph -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-queue-shot-10"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-queue-shot-10"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/10-reenabled-statistics.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/10-reenabled-statistics.png" alt="شمارنده‌های واقعی پس از فعال‌سازی دوباره؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب ابری مستقل" width="1536" height="960" /></a><figcaption class="wp-element-caption">شمارنده‌های واقعی پس از فعال‌سازی دوباره — کادرِ راهنما لایهٔ نمایشی است؛ با کلیک، اصل بدون کادر را در اندازهٔ کامل ببینید.</figcaption></figure>
+<!-- /wp:image -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">11. خواندن ردیف نهایی صف</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>به <strong>General</strong> برگردید و <strong>OK</strong> را بزنید تا ردیف ذخیره‌شده را در جدول ببینید. Name، Target و دو Max Limit را با فرم تطبیق دهید.</p>
+<!-- /wp:paragraph -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-queue-shot-11"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-queue-shot-11"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/11-final-queue-row.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/11-final-queue-row.png" alt="ردیف نهایی صف با Target و دو سقف ذخیره‌شده؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب ابری مستقل" width="1536" height="960" /></a><figcaption class="wp-element-caption">ردیف نهایی صف با Target و دو سقف ذخیره‌شده — کادرِ راهنما لایهٔ نمایشی است؛ با کلیک، اصل بدون کادر را در اندازهٔ کامل ببینید.</figcaption></figure>
+<!-- /wp:image -->
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">12. برگشت از تمرین</h3>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>برای پایان همین لاب، فقط قانونی با <strong>Name و Comment دقیق همین تمرین</strong> حذف شد؛ جدول دوباره خالی و مسیر پاسخ و مدیریت دوباره آزموده شدند. فرمان حذف محدود پایین آمده است؛ این کار مجوز حذف قانون‌های شبکهٔ شما نیست.</p>
+<!-- /wp:paragraph -->
+<!-- wp:image {"sizeSlug":"full","linkDestination":"custom","className":"tn-lab-capture tn-queue-shot-12"} -->
+<figure class="wp-block-image size-full tn-lab-capture tn-queue-shot-12"><a href="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/12-owned-rule-removed.png"><img src="/wp-content/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/12-owned-rule-removed.png" alt="جدول پس از حذف فقط قانون ساخته‌شده در تمرین؛ رابط واقعی WinBox۴٫۵ متصل به CHR۷٫۲۵٫۱ در لاب ابری مستقل" width="1536" height="960" /></a><figcaption class="wp-element-caption">جدول پس از حذف فقط قانون ساخته‌شده در تمرین — کادرِ راهنما لایهٔ نمایشی است؛ با کلیک، اصل بدون کادر را در اندازهٔ کامل ببینید.</figcaption></figure>
+<!-- /wp:image -->
+<!-- wp:heading -->
+<h2 class="wp-block-heading">روش آزمایش و نتیجهٔ همین برداشت</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>پیش از صف، هر دو مسیر آغازشده از کلاینت و R2 بیست پاسخ از بیست درخواست داشتند. برای مقایسه، هر بار ۲۰ درخواست ICMP با اندازهٔ ۱۰۰۰ بایت و فاصلهٔ ۱۰۰ میلی‌ثانیه فرستاده شد؛ بار در همهٔ حالت‌ها یکسان بود. مبدأ در هر دو جهت صریح انتخاب شد. میانگین RTT زیر فقط به پاسخ‌های دریافت‌شده مربوط است، نه تمام بسته‌های فرستاده‌شده.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p><strong>بدون صف:</strong> آغاز از کلاینت: 20 پاسخ از ۲۰، افت گزارش‌شدهٔ ping برابر 0٪ و میانگین پاسخ‌های دریافت‌شده 1.829 میلی‌ثانیه؛ آغاز از R2: 20 پاسخ از ۲۰، افت گزارش‌شده 0٪ و میانگین 2.086 میلی‌ثانیه.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p><strong>صف فعال:</strong> آغاز از کلاینت: 9 پاسخ از ۲۰، افت گزارش‌شدهٔ ping برابر 55٪ و میانگین پاسخ‌های دریافت‌شده 25.486 میلی‌ثانیه؛ آغاز از R2: 8 پاسخ از ۲۰، افت گزارش‌شده 60٪ و میانگین 20.885 میلی‌ثانیه.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p><strong>صف غیرفعال:</strong> آغاز از کلاینت: 20 پاسخ از ۲۰، افت گزارش‌شدهٔ ping برابر 0٪ و میانگین پاسخ‌های دریافت‌شده 2.094 میلی‌ثانیه؛ آغاز از R2: 20 پاسخ از ۲۰، افت گزارش‌شده 0٪ و میانگین 1.95 میلی‌ثانیه.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p><strong>پس از فعال‌سازی دوباره:</strong> آغاز از کلاینت: 8 پاسخ از ۲۰، افت گزارش‌شدهٔ ping برابر 60٪ و میانگین پاسخ‌های دریافت‌شده 21.311 میلی‌ثانیه؛ آغاز از R2: 5 پاسخ از ۲۰، افت گزارش‌شده 75٪ و میانگین 41.145 میلی‌ثانیه.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>شمارندهٔ <strong>Bytes</strong> در حالت فعال بالا رفت، در آزمایش غیرفعال ثابت ماند و پس از فعال‌سازی دوباره افزایش یافت. مقدار <strong>Dropped</strong> صف در همین مشاهده صفر بود؛ بنابراین افتِ گزارش‌شدهٔ ping به‌عنوان Drop صف معرفی نمی‌شود. عدد Avg. Rate در پنجرهٔ Statistics نیز به بازهٔ میانگین همان رابط بستگی دارد. این آزمون، سنجش مستقل نرخ دریافت، ظرفیت واقعی اینترنت یا تضمین کارایی تجهیزات نیست.</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading -->
+<h2 class="wp-block-heading">فرمان محدودِ پایان همین تمرین</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>این فرمان روی R1 اجرا شد؛ ابتدا هویت ردیف را با <strong>Name و Comment</strong> تطبیق دهید. فقط قانون ساخته‌شده در همین لاب را حذف کنید.</p>
+<!-- /wp:paragraph -->
+<!-- wp:code -->
+<pre class="wp-block-code"><code>/queue simple print detail where name="tn-cloud-cap" comment="TN-CLOUD-QUEUE-LAB"
+/queue simple remove [find where name="tn-cloud-cap" comment="TN-CLOUD-QUEUE-LAB"]</code></pre>
+<!-- /wp:code -->
+<!-- wp:paragraph -->
+<p>پس از حذف، جدول صف خالی شد؛ پنج پاسخ از پنج ping و دسترسی مدیریتی دوباره پذیرفته شدند. برای تکرار مستقل، آزمایش کلاینت با <code>src-address=192.0.2.10</code> به <code>203.0.113.1</code> و آزمایش R2 با <code>src-address=203.0.113.1</code> به <code>192.0.2.10</code> است. از روی موفقیت یک جهت، مسیر برگشتِ مبدأ دیگر را نتیجه نگیرید.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph -->
+<p>مرجع فنی: <a href="https://manual.mikrotik.com/docs/firewall-and-quality-of-service/queues/">Queues رسمی MikroTik</a> و <a href="https://manual.mikrotik.com/docs/cli-reference/queue/simple/">فیلدهای Simple Queue</a>، بازبینی ۸ نوامبر ۲۰۲۶. اجرای این نمونه روی نسخه‌های بالا ثبت شده است؛ نتیجهٔ هر نسخه یا شبکهٔ دیگر را جدا بررسی کنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:shortcode -->
+[tn_editorial_note]
+<!-- /wp:shortcode -->

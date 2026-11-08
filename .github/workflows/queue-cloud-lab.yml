@@ -12,7 +12,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   queue-lab:
-    if: github.repository == 'DashSaman/TehNet' && github.event.repository.private == false && (github.ref == 'refs/heads/lab/cloud-queue-20261108' || github.head_ref == 'lab/cloud-queue-20261108')
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.repository == 'DashSaman/TehNet' && github.event.repository.private == false && (github.ref == 'refs/heads/lab/cloud-queue-20261108' || github.head_ref == 'lab/cloud-queue-20261108')
     runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:
