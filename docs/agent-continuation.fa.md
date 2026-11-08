@@ -1,4 +1,4 @@
-> **ورودی فعلی۸نوامبر۲۰۲۶:** ابتدا [CURRENT در HANDOFF](../HANDOFF.md) و [وضعیت ادامه](reports/CONTINUATION_2026-11-08.fa.md) را بخوانید. PR88 منتشر شده و نباید replay شود؛ PR89–91 هنوز staging-only/NEEDS_APPROVAL و Queue ناتمام است. متن۲۵اکتبرِ زیر سابقهٔ معماری است، نه دستور انتشار فعلی.
+> **CURRENT۸نوامبر۲۰۲۶، PR94 v2:** [CURRENT در HANDOFF](../HANDOFF.md)، [گزارش خدمات/مقالات/تصمیم index](../seo/commercial-decision-2026-11-08-v2/report.fa.md) و [صف کامل](../content/commercial-decision-2026-11-08-v2/action-board.json) مرجع فعلی‌اند.۹متن کامل و مسیر درخواست واقعی در cloud پذیرفته شدند؛ publication/merge/index هنوز NEEDS_APPROVAL است. PR88 live و replay ممنوع؛89–91 staging-only؛ Queue در PR93/c4c76ad synthetic پذیرفته شده، نه منتشرشده. هیچ استفاده از سیستم/مرورگر/لاب/credential محلی مالک و هیچ تکرار عیب‌یابی SSHِ noindex انجام نشود. متن۲۵اکتبر و گزارش قبلی۸نوامبر پایین، سابقه‌اند.
 
 > به‌روزرسانی ۳۱ اکتبر: [پاک‌سازی انتشار عمومی](publication-privacy-2026-10-31.fa.md) را بخوانید. آدرس واقعی و مسیر شخصی از نسخهٔ جاری پاک‌سازی شده‌اند؛ تاریخچه هنوز گیت مستقل دارد. هیچ انتشار زنده در این مرحله انجام نشده است.
 

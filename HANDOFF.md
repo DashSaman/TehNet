@@ -1,4 +1,19 @@
-## CURRENT — 2026-11-08؛ PR94: آزمون frontend و تیکت پذیرفته شد، منبع noindex احراز شد
+## CURRENT — 2026-11-08؛ PR94 نسخهٔ دوم: خدمات و مقالات آماده، انتشار ممنوع تا تأیید
+**VERIFIED_STAGING_NOT_DEPLOYED**. [گزارش نهایی](seo/commercial-decision-2026-11-08-v2/report.fa.md)، [رسید](seo/commercial-decision-2026-11-08-v2/verification.json)، [صف کامل](content/commercial-decision-2026-11-08-v2/action-board.json)، [قبل/بعد](content/commercial-decision-2026-11-08-v2/before-after.json). سورس `ec7eb0a0f44305f3064ae7666106a0f4e4031c05`، [cloud42503696771](https://github.com/DashSaman/TehNet/actions/runs/42503696771) پذیرفته شد؛ ادامهٔ پایین این CURRENT سابقه است.
+
+۹متن اصلی کامل: S1–S4 روی owner29/33/31/35، N1 مستقل سرور و A1–A4 کامل تصمیم خرید با۸CSV/۴نسخهٔ چاپی. owner8 فقط body برای لینک‌های ورودی تغییر می‌کند؛ چهار owner دیگر body/title/excerpt در scope صریح v2. v1 body-only برای8/29 را پشت‌سرهم با v2 منتشر نکنید. home/menu/shop و MyTel تغییر ندارند. لینک‌های جدید هنوز در production ساخته نشده‌اند.
+
+ناشر canonical فعلی با scope `tehnet-commercial-decision-20261108-v2` واقعاً۱۵فایل+۵owner+۵page را check/apply/repeat و rollback کرد؛ ownerها با meta/revision بازگشتند، pageهای تازه draft شدند. سه route موجود Lab با همان URI و بدون نوشتن rewrite_rules اصلاح می‌شوند. guardهای strict داده و فایل حفظ‌اند؛ drift واقعی نیازمند reconciliation است. helper cleanup فقط fixture بسته است، هرگز production.
+
+مسیر واقعی N1→فرم Services با context server-scoping→nonce/handler موجود→رسید امن→تیکت private/open/thread پذیرفته و دادهٔ خود آزمون حذف شد.۲۱۱۲بررسی frontend با قالب/فونت/RTL واقعی و۴عرض،۳۷unit ناشر و۳۷رگرسیون native قبلی موفق‌اند. نور/تاریک JS و no-JS روشن آزموده شد؛ no-JS dark و چالش Google واقعی آزموده نیستند. صفر screenshot/بازبینی دستی تصویری. app/DB/CLI/network/Node relay جمع شدند.
+
+E آماده و OFF است: [تصمیم و inventory واقعی](seo/index-decision-2026-11-08-v2/README.fa.md). source noindex قبلاً Reading/blog_public0 احراز شد؛ دوباره SSH نکنید. runtime OFF دو فایل و activation فقط یک option دقیق۱۶مسیر است؛ blog_public همیشه0. XML دقیق۱۶، استثناهای فعال cart-2/tn-checkout/tn-account/support/b2b/shop/query، حفظ noindex producer دیگر و rollback با نگه‌داشتن رکورد تازه در fixture پذیرفته شدند. software/tunnels، WAF/bot training، payment/CAPTCHA و security/history/rotation/origin عوض نشده‌اند. تعداد indexed URL/traffic/AI citation UNKNOWN؛ parity احراز نشده و Issues63/75 بازند.
+
+**چهار گیت مستقل NEEDS_APPROVAL:** mergePR94؛ انتشار محدود محتوا؛ نصب index runtime خاموش؛ فعال‌سازی allowlist۱۶. پس از تأیید نیز backup تازه/checksum/recovery/drift، reconcile آخرین main و staging لازم‌اند. هیچ production write یا merge انجام نشده. PR88 قبلاً live و replay ممنوع؛89–91 باز/staging-only،93 باز/draft با Queue synthetic پذیرفته‌شده،94 باز/draft. CSS/publisher مشترک باید پس از merge واقعی reconcile شوند؛ تأیید88 مصرف شده است.
+
+فقطAPI/cloud؛ جز فایل دستور پیوست، سیستم/مرورگر/VM/فایل کار/credential/ACL محلی مالک خوانده یا دست‌کاری نشود. denied-list خصوصی قدیمی **NOT_RUN_OWNER_APPROVED_BRANCH_EXCEPTION** فقط همین شاخه، با source-pattern/publication_guard ابری؛ به main/-SEO/history تعمیم ندارد. credential rotation UNKNOWN است. [درس‌های قابل انتقال -SEO](docs/seo/portable-lessons-2026-11-08-v2.fa.md) فقط در TehNet آماده‌اند؛ central repo نوشته نشده است. تمام تصمیم‌های ممنوع/منتظر تأیید با گذشت زمان مجاز نمی‌شوند.
+
+## HISTORICAL CHECKPOINT — 2026-11-08؛ PR94: آزمون frontend و تیکت پذیرفته شد، منبع noindex احراز شد
 
 وضعیت [PR94](https://github.com/DashSaman/TehNet/pull/94): **VERIFIED_FULL_FRONTEND_AND_SYNTHETIC_TICKET_NOT_DEPLOYED**.
 [اجرای 42492885346](https://github.com/DashSaman/TehNet/actions/runs/42492885346)، سورس 0f3040118afed1d8e10f31606b9ad0f0f5f858ec: ۳۲۷ بررسی frontend، ۳۳ بررسی native، ۴ آزمون واحد و ۵ درخواست منفی پذیرفته شدند. قالب، CSS، JS و فونت واقعی از HTTP وردپرس سرو شدند؛ چهار عرض ۱۴۴۰/۷۶۸/۳۷۵/۳۲۰، تغییر حالت روشن/تیره و منوی موبایل، RTL، نبود overflow، H1، canonical و حفظ noindex آزموده شدند. بدون JS، markup فعلی روشن است؛ حالت تیرهٔ بدون JS تأیید نشده است. مالک فقط آزمون خودکار را انتخاب کرد؛ صفر تصویر ساخته، منتشر یا دستی بازبینی شد.

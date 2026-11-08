@@ -1,5 +1,7 @@
 {
   "schema": 1,
+  "qualification_source": "ec7eb0a0f44305f3064ae7666106a0f4e4031c05",
+  "acceptance_receipt": "seo/commercial-decision-2026-11-08-v2/verification.json",
   "rows": [
     {
       "ID": "E",
@@ -7,10 +9,12 @@
       "owner": "۱۶ مسیر مصرح",
       "file": "seo/index-decision-2026-11-08-v2/activation-manifest.json",
       "source": "noindex-provenance + official WP/Google",
-      "status": "IN_PROGRESS",
-      "blocker": "Cloud acceptance pending; production/merge/index activation separately NEEDS_APPROVAL",
-      "acceptance": "OFF→allowlist16/XML→rollback in actual native cloud WordPress; no global blog_public flip",
-      "rollback": "Option exact absent row, then Core bootstrap/class with file drift guards"
+      "status": "READY",
+      "blocker": "Separate owner approval for runtime OFF install and exact16 activation; live backup/drift/recovery preflight still required",
+      "acceptance": "OFF→allowlist16/XML→rollback in actual native cloud WordPress; no global blog_public flip; see seo/commercial-decision-2026-11-08-v2/verification.json",
+      "rollback": "Option exact absent row, then Core bootstrap/class with file drift guards",
+      "deployment_state": "NOT_DEPLOYED",
+      "approval_gate": "NEEDS_APPROVAL"
     },
     {
       "ID": "S1",
@@ -18,10 +22,12 @@
       "owner": "https://tehnet.ir/services/network-tehran/",
       "file": "content/commercial-decision-2026-11-08-v2/network-tehran.html",
       "source": "content/commercial-decision-2026-11-08-v2/sources.json + existing owner",
-      "status": "IN_PROGRESS",
-      "blocker": "Full fixture journey/rollback acceptance pending; release requires approval",
-      "acceptance": "Exact body/title/excerpt, old anchors/meta, actual theme RTL/mobile/no-JS, canonical ticket",
-      "rollback": "Restore owner post fields/meta/revisions exactly through canonical journal"
+      "status": "READY",
+      "blocker": "Separate owner approval for merge and bounded content release; fresh production preflight required",
+      "acceptance": "Exact body/title/excerpt, old anchors/meta, actual theme RTL/mobile/no-JS, canonical ticket; see seo/commercial-decision-2026-11-08-v2/verification.json",
+      "rollback": "Restore owner post fields/meta/revisions exactly through canonical journal",
+      "deployment_state": "NOT_DEPLOYED",
+      "approval_gate": "NEEDS_APPROVAL"
     },
     {
       "ID": "S3",
@@ -29,10 +35,12 @@
       "owner": "https://tehnet.ir/services/network-support-tehran/",
       "file": "content/commercial-decision-2026-11-08-v2/network-support.html",
       "source": "content/commercial-decision-2026-11-08-v2/sources.json + existing owner",
-      "status": "IN_PROGRESS",
-      "blocker": "Full fixture journey/rollback acceptance pending; release requires approval",
-      "acceptance": "Exact body/title/excerpt, old anchors/meta, actual theme RTL/mobile/no-JS, canonical ticket",
-      "rollback": "Restore owner post fields/meta/revisions exactly through canonical journal"
+      "status": "READY",
+      "blocker": "Separate owner approval for merge and bounded content release; fresh production preflight required",
+      "acceptance": "Exact body/title/excerpt, old anchors/meta, actual theme RTL/mobile/no-JS, canonical ticket; see seo/commercial-decision-2026-11-08-v2/verification.json",
+      "rollback": "Restore owner post fields/meta/revisions exactly through canonical journal",
+      "deployment_state": "NOT_DEPLOYED",
+      "approval_gate": "NEEDS_APPROVAL"
     },
     {
       "ID": "S2",
@@ -40,10 +48,12 @@
       "owner": "https://tehnet.ir/services/network-setup-tehran/",
       "file": "content/commercial-decision-2026-11-08-v2/network-setup.html",
       "source": "content/commercial-decision-2026-11-08-v2/sources.json + existing owner",
-      "status": "IN_PROGRESS",
-      "blocker": "Full fixture journey/rollback acceptance pending; release requires approval",
-      "acceptance": "Exact body/title/excerpt, old anchors/meta, actual theme RTL/mobile/no-JS, canonical ticket",
-      "rollback": "Restore owner post fields/meta/revisions exactly through canonical journal"
+      "status": "READY",
+      "blocker": "Separate owner approval for merge and bounded content release; fresh production preflight required",
+      "acceptance": "Exact body/title/excerpt, old anchors/meta, actual theme RTL/mobile/no-JS, canonical ticket; see seo/commercial-decision-2026-11-08-v2/verification.json",
+      "rollback": "Restore owner post fields/meta/revisions exactly through canonical journal",
+      "deployment_state": "NOT_DEPLOYED",
+      "approval_gate": "NEEDS_APPROVAL"
     },
     {
       "ID": "S4",
@@ -51,10 +61,12 @@
       "owner": "https://tehnet.ir/services/mikrotik-tehran/",
       "file": "content/commercial-decision-2026-11-08-v2/mikrotik-service.html",
       "source": "content/commercial-decision-2026-11-08-v2/sources.json + existing owner",
-      "status": "IN_PROGRESS",
-      "blocker": "Full fixture journey/rollback acceptance pending; release requires approval",
-      "acceptance": "Exact body/title/excerpt, old anchors/meta, actual theme RTL/mobile/no-JS, canonical ticket",
-      "rollback": "Restore owner post fields/meta/revisions exactly through canonical journal"
+      "status": "READY",
+      "blocker": "Separate owner approval for merge and bounded content release; fresh production preflight required",
+      "acceptance": "Exact body/title/excerpt, old anchors/meta, actual theme RTL/mobile/no-JS, canonical ticket; see seo/commercial-decision-2026-11-08-v2/verification.json",
+      "rollback": "Restore owner post fields/meta/revisions exactly through canonical journal",
+      "deployment_state": "NOT_DEPLOYED",
+      "approval_gate": "NEEDS_APPROVAL"
     },
     {
       "ID": "A1",
@@ -62,10 +74,12 @@
       "owner": "https://tehnet.ir/network-support-contract-guide/",
       "file": "content/commercial-decision-2026-11-08-v2/network-support-contract-guide.html",
       "source": "content/commercial-decision-2026-11-08-v2/sources.json",
-      "status": "IN_PROGRESS",
-      "blocker": "Full fixture acceptance pending; page not created on production; release needs approval",
-      "acceptance": "Complete Gutenberg+Markdown, correct schema/CTA, no duplicate intent; A pages CSV/print exact bytes",
-      "rollback": "Draft owned new page; restore owned static assets only"
+      "status": "READY",
+      "blocker": "Separate owner approval for merge and bounded content release; fresh production preflight required",
+      "acceptance": "Complete Gutenberg+Markdown, correct schema/CTA, no duplicate intent; A pages CSV/print exact bytes; see seo/commercial-decision-2026-11-08-v2/verification.json",
+      "rollback": "Draft owned new page; restore owned static assets only",
+      "deployment_state": "NOT_DEPLOYED",
+      "approval_gate": "NEEDS_APPROVAL"
     },
     {
       "ID": "A2",
@@ -73,10 +87,12 @@
       "owner": "https://tehnet.ir/network-project-proposal-checklist/",
       "file": "content/commercial-decision-2026-11-08-v2/network-project-proposal-checklist.html",
       "source": "content/commercial-decision-2026-11-08-v2/sources.json",
-      "status": "IN_PROGRESS",
-      "blocker": "Full fixture acceptance pending; page not created on production; release needs approval",
-      "acceptance": "Complete Gutenberg+Markdown, correct schema/CTA, no duplicate intent; A pages CSV/print exact bytes",
-      "rollback": "Draft owned new page; restore owned static assets only"
+      "status": "READY",
+      "blocker": "Separate owner approval for merge and bounded content release; fresh production preflight required",
+      "acceptance": "Complete Gutenberg+Markdown, correct schema/CTA, no duplicate intent; A pages CSV/print exact bytes; see seo/commercial-decision-2026-11-08-v2/verification.json",
+      "rollback": "Draft owned new page; restore owned static assets only",
+      "deployment_state": "NOT_DEPLOYED",
+      "approval_gate": "NEEDS_APPROVAL"
     },
     {
       "ID": "A3",
@@ -84,10 +100,12 @@
       "owner": "https://tehnet.ir/business-server-planning-guide/",
       "file": "content/commercial-decision-2026-11-08-v2/business-server-planning-guide.html",
       "source": "content/commercial-decision-2026-11-08-v2/sources.json",
-      "status": "IN_PROGRESS",
-      "blocker": "Full fixture acceptance pending; page not created on production; release needs approval",
-      "acceptance": "Complete Gutenberg+Markdown, correct schema/CTA, no duplicate intent; A pages CSV/print exact bytes",
-      "rollback": "Draft owned new page; restore owned static assets only"
+      "status": "READY",
+      "blocker": "Separate owner approval for merge and bounded content release; fresh production preflight required",
+      "acceptance": "Complete Gutenberg+Markdown, correct schema/CTA, no duplicate intent; A pages CSV/print exact bytes; see seo/commercial-decision-2026-11-08-v2/verification.json",
+      "rollback": "Draft owned new page; restore owned static assets only",
+      "deployment_state": "NOT_DEPLOYED",
+      "approval_gate": "NEEDS_APPROVAL"
     },
     {
       "ID": "A4",
@@ -95,10 +113,12 @@
       "owner": "https://tehnet.ir/server-backup-restore-acceptance/",
       "file": "content/commercial-decision-2026-11-08-v2/server-backup-restore-acceptance.html",
       "source": "content/commercial-decision-2026-11-08-v2/sources.json",
-      "status": "IN_PROGRESS",
-      "blocker": "Full fixture acceptance pending; page not created on production; release needs approval",
-      "acceptance": "Complete Gutenberg+Markdown, correct schema/CTA, no duplicate intent; A pages CSV/print exact bytes",
-      "rollback": "Draft owned new page; restore owned static assets only"
+      "status": "READY",
+      "blocker": "Separate owner approval for merge and bounded content release; fresh production preflight required",
+      "acceptance": "Complete Gutenberg+Markdown, correct schema/CTA, no duplicate intent; A pages CSV/print exact bytes; see seo/commercial-decision-2026-11-08-v2/verification.json",
+      "rollback": "Draft owned new page; restore owned static assets only",
+      "deployment_state": "NOT_DEPLOYED",
+      "approval_gate": "NEEDS_APPROVAL"
     },
     {
       "ID": "N1",
@@ -106,10 +126,12 @@
       "owner": "https://tehnet.ir/services/server-virtualization-tehran/",
       "file": "content/commercial-decision-2026-11-08-v2/server-virtualization-tehran.html",
       "source": "content/commercial-decision-2026-11-08-v2/sources.json",
-      "status": "IN_PROGRESS",
-      "blocker": "Full fixture acceptance pending; page not created on production; release needs approval",
-      "acceptance": "Complete Gutenberg+Markdown, correct schema/CTA, no duplicate intent; A pages CSV/print exact bytes",
-      "rollback": "Draft owned new page; restore owned static assets only"
+      "status": "READY",
+      "blocker": "Separate owner approval for merge and bounded content release; fresh production preflight required",
+      "acceptance": "Complete Gutenberg+Markdown, correct schema/CTA, no duplicate intent; A pages CSV/print exact bytes; see seo/commercial-decision-2026-11-08-v2/verification.json",
+      "rollback": "Draft owned new page; restore owned static assets only",
+      "deployment_state": "NOT_DEPLOYED",
+      "approval_gate": "NEEDS_APPROVAL"
     }
   ],
   "counts": {
@@ -117,13 +139,19 @@
     "existing_owners_in_release": 5,
     "new_candidate_pages": 5,
     "articles": 4,
-    "staging_verified_changes": "PENDING_FULL_RUN",
+    "csv_worksheets": 8,
+    "print_worksheets": 4,
+    "fixture_existing_owners_verified": 5,
+    "fixture_new_pages_verified": 5,
     "production_pages_changed": 0,
-    "indexed_urls_confirmed": "UNKNOWN_NO_PROPERTY_DATA"
+    "index_candidates": 16,
+    "indexed_urls_confirmed": null
   },
   "notes": [
-    "READY means prepared and qualified, not DEPLOYED or indexed.",
-    "PR94v1 body-only is superseded for owner8/29 by this distinct v2 scope; not double-deploy.",
-    "Owner-approved private-list exception applies only current SEO branch."
+    "READY is content/code qualification, never DEPLOYED or indexed.",
+    "The v2 owner8/29 bodies supersede the PR94v1 candidates; do not deploy both.",
+    "Index runtime OFF, activation, content release and merge remain separate gates.",
+    "No real customer data in the fixture. Strict canonical content rollback still refuses unrelated protected-state drift; the synthetic cleanup helper is never a production tool.",
+    "Old private-list scan NOT_RUN_OWNER_APPROVED_BRANCH_EXCEPTION only this SEO branch."
   ]
 }

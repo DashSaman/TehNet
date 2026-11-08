@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "before_source": "Public REST owner bodies captured 2026-11-08; same exact SHA baselines used in synthetic native fixture. Not screenshots.",
-  "after_source": "Candidate Gutenberg bodies; actual rendered acceptance receipt recorded separately after cloud success.",
+  "after_source": "Actual rendered cloud WordPress DOM + native saved rows at qualifying source ec7eb0a0f44305f3064ae7666106a0f4e4031c05; automated only, no screenshots. See verification.json",
   "production_mutations": 0,
   "owners": [
     {
@@ -83,7 +83,9 @@
       "after_body_source": "content/commercial-decision-2026-11-08-v2/network-support-contract-guide.html",
       "model": "page",
       "article_schema": true,
-      "note": "Candidate URL, not a live release claim"
+      "note": "Candidate URL, not a live release claim",
+      "after_body_sha256": "a8b11e725d73f3f04b51c57958825fc0f7f4b0c7764454895a49e8e782a91ccd",
+      "fixture_status": "VERIFIED_PUBLISH_THEN_DRAFT_ROLLBACK; NOT_CREATED_PRODUCTION"
     },
     {
       "key": "A2",
@@ -92,7 +94,9 @@
       "after_body_source": "content/commercial-decision-2026-11-08-v2/network-project-proposal-checklist.html",
       "model": "page",
       "article_schema": true,
-      "note": "Candidate URL, not a live release claim"
+      "note": "Candidate URL, not a live release claim",
+      "after_body_sha256": "a11e50ed377c4958fa8466676b895738a72c718ed2b4f8f8d049046f99993b8b",
+      "fixture_status": "VERIFIED_PUBLISH_THEN_DRAFT_ROLLBACK; NOT_CREATED_PRODUCTION"
     },
     {
       "key": "A3",
@@ -101,7 +105,9 @@
       "after_body_source": "content/commercial-decision-2026-11-08-v2/business-server-planning-guide.html",
       "model": "page",
       "article_schema": true,
-      "note": "Candidate URL, not a live release claim"
+      "note": "Candidate URL, not a live release claim",
+      "after_body_sha256": "67e7e81664fa64f908fa8212c40e1119d2efe0b4eaca41d83d05819c69773963",
+      "fixture_status": "VERIFIED_PUBLISH_THEN_DRAFT_ROLLBACK; NOT_CREATED_PRODUCTION"
     },
     {
       "key": "A4",
@@ -110,7 +116,9 @@
       "after_body_source": "content/commercial-decision-2026-11-08-v2/server-backup-restore-acceptance.html",
       "model": "page",
       "article_schema": true,
-      "note": "Candidate URL, not a live release claim"
+      "note": "Candidate URL, not a live release claim",
+      "after_body_sha256": "10a42956c4e488d1e80af0e1260c87db97a2e45b3a3542814c4433943299bf38",
+      "fixture_status": "VERIFIED_PUBLISH_THEN_DRAFT_ROLLBACK; NOT_CREATED_PRODUCTION"
     },
     {
       "key": "N1",
@@ -119,7 +127,10 @@
       "after_body_source": "content/commercial-decision-2026-11-08-v2/server-virtualization-tehran.html",
       "model": "page",
       "article_schema": false,
-      "note": "Candidate URL, not a live release claim"
+      "note": "Candidate URL, not a live release claim",
+      "after_body_sha256": "b79aba49434a8e6931607db123388b0a169caff85db057b441b615bc7cfcfd1d",
+      "fixture_status": "VERIFIED_PUBLISH_THEN_DRAFT_ROLLBACK; NOT_CREATED_PRODUCTION"
     }
-  ]
+  ],
+  "qualification_run": "https://github.com/DashSaman/TehNet/actions/runs/42503696771"
 }

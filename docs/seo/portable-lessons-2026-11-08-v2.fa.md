@@ -26,3 +26,11 @@
 - ../../seo/index-decision-2026-11-08-v2/README.fa.md
 - https://developers.google.com/search/docs/fundamentals/ai-optimization-guide
 - https://developers.google.com/search/docs/crawling-indexing/block-indexing
+
+۱۱. **fixture کامل پیش از baseline:** در این بسته، بازگشت محافظتی تغییر در شش جدول داخلی Woo admin notes/HPOS را پس از درخواست HTTP تشخیص داد. bootstrap مسیر عمومی و admin-post بدون action پیش از snapshot، وضعیت را پایدار کرد؛ هیچ جدول یا guard از migration حذف نشد. admin_init طبق [مرجع رسمی WordPress](https://developer.wordpress.org/reference/hooks/admin_init/) در admin-post نیز اجرا می‌شود. clone تازه را معادل نصب ازپیش‌راه‌افتاده فرض نکنید.
+
+۱۲. **هدر را از پاسخ واقعی بخوانید:** IfModule در htaccess می‌تواند بدون خطای syntax، هدر مورد انتظار را در نبود mod_headers تولید نکند. در این بسته کاربرگ ثابت CSV/چاپی با PHP بدون ورودی، DB یا bootstrap وردپرس و هدر صریح noindex/nosniff سرو شد؛ هیچ تنظیم Apache زنده تغییر نکرد. محتوای دانلود با نسخهٔ خام repo byte-for-byte تطبیق داده شد.
+
+۱۳. **guard را برای سبزشدن آزمون حذف نکنید:** تشخیص drift با نام component/جدول و بدون مقدار محرمانه انجام شد. helper پاک‌سازی فقط fixture بسته را می‌پذیرد و فقط delta محدود نشست ناشناسِ متعلق به آزمون را، آن هم پس از اثبات ثابت‌بودن تمام ردیف‌های اولیه، اجازه می‌دهد؛ در اجرای پذیرفته‌شده نیازی به حذف هیچ نشست تازه نبود. rollback محتوا همچنان در drift دادهٔ واقعی نیازمند reconciliation است؛ rollback option ایندکس جداگانه با حفظ یک رکورد تازه آزموده شد.
+
+۱۴. **دو snapshot پاک کافی است:** workflow فعلی فقط commit سورس و baseline پاک را shallow می‌گیرد؛ همهٔ refها/تاریخچه برای آزمایش bundle لازم نیست. این به معنی پاک‌شدن تاریخچه یا چرخش رمز تاریخی نیست. اسکن فهرست خصوصی روی دستگاه مالک همچنان اجرا نشده و استثنای تأییدشدهٔ همان شاخه با اسکن الگوها/guard ابری جایگزین است.
