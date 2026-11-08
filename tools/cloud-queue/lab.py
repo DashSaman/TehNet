@@ -9,6 +9,8 @@ from PIL import Image
 from prompt_state import select_prompt
 from queue_values import exact_queue_limits
 
+assert os.environ.get("RUNNER_ENVIRONMENT")=="github-hosted" and os.uname().sysname=="Linux", "Cloud-only before filesystem access"
+assert os.environ.get("GITHUB_REPOSITORY")=="DashSaman/TehNet"
 ROOT = Path(tempfile.mkdtemp(prefix="tn-queue-cloud-"))
 os.umask(0o077)
 logging.basicConfig(filename=ROOT / "ssh-private.log", level=logging.WARNING)

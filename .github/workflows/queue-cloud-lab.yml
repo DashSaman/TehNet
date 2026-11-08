@@ -41,3 +41,24 @@ jobs:
           else
             echo 'BOOTSTRAP_ONLY; no Queue acceptance or screenshots yet'
           fi
+
+  queue-wordpress:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.repository == 'DashSaman/TehNet' && github.event.repository.private == false && github.head_ref == 'lab/cloud-queue-20261108'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      TN_SOURCE_SHA: ${{ github.event.pull_request.head.sha }}
+      TN_BASE_CSS_SHA256: 3d70851009859205b81e0ff7b6ee9743553a4ab6fa226b93d2a376bb2b8296cf
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Public-file guard
+        run: python3 tools/publication_guard.py
+      - name: Queue package boundary and original-byte checks
+        run: python3 -m unittest discover -s tests -p 'cloud_queue_*_test.py' -v
+      - name: Closed synthetic WordPress qualification
+        run: |
+          sudo env "PATH=$PATH" RUNNER_ENVIRONMENT="$RUNNER_ENVIRONMENT" GITHUB_REPOSITORY="$GITHUB_REPOSITORY" GITHUB_RUN_ID="$GITHUB_RUN_ID" TN_SOURCE_SHA="$TN_SOURCE_SHA" TN_BASE_CSS_SHA256="$TN_BASE_CSS_SHA256" python3 tools/cloud-queue/staging.py
