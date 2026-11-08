@@ -146,8 +146,8 @@ def measure_receive(node, server, label):
                  ' remote-tx-speed=256k random-data=no user=admin password="' + PASSWORD + '"', pty=True)
     output = clean(output.encode()).decode(errors="replace")
     RESULT.setdefault("rate_output_metadata", {})[label] = {
-        "bytes": len(output), "keys": sorted(set(re.findall(r"\\b(?:rx|tx|status|duration)[a-z-]*:", output))),
-        "units": sorted(set(re.findall(r"\\b(?:[kMG]?bps|[kMG]?bit/s|[kMG]?b/s)\\b", output, re.I)))}
+        "bytes": len(output), "keys": sorted(set(re.findall(r"\b(?:rx|tx|status|duration)[a-z-]*:", output))),
+        "units": sorted(set(re.findall(r"\b(?:[kMG]?bps|[kMG]?bit/s|[kMG]?b/s)\b", output, re.I)))}
     matches = re.findall(r"rx-total-average:\s*([0-9.]+)\s*([kMG]?)bps", output, re.I)
     if not matches:
         RESULT.setdefault("rate_failure_categories", {})[label] = [
@@ -331,10 +331,10 @@ try:
     phase = "active-queue-measurement"
     active_up = measure_receive(r2,"192.0.2.10","active_upload")
     active_down = measure_receive(client,"203.0.113.1","active_download")
+    ros(client,"/ping 203.0.113.1 src-address=192.0.2.10 count=20 size=1000 interval=100ms")
     active = queue_state(r1)
     assert all(int(n)>0 for n in active["BYTES"].split("/")), "Both actual Queue byte counters must increase"
     # A rate diagnostic must not prevent the independent, actual GUI/counter exercise.
-    ros(client,"/ping 203.0.113.1 src-address=192.0.2.10 count=20 size=1000 interval=100ms")
     measured_active = all(x is not None for x in (base_up,base_down,active_up,active_down))
     if measured_active:
         assert active_up < base_up * .70 and active_down < base_down * .85, "Both measured directions must show a real limiting effect"
