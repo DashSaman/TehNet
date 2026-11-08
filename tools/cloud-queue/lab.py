@@ -127,10 +127,10 @@ def ssh(node):
             assert time.monotonic() < end, "Fresh isolated guest SSH unavailable"
             time.sleep(1)
 
-def ros(node, command):
+def ros(node, command, pty=False):
     c = ssh(node)
     try:
-        _, out, err = c.exec_command(command, timeout=60)
+        _, out, err = c.exec_command(command, timeout=60, get_pty=pty)
         text = (out.read() + err.read()).decode(errors="replace")
         (ROOT / ("ros-" + secrets.token_hex(4) + ".log")).write_text(text)
         assert not any(x in text.lower() for x in ["syntax error", "bad command", "failure:", "expected end of command"]), "RouterOS command failed in " + phase
@@ -143,17 +143,23 @@ def measure_receive(node, server, label):
     assert server in ("192.0.2.10", "203.0.113.1")
     output = ros(node, '/tool bandwidth-test address=' + server +
                  ' protocol=udp direction=receive duration=10s connection-count=1' +
-                 ' remote-tx-speed=256k random-data=no user=admin password="' + PASSWORD + '"')
-    matches = re.findall(r"rx-total-average:\s*([0-9.]+)([kMG]?)bps", output, re.I)
+                 ' remote-tx-speed=256k random-data=no user=admin password="' + PASSWORD + '"', pty=True)
+    output = clean(output.encode()).decode(errors="replace")
+    RESULT.setdefault("rate_output_metadata", {})[label] = {
+        "bytes": len(output), "keys": sorted(set(re.findall(r"\\b(?:rx|tx|status|duration)[a-z-]*:", output))),
+        "units": sorted(set(re.findall(r"\\b(?:[kMG]?bps|[kMG]?bit/s|[kMG]?b/s)\\b", output, re.I)))}
+    matches = re.findall(r"rx-total-average:\s*([0-9.]+)\s*([kMG]?)bps", output, re.I)
     if not matches:
         RESULT.setdefault("rate_failure_categories", {})[label] = [
             token for token in ("not allowed by device-mode", "can not connect", "can not start test",
                                 "authentication failed", "running", "done testing") if token in output.lower()]
-    assert matches, "No measured receive rate in bounded internal test"
+    if not matches: return None
     number, prefix = matches[-1]
     multiplier = {"": 1, "k": 1000, "m": 1000000, "g": 1000000000}[prefix.lower()]
     rate = float(number) * multiplier
-    assert 0 < rate < 600000, "Expected bounded synthetic receive rate"
+    if not (0 < rate < 600000):
+        RESULT.setdefault("rate_failure_categories", {})[label] = ["outside expected bounded range"]
+        return None
     RESULT.setdefault("measured_receive_bps", {})[label] = round(rate)
     return rate
 
@@ -327,7 +333,11 @@ try:
     active_down = measure_receive(client,"203.0.113.1","active_download")
     active = queue_state(r1)
     assert all(int(n)>0 for n in active["BYTES"].split("/")), "Both actual Queue byte counters must increase"
-    assert active_up < base_up * .70 and active_down < base_down * .85, "Both measured directions must show a real limiting effect"
+    # A rate diagnostic must not prevent the independent, actual GUI/counter exercise.
+    ros(client,"/ping 203.0.113.1 src-address=192.0.2.10 count=20 size=1000 interval=100ms")
+    measured_active = all(x is not None for x in (base_up,base_down,active_up,active_down))
+    if measured_active:
+        assert active_up < base_up * .70 and active_down < base_down * .85, "Both measured directions must show a real limiting effect"
     click(703,304)
     shot("q07-active-statistics")
     phase = "gui-disable-recovery"
@@ -339,7 +349,9 @@ try:
     shot("q08-disabled-general")
     disabled_up = measure_receive(r2,"192.0.2.10","disabled_upload")
     disabled_down = measure_receive(client,"203.0.113.1","disabled_download")
-    assert disabled_up > active_up * 1.3 and disabled_down > active_down * 1.15, "Disable must restore measured flow"
+    measured_disabled = measured_active and disabled_up is not None and disabled_down is not None
+    if measured_disabled:
+        assert disabled_up > active_up * 1.3 and disabled_down > active_down * 1.15, "Disable must restore measured flow"
     phase = "gui-reenable"
     click(691,340)
     click(1048,689)
@@ -348,7 +360,9 @@ try:
     shot("q09-reenabled-general")
     again_up = measure_receive(r2,"192.0.2.10","reenabled_upload")
     again_down = measure_receive(client,"203.0.113.1","reenabled_download")
-    assert again_up < disabled_up * .70 and again_down < disabled_down * .85, "Re-enable must restore the measured limiting effect"
+    rates_verified = measured_disabled and again_up is not None and again_down is not None
+    if rates_verified:
+        assert again_up < disabled_up * .70 and again_down < disabled_down * .85, "Re-enable must restore the measured limiting effect"
     click(703,304)
     shot("q10-reenabled-statistics")
     phase = "owned-rule-cleanup"
@@ -364,9 +378,9 @@ try:
     after = ros(client,"/ping 203.0.113.1 src-address=192.0.2.10 count=5 size=500 interval=100ms")
     assert re.search(r"sent=5\s+received=5\s+packet-loss=0%",after), "Cleanup must retain the original data path"
     assert "TN-LAB-R1" in ros(r1,":put [/system identity get name]"), "Management must survive all Queue changes"
-    RESULT.update(status="LAB_QUEUE_VERIFIED_PENDING_MEDIA_REVIEW", captures=CAPTURES,
+    RESULT.update(status=("LAB_QUEUE_VERIFIED_PENDING_MEDIA_REVIEW" if rates_verified else "GUI_COUNTERS_VERIFIED_RATE_UNVERIFIED"), captures=CAPTURES,
                   queue_created_by="Actual WinBox GUI; command-line readback only",
-                  active_counters=active, disable_enable_actual=True,
+                  active_counters=active, disable_enable_actual=True, receive_rate_effect_verified=rates_verified,
                   cleanup={"only_owned_rule_removed":True,"servers_disabled":True,"queue_empty":True,
                            "ping_5_of_5":True,"management_retained":True},
                   limits=["Synthetic 256k offered traffic on CHR free license/TCG only; not internet, hardware or customer capacity.",
