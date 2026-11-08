@@ -189,6 +189,12 @@ try:
     extract(wbzip, ROOT / "winbox")
     wb = next(p for p in (ROOT / "winbox").rglob("WinBox") if p.is_file())
     wb.chmod(0o700)
+    phase = "winbox-runtime-preflight"
+    linkage = subprocess.run(["ldd", str(wb)], capture_output=True, timeout=20)
+    missing = re.findall(r"^\s*(lib[\w.+-]+)\s+=>\s+not found\s*$",
+                         linkage.stdout.decode(errors="replace"), re.M)
+    RESULT["missing_winbox_libraries"] = sorted(set(missing))
+    assert linkage.returncode == 0 and not missing, "WinBox runtime has unresolved shared libraries"
     RESULT.update(routeros="7.25.1", winbox="4.5", chr_raw_sha256=hashlib.sha256(raw.read_bytes()).hexdigest(),
                   winbox_zip_sha256=wbhash, qemu=run(["qemu-system-x86_64", "--version"]).decode().splitlines()[0])
     phase = "boot"
