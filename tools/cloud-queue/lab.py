@@ -82,11 +82,11 @@ def bootstrap(node):
             time.sleep(.5)
     with s:
         s.settimeout(.5)
-        s.sendall(b"\r\n")
+        s.sendall(b"\r")
         serial_wait(s, {"login": rb"Login:"}, 110)
-        s.sendall(b"admin\r\n")
+        s.sendall(b"admin\r")
         serial_wait(s, {"password": rb"Password:"})
-        s.sendall(b"\r\n")
+        s.sendall(b"\r")
         patterns = {"license": rb"Do you want to see.*license",
                     "repeat": rb"repeat new password\s*>",
                     "new": rb"(?:new password|New Password)\s*>",
@@ -95,14 +95,14 @@ def bootstrap(node):
             key, _ = serial_wait(s, patterns, 60)
             sequence["steps"].append(key)
             if key == "license":
-                s.sendall(b"n\r\n")
+                s.sendall(b"n\r")
             elif key in ("new", "repeat"):
-                s.sendall(PASSWORD.encode() + b"\r\n")
+                s.sendall(PASSWORD.encode() + b"\r")
             else:
                 break
         else: raise RuntimeError("Fresh login sequence did not complete")
         command = '/user set [find name=admin] password="' + PASSWORD + '"; /system identity set name=' + node["identity"] + '; :if ([:len [/ip dhcp-client find interface=ether1]]=0) do={/ip dhcp-client add interface=ether1 disabled=no}; :put "TN_BOOTSTRAP_DONE"'
-        s.sendall(command.encode() + b"\r\n")
+        s.sendall(command.encode() + b"\r")
         serial_wait(s, {"prompt": rb"\[[^\n]+\]\s*>"}, 30)
 
 def ssh(node):
