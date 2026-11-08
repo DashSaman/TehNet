@@ -268,7 +268,9 @@ echo hash('sha256',wp_json_encode($state));
     before=ROOT/"before-browser"
     out([*BROWSER_PREFIX,"tests/cloud-queue-site-readonly.cjs",before],timeout=240,
         env={**node_env,"TN_SERVICE_ORIGIN":"http://localhost:18085","TN_SERVICE_BEFORE":"1"})
-    RESULT["before_browser_checks"]=json.loads((before/"before-browser.json").read_text())["passed"]
+    before_browser=json.loads((before/"before-browser.json").read_text())
+    RESULT["before_browser_checks"]=before_browser["passed"]
+    RESULT["before_browser_assertions"]=before_browser["checks"]
     PHASE="immutable-bundle"
     out(["git","fetch","--no-tags","--depth=1","origin",BASE],timeout=90)
     out(["python3","ops/release-growth-content.py","--mode","bundle","--repo",REPO,"--bundle",ROOT/"bundle",
@@ -296,6 +298,7 @@ echo hash('sha256',wp_json_encode($state));
         env={**node_env,"TN_SERVICE_ORIGIN":"http://localhost:18085","TN_SERVICE_BEFORE":"0"})
     browser=json.loads((after/"browser.json").read_text())
     RESULT["browser_checks"]=browser["passed"]
+    RESULT["browser_assertions"]=browser["checks"]
     assert browser["status"]=="PASS" and browser["submissions"]==0
     PHASE="canonical-rollback"
     rolled=release("rollback",configpath);assert rolled["status"]=="ROLLED_BACK"
@@ -317,7 +320,8 @@ echo hash('sha256',wp_json_encode($state));
             key=p.name
             RESULT["screenshots"][key]=hashlib.sha256(p.read_bytes()).hexdigest()
             # Only synthetic cloud WordPress rendering of public lesson source and approved original lab images.
-            if key in ("after-67-375-light.png","callout-67-375-light.png","after-67-1440-light.png"):
+            if key in ("before-67-375-light.png","after-67-375-light.png","callout-67-375-light.png",
+                       "after-67-1440-light.png","callout-67-1440-light.png"):
                 assert p.stat().st_size<2*1024*1024
                 print("TN_STAGE_IMAGE "+json.dumps({"name":key,"sha256":RESULT["screenshots"][key],
                       "synthetic_cloud_fixture_only":True,"base64":base64.b64encode(p.read_bytes()).decode()}),flush=True)
