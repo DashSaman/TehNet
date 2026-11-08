@@ -126,7 +126,7 @@
       "title": "اسنپ‌شات، بکاپ و آزمون بازیابی؛ چه مدرکی تحویل بگیریم؟",
       "excerpt": "تفاوت checkpoint و backup با مثال نسخه‌دار و ماتریس پذیرش بازیابی؛ RPO/RTO موردنیاز را از نتیجهٔ واقعاً آزموده جدا کنید.",
       "content_file": "server-backup-restore-acceptance.html",
-      "content_sha256_lf": "7f446aeab807388da67c96fc5b0c117a62b3fd0c107d9baab21ca84aeed9698d"
+      "content_sha256_lf": "10a42956c4e488d1e80af0e1260c87db97a2e45b3a3542814c4433943299bf38"
     },
     {
       "key": "N1",

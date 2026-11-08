@@ -79,6 +79,24 @@
         "S4"
       ],
       "status": "READ"
+    },
+    {
+      "name": "NIST RPO glossary",
+      "url": "https://csrc.nist.gov/glossary/term/recovery_point_objective",
+      "scope": "RPO is a time-based recovery point requirement; no measured business result claimed",
+      "used": [
+        "A4"
+      ],
+      "status": "READ"
+    },
+    {
+      "name": "NIST RTO glossary",
+      "url": "https://csrc.nist.gov/glossary/term/recovery_time_objective",
+      "scope": "Tolerable recovery duration distinguished from actual measured restoration",
+      "used": [
+        "A4"
+      ],
+      "status": "READ"
     }
   ],
   "unavailable": [
