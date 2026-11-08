@@ -19,6 +19,8 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
       - run: python3 tools/publication_guard.py
+      - name: Existing canonical publisher boundary regressions
+        run: python3 -m unittest discover -s tests -p test_growth_release.py -v
       - run: python3 -m compileall -q ops/release-growth-content.py tests/commercial-decision-release.py tests/index-decision-release.py
       - run: node --check tests/commercial-decision-browser.cjs && node --check tests/index-decision-browser.cjs
       - name: Native publisher and actual theme in disposable WordPress

@@ -77,6 +77,9 @@ docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/
 sudo nsenter --target "$stage_app_pid" --net -- env NODE_PATH="$stage_root/pw/node_modules" PLAYWRIGHT_BROWSERS_PATH="$stage_root/browsers" node tests/index-decision-browser.cjs restored "$stage_root"
 sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/commercial-decision-release.py "$stage_root" rollback
 docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/commercial-decision-native.php rollback-accept
+docker exec "$stage_app" mkdir -m 700 -p /tmp/tn-editorial-native-decision-v2/evidence
+docker exec -e TN_TEST_MANIFEST=/src/content/network-setup-2026-11-01/manifest.json -e TN_TEST_MIGRATION=/src/ops/migrate-growth-content.php -e TN_TEST_DIRECTORY=/tmp/tn-editorial-native-decision-v2/evidence "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/growth-network-setup-migration-native.php
+
 docker logs "$stage_app" 2>&1 | sed -n '/TN_DECISION_NATIVE /p; /TN_INDEX_NATIVE /p'
 cleanup
 trap - EXIT

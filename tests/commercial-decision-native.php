@@ -9,6 +9,7 @@ if($phase==='seed'){
  update_option('permalink_structure','/%postname%/');update_option('WPLANG','fa_IR');
  $menu=wp_create_nav_menu('Synthetic primary');foreach([5,8,6,7,9,10,11]as$id)wp_update_nav_menu_item($menu,0,['menu-item-object-id'=>$id,'menu-item-object'=>'page','menu-item-type'=>'post_type','menu-item-status'=>'publish']);set_theme_mod('nav_menu_locations',['primary'=>$menu]);
 }elseif($phase==='prepare'){
+ $ck(has_shortcode((string)get_post_field('post_content',196),'tn_support_ticket'),'Actual public support page retains canonical receipt shortcode');
  update_option('tn_recaptcha_enabled','yes');update_option('tn_recaptcha_site_key',getenv('TN_FIXTURE_PASSWORD'));update_option('tn_recaptcha_secret_key',getenv('TN_FIXTURE_PASSWORD'));
  $before=[];foreach($m['targets']as$t){$p=get_post($t['id']);$ck(hash('sha256',$p->post_content)===$t['expected_content_sha256'],'Exact live body baseline '.$t['id']);$ck(hash('sha256',$p->post_excerpt)===$t['expected_excerpt_sha256'],'Exact live excerpt baseline '.$t['id']);$before[$t['id']]=['title'=>$p->post_title,'excerpt'=>$p->post_excerpt,'body'=>$p->post_content,'meta'=>get_post_meta($p->ID)];}
  file_put_contents('/lab/decision-before-private.json',wp_json_encode($before));chmod('/lab/decision-before-private.json',0600);
