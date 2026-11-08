@@ -177,6 +177,12 @@ add_action('init',static function(){if(!post_type_exists('product'))register_pos
     RESULT["wordpress"]=wp("core","version").decode().strip()
     assert RESULT["wordpress"]=="7.1.4"
     wp("theme","activate","tehnet")
+    # Load the real existing policy classes required by the canonical protected-state check.
+    wp("plugin","activate","tehnet-store")
+    policy=wp("eval",'echo wp_json_encode(["erp_ready"=>(new TehNet_Store_ERP())->ready(),"sandbox_enabled"=>TehNet_Store_Zarinpal_Sandbox::enabled(),"woocommerce_loaded"=>class_exists("WooCommerce")]);').decode()
+    RESULT["commerce_fixture"]=json.loads(policy)
+    assert RESULT["commerce_fixture"]["erp_ready"] is False and RESULT["commerce_fixture"]["sandbox_enabled"] is False
+
     fixture=private_file("seed.php","""<?php
 $repo='/srv/tehnet';
 $body=file_get_contents($repo.'/content/educational-integrity-2026-11-04/queues-troubleshooting.html');
