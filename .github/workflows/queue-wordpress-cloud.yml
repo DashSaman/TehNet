@@ -1,0 +1,42 @@
+name: Isolated Queue WordPress staging
+on:
+  push:
+    branches: [lab/cloud-queue-20261108]
+    paths:
+      - '.github/workflows/queue-wordpress-cloud.yml'
+      - 'tools/cloud-queue/staging.py'
+      - 'ops/release-growth-content.py'
+      - 'ops/migrate-growth-content.php'
+      - 'tests/cloud_queue_release_test.py'
+      - 'tests/cloud-queue-*.php'
+      - 'tests/cloud-queue-*.cjs'
+      - 'content/queue-winbox-cloud-2026-11-08/queues-troubleshooting.html'
+      - 'content/queue-winbox-cloud-2026-11-08/manifest.json'
+      - 'content/queue-winbox-cloud-2026-11-08/captures.json'
+      - 'site/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/**'
+      - 'site/themes/tehnet/assets/css/visual-refresh.css'
+permissions:
+  contents: read
+concurrency:
+  group: queue-cloud-wordpress-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  queue-wordpress:
+    if: github.repository == 'DashSaman/TehNet' && github.event.repository.private == false && github.ref == 'refs/heads/lab/cloud-queue-20261108'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      TN_SOURCE_SHA: ${{ github.sha }}
+      TN_BASE_CSS_SHA256: 3d70851009859205b81e0ff7b6ee9743553a4ab6fa226b93d2a376bb2b8296cf
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Public-file guard
+        run: python3 tools/publication_guard.py
+      - name: Exact release boundary and original-byte checks
+        run: python3 -m unittest discover -s tests -p cloud_queue_release_test.py -v
+      - name: Closed synthetic WordPress qualification
+        run: |
+          sudo env "PATH=$PATH" RUNNER_ENVIRONMENT="$RUNNER_ENVIRONMENT" GITHUB_REPOSITORY="$GITHUB_REPOSITORY" GITHUB_RUN_ID="$GITHUB_RUN_ID" TN_SOURCE_SHA="$TN_SOURCE_SHA" TN_BASE_CSS_SHA256="$TN_BASE_CSS_SHA256" python3 tools/cloud-queue/staging.py

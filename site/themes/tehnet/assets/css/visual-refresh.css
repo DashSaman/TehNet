@@ -75,3 +75,17 @@ html{scroll-padding-top:110px}body.tn-visual{background:var(--tn-bg);color:var(-
 .tn-lab-shot-37{--tn-callout-x:20.8333%;--tn-callout-y:18.4823%;--tn-callout-w:49.0885%;--tn-callout-h:21.6646%}
 .tn-lab-shot-38{--tn-callout-x:20.7031%;--tn-callout-y:18.4823%;--tn-callout-w:77.5391%;--tn-callout-h:17.1359%}
 .tn-lab-shot-39{--tn-callout-x:19.4010%;--tn-callout-y:18.4823%;--tn-callout-w:26.7578%;--tn-callout-h:8.5679%}
+
+/* Queue cloud: scoped callouts only; original screenshot bytes remain unchanged. */
+.tn-queue-shot-1{--tn-callout-x:0.1953%;--tn-callout-y:36.5625%;--tn-callout-w:9.1797%;--tn-callout-h:3.1250%}
+.tn-queue-shot-2{--tn-callout-x:24.2188%;--tn-callout-y:29.3750%;--tn-callout-w:3.9063%;--tn-callout-h:2.6042%}
+.tn-queue-shot-3{--tn-callout-x:44.5964%;--tn-callout-y:41.3542%;--tn-callout-w:20.7682%;--tn-callout-h:5.2083%}
+.tn-queue-shot-4{--tn-callout-x:44.5964%;--tn-callout-y:41.3542%;--tn-callout-w:20.7682%;--tn-callout-h:5.2083%}
+.tn-queue-shot-5{--tn-callout-x:44.5964%;--tn-callout-y:50.8333%;--tn-callout-w:20.8333%;--tn-callout-h:5.2083%}
+.tn-queue-shot-6{--tn-callout-x:66.1458%;--tn-callout-y:70.4167%;--tn-callout-w:4.2969%;--tn-callout-h:2.7083%}
+.tn-queue-shot-7{--tn-callout-x:43.5547%;--tn-callout-y:30.2083%;--tn-callout-w:4.5573%;--tn-callout-h:3.0208%}
+.tn-queue-shot-8{--tn-callout-x:40.3646%;--tn-callout-y:34.3750%;--tn-callout-w:5.2083%;--tn-callout-h:2.3958%}
+.tn-queue-shot-9{--tn-callout-x:40.3646%;--tn-callout-y:34.3750%;--tn-callout-w:5.2083%;--tn-callout-h:2.3958%}
+.tn-queue-shot-10{--tn-callout-x:44.5964%;--tn-callout-y:50.9375%;--tn-callout-w:20.8333%;--tn-callout-h:5.1042%}
+.tn-queue-shot-11{--tn-callout-x:30.8594%;--tn-callout-y:35.9375%;--tn-callout-w:28.0599%;--tn-callout-h:2.6042%}
+.tn-queue-shot-12{--tn-callout-x:24.4141%;--tn-callout-y:71.6667%;--tn-callout-w:2.0182%;--tn-callout-h:1.9792%}

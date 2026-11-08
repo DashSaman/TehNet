@@ -1,0 +1,214 @@
+{
+  "schema": 1,
+  "qualified_source": "4d5c3bafaf2d5b856b65625a5eca8f2b67ce4c22",
+  "run_url": "https://github.com/DashSaman/TehNet/actions/runs/42483186544",
+  "capture_method": "Actual WinBox Linux4.5 connected to fresh CHR7.25.1; Xvfb framebuffer on standard GitHub-hosted Ubuntu24.04",
+  "synthetic_cloud_only": true,
+  "original_pixels_unmodified": true,
+  "captures": [
+    {
+      "name": "01-connected-baseline",
+      "source_name": "q01-connected-baseline",
+      "sha256": "eb9351c631f82dc613bd1ffa830042cbbe148990c112300ed570444e399582f1",
+      "width": 1536,
+      "height": 960,
+      "observed_utc": "2026-11-08T13:06:36.523971+00:00",
+      "original_ui_pixels": true,
+      "visual_reviewed": true,
+      "callout_rect_px": [
+        3,
+        351,
+        141,
+        30
+      ],
+      "alt": "منوی واقعی Queues و نام دستگاه متصل"
+    },
+    {
+      "name": "02-queues-window",
+      "source_name": "q02-queues-window",
+      "sha256": "ac802a09b414131533414ae2c0eaf635ab39deb20c3ed029edb7a9c7e0edcf90",
+      "width": 1536,
+      "height": 960,
+      "observed_utc": "2026-11-08T13:06:37.539395+00:00",
+      "original_ui_pixels": true,
+      "visual_reviewed": true,
+      "callout_rect_px": [
+        372,
+        282,
+        60,
+        25
+      ],
+      "alt": "جدول اولیهٔ Simple Queues و دکمهٔ New"
+    },
+    {
+      "name": "03-new-dialog",
+      "source_name": "q03-new-dialog",
+      "sha256": "5194bdf3523449cf56d9a247dc43bd836644572b1b3a93ceff4cba128321a962",
+      "width": 1536,
+      "height": 960,
+      "observed_utc": "2026-11-08T13:06:38.577633+00:00",
+      "original_ui_pixels": true,
+      "visual_reviewed": true,
+      "callout_rect_px": [
+        685,
+        397,
+        319,
+        50
+      ],
+      "alt": "فرم واقعی New Simple Queue پیش از ورود مشخصات"
+    },
+    {
+      "name": "04-name-target",
+      "source_name": "q04-name-target",
+      "sha256": "302a83bb2ff684a69efcf210a9b2c08be8a592684a265e05158907172f1b065e",
+      "width": 1536,
+      "height": 960,
+      "observed_utc": "2026-11-08T13:06:41.969245+00:00",
+      "original_ui_pixels": true,
+      "visual_reviewed": true,
+      "callout_rect_px": [
+        685,
+        397,
+        319,
+        50
+      ],
+      "alt": "Name و Target و Comment واردشده در WinBox"
+    },
+    {
+      "name": "05-upload-download-limits",
+      "source_name": "q05-upload-download-limits",
+      "sha256": "cf8adbee41a0ba309dfae70797c200358cb2749035626bfeccd543da952e839c",
+      "width": 1536,
+      "height": 960,
+      "observed_utc": "2026-11-08T13:06:44.052240+00:00",
+      "original_ui_pixels": true,
+      "visual_reviewed": true,
+      "callout_rect_px": [
+        685,
+        488,
+        320,
+        50
+      ],
+      "alt": "دو فیلد واقعی Max Limit برای ارسال و دریافت Target"
+    },
+    {
+      "name": "06-applied-general",
+      "source_name": "q06-applied-general",
+      "sha256": "af2afd6e4437f8beb117031829d063d9acad6e48708ae93295031af0bd20098a",
+      "width": 1536,
+      "height": 960,
+      "observed_utc": "2026-11-08T13:06:46.531221+00:00",
+      "original_ui_pixels": true,
+      "visual_reviewed": true,
+      "callout_rect_px": [
+        1016,
+        676,
+        66,
+        26
+      ],
+      "alt": "صف ذخیره‌شده با نام tn-cloud-cap و دکمهٔ Apply"
+    },
+    {
+      "name": "07-active-statistics",
+      "source_name": "q07-active-statistics",
+      "sha256": "0c2430dc6e19bbc5bf0fb68260fa6d4b59d7a3e2a24677830122297fe89d8516",
+      "width": 1536,
+      "height": 960,
+      "observed_utc": "2026-11-08T13:06:52.943582+00:00",
+      "original_ui_pixels": true,
+      "visual_reviewed": true,
+      "callout_rect_px": [
+        669,
+        290,
+        70,
+        29
+      ],
+      "alt": "شمارنده‌های واقعی صف پس از ترافیک آزمایش"
+    },
+    {
+      "name": "08-disabled-general",
+      "source_name": "q08-disabled-general",
+      "sha256": "5f2b3270fae518bcc639728d7b5981093ac77cb530e0848e5fc5883a5eba2744",
+      "width": 1536,
+      "height": 960,
+      "observed_utc": "2026-11-08T13:06:56.184940+00:00",
+      "original_ui_pixels": true,
+      "visual_reviewed": true,
+      "callout_rect_px": [
+        620,
+        330,
+        80,
+        23
+      ],
+      "alt": "Enabled خاموش در همان صف آزمایشگاهی"
+    },
+    {
+      "name": "09-reenabled-general",
+      "source_name": "q09-reenabled-general",
+      "sha256": "3cf079ff698163f020cc1482ead0085da184f598663f757a6ada5ed2ce962a74",
+      "width": 1536,
+      "height": 960,
+      "observed_utc": "2026-11-08T13:07:03.411767+00:00",
+      "original_ui_pixels": true,
+      "visual_reviewed": true,
+      "callout_rect_px": [
+        620,
+        330,
+        80,
+        23
+      ],
+      "alt": "Enabled روشن پس از فعال‌سازی دوباره همان صف"
+    },
+    {
+      "name": "10-reenabled-statistics",
+      "source_name": "q10-reenabled-statistics",
+      "sha256": "53d93bd91fa5ba37534a10a42c2d05cb8be85272d337baac328678a0bfd000c5",
+      "width": 1536,
+      "height": 960,
+      "observed_utc": "2026-11-08T13:07:09.656132+00:00",
+      "original_ui_pixels": true,
+      "visual_reviewed": true,
+      "callout_rect_px": [
+        685,
+        489,
+        320,
+        49
+      ],
+      "alt": "شمارنده‌های واقعی پس از فعال‌سازی دوباره"
+    },
+    {
+      "name": "11-final-queue-row",
+      "source_name": "q11-final-queue-row",
+      "sha256": "ba606c7bc8f8ee3f3c9f61fe0df44e09864451de24dc240981544f5b31034170",
+      "width": 1536,
+      "height": 960,
+      "observed_utc": "2026-11-08T13:07:11.580481+00:00",
+      "original_ui_pixels": true,
+      "visual_reviewed": true,
+      "callout_rect_px": [
+        474,
+        345,
+        431,
+        25
+      ],
+      "alt": "ردیف نهایی صف با Target و دو سقف ذخیره‌شده"
+    },
+    {
+      "name": "12-owned-rule-removed",
+      "source_name": "q12-owned-rule-removed",
+      "sha256": "1c8cf69fe5af00688a7d9e178dd3d6e6a834c0782c413bcf396d5bf3aa2e601d",
+      "width": 1536,
+      "height": 960,
+      "observed_utc": "2026-11-08T13:07:14.179936+00:00",
+      "original_ui_pixels": true,
+      "visual_reviewed": true,
+      "callout_rect_px": [
+        375,
+        688,
+        31,
+        19
+      ],
+      "alt": "جدول پس از حذف فقط قانون ساخته‌شده در تمرین"
+    }
+  ]
+}

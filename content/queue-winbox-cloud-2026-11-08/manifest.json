@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "key": "tehnet-winbox-queue-cloud-20261108-v1",
+  "target": {
+    "id": 67,
+    "url": "https://tehnet.ir/learn/mikrotik/mtcna/queues-troubleshooting/",
+    "uri": "learn/mikrotik/mtcna/queues-troubleshooting",
+    "title_observed": "Simple Queue و عیب‌یابی؛ راهنمای تکمیلی مستقل",
+    "change_fields": [
+      "post_content"
+    ],
+    "expected_content_sha256": "c40c75bfd593f0978c9ca5b8a3409b4ff4d640daafe5a707d94f58ca3c397f84"
+  },
+  "content_file": "queues-troubleshooting.html",
+  "content_sha256_lf": "2655917de2038dc8d774deb27453128377710c36df1e877ed93d078799e6ce02"
+}

@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "site": "https://tehnet.ir",
+  "observed_utc": "2026-11-08T14:12:36.120Z",
+  "source": "WPVibe authenticated site_info read; selected runtime fields only",
+  "access": "READ_ONLY",
+  "publishing_or_uploads_tested": false,
+  "production_mutations": 0,
+  "theme": {
+    "name": "TehNet",
+    "version": "0.5.1"
+  },
+  "active_plugins": [
+    {
+      "name": "TehNet Core",
+      "version": "0.3.1"
+    },
+    {
+      "name": "TehNet Store",
+      "version": "0.7.0"
+    },
+    {
+      "name": "ووکامرس",
+      "version": "11.2.1"
+    }
+  ],
+  "wordpress_version": null,
+  "php_version": null,
+  "database_version": null,
+  "full_runtime_equivalence": "NOT_ESTABLISHED",
+  "private_account_or_connection_values_exported": false
+}

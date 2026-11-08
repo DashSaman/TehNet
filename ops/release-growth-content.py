@@ -57,6 +57,11 @@ CONCEPTUAL_ROUTING_FILES = [
     'site/mu-plugins/tehnet-technical-resources/static-routing-lab.css',
     'site/mu-plugins/tehnet-technical-resources.php',
 ]
+QUEUE_CLOUD_SCOPE = 'tehnet-winbox-queue-cloud-20261108-v1'
+QUEUE_CLOUD_FILES = [
+    'site/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/' + name + '.png'
+    for name in ["01-connected-baseline","02-queues-window","03-new-dialog","04-name-target","05-upload-download-limits","06-applied-general","07-active-statistics","08-disabled-general","09-reenabled-general","10-reenabled-statistics","11-final-queue-row","12-owned-rule-removed"]
+] + ['site/themes/tehnet/assets/css/visual-refresh.css']
 WINBOX_CORE_SCOPE = 'tehnet-winbox-core-guides-20261105-v1'
 WINBOX_CORE_FILES = [
     'site/mu-plugins/tehnet-technical-resources/learning-media/winbox-20261105/' + name + '.png'
@@ -97,6 +102,7 @@ LESSON_SCOPES = {
     IP_DHCP_DNS_SCOPE: ('content/ip-dhcp-dns-editorial-2026-11-01', 'ip-dhcp-dns.html', '/tmp/tn-ip-dhcp-dns-release-'),
 }
 CONTENT_SCOPES = {**LESSON_SCOPES,
+    QUEUE_CLOUD_SCOPE: ('content/queue-winbox-cloud-2026-11-08', 'queues-troubleshooting.html', '/tmp/tn-queue-cloud-release-'),
     ILLUSTRATED_ROUTING_SCOPE: ('content/illustrated-routing-2026-11-04', 'static-routing.html', '/tmp/tn-illustrated-routing-release-'),
     CONCEPTUAL_ROUTING_SCOPE: ('content/conceptual-routing-2026-11-04', 'lab.html', '/tmp/tn-conceptual-routing-release-'),
     NETWORK_TRIAGE_SCOPE: ('content/network-triage-2026-11-04', 'lab.html', '/tmp/tn-network-triage-release-'),
@@ -111,6 +117,11 @@ GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE, GALLE
 
 
 def scope_spec(scope):
+    if scope == QUEUE_CLOUD_SCOPE:
+        directory, body, _ = CONTENT_SCOPES[scope]
+        guarded = list(dict.fromkeys(scope_spec(EDUCATION_SCOPE)[2] + NETWORK_TRIAGE_FILES + CONCEPTUAL_ROUTING_FILES))
+        return QUEUE_CLOUD_FILES, [directory + '/manifest.json', directory + '/' + body,
+            'ops/migrate-growth-content.php'], [p for p in guarded if p not in QUEUE_CLOUD_FILES]
     if scope == WINBOX_CORE_SCOPE:
         directory = 'content/winbox-guides-2026-11-05/'
         guarded = list(dict.fromkeys(scope_spec(EDUCATION_SCOPE)[2] + NETWORK_TRIAGE_FILES + CONCEPTUAL_ROUTING_FILES))

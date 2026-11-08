@@ -1,0 +1,301 @@
+{
+  "schema": 1,
+  "status": "LAB_VERIFIED_MEDIA_REVIEWED_NOT_STAGED",
+  "qualified_source": "4d5c3bafaf2d5b856b65625a5eca8f2b67ce4c22",
+  "run_url": "https://github.com/DashSaman/TehNet/actions/runs/42483186544",
+  "original_runner_receipt": {
+    "schema": 1,
+    "status": "LAB_FLOW_VERIFIED_PENDING_MEDIA_REVIEW",
+    "production_mutations": 0,
+    "local_workstation_access": false,
+    "historical_private_deny_scan": "NOT_RUN_OWNER_APPROVED_BRANCH_EXCEPTION",
+    "runtime": "standard GitHub-hosted ubuntu-24.04",
+    "actual_new_videos": 0,
+    "missing_winbox_libraries": [],
+    "routeros": "7.25.1",
+    "winbox": "4.5",
+    "chr_raw_sha256": "42ce7e8bbcd07d3054bc1c7309540ef621e4bbead90b19defab34fccbba123af",
+    "winbox_zip_sha256": "5192817089eb91ac5d03edc68661b2603ef81f8098627ab4fd9425b6cc7546a2",
+    "qemu": "QEMU emulator version 8.2.2 (Debian 1:8.2.2+ds-0ubuntu1.18)",
+    "boot_sequences": [
+      {
+        "node": "r1",
+        "steps": [
+          "license",
+          "new",
+          "repeat",
+          "repeat",
+          "prompt"
+        ]
+      },
+      {
+        "node": "client",
+        "steps": [
+          "license",
+          "new",
+          "repeat",
+          "repeat",
+          "prompt"
+        ]
+      },
+      {
+        "node": "r2",
+        "steps": [
+          "license",
+          "new",
+          "repeat",
+          "repeat",
+          "prompt"
+        ]
+      }
+    ],
+    "baseline_ping_observed": [
+      5,
+      5,
+      0
+    ],
+    "baseline": {
+      "ping_5_of_5": true,
+      "queue_empty": true,
+      "fasttrack_absent": true,
+      "nat_required": false,
+      "documentation_address_topology": true,
+      "all_three_identities_versions_verified": true
+    },
+    "icmp_observations": {
+      "baseline_client_initiated": {
+        "source": "192.0.2.10",
+        "destination": "203.0.113.1",
+        "sent": 20,
+        "received": 20,
+        "packet_loss_percent": 0,
+        "average_rtt_ms": 1.829
+      },
+      "baseline_r2_initiated": {
+        "source": "203.0.113.1",
+        "destination": "192.0.2.10",
+        "sent": 20,
+        "received": 20,
+        "packet_loss_percent": 0,
+        "average_rtt_ms": 2.086
+      },
+      "active_client_initiated": {
+        "source": "192.0.2.10",
+        "destination": "203.0.113.1",
+        "sent": 20,
+        "received": 9,
+        "packet_loss_percent": 55,
+        "average_rtt_ms": 25.486
+      },
+      "active_r2_initiated": {
+        "source": "203.0.113.1",
+        "destination": "192.0.2.10",
+        "sent": 20,
+        "received": 8,
+        "packet_loss_percent": 60,
+        "average_rtt_ms": 20.885
+      },
+      "disabled_client_initiated": {
+        "source": "192.0.2.10",
+        "destination": "203.0.113.1",
+        "sent": 20,
+        "received": 20,
+        "packet_loss_percent": 0,
+        "average_rtt_ms": 2.094
+      },
+      "disabled_r2_initiated": {
+        "source": "203.0.113.1",
+        "destination": "192.0.2.10",
+        "sent": 20,
+        "received": 20,
+        "packet_loss_percent": 0,
+        "average_rtt_ms": 1.95
+      },
+      "reenabled_client_initiated": {
+        "source": "192.0.2.10",
+        "destination": "203.0.113.1",
+        "sent": 20,
+        "received": 8,
+        "packet_loss_percent": 60,
+        "average_rtt_ms": 21.311
+      },
+      "reenabled_r2_initiated": {
+        "source": "203.0.113.1",
+        "destination": "192.0.2.10",
+        "sent": 20,
+        "received": 5,
+        "packet_loss_percent": 75,
+        "average_rtt_ms": 41.145
+      }
+    },
+    "latest_queue_readback": {
+      "COUNT": "1",
+      "TARGET": "192.0.2.10/32",
+      "LIMIT": "64k/128k",
+      "DISABLED": "false",
+      "BYTES": "77184/80000",
+      "DROPPED": "0/0"
+    },
+    "captures": [
+      {
+        "name": "q01-connected-baseline",
+        "width": 1536,
+        "height": 960,
+        "sha256": "eb9351c631f82dc613bd1ffa830042cbbe148990c112300ed570444e399582f1",
+        "observed_utc": "2026-11-08T13:06:36.523971+00:00",
+        "original_ui_pixels": true
+      },
+      {
+        "name": "q02-queues-window",
+        "width": 1536,
+        "height": 960,
+        "sha256": "ac802a09b414131533414ae2c0eaf635ab39deb20c3ed029edb7a9c7e0edcf90",
+        "observed_utc": "2026-11-08T13:06:37.539395+00:00",
+        "original_ui_pixels": true
+      },
+      {
+        "name": "q03-new-dialog",
+        "width": 1536,
+        "height": 960,
+        "sha256": "5194bdf3523449cf56d9a247dc43bd836644572b1b3a93ceff4cba128321a962",
+        "observed_utc": "2026-11-08T13:06:38.577633+00:00",
+        "original_ui_pixels": true
+      },
+      {
+        "name": "q04-name-target",
+        "width": 1536,
+        "height": 960,
+        "sha256": "302a83bb2ff684a69efcf210a9b2c08be8a592684a265e05158907172f1b065e",
+        "observed_utc": "2026-11-08T13:06:41.969245+00:00",
+        "original_ui_pixels": true
+      },
+      {
+        "name": "q05-upload-download-limits",
+        "width": 1536,
+        "height": 960,
+        "sha256": "cf8adbee41a0ba309dfae70797c200358cb2749035626bfeccd543da952e839c",
+        "observed_utc": "2026-11-08T13:06:44.052240+00:00",
+        "original_ui_pixels": true
+      },
+      {
+        "name": "q06-applied-general",
+        "width": 1536,
+        "height": 960,
+        "sha256": "af2afd6e4437f8beb117031829d063d9acad6e48708ae93295031af0bd20098a",
+        "observed_utc": "2026-11-08T13:06:46.531221+00:00",
+        "original_ui_pixels": true
+      },
+      {
+        "name": "q07-active-statistics",
+        "width": 1536,
+        "height": 960,
+        "sha256": "0c2430dc6e19bbc5bf0fb68260fa6d4b59d7a3e2a24677830122297fe89d8516",
+        "observed_utc": "2026-11-08T13:06:52.943582+00:00",
+        "original_ui_pixels": true
+      },
+      {
+        "name": "q08-disabled-general",
+        "width": 1536,
+        "height": 960,
+        "sha256": "5f2b3270fae518bcc639728d7b5981093ac77cb530e0848e5fc5883a5eba2744",
+        "observed_utc": "2026-11-08T13:06:56.184940+00:00",
+        "original_ui_pixels": true
+      },
+      {
+        "name": "q09-reenabled-general",
+        "width": 1536,
+        "height": 960,
+        "sha256": "3cf079ff698163f020cc1482ead0085da184f598663f757a6ada5ed2ce962a74",
+        "observed_utc": "2026-11-08T13:07:03.411767+00:00",
+        "original_ui_pixels": true
+      },
+      {
+        "name": "q10-reenabled-statistics",
+        "width": 1536,
+        "height": 960,
+        "sha256": "53d93bd91fa5ba37534a10a42c2d05cb8be85272d337baac328678a0bfd000c5",
+        "observed_utc": "2026-11-08T13:07:09.656132+00:00",
+        "original_ui_pixels": true
+      },
+      {
+        "name": "q11-final-queue-row",
+        "width": 1536,
+        "height": 960,
+        "sha256": "ba606c7bc8f8ee3f3c9f61fe0df44e09864451de24dc240981544f5b31034170",
+        "observed_utc": "2026-11-08T13:07:11.580481+00:00",
+        "original_ui_pixels": true
+      },
+      {
+        "name": "q12-owned-rule-removed",
+        "width": 1536,
+        "height": 960,
+        "sha256": "1c8cf69fe5af00688a7d9e178dd3d6e6a834c0782c413bcf396d5bf3aa2e601d",
+        "observed_utc": "2026-11-08T13:07:14.179936+00:00",
+        "original_ui_pixels": true
+      }
+    ],
+    "queue_created_by": "Actual WinBox GUI; command-line readback only",
+    "active_counters": {
+      "COUNT": "1",
+      "TARGET": "192.0.2.10/32",
+      "LIMIT": "64k/128k",
+      "DISABLED": "false",
+      "BYTES": "35000/37000",
+      "DROPPED": "0/0"
+    },
+    "disable_enable_actual": true,
+    "receive_rate_effect_verified": false,
+    "traffic_latency_effect_verified": true,
+    "queue_readbacks": {
+      "active": {
+        "COUNT": "1",
+        "TARGET": "192.0.2.10/32",
+        "LIMIT": "64k/128k",
+        "DISABLED": "false",
+        "BYTES": "35000/37000",
+        "DROPPED": "0/0"
+      },
+      "disabled": {
+        "COUNT": "1",
+        "TARGET": "192.0.2.10/32",
+        "LIMIT": "64k/128k",
+        "DISABLED": "true",
+        "BYTES": "40184/40000",
+        "DROPPED": "0/0"
+      },
+      "reenabled": {
+        "COUNT": "1",
+        "TARGET": "192.0.2.10/32",
+        "LIMIT": "64k/128k",
+        "DISABLED": "false",
+        "BYTES": "77184/80000",
+        "DROPPED": "0/0"
+      }
+    },
+    "cleanup": {
+      "only_owned_rule_removed": true,
+      "servers_disabled": true,
+      "queue_empty": true,
+      "ping_5_of_5": true,
+      "management_retained": true
+    },
+    "limits": [
+      "Controlled20x1000-byte ICMP overload at100ms; averages cover received replies only. CHR/TCG evidence, not internet/hardware/customer capacity.",
+      "ICMP latency and Queue byte counters are verified; missing ICMP replies are not equated with Queue drops. Receive-rate/throughput is NOT qualified.",
+      "All new screenshots still require visual acceptance; website/native staging not qualified.",
+      "No new production body or image was published."
+    ],
+    "all_task_processes_stopped": true
+  },
+  "review": {
+    "all_12_original_frames_visually_reviewed": true,
+    "all_12_png_sha256_independently_matched": true,
+    "original_pixels_unmodified": true,
+    "only_synthetic_cloud_data": true,
+    "website_native_staging": "NOT_RUN",
+    "website_browser_staging": "NOT_RUN",
+    "production": "NOT_DEPLOYED",
+    "actual_new_videos": 0
+  },
+  "historical_private_deny_scan": "NOT_RUN_OWNER_APPROVED_BRANCH_EXCEPTION"
+}
