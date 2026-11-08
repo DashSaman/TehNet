@@ -97,5 +97,47 @@
   "observed_wordpress_draft_count": 30,
   "wordPress_native_scheduled_count": 0,
   "wordpress_limit_notice": "WPVibe daily fair-use limit encountered on 2026-11-04; no reset used",
-  "preparation_automation_created": true
+  "preparation_automation_created": true,
+  "latest_live_snapshot": {
+    "observed_at": "2026-11-08T16:20:15+03:30",
+    "wordpress_parent_id": 40,
+    "wordpress_draft_count": 35,
+    "legacy_draft_id_255_preserved": true,
+    "source_only_lesson_numbers": [
+      15,
+      26,
+      28,
+      30,
+      32,
+      40
+    ],
+    "source_only_count": 6,
+    "wordpress_native_scheduled_count": "NOT_RECHECKED_THIS_RUN; prior verified 0; no schedule or publish mutations",
+    "new_draft": {
+      "lesson": 23,
+      "id": 280,
+      "status": "draft",
+      "slug": "mtcna-micro-23-firewall-management-rollback-routeros7",
+      "title": "MTCNA | قسمت ۲۳: سخت‌سازی Firewall، حفظ مدیریت و بازگشت امن در RouterOS 7",
+      "editor_url": "https://tehnet.ir/wp-admin/post.php?post=280&action=edit",
+      "preview_url": "https://tehnet.ir/?page_id=280&preview=true",
+      "metadata_rest_readback": "VERIFIED",
+      "excerpt_rest_readback": "VERIFIED",
+      "content_raw_rest_readback": "FAILED_EMPTY_RESPONSE",
+      "raw_content_hash": "NOT_VERIFIED",
+      "gutenberg_editor_save": "NOT_RUN",
+      "full_lab_acceptance": "NOT_RUN",
+      "screenshot_evidence": "PARTIAL_REAL_UNSAVED",
+      "inserted_external_images": 3,
+      "wordpress_media_upload": "NOT_DONE",
+      "screenshot_paths": [
+        "content/mtcna/screenshots/real-lab/2026-11-04/winbox40/lesson-23/02-panel.png",
+        "content/mtcna/screenshots/real-lab/2026-11-04/winbox40/lesson-23/03-form-or-readonly.png"
+      ],
+      "image_notes": "Two inspected authentic WinBox 4.5 RouterOS 7.25.1 captures: empty Filter Rules list and unsaved New Rule with default chain=forward; neither proves rule application."
+    },
+    "stop_reason": "WordPress REST GET for the new page's content.raw returned empty {} repeatedly even when metadata/excerpt GET succeeded. Avoided creating more drafts without independent full-body readback.",
+    "scope": "Draft creation only; did not touch published/future, noindex, runtime, host, credentials or existing pages",
+    "git_branch": "content/mtcna-prep-20261108-scoped-280"
+  }
 }
