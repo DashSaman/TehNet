@@ -213,7 +213,7 @@ echo 'CLOUD_FIXTURE_READY';
     (wp_root/".htaccess").write_text("<IfModule mod_rewrite.c>\nRewriteEngine On\nRewriteBase /\nRewriteRule ^index\\.php$ - [L]\nRewriteCond %{REQUEST_FILENAME} !-f\nRewriteCond %{REQUEST_FILENAME} !-d\nRewriteRule . /index.php [L]\n</IfModule>\n")
     snapshot=private_file("snapshot.php","""<?php
 global$wpdb;$state=[];foreach(['posts','postmeta','users','usermeta']as$t){$key=$t==='postmeta'?'meta_id':($t==='usermeta'?'umeta_id':'ID');$state[$t]=$wpdb->get_results("SELECT * FROM {$wpdb->$t} ORDER BY $key",ARRAY_A);}
-foreach(['blog_public','page_on_front','page_for_posts','woocommerce_shop_page_id','template','stylesheet']as$k)$state['options'][$k]=get_option($k);
+foreach(['blog_public','page_on_front','page_for_posts','woocommerce_shop_page_id','template','stylesheet']as$k)$state['options'][$k]=$wpdb->get_row($wpdb->prepare("SELECT option_value,autoload FROM {$wpdb->options} WHERE option_name=%s",$k),ARRAY_A);
 echo hash('sha256',wp_json_encode($state));
 """)
     copy_private(str(snapshot),"/tmp/tn-cloud-snapshot.php")
