@@ -153,7 +153,10 @@ def shot(name):
                      "sha256": hashlib.sha256(p.read_bytes()).hexdigest(),
                      "observed_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
                      "original_ui_pixels": True})
-    print("TN_CLOUD_IMAGE_METADATA " + json.dumps(CAPTURES[-1]), flush=True)
+    # Owner explicitly approved only fresh synthetic cloud screenshots in public logs.
+    assert p.stat().st_size < 2 * 1024 * 1024, "Bounded screenshot export only"
+    print("TN_CLOUD_IMAGE " + json.dumps({**CAPTURES[-1],
+          "base64": base64.b64encode(p.read_bytes()).decode("ascii")}), flush=True)
 
 def safe_display_diagnostics(process, env):
     # Fixed labels/flags only: never print stderr, argv, OCR text or screenshot pixels.
@@ -214,7 +217,11 @@ try:
     for n in nodes:
         version = ros(n, ':put ("VERSION=" . [/system resource get version]); :put ("IDENTITY=" . [/system identity get name])')
         assert "VERSION=7.25.1" in version and "IDENTITY="+n["identity"] in version
+    # Allow cold ARP/route adjacency to settle; the measured five-packet test is separate.
+    ros(client, "/ping 203.0.113.1 src-address=192.0.2.10 count=3 size=500 interval=300ms")
     before = ros(client, "/ping 203.0.113.1 src-address=192.0.2.10 count=5 size=500 interval=100ms")
+    observed = re.search(r"sent=(\d+)\s+received=(\d+)\s+packet-loss=(\d+)%", before)
+    RESULT["baseline_ping_observed"] = [int(x) for x in observed.groups()] if observed else None
     assert re.search(r"sent=5\s+received=5\s+packet-loss=0%", before), "Five real internal pings required"
     empty = ros(r1, ':put ("QUEUES=" . [/queue simple print count-only]); :put ("FASTTRACK=" . [/ip firewall filter print count-only where action=fasttrack-connection])')
     assert "QUEUES=0" in empty and "FASTTRACK=0" in empty
@@ -237,7 +244,9 @@ try:
         if len(ids)==1:
             wid=ids[0];break
         time.sleep(1)
-    if not wid: safe_display_diagnostics(wb_process, env)
+    if not wid:
+        safe_display_diagnostics(wb_process, env)
+        shot("q00-startup-diagnostic")
     assert wid, "Connected actual WinBox window required"
     xdo("windowsize",wid,"1536","960"); xdo("windowmove",wid,"0","0")
     time.sleep(2)
