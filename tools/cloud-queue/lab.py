@@ -141,7 +141,9 @@ def ros(node, command, pty=False, timeout=60):
 
 def measure_ping(node, destination, label):
     assert destination in ("192.0.2.10","203.0.113.1")
-    output = ros(node, "/ping " + destination + " count=20 size=1000 interval=100ms")
+    source = "192.0.2.10" if node["name"]=="client" else "203.0.113.1"
+    assert (source,destination) in (("192.0.2.10","203.0.113.1"),("203.0.113.1","192.0.2.10"))
+    output = ros(node, "/ping " + destination + " src-address=" + source + " count=20 size=1000 interval=100ms")
     counts = re.search(r"sent=(\d+)\s+received=(\d+)\s+packet-loss=(\d+)%", output)
     average = re.search(r"avg-rtt=([^\s]+)", output)
     assert counts and average, "Finite ICMP count/latency observation required"
@@ -149,7 +151,7 @@ def measure_ping(node, destination, label):
     assert parts and "".join(p[0] for p in parts)==average[1], "Unrecognized RouterOS latency unit"
     factors = {"ns":.000001,"us":.001,"µs":.001,"ms":1,"s":1000}
     delay = sum(float(p[1])*factors[p[2]] for p in parts)
-    observed = {"sent":int(counts[1]),"received":int(counts[2]),
+    observed = {"source":source,"destination":destination,"sent":int(counts[1]),"received":int(counts[2]),
                 "packet_loss_percent":int(counts[3]),"average_rtt_ms":round(delay,3)}
     RESULT.setdefault("icmp_observations",{})[label]=observed
     assert observed["sent"]==20 and observed["received"]==20 and observed["packet_loss_percent"]==0, "Twenty real ICMP replies required"
