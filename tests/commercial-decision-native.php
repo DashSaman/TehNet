@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 try {
 $phase=$args[0]??'seed';$root='/src/content/commercial-decision-2026-11-08-v2/';$m=json_decode(file_get_contents($root.'manifest.json'),true,512,JSON_THROW_ON_ERROR);
 $checks=[];$ck=static function($yes,$label)use(&$checks){if(!$yes)throw new RuntimeException($label);$checks[]=$label;};
