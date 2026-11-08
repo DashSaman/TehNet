@@ -1,18 +1,34 @@
-## CURRENT —2026-11-05 no-host-input operational; PR88 NEEDS_APPROVAL
+## CURRENT —2026-11-08 verified handoff; Queue next; PR89–91 NEEDS_APPROVAL
+
+PR88 واقعاً ادغام و منتشر شده است؛ source `69243f4`، دو owner62/63 و39PNG. [رسید production](docs/evidence/2026-11-05/winbox-core/production-verification.json) و شش تصویر زنده از commit شواهد `c33f0b3` به این PR مستندات منتقل و hash هر6تصویر دوباره تطبیق شدند. تأیید PR88 مصرف شده؛ ناشر آن دوباره اجرا نشود. بررسی خواندنی8نوامبر،14/25تصویر و anchorهای هر دو درس را روی سایت نشان داد؛ آزمون‌های60native/16renderer/1590staging/730live مربوط به receipt5نوامبرند، نه اجرای تازه.
+
+سه PR [89](https://github.com/DashSaman/TehNet/pull/89)، [90](https://github.com/DashSaman/TehNet/pull/90)، [91](https://github.com/DashSaman/TehNet/pull/91) در8نوامبر دوباره OPEN/NOT_MERGED تأیید شدند؛ به‌ترتیب10/13/6تصویر واقعی، VERIFIED_STAGING_NOT_DEPLOYED و production **NEEDS_APPROVAL**. گزارش کامل، headهای دقیق، CI و receiptهای شاخه‌ها در [وضعیت ادامه](docs/reports/CONTINUATION_2026-11-08.fa.md) است. اجازهٔ صریح تازه برای merge/deploy آن‌ها موجود نیست؛ صرف ادامهٔ مأموریت مجوز نیست. پیش از انتشار مجاز، تغییرات مشترک CSS/operator/migrator و artifact نهایی دوباره تطبیق شوند.
+
+Queue روی branch `feat/queue-winbox-20261106`/checkpoint `865b281` **IN_PROGRESS** است: capture اولیه/سناریوی GUI ناتمام، نه بستهٔ qualified. گام مستقل بعد: readback وضعیت فعلی لاب، Simple Queue واقعی/Target/Max Limit، شمارنده و اثر قابل اثبات، Disable/Enable و بازگشت؛ تصویر واقعی مهمان و بدنهٔ موجود67، سپس native/browser/restore/commit/PR. مختصات و state قدیمی تضمین وضع فعلی نیست؛ هیچ جدول/قاعده‌ای کورکورانه پاک نشود.
+
+GNS3_BOOT/PACKETS در آخرین شاهد نامحرز؛9سناریوی ضبط آماده ولی0ضبط تازهٔ تأییدشده و actual timing/approval null. PR82 پیش‌نویس است؛ -SEO PR27 باز و نیازمند تطبیق رسید live. noindex عمدی، inquiry-only25قلم، payment/ERP/CAPTCHA و امنیت/rotation/history/origin گیت‌های مستقل‌اند؛ MyTel production read-only و63/75 باز. هیچ ورودی دسکتاپ میزبان، تغییر برق/قفل/driver/shared-network، تعمیر ACL گسترده یا replay ناشر/اتوماسیون مجاز نیست. این PR فقط مستندات/شواهد است و production mutation ندارد؛ تا ادغام، اصلاح main را انجام‌شده ننامید.
+
+## HISTORICAL CHECKPOINT —2026-11-05 real WinBox guides DEPLOYED_VERIFIED
+
+با تأیید صریح مالک، PR88/head0d012c7/CI42026474340 در main69243f4 ادغام شد. snapshot قبل sync؛ artifact برابر qualifiedfedbdcc؛ backup تازه/checksum/drift/rollback و apply40فایل/2بدنه/0صفحه/repeat0. هر39PNG+CSS عمومی با TLS/bytes دقیق؛ تمام protected data/25قلم/noindex/payment/CAPTCHA/theme/cron/runtime محفوظ. پذیرش مستقل زنده730 در1440/375light-dark/320no-JS، full-size واقعی،0ارسال؛ گزارش docs/reports/REAL_WINBOX_GUIDES_2026-11-05.fa.md و receipt docs/evidence/2026-11-05/winbox-core/production-verification.json. این انتشار دوباره اجرا نشود؛ مجوز فقط همین بسته است.
+
+دو URL فعال: /learn/mikrotik/mtcna/routeros-winbox/#winbox-real-lab و /learn/mikrotik/mtcna/ip-dhcp-dns/#winbox-ip-lab .9سناریوی ضبط/actual timing و approval null،0ویدیوی تازه؛ GNS3_BOOT/PACKETS هنوز ناموفق/IN_PROGRESS و nodeهای همان پروژه برای کاهش CPU متوقف‌اند. ادامه از همان state خصوصی، بدون create/bootstrap مجدد یا ورودی دسکتاپ/تغییر Windows. -SEO PR27 open است و مشمول تأیید PR88 نیست. MyTel read-only و گیت‌های امنیت/history/rotation/origin/launch و Issues63/75 باز حفظ‌اند؛ parity/SEO/customer gain نامحرز.
+
+## HISTORICAL CHECKPOINT —2026-11-05 no-host-input operational; PR88 NEEDS_APPROVAL
 
 WinBox Linux واقعاً به لاب مستقل وصل و framebuffer ثبت شد؛ ادامه بدون ورودی دسکتاپ میزبان/تغییر برق/قفل/driver/شبکه. همان۶فایل ACL با تأیید مالک ترمیم شدند؛ سایر فایل‌های خصوصی قدیمی و گیت‌های امنیتی دست‌نخورده در همین تعمیر. body62/63+39PNG+CSS با sourcefedbdcc، native60/renderer16/browser1590 و exact restore آماده‌اند. PR88/CI42022049778 موفق؛ ادغام در auto-review به‌علت نبود تأیید صریح انتشار رد شد، سؤال تأیید pending است؛0merge/deploy. ناشر تازه آماده ولی اجرا نشده؛ هیچ مسیر جایگزین/force-push مجاز نیست. -SEO PR27/commitd78f2d1/CI42023703979 موفق، هنوز open.
 
 GNS3 دو node/یک لینک واقعی و graph دارد؛ مسیر image نسبی اصلاح شد. Server2.2.61/Web UI2.2.58، TCG و RAM1024 readback شدند؛ CHR در Load system مانده، console/ping ناموفق و علت نامعلوم. فقط nodeهای همین پروژه برای کاهش CPU متوقف و دیسک/پروژه حفظ شدند؛ دوباره create/bootstrap اجرا نشود. این پایلوت با سه CHR مستقلِ موفقِ۳۹عکس اشتباه نشود. گزارش و ادامهٔ دقیق: docs/reports/REAL_WINBOX_GUIDES_2026-11-05.fa.md و docs/labs/CAPTURE_WITHOUT_HOST_DESKTOP_2026-11-05.fa.md؛ جزئیات/لاگ/راز فقط در ledger خصوصی.9سناریو/72نمای پیشنهادی،0ضبط تازه،actual duration/approval null؛ full8sourceAV/موضوع5.5/SEO gain/parity نامحرز،63/75 باز و MyTel/noindex/payment حفظ‌اند.
 
-## CURRENT —2026-11-05 WinBox guides VERIFIED_STAGING_NOT_DEPLOYED
+## HISTORICAL CHECKPOINT —2026-11-05 WinBox guides VERIFIED_STAGING_NOT_DEPLOYED
 
 Source `fedbdccffd4bda2d595bcd1136b10333be6c7f09`: native60/renderer16/browser1590، before واقعی و after staging، exact restore همهٔ داده/فایل/runtime،0production/ارسال. scope body62/63+39PNG+CSS محدود؛ سناریوهای جدا حفظ و actual duration/approval null. WinBox Linux واقعاً در framebuffer مهمان متصل است؛ هیچ ورودی دسکتاپ میزبان مجاز نیست. گزارش و گام انتشار واجد شرایط: docs/reports/REAL_WINBOX_GUIDES_2026-11-05.fa.md. هیچ publisher قبلی تکرار نشود؛ MyTel/noindex/payment/گیت‌های امنیتی و63/75 حفظ‌اند.
 
-## CURRENT —2026-11-05 actual WinBox guides PREPARED_NOT_DEPLOYED
+## HISTORICAL CHECKPOINT —2026-11-05 actual WinBox guides PREPARED_NOT_DEPLOYED
 
 ۳۹تصویر اصلی و راهنمای گام‌به‌گام روی body62/63 آماده است؛ scope ثابت شامل۳۹PNG و CSS محدود به کادر راهنماست، بدون عنوان/URL/meta/صفحهٔ تازه.۳۶آزمون operator موفق/یک symlink skip؛ native WordPress و مرورگر هنوز در انتظار اجرا. هفت فایل سناریوی ضبط به شواهد محدود همین لاب لینک شدند؛ ضبط تازه و مدت/approval همچنان null. دستور مالک: هیچ ورودی یا فعال‌سازی پنجرهٔ دسکتاپ میزبان؛ ادامه فقط CLI/headless/نمایشگر مهمان. اصلاح ACL فقط همان۶فایل لاب با اجازهٔ صریح انجام شد؛ تعمیر گسترده ممنوع و سایر فایل‌های قدیمی خصوصی محدود مانده‌اند. Xvfb مهمان آماده است؛ سه وابستگی WinBox هنوز به‌خاطر قفل نصب خودکار مهمان تکمیل نشده‌اند، پس اتصال Linux GUI تأیید نشده. MyTel/noindex/payment/سایر داده‌ها و گیت‌های امنیتی حفظ‌اند. انتشار جدید production صفر؛ گام بعد native snapshot/apply/rollback و QA موبایل/دسکتاپ، سپس CI و انتشار واجد شرایط.
 
-## CURRENT —2026-11-05 real isolated CHR/WinBox lab IN_PROGRESS
+## HISTORICAL CHECKPOINT —2026-11-05 real isolated CHR/WinBox lab IN_PROGRESS
 
 
 دستور مالک۵نوامبر: از این نقطه هیچ کلیک/تایپ/فعال‌کردن پنجره در دسکتاپ میزبان انجام نشود. WinBox اختصاصی این کار بسته شد؛ VMهای headless و کار کد/مرورگر headless ادامه دارند. تنظیمات برق/قفل/نمایشگر تغییر نکند. capture بعدی WinBox فقط از نمایشگر مهمان مستقل؛ با گذشت زمان مجوز تصرف مجدد دسکتاپ فرض نشود.
@@ -20,7 +36,7 @@ Source `fedbdccffd4bda2d595bcd1136b10333be6c7f09`: native60/renderer16/browser15
 
 سه CHR۷٫۲۵٫۱ در QEMU TCG قابل‌حمل، فقط مدیریت loopback و Ethernet socket داخلی اجرا شدند؛ بدون installer/driver/host adapter.۳۹عکس اصلی WinBox۴٫۵ در content/winbox-guides-2026-11-05/ ثبت شده‌اند. DHCP واقعی bound و۳/۳ping؛ Safe Mode/Undo برگشت Comment؛ Backup رمزگذاری‌شده واقعاً restore شد و۷پذیرش پس از reboot قبول شد؛ Snooping untrusted=searching و trusted=bound از سرور دوم. فایل‌ها/رازها و لاگ خام خارج Git هستند. محتوای تصویری تازه هنوز staging/published نشده؛ دانلود VM رسمی GNS3 در جریان است. برنامه docs/superpowers/plans/2026-11-05-real-winbox-guides.fa.md. سناریوهای۹قسمت قبلی حفظ‌اند؛ زمان واقعی ضبط و تأیید ویدیو null. انتشارهای قبلی تکرار نشوند.
 
-## CURRENT —2026-11-04 illustrated guide DEPLOYED_VERIFIED;9 separate recording scripts
+## HISTORICAL CHECKPOINT —2026-11-04 illustrated guide DEPLOYED_VERIFIED;9 separate recording scripts
 
 بازبینی نهایی منابع ضبط: لینک‌های DHCP سناریوهای03/05 به مرجع رسمی فعلی اصلاح شد؛ تغییر فقط مستندات است، بدون تکرار انتشار یا تغییر وضعیت ضبط/لاب. شرح در docs/reports/ILLUSTRATED_ROUTING_2026-11-04.fa.md.
 
