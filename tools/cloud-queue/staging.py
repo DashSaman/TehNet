@@ -3,7 +3,7 @@ import os
 assert os.environ.get("RUNNER_ENVIRONMENT")=="github-hosted", "Cloud executor required before filesystem access"
 assert os.environ.get("GITHUB_REPOSITORY")=="DashSaman/TehNet" and os.uname().sysname=="Linux"
 from pathlib import Path
-import base64, datetime, hashlib, json, re, secrets, shutil, socket, subprocess, tempfile, time
+import base64, datetime, hashlib, json, re, secrets, shutil, socket, subprocess, tempfile, time, zipfile
 
 REPO=Path.cwd().resolve()
 ROOT=Path(tempfile.mkdtemp(prefix="tn-queue-cloud-stage-")).resolve()
@@ -128,6 +128,13 @@ try:
         out(["docker","pull",image],timeout=360)
         data=json.loads(out(["docker","image","inspect",image]))[0]
         RESULT["image_digests"][image]=data["RepoDigests"]
+    # Match the production plugin version observed through an authenticated read; no live data or credentials.
+    woo_url="https://github.com/woocommerce/woocommerce/releases/download/11.2.1/woocommerce.zip"
+    woo_zip=ROOT/"woocommerce-11.2.1.zip"
+    out(["curl","--fail","--location","--proto","=https","--tlsv1.2","--max-time","120","--output",woo_zip,woo_url],timeout=150)
+    woo_sha=hashlib.sha256(woo_zip.read_bytes()).hexdigest()
+    assert woo_sha=="3066f85e46d1c1f6451296da0300b459963b504fd0d2f75869701ee744833aaf","Official WooCommerce release digest required"
+    RESULT["woocommerce_release"]={"version":"11.2.1","url":woo_url,"sha256":woo_sha,"digest_source":"Official GitHub release asset metadata"}
     pkg=ROOT/"node";browsers=ROOT/"browsers"
     node_env={**os.environ,"NODE_PATH":str(pkg/"node_modules"),"PLAYWRIGHT_BROWSERS_PATH":str(browsers)}
     out(["npm","install","--prefix",pkg,"--ignore-scripts","--no-audit","--no-fund","playwright@1.56.1"],timeout=300)
@@ -148,6 +155,15 @@ try:
         assert p.resolve().is_relative_to(content.resolve())
         p.unlink()
     queue_dir.rmdir()
+    with zipfile.ZipFile(woo_zip) as archive:
+        for member in archive.infolist():
+            target=(content/"plugins"/member.filename).resolve()
+            assert target.is_relative_to((content/"plugins/woocommerce").resolve()),"Only official WooCommerce subtree allowed"
+            assert ((member.external_attr>>16)&0o170000)!=0o120000,"Plugin archive links refused"
+        archive.extractall(content/"plugins")
+        for member in archive.infolist():
+            target=content/"plugins"/member.filename
+            target.chmod(0o755 if target.is_dir() else 0o644)
     isolation=content/"mu-plugins/tn-cloud-isolation.php"
     assert not isolation.exists()
     isolation.write_text("""<?php
@@ -188,10 +204,15 @@ add_action('init',static function(){if(!post_type_exists('product'))register_pos
     assert RESULT["wordpress"]=="7.1.4"
     wp("theme","activate","tehnet")
     # Load the real existing policy classes required by the canonical protected-state check.
-    wp("plugin","activate","tehnet-store")
-    policy=wp("eval",'echo wp_json_encode(["erp_ready"=>(new TehNet_Store_ERP())->ready(),"sandbox_enabled"=>TehNet_Store_Zarinpal_Sandbox::enabled(),"woocommerce_loaded"=>class_exists("WooCommerce")]);').decode()
+    wp("plugin","activate","woocommerce","tehnet-core","tehnet-store")
+    policy=wp("eval",'echo wp_json_encode(["erp_ready"=>(new TehNet_Store_ERP())->ready(),"sandbox_enabled"=>TehNet_Store_Zarinpal_Sandbox::enabled(),"woocommerce_loaded"=>class_exists("WooCommerce"),"woocommerce_version"=>defined("WC_VERSION")?WC_VERSION:null,"tehnet_core_version"=>defined("TEHNET_CORE_VERSION")?TEHNET_CORE_VERSION:null,"tehnet_store_version"=>defined("TEHNET_STORE_VERSION")?TEHNET_STORE_VERSION:null]);').decode()
     RESULT["commerce_fixture"]=json.loads(policy)
     assert RESULT["commerce_fixture"]["erp_ready"] is False and RESULT["commerce_fixture"]["sandbox_enabled"] is False
+
+    assert RESULT["commerce_fixture"]["woocommerce_version"]=="11.2.1" and RESULT["commerce_fixture"]["tehnet_core_version"]=="0.3.1"
+    isolation_probe=wp("eval",'$http=wp_remote_get("https://example.invalid/closed-fixture-probe");echo wp_json_encode(["http_blocked"=>is_wp_error($http)&&$http->get_error_code()==="tn_cloud_blocked","mail_blocked"=>apply_filters("pre_wp_mail",null,[])===false,"payment_gateways_empty"=>apply_filters("woocommerce_available_payment_gateways",["synthetic"=>new stdClass()])===[],"cron_disabled"=>DISABLE_WP_CRON]);').decode()
+    RESULT["isolation_probe"]=json.loads(isolation_probe)
+    assert all(RESULT["isolation_probe"].values()),"Every closed-fixture isolation probe required"
 
     fixture=private_file("seed.php","""<?php
 $repo='/srv/tehnet';
