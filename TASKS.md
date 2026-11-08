@@ -1,4 +1,16 @@
-## CURRENT —2026-11-08 verified handoff; Queue next; PR89–91 NEEDS_APPROVAL
+## CURRENT —2026-11-08 cloud Queue IN_PROGRESS; all local access prohibited
+
+دستور آخر مالک، هرگونه دسترسی به سیستم و مرورگر متصل محلی را منع می‌کند؛ حتی headless، فایل، VM و مرورگر مخفی مجاز نیستند. اجازه‌های قدیمی6/8فایل لاب، مجوز ادامهٔ محلی نیستند. چهار VM همان کار قبلاً متوقف شدند؛ دوباره روشن/تعمیر نشوند. ادامه فقط با connector مخزن/وب و runner ابری GitHub است؛ هیچ دیسک، credential، backup یا فهرست خصوصی قدیمی منتقل نشود.
+
+[PR93](https://github.com/DashSaman/TehNet/pull/93)، شاخه `lab/cloud-queue-20261108` از main04c2af9: runner استاندارد عمومی ubuntu-24.04، بدون artifact/cache/larger runner و هزینهٔ پولیِ مجاز. سه CHR تازه7.25.1، WinBox4.5 و Xvfb با management فقطloopback/restrict و لینک داخلی اجرا شدند. [run42480141391](https://github.com/DashSaman/TehNet/actions/runs/42480141391) اتصال واقعی WinBox و پنجرهٔ Queue را ثبت کرد؛ [run42480389547](https://github.com/DashSaman/TehNet/actions/runs/42480389547) فرم واقعی New Simple Queue را نشان داد. نام/نسخه هر3دستگاه،5/5ping داخلی، Queue خالی و نبود FastTrack پذیرفته شدند. اشکال prompt/Enter و کتابخانهٔ libEGL رفع و چهار آزمون prompt پاس شدند؛ شکست‌های قبلی در گزارش حفظ‌اند. این‌ها هنوز اثبات ساخت/اثر Queue یا staging سایت نیستند.
+
+بستهٔ در حال آزمون42570be، Target192.0.2.10/32 و64k/128k را از GUI می‌نویسد، readback و شمارنده/ترافیک محدود داخلی، Disable/Enable و حذف فقط قانون ساخته‌شده را می‌آزماید. نخستین خروجی نرخ SSH در5d29373 خوانده نشد؛ نسخهٔ بعد PTY درخواست می‌کند و نتیجه هنوز در انتظار اجراست. بدون receipt واقعی و بازبینی پیکسل‌ها، موفقیت/عکس نهایی اعلام نشود. بدنهٔ موجود67، native WordPress/browser/restore و تطبیق operator هنوز **IN_PROGRESS/NOT_QUALIFIED** هستند؛ هیچ body یا فایل production منتشر نشده است.
+
+مالک فقط برای همین شاخه، اسکن فهرست خصوصی قدیمی را **NOT_RUN_OWNER_APPROVED_BRANCH_EXCEPTION** و اسکن الگوهای source تازه+publication_guard ابری را جایگزین محدود تأیید کرد. سپس فقط تصاویر تازهٔ لاب ساختگی را برای base64 لاگ عمومی PR93 و PNG همین مخزن تأیید کرد؛ عکس/راز/دادهٔ محلی، مشتری یا production مشمول نیست. این دو تأیید، merge/deploy را مجاز نمی‌کنند. جزئیات و منابع: [لاب ابری](docs/labs/CLOUD_QUEUE_2026-11-08.fa.md).
+
+PR88 واقعاً DEPLOYED_VERIFIED و تأییدش مصرف شده؛ ناشر آن بازپخش نشود. PR89/90/91 همچنان جداگانه VERIFIED_STAGING_NOT_DEPLOYED و merge/production **NEEDS_APPROVAL** هستند؛ PR93 پیش‌نویس است. -SEO PR27 با48981c2 و CI42475914234 به receipt زنده تطبیق داده شد ولی ادغام نشده. MyTel read-only، noindex عمدی، payment/CAPTCHA/امنیت/history/rotation/origin و Issues63/75 حفظ‌اند؛ هیچ ادعای parity، رتبه/ترافیک، ویدیوی تازه یا CAD دقیق ایجاد نشده است.
+
+## HISTORICAL CHECKPOINT —2026-11-08 verified handoff; Queue next; PR89–91 NEEDS_APPROVAL
 
 PR88 واقعاً ادغام و منتشر شده است؛ source `69243f4`، دو owner62/63 و39PNG. [رسید production](docs/evidence/2026-11-05/winbox-core/production-verification.json) و شش تصویر زنده از commit شواهد `c33f0b3` به این PR مستندات منتقل و hash هر6تصویر دوباره تطبیق شدند. تأیید PR88 مصرف شده؛ ناشر آن دوباره اجرا نشود. بررسی خواندنی8نوامبر،14/25تصویر و anchorهای هر دو درس را روی سایت نشان داد؛ آزمون‌های60native/16renderer/1590staging/730live مربوط به receipt5نوامبرند، نه اجرای تازه.
 
