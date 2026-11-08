@@ -127,10 +127,10 @@ def ssh(node):
             assert time.monotonic() < end, "Fresh isolated guest SSH unavailable"
             time.sleep(1)
 
-def ros(node, command, pty=False):
+def ros(node, command, pty=False, timeout=60):
     c = ssh(node)
     try:
-        _, out, err = c.exec_command(command, timeout=60, get_pty=pty)
+        _, out, err = c.exec_command(command, timeout=timeout, get_pty=pty)
         text = (out.read() + err.read()).decode(errors="replace")
         (ROOT / ("ros-" + secrets.token_hex(4) + ".log")).write_text(text)
         assert not any(x in text.lower() for x in ["syntax error", "bad command", "failure:", "expected end of command"]), "RouterOS command failed in " + phase
@@ -139,28 +139,34 @@ def ros(node, command, pty=False):
         c.close()
 
 def measure_receive(node, server, label):
-    # Authenticated synthetic internal traffic only; no external bandwidth targets.
+    # A finite as-value result, not an interactive terminal stream or a public test server.
     assert server in ("192.0.2.10", "203.0.113.1")
-    output = ros(node, '/tool bandwidth-test address=' + server +
-                 ' protocol=udp direction=receive duration=10s connection-count=1' +
-                 ' remote-tx-speed=256k random-data=no user=admin password="' + PASSWORD + '"', pty=True)
-    output = clean(output.encode()).decode(errors="replace")
+    command = (':local r [/tool bandwidth-test address=' + server +
+               ' protocol=udp direction=receive duration=6s connection-count=1' +
+               ' remote-tx-speed=256k random-data=no user=admin password="' + PASSWORD +
+               '" as-value]; :put ("TN_RX_BPS=" . ($r->"rx-total-average")); ' +
+               ':put ("TN_STATUS=" . ($r->"status"))')
+    try:
+        output = ros(node, command, timeout=18)
+    except (TimeoutError, RuntimeError, AssertionError, paramiko.SSHException) as error:
+        RESULT.setdefault("rate_failure_categories", {})[label] = [type(error).__name__]
+        return None
+    match = re.search(r"(?:^|[\r\n])TN_RX_BPS=(\d+)", output)
+    status = re.search(r"(?:^|[\r\n])TN_STATUS=([^\r\n]*)", output)
     RESULT.setdefault("rate_output_metadata", {})[label] = {
-        "bytes": len(output), "keys": sorted(set(re.findall(r"\b(?:rx|tx|status|duration)[a-z-]*:", output))),
-        "units": sorted(set(re.findall(r"\b(?:[kMG]?bps|[kMG]?bit/s|[kMG]?b/s)\b", output, re.I)))}
-    matches = re.findall(r"rx-total-average:\s*([0-9.]+)\s*([kMG]?)bps", output, re.I)
-    if not matches:
+        "bytes":len(output), "numeric_receive_value":bool(match),
+        "done_testing":bool(status and status[1].strip()=="done testing")}
+    if not match or not status or status[1].strip()!="done testing":
         RESULT.setdefault("rate_failure_categories", {})[label] = [
             token for token in ("not allowed by device-mode", "can not connect", "can not start test",
-                                "authentication failed", "running", "done testing") if token in output.lower()]
-    if not matches: return None
-    number, prefix = matches[-1]
-    multiplier = {"": 1, "k": 1000, "m": 1000000, "g": 1000000000}[prefix.lower()]
-    rate = float(number) * multiplier
+                                "authentication failed", "remote is busy", "disconnected")
+            if token in output.lower()]
+        return None
+    rate = int(match[1])
     if not (0 < rate < 600000):
         RESULT.setdefault("rate_failure_categories", {})[label] = ["outside expected bounded range"]
         return None
-    RESULT.setdefault("measured_receive_bps", {})[label] = round(rate)
+    RESULT.setdefault("measured_receive_bps", {})[label] = rate
     return rate
 
 def queue_state(node):
