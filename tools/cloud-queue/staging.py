@@ -49,6 +49,8 @@ def run(args,timeout=180,env=None,allow_failure=False):
                "Protected runtime drift","Managed-file drift","Bundle checksum mismatch","Parse error")
         RESULT["safe_command_categories"]=[value for value in known if value.lower() in text.lower()]
         for line in text.splitlines():
+            if line.startswith("TN_NATIVE_DIFFERENCE="):
+                RESULT["native_state_difference"]=json.loads(line.split("=",1)[1])
             if line.startswith("TN_NATIVE_ERROR="):
                 detail=json.loads(line.split("=",1)[1])
                 RESULT["native_error"]={key:detail[key] for key in ("class","file","line","message","checks")}

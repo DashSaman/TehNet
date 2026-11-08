@@ -64,8 +64,17 @@ echo 'QUEUE_CLOUD_NATIVE=PASS checks='.$checks."\n";
 
 } catch(Throwable $error) {
     $file=basename($error->getFile());
-    $owned=in_array($file,['cloud-queue-migration-native.php','migrate-growth-content.php'],true);
+    $owned=in_array($file,['cloud-queue-migration-native.php','migrate-growth-content.php'],true)||str_contains($file,'EvalFile_Command.php');
     $message=$owned&&$error instanceof RuntimeException?$error->getMessage():'NON_PUBLIC_EXCEPTION_MESSAGE_SUPPRESSED';
+    $differences=[];
+    if(isset($before)&&function_exists('db_state')){
+        foreach(db_state()as$key=>$value){
+            if(($before[$key]??null)===$value)continue;
+            $differences[$key]=['before_count'=>is_array($before[$key]??null)?count($before[$key]):null,'after_count'=>is_array($value)?count($value):null];
+            if($key==='options')foreach($value as$name=>$current)if(($before[$key][$name]??null)!==$current)$differences[$key]['changed'][$name]=['before_type'=>gettype($before[$key][$name]??null),'after_type'=>gettype($current)];
+        }
+    }
+    echo 'TN_NATIVE_DIFFERENCE='.json_encode($differences,JSON_UNESCAPED_SLASHES)."\n";
     echo 'TN_NATIVE_ERROR='.json_encode(['class'=>get_class($error),'file'=>$file,'line'=>$error->getLine(),'message'=>$message,'checks'=>$checks??0],JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES)."\n";
     exit(1);
 }
