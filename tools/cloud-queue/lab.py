@@ -143,7 +143,7 @@ def measure_ping(node, destination, label):
     assert destination in ("192.0.2.10","203.0.113.1")
     source = "192.0.2.10" if node["name"]=="client" else "203.0.113.1"
     assert (source,destination) in (("192.0.2.10","203.0.113.1"),("203.0.113.1","192.0.2.10"))
-    output = ros(node, "/ping " + destination + " src-address=" + source + " count=20 size=1000 interval=250ms")
+    output = ros(node, "/ping " + destination + " src-address=" + source + " count=20 size=1000 interval=100ms")
     counts = re.search(r"sent=(\d+)\s+received=(\d+)\s+packet-loss=(\d+)%", output)
     average = re.search(r"avg-rtt=([^\s]+)", output)
     assert counts and average, "Finite ICMP count/latency observation required"
@@ -381,7 +381,7 @@ try:
                   traffic_latency_effect_verified=True, queue_readbacks={"active":active,"disabled":disabled_after,"reenabled":final_state},
                   cleanup={"only_owned_rule_removed":True,"servers_disabled":True,"queue_empty":True,
                            "ping_5_of_5":True,"management_retained":True},
-                  limits=["Controlled20x1000-byte ICMP probes at250ms in both initiation directions on CHR/TCG only; not internet, hardware or customer capacity.",
+                  limits=["Controlled20x1000-byte ICMP overload at100ms; averages cover received replies only. CHR/TCG evidence, not internet/hardware/customer capacity.",
                           "ICMP latency and Queue byte counters are verified; missing ICMP replies are not equated with Queue drops. Receive-rate/throughput is NOT qualified.",
                           "All new screenshots still require visual acceptance; website/native staging not qualified.",
                           "No new production body or image was published."])
