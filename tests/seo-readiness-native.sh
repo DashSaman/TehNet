@@ -12,6 +12,8 @@ stage_password="$(openssl rand -hex 24)"
 echo "::add-mask::$stage_password"
 curl --fail --location --proto '=https' --tlsv1.2 --max-time 120 --output "$stage_root/woocommerce.zip" https://github.com/woocommerce/woocommerce/releases/download/11.2.1/woocommerce.zip
 echo "3066f85e46d1c1f6451296da0300b459963b504fd0d2f75869701ee744833aaf  $stage_root/woocommerce.zip" | sha256sum --check --status
+npm install --prefix "$stage_root/pw" --ignore-scripts --no-audit --no-fund playwright@1.56.1 >/dev/null
+PLAYWRIGHT_BROWSERS_PATH="$stage_root/browsers" node "$stage_root/pw/node_modules/playwright/cli.js" install --with-deps chromium >/dev/null
 docker network create --internal "$stage_net" >/dev/null
 docker run -d --name "$stage_db" --network "$stage_net" --network-alias db -e MARIADB_ROOT_PASSWORD="$stage_password" -e MARIADB_DATABASE=wordpress mariadb:11.4.13-noble >/dev/null
 for n in {1..40}; do if docker exec "$stage_db" healthcheck.sh --connect --innodb_initialized >/dev/null 2>&1; then break; fi; sleep 1; done
@@ -41,4 +43,5 @@ php /lab/wp --allow-root --user=1 eval-file /src/tests/seo-readiness-seed.php
 php /lab/wp --allow-root plugin activate woocommerce tehnet-core tehnet-store
 php /lab/wp --allow-root --user=1 eval-file /src/tests/seo-readiness-native.php
 '
+NODE_PATH="$stage_root/pw/node_modules" PLAYWRIGHT_BROWSERS_PATH="$stage_root/browsers" node tests/seo-readiness-content-browser.cjs "$stage_root"
 echo "TN_SEO_CLEANUP_PENDING_TRAP"

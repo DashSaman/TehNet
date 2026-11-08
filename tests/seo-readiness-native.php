@@ -18,6 +18,7 @@ foreach($m['targets']as$t){
  foreach(['post_title','post_name','post_parent','post_excerpt','post_status']as$f)tn_check(get_post($id)->$f===$saved->$f,'protected field '.$f);
  tn_check(get_post_meta($id)===$meta,'metadata unchanged');
  $render=apply_filters('the_content',get_post($id)->post_content);
+ file_put_contents('/lab/owner-'.$id.'.html',$render);
  tn_check(!str_contains($render,'[tn_service_request]'),'shortcode rendered');
  tn_check($id===8?substr_count($render,'<form')===1:str_contains($render,'general-network#service-request'),'canonical request journey present');
  tn_check((string)get_option('blog_public')==='0','intentional noindex unchanged');
