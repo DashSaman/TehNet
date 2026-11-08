@@ -138,6 +138,44 @@ def ros(node, command):
     finally:
         c.close()
 
+def measure_receive(node, server, label):
+    # Authenticated synthetic internal traffic only; no external bandwidth targets.
+    assert server in ("192.0.2.10", "203.0.113.1")
+    output = ros(node, '/tool bandwidth-test address=' + server +
+                 ' protocol=udp direction=receive duration=10s connection-count=1' +
+                 ' remote-tx-speed=256k random-data=no user=admin password="' + PASSWORD + '"')
+    matches = re.findall(r"rx-total-average:\s*([0-9.]+)([kMG]?)bps", output, re.I)
+    if not matches:
+        RESULT.setdefault("rate_failure_categories", {})[label] = [
+            token for token in ("not allowed by device-mode", "can not connect", "can not start test",
+                                "authentication failed", "running", "done testing") if token in output.lower()]
+    assert matches, "No measured receive rate in bounded internal test"
+    number, prefix = matches[-1]
+    multiplier = {"": 1, "k": 1000, "m": 1000000, "g": 1000000000}[prefix.lower()]
+    rate = float(number) * multiplier
+    assert 0 < rate < 600000, "Expected bounded synthetic receive rate"
+    RESULT.setdefault("measured_receive_bps", {})[label] = round(rate)
+    return rate
+
+def queue_state(node):
+    output = ros(node, ':local q [/queue simple find where name="tn-cloud-cap"]; ' +
+                 ':put ("COUNT=" . [:len $q]); ' +
+                 ':if ([:len $q]=1) do={:put ("TARGET=" . [/queue simple get $q target]); ' +
+                 ':put ("LIMIT=" . [/queue simple get $q max-limit]); ' +
+                 ':put ("DISABLED=" . [/queue simple get $q disabled]); ' +
+                 ':put ("BYTES=" . [/queue simple get $q bytes])}')
+    fields = {}
+    for key in ("COUNT", "TARGET", "LIMIT", "DISABLED", "BYTES"):
+        match = re.search(r"(?:^|[\r\n])" + key + r"=([^\r\n]*)", output)
+        assert match, "Missing exact queue readback field: " + key
+        fields[key] = match[1].strip()
+    RESULT["latest_queue_readback"] = fields
+    assert fields["COUNT"] == "1" and fields["TARGET"] == "192.0.2.10/32"
+    assert fields["LIMIT"] == "64000/128000", "GUI-entered upload/download limits must match exactly"
+    assert fields["DISABLED"] in ("true", "false", "yes", "no")
+    assert re.fullmatch(r"\d+/\d+", fields["BYTES"])
+    return fields
+
 def xdo(*args):
     return run(["xdotool", *args], env={**os.environ, "DISPLAY": ":99"}).decode().strip()
 
@@ -233,6 +271,11 @@ try:
     assert "QUEUES=0" in empty and "FASTTRACK=0" in empty
     RESULT["baseline"] = {"ping_5_of_5": True, "queue_empty": True, "fasttrack_absent": True, "nat_required": False,
                            "documentation_address_topology": True, "all_three_identities_versions_verified": True}
+    phase = "bounded-traffic-baseline"
+    for endpoint in (client, r2):
+        ros(endpoint, "/tool bandwidth-server set enabled=yes authenticate=yes max-sessions=1")
+    base_up = measure_receive(r2, "192.0.2.10", "baseline_upload")
+    base_down = measure_receive(client, "203.0.113.1", "baseline_download")
     phase = "display"
     (ROOT / "frames").mkdir()
     start(["Xvfb", ":99", "-screen", "0", "1536x960x24", "-nolisten", "tcp", "-fbdir", ROOT / "frames"], "xvfb")
@@ -262,9 +305,73 @@ try:
     shot("q02-queues-window")
     click(400,294)
     shot("q03-new-dialog")
-    RESULT.update(status="GUI_PROBE_REQUIRES_REVIEW", captures=CAPTURES,
-                  limits=["Actual Queue configuration/counters/disable-enable acceptance is not complete.",
-                          "This is a fresh synthetic lab, not customer-network or throughput evidence.",
+    phase = "gui-create-queue"
+    def field(x, y, value):
+        click(x,y)
+        xdo("key","--clearmodifiers","ctrl+a")
+        xdo("type","--clearmodifiers","--delay","20",value)
+    field(820,409,"tn-cloud-cap")
+    field(810,434,"192.0.2.10/32")
+    field(820,365,"TN-CLOUD-QUEUE-LAB")
+    shot("q04-name-target")
+    field(760,525,"64k")
+    field(925,525,"128k")
+    shot("q05-upload-download-limits")
+    click(1048,689)
+    time.sleep(1)
+    first = queue_state(r1)
+    assert first["DISABLED"] in ("false","no"), "New GUI queue must be enabled"
+    shot("q06-applied-general")
+    phase = "active-queue-measurement"
+    active_up = measure_receive(r2,"192.0.2.10","active_upload")
+    active_down = measure_receive(client,"203.0.113.1","active_download")
+    active = queue_state(r1)
+    assert all(int(n)>0 for n in active["BYTES"].split("/")), "Both actual Queue byte counters must increase"
+    assert active_up < base_up * .70 and active_down < base_down * .85, "Both measured directions must show a real limiting effect"
+    click(703,304)
+    shot("q07-active-statistics")
+    phase = "gui-disable-recovery"
+    click(563,304)
+    click(691,340)
+    click(1048,689)
+    disabled = queue_state(r1)
+    assert disabled["DISABLED"] in ("true","yes"), "GUI Disable must read back true"
+    shot("q08-disabled-general")
+    disabled_up = measure_receive(r2,"192.0.2.10","disabled_upload")
+    disabled_down = measure_receive(client,"203.0.113.1","disabled_download")
+    assert disabled_up > active_up * 1.3 and disabled_down > active_down * 1.15, "Disable must restore measured flow"
+    phase = "gui-reenable"
+    click(691,340)
+    click(1048,689)
+    reenabled = queue_state(r1)
+    assert reenabled["DISABLED"] in ("false","no"), "GUI Enable must read back false"
+    shot("q09-reenabled-general")
+    again_up = measure_receive(r2,"192.0.2.10","reenabled_upload")
+    again_down = measure_receive(client,"203.0.113.1","reenabled_download")
+    assert again_up < disabled_up * .70 and again_down < disabled_down * .85, "Re-enable must restore the measured limiting effect"
+    click(703,304)
+    shot("q10-reenabled-statistics")
+    phase = "owned-rule-cleanup"
+    click(563,304)
+    click(1120,689)
+    shot("q11-final-queue-row")
+    ros(r1, '/queue simple remove [find where name="tn-cloud-cap" comment="TN-CLOUD-QUEUE-LAB"]')
+    assert "QUEUES=0" in ros(r1, ':put ("QUEUES=" . [/queue simple print count-only])')
+    for endpoint in (client,r2):
+        ros(endpoint,"/tool bandwidth-server set enabled=no")
+    time.sleep(1)
+    shot("q12-owned-rule-removed")
+    after = ros(client,"/ping 203.0.113.1 src-address=192.0.2.10 count=5 size=500 interval=100ms")
+    assert re.search(r"sent=5\s+received=5\s+packet-loss=0%",after), "Cleanup must retain the original data path"
+    assert "TN-LAB-R1" in ros(r1,":put [/system identity get name]"), "Management must survive all Queue changes"
+    RESULT.update(status="LAB_QUEUE_VERIFIED_PENDING_MEDIA_REVIEW", captures=CAPTURES,
+                  queue_created_by="Actual WinBox GUI; command-line readback only",
+                  active_counters=active, disable_enable_actual=True,
+                  cleanup={"only_owned_rule_removed":True,"servers_disabled":True,"queue_empty":True,
+                           "ping_5_of_5":True,"management_retained":True},
+                  limits=["Synthetic 256k offered traffic on CHR free license/TCG only; not internet, hardware or customer capacity.",
+                          "Receive rates are measured independently at each destination; upload/download refer to192.0.2.10.",
+                          "All new screenshots still require visual acceptance; website/native staging not qualified.",
                           "No new production body or image was published."])
 except BaseException as e:
     RESULT.update(status="FAILED", failed_phase=phase, error_type=type(e).__name__, error_message=(str(e).replace(PASSWORD, "<REDACTED>")[:220] if isinstance(e, (AssertionError, RuntimeError)) else "See safe phase classification"),
