@@ -203,17 +203,6 @@ add_action('init',static function(){if(!post_type_exists('product'))register_pos
     RESULT["wordpress"]=wp("core","version").decode().strip()
     assert RESULT["wordpress"]=="7.1.4"
     wp("theme","activate","tehnet")
-    # Load the real existing policy classes required by the canonical protected-state check.
-    wp("plugin","activate","woocommerce","tehnet-core","tehnet-store")
-    policy=wp("eval",'echo wp_json_encode(["erp_ready"=>(new TehNet_Store_ERP())->ready(),"sandbox_enabled"=>TehNet_Store_Zarinpal_Sandbox::enabled(),"woocommerce_loaded"=>class_exists("WooCommerce"),"woocommerce_version"=>defined("WC_VERSION")?WC_VERSION:null,"tehnet_core_version"=>defined("TEHNET_CORE_VERSION")?TEHNET_CORE_VERSION:null,"tehnet_store_version"=>defined("TEHNET_STORE_VERSION")?TEHNET_STORE_VERSION:null]);').decode()
-    RESULT["commerce_fixture"]=json.loads(policy)
-    assert RESULT["commerce_fixture"]["erp_ready"] is False and RESULT["commerce_fixture"]["sandbox_enabled"] is False
-
-    assert RESULT["commerce_fixture"]["woocommerce_version"]=="11.2.1" and RESULT["commerce_fixture"]["tehnet_core_version"]=="0.3.1"
-    isolation_probe=wp("eval",'$http=wp_remote_get("https://example.invalid/closed-fixture-probe");echo wp_json_encode(["http_blocked"=>is_wp_error($http)&&$http->get_error_code()==="tn_cloud_blocked","mail_blocked"=>apply_filters("pre_wp_mail",null,[])===false,"payment_gateways_empty"=>apply_filters("woocommerce_available_payment_gateways",["synthetic"=>new stdClass()])===[],"cron_disabled"=>DISABLE_WP_CRON]);').decode()
-    RESULT["isolation_probe"]=json.loads(isolation_probe)
-    assert all(RESULT["isolation_probe"].values()),"Every closed-fixture isolation probe required"
-
     fixture=private_file("seed.php","""<?php
 $repo='/srv/tehnet';
 $body=file_get_contents($repo.'/content/educational-integrity-2026-11-04/queues-troubleshooting.html');
@@ -238,6 +227,18 @@ if(!wp_save_post_revision(67))throw new RuntimeException('Synthetic revision fix
 echo 'CLOUD_FIXTURE_READY';
 """)
     copy_private(str(fixture),"/tmp/tn-cloud-seed.php");wp("eval-file","/tmp/tn-cloud-seed.php")
+    PHASE="synthetic-commerce-activation"
+    # Load the real existing policy classes required by the canonical protected-state check.
+    wp("plugin","activate","woocommerce","tehnet-core","tehnet-store")
+    policy=wp("eval",'echo wp_json_encode(["erp_ready"=>(new TehNet_Store_ERP())->ready(),"sandbox_enabled"=>TehNet_Store_Zarinpal_Sandbox::enabled(),"woocommerce_loaded"=>class_exists("WooCommerce"),"woocommerce_version"=>defined("WC_VERSION")?WC_VERSION:null,"tehnet_core_version"=>defined("TEHNET_CORE_VERSION")?TEHNET_CORE_VERSION:null,"tehnet_store_version"=>get_file_data(WP_PLUGIN_DIR."/tehnet-store/tehnet-store.php",["Version"=>"Version"])["Version"]]);').decode()
+    RESULT["commerce_fixture"]=json.loads(policy)
+    assert RESULT["commerce_fixture"]["erp_ready"] is False and RESULT["commerce_fixture"]["sandbox_enabled"] is False
+
+    assert RESULT["commerce_fixture"]["woocommerce_version"]=="11.2.1" and RESULT["commerce_fixture"]["tehnet_core_version"]=="0.3.1" and RESULT["commerce_fixture"]["tehnet_store_version"]=="0.7.0"
+    isolation_probe=wp("eval",'$http=wp_remote_get("https://example.invalid/closed-fixture-probe");echo wp_json_encode(["http_blocked"=>is_wp_error($http)&&$http->get_error_code()==="tn_cloud_blocked","mail_blocked"=>apply_filters("pre_wp_mail",null,[])===false,"payment_gateways_empty"=>apply_filters("woocommerce_available_payment_gateways",["synthetic"=>new stdClass()])===[],"cron_disabled"=>DISABLE_WP_CRON]);').decode()
+    RESULT["isolation_probe"]=json.loads(isolation_probe)
+    assert all(RESULT["isolation_probe"].values()),"Every closed-fixture isolation probe required"
+
     wp("rewrite","flush","--hard")
     (wp_root/".htaccess").write_text("<IfModule mod_rewrite.c>\nRewriteEngine On\nRewriteBase /\nRewriteRule ^index\\.php$ - [L]\nRewriteCond %{REQUEST_FILENAME} !-f\nRewriteCond %{REQUEST_FILENAME} !-d\nRewriteRule . /index.php [L]\n</IfModule>\n")
     snapshot=private_file("snapshot.php","""<?php
@@ -330,6 +331,7 @@ echo hash('sha256',wp_json_encode($state));
     assert ledger["backup_checksum_verified"] is True
     RESULT.update(status="VERIFIED_SYNTHETIC_CLOUD_STAGING_NOT_DEPLOYED",files_applied=13,repeat_files=0,
                   original_fixture_rows_restored=True,original_fixture_files_restored=True,
+                  restore_scope="Synthetic posts/postmeta/users/usermeta and selected protected options; canonical protected-table checks; managed files/directories. Not a full SQL restore.",
                   fresh_private_backup_checksum_verified=True,submissions=0,
                   isolation={"docker_internal_network":True,"loopback_http_only":True,"mail_http_cron_payments_blocked":True},
                   limits=["Synthetic fixture only; no production database or customer data used.",

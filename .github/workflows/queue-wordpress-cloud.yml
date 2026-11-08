@@ -10,7 +10,9 @@ on:
       - 'tests/cloud_queue_release_test.py'
       - 'tests/cloud-queue-*.php'
       - 'tests/cloud-queue-*.cjs'
-      - 'content/queue-winbox-cloud-2026-11-08/**'
+      - 'content/queue-winbox-cloud-2026-11-08/queues-troubleshooting.html'
+      - 'content/queue-winbox-cloud-2026-11-08/manifest.json'
+      - 'content/queue-winbox-cloud-2026-11-08/captures.json'
       - 'site/mu-plugins/tehnet-technical-resources/learning-media/queue-cloud-20261108/**'
       - 'site/themes/tehnet/assets/css/visual-refresh.css'
 permissions:
