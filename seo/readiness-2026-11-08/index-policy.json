@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "activation": "DISABLED_NEEDS_OWNER_APPROVAL",
+  "production_mutations": 0,
+  "global_blog_public_change": "NOT_AUTHORIZED",
+  "candidates": [
+    {
+      "url": "https://tehnet.ir/",
+      "proposed": "INDEX_FOLLOW_AFTER_READINESS_APPROVAL",
+      "current": "REQUIRES_FRESH_HTTP_BASELINE",
+      "reason": "برند و چهار مسیر اصلی"
+    },
+    {
+      "url": "https://tehnet.ir/services/",
+      "proposed": "INDEX_FOLLOW_AFTER_READINESS_APPROVAL",
+      "current": "REQUIRES_FRESH_HTTP_BASELINE",
+      "reason": "کاتالوگ"
+    },
+    {
+      "url": "https://tehnet.ir/services/voice-network-readiness/",
+      "proposed": "INDEX_FOLLOW_AFTER_READINESS_APPROVAL",
+      "current": "REQUIRES_FRESH_HTTP_BASELINE",
+      "reason": "آماده‌سازی و بررسی شبکه برای VoIP"
+    },
+    {
+      "url": "https://tehnet.ir/services/remote-support/",
+      "proposed": "INDEX_FOLLOW_AFTER_READINESS_APPROVAL",
+      "current": "REQUIRES_FRESH_HTTP_BASELINE",
+      "reason": "پشتیبانی شبکه از راه دور"
+    },
+    {
+      "url": "https://tehnet.ir/services/mikrotik-tehran/",
+      "proposed": "INDEX_FOLLOW_AFTER_READINESS_APPROVAL",
+      "current": "REQUIRES_FRESH_HTTP_BASELINE",
+      "reason": "خدمات MikroTik تهران"
+    },
+    {
+      "url": "https://tehnet.ir/services/network-setup-tehran/",
+      "proposed": "INDEX_FOLLOW_AFTER_READINESS_APPROVAL",
+      "current": "REQUIRES_FRESH_HTTP_BASELINE",
+      "reason": "راه‌اندازی شبکه شرکت در تهران"
+    },
+    {
+      "url": "https://tehnet.ir/services/network-support-tehran/",
+      "proposed": "INDEX_FOLLOW_AFTER_READINESS_APPROVAL",
+      "current": "REQUIRES_FRESH_HTTP_BASELINE",
+      "reason": "پشتیبانی شبکه تهران"
+    },
+    {
+      "url": "https://tehnet.ir/services/network-tehran/",
+      "proposed": "INDEX_FOLLOW_AFTER_READINESS_APPROVAL",
+      "current": "REQUIRES_FRESH_HTTP_BASELINE",
+      "reason": "خدمات شبکه تهران"
+    },
+    {
+      "url": "https://tehnet.ir/about/",
+      "proposed": "INDEX_FOLLOW_AFTER_READINESS_APPROVAL",
+      "current": "REQUIRES_FRESH_HTTP_BASELINE",
+      "reason": "هویت شرکت"
+    },
+    {
+      "url": "https://tehnet.ir/contact/",
+      "proposed": "INDEX_FOLLOW_AFTER_READINESS_APPROVAL",
+      "current": "REQUIRES_FRESH_HTTP_BASELINE",
+      "reason": "تماس"
+    },
+    {
+      "url": "https://tehnet.ir/technical-methodology/",
+      "proposed": "INDEX_FOLLOW_AFTER_READINESS_APPROVAL",
+      "current": "REQUIRES_FRESH_HTTP_BASELINE",
+      "reason": "روش فنی و منابع"
+    }
+  ],
+  "exceptions": [
+    "/wp-admin/",
+    "/wp-login.php",
+    "/my-account/",
+    "/cart/",
+    "/checkout/",
+    "/b2b/",
+    "/shop/",
+    "/product/*",
+    "/services/?*",
+    "/*?tn_preview=*",
+    "/wp-content/uploads/wc-logs/",
+    "/wp-content/uploads/woocommerce_uploads/"
+  ],
+  "default_for_unlisted": "PRESERVE_CURRENT_POLICY_NOT_AUTOMATICALLY_INDEXABLE",
+  "notes": [
+    "Account/ticket/quote responses require authorization, not robots protection.",
+    "Shop/products remain separate commerce review; inquiry-only preserved.",
+    "Candidate means editorial proposal, not ready/indexed. Preserve intentional noindex until explicit scoped approval.",
+    "Header/CDN robots rules, WP blog_public, sitemap provider and WAF inventory need separate verification. No control-plane access or changes here."
+  ]
+}
