@@ -112,7 +112,7 @@
       40
     ],
     "source_only_count": 6,
-    "wordpress_native_scheduled_count": "NOT_RECHECKED_THIS_RUN; prior verified 0; no schedule or publish mutations",
+    "wordpress_native_scheduled_count": 0,
     "new_draft": {
       "lesson": 23,
       "id": 280,
@@ -138,6 +138,9 @@
     },
     "stop_reason": "WordPress REST GET for the new page's content.raw returned empty {} repeatedly even when metadata/excerpt GET succeeded. Avoided creating more drafts without independent full-body readback.",
     "scope": "Draft creation only; did not touch published/future, noindex, runtime, host, credentials or existing pages",
-    "git_branch": "content/mtcna-prep-20261108-scoped-280"
+    "git_branch": "content/mtcna-prep-20261108-scoped-280",
+    "wordpress_native_scheduled_readback": "VERIFIED_EMPTY_REST_ARRAY_2026-11-08",
+    "wpvibe_usage_at_final_check": "22 of 100 calls; reset untouched",
+    "report": "docs/reports/MTCNA_DRAFT_PREP_2026-11-08.fa.md"
   }
 }
