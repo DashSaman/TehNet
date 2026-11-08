@@ -6,6 +6,7 @@ import base64, datetime, hashlib, json, logging, os, re, secrets, select
 import shutil, socket, struct, subprocess, tempfile, time, urllib.request, zipfile
 import paramiko
 from PIL import Image
+from prompt_state import select_prompt
 
 ROOT = Path(tempfile.mkdtemp(prefix="tn-queue-cloud-"))
 os.umask(0o077)
@@ -62,9 +63,9 @@ def serial_wait(s, patterns, timeout=50):
         try: data += s.recv(65536)
         except socket.timeout: pass
         text = clean(data)
-        for key, pattern in patterns.items():
-            if re.search(pattern, text, re.I):
-                return key, text
+        choice = select_prompt(text, patterns)
+        if choice:
+            return choice, text
     raise RuntimeError("Fresh guest console not ready in " + phase)
 
 def bootstrap(node):

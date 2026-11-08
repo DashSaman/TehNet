@@ -22,6 +22,8 @@ jobs:
           fetch-depth: 1
       - name: Public-file guard
         run: python3 tools/publication_guard.py
+      - name: Serial prompt regression tests
+        run: python3 -m unittest discover -s tests -p cloud_queue_terminal_test.py -v
       - name: Install isolated test prerequisites
         run: |
           sudo apt-get update -qq
