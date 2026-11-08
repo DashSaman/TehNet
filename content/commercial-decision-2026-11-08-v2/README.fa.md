@@ -14,3 +14,5 @@
 تأییدها جدا هستند: (۱) merge دامنهٔ نهایی PR94، (۲) انتشار محدود محتوا/دارایی با backup تازه، drift و rollback، (۳) نصب/فعال‌سازی کنترل index فقط در allowlist تأییدشده. هیچ‌کدام از حاضرشدن متن، CI، یا تأیید مصرف‌شدهٔ PR88 نتیجه نمی‌شوند. PR89–91 و PR93 مستقل‌اند؛ تغییر فایل مشترک publisher/CSS نیازمند reconciliation آخرین main است.
 
 شکاف مسیر Lab در staging: tn_lab با rewrite عمومی lab، pageهای موجود76/188/207 را می‌پوشاند. class-content-types.php در همین scope فقط برای این سه مسیرِ دارای هویت publish تأییدشده، rule خواندنی دقیق را مقدم می‌کند. گزینهٔ ذخیره‌شدهٔ rewrite_rules، ساختار permalink و URLها تغییر نمی‌کنند؛ وجود CPT هم‌نام باعث عدم override و نیاز به reconciliation می‌شود. rollback همین فایل قبلی را برمی‌گرداند. اثر production هنوز مشاهده/منتشر نشده است.
+
+کاربرگ‌های عمومی با فایل PHP ثابتِ بدون ورودی/DB، Content-Type، نام فایل CSV و X-Robots-Tag: noindex,nofollow سرو می‌شوند. نسخهٔ خام CSV/HTML در worksheets برای بازبینی و مقایسهٔ exact-byte نگهداری می‌شود. این کار به mod_headers یا تغییر تنظیم Apache وابسته نیست؛ هیچ فرم یا سامانهٔ درخواست تازه ساخته نشده است. همهٔ PHP assetها پیش از اولین write توسط ناشر canonical lint می‌شوند.

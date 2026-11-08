@@ -12,19 +12,14 @@
 
 برای یادگیری از مسیر درس و لاب استفاده کنید؛ برای تغییر شبکهٔ فعال، هدف و اختیار اجرا باید جدا مشخص باشد. دیدن راهنمای WinBox یا موفقیت نمونهٔ آموزشی، سازگاری مدل و نسخهٔ شما یا ایمنی انتقال تنظیمات را ثابت نمی‌کند. جدول زیر هم مقصد آموزشی دارد و هم مسیر درخواست خدمت؛ هیچ کانفیگ آماده‌ای را برای همهٔ محیط‌ها پیشنهاد نمی‌کند.
 
-نیاز | مسیر مطالعهٔ موجود | اگر شبکهٔ فعال درگیر است | پذیرش مورد انتظار | 
-
-شروع کار و پشتیبان | [RouterOS و WinBox](/learn/mikrotik/mtcna/routeros-winbox/) | نقش دستگاه، نسخه و دسترسی جایگزین | حفظ مسیر مدیریت و برگشت مصوب | 
-
-IP، DHCP و DNS | [درس IP/DHCP/DNS](/learn/mikrotik/mtcna/ip-dhcp-dns/) | نشانهٔ دریافت تنظیمات و اثر بر کار | ارتباط و سرویس مجاز در دامنه | 
-
-مسیریابی و NAT | [Routing](/learn/mikrotik/mtcna/static-routing/) و [NAT](/learn/mikrotik/mtcna/nat-masquerade/) | مبدأ، مقصد و وابستگی بدون شناسهٔ حساس | رفت و برگشت و آزمون سرویس | 
-
-فایروال و تفکیک | [مبانی فایروال](/learn/mikrotik/mtcna/firewall-basics/) | سرویس مجاز/غیرمجاز و مسیر مدیریت | آزمون مثبت و منفی؛ [معیار خدمت](#firewall-acceptance) | 
-
-Queue یا کندی | [درس Queue](/learn/mikrotik/mtcna/queues-troubleshooting/) | الگوی مشکل و شواهد همان محیط | اندازه‌گیری مصوب، نه سرعت تضمینی | 
-
-ارتباط شعب | [هاب آموزش](/learn/mikrotik/) | هدف برنامه و وابستگی دو طرف | [دامنهٔ طراحی شعب](/services/network-setup-tehran/#branch-connectivity-brief) | 
+| نیاز | مسیر مطالعهٔ موجود | اگر شبکهٔ فعال درگیر است | پذیرش مورد انتظار |
+| --- | --- | --- | --- |
+| شروع کار و پشتیبان | [RouterOS و WinBox](/learn/mikrotik/mtcna/routeros-winbox/) | نقش دستگاه، نسخه و دسترسی جایگزین | حفظ مسیر مدیریت و برگشت مصوب |
+| IP، DHCP و DNS | [درس IP/DHCP/DNS](/learn/mikrotik/mtcna/ip-dhcp-dns/) | نشانهٔ دریافت تنظیمات و اثر بر کار | ارتباط و سرویس مجاز در دامنه |
+| مسیریابی و NAT | [Routing](/learn/mikrotik/mtcna/static-routing/) و [NAT](/learn/mikrotik/mtcna/nat-masquerade/) | مبدأ، مقصد و وابستگی بدون شناسهٔ حساس | رفت و برگشت و آزمون سرویس |
+| فایروال و تفکیک | [مبانی فایروال](/learn/mikrotik/mtcna/firewall-basics/) | سرویس مجاز/غیرمجاز و مسیر مدیریت | آزمون مثبت و منفی؛ [معیار خدمت](#firewall-acceptance) |
+| Queue یا کندی | [درس Queue](/learn/mikrotik/mtcna/queues-troubleshooting/) | الگوی مشکل و شواهد همان محیط | اندازه‌گیری مصوب، نه سرعت تضمینی |
+| ارتباط شعب | [هاب آموزش](/learn/mikrotik/) | هدف برنامه و وابستگی دو طرف | [دامنهٔ طراحی شعب](/services/network-setup-tehran/#branch-connectivity-brief) |
 
 درس‌ها راهنمای نوشتاری مستقل‌اند؛ وضعیت تصویر، ویدیو یا آزمون هر درس فقط با شاهد همان صفحه مشخص می‌شود. این جدول ضبط ویدیو یا انتشار بسته‌های آزمایشگاهیِ منتظر تأیید را ادعا نمی‌کند. برای [تنظیم یا بررسی میکروتیک](/services/?tn_service_context=security-scoping#service-request) نام کلی مسئله کافی است؛ برای قطعی موجود از [تیکت پشتیبانی](/support/) استفاده کنید.
 

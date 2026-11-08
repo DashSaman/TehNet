@@ -25,7 +25,7 @@
 | پذیرش | چه کسی پایان کار را تأیید می‌کند؟ | کار مجاز کاربر و محدودیت‌ها | نتیجهٔ آزمون و موارد باز | نماینده باید تعیین شود |
 | خاتمه | دسترسی و اسناد چگونه تحویل می‌شوند؟ | مسئول جمع‌بندی و لغو دسترسی طبق مجوز | صورت‌جلسه و مرجع تیکت | وابستگی حساب‌ها باید بررسی شود |
 
-[دریافت CSV جدول 1](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-support-contract-guide-1.csv) · [نسخهٔ چاپی کاربرگ‌ها](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-support-contract-guide-print.html)
+[دریافت CSV جدول 1](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-support-contract-guide-1-csv.php) · [نسخهٔ چاپی کاربرگ‌ها](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-support-contract-guide-print.php)
 
 نسخهٔ خالی این جدول را پیش از جلسه پر کنید؛ برای پاسخ نامعلوم UNKNOWN بنویسید، نه یک عدد حدسی. هر پاسخ فروشنده را با همان بند و شاهد همراه کنید. برگه برای مقایسه است و جای قرارداد نهاییِ بررسی‌شده با مسئولان مجاز شما را نمی‌گیرد.
 

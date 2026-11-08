@@ -83,7 +83,7 @@
       "id": null,
       "key": "A1",
       "title": "قرارداد پشتیبانی شبکه؛ پیش از توافق چه چیزهایی را روشن کنیم؟",
-      "body_sha256": "2eea6a0936cf24ca323164ab04a0f2170d9968c651183ba5a89703a9105bfe16",
+      "body_sha256": "a8b11e725d73f3f04b51c57958825fc0f7f4b0c7764454895a49e8e782a91ccd",
       "excerpt_sha256": "c6eb28f7de9d4b2593be0ad5f7d734182a97096280cf0f6a3b788df3bc6d8d6c"
     },
     {
@@ -91,7 +91,7 @@
       "id": null,
       "key": "A2",
       "title": "پیشنهادهای اجرای شبکه را چگونه هم‌دامنه مقایسه کنیم؟",
-      "body_sha256": "df3f21f1244b2eb164ef88a32a3bce8dc6b41619b9b3bb4a2dfb1780ae65520a",
+      "body_sha256": "a11e50ed377c4958fa8466676b895738a72c718ed2b4f8f8d049046f99993b8b",
       "excerpt_sha256": "137bda095b6a328466dc5813f118c4054215baa64f8535d215a642c34f364cfe"
     },
     {
@@ -99,7 +99,7 @@
       "id": null,
       "key": "A3",
       "title": "نیازسنجی سرور شرکت؛ پیش از انتخاب CPU و RAM چه بپرسیم؟",
-      "body_sha256": "fa6ff400db24ad816155416bad5a98a1c54438af4ac12e0f3932006025133d9d",
+      "body_sha256": "67e7e81664fa64f908fa8212c40e1119d2efe0b4eaca41d83d05819c69773963",
       "excerpt_sha256": "e6e40e7b198af1d5ff53ec7d86bdb97fcd9399b1ca3a7ded29e0d563691c73ed"
     },
     {
@@ -107,7 +107,7 @@
       "id": null,
       "key": "A4",
       "title": "اسنپ‌شات، بکاپ و آزمون بازیابی؛ چه مدرکی تحویل بگیریم؟",
-      "body_sha256": "8fea9b8ecf76962b21784ce18edd066cde8092c9acd20b558aa6ed1280863290",
+      "body_sha256": "7f446aeab807388da67c96fc5b0c117a62b3fd0c107d9baab21ca84aeed9698d",
       "excerpt_sha256": "c68043bd0f60828d3ca687538054bbd78c949ab72b55853bb1eb40da630a3a9c"
     },
     {

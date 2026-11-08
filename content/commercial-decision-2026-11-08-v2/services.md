@@ -160,4 +160,6 @@
 
 دامنه و معیار تحویل را با [راهنمای توافق پشتیبانی](/network-support-contract-guide/)، [مقایسهٔ پیشنهاد اجرای شبکه](/network-project-proposal-checklist/)، [نیازسنجی سرور](/business-server-planning-guide/) و [پذیرش backup/restore](/server-backup-restore-acceptance/) روشن کنید. نمونه‌ها فرضی‌اند؛ کاربرگ‌ها به آماده‌سازی درخواست کمک می‌کنند و جای بررسی محیط شما را نمی‌گیرند.
 
-[tn_service_request]برای هماهنگی اولیه: **[tehnet_phone]** · [راه‌های تماس تهران نتورک](/contact/). محل حضوری فعلی: [tehnet_address]
+[tn_service_request]
+
+برای هماهنگی اولیه: **[tehnet_phone]** · [راه‌های تماس تهران نتورک](/contact/). محل حضوری فعلی: [tehnet_address]

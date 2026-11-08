@@ -18,7 +18,7 @@
 | تحویل | چه مستند و آزمونی دریافت می‌کنیم؟ | UNKNOWN | UNKNOWN | نمونهٔ گزارش/معیار امضاشده | باز |
 | بعد از تحویل | نگهداری و هزینهٔ دوره‌ای چیست؟ | UNKNOWN | UNKNOWN | شمول و استثناهای مستقل | باز |
 
-[دریافت CSV جدول 1](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-project-proposal-checklist-1.csv) · [نسخهٔ چاپی کاربرگ‌ها](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-project-proposal-checklist-print.html)
+[دریافت CSV جدول 1](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-project-proposal-checklist-1-csv.php) · [نسخهٔ چاپی کاربرگ‌ها](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-project-proposal-checklist-print.php)
 
 در نسخهٔ چاپی برای هر پاسخ، تاریخ و مرجع سند را کنار آن بنویسید. خانهٔ خالی را صفر هزینه تلقی نکنید؛ ممکن است خدمت حذف شده یا هنوز نیازسنجی نشده باشد. worksheet یک امتیاز خودکار یا توصیهٔ انتخاب ارزان‌ترین فروشنده تولید نمی‌کند.
 
@@ -33,7 +33,7 @@
 | مجوز/پشتیبان | نامشخص | نیازمند توافق | هر دو پیشنهاد باید همان پرسش را پاسخ دهند |
 | نتیجهٔ مقایسه | نامزد تکمیل | نامزد تکمیل | هنوز هیچ انتخاب یا آزمون واقعی انجام نشده است |
 
-[دریافت CSV جدول 2](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-project-proposal-checklist-2.csv) · [نسخهٔ چاپی کاربرگ‌ها](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-project-proposal-checklist-print.html)
+[دریافت CSV جدول 2](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-project-proposal-checklist-2-csv.php) · [نسخهٔ چاپی کاربرگ‌ها](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-project-proposal-checklist-print.php)
 
 ## پذیرش را به «تجهیزات نصب شد» تقلیل ندهید
 

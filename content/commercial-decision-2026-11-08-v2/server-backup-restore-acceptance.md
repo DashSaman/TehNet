@@ -21,7 +21,7 @@ RPO و RTO را اول به زبان کسب‌وکار تعریف کنید: کد
 | UNKNOWN | UNKNOWN | ایزوله و مصوب؛ جزئیات تعیین شود | کار نماینده باید تعریف شود | مرجع خصوصی لازم است | وابستگی‌ها نامعلوم | NOT_TESTED |
 | UNKNOWN | UNKNOWN | UNKNOWN | مجوز مثبت و منفی | زمان‌ها و مشاهدهٔ داده | نقطهٔ داده و سازگاری نامعلوم | NOT_TESTED |
 
-[دریافت CSV جدول 1](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/server-backup-restore-acceptance-1.csv) · [نسخهٔ چاپی کاربرگ‌ها](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/server-backup-restore-acceptance-print.html)
+[دریافت CSV جدول 1](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/server-backup-restore-acceptance-1-csv.php) · [نسخهٔ چاپی کاربرگ‌ها](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/server-backup-restore-acceptance-print.php)
 
 ## نمونهٔ فرضی؛ نه restore انجام‌شده
 
@@ -33,7 +33,7 @@ RPO و RTO را اول به زبان کسب‌وکار تعریف کنید: کد
 | برنامهٔ اداری | کار نمایندهٔ برنامه با تأیید مسئول/فروشنده | وابستگی‌ها، نسخه، وضعیت داده و خروجی کار | عملکرد تمام فرایندها یا سازگاری هر نسخه | NOT_TESTED |
 | بازگشت به محیط اصلی | طرح برگشت و کنترل تغییر جداگانه | تصمیم‌گیر و شرط توقف/بازگشت | موفقیتِ failback از صرف restore نتیجه نمی‌شود | NOT_TESTED |
 
-[دریافت CSV جدول 2](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/server-backup-restore-acceptance-2.csv) · [نسخهٔ چاپی کاربرگ‌ها](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/server-backup-restore-acceptance-print.html)
+[دریافت CSV جدول 2](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/server-backup-restore-acceptance-2-csv.php) · [نسخهٔ چاپی کاربرگ‌ها](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/server-backup-restore-acceptance-print.php)
 
 ## محیط آزمون باید خودش دامنه داشته باشد
 
@@ -45,4 +45,4 @@ RPO و RTO را اول به زبان کسب‌وکار تعریف کنید: کد
 
 گزارش خوب می‌تواند بگوید بخش مشخصی تأیید شد ولی مرحله‌ای به فروشنده یا دادهٔ تکمیلی وابسته ماند. این صراحت از ادعای «بازیابی صددرصد» بدون شاهد مفیدتر است. محل امن نگهداری اسناد و مسئول تکرار آزمون در تغییر بعدی مشخص شوند؛ یک آزمون گذشته تضمین دائمی نیست.
 
-برای تعیین دامنه [خدمت سرور و مجازی‌سازی](/services/server-virtualization-tehran/)، برای پیگیری [پشتیبانی شبکه](/services/network-support-tehran/) و برای شیوهٔ شواهد [روش منابع و آزمون](/technical-methodology/) را بخوانید. [درخواست ارزیابی backup/restore را با context سرور ثبت کنید](/services/?tn_service_context=server-scoping#service-request). توضیح کار برنامه و نیاز بازیابی کافی است؛ backup یا دادهٔ مشتری را در فرم عمومی نفرستید.
+برای تعیین دامنه [خدمت سرور و مجازی‌سازی](/services/server-virtualization-tehran/)، برای پیگیری [پشتیبانی شبکه](/services/network-support-tehran/) و برای شیوهٔ شواهد [روش منابع و آزمون](/technical-methodology/) را بخوانید. [درخواست بررسی پشتیبان‌گیری و بازیابی سرور](/services/?tn_service_context=server-scoping#service-request). توضیح کار برنامه و نیاز بازیابی کافی است؛ backup یا دادهٔ مشتری را در فرم عمومی نفرستید.

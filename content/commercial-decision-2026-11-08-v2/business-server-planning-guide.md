@@ -19,7 +19,7 @@
 | backup و بازیابی | UNKNOWN | مسئول داده | مقصد مستقل و آزمون کاربر چیست؟ | UNKNOWN |
 | پنجره تغییر و برگشت | UNKNOWN | مدیر مجاز | شرط توقف و فرد تصمیم‌گیر؟ | UNKNOWN |
 
-[دریافت CSV جدول 1](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-1.csv) · [نسخهٔ چاپی کاربرگ‌ها](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-print.html)
+[دریافت CSV جدول 1](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-1-csv.php) · [نسخهٔ چاپی کاربرگ‌ها](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-print.php)
 
 ستون منبع را حذف نکنید. «فروشنده گفته» بدون نسخه و تاریخ، با اندازه‌گیری همان workload برابر نیست؛ «تجربهٔ پروژهٔ قبلی» هم دادهٔ محیط جدید نیست. نسخهٔ عمومی برگه نباید شناسهٔ مشتری، نشانی مدیریتی، رمز یا محتوای داده را داشته باشد. جزئیات حساس فقط در مسیر امن و پس از تعیین دامنه بررسی می‌شوند.
 
@@ -31,7 +31,7 @@
 | VM روی میزبان مناسب | آیا تفکیک و مدیریت workloadها مفید است؟ | منابع فیزیکی، ذخیره‌سازی، شبکه و بستر پشتیبانی | VM سخت‌افزار فیزیکی را حذف نمی‌کند |
 | میزبان یا محیط مستقل | آیا مرز خرابی/مدیریت جدا لازم است؟ | هزینهٔ تهیه و نگهداری و بازیابی | استقلال اسمی، اثبات تداوم سرویس نیست |
 
-[دریافت CSV جدول 2](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-2.csv) · [نسخهٔ چاپی کاربرگ‌ها](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-print.html)
+[دریافت CSV جدول 2](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-2-csv.php) · [نسخهٔ چاپی کاربرگ‌ها](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-print.php)
 
 [معرفی رسمی Hyper-V در Windows Server و Windows](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/overview) نمونه‌ای از مجازی‌سازی سخت‌افزار و اجرای VM روی میزبان است؛ قابلیت‌ها با edition و بستر فرق دارند. از این منبع نتیجه نمی‌گیریم هر برنامه، مجوز یا سخت‌افزار با هر محصول سازگار است یا تهران نتورک همین محصول را برای هر پروژه عرضه می‌کند. VM الزاماً ارزان‌تر نیست؛ هزینهٔ بستر، مجوز، ذخیره، backup و نگهداری نیز باید در دامنه بیایند.
 
@@ -46,7 +46,7 @@
 | پنجره مهاجرت | هنوز توافق نشده | زمان مجاز، مسیر برگشت و مسئول | تاریخ اجرای قطعی اعلام نشود |
 | نیاز بازیابی | فقط خواستهٔ کلی مطرح است | نقطهٔ دادهٔ قابل قبول و زمان موردنیاز | نیاز بنویسید؛ نتیجهٔ اندازه‌گیری نسازید |
 
-[دریافت CSV جدول 3](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-3.csv) · [نسخهٔ چاپی کاربرگ‌ها](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-print.html)
+[دریافت CSV جدول 3](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-3-csv.php) · [نسخهٔ چاپی کاربرگ‌ها](/wp-content/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-print.php)
 
 خروجی این جلسه یک فهرست سؤال و طرح بررسی است، نه فهرست قطعات نهایی. در مرحلهٔ بعد، نسخه‌های مجاز، سلامت دارایی، workload و شرایط نگهداری بررسی می‌شوند؛ سپس گزینهٔ بستر و معیار تحویل با فرض‌های مستند مقایسه می‌شود. هیچ تعداد کاربر، CPU/RAM یا زمان بازیابی از این مثال قابل تضمین نیست.
 

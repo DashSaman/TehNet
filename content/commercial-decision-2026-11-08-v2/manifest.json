@@ -99,7 +99,7 @@
       "title": "قرارداد پشتیبانی شبکه؛ پیش از توافق چه چیزهایی را روشن کنیم؟",
       "excerpt": "برگهٔ مقایسهٔ دامنهٔ پشتیبانی شبکه؛ شمول تجهیزات، پاسخ و رفع، ارجاع، گزارش، پذیرش و پایان دسترسی با نمونهٔ فرضی.",
       "content_file": "network-support-contract-guide.html",
-      "content_sha256_lf": "2eea6a0936cf24ca323164ab04a0f2170d9968c651183ba5a89703a9105bfe16"
+      "content_sha256_lf": "a8b11e725d73f3f04b51c57958825fc0f7f4b0c7764454895a49e8e782a91ccd"
     },
     {
       "key": "A2",
@@ -108,7 +108,7 @@
       "title": "پیشنهادهای اجرای شبکه را چگونه هم‌دامنه مقایسه کنیم؟",
       "excerpt": "worksheet مقایسهٔ پیشنهاد شبکه؛ فرض‌ها، پسیو و اکتیو، تجهیزات و مجوز، تحویل، آزمون و هزینهٔ نگهداری با دو مثال فرضی.",
       "content_file": "network-project-proposal-checklist.html",
-      "content_sha256_lf": "df3f21f1244b2eb164ef88a32a3bce8dc6b41619b9b3bb4a2dfb1780ae65520a"
+      "content_sha256_lf": "a11e50ed377c4958fa8466676b895738a72c718ed2b4f8f8d049046f99993b8b"
     },
     {
       "key": "A3",
@@ -117,7 +117,7 @@
       "title": "نیازسنجی سرور شرکت؛ پیش از انتخاب CPU و RAM چه بپرسیم؟",
       "excerpt": "برگهٔ نیازسنجی سرور و VM با ستون منبع داده و UNKNOWN؛ برنامه، وابستگی، همزمانی، رشد داده، مجوز و بازیابی پیش از انتخاب سخت‌افزار.",
       "content_file": "business-server-planning-guide.html",
-      "content_sha256_lf": "fa6ff400db24ad816155416bad5a98a1c54438af4ac12e0f3932006025133d9d"
+      "content_sha256_lf": "67e7e81664fa64f908fa8212c40e1119d2efe0b4eaca41d83d05819c69773963"
     },
     {
       "key": "A4",
@@ -126,7 +126,7 @@
       "title": "اسنپ‌شات، بکاپ و آزمون بازیابی؛ چه مدرکی تحویل بگیریم؟",
       "excerpt": "تفاوت checkpoint و backup با مثال نسخه‌دار و ماتریس پذیرش بازیابی؛ RPO/RTO موردنیاز را از نتیجهٔ واقعاً آزموده جدا کنید.",
       "content_file": "server-backup-restore-acceptance.html",
-      "content_sha256_lf": "8fea9b8ecf76962b21784ce18edd066cde8092c9acd20b558aa6ed1280863290"
+      "content_sha256_lf": "7f446aeab807388da67c96fc5b0c117a62b3fd0c107d9baab21ca84aeed9698d"
     },
     {
       "key": "N1",

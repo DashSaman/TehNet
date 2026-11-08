@@ -8,8 +8,9 @@ stage_db="tn-decision-db-$GITHUB_RUN_ID"
 stage_cli="tn-decision-cli-$GITHUB_RUN_ID"
 stage_app="tn-decision-app-$GITHUB_RUN_ID"
 stage_relay_pid=""
+stage_relay_launcher=""
 mkdir -p "$stage_root/web"
-cleanup(){ if test -n "$stage_relay_pid"; then sudo kill "$stage_relay_pid" 2>/dev/null || true; wait "$stage_relay_pid" 2>/dev/null || true; fi; docker rm -f -v "$stage_app" "$stage_db" "$stage_cli" >/dev/null 2>&1 || true; docker network rm "$stage_net" >/dev/null 2>&1 || true; case "$stage_root" in /tmp/tn-decision-native-*) sudo rm -rf -- "$stage_root";; esac; }
+cleanup(){ if test -n "$stage_relay_pid"; then sudo kill "$stage_relay_pid" 2>/dev/null || true; if test -n "$stage_relay_launcher"; then wait "$stage_relay_launcher" 2>/dev/null || true; fi; fi; docker rm -f -v "$stage_app" "$stage_db" "$stage_cli" >/dev/null 2>&1 || true; docker network rm "$stage_net" >/dev/null 2>&1 || true; case "$stage_root" in /tmp/tn-decision-native-*) sudo rm -rf -- "$stage_root";; esac; }
 trap cleanup EXIT
 stage_password="$(openssl rand -hex 24)"
 echo "::add-mask::$stage_password"
@@ -63,9 +64,11 @@ docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/
 sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/commercial-decision-release.py "$stage_root" apply
 docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/commercial-decision-native.php accept
 stage_app_pid="$(docker inspect -f '{{.State.Pid}}' "$stage_app")"
-sudo nsenter --target "$stage_app_pid" --net -- node -e 'const net=require("node:net");net.createServer(c=>{const u=net.connect(80,"127.0.0.1");c.pipe(u);u.pipe(c);c.on("error",()=>u.destroy());u.on("error",()=>c.destroy());}).listen(18085,"127.0.0.1");' >"$stage_root/relay.log" 2>&1 &
-stage_relay_pid="$!"
+sudo nsenter --target "$stage_app_pid" --net -- node -e 'const fs=require("node:fs"),net=require("node:net");net.createServer(c=>{const u=net.connect(80,"127.0.0.1");c.pipe(u);u.pipe(c);c.on("error",()=>u.destroy());u.on("error",()=>c.destroy());}).listen(18085,"127.0.0.1");fs.writeFileSync(process.argv[1]+"/relay.pid",String(process.pid),{mode:0o600});' "$stage_root" >"$stage_root/relay.log" 2>&1 &
+stage_relay_launcher="$!"
 sleep 1
+stage_relay_pid="$(sudo cat "$stage_root/relay.pid")"
+case "$stage_relay_pid" in ""|*[!0-9]*) exit 1;; esac
 sudo --preserve-env=TN_STAGE_APP,TN_STAGE_DB,TN_STAGE_NET,TN_FIXTURE_PASSWORD,GITHUB_SHA,RUNNER_ENVIRONMENT,GITHUB_REPOSITORY python3 tests/index-decision-release.py "$stage_root" runtime
 docker exec "$stage_app" php /lab/wp --allow-root --user=1 eval-file /src/tests/index-decision-native.php off
 sudo nsenter --target "$stage_app_pid" --net -- env NODE_PATH="$stage_root/pw/node_modules" PLAYWRIGHT_BROWSERS_PATH="$stage_root/browsers" node tests/index-decision-browser.cjs off "$stage_root"
@@ -85,5 +88,5 @@ docker exec -e TN_TEST_MANIFEST=/src/content/network-setup-2026-11-01/manifest.j
 docker logs "$stage_app" 2>&1 | sed -n '/TN_DECISION_NATIVE /p; /TN_INDEX_NATIVE /p'
 cleanup
 trap - EXIT
-if docker inspect "$stage_app" >/dev/null 2>&1 || docker inspect "$stage_db" >/dev/null 2>&1 || docker network inspect "$stage_net" >/dev/null 2>&1; then echo TN_DECISION_CLEANUP_FAILED; exit 1; fi
+if docker inspect "$stage_app" >/dev/null 2>&1 || docker inspect "$stage_db" >/dev/null 2>&1 || docker inspect "$stage_cli" >/dev/null 2>&1 || docker network inspect "$stage_net" >/dev/null 2>&1 || sudo kill -0 "$stage_relay_pid" >/dev/null 2>&1 || kill -0 "$stage_relay_launcher" >/dev/null 2>&1; then echo TN_DECISION_CLEANUP_FAILED; exit 1; fi
 echo TN_DECISION_CLEANUP_VERIFIED
