@@ -3,7 +3,7 @@ import os
 assert os.environ.get("RUNNER_ENVIRONMENT")=="github-hosted", "Cloud executor required before filesystem access"
 assert os.environ.get("GITHUB_REPOSITORY")=="DashSaman/TehNet" and os.uname().sysname=="Linux"
 from pathlib import Path
-import base64, datetime, hashlib, json, re, secrets, shutil, subprocess, tempfile, time
+import base64, datetime, hashlib, json, re, secrets, shutil, socket, subprocess, tempfile, time
 
 REPO=Path.cwd().resolve()
 ROOT=Path(tempfile.mkdtemp(prefix="tn-queue-cloud-stage-")).resolve()
@@ -22,6 +22,8 @@ DB="tn-queue-stage-db-"+JOB
 NET="tn-queue-stage-net-"+JOB
 CLI="tn-queue-stage-cli-"+JOB
 CONTAINERS=[]
+CHILDREN=[]
+BROWSER_PREFIX=["node"]
 NETWORK_CREATED=False
 PHASE="preflight"
 RESULT={"schema":1,"status":"STARTED","source_commit":SOURCE,"baseline_commit":BASE,
@@ -180,6 +182,8 @@ add_action('init',static function(){if(!post_type_exists('product'))register_pos
     # Exactly one install attempt; no production dump or old credentials.
     wp("core","install","--url=http://localhost:18085","--title=TehNet — لاب ابری ساختگی",
        "--admin_user=tn_cloud_editor","--admin_password="+ADMIN_PASSWORD,"--admin_email=cloud-admin@example.invalid","--skip-email",as_admin=False)
+    RESULT["php"]=out(["docker","exec",APP,"php","-r","echo PHP_VERSION;"]).decode().strip()
+    RESULT["database_version"]=out(["docker","exec",DB,"mariadb","--version"]).decode().strip()
     RESULT["wordpress"]=wp("core","version").decode().strip()
     assert RESULT["wordpress"]=="7.1.4"
     wp("theme","activate","tehnet")
@@ -233,9 +237,36 @@ echo hash('sha256',wp_json_encode($state));
     assert found,"Native test result missing"
     RESULT["native_checks"]=int(found[1])
     assert wp("eval-file","/tmp/tn-cloud-snapshot.php").decode().strip()==baseline_rows,"Native tests must restore original fixture rows"
+    PHASE="fixture-http-readiness"
+    inside_ready=False
+    for _ in range(20):
+        ready=out(["docker","exec",APP,"php","-r",'$s=@fsockopen("127.0.0.1",80,$e,$m,1);echo $s?"READY":"WAIT";if($s)fclose($s);']).decode()
+        if ready=="READY":inside_ready=True;break
+        time.sleep(1)
+    RESULT["app_http80_ready"]=inside_ready
+    assert inside_ready,"Owned fixture Apache HTTP readiness required"
+    host_ready=False
+    try:
+        with socket.create_connection(("127.0.0.1",18085),timeout=2):host_ready=True
+    except OSError:pass
+    RESULT["published_loopback_tcp_ready"]=host_ready
+    if not host_ready:
+        app_pid=int(inspect(APP)["State"]["Pid"])
+        assert app_pid>1 and inspect(APP)["State"]["Running"],"Owned app namespace identity required"
+        namespace=["nsenter","--target",str(app_pid),"--net","--"]
+        proxy_code='const net=require("node:net");net.createServer(c=>{const u=net.connect(80,"127.0.0.1");c.pipe(u);u.pipe(c);c.on("error",()=>u.destroy());u.on("error",()=>c.destroy());}).listen(18085,"127.0.0.1");'
+        log=(ROOT/"namespace-proxy-private.log").open("wb")
+        process=subprocess.Popen(namespace+["node","-e",proxy_code],stdout=log,stderr=log)
+        CHILDREN.append((process,log))
+        time.sleep(.5)
+        assert process.poll() is None,"Owned namespace loopback relay must be running"
+        BROWSER_PREFIX=namespace+["node"]
+        RESULT["browser_network"]="Owned app network namespace; loopback relay18085 to Apache80; Docker internal isolation retained"
+    else:
+        RESULT["browser_network"]="Host loopback-only published fixture port"
     PHASE="before-browser"
     before=ROOT/"before-browser"
-    out(["node","tests/cloud-queue-site-readonly.cjs",before],timeout=240,
+    out([*BROWSER_PREFIX,"tests/cloud-queue-site-readonly.cjs",before],timeout=240,
         env={**node_env,"TN_SERVICE_ORIGIN":"http://localhost:18085","TN_SERVICE_BEFORE":"1"})
     RESULT["before_browser_checks"]=json.loads((before/"before-browser.json").read_text())["passed"]
     PHASE="immutable-bundle"
@@ -261,7 +292,7 @@ echo hash('sha256',wp_json_encode($state));
     RESULT["renderer_checks"]=int(found[1])
     PHASE="after-browser"
     after=ROOT/"after-browser"
-    out(["node","tests/cloud-queue-site-readonly.cjs",after],timeout=300,
+    out([*BROWSER_PREFIX,"tests/cloud-queue-site-readonly.cjs",after],timeout=300,
         env={**node_env,"TN_SERVICE_ORIGIN":"http://localhost:18085","TN_SERVICE_BEFORE":"0"})
     browser=json.loads((after/"browser.json").read_text())
     RESULT["browser_checks"]=browser["passed"]
@@ -296,12 +327,19 @@ except BaseException as error:
                   error_message=str(error)[:200] if isinstance(error,(AssertionError,RuntimeError)) else "See safe phase classification",
                   raw_diagnostics_exported=False)
 finally:
+    for process,log in reversed(CHILDREN):
+        if process.poll() is None:
+            process.terminate()
+            try:process.wait(timeout=5)
+            except subprocess.TimeoutExpired:process.kill();process.wait()
+        log.close()
+    RESULT["task_loopback_relays_stopped"]=all(process.poll() is not None for process,_ in CHILDREN)
     for name in reversed(CONTAINERS):
         run(["docker","rm","--force","--volumes",name],allow_failure=True)
     if NETWORK_CREATED:run(["docker","network","rm",NET],allow_failure=True)
     RESULT["task_containers_removed"]=all(run(["docker","inspect",name],allow_failure=True).returncode!=0 for name in CONTAINERS)
     RESULT["task_network_removed"]=(not NETWORK_CREATED or run(["docker","network","inspect",NET],allow_failure=True).returncode!=0)
-    if not RESULT["task_containers_removed"] or not RESULT["task_network_removed"]:
+    if not RESULT["task_containers_removed"] or not RESULT["task_network_removed"] or not RESULT["task_loopback_relays_stopped"]:
         RESULT.update(status="FAILED",failed_phase="cleanup")
     RESULT["private_diagnostics_lifetime"]="Ephemeral job only; raw logs are not exported and are deleted at teardown"
     RESULT["completed_utc"]=datetime.datetime.now(datetime.timezone.utc).isoformat()
