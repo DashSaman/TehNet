@@ -25,8 +25,10 @@ if($phase==='seed'){
  if($wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->posts} WHERE post_type='tn_ticket'")!=='0')throw new RuntimeException('Owned ticket cleanup failed');
  echo 'TN_P94_PERSISTENCE '.wp_json_encode(['status'=>'PASS','private_canonical_ticket'=>true,'context'=>'general-network','records_created'=>1,'owned_records_removed'=>true,'production_mutations'=>0])."\n";
 }else if($phase==='diagnostic'){
+ global$wpdb;$beforeRow=$wpdb->get_row("SELECT option_value,autoload FROM {$wpdb->options} WHERE option_name='blog_public'",ARRAY_A);
  $before=get_option('blog_public');$robots=apply_filters('wp_robots',[]);$site=wp_sitemaps_get_server();$normal=$site->sitemaps_enabled();
  update_option('blog_public',1);$open=apply_filters('wp_robots',[]);$sitemap_open=$site->sitemaps_enabled();update_option('blog_public',$before);
- echo 'TN_P94_NOINDEX_FIXTURE '.wp_json_encode(['blog_public_original'=>$before,'robots_original'=>$robots,'sitemap_original'=>$normal,'synthetic_public_1_robots'=>$open,'synthetic_public_1_sitemap'=>$sitemap_open,'restored'=>get_option('blog_public')===$before,'production_equivalence'=>'NOT_PROVEN'])."\n";
+ $afterRow=$wpdb->get_row("SELECT option_value,autoload FROM {$wpdb->options} WHERE option_name='blog_public'",ARRAY_A);if($afterRow!==$beforeRow)throw new RuntimeException('Persisted visibility option restoration failed');
+ echo 'TN_P94_NOINDEX_FIXTURE '.wp_json_encode(['blog_public_original'=>$before,'robots_original'=>$robots,'sitemap_original'=>$normal,'synthetic_public_1_robots'=>$open,'synthetic_public_1_sitemap'=>$sitemap_open,'restored_persisted_row'=>$afterRow===$beforeRow,'restored_value'=>(string)get_option('blog_public')===(string)$before,'production_equivalence'=>'NOT_PROVEN'])."\n";
 }else throw new RuntimeException('Unknown fixture phase');
 }catch(Throwable $e){echo 'TN_P94_FIXTURE_FAIL '.wp_json_encode(['class'=>get_class($e),'label'=>$e->getMessage()])."\n";exit(1);}
