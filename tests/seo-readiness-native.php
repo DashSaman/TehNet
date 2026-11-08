@@ -3,13 +3,12 @@ try {
 $root='/src/content/service-readiness-2026-11-08/';
 $m=json_decode(file_get_contents($root.'manifest.json'),true,512,JSON_THROW_ON_ERROR);$checks=0;
 function tn_check($v,$label){global$checks;if(!$v)throw new RuntimeException($label);$checks++;}
+tn_check(defined('WC_VERSION')&&WC_VERSION==='11.2.1','actual WooCommerce version');
 foreach($m['targets']as$t){
  $before=file_get_contents($root.$t['id'].'-before.html');$after=file_get_contents($root.$t['content_file']);
  tn_check(hash('sha256',$before)===$t['expected_content_sha256'],'baseline hash');
  tn_check(hash('sha256',$after)===$t['content_sha256'],'candidate hash');
- $slug=$t['id']===8?'services':'network-tehran';
- $id=wp_insert_post(wp_slash(['import_id'=>$t['id'],'post_type'=>'page','post_status'=>'publish','post_parent'=>$t['id']===8?0:8,'post_name'=>$slug,'post_title'=>$t['title_observed'],'post_excerpt'=>'Synthetic fixture only','post_content'=>$before]),true);
- tn_check($id===$t['id'],'exact synthetic owner');
+ $id=$t['id'];tn_check(get_post($id)->post_content===$before,'exact seeded owner baseline');
  $saved=get_post($id);$meta=get_post_meta($id);
  tn_check(serialize_blocks(parse_blocks($after))===$after,'native block roundtrip');
  tn_check(wp_kses_post($after)===$after,'native content sanitization');

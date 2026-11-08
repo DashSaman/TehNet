@@ -10,6 +10,8 @@ cleanup(){ docker rm -f -v "$stage_db" "$stage_cli" >/dev/null 2>&1 || true; doc
 trap cleanup EXIT
 stage_password="$(openssl rand -hex 24)"
 echo "::add-mask::$stage_password"
+curl --fail --location --proto '=https' --tlsv1.2 --max-time 120 --output "$stage_root/woocommerce.zip" https://github.com/woocommerce/woocommerce/releases/download/11.2.1/woocommerce.zip
+echo "3066f85e46d1c1f6451296da0300b459963b504fd0d2f75869701ee744833aaf  $stage_root/woocommerce.zip" | sha256sum --check --status
 docker network create --internal "$stage_net" >/dev/null
 docker run -d --name "$stage_db" --network "$stage_net" --network-alias db -e MARIADB_ROOT_PASSWORD="$stage_password" -e MARIADB_DATABASE=wordpress mariadb:11.4.13-noble >/dev/null
 for n in {1..40}; do if docker exec "$stage_db" healthcheck.sh --connect --innodb_initialized >/dev/null 2>&1; then break; fi; sleep 1; done
@@ -18,6 +20,8 @@ docker cp "$stage_cli:/usr/local/bin/wp" "$stage_root/wp"
 docker run --rm --network "$stage_net" -e TN_FIXTURE_PASSWORD="$stage_password" -v "$PWD:/src:ro" -v "$stage_root:/lab" --entrypoint bash wordpress:7.1.4-php8.3-apache -eu -c '
 cp -a /usr/src/wordpress/. /var/www/html/
 cp -a /src/site/. /var/www/html/wp-content/
+cd /var/www/html/wp-content/plugins
+php -r '"'"'$z=new ZipArchive();$z->open("/lab/woocommerce.zip");$z->extractTo(".");$z->close();'"'"'
 cat > /var/www/html/wp-content/mu-plugins/tn-isolation.php <<'"'"'PHP'"'"'
 <?php
 add_filter("pre_wp_mail","__return_false",PHP_INT_MAX);
@@ -33,7 +37,8 @@ define("WP_POST_REVISIONS",false);
 PHP
 php /lab/wp --allow-root core install --url=https://example.invalid --title="Synthetic fixture" --admin_user=fixture --admin_password="$TN_FIXTURE_PASSWORD" --admin_email=fixture@example.invalid --skip-email
 php /lab/wp --allow-root option update blog_public 0
-php /lab/wp --allow-root plugin activate tehnet-core tehnet-store
+php /lab/wp --allow-root --user=1 eval-file /src/tests/seo-readiness-seed.php
+php /lab/wp --allow-root plugin activate woocommerce tehnet-core tehnet-store
 php /lab/wp --allow-root --user=1 eval-file /src/tests/seo-readiness-native.php
 '
 echo "TN_SEO_CLEANUP_PENDING_TRAP"
