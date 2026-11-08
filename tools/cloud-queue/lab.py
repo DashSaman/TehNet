@@ -260,7 +260,7 @@ try:
     shot("q01-connected-baseline")
     click(50,366)
     shot("q02-queues-window")
-    click(180,224)
+    click(400,294)
     shot("q03-new-dialog")
     RESULT.update(status="GUI_PROBE_REQUIRES_REVIEW", captures=CAPTURES,
                   limits=["Actual Queue configuration/counters/disable-enable acceptance is not complete.",
