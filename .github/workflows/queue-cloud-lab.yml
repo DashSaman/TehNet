@@ -27,7 +27,7 @@ jobs:
       - name: Install isolated test prerequisites
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends qemu-system-x86 qemu-utils xvfb xdotool python3-paramiko python3-pil unzip libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libxcb-cursor0 libxkbcommon-x11-0
+          sudo apt-get install -y --no-install-recommends qemu-system-x86 qemu-utils xvfb xdotool python3-paramiko python3-pil unzip libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libxcb-cursor0 libxkbcommon-x11-0 libegl1
       - name: Verify remote executor
         run: |
           test "$RUNNER_ENVIRONMENT" = github-hosted
