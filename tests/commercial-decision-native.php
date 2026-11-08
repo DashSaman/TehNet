@@ -20,7 +20,9 @@ if($phase==='seed'){
 }elseif($phase==='accept'){
  global$wpdb;$original=json_decode(file_get_contents('/lab/rewrite-before-private.json'),true);$ck($wpdb->get_row("SELECT option_value,autoload FROM {$wpdb->options} WHERE option_name='rewrite_rules'",ARRAY_A)===$original,'Stored rewrite_rules unchanged');
  foreach([76=>'gns3-mikrotik',188=>'wireguard-mtu',207=>'voice-network-checklist']as$id=>$slug)$ck(url_to_postid(home_url('/lab/'.$slug.'/'))===$id,'Actual WordPress resolver reaches known public Lab page '.$id);
- $types=new TehNet_Core_Content_Types();$collision=wp_insert_post(['post_type'=>'tn_lab','post_status'=>'draft','post_name'=>'voice-network-checklist','post_title'=>'Synthetic collision probe'],true);$ck(!is_wp_error($collision),'Owned CPT collision fixture');try{$rules=$types->existing_lab_page_rules(['unrelated/?
+ $types=new TehNet_Core_Content_Types();$collision=wp_insert_post(['post_type'=>'tn_lab','post_status'=>'draft','post_name'=>'voice-network-checklist','post_title'=>'Synthetic collision probe'],true);$ck(!is_wp_error($collision),'Owned CPT collision fixture');
+ try{$rules=$types->existing_lab_page_rules(['unrelated/?$'=>'index.php?name=unrelated']);$ck(!isset($rules['lab/voice-network-checklist/?$'])&&$rules['unrelated/?$']==='index.php?name=unrelated','Same-slug CPT is not silently masked; unrelated rule retained');}finally{wp_delete_post((int)$collision,true);}
+
  $before=json_decode(file_get_contents('/lab/decision-before-private.json'),true);foreach($m['targets']as$t){$p=get_post($t['id']);$ck($p->post_content===file_get_contents($root.$t['content_file']),'Canonical publisher saved exact body '.$t['id']);$ck($p->post_title===($t['title']??$before[$t['id']]['title']),'Scoped title '.$t['id']);$ck($p->post_excerpt===($t['excerpt']??$before[$t['id']]['excerpt']),'Scoped excerpt '.$t['id']);$ck(get_post_meta($p->ID)===$before[$t['id']]['meta'],'Owner meta unchanged '.$t['id']);preg_match_all('/id="([^"]+)"/',$before[$t['id']]['body'],$a);foreach($a[1]as$anchor)$ck(str_contains($p->post_content,'id="'.$anchor.'"'),'Preserved old anchor '.$anchor);}
  foreach($m['pages']as$t){$p=get_page_by_path(($t['parent_id']?'services/':'').$t['slug']);$ck($p&&$p->post_status==='publish'&&$p->post_content===file_get_contents($root.$t['content_file']),'Exact new Gutenberg page '.$t['key']);}
  $ck((string)get_option('blog_public')==='0','Global noindex remains0');
@@ -36,54 +38,5 @@ if($phase==='seed'){
  foreach($m['pages']as$t){$p=get_page_by_path(($t['parent_id']?'services/':'').$t['slug']);$ck($p&&$p->post_status==='draft','Rollback drafts owned new page '.$t['key']);}
  $ck((string)get_option('blog_public')==='0','Rollback keeps global noindex0');
 }else throw new RuntimeException('Unknown phase');
-echo 'TN_DECISION_NATIVE '.wp_json_encode(['phase'=>$phase,'status'=>'PASS','checks'=>count($checks),'labels'=>$checks,'production_mutations'=>0])."\n";
-}catch(Throwable$e){echo 'TN_DECISION_NATIVE '.wp_json_encode(['status'=>'FAIL','phase'=>$phase??'unknown','label'=>$e->getMessage()])."\n";exit(1);}
-=>'index.php?name=unrelated']);$ck(!isset($rules['lab/voice-network-checklist/?
- $before=json_decode(file_get_contents('/lab/decision-before-private.json'),true);foreach($m['targets']as$t){$p=get_post($t['id']);$ck($p->post_content===file_get_contents($root.$t['content_file']),'Canonical publisher saved exact body '.$t['id']);$ck($p->post_title===($t['title']??$before[$t['id']]['title']),'Scoped title '.$t['id']);$ck($p->post_excerpt===($t['excerpt']??$before[$t['id']]['excerpt']),'Scoped excerpt '.$t['id']);$ck(get_post_meta($p->ID)===$before[$t['id']]['meta'],'Owner meta unchanged '.$t['id']);preg_match_all('/id="([^"]+)"/',$before[$t['id']]['body'],$a);foreach($a[1]as$anchor)$ck(str_contains($p->post_content,'id="'.$anchor.'"'),'Preserved old anchor '.$anchor);}
- foreach($m['pages']as$t){$p=get_page_by_path(($t['parent_id']?'services/':'').$t['slug']);$ck($p&&$p->post_status==='publish'&&$p->post_content===file_get_contents($root.$t['content_file']),'Exact new Gutenberg page '.$t['key']);}
- $ck((string)get_option('blog_public')==='0','Global noindex remains0');
-}elseif($phase==='verify-ticket'){
- global$wpdb;$ids=$wpdb->get_col("SELECT ID FROM {$wpdb->posts} WHERE post_type='tn_ticket'");$ck(count($ids)===1,'Exactly one synthetic canonical ticket');
- $id=(int)$ids[0];$ck(get_post_status($id)==='private'&&get_post_meta($id,'_tn_service_context',true)==='server-scoping'&&get_post_meta($id,'_tn_request_kind',true)==='service'&&get_post_meta($id,'_tn_ticket_state',true)==='open'&&get_post_meta($id,'_tn_email',true)==='fixture@example.invalid'&&count(get_post_meta($id,'_tn_thread',true))===1,'Server request persisted in existing private ticket infrastructure');
- wp_delete_post($id,true);$wpdb->query($wpdb->prepare("DELETE FROM {$wpdb->options} WHERE option_name LIKE %s OR option_name LIKE %s",$wpdb->esc_like('_transient_tn_service_receipt_').'%',$wpdb->esc_like('_transient_timeout_tn_service_receipt_').'%'));
- $ck($wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->posts} WHERE post_type='tn_ticket'")==='0','Owned ticket removed');
-}elseif($phase==='rollback-accept'){
- $before=json_decode(file_get_contents('/lab/decision-before-private.json'),true);foreach($m['targets']as$t){$p=get_post($t['id']);$ck($p->post_content===$before[$p->ID]['body']&&$p->post_title===$before[$p->ID]['title']&&$p->post_excerpt===$before[$p->ID]['excerpt']&&get_post_meta($p->ID)===$before[$p->ID]['meta'],'Restored exact owner fields/meta '.$p->ID);}
- foreach($m['pages']as$t){$p=get_page_by_path(($t['parent_id']?'services/':'').$t['slug']);$ck($p&&$p->post_status==='draft','Rollback drafts owned new page '.$t['key']);}
- $ck((string)get_option('blog_public')==='0','Rollback keeps global noindex0');
-}else throw new RuntimeException('Unknown phase');
-echo 'TN_DECISION_NATIVE '.wp_json_encode(['phase'=>$phase,'status'=>'PASS','checks'=>count($checks),'labels'=>$checks,'production_mutations'=>0])."\n";
-}catch(Throwable$e){echo 'TN_DECISION_NATIVE '.wp_json_encode(['status'=>'FAIL','phase'=>$phase??'unknown','label'=>$e->getMessage()])."\n";exit(1);}
-])&&$rules['unrelated/?
- $before=json_decode(file_get_contents('/lab/decision-before-private.json'),true);foreach($m['targets']as$t){$p=get_post($t['id']);$ck($p->post_content===file_get_contents($root.$t['content_file']),'Canonical publisher saved exact body '.$t['id']);$ck($p->post_title===($t['title']??$before[$t['id']]['title']),'Scoped title '.$t['id']);$ck($p->post_excerpt===($t['excerpt']??$before[$t['id']]['excerpt']),'Scoped excerpt '.$t['id']);$ck(get_post_meta($p->ID)===$before[$t['id']]['meta'],'Owner meta unchanged '.$t['id']);preg_match_all('/id="([^"]+)"/',$before[$t['id']]['body'],$a);foreach($a[1]as$anchor)$ck(str_contains($p->post_content,'id="'.$anchor.'"'),'Preserved old anchor '.$anchor);}
- foreach($m['pages']as$t){$p=get_page_by_path(($t['parent_id']?'services/':'').$t['slug']);$ck($p&&$p->post_status==='publish'&&$p->post_content===file_get_contents($root.$t['content_file']),'Exact new Gutenberg page '.$t['key']);}
- $ck((string)get_option('blog_public')==='0','Global noindex remains0');
-}elseif($phase==='verify-ticket'){
- global$wpdb;$ids=$wpdb->get_col("SELECT ID FROM {$wpdb->posts} WHERE post_type='tn_ticket'");$ck(count($ids)===1,'Exactly one synthetic canonical ticket');
- $id=(int)$ids[0];$ck(get_post_status($id)==='private'&&get_post_meta($id,'_tn_service_context',true)==='server-scoping'&&get_post_meta($id,'_tn_request_kind',true)==='service'&&get_post_meta($id,'_tn_ticket_state',true)==='open'&&get_post_meta($id,'_tn_email',true)==='fixture@example.invalid'&&count(get_post_meta($id,'_tn_thread',true))===1,'Server request persisted in existing private ticket infrastructure');
- wp_delete_post($id,true);$wpdb->query($wpdb->prepare("DELETE FROM {$wpdb->options} WHERE option_name LIKE %s OR option_name LIKE %s",$wpdb->esc_like('_transient_tn_service_receipt_').'%',$wpdb->esc_like('_transient_timeout_tn_service_receipt_').'%'));
- $ck($wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->posts} WHERE post_type='tn_ticket'")==='0','Owned ticket removed');
-}elseif($phase==='rollback-accept'){
- $before=json_decode(file_get_contents('/lab/decision-before-private.json'),true);foreach($m['targets']as$t){$p=get_post($t['id']);$ck($p->post_content===$before[$p->ID]['body']&&$p->post_title===$before[$p->ID]['title']&&$p->post_excerpt===$before[$p->ID]['excerpt']&&get_post_meta($p->ID)===$before[$p->ID]['meta'],'Restored exact owner fields/meta '.$p->ID);}
- foreach($m['pages']as$t){$p=get_page_by_path(($t['parent_id']?'services/':'').$t['slug']);$ck($p&&$p->post_status==='draft','Rollback drafts owned new page '.$t['key']);}
- $ck((string)get_option('blog_public')==='0','Rollback keeps global noindex0');
-}else throw new RuntimeException('Unknown phase');
-echo 'TN_DECISION_NATIVE '.wp_json_encode(['phase'=>$phase,'status'=>'PASS','checks'=>count($checks),'labels'=>$checks,'production_mutations'=>0])."\n";
-}catch(Throwable$e){echo 'TN_DECISION_NATIVE '.wp_json_encode(['status'=>'FAIL','phase'=>$phase??'unknown','label'=>$e->getMessage()])."\n";exit(1);}
-]==='index.php?name=unrelated','Same-slug CPT is not silently masked; unrelated rule retained');}finally{wp_delete_post((int)$collision,true);}
-
- $before=json_decode(file_get_contents('/lab/decision-before-private.json'),true);foreach($m['targets']as$t){$p=get_post($t['id']);$ck($p->post_content===file_get_contents($root.$t['content_file']),'Canonical publisher saved exact body '.$t['id']);$ck($p->post_title===($t['title']??$before[$t['id']]['title']),'Scoped title '.$t['id']);$ck($p->post_excerpt===($t['excerpt']??$before[$t['id']]['excerpt']),'Scoped excerpt '.$t['id']);$ck(get_post_meta($p->ID)===$before[$t['id']]['meta'],'Owner meta unchanged '.$t['id']);preg_match_all('/id="([^"]+)"/',$before[$t['id']]['body'],$a);foreach($a[1]as$anchor)$ck(str_contains($p->post_content,'id="'.$anchor.'"'),'Preserved old anchor '.$anchor);}
- foreach($m['pages']as$t){$p=get_page_by_path(($t['parent_id']?'services/':'').$t['slug']);$ck($p&&$p->post_status==='publish'&&$p->post_content===file_get_contents($root.$t['content_file']),'Exact new Gutenberg page '.$t['key']);}
- $ck((string)get_option('blog_public')==='0','Global noindex remains0');
-}elseif($phase==='verify-ticket'){
- global$wpdb;$ids=$wpdb->get_col("SELECT ID FROM {$wpdb->posts} WHERE post_type='tn_ticket'");$ck(count($ids)===1,'Exactly one synthetic canonical ticket');
- $id=(int)$ids[0];$ck(get_post_status($id)==='private'&&get_post_meta($id,'_tn_service_context',true)==='server-scoping'&&get_post_meta($id,'_tn_request_kind',true)==='service'&&get_post_meta($id,'_tn_ticket_state',true)==='open'&&get_post_meta($id,'_tn_email',true)==='fixture@example.invalid'&&count(get_post_meta($id,'_tn_thread',true))===1,'Server request persisted in existing private ticket infrastructure');
- wp_delete_post($id,true);$wpdb->query($wpdb->prepare("DELETE FROM {$wpdb->options} WHERE option_name LIKE %s OR option_name LIKE %s",$wpdb->esc_like('_transient_tn_service_receipt_').'%',$wpdb->esc_like('_transient_timeout_tn_service_receipt_').'%'));
- $ck($wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->posts} WHERE post_type='tn_ticket'")==='0','Owned ticket removed');
-}elseif($phase==='rollback-accept'){
- $before=json_decode(file_get_contents('/lab/decision-before-private.json'),true);foreach($m['targets']as$t){$p=get_post($t['id']);$ck($p->post_content===$before[$p->ID]['body']&&$p->post_title===$before[$p->ID]['title']&&$p->post_excerpt===$before[$p->ID]['excerpt']&&get_post_meta($p->ID)===$before[$p->ID]['meta'],'Restored exact owner fields/meta '.$p->ID);}
- foreach($m['pages']as$t){$p=get_page_by_path(($t['parent_id']?'services/':'').$t['slug']);$ck($p&&$p->post_status==='draft','Rollback drafts owned new page '.$t['key']);}
- $ck((string)get_option('blog_public')==='0','Rollback keeps global noindex0');
-}else throw new RuntimeException('Unknown phase');
-echo 'TN_DECISION_NATIVE '.wp_json_encode(['phase'=>$phase,'status'=>'PASS','checks'=>count($checks),'labels'=>$checks,'production_mutations'=>0])."\n";
+echo 'TN_DECISION_NATIVE '.wp_json_encode(['phase'=>$phase,'status'=>'PASS','runtime'=>['WordPress'=>$GLOBALS['wp_version'],'PHP'=>PHP_VERSION,'Core'=>defined('TEHNET_CORE_VERSION')?TEHNET_CORE_VERSION:'NONE','database'=>$GLOBALS['wpdb']->db_version()],'checks'=>count($checks),'labels'=>$checks,'production_mutations'=>0])."\n";
 }catch(Throwable$e){echo 'TN_DECISION_NATIVE '.wp_json_encode(['status'=>'FAIL','phase'=>$phase??'unknown','label'=>$e->getMessage()])."\n";exit(1);}

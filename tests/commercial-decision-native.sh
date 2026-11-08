@@ -23,6 +23,7 @@ for n in {1..40}; do if docker exec "$stage_db" healthcheck.sh --connect --innod
 docker create --name "$stage_cli" wordpress:cli-2.12.0-php8.3 >/dev/null
 docker cp "$stage_cli:/usr/local/bin/wp" "$stage_root/wp"
 docker run -d --name "$stage_app" --network "$stage_net" -e TN_FIXTURE_PASSWORD="$stage_password" -v "$PWD:/src:ro" -v "$stage_root:/lab" -v "$stage_root/web:/var/www/html" --entrypoint bash wordpress:7.1.4-php8.3-apache -eu -c '
+for fixture_php in /src/tests/commercial-decision-native.php /src/tests/index-decision-native.php /src/ops/migrate-growth-content.php /src/ops/migrate-index-policy.php /src/site/plugins/tehnet-core/includes/class-content-types.php /src/site/plugins/tehnet-core/includes/class-index-policy.php; do php -l "$fixture_php"; done
 cp -a /usr/src/wordpress/. /var/www/html/
 cp -a /src/site/. /var/www/html/wp-content/
 cd /var/www/html/wp-content/plugins
