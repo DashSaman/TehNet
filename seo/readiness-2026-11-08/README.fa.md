@@ -1,7 +1,11 @@
-# CURRENT — PR94 full frontend و تشخیص noindex
-**VERIFIED_FULL_FRONTEND_AND_SYNTHETIC_TICKET_NOT_DEPLOYED**. [گزارش۳۲۷frontend/۳۳native/تیکتخصوصی](full-frontend-report.fa.md)، [رسیدکامل](full-frontend-verification.json) و [منبع production noindexاحرازشده باSSH](noindex-provenance.fa.md) مرجع فعلی‌اند. noindex/liveدست‌نخورده، merge/deployتأییدندارند. فقط آزمون خودکار و۰تصویر طبق انتخاب مالک. Googlechallengeواقعی و exactruntime/PHPpatch/fullSQLrestore/canonicalpublisherqualified نیستند. پیکربندیخواندنیSSHموجودفقطپسازتصریحمالکبهکاررفت؛ هیچسیستممحلیبرایlab/browserاستفاده نشد.
+# وضعیت فعلی PR94
+**VERIFIED_FULL_FRONTEND_AND_SYNTHETIC_TICKET_NOT_DEPLOYED**
 
-## HISTORICAL — بستهٔ آمادگی و component-only پیش از fullfrontend/SSH
+[گزارش آزمون کامل frontend](full-frontend-report.fa.md)، [رسید ۳۲۷ بررسی و ذخیره/حذف تیکت](full-frontend-verification.json) و [منبع noindex احرازشده با SSH](noindex-provenance.fa.md) مرجع فعلی‌اند. سایت زنده و noindex تغییر نکرده‌اند؛ merge و انتشار هنوز تأیید ندارند.
+
+طبق انتخاب مالک فقط آزمون خودکار انجام شد و هیچ تصویری منتشر نشد. چالش واقعی Google، یکسانی دقیق patch PHP، restore کامل SQL و ناشر canonical هنوز qualified نیستند. اتصال SSH موجود فقط پس از تصریح تازهٔ مالک برای تشخیص خواندنی استفاده شد؛ سیستم محلی برای لاب یا مرورگر به کار نرفت.
+
+## تاریخچه: بستهٔ آمادگی و component-only، پیش از آزمون کامل و احراز SSH
 # بستهٔ آمادگی ایندکس و کشف خدمات —۸ نوامبر۲۰۲۶
 READY_FOR_REVIEW_NOT_DEPLOYED. این بسته noindex، CDN، robots، sitemap، پرداخت، CAPTCHA یا MyTel را تغییر نمی‌دهد. manifest صرفاً پیشنهاد غیرفعال۱۱URL عمومی است؛ تأیید readiness هر URL و مجوز انتشار هنوز لازم است. خارج فهرست، policy فعلی حفظ می‌شود؛ کالای استعلامی با رفع noindex قابل خرید نمی‌شود.
 
