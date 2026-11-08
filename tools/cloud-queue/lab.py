@@ -154,7 +154,7 @@ def measure_ping(node, destination, label):
     observed = {"source":source,"destination":destination,"sent":int(counts[1]),"received":int(counts[2]),
                 "packet_loss_percent":int(counts[3]),"average_rtt_ms":round(delay,3)}
     RESULT.setdefault("icmp_observations",{})[label]=observed
-    assert observed["sent"]==20 and observed["received"]==20 and observed["packet_loss_percent"]==0, "Twenty real ICMP replies required"
+    assert observed["sent"]==20 and 0<observed["received"]<=20, "Finite ICMP probe must retain observable replies"
     return delay
 
 def queue_state(node):
@@ -163,9 +163,10 @@ def queue_state(node):
                  ':if ([:len $q]=1) do={:put ("TARGET=" . [/queue simple get $q target]); ' +
                  ':put ("LIMIT=" . [/queue simple get $q max-limit]); ' +
                  ':put ("DISABLED=" . [/queue simple get $q disabled]); ' +
-                 ':put ("BYTES=" . [/queue simple get $q bytes])}')
+                 ':put ("BYTES=" . [/queue simple get $q bytes]); ' +
+                 ':put ("DROPPED=" . [/queue simple get $q dropped])}')
     fields = {}
-    for key in ("COUNT", "TARGET", "LIMIT", "DISABLED", "BYTES"):
+    for key in ("COUNT", "TARGET", "LIMIT", "DISABLED", "BYTES", "DROPPED"):
         match = re.search(r"(?:^|[\r\n])" + key + r"=([^\r\n]*)", output)
         assert match, "Missing exact queue readback field: " + key
         fields[key] = match[1].strip()
@@ -173,7 +174,7 @@ def queue_state(node):
     assert fields["COUNT"] == "1" and fields["TARGET"] == "192.0.2.10/32"
     exact_queue_limits(fields["LIMIT"])
     assert fields["DISABLED"] in ("true", "false", "yes", "no")
-    assert re.fullmatch(r"\d+/\d+", fields["BYTES"])
+    assert all(re.fullmatch(r"\d+/\d+",fields[k]) for k in ("BYTES","DROPPED"))
     return fields
 
 def xdo(*args):
@@ -277,6 +278,8 @@ try:
         ros(endpoint,"/tool bandwidth-server set enabled=no")
     base_up = measure_ping(client,"203.0.113.1","baseline_client_initiated")
     base_down = measure_ping(r2,"192.0.2.10","baseline_r2_initiated")
+    assert all(RESULT["icmp_observations"][k]["packet_loss_percent"]==0 for k in
+               ("baseline_client_initiated","baseline_r2_initiated")), "Both baseline flows must be lossless"
     phase = "display"
     (ROOT / "frames").mkdir()
     start(["Xvfb", ":99", "-screen", "0", "1536x960x24", "-nolisten", "tcp", "-fbdir", ROOT / "frames"], "xvfb")
@@ -328,7 +331,10 @@ try:
     active_down = measure_ping(r2,"192.0.2.10","active_r2_initiated")
     active = queue_state(r1)
     assert all(int(n)>0 for n in active["BYTES"].split("/")), "Both actual Queue byte counters must increase"
-    assert active_up > base_up+5 and active_down > base_down+5, "Controlled ICMP load must show an actual latency effect"
+    active_losses=[RESULT["icmp_observations"][k]["packet_loss_percent"] for k in ("active_client_initiated","active_r2_initiated")]
+    assert (active_up>base_up+5 or active_losses[0]>0) and (active_down>base_down+5 or active_losses[1]>0), "Both overloaded flows must show an actual delay/loss effect"
+    if any(active_losses):
+        assert sum(int(n) for n in active["DROPPED"].split("/"))>0, "Observed overload loss requires actual Queue drop evidence"
     click(703,304)
     shot("q07-active-statistics")
     phase = "gui-disable-recovery"
@@ -340,9 +346,11 @@ try:
     shot("q08-disabled-general")
     disabled_up = measure_ping(client,"203.0.113.1","disabled_client_initiated")
     disabled_down = measure_ping(r2,"192.0.2.10","disabled_r2_initiated")
-    assert disabled_up+5 < active_up and disabled_down+5 < active_down, "Disable must reverse the measured latency effect"
+    assert all(RESULT["icmp_observations"][k]["packet_loss_percent"]==0 for k in
+               ("disabled_client_initiated","disabled_r2_initiated")), "Disabling the queue must restore lossless delivery"
+    assert (disabled_up+5<active_up or active_losses[0]>0) and (disabled_down+5<active_down or active_losses[1]>0), "Disable must reverse the observed delay/loss effect"
     disabled_after=queue_state(r1)
-    assert disabled_after["BYTES"]==disabled["BYTES"], "Disabled queue counters must remain unchanged under the same traffic"
+    assert all(disabled_after[k]==disabled[k] for k in ("BYTES","DROPPED")), "Disabled Queue byte/drop counters must remain unchanged under the same traffic"
     phase = "gui-reenable"
     click(691,340)
     click(1048,689)
@@ -351,9 +359,12 @@ try:
     shot("q09-reenabled-general")
     again_up = measure_ping(client,"203.0.113.1","reenabled_client_initiated")
     again_down = measure_ping(r2,"192.0.2.10","reenabled_r2_initiated")
-    assert again_up > disabled_up+5 and again_down > disabled_down+5, "Re-enable must restore the measured latency effect"
+    again_losses=[RESULT["icmp_observations"][k]["packet_loss_percent"] for k in ("reenabled_client_initiated","reenabled_r2_initiated")]
+    assert (again_up>disabled_up+5 or again_losses[0]>0) and (again_down>disabled_down+5 or again_losses[1]>0), "Re-enable must restore the observed delay/loss effect"
     final_state=queue_state(r1)
     assert all(int(new)>int(old) for new,old in zip(final_state["BYTES"].split("/"),active["BYTES"].split("/"))), "Both queue byte counters must increase again after GUI re-enable"
+    if any(again_losses):
+        assert sum(int(n) for n in final_state["DROPPED"].split("/"))>sum(int(n) for n in active["DROPPED"].split("/")), "Re-enabled overloaded loss requires new Queue drops"
     click(703,304)
     shot("q10-reenabled-statistics")
     phase = "owned-rule-cleanup"
@@ -372,11 +383,11 @@ try:
     RESULT.update(status="LAB_FLOW_VERIFIED_PENDING_MEDIA_REVIEW", captures=CAPTURES,
                   queue_created_by="Actual WinBox GUI; command-line readback only",
                   active_counters=active, disable_enable_actual=True, receive_rate_effect_verified=False,
-                  latency_effect_verified=True, queue_readbacks={"active":active,"disabled":disabled_after,"reenabled":final_state},
+                  traffic_delay_or_drop_effect_verified=True, queue_readbacks={"active":active,"disabled":disabled_after,"reenabled":final_state},
                   cleanup={"only_owned_rule_removed":True,"servers_disabled":True,"queue_empty":True,
                            "ping_5_of_5":True,"management_retained":True},
                   limits=["Controlled20x1000-byte ICMP probes in both initiation directions on CHR/TCG only; not internet, hardware or customer capacity.",
-                          "ICMP latency/counter effect is verified; separate receive-rate/throughput measurement is NOT qualified.",
+                          "ICMP overload delay/drop and Queue counters are verified; separate receive-rate/throughput measurement is NOT qualified.",
                           "All new screenshots still require visual acceptance; website/native staging not qualified.",
                           "No new production body or image was published."])
 except BaseException as e:
