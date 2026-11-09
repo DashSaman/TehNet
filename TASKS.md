@@ -1,3 +1,13 @@
+## CURRENT — 2026-11-09 private MTCNA editorial drafts / REST readback
+
+- [x] Reconcile authenticated WordPress inventory: **37** Drafts under parent40; **36** mapped to 40 lessons, legacy ID255 preserved, **four** GitHub-only (15/26/32/40), **zero** future.
+- [x] Create **only two** new private Gutenberg Drafts ID281 (PCQ) and ID282 (PPP preparation) with headings, examples, expected/not-run labels, internal links, sources, conceptual schema and archival authentic WinBox screenshots with Persian alt/captions; confirm ID/status/parent/title/excerpt/raw by REST list readback; 282 exact raw equals payload.
+- [x] Recheck ID280 raw (9,303 chars) with list-based REST readback; do not modify its existing content.
+- [ ] Validate 281 visually/admin-save, reconcile exact hash; verify older draft captions and canonical split with preexisting 251/252 before any release.
+- [ ] Fix/confirm WP media route by site owner if desired; upload image only after valid access and semantic screenshot review; plugin-backed upload currently 404. No arbitrary plugin install, reset or credential substitution.
+- [ ] Prepare outstanding GitHub-only 15,26,32,40 only when scoped; 15/26 require authorized compatible radio hardware. Canonical published hub40 may own lesson40 summary; do not publish duplicate URL.
+- [ ] Execute genuine accepted four-stage CHR/RouterBOARD evidence, measurable result/rollback, expert review, Gutenberg editor-save and release guard before any READY/FUTURE/PUBLISH. RoboT server stays untouched. Keep PR82 separate.
+
 ## MTCNA 40×10–15min — 2026-11-07 first publication window BLOCKED
 
 - [x] Create and independently verify metadata for **one private editorial Draft**: lesson 01 source augmented; WordPress **ID278** remains draft; record first-window BLOCKED receipt and ledger CAS (not a publication).
