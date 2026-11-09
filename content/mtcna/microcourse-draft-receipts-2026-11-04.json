@@ -97,5 +97,65 @@
   "observed_wordpress_draft_count": 30,
   "wordPress_native_scheduled_count": 0,
   "wordpress_limit_notice": "WPVibe daily fair-use limit encountered on 2026-11-04; no reset used",
-  "preparation_automation_created": true
+  "preparation_automation_created": true,
+  "latest_live_observation": {
+    "observed_local": "2026-11-09T16:22:32+03:30",
+    "basis": "Authenticated core WordPress REST list parent=40, status=draft/future, context=edit; no direct single-page raw readback due {} behavior",
+    "wordpress_draft_count": 37,
+    "session_mapped_drafts": 36,
+    "legacy_unmapped_draft_id": 255,
+    "github_only_lessons": [
+      15,
+      26,
+      32,
+      40
+    ],
+    "wordpress_future_count": 0,
+    "latest_verified_pages": [
+      {
+        "lesson": 23,
+        "id": 280,
+        "status": "draft",
+        "parent": 40,
+        "raw_readback": "PRESENT_9303_CHARS_RECHECKED",
+        "exact_payload_hash": "NOT_RECONCILED",
+        "no_edit_this_run": true
+      },
+      {
+        "lesson": 28,
+        "id": 281,
+        "status": "draft",
+        "parent": 40,
+        "raw_readback": "PRESENT_8333_CHARS",
+        "check": "GUTENBERG_H2_7_AND_IMAGES_AND_CODE_PRESENT",
+        "exact_payload_hash": "NOT_SEPARATELY_RECORDED",
+        "edit": "https://tehnet.ir/wp-admin/post.php?post=281&action=edit",
+        "preview": "https://tehnet.ir/?page_id=281&preview=true"
+      },
+      {
+        "lesson": 30,
+        "id": 282,
+        "status": "draft",
+        "parent": 40,
+        "raw_readback": "EXACT_STRING_EQUALITY_WITH_POST_PAYLOAD",
+        "raw_length": 9005,
+        "edit": "https://tehnet.ir/wp-admin/post.php?post=282&action=edit",
+        "preview": "https://tehnet.ir/?page_id=282&preview=true"
+      }
+    ],
+    "source_branch_unmodified": true,
+    "working_branch": "content/mtcna-prep-20261109-restverified-28-30",
+    "release_qualifications": "NOT_READY; CHR_TEST_MISSING; GENUINE_FOUR_STEP_PROOF_MISSING; ROLLBACK_MISSING; EXPERT_REVIEW_MISSING; GUTENBERG_ADMIN_SAVE_NOT_VERIFIED",
+    "images": {
+      "archival_external_links_in_gutenberg": true,
+      "schematic_clearly_labeled": true,
+      "wordpress_media_upload": false,
+      "wordpress_media_error": "WPVibe upload_media 404 /wpvibe/v1 route unavailable; did not retry",
+      "alt_captions_version_date": true
+    },
+    "wpvibe_usage_snapshot": "33/100 calls, 67 remaining; banked reset untouched",
+    "change_scope": "Created only private Draft pages 281 and 282 under parent 40; no other WordPress changes",
+    "pr82": "open; mergeable=false at run check",
+    "release_and_public_changes": 0
+  }
 }
