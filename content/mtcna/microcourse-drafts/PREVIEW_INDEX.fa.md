@@ -1,6 +1,6 @@
 # فهرست پیش‌نمایش ۴۰ قسمت MTCNA تهنت
 
-**Checkpoint تاریخی 2026-11-04:** ۳۰ پیش‌نویس وجود داشت. **بازخوانی زنده 2026-11-10:** اکنون **۳۷ Draft با parent=40 در WordPress** وجود دارد: علاوه بر ۳۴ Draft گزارش‌شده در ۷ نوامبر، Draftهای 280 (درس ۲۳)، 281 (درس ۲۸) و 282 (درس ۳۰) در فرایند مستقل آماده‌سازی ذخیره شده‌اند؛ **۰ Future**. ID255 همچنان legacy است؛ جلسات ۱۵/۲۶/۳۲/۴۰ فقط منبع GitHub دارند. برای جلسهٔ ۲ نیز متن مستقلِ ویراستاری `02.md` آماده شده، اما Draft 232 هنوز متن legacy قسمت ۱ از ۲۴ دارد و **نباید آن را Draft تأییدشدهٔ جدید جلسهٔ ۲ شمرد**. هیچ صفحه‌ای READY یا واجد مجوز انتشار نیست. هیچ موردی READY یا مجاز به انتشار نشده و ثبت این لینک‌ها جای گیت‌های سخت‌افزاری، لاب، مدت، Gutenberg و canonical نیست.
+**Checkpoint تاریخی 2026-11-04:** ۳۰ پیش‌نویس وجود داشت. **بازخوانی زنده 2026-11-10 (بعد از آماده‌سازی دو درس):** اکنون **۳۹ Draft با parent=40 در WordPress** وجود دارد؛ از آن‌ها **۳۸ ردیف نگاشت اسمی** به برنامهٔ ۴۰ جلسه و **۱ Draft میراثی ID255** است. درس‌های ۱۵ و ۲۶ فعلاً فقط منبع GitHub دارند. **هشدار:** برای جلسهٔ ۲ متن تازهٔ مستقل 02.md فقط در GitHub است؛ Draft232 متن میراثی درس ۱ از طرح ۲۴جلسه‌ای بوده و معادل تأییدشدهٔ درس۲ جدید نیست. دو پیش‌نویس تازه **۲۸۳/درس۳۲** و **۲۸۴/درس۴۰** با REST list/readback بررسی شدند؛ صفر Future و صفر READY. عکس‌های واقعی محدود‌اند و مراحل کامل Apply/rollback را اثبات نمی‌کنند. هیچ موردی مجاز به انتشار نشده است.
 
 برای لینک Preview باید با حساب مدیر/ویراستار WordPress لاگین باشید. اگر Preview کار نکرد از Edit در مدیریت وردپرس، دکمهٔ Preview را انتخاب کنید.
 
@@ -37,7 +37,7 @@
 | 29 | Burst و FastTrack | [Preview](https://tehnet.ir/?page_id=251&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=251&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2027-01-30 09:00 |
 | 30 | PPP Profile، Secret و Pool | [Draft 282](https://tehnet.ir/?page_id=282&preview=true) / [Source](30.md) | WP Draft؛ بدون تأیید Gutenberg/lab/release | 2027-02-02 09:00 |
 | 31 | PPPoE Server و Client | [Preview](https://tehnet.ir/?page_id=252&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=252&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2027-02-05 09:00 |
-| 32 | PPTP و SSTP؛ امنیت و تاریخچه | [متن GitHub](https://github.com/DashSaman/TehNet/blob/content/mtcna-saturday-20261107/content/mtcna/microcourse-drafts/32.md) | فقط منبع؛ در WP ثبت نشده | 2027-02-08 09:00 |
+| 32 | PPTP و SSTP؛ امنیت و تاریخچه | [Draft 283 – Preview](https://tehnet.ir/?page_id=283&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=283&action=edit) / [Source](32.md) | WordPress Draft؛ REST raw readback SHA-256 `c56d8073560aa1134a2c5ca4b6888df8749937bad0047b915c960c91187bc80d`، ۲ تصویر واقعی از آرشیو (بدون مراحل کامل Apply/rollback)، NOT_READY | 2027-02-08 09:00 |
 | 33 | WireGuard Site-to-Site | [Preview](https://tehnet.ir/?page_id=253&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=253&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2027-02-11 09:00 |
 | 34 | Ping، Traceroute، Torch، Log | [Preview](https://tehnet.ir/?page_id=254&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=254&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2027-02-14 09:00 |
 | 35 | Netwatch، SNMP و Graphs | [Preview](https://tehnet.ir/?page_id=269&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=269&action=edit) | WP Draft | 2027-02-17 09:00 |
@@ -45,7 +45,7 @@
 | 37 | پروژه پایانی: IP و DHCP | [Preview](https://tehnet.ir/?page_id=262&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=262&action=edit) | WP Draft | 2027-02-23 09:00 |
 | 38 | پروژه پایانی: Firewall، NAT، Queue | [Preview](https://tehnet.ir/?page_id=265&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=265&action=edit) | WP Draft | 2027-02-26 09:00 |
 | 39 | پروژه پایانی: تست و بازگشت | [Preview](https://tehnet.ir/?page_id=266&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=266&action=edit) | WP Draft | 2027-03-01 09:00 |
-| 40 | جمع‌بندی و آزمون غیررسمی MTCNA | [متن GitHub](https://github.com/DashSaman/TehNet/blob/content/mtcna-saturday-20261107/content/mtcna/microcourse-drafts/40.md) | فقط منبع؛ در WP ثبت نشده | 2027-03-04 09:00 |
+| 40 | جمع‌بندی و آزمون غیررسمی MTCNA | [Draft 284 – Preview](https://tehnet.ir/?page_id=284&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=284&action=edit) / [Source](40.md) | WordPress Draft؛ exact raw readback SHA-256 `56f0abfa51ac66e3d5e2963ae7d6e5c69b31fcd65c662cd86ef8715d8043b658`، آزمون غیررسمی مستقل با یک تصویر واقعی، NOT_READY | 2027-03-04 09:00 |
 
 ## شرایط واقعی انتشار
 
