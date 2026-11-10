@@ -97,5 +97,63 @@
   "observed_wordpress_draft_count": 30,
   "wordPress_native_scheduled_count": 0,
   "wordpress_limit_notice": "WPVibe daily fair-use limit encountered on 2026-11-04; no reset used",
-  "preparation_automation_created": true
+  "preparation_automation_created": true,
+  "latest_observation": {
+    "observed_at": "2026-11-10T16:19:00+03:30",
+    "basis": "Authenticated WordPress REST, context=edit, /wp/v2/pages list and per-ID list readback",
+    "parent_page_id": 40,
+    "observed_draft_pages": 39,
+    "mapped_target_rows_nominal": 38,
+    "legacy_unmapped_id": 255,
+    "github_only_target_lessons": [
+      15,
+      26
+    ],
+    "separate_source_without_confirmed_new_draft": [
+      2
+    ],
+    "wordpress_future_count_verified": 0,
+    "ready_count_verified": 0,
+    "published_pages_changed": 0,
+    "usage_reset_used": 0,
+    "wordpress_media_uploaded": 0,
+    "media_route_blocker": "WPVibe upload_media HTTP 404: /wpvibe/v1 route unavailable; core REST page write works; use authentic GitHub image URLs only",
+    "current_session": [
+      {
+        "lesson": 32,
+        "id": 283,
+        "slug": "mtcna-micro-32-pptp-sstp-security-routeros7",
+        "status": "draft",
+        "parent": 40,
+        "raw_length": 7048,
+        "raw_readback_sha256": "c56d8073560aa1134a2c5ca4b6888df8749937bad0047b915c960c91187bc80d",
+        "raw_readback": "success via list endpoint; no bytewise comparison to original POST payload recorded",
+        "editor_url": "https://tehnet.ir/wp-admin/post.php?post=283&action=edit",
+        "preview_url": "https://tehnet.ir/?page_id=283&preview=true",
+        "images": "2 visually inspected authentic WinBox 4.5 CHR 7.25.1 captures embedded as external GitHub image links; third is schematic",
+        "full_four_step_pass": false,
+        "rollback_pass": false,
+        "technical_review": false,
+        "gutenberg_editor_save_test": false
+      },
+      {
+        "lesson": 40,
+        "id": 284,
+        "slug": "mtcna-micro-40-final-self-assessment-routeros7",
+        "status": "draft",
+        "parent": 40,
+        "raw_length": 6953,
+        "raw_readback_sha256": "56f0abfa51ac66e3d5e2963ae7d6e5c69b31fcd65c662cd86ef8715d8043b658",
+        "exact_raw_equal_to_post_payload": true,
+        "editor_url": "https://tehnet.ir/wp-admin/post.php?post=284&action=edit",
+        "preview_url": "https://tehnet.ir/?page_id=284&preview=true",
+        "images": "1 visually inspected authentic System Resources capture, plus explanatory schematic, externally linked",
+        "full_four_step_pass": false,
+        "rollback_pass": false,
+        "technical_review": false,
+        "gutenberg_editor_save_test": false
+      }
+    ],
+    "safety": "No public/future writes, no PR82 mutation, no shared RoboT, no plugin installs, no production credentials"
+  }
 }
