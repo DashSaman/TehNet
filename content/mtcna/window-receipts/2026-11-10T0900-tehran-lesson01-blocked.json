@@ -74,8 +74,9 @@
   "guard": {
     "acquired_git_commit": "aa0d851e324a1ddc9ca42b92844b31a1793d1730",
     "method": "GitHub contents blob SHA compare-and-set; project publication-ledger.lock",
-    "release": "pending finalization",
-    "public_writes": 0
+    "release": "VERIFIED: publication-ledger.lock=null and BLOCKED window/operation recorded via CAS",
+    "public_writes": 0,
+    "finalization_git_commit": "788138b284564b28183d9216c499bc15c67d1039"
   },
   "source_and_site_scope": {
     "noindex_unchanged": true,
