@@ -1,3 +1,12 @@
+## MTCNA 40×10–15min — 2026-11-10 second publication window BLOCKED; no release
+
+- [x] Reconcile previous BLOCKED window; lock/CAS, append idempotent Nov10 window and operation, receipt, release mutex. Lesson **01** stays next; 0 verified releases, 0 WordPress Future.
+- [x] Read live course draft inventory: **37** pages parent40; published owners40/62–67 preserved, legacy232 not treated as qualified new episode02.
+- [x] One nonpublic editorial action only: create full 13-minute *planned* lesson02 source `content/mtcna/microcourse-drafts/02.md`; mark SOURCE_ONLY, NOT_RUN and legacy Draft232 needs approved rebase. No WordPress write or RoboT lab restart.
+- [ ] Map all 40 to approved canonical owner/URL/section anchor/WordPress ID and independent content hash; old `course-manifest.json` still has 24 rows. Coordinate with separate Draft preparation automation.
+- [ ] For lesson **01** obtain measured recording, expert review, live RouterOS version/NIC isolation/console acceptance and actual Snapshot restore, validated screenshots, Gutenberg UI save/full raw body hash, and qualified scoped hub40 merge. No publish/future until all pass.
+- [ ] Maintain noindex, protected commerce/MyTel/security and other in-flight repo work unchanged. Receipt: `content/mtcna/window-receipts/2026-11-10T0900-tehran-lesson01-blocked.json`.
+
 ## MTCNA 40×10–15min — 2026-11-07 first publication window BLOCKED
 
 - [x] Create and independently verify metadata for **one private editorial Draft**: lesson 01 source augmented; WordPress **ID278** remains draft; record first-window BLOCKED receipt and ledger CAS (not a publication).
