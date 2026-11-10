@@ -7,15 +7,7 @@
   "completed_lesson_numbers": [],
   "next_lesson_number": 1,
   "verified_release_count": 0,
-  "lock": {
-    "operation_key": "tehnet-mtcna40:lesson-01:window-20261110T0900+0330:eligibility",
-    "window_id": "2026-11-10T09:00:00+03:30",
-    "lesson_number": 1,
-    "acquired_at": "2026-11-10T09:03:01+03:30",
-    "intent": "READ_ONLY_RELEASE_GATE_AND_ONE_PRIVATE_EDITORIAL_SOURCE",
-    "public_mutations_allowed": false,
-    "expected_ledger_sha": "d3d78c48540cbb9a9913205f4f6fddbbc5d955bc"
-  },
+  "lock": null,
   "last_successful_window": null,
   "windows": [
     {
@@ -30,6 +22,21 @@
       "receipt_path": "content/mtcna/window-receipts/2026-11-07T0900-tehran-lesson01-blocked.json",
       "reason": "40-row executable mapping and lesson-specific expert/lab/rollback/screenshots/measured-duration/Gutenberg/scoped-release gates are missing; only private Draft 278 prepared",
       "idempotency": "same window and lesson key; no publication receipt; lesson 01 must remain next"
+    },
+    {
+      "window_id": "2026-11-10T09:00:00+03:30",
+      "lesson_number": 1,
+      "status": "BLOCKED",
+      "operation_key": "tehnet-mtcna40:lesson-01:window-20261110T0900+0330:eligibility",
+      "public_writes": 0,
+      "checked_at": "2026-11-10T09:03:01+03:30",
+      "release_count": 0,
+      "private_editorial_source_path": "content/mtcna/microcourse-drafts/02.md",
+      "wordpress_course_drafts_observed": 37,
+      "wordpress_future_count_observed": 0,
+      "receipt_path": "content/mtcna/window-receipts/2026-11-10T0900-tehran-lesson01-blocked.json",
+      "reason": "Lesson01 not release qualified: 40-row mapping and canonical scoped merge, measured duration, expert review, real RouterOS lab/rollback/screenshots, Gutenberg save/full hash and scoped release gate missing; source02-only private editorial preparation",
+      "idempotency": "this window + lesson operation key, no public write, lesson01 stays next"
     }
   ],
   "operations": [
@@ -42,16 +49,27 @@
       "public_write": false,
       "private_editorial_wp_id": 278,
       "receipt_path": "content/mtcna/window-receipts/2026-11-07T0900-tehran-lesson01-blocked.json"
+    },
+    {
+      "operation_key": "tehnet-mtcna40:lesson-01:window-20261110T0900+0330:eligibility",
+      "window_id": "2026-11-10T09:00:00+03:30",
+      "lesson_number": 1,
+      "type": "ELIGIBILITY_ASSESSMENT",
+      "result": "BLOCKED",
+      "public_write": false,
+      "private_editorial_source_only": "content/mtcna/microcourse-drafts/02.md",
+      "receipt_path": "content/mtcna/window-receipts/2026-11-10T0900-tehran-lesson01-blocked.json"
     }
   ],
   "current_blockers": [
-    "40-row executable manifest/approved owner mapping is missing; existing course-manifest.json and ledger schema still target 24 legacy lessons",
-    "Lesson 01 expert and source review pending; planned duration 12 minutes has not been measured",
-    "Lesson-specific RouterOS execution version/NIC isolation, acceptance outputs and tested checkpoint/rollback missing",
-    "160 genuine raw WinBox screenshots exist, but none constitute a fully validated four-step lesson-01 flow; no verified WP images",
-    "REST Draft 278 readback confirms metadata only; Gutenberg editor UI save and complete raw body hash were not verified",
-    "Scoped canonical hub40 merge and production release qualification absent; PR82 open/unmerged"
+    "40-row canonical owner/URL/anchor/WordPress ID/content hash mapping and approved executable manifest absent; existing course-manifest.json has 24 legacy rows",
+    "Lesson 01 unmeasured 12-minute storyboard and pending independent expert/content review",
+    "No lesson 01 real RouterOS version + NIC isolation + console acceptance + recorded checkpoint/rollback",
+    "160 real raw WinBox photos not a complete validated lesson01 sequence; WordPress images not verified",
+    "WordPress Draft278 unchanged; Gutenberg UI save and full raw-body hash roundtrip not verified",
+    "Canonical hub40 scoped merge and production release qualification pending; PR82 open",
+    "Lesson02 new 13-minute source-only Markdown; WP legacy232 remains old lesson01 text, no duplicate WordPress draft"
   ],
-  "last_assessed_window": "2026-11-07T09:00:00+03:30",
+  "last_assessed_window": "2026-11-10T09:00:00+03:30",
   "last_assessment_result": "BLOCKED"
 }
