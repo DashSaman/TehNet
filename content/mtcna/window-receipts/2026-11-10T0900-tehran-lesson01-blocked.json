@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "window_id": "2026-11-10T09:00:00+03:30",
+  "timezone": "Asia/Tehran",
+  "operation_key": "tehnet-mtcna40:lesson-01:window-20261110T0900+0330:eligibility",
+  "checked_date": "2026-11-10",
+  "lesson_number": 1,
+  "course_target_count": 40,
+  "status": "BLOCKED_NOT_PUBLISHED",
+  "release_status": "NOT_READY",
+  "published_now": 0,
+  "scheduled_or_future_now": 0,
+  "next_lesson_number": 1,
+  "previous_window_resolved": "2026-11-07T09:00:00+03:30:BLOCKED_NOT_PUBLISHED (no uncertain public write)",
+  "wordpress_observation": {
+    "site": "https://tehnet.ir",
+    "observed_course_draft_pages_parent40": 37,
+    "wordpress_future_pages_all": 0,
+    "verified_owners_published": [
+      40,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67
+    ],
+    "next_lesson_private_draft": {
+      "id": 278,
+      "status": "draft",
+      "slug": "mtcna-micro-01-intro-routeros-chr",
+      "parent": 40,
+      "last_modified": "2026-11-07T09:04:02",
+      "gutenberg_save_verified": false,
+      "raw_body_hash_readback_verified": false
+    },
+    "legacy_candidate_for_lesson_02": {
+      "id": 232,
+      "status": "draft",
+      "title": "MTCNA | قسمت 1: نقشهٔ راه MTCNA و ساخت لابراتوار ایزولهٔ CHR",
+      "needs_rebase": true
+    },
+    "newly_seen_separate_preparation_drafts": [
+      280,
+      281,
+      282
+    ],
+    "wordpress_writes_this_run": 0
+  },
+  "private_editorial_action": {
+    "count": 1,
+    "kind": "created full 13-minute proposed independent lesson02 Markdown source; indexed live WordPress draft status but did not modify/create a WordPress page",
+    "source_path": "content/mtcna/microcourse-drafts/02.md",
+    "source_git_blob_sha": "0d7389749e7a4ce78b77827f78327ee9fa72d160",
+    "planned_minutes": 13,
+    "measured_minutes": null,
+    "lab_executed": false,
+    "screenshots_validated": false,
+    "wp_id_for_source": null,
+    "legacy_wp_id_not_repurposed": 232,
+    "no_duplicate_page_created": true,
+    "preview_index_updated": "content/mtcna/microcourse-drafts/PREVIEW_INDEX.fa.md"
+  },
+  "blocking_gates": [
+    "Executable approved manifest is still 24 lessons; no complete reviewed 40-row canonical owner/URL/anchor/WordPress ID/content-hash mapping",
+    "Lesson 01 measured 10–15-minute recording missing (12-minute storyboard only)",
+    "Lesson 01 independent technical/expert review missing",
+    "Lesson 01 actual independently verified RouterOS version, NIC isolation, console output, lab acceptance, checkpoint and successful rollback proof missing",
+    "Raw WinBox screenshots not validated as complete lesson01 applied/accepted/rollback sequence and not in WP Media Library",
+    "Lesson 01 full Gutenberg editor UI save and raw-content hash roundtrip unverified",
+    "Canonical published owner40 scoped merge/anchor and independent release qualification pending; PR82 still open/unmerged",
+    "Lesson 02 source-only draft cannot substitute lesson01 release order, legacy WordPress 232 cannot be claimed as new mapped lesson02 draft"
+  ],
+  "guard": {
+    "acquired_git_commit": "aa0d851e324a1ddc9ca42b92844b31a1793d1730",
+    "method": "GitHub contents blob SHA compare-and-set; project publication-ledger.lock",
+    "release": "pending finalization",
+    "public_writes": 0
+  },
+  "source_and_site_scope": {
+    "noindex_unchanged": true,
+    "hub40_and_owners62_67_unchanged": true,
+    "old_drafts_and_live_services_unchanged": true,
+    "shared_RoboT_lab_not_started": true,
+    "wp_futures_created": 0,
+    "public_canonical_pages_created": 0
+  },
+  "created_by": "scheduled MTCNA release audit; second three-day window"
+}
