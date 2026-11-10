@@ -1,13 +1,13 @@
 # فهرست پیش‌نمایش ۴۰ قسمت MTCNA تهنت
 
-**Checkpoint تاریخی 2026-11-04:** ۳۰ پیش‌نویس وجود داشت. **بازخوانی زنده 2026-11-07:** با افزوده‌شدن Draftهای 272 (درس ۱۸)، 275 (درس ۱۱)، 276 (درس ۳۶) توسط فرایند آماده‌سازی و Draft 278 (درس ۱) در یک اقدام ویراستاری این نوبت، اکنون **۳۴ Draft مربوط به دوره، بدون حتی یک future/scheduled** وجود دارد. ID255 همچنان پیش‌نویس legacy است؛ ۷ درس ۱۵/۲۳/۲۶/۲۸/۳۰/۳۲/۴۰ فقط Markdown GitHub دارند. هیچ موردی READY یا مجاز به انتشار نشده و ثبت این لینک‌ها جای گیت‌های سخت‌افزاری، لاب، مدت، Gutenberg و canonical نیست.
+**Checkpoint تاریخی 2026-11-04:** ۳۰ پیش‌نویس وجود داشت. **بازخوانی زنده 2026-11-10:** اکنون **۳۷ Draft با parent=40 در WordPress** وجود دارد: علاوه بر ۳۴ Draft گزارش‌شده در ۷ نوامبر، Draftهای 280 (درس ۲۳)، 281 (درس ۲۸) و 282 (درس ۳۰) در فرایند مستقل آماده‌سازی ذخیره شده‌اند؛ **۰ Future**. ID255 همچنان legacy است؛ جلسات ۱۵/۲۶/۳۲/۴۰ فقط منبع GitHub دارند. برای جلسهٔ ۲ نیز متن مستقلِ ویراستاری `02.md` آماده شده، اما Draft 232 هنوز متن legacy قسمت ۱ از ۲۴ دارد و **نباید آن را Draft تأییدشدهٔ جدید جلسهٔ ۲ شمرد**. هیچ صفحه‌ای READY یا واجد مجوز انتشار نیست. هیچ موردی READY یا مجاز به انتشار نشده و ثبت این لینک‌ها جای گیت‌های سخت‌افزاری، لاب، مدت، Gutenberg و canonical نیست.
 
 برای لینک Preview باید با حساب مدیر/ویراستار WordPress لاگین باشید. اگر Preview کار نکرد از Edit در مدیریت وردپرس، دکمهٔ Preview را انتخاب کنید.
 
 | جلسهٔ هدف | موضوع | لینک | وضعیت | اولین نوبت اسمی تهران |
 |---:|---|---|---|---|
 | 1 | MTCNA چیست و از کجا شروع کنیم؟ | [Draft 278 – Preview](https://tehnet.ir/?page_id=278&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=278&action=edit) / [Source](01.md) | WP Draft؛ REST metadata readback، بدون تأیید Gutenberg/lab/release | 2026-11-07 09:00 |
-| 2 | ساخت CHR ایزوله و کنترل NIC | [Preview](https://tehnet.ir/?page_id=232&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=232&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2026-11-10 09:00 |
+| 2 | ساخت CHR ایزوله و کنترل NIC | [Legacy Draft 232](https://tehnet.ir/?page_id=232&preview=true) / [Source 02](02.md) | Markdown جدید فقط برای بازبینی؛ ID232 همچنان legacy و نیازمند rebase، فاقد صلاحیت انتشار | 2026-11-10 09:00 |
 | 3 | اتصال WinBox؛ MAC/IP | [Preview](https://tehnet.ir/?page_id=233&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=233&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2026-11-13 09:00 |
 | 4 | WebFig و Quick Set | [Preview](https://tehnet.ir/?page_id=267&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=267&action=edit) | WP Draft | 2026-11-16 09:00 |
 | 5 | CLI و Safe Mode | [Preview](https://tehnet.ir/?page_id=234&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=234&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2026-11-19 09:00 |
@@ -28,14 +28,14 @@
 | 20 | Destination NAT و CGNAT | [Preview](https://tehnet.ir/?page_id=245&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=245&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2027-01-03 09:00 |
 | 21 | Connection Tracking و Chain | [Preview](https://tehnet.ir/?page_id=246&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=246&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2027-01-06 09:00 |
 | 22 | Firewall Order و Address List | [Preview](https://tehnet.ir/?page_id=247&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=247&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2027-01-09 09:00 |
-| 23 | سخت‌سازی Firewall، Log و Rollback | [متن GitHub](https://github.com/DashSaman/TehNet/blob/content/mtcna-saturday-20261107/content/mtcna/microcourse-drafts/23.md) | فقط منبع؛ در WP ثبت نشده | 2027-01-12 09:00 |
+| 23 | سخت‌سازی Firewall، Log و Rollback | [Draft 280](https://tehnet.ir/?page_id=280&preview=true) / [Source](23.md) | WP Draft؛ بدون تأیید Gutenberg/lab/release | 2027-01-12 09:00 |
 | 24 | WiFi/Wireless Package و Channel | [Preview](https://tehnet.ir/?page_id=248&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=248&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2027-01-15 09:00 |
 | 25 | Access Point و Station | [Preview](https://tehnet.ir/?page_id=249&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=249&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2027-01-18 09:00 |
 | 26 | Access List و Registration | [متن GitHub](https://github.com/DashSaman/TehNet/blob/content/mtcna-saturday-20261107/content/mtcna/microcourse-drafts/26.md) | فقط منبع؛ در WP ثبت نشده | 2027-01-21 09:00 |
 | 27 | Simple Queue | [Preview](https://tehnet.ir/?page_id=250&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=250&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2027-01-24 09:00 |
-| 28 | PCQ و تقسیم پهنای باند | [متن GitHub](https://github.com/DashSaman/TehNet/blob/content/mtcna-saturday-20261107/content/mtcna/microcourse-drafts/28.md) | فقط منبع؛ در WP ثبت نشده | 2027-01-27 09:00 |
+| 28 | PCQ و تقسیم پهنای باند | [Draft 281](https://tehnet.ir/?page_id=281&preview=true) / [Source](28.md) | WP Draft؛ بدون تأیید Gutenberg/lab/release | 2027-01-27 09:00 |
 | 29 | Burst و FastTrack | [Preview](https://tehnet.ir/?page_id=251&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=251&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2027-01-30 09:00 |
-| 30 | PPP Profile، Secret و Pool | [متن GitHub](https://github.com/DashSaman/TehNet/blob/content/mtcna-saturday-20261107/content/mtcna/microcourse-drafts/30.md) | فقط منبع؛ در WP ثبت نشده | 2027-02-02 09:00 |
+| 30 | PPP Profile، Secret و Pool | [Draft 282](https://tehnet.ir/?page_id=282&preview=true) / [Source](30.md) | WP Draft؛ بدون تأیید Gutenberg/lab/release | 2027-02-02 09:00 |
 | 31 | PPPoE Server و Client | [Preview](https://tehnet.ir/?page_id=252&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=252&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2027-02-05 09:00 |
 | 32 | PPTP و SSTP؛ امنیت و تاریخچه | [متن GitHub](https://github.com/DashSaman/TehNet/blob/content/mtcna-saturday-20261107/content/mtcna/microcourse-drafts/32.md) | فقط منبع؛ در WP ثبت نشده | 2027-02-08 09:00 |
 | 33 | WireGuard Site-to-Site | [Preview](https://tehnet.ir/?page_id=253&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=253&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2027-02-11 09:00 |
