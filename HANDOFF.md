@@ -1,3 +1,13 @@
+## CURRENT — 2026-11-10 MTCNA window 2 BLOCKED; lesson 01 held, one source-only lesson 02 prepared
+
+Second three-day window **2026-11-10 09:00 Asia/Tehran** was reconciled via the GitHub publication ledger CAS lock. **0 public writes, 0 Future pages, 0 verified releases**; **lesson 01 stays next**, and the mutex was released after recording BLOCKED. Receipt: `content/mtcna/window-receipts/2026-11-10T0900-tehran-lesson01-blocked.json`; ledger: `content/mtcna/publication-ledger.json`.
+
+Fresh WordPress REST read found **37 course Draft pages** with parent=40 (including independently prepared IDs **280, 281, 282**), with all canonical owners40/62–67 still published. Draft278 (lesson01) remains `draft`, unmodified since 2026-11-07. Legacy Draft232 is still the **24-lesson-era episode01**, NOT an approved episode02 page. No WordPress content or media was written by this run.
+
+Exactly one nonpublic editorial action: authored full proposed **13-minute episode02 source** `content/mtcna/microcourse-drafts/02.md` with official MikroTik/Oracle network isolation references, step-by-step GUI/CLI plans, safety/rollback criteria and explicit NOT_RUN gates. Updated the link index without creating a duplicate WordPress draft. It is **SOURCE_ONLY**, not 10–15-minute measured, expert-reviewed, RouterOS-tested, or Gutenberg-verified.
+
+Immediate release blockers unchanged: executable/approved 40-row mapping (old manifest has 24), measured lesson01 runtime, expert review, real versioned RouterOS/NIC/console and tested rollback, validated step screenshots, Gutenberg UI save and complete body hash readback, approved scoped canonical hub40 merge, and production release qualification (PR82 still open). Do not advance to lesson02, publish, schedule, touch noindex, relaunch shared RoboT lab, or change unrelated services. Next window: recheck lesson01, not an automatic catch-up.
+
 ## CURRENT — 2026-11-07 MTCNA 40-session first window BLOCKED; one private editorial draft SAVED
 
 First window ID **2026-11-07T09:00:00+03:30**: lesson **01** stayed next, public releases **0**, native WordPress future schedules **0**. Project ledger acquired a CAS-guard lock, recorded a stable idempotency operation and a BLOCKED window, then released the lock. Receipt: `content/mtcna/window-receipts/2026-11-07T0900-tehran-lesson01-blocked.json`.
