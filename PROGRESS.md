@@ -1,3 +1,10 @@
+## CURRENT — 2026-11-10 afternoon: TWO MORE MTCNA EDITORIAL WP DRAFTS, NOT READY
+
+Verified initial 37 WP Drafts under parent40 and published canonical pages 40/62–67. Created Draft283 (lesson32 PPTP/SSTP, authentic PPP WinBox screenshots 02/03) and Draft284 (lesson40 nonofficial final self-assessment, authentic System Resources screenshot02); each has unique slug, Gutenberg blocks, Persian alt/caption, internal links, examples vs expectations, review blockers and excerpt. Authenticated WordPress list readback confirms status=draft/parent40, content.raw and SHA-256; lesson40 is bytewise exact, lesson32 full raw fetched but original-post byte comparison not recorded. Final 39 Drafts, 0 Future, 2 target GitHub-only (15/26). New source02 remains source-only for the approved topic despite legacy Draft232's nominal mapping. ID255 legacy unchanged.
+
+Media upload via WPVibe plugin route failed 404; zero uploads, external GitHub image refs only. No per-topic four-step Apply/rollback evidence, specialist review or editor-save; zero READY/SCHEDULED/publication. Quota was available (22/100 used when checked), no reset spent. No server/QEMU rerun, code/plugin installation, production settings, MyTel, noindex or PR82 mutations. Source, PREVIEW_INDEX, receipts and `docs/reports/MTCNA_DRAFT_PREP_2026-11-10.fa.md` committed on separate branch `content/mtcna-prep-20261110-drafts32-40`. Publication window at 09:00 remains BLOCKED independently.
+
+
 ## CURRENT — 2026-11-10 MTCNA second window: BLOCKED, 0 public/future, one private lesson02 SOURCE_ONLY
 
 The Nov 10 09:00 Tehran eligibility window was recorded and CAS-locked/finalized in `content/mtcna/publication-ledger.json` and `content/mtcna/window-receipts/2026-11-10T0900-tehran-lesson01-blocked.json`; lock released, lesson **01** remains next, verified release count **0**, public/future mutations **0**. Fresh WordPress readback: **37** MTCNA drafts (parent40; new separate-preparation IDs280/281/282) and **0 future pages**; Draft278 and legacy232 unchanged, canonical published owners40/62–67 preserved.
