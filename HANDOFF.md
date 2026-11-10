@@ -1,3 +1,10 @@
+## CURRENT — 2026-11-10 16:19 Tehran MTCNA draft-prep: 39 WP Draft / 2 target GitHub-only, 0 release
+
+After the separate 09:00 publication BLOCKED window, this independent editorial preparation task checked WPVibe usage (22/100, no reset), read current 37-draft inventory, confirmed published canonical owners40/62–67 and PR82 open/unmergeable, and created only two new parent40 **draft** pages: 283 (lesson32, PPTP/SSTP) and 284 (lesson40, independent informal assessment). GET list `context=edit` readback confirmed both body content, excerpt, status/parent/slug; lesson40 raw matched submitted bytes, lesson32 full raw readback SHA-256 recorded but initial exact byte comparison was not recorded. Final live inventory: **39 Drafts / 0 Future**; target GitHub-only 15/26, legacy ID255 unmapped, and lesson02 source new but Draft232 remains old lesson01 and must not be overwritten automatically.
+
+Genuine screenshot files visually inspected from GitHub (32/02 + 32/03, 40/02) and embedded with Persian alt/caption/version/date as externally hosted files; no fake UI, no complete four-step acceptance, no WP Media Library upload. WPVibe upload_media returned plugin-route HTTP404, not quota; no plugin installation recommended. No CHR/QEMU/RoboT use; no real rollback or technical review; no READY/SCHEDULED/publish. See `docs/reports/MTCNA_DRAFT_PREP_2026-11-10.fa.md`, scoped receipt and preview index in **content/mtcna-prep-20261110-drafts32-40**. Leave publication automation independent, 40-row manifest and PR82 unresolved; preserve noindex and all unrelated systems.
+
+
 ## CURRENT — 2026-11-10 MTCNA window 2 BLOCKED; lesson 01 held, one source-only lesson 02 prepared
 
 Second three-day window **2026-11-10 09:00 Asia/Tehran** was reconciled via the GitHub publication ledger CAS lock. **0 public writes, 0 Future pages, 0 verified releases**; **lesson 01 stays next**, and the mutex was released after recording BLOCKED. Receipt: `content/mtcna/window-receipts/2026-11-10T0900-tehran-lesson01-blocked.json`; ledger: `content/mtcna/publication-ledger.json`.
