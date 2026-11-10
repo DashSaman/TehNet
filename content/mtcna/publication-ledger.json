@@ -7,7 +7,15 @@
   "completed_lesson_numbers": [],
   "next_lesson_number": 1,
   "verified_release_count": 0,
-  "lock": null,
+  "lock": {
+    "operation_key": "tehnet-mtcna40:lesson-01:window-20261110T0900+0330:eligibility",
+    "window_id": "2026-11-10T09:00:00+03:30",
+    "lesson_number": 1,
+    "acquired_at": "2026-11-10T09:03:01+03:30",
+    "intent": "READ_ONLY_RELEASE_GATE_AND_ONE_PRIVATE_EDITORIAL_SOURCE",
+    "public_mutations_allowed": false,
+    "expected_ledger_sha": "d3d78c48540cbb9a9913205f4f6fddbbc5d955bc"
+  },
   "last_successful_window": null,
   "windows": [
     {
