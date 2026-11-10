@@ -1,3 +1,15 @@
+## MTCNA 40×10–15min — 2026-11-10 afternoon draft preparation
+
+- [x] Read canonical contract, plan, receipts and screenshot runbook; check account usage (22/100, no reset), 37 actual WordPress Drafts, PR82 and published canonical owners.
+- [x] Create and REST-readback parent40 Draft283 (lesson32, 7048 chars SHA256 `c56d8073560aa1134a2c5ca4b6888df8749937bad0047b915c960c91187bc80d`) and Draft284 (lesson40, 6953 chars SHA256 `56f0abfa51ac66e3d5e2963ae7d6e5c69b31fcd65c662cd86ef8715d8043b658`; exact payload match).
+- [x] Visually inspect authentic WinBox 32/02,32/03 and 40/02 screenshots; embed with honest alt/caption, explain absence of full Apply/readback/rollback and no WordPress Media uploads (WPVibe plugin route 404).
+- [x] Final verified inventory: 39 WP Draft parent40; 2 target source-only lessons 15/26; source02 still not reconciled with old Draft232; ID255 legacy unchanged; 0 Future/Ready/public.
+- [ ] Obtain authorized physical WiFi lab for lessons 15/26 and complete four-step screenshots, actual recovery, measured teaching run and expert review before publication readiness.
+- [ ] Resolve lesson02 vs legacy232 canonical/rebase only after fresh raw/hash and approved scoped change; never overwrite automatically.
+- [ ] Confirm Gutenberg admin-save, media library when legitimate connector route becomes available, and full publication gates; keep separate publication automation BLOCKED on lesson01 until qualified.
+- [ ] Preserve PR82, noindex, MyTel, ecommerce, security and RoboT. See `docs/reports/MTCNA_DRAFT_PREP_2026-11-10.fa.md`.
+
+
 ## MTCNA 40×10–15min — 2026-11-10 second publication window BLOCKED; no release
 
 - [x] Reconcile previous BLOCKED window; lock/CAS, append idempotent Nov10 window and operation, receipt, release mutex. Lesson **01** stays next; 0 verified releases, 0 WordPress Future.
