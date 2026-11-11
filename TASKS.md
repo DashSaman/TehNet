@@ -1,3 +1,13 @@
+## MTCNA 40×10–15min — 2026-11-11 afternoon preparation (nonpublic)
+
+- [x] Read contract/plan/runbook and verify WPVibe Free 0/100 calls at start; no reset used.
+- [x] Check actual WP 39 parent40 Drafts before create; verify published canonical owners40/62–67 unchanged and PR82 open/unmergeable.
+- [x] Create Draft285/lesson15 and Draft286/lesson26 only; independently REST-read both raw bodies, IDs, slugs, parent, status and excerpts. Exact POST/body equivalence recorded for 286; 285 has raw readback but no recorded bytewise comparison.
+- [x] Recount 41 parent40 Drafts/0 future; update index, receipt, source metadata and dated report on separate branch.
+- [ ] Resolve lesson02 `02.md` vs legacy Draft232 only after fresh raw/hash + drift and owner checks; preserve ID255. Until then do not disable preparation automation.
+- [ ] Capture four original WinBox 4.5/RouterBOARD screenshots per WiFi lesson plus Apply, result and rollback, using authorized independent equipment. No shared RoboT lab or fake screenshots.
+- [ ] Complete technical/editorial review, measured 10–15 min, Gutenberg editor-save/preview and all release gates. No publication/scheduling changes.
+
 ## MTCNA 40×10–15min — 2026-11-10 afternoon draft preparation
 
 - [x] Read canonical contract, plan, receipts and screenshot runbook; check account usage (22/100, no reset), 37 actual WordPress Drafts, PR82 and published canonical owners.
