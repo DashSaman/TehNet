@@ -1,6 +1,6 @@
 # فهرست پیش‌نمایش ۴۰ قسمت MTCNA تهنت
 
-**Checkpoint تاریخی 2026-11-04:** ۳۰ پیش‌نویس وجود داشت. **بازخوانی زنده 2026-11-10 (بعد از آماده‌سازی دو درس):** اکنون **۳۹ Draft با parent=40 در WordPress** وجود دارد؛ از آن‌ها **۳۸ ردیف نگاشت اسمی** به برنامهٔ ۴۰ جلسه و **۱ Draft میراثی ID255** است. درس‌های ۱۵ و ۲۶ فعلاً فقط منبع GitHub دارند. **هشدار:** برای جلسهٔ ۲ متن تازهٔ مستقل 02.md فقط در GitHub است؛ Draft232 متن میراثی درس ۱ از طرح ۲۴جلسه‌ای بوده و معادل تأییدشدهٔ درس۲ جدید نیست. دو پیش‌نویس تازه **۲۸۳/درس۳۲** و **۲۸۴/درس۴۰** با REST list/readback بررسی شدند؛ صفر Future و صفر READY. عکس‌های واقعی محدود‌اند و مراحل کامل Apply/rollback را اثبات نمی‌کنند. هیچ موردی مجاز به انتشار نشده است.
+**Checkpoint تاریخی 2026-11-04:** ۳۰ Draft. **بازخوانی زندهٔ 2026-11-11:** اکنون **۴۱ WordPress Draft با parent=40** (شامل ۲ پیش‌نویس تازه 285/درس۱۵ و 286/درس۲۶) و **۰ Future** موجود است. ۴۰ ردیفِ برنامه لینک اسمی به Draft دارند؛ **۳۹ ردیف به موضوع هدف قابل نگاشت‌اند** اما ردیف ۲ هنوز Draft232 از طرح قدیمی ۲۴جلسه‌ای است و متن جدید مستقل 02.md فقط در GitHub باقی مانده است؛ ID255 نیز Draft قدیمی خارج از نگاشت است. پیش‌نویس‌های ۱۵ و ۲۶ فقط متن مقدماتی، دیاگرام غیرواقعیِ رابط و چک‌لیست تصویربرداری دارند: **بدون RouterBOARD واقعی، بدون شواهد چهار مرحله، بدون آزمون برگشت و بدون تأیید Gutenberg/داور**. هیچ‌یک READY یا SCHEDULED نیستند. به‌روزرسانی این index به معنی ادغام PR82 یا گیت انتشار نیست.
 
 برای لینک Preview باید با حساب مدیر/ویراستار WordPress لاگین باشید. اگر Preview کار نکرد از Edit در مدیریت وردپرس، دکمهٔ Preview را انتخاب کنید.
 
@@ -20,7 +20,7 @@
 | 12 | DHCP Server، Pool و Lease | [Preview](https://tehnet.ir/?page_id=239&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=239&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2026-12-10 09:00 |
 | 13 | DNS و ARP | [Preview](https://tehnet.ir/?page_id=240&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=240&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2026-12-13 09:00 |
 | 14 | Bridge و RSTP | [Preview](https://tehnet.ir/?page_id=241&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=241&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2026-12-16 09:00 |
-| 15 | Wireless Bridge و Station Bridge | [متن GitHub](https://github.com/DashSaman/TehNet/blob/content/mtcna-saturday-20261107/content/mtcna/microcourse-drafts/15.md) | فقط منبع؛ در WP ثبت نشده | 2026-12-19 09:00 |
+| 15 | Wireless Bridge و Station Bridge | [Draft 285 – Preview](https://tehnet.ir/?page_id=285&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=285&action=edit) / [Source](15.md) | WP Draft با REST raw readback؛ دیاگرام مفهومی؛ سخت‌افزار/چهار تصویر واقعی/بازگشت و تأیید Gutenberg در انتظار؛ NOT_READY | 2026-12-19 09:00 |
 | 16 | Static Route و Route Flags | [Preview](https://tehnet.ir/?page_id=242&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=242&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2026-12-22 09:00 |
 | 17 | دو LAN و مسیر برگشت | [Preview](https://tehnet.ir/?page_id=243&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=243&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2026-12-25 09:00 |
 | 18 | Dynamic Route و جدول مسیریابی | [Draft 272 – Preview](https://tehnet.ir/?page_id=272&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=272&action=edit) / [Source](18.md) | WP Draft؛ بدون صلاحیت انتشار | 2026-12-28 09:00 |
@@ -31,7 +31,7 @@
 | 23 | سخت‌سازی Firewall، Log و Rollback | [Draft 280](https://tehnet.ir/?page_id=280&preview=true) / [Source](23.md) | WP Draft؛ بدون تأیید Gutenberg/lab/release | 2027-01-12 09:00 |
 | 24 | WiFi/Wireless Package و Channel | [Preview](https://tehnet.ir/?page_id=248&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=248&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2027-01-15 09:00 |
 | 25 | Access Point و Station | [Preview](https://tehnet.ir/?page_id=249&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=249&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2027-01-18 09:00 |
-| 26 | Access List و Registration | [متن GitHub](https://github.com/DashSaman/TehNet/blob/content/mtcna-saturday-20261107/content/mtcna/microcourse-drafts/26.md) | فقط منبع؛ در WP ثبت نشده | 2027-01-21 09:00 |
+| 26 | Access List و Registration | [Draft 286 – Preview](https://tehnet.ir/?page_id=286&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=286&action=edit) / [Source](26.md) | WP Draft با REST raw و تطابق دقیق payload؛ دیاگرام مفهومی؛ سخت‌افزار/چهار تصویر واقعی/بازگشت و تأیید Gutenberg در انتظار؛ NOT_READY | 2027-01-21 09:00 |
 | 27 | Simple Queue | [Preview](https://tehnet.ir/?page_id=250&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=250&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2027-01-24 09:00 |
 | 28 | PCQ و تقسیم پهنای باند | [Draft 281](https://tehnet.ir/?page_id=281&preview=true) / [Source](28.md) | WP Draft؛ بدون تأیید Gutenberg/lab/release | 2027-01-27 09:00 |
 | 29 | Burst و FastTrack | [Preview](https://tehnet.ir/?page_id=251&preview=true) / [Edit](https://tehnet.ir/wp-admin/post.php?post=251&action=edit) | WP Draft قدیمی، شماره/محتوا نیازمند تطبیق | 2027-01-30 09:00 |
@@ -63,3 +63,13 @@
 - https://mikrotik.com/download/changelogs
 - https://manual.mikrotik.com/docs/introduction/
 - https://www.youtube.com/@tehran.network021
+
+
+## ثبت بازخوانی اجرای ۱۱ نوامبر ۲۰۲۶
+- موجودی REST با `parent=40&status=draft`: **۴۱** آیتم یکتا؛ قبل از کار **۳۹** بود. هدف‌های تازه فقط شناسه‌های **285** و **286** هستند.
+- `status=future&parent=40`: **۰**؛ هیچ صفحهٔ منتشرشده یا وضعیت noindex دست نخورده است.
+- جلسه ۱۵: طول `content.raw` برابر ۷۷۵۶ نویسه، ۷ H2 و ۲۶ بلوک Gutenberg؛ متادیتا/عنوان/والد و excerpt از REST بازخوانی شدند؛ تطابق bytewise با payload اولیه ثبت نشده است.
+- جلسه ۲۶: طول `content.raw` برابر ۹۰۷۰ نویسه، ۸ H2 و ۳۱ بلوک Gutenberg؛ برابری bytewise متن و excerpt با payload ارسالی ثبت شد.
+- URLهای Preview/Edit فوق از شناسه‌های REST ساخته شده‌اند؛ باز شدن در مرورگر مدیر و ذخیرهٔ Gutenberg هنوز آزموده نشده است.
+- برای هیچ‌یک عکس واقعی جدید ساخته/بارگذاری نشد؛ `wireless-lab.webp` یک دیاگرام موجود در GitHub است، **نه** تصویر WinBox. ۱۶۰ عکس آرشیوی برای مراحل Wireless معتبر نیستند. Upload وردپرس: **۰**.
+- متن جدید درس۲ در `02.md` هنوز GitHub-only و نیازمند review/rebase بدون overwrite خودکار Draft232 است. در نتیجه هنوز شرط غیرفعال‌سازی اتوماسیون آماده‌سازی برقرار نیست.
