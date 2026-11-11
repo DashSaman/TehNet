@@ -51,8 +51,8 @@ Examine the evidence packet below and decide whether Z Code:
 - is producing legitimate (not fabricated) evidence,
 - is drifting from business priorities or misusing resources.
 
-Answer in EXACTLY this format as the FINAL part of your reply (no extra prose after it):
-DECISION: <APPROVE|NEEDS_CHANGES|REJECT|NEEDS_OWNER>
+Answer as the FINAL part of your reply with EXACTLY these four lines, written ONCE each (never repeat the template or show example verdicts anywhere in your reply; no prose after them):
+DECISION: <one of APPROVE / NEEDS_CHANGES / REJECT / NEEDS_OWNER>
 EVIDENCE: <2-5 bullet evidence points, cite file paths or facts from the packet>
 CORRECTION: <actionable correction or "none">
 ACCEPTANCE: <acceptance conditions to re-verify or "none">
@@ -81,26 +81,30 @@ def atomic_write(path: Path, data: str, mode: int = 0o644) -> None:
 
 
 def atomic_append(path: Path, line: str) -> None:
-    """Append under an exclusive lock, then persist via atomic replace."""
+    """Read-modify-write entirely under an exclusive lock, persisted atomically."""
     path.parent.mkdir(parents=True, exist_ok=True)
     lock = path.with_suffix(path.suffix + ".lock")
-    data = path.read_text(encoding="utf-8") if path.exists() else ""
-    data += line
-    fd, tmp = tempfile.mkstemp(dir=str(path.parent), prefix=".tmp-append-")
-    with os.fdopen(fd, "w", encoding="utf-8", newline="\n") as h:
-        h.write(data)
-        h.flush()
-        os.fsync(h.fileno())
-    os.chmod(tmp, 0o644)
     lock_fd = os.open(str(lock), os.O_CREAT | os.O_RDWR)
+    tmp_path = None
     try:
         if os.name == "nt":
             import msvcrt
+            os.lseek(lock_fd, 0, os.SEEK_SET)
             msvcrt.locking(lock_fd, msvcrt.LK_LOCK, 1)
         else:
             import fcntl
             fcntl.flock(lock_fd, fcntl.LOCK_EX)
+        data = path.read_text(encoding="utf-8") if path.exists() else ""
+        data += line
+        fd, tmp = tempfile.mkstemp(dir=str(path.parent), prefix=".tmp-append-")
+        tmp_path = tmp
+        with os.fdopen(fd, "w", encoding="utf-8", newline="\n") as h:
+            h.write(data)
+            h.flush()
+            os.fsync(h.fileno())
+        os.chmod(tmp, 0o644)
         os.replace(tmp, path)
+        tmp_path = None
     finally:
         try:
             if os.name == "nt":
@@ -113,19 +117,43 @@ def atomic_append(path: Path, line: str) -> None:
         except OSError:
             pass
         os.close(lock_fd)
+        if tmp_path is not None and os.path.exists(tmp_path):
+            try:
+                os.unlink(tmp_path)
+            except OSError:
+                pass
+
+
+def isolate_final_reply(output: str) -> str:
+    """Isolate the FINAL assistant segment from the CLI transcript.
+
+    codex exec prints the transcript in sections introduced by bare role
+    markers (`user`, `codex`). The final reply is the text after the LAST
+    bare `codex` marker; prompts/diagnostics live in earlier segments.
+    """
+    parts = re.split(r"(?m)^codex\s*$", output)
+    return parts[-1] if parts else output
 
 
 def parse_verdict(text: str) -> dict:
-    """Parse the FINAL response block only; fail on conflicting verdicts."""
+    """Parse the FINAL response block only; fail on conflicting verdicts.
+
+    A verdict is valid only if the final segment contains, after its DECISION
+    line, the three required fields (EVIDENCE/CORRECTION/ACCEPTANCE) and no
+    other DECISION line inside that segment.
+    """
     matches = list(DECISION_RE.finditer(text))
     if not matches:
         return {"decision": None, "reason": "no DECISION line", "raw_tail": text[-1500:]}
-    last = matches[-1]
     values = {m.group(1).upper() for m in matches}
     if len(values) > 1:
         return {"decision": None, "reason": f"conflicting verdicts {sorted(values)}", "raw_tail": text[-1500:]}
-    start = last.start()
-    return {"decision": last.group(1).upper(), "body": text[start:start + 6000]}
+    last = matches[-1]
+    segment = text[last.start():last.start() + 6000]
+    required = ("EVIDENCE:", "CORRECTION:", "ACCEPTANCE:")
+    if not all(field in segment for field in required):
+        return {"decision": None, "reason": "incomplete verdict block (missing fields)", "raw_tail": text[-1500:]}
+    return {"decision": last.group(1).upper(), "body": segment}
 
 
 def run_codex(prompt: str, repo: Path, timeout: int) -> tuple[int, str]:
@@ -168,7 +196,7 @@ def main() -> int:
                           "codex_exit": rc}, ensure_ascii=False))
         return 2
 
-    verdict = parse_verdict(output)
+    verdict = parse_verdict(isolate_final_reply(output))
     record = {"schema": 1, "topic": args.topic, "decided_utc": stamp,
               "packet_sha256_12": digest, "codex_exit": rc,
               "decision": verdict["decision"],

@@ -3,7 +3,7 @@
   "updated_utc": "2026-11-11T00:00:00Z",
   "primary_executor": "Z Code",
   "supervisor_operational": true,
-  "supervisor_notes": "Bridge live-verified: 2 real exchanges (NEEDS_CHANGES x2); feedback applied and locally tested; next verdict due in the next ordinary window.",
+  "supervisor_notes": "Bridge operational and fail-closed proven live (2 BRIDGE_FAILED rejections + 1 clean NEEDS_CHANGES via final-segment isolation). Residual parse-strictness findings covered by committed regression suite; next ordinary review verifies from committed head.",
   "website_healthy": true,
   "public_pages_indexable": false,
   "backups_verified": "historical evidence only; re-verification queued (TN-SAFE-001)",
