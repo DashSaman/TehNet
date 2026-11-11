@@ -99,3 +99,10 @@ KPI: web clicks/impressions/CTR/average position با فیلتر تاریخ و c
 
 ## 12 — Definition of Done
 Research dossier and actionable plan **PREPARED_FOR_REVIEW**. SERP-rank verification, quantitative performance baseline, real case approval, production gate and post-launch measurement **NOT_COMPLETE**. برای هر milestone بعدی نتیجه واقعی GSC/HTTP/Lead ثبت شود.
+
+## 13 — خط مبنای اعتبار لینک (داده ۱۱ نوامبر ۲۰۲۶)
+اتصال رایگان Ahrefs برای **نسخه DR3** و هر ۱۱ دامنه قابل خواندن بود: TehNet=0؛ ترازنت=26؛ ایمن‌نت=26؛ رایکانت=22؛ پیشگام رایانه=16؛ ایران هلپ‌دسک=10؛ پردیس پارس/واریان=9؛ پیراسیس/ارغوان=7؛ آی‌تی‌خانه=6. DR شاخص لگاریتمی ثالث برای پروفایل لینک است، نه Google Ranking، تعداد واقعی بک‌لینک یا مشروعیت کسب‌وکار. مدل DR4 در نوامبر ۲۰۲۶ به صورت preview ارائه شد؛ مقایسه تغییرات DR3 و DR4 بدون تفکیک معتبر نیست.
+
+[فایل DR3 یازده دامنه](ahrefs-dr3-11.csv) و [روش‌شناسی و محدودیت](ahrefs-dr3-notes.md). منابع: https://ahrefs.com/seo/glossary/domain-rating و https://ahrefs.com/blog/domain-rating-dr4/ (2026-11-05).
+
+**موانع اندازه‌گیری باقی:** Ahrefs Free دارای API units=0 است، SERP Overview برای country=ir خطای «کشور پشتیبانی‌نشده» می‌دهد. GSC Wizard به subscription فعال نیاز دارد و Windsor.ai به علت دو حساب روی پلن رایگان خواندن گزارش را نمی‌پذیرد. Google.com/search?gl=ir در ابزار وب در 2026-11-11 قابل بازیابی نبود. رتبه دقیق تهران و کلیک/ایمپرشن TehNet همچنان NOT_MEASURED هستند، نه صفر.
