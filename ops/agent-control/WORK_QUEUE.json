@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_utc": "2026-11-12T06:30:00Z",
+  "updated_utc": "2026-11-12T07:05:00Z",
   "single_writer": "Z Code primary executor",
   "supervisor": "Codex (read-only review; max 2 ordinary reviews/day)",
   "tasks": [
@@ -71,6 +71,39 @@
       "evidence": "25/25 links OK across /, /services/, /learn/mikrotik/mtcna/, routeros-winbox, ip-dhcp-dns (2026-11-12)",
       "last_progress": "2026-11-12 cycle 2",
       "next_action": "Next cycle: extend audit to remaining learn pages + P2 fix proposals (JSON-LD hub)"
+    },
+    {
+      "id": "TN-SEO-003",
+      "owner": "zcode",
+      "priority": "P2",
+      "title": "Live audit cycle 3: remaining learn pages + /lab/",
+      "state": "VERIFIED",
+      "dependencies": [],
+      "acceptance": [
+        "Direct HTTP evidence recorded",
+        "No mutation"
+      ],
+      "attempts": 1,
+      "evidence": "static-routing/nat/firewall/queues/lab all 200+self-canonical+H1=1+noindex intact; JSON-LD gaps: /learn/mikrotik/mtcna/ and /lab/ (gated fixes)",
+      "last_progress": "2026-11-12 cycle 3",
+      "next_action": "Aggregate JSON-LD gap fix proposal into the next release-packet draft"
+    },
+    {
+      "id": "TN-SAFE-003",
+      "owner": "zcode",
+      "priority": "P1",
+      "title": "Server disk housekeeping (safe caches only)",
+      "state": "VERIFIED",
+      "dependencies": [],
+      "acceptance": [
+        "Only rebuildable caches pruned",
+        "No volume/image in use touched",
+        "Freed space recorded"
+      ],
+      "attempts": 1,
+      "evidence": "builder prune 33.3MB (until=168h); dangling images 0B; finding: 84% usage is active data — larger reclaim requires owner decision (unused tagged images list available on request)",
+      "last_progress": "2026-11-12 cycle 3",
+      "next_action": "Owner decision packet for any larger cleanup; otherwise weekly cache prune in cycles"
     },
     {
       "id": "TN-IDX-001",

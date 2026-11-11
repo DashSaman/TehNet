@@ -1,3 +1,7 @@
+## CHECKPOINT — 2026-11-12 ORCHESTRATOR cycle 3
+
+ممیزی ۵ صفحهٔ باقی‌ماندهٔ learn+lab: همگی سالم (canonical/noindex/H1)؛ گپ JSON-LD دوم روی /lab/؛ پاکسازی امن ۳۳MB build cache؛ یافته: دیسک ۸۴٪ عمدتاً دادهٔ فعال و reclaim بزرگ نیازمند تصمیم مالک؛ صفر mutation.
+
 ## CHECKPOINT — 2026-11-12 ORCHESTRATOR cycle 2
 
 Restore rehearsal PASS (backup ۱۱نوامبر در DB تستی مجزا بازگردانی شد؛ ۵۲/۵۲ جدول و ۶/۶ جدول کلیدی هم‌شمار؛ تستی حذف شد)؛ ممیزی لینک داخلی ۲۵/۲۵ سالم؛ سایت ۲۰۰+noindex برقرار؛ هیچ production mutation.
