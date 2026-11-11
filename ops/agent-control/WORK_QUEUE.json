@@ -1,16 +1,35 @@
 {
   "schema": 1,
-  "updated_utc": "2026-11-11T00:00:00Z",
+  "updated_utc": "2026-11-11T16:25:00Z",
   "single_writer": "Z Code primary executor",
   "supervisor": "Codex (read-only review; max 2 ordinary reviews/day)",
   "tasks": [
+    {
+      "id": "TN-COORD-001",
+      "owner": "zcode",
+      "priority": "P0",
+      "title": "Coordination: supervisor bridge verified; 3h scheduler + 30m watchdog live",
+      "state": "VERIFIED",
+      "dependencies": [],
+      "acceptance": [
+        "Bridge fail-closed proven live; regression suite 10/10",
+        "Cron automation TEHNET-AUTONOMOUS-GROWTH active (0 */3 * * *)",
+        "schtasks TEHNET-WATCHDOG active (30m) with harmless run-now evidence in watchdog log"
+      ],
+      "attempts": 1,
+      "evidence": "RUN_HISTORY bridge rounds; automation-1a252ce4; schtasks query Ready; watchdog log 2026-11-11T16:20:02Z",
+      "last_progress": "2026-11-11",
+      "next_action": "Scheduled cycles consume the queue from here"
+    },
     {
       "id": "TN-IDX-001",
       "owner": "zcode",
       "priority": "P0",
       "title": "Indexability: reconcile PR94 default-off allowlist with live production and prepare the scoped owner decision packet",
       "state": "IN_PROGRESS",
-      "dependencies": ["TN-SAFE-001"],
+      "dependencies": [
+        "TN-SAFE-001"
+      ],
       "acceptance": [
         "PR94 implementation read and summarized with exact allowlist and release gates",
         "Production noindex/sitemap status re-verified with HTTP evidence",
