@@ -1,3 +1,7 @@
+## CHECKPOINT — 2026-11-12 ORCHESTRATOR cycle 2
+
+Restore rehearsal PASS (backup ۱۱نوامبر در DB تستی مجزا بازگردانی شد؛ ۵۲/۵۲ جدول و ۶/۶ جدول کلیدی هم‌شمار؛ تستی حذف شد)؛ ممیزی لینک داخلی ۲۵/۲۵ سالم؛ سایت ۲۰۰+noindex برقرار؛ هیچ production mutation.
+
 ## CHECKPOINT — 2026-11-11 ORCHESTRATOR cycle 1
 
 Backup تازهٔ تأییدشده روی سرور (netauto-main:/root/backups/tehnet-20261111، SHA256SUMS OK، دیسک 5.9G آزاد)؛ ممیزی ۸ صفحهٔ زنده: canonical سالم ۸/۸، noindex عمدی برقرار، یافتهٔ P2: MTCNA hub بدون JSON-LD؛ صف در ops/agent-control/؛ هیچ merge/deploy بدون مجوز مالک.

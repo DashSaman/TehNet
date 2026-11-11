@@ -6,7 +6,7 @@
   "supervisor_notes": "Operational; fail-closed proven live; regression suite committed (10/10); next ordinary review from committed head d977717+.",
   "website_healthy": true,
   "public_pages_indexable": false,
-  "backups_verified": "2026-11-11: /root/backups/tehnet-20261111 (DB+wp-content, SHA256SUMS OK); restore rehearsal pending (TN-SAFE-002)",
+  "backups_verified": "2026-11-11 backup + 2026-11-12 restore rehearsal PASSED (isolated test DB, 6/6 key tables row-identical, cleaned up)",
   "scheduled_jobs": "TEHNET-AUTOMOUS-GROWTH (Z Code cron, 3h, active) + TEHNET-WATCHDOG (schtasks 30m, active); watchdog log: ~/.zcode/tehnet-watchdog.log",
   "blocked_on_owner": [
     "merge/deploy PR89, PR90, PR91, PR93",

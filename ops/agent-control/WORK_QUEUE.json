@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_utc": "2026-11-11T17:45:00Z",
+  "updated_utc": "2026-11-12T06:30:00Z",
   "single_writer": "Z Code primary executor",
   "supervisor": "Codex (read-only review; max 2 ordinary reviews/day)",
   "tasks": [
@@ -57,6 +57,22 @@
       "next_action": "Next cycle: deeper internal-link check + candidate P2 fixes as a branch proposal"
     },
     {
+      "id": "TN-SEO-002",
+      "owner": "zcode",
+      "priority": "P2",
+      "title": "Internal link audit cycle (5 key pages)",
+      "state": "VERIFIED",
+      "dependencies": [],
+      "acceptance": [
+        "All internal links HTTP-checked",
+        "No mutation"
+      ],
+      "attempts": 1,
+      "evidence": "25/25 links OK across /, /services/, /learn/mikrotik/mtcna/, routeros-winbox, ip-dhcp-dns (2026-11-12)",
+      "last_progress": "2026-11-12 cycle 2",
+      "next_action": "Next cycle: extend audit to remaining learn pages + P2 fix proposals (JSON-LD hub)"
+    },
+    {
       "id": "TN-IDX-001",
       "owner": "zcode",
       "priority": "P0",
@@ -88,9 +104,9 @@
         "Free-disk reading recorded; housekeeping only per approved retention policy"
       ],
       "attempts": 1,
-      "evidence": "netauto-main:/root/backups/tehnet-20261111/ — db-tehnet-20261111.sql.gz (572K, gzip -t OK, single-transaction dump of DB tehnet) + wp-content-20261111.tar.gz (101M, 7352 entries) + SHA256SUMS.txt both OK; disk after: 5.9G free (was 6.0G)",
+      "evidence": "netauto-main:/root/backups/tehnet-20261111/ — db-tehnet-20261111.sql.gz (572K, gzip -t OK, single-transaction dump of DB tehnet) + wp-content-20261111.tar.gz (101M, 7352 entries) + SHA256SUMS.txt both OK; disk after: 5.9G free (was 6.0G); restore rehearsal PASSED 2026-11-12 (isolated tehnet_restore_test, 52/52 tables, 6 key tables row-identical, test DB dropped)",
       "last_progress": "2026-11-11 cycle 1",
-      "next_action": "Refresh at next release; restore rehearsal still pending (P1 candidate TN-SAFE-002)"
+      "next_action": "Refresh backup at next release or weekly; rehearsal repeats monthly"
     },
     {
       "id": "TN-QUEUE-001",
