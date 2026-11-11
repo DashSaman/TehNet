@@ -99,16 +99,15 @@
   "wordpress_limit_notice": "WPVibe daily fair-use limit encountered on 2026-11-04; no reset used",
   "preparation_automation_created": true,
   "latest_observation": {
-    "observed_at": "2026-11-10T16:19:00+03:30",
-    "basis": "Authenticated WordPress REST, context=edit, /wp/v2/pages list and per-ID list readback",
+    "observed_at": "2026-11-11T16:25:30+03:30",
+    "basis": "Authenticated WPVibe WordPress Core REST: GET /wp/v2/pages?status=draft&parent=40&context=edit, scoped per-ID raw readback and separate future list",
     "parent_page_id": 40,
-    "observed_draft_pages": 39,
-    "mapped_target_rows_nominal": 38,
+    "observed_draft_pages": 41,
+    "mapped_target_rows_nominal": 40,
+    "mapped_lessons_confirmed_matching_topic": 39,
     "legacy_unmapped_id": 255,
-    "github_only_target_lessons": [
-      15,
-      26
-    ],
+    "nominal_lesson_2_legacy_id": 232,
+    "github_only_missing_wordpress_page": [],
     "separate_source_without_confirmed_new_draft": [
       2
     ],
@@ -117,43 +116,118 @@
     "published_pages_changed": 0,
     "usage_reset_used": 0,
     "wordpress_media_uploaded": 0,
-    "media_route_blocker": "WPVibe upload_media HTTP 404: /wpvibe/v1 route unavailable; core REST page write works; use authentic GitHub image URLs only",
+    "original_screenshot_new_captures": 0,
+    "media_route_blocker": "Earlier WPVibe upload_media returned 404; NOT retried on 2026-11-11; only existing GitHub schematic embeds for lessons15/26",
     "current_session": [
       {
-        "lesson": 32,
-        "id": 283,
-        "slug": "mtcna-micro-32-pptp-sstp-security-routeros7",
+        "lesson": 15,
+        "id": 285,
+        "slug": "mtcna-micro-15-wireless-station-bridge-routeros7",
         "status": "draft",
         "parent": 40,
-        "raw_length": 7048,
-        "raw_readback_sha256": "c56d8073560aa1134a2c5ca4b6888df8749937bad0047b915c960c91187bc80d",
-        "raw_readback": "success via list endpoint; no bytewise comparison to original POST payload recorded",
-        "editor_url": "https://tehnet.ir/wp-admin/post.php?post=283&action=edit",
-        "preview_url": "https://tehnet.ir/?page_id=283&preview=true",
-        "images": "2 visually inspected authentic WinBox 4.5 CHR 7.25.1 captures embedded as external GitHub image links; third is schematic",
+        "raw_length": 7756,
+        "readback_verified": "REST content.raw, title, parent, status, excerpt and block structure; bytewise POST equivalence not separately captured",
+        "h2_count": 7,
+        "gutenberg_block_count": 26,
+        "editor_url": "https://tehnet.ir/wp-admin/post.php?post=285&action=edit",
+        "preview_url": "https://tehnet.ir/?page_id=285&preview=true",
+        "image": "existing conceptual wireless-lab.webp embedded from immutable GitHub raw; NOT WinBox screenshot",
         "full_four_step_pass": false,
         "rollback_pass": false,
         "technical_review": false,
         "gutenberg_editor_save_test": false
       },
       {
-        "lesson": 40,
-        "id": 284,
-        "slug": "mtcna-micro-40-final-self-assessment-routeros7",
+        "lesson": 26,
+        "id": 286,
+        "slug": "mtcna-micro-26-wifi-access-list-registration-routeros7",
         "status": "draft",
         "parent": 40,
-        "raw_length": 6953,
-        "raw_readback_sha256": "56f0abfa51ac66e3d5e2963ae7d6e5c69b31fcd65c662cd86ef8715d8043b658",
-        "exact_raw_equal_to_post_payload": true,
-        "editor_url": "https://tehnet.ir/wp-admin/post.php?post=284&action=edit",
-        "preview_url": "https://tehnet.ir/?page_id=284&preview=true",
-        "images": "1 visually inspected authentic System Resources capture, plus explanatory schematic, externally linked",
+        "raw_length": 9070,
+        "readback_verified": "REST content.raw bytewise equal to POST payload; excerpt equal; metadata scoped readback",
+        "h2_count": 8,
+        "gutenberg_block_count": 31,
+        "editor_url": "https://tehnet.ir/wp-admin/post.php?post=286&action=edit",
+        "preview_url": "https://tehnet.ir/?page_id=286&preview=true",
+        "image": "existing conceptual wireless-lab.webp embedded from immutable GitHub raw; NOT WinBox screenshot",
         "full_four_step_pass": false,
         "rollback_pass": false,
         "technical_review": false,
         "gutenberg_editor_save_test": false
       }
     ],
-    "safety": "No public/future writes, no PR82 mutation, no shared RoboT, no plugin installs, no production credentials"
-  }
+    "screenshot_qa_checkpoint": {
+      "raw_png": 160,
+      "distinct_main_views": 127,
+      "lessons_with_duplicate_or_incomplete": 20,
+      "fully_validated_four_step_lessons": 0,
+      "wireless_hardware_required": [
+        15,
+        24,
+        25,
+        26
+      ]
+    },
+    "safety": "Read/create in MTCNA draft scope only; no public/future writes, no PR82 modification, no shared RoboT, no credential exposure, no plugin installs, no resetting quota"
+  },
+  "observation_history": [
+    {
+      "observed_at": "2026-11-10T16:19:00+03:30",
+      "basis": "Authenticated WordPress REST, context=edit, /wp/v2/pages list and per-ID list readback",
+      "parent_page_id": 40,
+      "observed_draft_pages": 39,
+      "mapped_target_rows_nominal": 38,
+      "legacy_unmapped_id": 255,
+      "github_only_target_lessons": [
+        15,
+        26
+      ],
+      "separate_source_without_confirmed_new_draft": [
+        2
+      ],
+      "wordpress_future_count_verified": 0,
+      "ready_count_verified": 0,
+      "published_pages_changed": 0,
+      "usage_reset_used": 0,
+      "wordpress_media_uploaded": 0,
+      "media_route_blocker": "WPVibe upload_media HTTP 404: /wpvibe/v1 route unavailable; core REST page write works; use authentic GitHub image URLs only",
+      "current_session": [
+        {
+          "lesson": 32,
+          "id": 283,
+          "slug": "mtcna-micro-32-pptp-sstp-security-routeros7",
+          "status": "draft",
+          "parent": 40,
+          "raw_length": 7048,
+          "raw_readback_sha256": "c56d8073560aa1134a2c5ca4b6888df8749937bad0047b915c960c91187bc80d",
+          "raw_readback": "success via list endpoint; no bytewise comparison to original POST payload recorded",
+          "editor_url": "https://tehnet.ir/wp-admin/post.php?post=283&action=edit",
+          "preview_url": "https://tehnet.ir/?page_id=283&preview=true",
+          "images": "2 visually inspected authentic WinBox 4.5 CHR 7.25.1 captures embedded as external GitHub image links; third is schematic",
+          "full_four_step_pass": false,
+          "rollback_pass": false,
+          "technical_review": false,
+          "gutenberg_editor_save_test": false
+        },
+        {
+          "lesson": 40,
+          "id": 284,
+          "slug": "mtcna-micro-40-final-self-assessment-routeros7",
+          "status": "draft",
+          "parent": 40,
+          "raw_length": 6953,
+          "raw_readback_sha256": "56f0abfa51ac66e3d5e2963ae7d6e5c69b31fcd65c662cd86ef8715d8043b658",
+          "exact_raw_equal_to_post_payload": true,
+          "editor_url": "https://tehnet.ir/wp-admin/post.php?post=284&action=edit",
+          "preview_url": "https://tehnet.ir/?page_id=284&preview=true",
+          "images": "1 visually inspected authentic System Resources capture, plus explanatory schematic, externally linked",
+          "full_four_step_pass": false,
+          "rollback_pass": false,
+          "technical_review": false,
+          "gutenberg_editor_save_test": false
+        }
+      ],
+      "safety": "No public/future writes, no PR82 mutation, no shared RoboT, no plugin installs, no production credentials"
+    }
+  ]
 }
