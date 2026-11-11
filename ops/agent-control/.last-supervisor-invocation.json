@@ -1,9 +1,0 @@
-{
- "schema": 1,
- "topic": "bridge-repair-retest-3",
- "decided_utc": "2026-11-11T16:09:27Z",
- "packet_sha256_12": "23d2a875e19a",
- "codex_exit": 0,
- "decision": "NEEDS_CHANGES",
- "detail": "DECISION: NEEDS_CHANGES\nEVIDENCE: • Commit `4fd2405` is confined to `ops/agent-control/`; mocked nonzero-exit verification passed. • Fresh in-memory checks against committed and working versions accepted echo-only approval, `APPROVED`, missing fields, and quoted verdict text (`supervisor_bridge.py:40,127–155`). • Committed `atomic_append()` reads before locking; the corrected ordering exists only in uncommitted edits, contradicting the immutable-repair claim. • `RUN_HISTORY.md:6` reports “7/7” without reproducible regression artifacts; it does not establish the requested repairs. • Local `main` remains `a84f46d`, versus `origin/main` at `04c2af9`; deleting the local branch leaves its remote copy. Fresh backup verification remains pending in `WORK_QUEUE.json`.\nCORRECTION: Capture final assistant output separately from transcript diagnostics; validate exact verdict tokens and all required fields. Commit the locking repair, correct rollback scope/references, and provide reproducible test evidence before requesting another review.\nACCEPTANCE: Reverify one immutable revision with echo-only, malformed/missing/conflicting verdict, nonzero-exit, concurrent-append, interrupted-write, and output-containment tests. Confirm scoped changes and rollback applicability; retain explicit owner authorization and fresh backup/restore gates before production writes.\ntokens used\n64,240\n"
-}
