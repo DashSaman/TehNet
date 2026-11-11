@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_utc": "2026-11-11T16:25:00Z",
+  "updated_utc": "2026-11-11T17:05:00Z",
   "single_writer": "Z Code primary executor",
   "supervisor": "Codex (read-only review; max 2 ordinary reviews/day)",
   "tasks": [
@@ -20,6 +20,24 @@
       "evidence": "RUN_HISTORY bridge rounds; automation-1a252ce4; schtasks query Ready; watchdog log 2026-11-11T16:20:02Z",
       "last_progress": "2026-11-11",
       "next_action": "Scheduled cycles consume the queue from here"
+    },
+    {
+      "id": "TN-QUOTA-001",
+      "owner": "zcode",
+      "priority": "P0",
+      "title": "Model quota management: plan priority + verified fallback policy",
+      "state": "VERIFIED",
+      "dependencies": [],
+      "acceptance": [
+        "Connections inventoried via ListModels (no assumption)",
+        "Scheduler prompt encodes Priority A/B/C/D failover",
+        "No prepaid/highspeed auto-charge enabled without verified balance and spending cap",
+        "No new purchase"
+      ],
+      "attempts": 1,
+      "evidence": "ListModels 2026-11-11: zai-individual-coding-plan (purchased Coding Plan, GLM-5.3/Flash), zai-start-plan (current session), zai-offpeak-idle-plan, zai-highspeed-card (prepaid-like, NOT auto-enabled)",
+      "last_progress": "2026-11-11 scheduler prompt updated to TEHNET-24H-GROWTH-ORCHESTRATOR with quota failover",
+      "next_action": "Scheduled cycles start on Priority A; highspeed-card stays manual-only until owner-verified balance/cap"
     },
     {
       "id": "TN-IDX-001",

@@ -11,5 +11,13 @@
   "blocked_on_owner": [
     "merge/deploy PR89, PR90, PR91, PR93",
     "indexability release per PR94 gates"
-  ]
+  ],
+  "model_state": {
+    "current_session": "account:zai-start-plan/GLM-5.3-Flash",
+    "priority_A_coding_plan": "account:zai-individual-coding-plan/GLM-5.3(-Flash) — purchased; scheduler instructed to use it for heavy work",
+    "idle_plan": "account:zai-offpeak-idle-plan (eligible idle tasks)",
+    "prepaid_like": "account:zai-highspeed-card — NOT auto-enabled; requires owner-verified balance + 10%/24h cap before any use",
+    "new_billing": "none activated"
+  },
+  "scheduler": "TEHNET-24H-GROWTH-ORCHESTRATOR (Z Code cron 0 */3 * * *, recurring, active, first scheduled run pending)"
 }
