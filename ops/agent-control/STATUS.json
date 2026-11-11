@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "updated_utc": "2026-11-11T00:00:00Z",
+  "primary_executor": "Z Code",
+  "supervisor_operational": true,
+  "supervisor_notes": "Bridge live-verified: 2 real exchanges (NEEDS_CHANGES x2); feedback applied and locally tested; next verdict due in the next ordinary window.",
+  "website_healthy": true,
+  "public_pages_indexable": false,
+  "backups_verified": "historical evidence only; re-verification queued (TN-SAFE-001)",
+  "scheduled_jobs": "none created yet; minimum necessary only",
+  "blocked_on_owner": [
+    "merge/deploy PR89, PR90, PR91, PR93",
+    "indexability release per PR94 gates"
+  ]
+}

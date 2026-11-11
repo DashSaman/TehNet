@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "updated_utc": "2026-11-11T00:00:00Z",
+  "single_writer": "Z Code primary executor",
+  "supervisor": "Codex (read-only review; max 2 ordinary reviews/day)",
+  "tasks": [
+    {
+      "id": "TN-IDX-001",
+      "owner": "zcode",
+      "priority": "P0",
+      "title": "Indexability: reconcile PR94 default-off allowlist with live production and prepare the scoped owner decision packet",
+      "state": "IN_PROGRESS",
+      "dependencies": ["TN-SAFE-001"],
+      "acceptance": [
+        "PR94 implementation read and summarized with exact allowlist and release gates",
+        "Production noindex/sitemap status re-verified with HTTP evidence",
+        "Backup/rollback readiness confirmed before any release request",
+        "Scoped owner decision packet prepared; nothing merged without explicit owner approval"
+      ],
+      "attempts": 1,
+      "evidence": "PR94 head c1fee28; live meta robots 'noindex, nofollow' on /, lesson, /services/, /shop/; wp-sitemap.xml 404",
+      "last_progress": "2026-11-11 production recheck completed",
+      "next_action": "Read PR94 release-gate files; verify backup readiness; draft owner decision packet"
+    },
+    {
+      "id": "TN-SAFE-001",
+      "owner": "zcode",
+      "priority": "P0",
+      "title": "Safety: confirm current backup/rollback evidence and free disk on production host",
+      "state": "PENDING",
+      "dependencies": [],
+      "acceptance": [
+        "Latest verified backup reference recorded with date and restore evidence",
+        "Free-disk reading recorded; housekeeping only per approved retention policy"
+      ],
+      "attempts": 0,
+      "evidence": "",
+      "last_progress": "",
+      "next_action": "Read-only inspection of production host state via existing authorized SSH"
+    },
+    {
+      "id": "TN-QUEUE-001",
+      "owner": "codex-or-zcode",
+      "priority": "P1",
+      "title": "Reconcile PR93 cloud-queue package with local lab queue plan; owner approval still required for any production publish",
+      "state": "PENDING",
+      "dependencies": [],
+      "acceptance": [
+        "PR93 evidence read; overlap with handoff/queue-in-progress-20261106 documented",
+        "No duplicate local work restarted"
+      ],
+      "attempts": 0,
+      "evidence": "PR93 head c4c76ad; local handoff branch 865b281",
+      "last_progress": "",
+      "next_action": "Read PR93 report and compare scope"
+    },
+    {
+      "id": "TN-LEARN-PUB-001",
+      "owner": "owner",
+      "priority": "P1",
+      "title": "Owner decision: merge/deploy staged lessons PR89 (routing), PR90 (NAT), PR91 (firewall), and PR93 (queue)",
+      "state": "NEEDS_OWNER",
+      "dependencies": [],
+      "acceptance": [
+        "Explicit per-release owner approval with bounded scope, backup and rollback references"
+      ],
+      "attempts": 0,
+      "evidence": "PR89/90/91 CI green, staging-verified; PR93 per its own evidence",
+      "last_progress": "2026-11-11 states re-verified open",
+      "next_action": "Await explicit owner authorization; do not merge on mission continuation alone"
+    }
+  ]
+}
