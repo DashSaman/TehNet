@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_utc": "2026-11-11T17:05:00Z",
+  "updated_utc": "2026-11-11T17:45:00Z",
   "single_writer": "Z Code primary executor",
   "supervisor": "Codex (read-only review; max 2 ordinary reviews/day)",
   "tasks": [
@@ -36,8 +36,25 @@
       ],
       "attempts": 1,
       "evidence": "ListModels 2026-11-11: zai-individual-coding-plan (purchased Coding Plan, GLM-5.3/Flash), zai-start-plan (current session), zai-offpeak-idle-plan, zai-highspeed-card (prepaid-like, NOT auto-enabled)",
-      "last_progress": "2026-11-11 scheduler prompt updated to TEHNET-24H-GROWTH-ORCHESTRATOR with quota failover",
+      "last_progress": "2026-11-11 cycle 1 ran on start-plan Flash (deterministic tasks only); no heavy-engineering switch needed",
       "next_action": "Scheduled cycles start on Priority A; highspeed-card stays manual-only until owner-verified balance/cap"
+    },
+    {
+      "id": "TN-SEO-001",
+      "owner": "zcode",
+      "priority": "P2",
+      "title": "Live-page technical audit cycle 1 (robots/canonical/H1/JSON-LD)",
+      "state": "VERIFIED",
+      "dependencies": [],
+      "acceptance": [
+        "Direct HTTP evidence on 8 key pages recorded",
+        "No site mutation",
+        "Findings actionable and gated"
+      ],
+      "attempts": 1,
+      "evidence": "ops/agent-control/SEO_AUDIT_2026-11-11.md — canonical clean 8/8; noindex intact; finding: MTCNA hub lacks JSON-LD (fix via owner-approved release)",
+      "last_progress": "2026-11-11 cycle 1",
+      "next_action": "Next cycle: deeper internal-link check + candidate P2 fixes as a branch proposal"
     },
     {
       "id": "TN-IDX-001",
@@ -64,16 +81,16 @@
       "owner": "zcode",
       "priority": "P0",
       "title": "Safety: confirm current backup/rollback evidence and free disk on production host",
-      "state": "PENDING",
+      "state": "VERIFIED",
       "dependencies": [],
       "acceptance": [
         "Latest verified backup reference recorded with date and restore evidence",
         "Free-disk reading recorded; housekeeping only per approved retention policy"
       ],
-      "attempts": 0,
-      "evidence": "",
-      "last_progress": "",
-      "next_action": "Read-only inspection of production host state via existing authorized SSH"
+      "attempts": 1,
+      "evidence": "netauto-main:/root/backups/tehnet-20261111/ — db-tehnet-20261111.sql.gz (572K, gzip -t OK, single-transaction dump of DB tehnet) + wp-content-20261111.tar.gz (101M, 7352 entries) + SHA256SUMS.txt both OK; disk after: 5.9G free (was 6.0G)",
+      "last_progress": "2026-11-11 cycle 1",
+      "next_action": "Refresh at next release; restore rehearsal still pending (P1 candidate TN-SAFE-002)"
     },
     {
       "id": "TN-QUEUE-001",
