@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "reviewed_at": "2026-11-11",
+  "mission": "TehNet SEO/GEO/AEO bounded competitor research and draft architecture",
+  "base_main_sha": "04c2af953b6676306b702933aecc412a76d67730",
+  "branch": "seo/competitive-research-20261111",
+  "validation_method": "Authenticated GitHub fetch_file readback; counted CSV non-header rows and numbered section headings",
+  "checks": [
+    {
+      "artifact": "keywords-90.csv",
+      "rows": 90,
+      "result": "PASS"
+    },
+    {
+      "artifact": "serp-observation-20.csv",
+      "rows": 20,
+      "result": "PASS"
+    },
+    {
+      "artifact": "content-calendar-30.csv",
+      "rows": 30,
+      "result": "PASS"
+    },
+    {
+      "artifact": "competitor-matrix-11.csv",
+      "rows": 11,
+      "result": "PASS"
+    },
+    {
+      "artifact": "roadmap-180-days.csv",
+      "rows": 28,
+      "result": "PASS"
+    },
+    {
+      "artifact": "authority-opportunities-12.csv",
+      "rows": 12,
+      "result": "PASS"
+    },
+    {
+      "artifact": "competitor-dossiers-10.md",
+      "numbered_dossiers": 10,
+      "result": "PASS"
+    },
+    {
+      "artifact": "content-briefs-30.md",
+      "numbered_briefs": 30,
+      "result": "PASS"
+    },
+    {
+      "artifact": "REPORT.fa.md",
+      "result": "PASS"
+    },
+    {
+      "artifact": "technical-audit.md",
+      "result": "PASS"
+    },
+    {
+      "artifact": "local-geo-aeo-authority.md",
+      "result": "PASS"
+    },
+    {
+      "artifact": "draft-passive-network-tehran.gutenberg.html",
+      "result": "PASS"
+    }
+  ],
+  "separate_existing_wp_drafts_from_prior_turn": [
+    287,
+    288,
+    289
+  ],
+  "wp_draft_readback_in_this_turn": "NOT_RUN_WPVIBE_DAILY_LIMIT",
+  "github_CI": "NOT_YET_VERIFIED",
+  "exact_top10_organic_Google_Iran_for_each_seed": "NOT_VERIFIED",
+  "competitor_backlinks_GSC_GA4_real_metrics": "NOT_MEASURED",
+  "wordpress_production_writes_in_this_turn": 0,
+  "new_public_site_pages_in_this_turn": 0,
+  "deployment": "NOT_DEPLOYED",
+  "prohibited_until_separate_explicit_approval": [
+    "PR merge",
+    "PR94 limited content release",
+    "PR94 default-OFF runtime installation",
+    "PR94 index allowlist activation",
+    "any public WordPress publish",
+    "changing site-wide robots or Cloudflare policies"
+  ],
+  "known_blockers": [
+    "GSC Wizard subscription_required",
+    "Windsor.ai Free connected-account limit",
+    "WPVibe Free daily fair-use limit; banked reset not used",
+    "Google Iran exact SERP rank observations unverified",
+    "real passive/Fluke service capability, project consent and outcomes not verified"
+  ],
+  "conclusion": "FILES_VERIFIED_FOR_REVIEW; TECHNICAL_AND_BUSINESS_OUTCOMES_NOT_PROVEN"
+}
