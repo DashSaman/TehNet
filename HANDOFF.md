@@ -1,3 +1,7 @@
+## CHECKPOINT — 2026-11-12 ORCHESTRATOR cycle 5
+
+بستهٔ تصمیم indexability v2 (پس از بازبینی Codex) در ops/agent-control/OWNER_DECISION_INDEXABILITY_2026-11-12.fa.md برای مالک ارائه شد: چهار مجوز جدا M0/D1/D2/D3 + ۱۶ URL دقیق + محدودیت off-host صادقانه؛ WAITING_FOR_OWNER؛ بقیهٔ صف آزاد؛ صفر mutation.
+
 ## CHECKPOINT — 2026-11-12 ORCHESTRATOR cycle 3
 
 ممیزی ۵ صفحهٔ باقی‌ماندهٔ learn+lab: همگی سالم (canonical/noindex/H1)؛ گپ JSON-LD دوم روی /lab/؛ پاکسازی امن ۳۳MB build cache؛ یافته: دیسک ۸۴٪ عمدتاً دادهٔ فعال و reclaim بزرگ نیازمند تصمیم مالک؛ صفر mutation.
