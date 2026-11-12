@@ -16,3 +16,5 @@ EVIDENCE:
 - `supervisor_bridge.py:76–85,120–136 |
 | 2026-11-11T16:09:27Z | bridge-repair-retest-3 | NEEDS_CHANGES | 23d2a875e19a | DECISION: NEEDS_CHANGES
 EVIDENCE: • Commit `4fd2405` is confined to `ops/agent-control/`; mocked nonzero-exit verification passed. • Fresh in-memory checks against committed and working versions accepted echo-only approval, `APPROVED`, missing fields, and quoted verdict text (`supervisor_bridge.py:40,127–155`). • Committed `atomic_append()` reads before locking; the corrected ordering exists only  |
+| 2026-11-12T17:37:13Z | daily-review-cycle4 | NEEDS_CHANGES | 71aff0315f4f | DECISION: NEEDS_CHANGES
+EVIDENCE: • Local head `a568d5d` preserves branch isolation; `origin/main` remains `04c2af9`, and `RELEASE_GATES.md` retains owner authorization. • Fresh in-memory checks reproduced false approvals for echo-only text, `APPROVED`, and duplicate decisions (`supervisor_bridge.py:40,127,145`); previous parsing defects remain. • Claimed regression coverage includes tautologies,  |

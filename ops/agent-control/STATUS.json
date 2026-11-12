@@ -6,7 +6,7 @@
   "supervisor_notes": "Operational; fail-closed proven live; regression suite committed (10/10); next ordinary review from committed head d977717+.",
   "website_healthy": true,
   "public_pages_indexable": false,
-  "backups_verified": "2026-11-11 backup + 2026-11-12 restore rehearsal PASSED (isolated test DB, 6/6 key tables row-identical, cleaned up)",
+  "backups_verified": "2026-11-11 backup verified; 2026-11-12 restore rehearsal: backup restored into ISOLATED same-host test DB (52/52 tables, 6 key tables row-count equal); NOT an off-host recovery or wp-content restore proof — same-host only, DB-only",
   "scheduled_jobs": "TEHNET-AUTOMOUS-GROWTH (Z Code cron, 3h, active) + TEHNET-WATCHDOG (schtasks 30m, active); watchdog log: ~/.zcode/tehnet-watchdog.log",
   "blocked_on_owner": [
     "merge/deploy PR89, PR90, PR91, PR93",
@@ -19,5 +19,6 @@
     "prepaid_like": "account:zai-highspeed-card — NOT auto-enabled; requires owner-verified balance + 10%/24h cap before any use",
     "new_billing": "none activated"
   },
-  "scheduler": "TEHNET-24H-GROWTH-ORCHESTRATOR (Z Code cron 0 */3 * * *, recurring, active, first scheduled run pending)"
+  "scheduler": "TEHNET-24H-GROWTH-ORCHESTRATOR (Z Code cron 0 */3 * * *, recurring, active, first scheduled run pending)",
+  "recovery_limits": "Backups are same-host (/root/backups). Off-host copy and wp-content restore rehearsal not yet performed — WAITING_FOR_OWNER decision on destination/capacity (host disk 84% full)"
 }

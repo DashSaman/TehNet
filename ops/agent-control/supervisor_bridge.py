@@ -52,7 +52,7 @@ Examine the evidence packet below and decide whether Z Code:
 - is drifting from business priorities or misusing resources.
 
 Answer as the FINAL part of your reply with EXACTLY these four lines, written ONCE each (never repeat the template or show example verdicts anywhere in your reply; no prose after them):
-DECISION: <one of APPROVE / NEEDS_CHANGES / REJECT / NEEDS_OWNER>
+DECISION: <one-of: APPROVE, NEEDS_CHANGES, REJECT, NEEDS_OWNER>
 EVIDENCE: <2-5 bullet evidence points, cite file paths or facts from the packet>
 CORRECTION: <actionable correction or "none">
 ACCEPTANCE: <acceptance conditions to re-verify or "none">
@@ -136,19 +136,20 @@ def isolate_final_reply(output: str) -> str:
 
 
 def parse_verdict(text: str) -> dict:
-    """Parse the FINAL response block only; fail on conflicting verdicts.
+    """Parse the FINAL response block only; fail closed on ambiguity.
 
-    A verdict is valid only if the final segment contains, after its DECISION
-    line, the three required fields (EVIDENCE/CORRECTION/ACCEPTANCE) and no
-    other DECISION line inside that segment.
+    Exactly ONE DECISION match is allowed in the final segment (duplicates,
+    even same-value, mean the reply is ambiguous or echoed -> fail). The
+    verdict must be followed by all three required fields. A prompt-template
+    placeholder never matches because the template writes the value inside
+    angle brackets (<one-of: ...>).
     """
     matches = list(DECISION_RE.finditer(text))
     if not matches:
         return {"decision": None, "reason": "no DECISION line", "raw_tail": text[-1500:]}
-    values = {m.group(1).upper() for m in matches}
-    if len(values) > 1:
-        return {"decision": None, "reason": f"conflicting verdicts {sorted(values)}", "raw_tail": text[-1500:]}
-    last = matches[-1]
+    if len(matches) > 1:
+        return {"decision": None, "reason": f"multiple verdict lines ({len(matches)})", "raw_tail": text[-1500:]}
+    last = matches[0]
     segment = text[last.start():last.start() + 6000]
     required = ("EVIDENCE:", "CORRECTION:", "ACCEPTANCE:")
     if not all(field in segment for field in required):

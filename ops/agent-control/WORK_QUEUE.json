@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_utc": "2026-11-12T07:05:00Z",
+  "updated_utc": "2026-11-12T08:10:00Z",
   "single_writer": "Z Code primary executor",
   "supervisor": "Codex (read-only review; max 2 ordinary reviews/day)",
   "tasks": [
@@ -110,7 +110,7 @@
       "owner": "zcode",
       "priority": "P0",
       "title": "Indexability: reconcile PR94 default-off allowlist with live production and prepare the scoped owner decision packet",
-      "state": "IN_PROGRESS",
+      "state": "READY",
       "dependencies": [
         "TN-SAFE-001"
       ],
@@ -123,7 +123,7 @@
       "attempts": 1,
       "evidence": "PR94 head c1fee28; live meta robots 'noindex, nofollow' on /, lesson, /services/, /shop/; wp-sitemap.xml 404",
       "last_progress": "2026-11-11 production recheck completed",
-      "next_action": "Read PR94 release-gate files; verify backup readiness; draft owner decision packet"
+      "next_action": "Next cycle: draft the owner decision packet (scoped approval text, backup refs, PR94 three-gate summary)"
     },
     {
       "id": "TN-SAFE-001",

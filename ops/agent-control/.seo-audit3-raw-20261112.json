@@ -1,0 +1,62 @@
+[
+ {
+  "url": "/services/voice-network-readiness/",
+  "status": 200,
+  "robots": "noindex, nofollow",
+  "canonical_self": true,
+  "h1": 1,
+  "ldjson": 1,
+  "imgs": 2,
+  "forms": 0
+ },
+ {
+  "url": "/services/remote-support/",
+  "status": 200,
+  "robots": "noindex, nofollow",
+  "canonical_self": true,
+  "h1": 1,
+  "ldjson": 1,
+  "imgs": 2,
+  "forms": 0
+ },
+ {
+  "url": "/services/mikrotik-tehran/",
+  "status": 200,
+  "robots": "noindex, nofollow",
+  "canonical_self": true,
+  "h1": 1,
+  "ldjson": 1,
+  "imgs": 2,
+  "forms": 0
+ },
+ {
+  "url": "/services/network-setup-tehran/",
+  "status": 200,
+  "robots": "noindex, nofollow",
+  "canonical_self": true,
+  "h1": 1,
+  "ldjson": 1,
+  "imgs": 2,
+  "forms": 0
+ },
+ {
+  "url": "/services/network-support-tehran/",
+  "status": 200,
+  "robots": "noindex, nofollow",
+  "canonical_self": true,
+  "h1": 1,
+  "ldjson": 1,
+  "imgs": 2,
+  "forms": 0
+ },
+ {
+  "url": "/services/network-tehran/",
+  "status": 200,
+  "robots": "noindex, nofollow",
+  "canonical_self": true,
+  "h1": 1,
+  "ldjson": 1,
+  "imgs": 2,
+  "forms": 0
+ }
+]
