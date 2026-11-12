@@ -1,3 +1,7 @@
+## CHECKPOINT — 2026-11-13 ORCHESTRATOR cycle 6
+
+بستهٔ تصمیم indexability v3 (recovery اجباری، rollback کامل D1، مسیرهای خصوصی واقعی، توالی D3) — WAITING_FOR_OWNER؛ re-review Codex در پنجرهٔ بعدی؛ سایت سالم؛ صفر mutation.
+
 ## CHECKPOINT — 2026-11-12 ORCHESTRATOR cycle 5
 
 بستهٔ تصمیم indexability v2 (پس از بازبینی Codex) در ops/agent-control/OWNER_DECISION_INDEXABILITY_2026-11-12.fa.md برای مالک ارائه شد: چهار مجوز جدا M0/D1/D2/D3 + ۱۶ URL دقیق + محدودیت off-host صادقانه؛ WAITING_FOR_OWNER؛ بقیهٔ صف آزاد؛ صفر mutation.

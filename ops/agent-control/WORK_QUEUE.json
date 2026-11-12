@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_utc": "2026-11-12T08:35:00Z",
+  "updated_utc": "2026-11-13T06:40:00Z",
   "single_writer": "Z Code primary executor",
   "supervisor": "Codex (read-only review; max 2 ordinary reviews/day)",
   "tasks": [
@@ -121,8 +121,8 @@
         "Scoped owner decision packet prepared; nothing merged without explicit owner approval"
       ],
       "attempts": 1,
-      "evidence": "OWNER_DECISION_INDEXABILITY_2026-11-12.fa.md v2 (post-Codex-review): 4 separate approvals M0/D1/D2/D3, exact 16 URLs from activation-manifest, honest recovery limits; presented to owner in cycle 5 report",
-      "last_progress": "2026-11-12 cycle 5",
+      "evidence": "packet v3 committed (recovery mandatory gate, full D1 rollback, real private routes, D3 sequencing); re-review by Codex due next window",
+      "last_progress": "2026-11-13 cycle 6",
       "next_action": "Await owner decision; re-review by Codex in next window if packet changes again"
     },
     {
