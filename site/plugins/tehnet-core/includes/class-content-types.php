@@ -36,7 +36,7 @@ final class TehNet_Core_Content_Types {
             'menu_icon' => 'dashicons-editor-code',
             'supports' => ['title', 'editor', 'excerpt', 'thumbnail', 'revisions'],
             'has_archive' => false,
-            'rewrite' => ['slug' => 'lab', 'with_front' => false],
+            'rewrite' => false,
         ]);
     }
 }
