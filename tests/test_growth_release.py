@@ -371,12 +371,13 @@ class ReleaseBoundaries(unittest.TestCase):
         self.assertEqual(runtime, [])
         self.assertIn(scope, self.module.GUARDED_SCOPES)
         self.assertNotIn(scope, self.module.CONTENT_SCOPES)
-        # The three replacement bodies must equal the production-truth release bodies already on main.
+        # The three replacement bodies must equal the production-truth release bodies (present in this
+        # branch's tree; CI checkouts may not carry origin/main). Working tree may be CRLF — normalize.
         import hashlib
         for path, expected in [('content/network-support-2026-11-01/network-support.html', '73d1b477170f3e9c8c59610e8901a066b10f1e7200a7003dfe3d9ff1a6b1627a'),
                                ('content/server-branch-2026-11-04/network-setup.html', '709c49b6d2e0cffa4d95c3709877ff06d40daa5223a3f39894881b7a429cbe5e'),
                                ('content/mikrotik-service-2026-11-01/mikrotik-service.html', 'ab9d96e52fb50fc3f2d0f535d614c4d6dbd29395d10e32002f608b8cd7c950e7')]:
-            blob = subprocess.run(['git', 'show', 'origin/main:' + path], capture_output=True).stdout
+            blob = open(path, 'rb').read().replace(b'\r\n', b'\n')
             self.assertEqual(hashlib.sha256(blob).hexdigest(), expected, path)
 
     def test_reconciled_decision_id33_body_matches_manifests(self):
