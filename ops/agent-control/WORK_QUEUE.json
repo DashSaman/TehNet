@@ -1,9 +1,27 @@
 {
   "schema": 1,
-  "updated_utc": "2026-11-13T15:20:00Z",
+  "updated_utc": "2026-11-13T19:10:00Z",
   "single_writer": "Z Code primary executor",
   "supervisor": "Codex (read-only review; max 2 ordinary reviews/day)",
   "tasks": [
+    {
+      "id": "TN-SEO-JS-001",
+      "owner": "zcode",
+      "priority": "P1",
+      "title": "JSON-LD: CollectionPage for /learn/mikrotik/mtcna/ and /lab/ (PR97, staging+frontend VERIFIED)",
+      "state": "VERIFIED",
+      "dependencies": [],
+      "acceptance": [
+        "Native 12/12 PASS",
+        "Frontend render verified via server-side curl",
+        "publication_guard PASS",
+        "PR #97 open"
+      ],
+      "attempts": 1,
+      "evidence": "PR97 head d406036; frontend receipt docs/evidence/2026-11-13/seo-jsonld/frontend-verification-20261113.json",
+      "last_progress": "2026-11-13",
+      "next_action": "Owner merge decision"
+    },
     {
       "id": "TN-COORD-001",
       "owner": "zcode",

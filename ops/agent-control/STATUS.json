@@ -22,5 +22,6 @@
   "scheduler": "TEHNET-24H-GROWTH-ORCHESTRATOR (Z Code cron 0 */3 * * *, recurring, active, first scheduled run pending)",
   "recovery_limits": "Backups are same-host (/root/backups). Off-host copy and wp-content restore rehearsal not yet performed — WAITING_FOR_OWNER decision on destination/capacity (host disk 84% full)",
   "quota_incident": "2026-11-13: two scheduled cycles failed in ~7s on start-plan quota exhaustion (exceed quota limit); switched to purchased coding plan per Priority A; cycles resumed",
-  "current_session_model": "account:zai-individual-coding-plan/GLM-5.3-Flash"
+  "current_session_model": "account:zai-individual-coding-plan/GLM-5.3-Flash",
+  "pr_status": "PR89/90/91/93/94/95/96/97 all open, CI green, WAITING_FOR_OWNER merge decision"
 }
