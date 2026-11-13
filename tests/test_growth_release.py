@@ -279,7 +279,8 @@ class ReleaseBoundaries(unittest.TestCase):
         self.assertEqual(manifest['target']['expected_content_sha256'], '5c84ebdffaa8c93e61eea55bdf1871ff07cd68ee7ee1935135d557b3cc6f3e84')
         self.assertEqual(manifest['content_sha256_lf'], '2f5210b20f6d51559aee901c5a9d56120ff16b150b8c28e95516f646fe0d866c')
         import hashlib
-        blob = subprocess.run(['git', 'show', 'origin/main:content/remote-support-2026-11-01/remote-support.html'], capture_output=True).stdout
+        # Read from this branch's tree: CI checkouts may not carry origin/main.
+        blob = open('content/remote-support-2026-11-01/remote-support.html', 'rb').read()
         self.assertEqual(hashlib.sha256(blob).hexdigest(), manifest['content_sha256_lf'])
 
     def test_remote_buyer_scope_is_additive_and_digest_gated(self):
