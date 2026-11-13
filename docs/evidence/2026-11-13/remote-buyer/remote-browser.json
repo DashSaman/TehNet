@@ -1,0 +1,67 @@
+{
+ "status": "PASS",
+ "total": 13,
+ "failures": 0,
+ "checks": [
+  {
+   "name": "http200",
+   "pass": true,
+   "detail": 200
+  },
+  {
+   "name": "section_مسیر یک جلسه",
+   "pass": true
+  },
+  {
+   "name": "section_چرا تهران نت",
+   "pass": true
+  },
+  {
+   "name": "section_چه مسئله‌ای ",
+   "pass": true
+  },
+  {
+   "name": "section_پایان دسترسی",
+   "pass": true
+  },
+  {
+   "name": "anchor_why_tehnet",
+   "pass": true
+  },
+  {
+   "name": "anchor_session_journey",
+   "pass": true
+  },
+  {
+   "name": "mtcna_link",
+   "pass": true
+  },
+  {
+   "name": "setup_referral",
+   "pass": true
+  },
+  {
+   "name": "phone_replaced",
+   "pass": true
+  },
+  {
+   "name": "no_console_errors",
+   "pass": true,
+   "detail": {
+    "errors": []
+   }
+  },
+  {
+   "name": "noindex_staging",
+   "pass": true,
+   "detail": "noindex, nofollow"
+  },
+  {
+   "name": "mobile_no_overflow",
+   "pass": true,
+   "detail": {
+    "px": 0
+   }
+  }
+ ]
+}
