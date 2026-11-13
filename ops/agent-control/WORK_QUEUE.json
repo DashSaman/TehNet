@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_utc": "2026-11-13T06:40:00Z",
+  "updated_utc": "2026-11-13T15:20:00Z",
   "single_writer": "Z Code primary executor",
   "supervisor": "Codex (read-only review; max 2 ordinary reviews/day)",
   "tasks": [
@@ -106,6 +106,23 @@
       "next_action": "Owner decision packet for any larger cleanup; otherwise weekly cache prune in cycles"
     },
     {
+      "id": "TN-RELSEQ-001",
+      "owner": "zcode",
+      "priority": "P1",
+      "title": "Collision-free release sequence for 7 open PRs documented",
+      "state": "VERIFIED",
+      "dependencies": [],
+      "acceptance": [
+        "Shared files identified (release script/migrator/CSS)",
+        "Sequence proposed with rebase+retest between merges",
+        "Every merge still gated on explicit owner approval"
+      ],
+      "attempts": 1,
+      "evidence": "ops/agent-control/RECONCILIATION_2026-11-13.md — PR95 first, PR93, WinBox trio, PR96, PR94 last with fresh CI",
+      "last_progress": "2026-11-13",
+      "next_action": "Present the sequence to the owner with each PR's own approval packet"
+    },
+    {
       "id": "TN-IDX-001",
       "owner": "zcode",
       "priority": "P0",
@@ -146,16 +163,16 @@
       "owner": "codex-or-zcode",
       "priority": "P1",
       "title": "Reconcile PR93 cloud-queue package with local lab queue plan; owner approval still required for any production publish",
-      "state": "PENDING",
+      "state": "DONE",
       "dependencies": [],
       "acceptance": [
         "PR93 evidence read; overlap with handoff/queue-in-progress-20261106 documented",
         "No duplicate local work restarted"
       ],
       "attempts": 0,
-      "evidence": "PR93 head c4c76ad; local handoff branch 865b281",
-      "last_progress": "",
-      "next_action": "Read PR93 report and compare scope"
+      "evidence": "Reconciled 2026-11-13: PR93 (lab/cloud-queue-20261108) already delivers a COMPLETE queue package (12 real WinBox frames, native52/renderer8/browser518, cloud fixture) — supersedes the local handoff branch; see RECONCILIATION_2026-11-13.md",
+      "last_progress": "2026-11-13 reconciliation",
+      "next_action": "PR93 remains in the owner merge queue (position 3 in proposed sequence)"
     },
     {
       "id": "TN-LEARN-PUB-001",

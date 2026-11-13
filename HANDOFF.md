@@ -1,3 +1,7 @@
+## CHECKPOINT — 2026-11-13 Phase 0 reconciliation
+
+main همچنان 04c2af9 (هیچ merge مالک)؛ ۹ PR باز همگی CI سبز؛ PR93 تشخیص داده شد Queue ID67 را کامل پوشش می‌دهد و کار محلی queue duplicate بود — ادامه نمی‌یابد؛ توالی ادغام بدون تداخل در ops/agent-control/RECONCILIATION_2026-11-13.md؛ watchdog فعال؛ backup ۱۳-۱۱ تأیید.
+
 ## CHECKPOINT — 2026-11-13 backup refresh (coding-plan session)
 
 پل Codex سالم و روی session خریداری‌شده ادامه یافت؛ incident سهمیهٔ start-plan ثبت شد (۲ چرخهٔ زمان‌بند ۷ ثانیه‌ای شکست خوردند، هیچ تغییر دادهای نمی‌گذاشتند)؛ backup تازهٔ ۲۰۲۶-۱۱-۱۳ با SHA256SUMS OK و چرخش نسخهٔ ۱۱-۱۱؛ دیسک 5.3G آزاد؛ صف و مدل‌ها طبق Priority A/B/C/D.
