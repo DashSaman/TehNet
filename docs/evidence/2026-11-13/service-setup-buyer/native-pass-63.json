@@ -1,0 +1,312 @@
+{
+    "status": "PASS",
+    "total": 63,
+    "failures": 0,
+    "checks": [
+        {
+            "name": "env_body_path_provided",
+            "pass": true
+        },
+        {
+            "name": "env_manifest_path_provided",
+            "pass": true
+        },
+        {
+            "name": "env_migration_path_provided",
+            "pass": true
+        },
+        {
+            "name": "migration_class_loaded",
+            "pass": true
+        },
+        {
+            "name": "authorizes_positive_scope_key",
+            "pass": true
+        },
+        {
+            "name": "authorizes_positive_master",
+            "pass": true
+        },
+        {
+            "name": "rejects_wrong_authorization_value",
+            "pass": true
+        },
+        {
+            "name": "rejects_mismatched_requested_key",
+            "pass": true
+        },
+        {
+            "name": "rejects_non_string_authorization",
+            "pass": true
+        },
+        {
+            "name": "rejects_missing_requested_key",
+            "pass": true
+        },
+        {
+            "name": "target_page_publish",
+            "pass": true
+        },
+        {
+            "name": "manifest_key_matches",
+            "pass": true
+        },
+        {
+            "name": "manifest_schema_1",
+            "pass": true
+        },
+        {
+            "name": "target_id_33",
+            "pass": true
+        },
+        {
+            "name": "target_url_exact",
+            "pass": true
+        },
+        {
+            "name": "change_fields_content_only",
+            "pass": true
+        },
+        {
+            "name": "title_observed_matches_live",
+            "pass": true,
+            "live": "راه‌اندازی شبکه شرکت در تهران"
+        },
+        {
+            "name": "live_content_matches_manifest_baseline",
+            "pass": true,
+            "live": "09eba56189c561933b6107fbdb2dcca7259450c7b78751ffb5f0df6e2d241818"
+        },
+        {
+            "name": "body_file_matches_manifest_lf_digest",
+            "pass": true
+        },
+        {
+            "name": "body_canonical_serialization",
+            "pass": true
+        },
+        {
+            "name": "body_kses_stable",
+            "pass": true
+        },
+        {
+            "name": "only_allowed_block_types",
+            "pass": true,
+            "inventory": {
+                "core\/paragraph": 4,
+                "core\/heading": 6,
+                "core\/list": 4,
+                "core\/list-item": 14
+            }
+        },
+        {
+            "name": "no_non_whitespace_freeform",
+            "pass": true,
+            "count": 0
+        },
+        {
+            "name": "no_shortcode_blocks",
+            "pass": true
+        },
+        {
+            "name": "six_h2_sections",
+            "pass": true,
+            "count": 6
+        },
+        {
+            "name": "h2_present_61e652",
+            "pass": true,
+            "section": "فرایند کار از درخواست تا تحویل"
+        },
+        {
+            "name": "h2_present_bcb1ee",
+            "pass": true,
+            "section": "تحویل‌دادنی‌های پایه پروژه"
+        },
+        {
+            "name": "h2_present_03c7ca",
+            "pass": true,
+            "section": "مرزهای خدمت؛ چه چیزهایی جزو این خدمت نیست"
+        },
+        {
+            "name": "h2_present_67f642",
+            "pass": true,
+            "section": "بعد از راه‌اندازی"
+        },
+        {
+            "name": "h2_present_369d5e",
+            "pass": true,
+            "section": "چرا تهران نتورک"
+        },
+        {
+            "name": "h2_present_14dde1",
+            "pass": true,
+            "section": "درخواست بررسی پروژه"
+        },
+        {
+            "name": "links_present",
+            "pass": true,
+            "count": 7
+        },
+        {
+            "name": "link_same_origin_894908",
+            "pass": true,
+            "href": "\/services\/network-support-tehran\/"
+        },
+        {
+            "name": "no_javascript_links",
+            "pass": true,
+            "href": "\/services\/network-support-tehran\/"
+        },
+        {
+            "name": "link_target_published_894908",
+            "pass": true,
+            "href": "\/services\/network-support-tehran\/",
+            "path": "services\/network-support-tehran"
+        },
+        {
+            "name": "link_same_origin_f25dd1",
+            "pass": true,
+            "href": "\/services\/remote-support\/"
+        },
+        {
+            "name": "no_javascript_links",
+            "pass": true,
+            "href": "\/services\/remote-support\/"
+        },
+        {
+            "name": "link_target_published_f25dd1",
+            "pass": true,
+            "href": "\/services\/remote-support\/",
+            "path": "services\/remote-support"
+        },
+        {
+            "name": "link_same_origin_3ba628",
+            "pass": true,
+            "href": "\/learn\/mikrotik\/mtcna\/"
+        },
+        {
+            "name": "no_javascript_links",
+            "pass": true,
+            "href": "\/learn\/mikrotik\/mtcna\/"
+        },
+        {
+            "name": "link_target_published_3ba628",
+            "pass": true,
+            "href": "\/learn\/mikrotik\/mtcna\/",
+            "path": "learn\/mikrotik\/mtcna"
+        },
+        {
+            "name": "link_same_origin_55d6b3",
+            "pass": true,
+            "href": "\/technical-methodology\/"
+        },
+        {
+            "name": "no_javascript_links",
+            "pass": true,
+            "href": "\/technical-methodology\/"
+        },
+        {
+            "name": "link_target_published_55d6b3",
+            "pass": true,
+            "href": "\/technical-methodology\/",
+            "path": "technical-methodology"
+        },
+        {
+            "name": "link_same_origin_26a93b",
+            "pass": true,
+            "href": "\/contact\/"
+        },
+        {
+            "name": "no_javascript_links",
+            "pass": true,
+            "href": "\/contact\/"
+        },
+        {
+            "name": "link_target_published_26a93b",
+            "pass": true,
+            "href": "\/contact\/",
+            "path": "contact"
+        },
+        {
+            "name": "link_same_origin_55d6b3",
+            "pass": true,
+            "href": "\/technical-methodology\/"
+        },
+        {
+            "name": "no_javascript_links",
+            "pass": true,
+            "href": "\/technical-methodology\/"
+        },
+        {
+            "name": "link_target_published_55d6b3",
+            "pass": true,
+            "href": "\/technical-methodology\/",
+            "path": "technical-methodology"
+        },
+        {
+            "name": "link_same_origin_26a93b",
+            "pass": true,
+            "href": "\/contact\/"
+        },
+        {
+            "name": "no_javascript_links",
+            "pass": true,
+            "href": "\/contact\/"
+        },
+        {
+            "name": "link_target_published_26a93b",
+            "pass": true,
+            "href": "\/contact\/",
+            "path": "contact"
+        },
+        {
+            "name": "no_external_links",
+            "pass": true,
+            "external": []
+        },
+        {
+            "name": "no_overclaim_381150",
+            "pass": true,
+            "marker": "تضمین"
+        },
+        {
+            "name": "no_overclaim_21ccfa",
+            "pass": true,
+            "marker": "۵۰٪"
+        },
+        {
+            "name": "no_overclaim_602f59",
+            "pass": true,
+            "marker": "بهترین"
+        },
+        {
+            "name": "no_overclaim_fc262f",
+            "pass": true,
+            "marker": "ارزان‌ترین"
+        },
+        {
+            "name": "no_overclaim_0c5ca3",
+            "pass": true,
+            "marker": "سریع‌ترین"
+        },
+        {
+            "name": "no_overclaim_30bd7c",
+            "pass": true,
+            "marker": "100%"
+        },
+        {
+            "name": "no_overclaim_e43d1e",
+            "pass": true,
+            "marker": "ضمانت‌نامه"
+        },
+        {
+            "name": "negative_tampered_kses_unstable",
+            "pass": true
+        },
+        {
+            "name": "negative_disallowed_block_detected",
+            "pass": true
+        }
+    ]
+}

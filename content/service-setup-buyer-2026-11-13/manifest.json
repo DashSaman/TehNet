@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "key": "tehnet-service-setup-buyer-20261113-v1",
+  "status": "SUPERSEDED_BY_RECONCILIATION_20261113",
+  "target": {
+    "id": 33,
+    "url": "https://tehnet.ir/services/network-setup-tehran/",
+    "title_observed": "راه‌اندازی شبکه شرکت در تهران",
+    "expected_content_sha256": "09eba56189c561933b6107fbdb2dcca7259450c7b78751ffb5f0df6e2d241818",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "content_file": "network-setup-buyer-20261113.html",
+  "content_sha256_lf": "1bb6b91a2353be5bc31330e130408b6b062cc8f1e8d88ef88c125c75fa23577b",
+  "protected": [
+    "home",
+    "menus",
+    "products/all meta",
+    "orders/customers/tickets/quotes",
+    "blog_public",
+    "payments/ERP",
+    "MyTel production"
+  ],
+  "qualification": {
+    "source_review": "PR95_KEYWORDS_90_BRIEFS_30_CLUSTER_SETUP_P1",
+    "internal_links": "PASS_5_TARGETS_ALL_PUBLISHED_NO_301_DEPENDENCY",
+    "native_blocks": "PASS_63_CHECKS_0_FAILURES_PLUS_TAMPER_NEGATIVE_EXIT_1",
+    "browser": "PASS_17_CHECKS_0_FAILURES_DESKTOP_1440_MOBILE_375",
+    "rollback_drill": "ROLLED_BACK_HUB_RESTORED_HASH_MATCH_09EBA5_PROTECTED_UNCHANGED",
+    "migration": "CHECK_READY_THEN_APPLIED_HUBS_1_PROTECTED_DIGEST_IDENTICAL",
+    "production": "NOT_DEPLOYED",
+    "collision_resolution": "VERIFIED — see seo/commercial-decision-2026-11-08-v2/reconciliation-20261113.json and docs/evidence/2026-11-13/setup-reconcile/"
+  },
+  "limits": [
+    "No invented customer cases, experience years, response-time or performance numbers",
+    "No new URL, runtime file or plugin change; one existing service body revision",
+    "Passive/cabling work is described as separately assessed, not priced or promised",
+    "Internal links target only pages that exist on production at bundle time"
+  ],
+  "superseded_by": "feat/setup-reconcile-20261113 (PR94/PR99 ID33 collision reconciled; canonical body ab56940e609f5afa17aad6917dc2834490e0437aa7ecadc2c66adae6a22e2460 in content/commercial-decision-2026-11-08-v2/network-setup.html)",
+  "production_apply_note": "NEVER apply this scope to production: expected baseline 09eba561 is a stale staging digest and cannot match production truth 709c49b6; the scope remains verified staging/QA evidence only"
+}
