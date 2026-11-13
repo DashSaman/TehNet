@@ -265,6 +265,45 @@ class ReleaseBoundaries(unittest.TestCase):
         prefixes = [row[2] for row in self.module.CONTENT_SCOPES.values()]
         self.assertEqual(len(set(prefixes)), len(prefixes))
 
+    def test_remote_sync_scope_references_production_truth_without_duplication(self):
+        import json, hashlib
+        scope = 'tehnet-service-remote-sync-20261113-v1'
+        files, extra, runtime = self.module.scope_spec(scope)
+        self.assertEqual(files, [])
+        self.assertEqual(extra, ['content/remote-sync-20261113/manifest.json',
+            'content/remote-support-2026-11-01/remote-support.html',
+            'ops/migrate-growth-content.php'])
+        self.assertEqual(len(runtime), 8)
+        self.assertIn(scope, self.module.GUARDED_SCOPES)
+        manifest = json.load(open('content/remote-sync-20261113/manifest.json', encoding='utf-8'))
+        self.assertEqual(manifest['target']['expected_content_sha256'], '5c84ebdffaa8c93e61eea55bdf1871ff07cd68ee7ee1935135d557b3cc6f3e84')
+        self.assertEqual(manifest['content_sha256_lf'], '2f5210b20f6d51559aee901c5a9d56120ff16b150b8c28e95516f646fe0d866c')
+        import hashlib
+        # Read from this branch's tree: CI checkouts may not carry origin/main.
+        blob = open('content/remote-support-2026-11-01/remote-support.html', 'rb').read().replace(b'\r\n', b'\n')
+        self.assertEqual(hashlib.sha256(blob).hexdigest(), manifest['content_sha256_lf'])
+
+    def test_remote_buyer_scope_is_additive_and_digest_gated(self):
+        import json, hashlib
+        scope = 'tehnet-service-remote-buyer-20261113-v1'
+        files, extra, runtime = self.module.scope_spec(scope)
+        self.assertEqual(files, [])
+        self.assertEqual(extra, ['content/remote-buyer-20261113/manifest.json',
+            'content/remote-buyer-20261113/remote-support-buyer-20261113.html',
+            'ops/migrate-growth-content.php'])
+        self.assertIn('site/mu-plugins/tehnet-search-metadata.php', runtime)
+        self.assertIn(scope, self.module.GUARDED_SCOPES)
+        manifest = json.load(open('content/remote-buyer-20261113/manifest.json', encoding='utf-8'))
+        self.assertEqual(manifest['target']['expected_content_sha256'], '2f5210b20f6d51559aee901c5a9d56120ff16b150b8c28e95516f646fe0d866c')
+        body = open('content/remote-buyer-20261113/remote-support-buyer-20261113.html', encoding='utf-8').read()
+        self.assertEqual(hashlib.sha256(body.encode('utf-8')).hexdigest(), manifest['content_sha256_lf'])
+        # additive: production-truth anchors preserved + new sections present
+        for anchor in ['remote-fit', 'before-connection', 'session-boundaries', 'session-handoff']:
+            self.assertIn(f'id="{anchor}"', body)
+        for new in ['id="session-journey"', 'id="why-tehnet"', '/learn/mikrotik/mtcna/', '/services/network-setup-tehran/']:
+            self.assertIn(new, body)
+        self.assertEqual(len(json.load(open('content/remote-buyer-20261113/manifest.json', encoding='utf-8'))['target']['change_fields']), 1)
+
     def test_mikrotik_service_scope_is_body_only_current_guarded_and_separate(self):
         scope = 'tehnet-service-mikrotik-20261101-v1'
         files, extra, runtime = self.module.scope_spec(scope)

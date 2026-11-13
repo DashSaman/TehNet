@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "key": "tehnet-service-remote-buyer-20261113-v1",
+  "status": "DRAFT_NOT_DEPLOYED",
+  "target": {
+    "id": 37,
+    "url": "https://tehnet.ir/services/remote-support/",
+    "title_observed": "پشتیبانی شبکه از راه دور",
+    "expected_content_sha256": "2f5210b20f6d51559aee901c5a9d56120ff16b150b8c28e95516f646fe0d866c",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta"
+    ]
+  },
+  "content_file": "remote-support-buyer-20261113.html",
+  "content_sha256_lf": "8feda428c594fe71933b7edfcd092ce7d150b47b3edaa8468c95e8cf82e55c20",
+  "protected": [
+    "home",
+    "menus",
+    "products/all meta",
+    "orders/customers/tickets/quotes",
+    "blog_public",
+    "payments/ERP",
+    "MyTel production"
+  ],
+  "qualification": {
+    "source_review": "ADDITIVE_ONLY_on_production_truth_2f5210b2",
+    "production": "NOT_DEPLOYED"
+  },
+  "limits": [
+    "No invented cases, SLAs or performance numbers",
+    "Additive sections only; production body and anchors preserved",
+    "No new URL/runtime"
+  ]
+}

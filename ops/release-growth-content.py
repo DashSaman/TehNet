@@ -36,6 +36,8 @@ SUPPORT_SCOPE = 'tehnet-service-network-support-20261101-v1'
 IP_DHCP_DNS_SCOPE = 'tehnet-editorial-ip-dhcp-dns-20261101-v1'
 NETWORK_SETUP_SCOPE = 'tehnet-service-network-setup-20261101-v1'
 REMOTE_SUPPORT_SCOPE = 'tehnet-service-remote-support-20261101-v1'
+REMOTE_SYNC_SCOPE = 'tehnet-service-remote-sync-20261113-v1'
+REMOTE_BUYER_SCOPE = 'tehnet-service-remote-buyer-20261113-v1'
 MIKROTIK_SERVICE_SCOPE = 'tehnet-service-mikrotik-20261101-v1'
 COMMERCIAL_CATALOG_SCOPE = 'tehnet-commercial-catalog-20261101-v1'
 CORPORATE_SCOPE = 'tehnet-corporate-ui-20261101-v1'
@@ -104,9 +106,12 @@ CONTENT_SCOPES = {**LESSON_SCOPES,
     SUPPORT_SCOPE: ('content/network-support-2026-11-01', 'network-support.html', '/tmp/tn-network-support-release-'),
     NETWORK_SETUP_SCOPE: ('content/network-setup-2026-11-01', 'network-setup.html', '/tmp/tn-network-setup-release-'),
     REMOTE_SUPPORT_SCOPE: ('content/remote-support-2026-11-01', 'remote-support.html', '/tmp/tn-remote-support-release-'),
+    REMOTE_SYNC_SCOPE: ('content/remote-sync-20261113', 'remote-support.html', '/tmp/tn-remote-sync-'),
+    REMOTE_BUYER_SCOPE: ('content/remote-buyer-20261113', 'remote-support-buyer-20261113.html', '/tmp/tn-remote-buyer-'),
     MIKROTIK_SERVICE_SCOPE: ('content/mikrotik-service-2026-11-01', 'mikrotik-service.html', '/tmp/tn-mikrotik-service-release-'),
     SERVER_BRANCH_SCOPE: ('content/server-branch-2026-11-04', 'network-setup.html', '/tmp/tn-server-branch-release-'),
 }
+STAGING_SYNC_BODY_PATHS = {REMOTE_SYNC_SCOPE: ['content/remote-support-2026-11-01/remote-support.html']}
 GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE, GALLERY_KEYBOARD_SCOPE, COMMERCIAL_CATALOG_SCOPE, CORPORATE_SCOPE, PHONE_SCOPE, EDUCATION_SCOPE, WINBOX_CORE_SCOPE]
 
 
@@ -183,12 +188,17 @@ def scope_spec(scope):
                 'site/plugins/tehnet-store/includes/class-storefront.php']
     if scope == SCOPE:
         return list(FILES), list(EXTRA), []
+    if scope == REMOTE_SYNC_SCOPE:
+        # Staging-only: restore stale page-37 body to production truth without duplicating the release file.
+        return [], [CONTENT_SCOPES[scope][0] + '/manifest.json', *STAGING_SYNC_BODY_PATHS[scope],
+            'ops/migrate-growth-content.php'], FILES + ['site/plugins/tehnet-store/tehnet-store.php',
+            'site/mu-plugins/tehnet-search-metadata.php']
     if scope in CONTENT_SCOPES:
         directory, body, _ = CONTENT_SCOPES[scope]
         return [], [directory + '/manifest.json',
                     directory + '/' + body,
                     'ops/migrate-growth-content.php'], FILES + ['site/plugins/tehnet-store/tehnet-store.php'] + (
-                        ['site/mu-plugins/tehnet-search-metadata.php'] if scope in (SUPPORT_SCOPE, IP_DHCP_DNS_SCOPE, NETWORK_SETUP_SCOPE, REMOTE_SUPPORT_SCOPE, MIKROTIK_SERVICE_SCOPE) else [])
+                        ['site/mu-plugins/tehnet-search-metadata.php'] if scope in (SUPPORT_SCOPE, IP_DHCP_DNS_SCOPE, NETWORK_SETUP_SCOPE, REMOTE_SUPPORT_SCOPE, MIKROTIK_SERVICE_SCOPE, REMOTE_SYNC_SCOPE, REMOTE_BUYER_SCOPE) else [])
     if scope == METADATA_SCOPE:
         return ['site/mu-plugins/tehnet-search-metadata.php'], [
             'content/metadata-role-2026-11-01/manifest.json', 'ops/check-metadata-state.php'

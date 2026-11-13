@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "key": "tehnet-service-remote-sync-20261113-v1",
+  "status": "STAGING_ONLY_NOT_FOR_PRODUCTION",
+  "purpose": "restore stale staging body of page 37 to production truth (2f5210b2 = content/remote-support-2026-11-01/remote-support.html on main) so the buyer scope verifies faithfully",
+  "target": {
+    "id": 37,
+    "url": "https://tehnet.ir/services/remote-support/",
+    "title_observed": "پشتیبانی شبکه از راه دور",
+    "expected_content_sha256": "5c84ebdffaa8c93e61eea55bdf1871ff07cd68ee7ee1935135d557b3cc6f3e84",
+    "change_fields": [
+      "post_content"
+    ]
+  },
+  "content_file": "remote-support.html",
+  "content_sha256_lf": "2f5210b20f6d51559aee901c5a9d56120ff16b150b8c28e95516f646fe0d866c",
+  "protected": [
+    "home",
+    "menus",
+    "products/all meta",
+    "orders/customers/tickets/quotes",
+    "blog_public",
+    "payments/ERP",
+    "MyTel production"
+  ]
+}

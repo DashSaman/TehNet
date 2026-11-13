@@ -1,0 +1,48 @@
+{
+ "schema": 1,
+ "date": "2026-11-13",
+ "title": "Staging receipts for remote-support buyer revision (page 37)",
+ "baselines": {
+  "production_truth": "2f5210b2 (= content/remote-support-2026-11-01/remote-support.html on main; read-only SHA2 verified)",
+  "staging_pre": "5c84ebdf (stale)",
+  "title_excerpt": "identical production/staging (ce461c23/60e99cdc)"
+ },
+ "sequence": [
+  {
+   "step": "sync scope tehnet-service-remote-sync-20261113-v1",
+   "result": "READY -> APPLIED",
+   "detail": "37 restored to production truth; protected digest 2ddccfdf... unchanged"
+  },
+  {
+   "step": "buyer scope tehnet-service-remote-buyer-20261113-v1 (additive body 8feda428, 17,822B)",
+   "result": "first bundle FAILED canonical seam (duplicate wp:paragraph opener) -> rebuilt -> check READY -> apply APPLIED",
+   "detail": "failure recorded honestly; seam fix commit ffe2cca"
+  },
+  {
+   "step": "native acceptance",
+   "result": "PASS 13/13",
+   "detail": "reconciled hash, title/excerpt unchanged, all 7 production anchors preserved, new sections+links, blog_public=0"
+  },
+  {
+   "step": "browser",
+   "result": "PASS 13/13",
+   "detail": "sections, anchors, links, phone replacement, noindex, mobile overflow"
+  },
+  {
+   "step": "drift-negative",
+   "result": "sync scope REFUSES post-apply (baselines moved); buyer repeat check idempotent APPLIED 0 writes"
+  },
+  {
+   "step": "rollback drill",
+   "result": "ROLLED_BACK",
+   "detail": "ID37 restored to exactly 2f5210b2; protected unchanged"
+  },
+  {
+   "step": "reviewed re-apply",
+   "result": "APPLIED",
+   "detail": "stale ROLLED_BACK journal reviewed (rollback receipt + DB hash verification) then removed per recorded pattern; fresh run dir; protected digest identical"
+  }
+ ],
+ "source_commit": "ffe2cca6aacc81923168b44619dddabfbd60e544",
+ "production_mutations": 0
+}
