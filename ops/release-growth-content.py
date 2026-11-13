@@ -438,7 +438,8 @@ class Release:
         self.state = json.loads(self.receipt_path.read_text()) if self.receipt_path.exists() else None
         if self.state and (self.state['source_commit'] != m['source_commit'] or self.state['app_id'] != c['app_id'] or self.state['db_id'] != c['db_id']):
             raise RuntimeError('Release journal identity mismatch')
-        prefix = {INDEX_RUNTIME_SCOPE: '/tmp/tn-index-runtime-',
+        prefix = {STAGING_SYNC_SCOPE: '/tmp/tn-staging-sync-truth-',
+                  INDEX_RUNTIME_SCOPE: '/tmp/tn-index-runtime-',
                   INDEX_ACTIVATION_SCOPE: '/tmp/tn-index-activation-',
                   METADATA_SCOPE: '/tmp/tn-metadata-role-',
                   EDUCATION_SCOPE: '/tmp/tn-educational-integrity-',

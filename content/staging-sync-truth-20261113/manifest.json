@@ -20,7 +20,8 @@
         "post_content",
         "post_excerpt",
         "post_title"
-      ]
+      ],
+      "expected_excerpt_sha256": "fda3f249eed935adc9350f0803b272da9cd7c02e4670a77d93953fcaa7cd0600"
     },
     {
       "id": 33,
@@ -38,7 +39,8 @@
         "post_content",
         "post_excerpt",
         "post_title"
-      ]
+      ],
+      "expected_excerpt_sha256": "67aa0ae9684bab45c3625b3fc03e19ec6f425140cad7715e18d794d6f80007f4"
     },
     {
       "id": 35,
@@ -56,7 +58,8 @@
         "post_content",
         "post_excerpt",
         "post_title"
-      ]
+      ],
+      "expected_excerpt_sha256": "e82c6cdbfab267e99f9a54f3c53264159fe49bb7bda13fc01c80f9a7446ee7fb"
     }
   ],
   "pages": []
