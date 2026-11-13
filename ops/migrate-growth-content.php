@@ -21,6 +21,8 @@ final class TehNet_Growth_Content_Migration {
         'tehnet-service-remote-support-20261101-v1'=>['id'=>37,'uri'=>'services/remote-support','file'=>'remote-support.html'],
         'tehnet-service-mikrotik-20261101-v1'=>['id'=>35,'uri'=>'services/mikrotik-tehran','file'=>'mikrotik-service.html'],
         'tehnet-service-server-branch-20261104-v1'=>['id'=>33,'uri'=>'services/network-setup-tehran','file'=>'network-setup.html'],
+        // id:null + slug: page resolved per environment (staging/production allocate different IDs for later pages); identity stays strict via uri + publish + body digest gates.
+        'tehnet-service-b2b-buyer-20261114-v1'=>['id'=>null,'slug'=>'b2b','uri'=>'b2b','file'=>'b2b-buyer-20261114.html','shortcodes'=>['[tn_b2b_quote]']],
     ];
     private array $manifest;
     private string $digest;
@@ -99,8 +101,15 @@ final class TehNet_Growth_Content_Migration {
             $this->existingPage=true;
             $this->manifest=$m=['schema'=>1,'key'=>$m['key'],'pages'=>[],'updates'=>$updates];
         }elseif(isset(self::EXISTING_PAGE_SCOPES[$m['key']??''])){
-            $scope=self::EXISTING_PAGE_SCOPES[$m['key']];$this->pageScope=$scope;
+            $scope=self::EXISTING_PAGE_SCOPES[$m['key']];
             $target=$m['target']??[];
+            if($scope['id']===null&&isset($scope['slug'])){
+                // Per-environment identity: resolve by slug and require the manifest to name exactly that ID.
+                $resolved=get_page_by_path($scope['slug'],OBJECT,'page');
+                if(!$resolved||$resolved->post_status!=='publish'||get_page_uri($resolved)!==$scope['uri'])throw new RuntimeException('Slug-resolved page identity missing');
+                $scope['id']=(int)$resolved->ID;
+            }
+            $this->pageScope=$scope;
             if(($m['schema']??null)!==1||($target['id']??null)!==$scope['id']||($target['url']??'')!=='https://tehnet.ir/'.$scope['uri'].'/'||($target['change_fields']??null)!==['post_content']||($m['content_file']??'')!==$scope['file']||!is_string($target['title_observed']??null)||$target['title_observed']==='')throw new RuntimeException('Unapproved existing-page scope');
             $bodyPath=dirname($path).'/'.$scope['file'];
             if(is_link($bodyPath)||!is_file($bodyPath)||!preg_match('/^[a-f0-9]{64}$/D',$m['content_sha256_lf']??'')||!hash_equals($m['content_sha256_lf'],hash_file('sha256',$bodyPath)))throw new RuntimeException('Immutable page body mismatch');

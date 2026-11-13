@@ -1,0 +1,72 @@
+{
+ "status": "PASS",
+ "total": 14,
+ "failures": 0,
+ "checks": [
+  {
+   "name": "http200",
+   "pass": true,
+   "detail": 200
+  },
+  {
+   "name": "section_برای درخواست پ",
+   "pass": true
+  },
+  {
+   "name": "section_فرایند بررسی د",
+   "pass": true
+  },
+  {
+   "name": "section_مرزهای پیش‌فاک",
+   "pass": true
+  },
+  {
+   "name": "section_درخواست پیش‌فا",
+   "pass": true
+  },
+  {
+   "name": "anchor_why_sections",
+   "pass": true
+  },
+  {
+   "name": "form_renders",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "name": "form_nonce_present",
+   "pass": true
+  },
+  {
+   "name": "form_fields_present",
+   "pass": true
+  },
+  {
+   "name": "setup_link",
+   "pass": true
+  },
+  {
+   "name": "support_link",
+   "pass": true
+  },
+  {
+   "name": "no_console_errors",
+   "pass": true,
+   "detail": {
+    "errors": []
+   }
+  },
+  {
+   "name": "noindex_staging_b2b",
+   "pass": true,
+   "detail": "noindex, nofollow"
+  },
+  {
+   "name": "mobile_no_overflow",
+   "pass": true,
+   "detail": {
+    "px": 0
+   }
+  }
+ ]
+}

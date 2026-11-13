@@ -265,6 +265,32 @@ class ReleaseBoundaries(unittest.TestCase):
         prefixes = [row[2] for row in self.module.CONTENT_SCOPES.values()]
         self.assertEqual(len(set(prefixes)), len(prefixes))
 
+    def test_b2b_buyer_scope_resolves_by_slug_and_preserves_quote_shortcode(self):
+        import json, hashlib
+        scope = 'tehnet-service-b2b-buyer-20261114-v1'
+        files, extra, runtime = self.module.scope_spec(scope)
+        self.assertEqual(files, [])
+        self.assertEqual(extra, ['content/b2b-buyer-20261114/manifest.json',
+            'content/b2b-buyer-20261114/b2b-buyer-20261114.html',
+            'ops/migrate-growth-content.php'])
+        self.assertEqual(len(runtime), 8)
+        self.assertIn('site/mu-plugins/tehnet-search-metadata.php', runtime)
+        self.assertIn(scope, self.module.GUARDED_SCOPES)
+        manifest = json.load(open('content/b2b-buyer-20261114/manifest.json', encoding='utf-8'))
+        self.assertEqual(manifest['target']['expected_content_sha256'], 'df89d9251a68595cbfc002d0bc9a2d697979f8ebeeca4b8d338cdd2ef25a9df3')
+        body = open('content/b2b-buyer-20261114/b2b-buyer-20261114.html', 'rb').read().replace(b'\r\n', b'\n')
+        digest = hashlib.sha256(body).hexdigest()
+        self.assertEqual(digest, manifest['content_sha256_lf'])
+        text = body.decode('utf-8')
+        self.assertIn('درخواست پیش‌فاکتور سازمانی تهران نتورک: اقلام را با مقدار مشخص کنید', text)
+        self.assertIn('<!-- wp:shortcode -->\n[tn_b2b_quote]\n<!-- /wp:shortcode -->', text)
+        for anchor in ['quote-checklist', 'quote-process', 'quote-boundaries']:
+            self.assertIn(f'id="{anchor}"', text)
+        self.assertIn('/services/network-setup-tehran/', text)
+        source = open('ops/migrate-growth-content.php', encoding='utf-8').read()
+        self.assertIn("'tehnet-service-b2b-buyer-20261114-v1'=>['id'=>null,'slug'=>'b2b'", source)
+        self.assertIn("[tn_b2b_quote]", source)
+
     def test_mikrotik_service_scope_is_body_only_current_guarded_and_separate(self):
         scope = 'tehnet-service-mikrotik-20261101-v1'
         files, extra, runtime = self.module.scope_spec(scope)
