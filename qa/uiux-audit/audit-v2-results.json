@@ -1,0 +1,80 @@
+{
+ "issues": [
+  {
+   "page": "homepage",
+   "type": "mobile_menu_no_links"
+  },
+  {
+   "page": "services",
+   "type": "mobile_menu_no_links"
+  },
+  {
+   "page": "contact",
+   "type": "mobile_menu_no_links"
+  },
+  {
+   "page": "about",
+   "type": "mobile_menu_no_links"
+  },
+  {
+   "page": "mtcna-hub",
+   "type": "mobile_menu_no_links"
+  },
+  {
+   "page": "lab",
+   "type": "mobile_menu_no_links"
+  },
+  {
+   "page": "shop",
+   "vp": 320,
+   "mode": "light",
+   "type": "broken_images",
+   "count": 12
+  },
+  {
+   "page": "shop",
+   "vp": 375,
+   "mode": "light",
+   "type": "broken_images",
+   "count": 12
+  },
+  {
+   "page": "shop",
+   "vp": 375,
+   "mode": "dark",
+   "type": "broken_images",
+   "count": 12
+  },
+  {
+   "page": "shop",
+   "vp": 768,
+   "mode": "light",
+   "type": "broken_images",
+   "count": 7
+  },
+  {
+   "page": "shop",
+   "vp": 1024,
+   "mode": "light",
+   "type": "broken_images",
+   "count": 8
+  },
+  {
+   "page": "shop",
+   "vp": 1440,
+   "mode": "light",
+   "type": "broken_images",
+   "count": 8
+  },
+  {
+   "page": "shop",
+   "type": "mobile_menu_no_links"
+  },
+  {
+   "page": "routeros-winbox",
+   "type": "mobile_menu_no_links"
+  }
+ ],
+ "http_fails": [],
+ "timestamp": "2026-11-13T16:37:12.449Z"
+}
