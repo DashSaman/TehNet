@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "key": "tehnet-service-support-buyer-20261114-v1",
+  "status": "DRAFT_NOT_DEPLOYED",
+  "identity": "page resolved by slug support per environment (production ID 196, staging ID 192); same body bytes verified on both",
+  "target": {
+    "id": 192,
+    "id_note": "staging-resolved ID; production bundle must name 196 — slug resolution validates it",
+    "url": "https://tehnet.ir/support/",
+    "title_observed": "پشتیبانی و تیکت",
+    "expected_content_sha256": "c03b121aa300a0139a9e4226c2db60dc7d31d8fbdc3095d309901391aa776693",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta",
+      "the tn_support_ticket form shortcode"
+    ]
+  },
+  "content_file": "support-buyer-20261114.html",
+  "content_sha256_lf": "8d74808d16a255bc529a5699cb1dca081df90a04cdfc386a07aa10efca0d8420",
+  "protected": [
+    "home",
+    "menus",
+    "products/all meta",
+    "orders/customers/tickets/quotes",
+    "blog_public",
+    "payments/ERP",
+    "MyTel production",
+    "the ticket form flow (nonce/transport)"
+  ],
+  "qualification": {
+    "source_review": "ADDITIVE_ONLY_on_production_truth_c03b121a",
+    "form_regression": "PENDING_STAGING_RUN",
+    "production": "NOT_DEPLOYED"
+  },
+  "limits": [
+    "No response-time promises invented; the lead keeps ساعات کاری as-is",
+    "Additive sections only; original paragraph and tn_support_ticket shortcode preserved verbatim",
+    "Page stays outside the 16-URL index allowlist (support remains noindex per PR94 policy)",
+    "Routes listed target only pages that exist and are published"
+  ]
+}
