@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "key": "tehnet-service-setup-buyer-20261113-v1",
-  "status": "DRAFT_NOT_DEPLOYED",
+  "status": "SUPERSEDED_BY_RECONCILIATION_20261113",
   "target": {
     "id": 33,
     "url": "https://tehnet.ir/services/network-setup-tehran/",
@@ -39,12 +39,15 @@
     "browser": "PASS_17_CHECKS_0_FAILURES_DESKTOP_1440_MOBILE_375",
     "rollback_drill": "ROLLED_BACK_HUB_RESTORED_HASH_MATCH_09EBA5_PROTECTED_UNCHANGED",
     "migration": "CHECK_READY_THEN_APPLIED_HUBS_1_PROTECTED_DIGEST_IDENTICAL",
-    "production": "NOT_DEPLOYED"
+    "production": "NOT_DEPLOYED",
+    "collision_resolution": "VERIFIED — see seo/commercial-decision-2026-11-08-v2/reconciliation-20261113.json and docs/evidence/2026-11-13/setup-reconcile/"
   },
   "limits": [
     "No invented customer cases, experience years, response-time or performance numbers",
     "No new URL, runtime file or plugin change; one existing service body revision",
     "Passive/cabling work is described as separately assessed, not priced or promised",
     "Internal links target only pages that exist on production at bundle time"
-  ]
+  ],
+  "superseded_by": "feat/setup-reconcile-20261113 (PR94/PR99 ID33 collision reconciled; canonical body ab56940e609f5afa17aad6917dc2834490e0437aa7ecadc2c66adae6a22e2460 in content/commercial-decision-2026-11-08-v2/network-setup.html)",
+  "production_apply_note": "NEVER apply this scope to production: expected baseline 09eba561 is a stale staging digest and cannot match production truth 709c49b6; the scope remains verified staging/QA evidence only"
 }
