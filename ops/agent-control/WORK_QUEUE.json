@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "updated_utc": "2026-11-13T21:40:00Z",
+ "updated_utc": "2026-11-13T18:35:30Z",
  "single_writer": "Z Code primary executor",
  "supervisor": "Codex (read-only review; max 2 ordinary reviews/day)",
  "tasks": [
@@ -180,8 +180,8 @@
    "id": "TN-QUEUE-001",
    "owner": "codex-or-zcode",
    "priority": "P1",
-   "title": "Reconcile PR93 cloud-queue package with local lab queue plan; owner approval still required for any production publish",
-   "state": "DONE",
+   "title": "Queue lesson: COMPLETE as PR93 (verified staging package); local lab handoff retained as reference only",
+   "state": "SUPERSEDED_BY_PR93",
    "dependencies": [],
    "acceptance": [
     "PR93 evidence read; overlap with handoff/queue-in-progress-20261106 documented",
@@ -189,23 +189,23 @@
    ],
    "attempts": 0,
    "evidence": "Reconciled 2026-11-13: PR93 (lab/cloud-queue-20261108) already delivers a COMPLETE queue package (12 real WinBox frames, native52/renderer8/browser518, cloud fixture) — supersedes the local handoff branch; see RECONCILIATION_2026-11-13.md",
-   "last_progress": "2026-11-13: PR93 supersedes local queue handoff; queue lesson blocked on lab boot diagnosis",
-   "next_action": "Await owner 'continue queue' or PR93 merge"
+   "last_progress": "2026-11-13: PR93 is the complete qualified package (12 real steps, staging VERIFIED). No rebuild needed; handoff/queue-in-progress-20261106 kept for reference only.",
+   "next_action": "Owner merge decision for PR93; do NOT rebuild captures"
   },
   {
    "id": "TN-LEARN-PUB-001",
    "owner": "owner",
    "priority": "P1",
-   "title": "Owner decision: merge sequence for open PRs 79/82/89/90/91/93/94/95/96/97/98/99 per owner packet",
+   "title": "Owner decision: merge sequence for open PRs — PR100 (reconciliation, supersedes PR94) is the M0 gate for D1/D2/D3",
    "state": "NEEDS_OWNER",
    "dependencies": [],
    "acceptance": [
     "Explicit per-release owner approval with bounded scope, backup and rollback references"
    ],
    "attempts": 0,
-   "evidence": "docs/OWNER-DECISION-PACKET-2026-11-13.md on PR99 branch (commit 1bd0f56); 12/12 PRs CI green (cycle7 snapshot)",
-   "last_progress": "2026-11-13 packet written; sequence recommended",
-   "next_action": "Await explicit owner merge approvals; merge != deploy"
+   "evidence": "PR100 = superset of PR94 with reconciled ID33; 12 other open PRs CI green (cycle7 snapshot); M0/D1/D2/D3 terminology per ops/agent-control/OWNER_DECISION_INDEXABILITY_2026-11-12.fa.md",
+   "last_progress": "2026-11-13",
+   "next_action": "Await explicit owner approvals; merge != deploy"
   },
   {
    "id": "TN-UIUX-002",
@@ -231,7 +231,7 @@
    "owner": "zcode",
    "priority": "P1",
    "title": "Commercial SEO: buyer-oriented revision of /services/network-setup-tehran/ (PR99, scope tehnet-service-setup-buyer-20261113-v1)",
-   "state": "VERIFIED_STAGING_NOT_DEPLOYED",
+   "state": "SUPERSEDED_BY_RECONCILIATION",
    "dependencies": [],
    "acceptance": [
     "Release check READY + apply APPLIED with identical protected digest",
@@ -242,8 +242,27 @@
    ],
    "attempts": 1,
    "evidence": "PR99 head 67f9a16 (+packet 1bd0f56); evidence docs/evidence/2026-11-13/service-setup-buyer/; manifest content/service-setup-buyer-2026-11-13/",
+   "last_progress": "2026-11-13: PR99 scope marked SUPERSEDED (commit 548a309); its verified QA evidence retained; never apply to production (baseline 09eba561 cannot match truth)",
+   "next_action": "None for ID33; PR99 stays as historical evidence"
+  },
+  {
+   "id": "TN-RECON-001",
+   "owner": "zcode",
+   "priority": "P0",
+   "title": "PR94/PR99 ID33 collision reconciliation — canonical body ab56940e + staging-truth sync + combined receipts (PR100)",
+   "state": "VERIFIED_STAGING_NOT_DEPLOYED",
+   "dependencies": [],
+   "acceptance": [
+    "Verified conflict matrix from read-only production SHA2 measurements",
+    "Reconciled body ab56940e canonical+KSES on staging; all prior anchors preserved",
+    "manifest/before-after/activation-manifest reconciled to same hash",
+    "Combined receipts: PR99 rollback -> staging sync APPLIED -> decision check READY -> apply (15 files/5 pages/5 hubs) -> native 48/48 -> browser 20/20 -> drift-negative REFUSED -> idempotent repeat -> rollback drill (ID33 exactly 709c49b6) -> reviewed re-apply -> final 48/48+20/20",
+    "production mutations 0"
+   ],
+   "attempts": 1,
+   "evidence": "PR100 (feat/setup-reconcile-20261113, head 467dd2a+); seo/commercial-decision-2026-11-08-v2/reconciliation-20261113.json; docs/evidence/2026-11-13/setup-reconcile/",
    "last_progress": "2026-11-13",
-   "next_action": "Owner merge decision; production release separately authorized"
+   "next_action": "Owner merge decision (supersedes PR94); close PR94 as superseded after merge"
   }
  ]
 }

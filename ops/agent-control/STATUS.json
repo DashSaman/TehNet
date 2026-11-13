@@ -1,18 +1,20 @@
 {
  "schema": 1,
- "updated_utc": "2026-11-13T21:40:00Z",
+ "updated_utc": "2026-11-13T18:35:30Z",
  "primary_executor": "Z Code",
  "supervisor_operational": true,
  "supervisor_notes": "Operational; fail-closed proven live; regression suite committed (10/10); next ordinary review from committed head d977717+.",
  "website_healthy": true,
  "public_pages_indexable": false,
  "backups_verified": "2026-11-13: /root/backups/tehnet-20261113 (DB 570K gz + wp-content 101M, SHA256SUMS OK); 11-11 copy rotated; restore rehearsal of 11-11 backup PASSED on 11-12",
- "scheduled_jobs": "TEHNET-AUTOMOUS-GROWTH (Z Code cron, 3h, active) + TEHNET-WATCHDOG (schtasks 30m, active); watchdog log: ~/.zcode/tehnet-watchdog.log",
+ "scheduled_jobs": "TEHNET-24H-GROWTH-ORCHESTRATOR (Z Code cron 0 */3 * * *, active, 16+ runs incl. cycle 7) + TEHNET-WATCHDOG (Windows schtasks 30m, Ready, verified live 2026-11-13 log 16:20Z SITE 200+noindex) + MYTEL-WATCHDOG (untouched)",
  "blocked_on_owner": [
-  "merge approvals for open PRs 79/82/89/90/91/93/94/95/96/97/98/99 (recommended sequence in docs/OWNER-DECISION-PACKET-2026-11-13.md on PR99 branch)",
-  "production releases per PR (separately authorized; merge != deploy)",
-  "off-host backup destination decision (blocks first production release)",
-  "indexability decisions D1-D4 per PR94 gates (default-off preserved)"
+  "M0: merge PR100 (reconciliation superset of PR94) — recommended first merge",
+  "D1: production content release of decision v2 (reconciled scope) — separate explicit authorization",
+  "D2: index runtime install-off (default-OFF, no option)",
+  "D3: 16-URL allowlist activation — ONLY after verified D1+D2 + mandatory off-host recovery qualification",
+  "off-host backup destination decision (mandatory gate before D1/D2/D3)",
+  "merge decisions for remaining open PRs (89/90/91/93/95/96/97/98/99; PR94 closes as superseded by PR100)"
  ],
  "model_state": {
   "current_session": "account:zai-start-plan/GLM-5.3-Flash (cycle 7 started on start-plan; heavy lab work would require CreateSession switch per Priority A)",
@@ -26,6 +28,17 @@
  "quota_incident": "2026-11-13: two scheduled cycles failed in ~7s on start-plan quota exhaustion (exceed quota limit); switched to purchased coding plan per Priority A; cycles resumed",
  "current_session_model": "account:zai-individual-coding-plan/GLM-5.3-Flash",
  "pr_status": "PR89/90/91/93/94/95/96/97 all open, CI green, WAITING_FOR_OWNER merge decision",
- "open_prs": "12 open, all CI green (PR_CI_SNAPSHOT_2026-11-13-cycle7.json)",
- "cycle7_notes": "2026-11-13: PR98 audit corrections VERIFIED (PASS 0 issues; negative drill exit 2); PR99 commercial SEO implementation VERIFIED_STAGING_NOT_DEPLOYED (63 native + 17 browser + rollback drill); owner decision packet committed on PR99 branch; 12 PRs CI green; site 200 + noindex intact (local TLS revocation quirk needs --ssl-no-revoke, site itself healthy)"
+ "open_prs": "13 open; PR100 (reconciliation) + PR99 updated (superseded marker); CI snapshot cycle7 all-green; PR100 CI pending at packet time",
+ "cycle7_notes": "2026-11-13: PR98 audit corrections VERIFIED (PASS 0 issues; negative drill exit 2); PR99 commercial SEO implementation VERIFIED_STAGING_NOT_DEPLOYED (63 native + 17 browser + rollback drill); owner decision packet committed on PR99 branch; 12 PRs CI green; site 200 + noindex intact (local TLS revocation quirk needs --ssl-no-revoke, site itself healthy)",
+ "backups_same_host": {
+  "latest": "2026-11-13 /root/backups/tehnet-20261113 (DB sql.gz 583,585B + wp-content tar.gz 104,972,075B)",
+  "checksum": "SHA256SUMS re-verified OK 2026-11-13T18:34Z",
+  "disk": "88% used, 4.6G free",
+  "limitation": "SAME-HOST ONLY — off-host copy + wp-content restore rehearsal + full recovery qualification NOT DONE (mandatory gate for D1/D2/D3 per canonical packet v3)"
+ },
+ "cycle8_notes": [
+  "P0: PR94/PR99 ID33 collision reconciled — production truth 709c49b6 verified read-only; PR99 authored against stale staging (root cause); canonical body ab56940e merges PR94 base + PR99-unique credibility/support values; three manifests reconciled; PR100 created",
+  "out-of-Git production hotfix discovered: class-content-types.php 2d3059386df1 (tn_lab rewrite=false) on production+staging vs main b6532ef80c8c — recorded as baseline commit 7ce37e0e in reconciliation branch",
+  "combined receipts incl. rollback drill with exact hash restoration; PR99 manifest marked SUPERSEDED (548a309)"
+ ]
 }

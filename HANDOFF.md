@@ -1,3 +1,5 @@
+## CURRENT —2026-11-13 cycle 8: PR94/99 ID33 collision RECONCILED (PR100, body ab56940e); combined staging receipts; off-host packet; noindex intact
+
 ## CURRENT —2026-11-13 cycle 7: 12 PRs CI green, owner packet on PR99 branch, PR98/99 VERIFIED staging; noindex intact
 
 ## NOTE — 2026-11-13 PR97 frontend verification clarification
