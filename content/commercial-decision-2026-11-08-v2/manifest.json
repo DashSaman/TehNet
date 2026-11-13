@@ -63,7 +63,7 @@
       "title_observed": "راه‌اندازی شبکه شرکت در تهران",
       "expected_content_sha256": "709c49b6d2e0cffa4d95c3709877ff06d40daa5223a3f39894881b7a429cbe5e",
       "expected_excerpt_sha256": "67aa0ae9684bab45c3625b3fc03e19ec6f425140cad7715e18d794d6f80007f4",
-      "content_sha256_lf": "d378d09aaf24a038cb685c9a0a0d0726674c5e876d28f6955492848bd11ae78e",
+      "content_sha256_lf": "ab56940e609f5afa17aad6917dc2834490e0437aa7ecadc2c66adae6a22e2460",
       "change_fields": [
         "post_content",
         "post_excerpt",

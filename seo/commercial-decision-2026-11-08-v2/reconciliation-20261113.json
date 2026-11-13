@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "date": "2026-11-13",
+  "title": "PR94/PR99 collision reconciliation for WordPress page ID33 (/services/network-setup-tehran/)",
+  "verified_baseline": {
+    "production_body_sha256": "709c49b6d2e0cffa4d95c3709877ff06d40daa5223a3f39894881b7a429cbe5e",
+    "production_title_sha256": "bb0c07fa686079d941d93dedf16b4e03ff9035f93d1ae1c2109258954b8dc09d",
+    "production_excerpt_sha256": "67aa0ae9684bab45c3625b3fc03e19ec6f425140cad7715e18d794d6f80007f4",
+    "production_content_chars": 27334,
+    "production_post_modified_gmt": "2026-11-04 14:48:42",
+    "measurement": "read-only SELECT SHA2() on live tehnet DB tn_posts ID=33; fixture tests/fixtures/decision-v2-public-pages.json page.id=33 re-hashed and matched exactly",
+    "staging_body_sha256_as_of_20261113": "1bb6b91a2353be5bc31330e130408b6b062cc8f1e8d88ef88c125c75fa23577b (PR99 v1 applied; pre-apply stale value was 09eba561)",
+    "staging_stale_pages_vs_production_truth": {
+      "31": ["bfc8e8d2...", "73d1b477..."],
+      "33": ["09eba561...", "709c49b6..."],
+      "35": ["647165b3...", "ab9d96e5..."]
+    },
+    "staging_title_excerpt_parity": "titles and excerpts of 31/33/35 match production exactly; only bodies are stale"
+  },
+  "conflict_matrix": [
+    {
+      "package": "PR94 (tehnet-commercial-decision-20261108-v2)",
+      "expected_baseline": "709c49b6 (production truth; verified)",
+      "proposed_body": "d378d09a (26053 chars)",
+      "fields": ["post_content", "post_excerpt", "post_title"],
+      "title": "راه‌اندازی شبکه شرکت در تهران؛ نیازسنجی تا پذیرش",
+      "content_basis": "production-truth fixture + worksheet section + N1 handoff; PRESERVE_ALL anchors",
+      "risk": "none by itself; baseline gate correct"
+    },
+    {
+      "package": "PR99 (tehnet-service-setup-buyer-20261113-v1)",
+      "expected_baseline": "09eba561 (stale staging value; can never match production)",
+      "proposed_body": "1bb6b91a (4368 chars)",
+      "fields": ["post_content"],
+      "title": "unchanged",
+      "content_basis": "wholesale replacement authored against stale staging; drops all production sections, anchors and context CTAs",
+      "risk": "production apply is structurally refused by digest gate; content would regress live page if gates were bypassed"
+    }
+  ],
+  "overlap_analysis": {
+    "pr99_sections_represented_in_pr94": [
+      "فرایند کار از درخواست تا تحویل ≈ کاربرگ اولیهٔ پروژه + تغییر مرحله‌ای",
+      "تحویل‌دادنی‌های پایه ≈ چه مدارکی در تحویل پروژه تعیین شوند؟",
+      "مرزهای خدمت (بدون خرید اجباری) ≈ محدوده، تجهیزات و برآورد هزینه (خرید از فروشگاه شرط اجرای خدمت نیست)",
+      "درخواست بررسی پروژه ≈ شروع درخواست پروژهٔ راه‌اندازی شبکه"
+    ],
+    "pr99_unique_values_merged": [
+      "چرا تهران نتورک credibility block with /learn/mikrotik/mtcna/ curriculum link (new URL, not duplicated in PR94 body)",
+      "post-delivery support handoff sentence with /services/remote-support/ canonical link (absent in PR94 body)"
+    ],
+    "pr99_content_not_merged_and_why": "wholesale replacement structure would delete live sections, anchors (scope-and-cost, project-request, wifi/branch/server), tn_service_context CTA flows and the two tables"
+  },
+  "canonical_decision": {
+    "base": "PR94 proposed body (production-derived, anchor-preserving)",
+    "merged_from_pr99": ["why-tehnet heading + credibility list", "post-delivery support pointer paragraph"],
+    "reconciled_body_sha256": "ab56940e609f5afa17aad6917dc2834490e0437aa7ecadc2c66adae6a22e2460",
+    "reconciled_body_bytes": 40941,
+    "title_excerpt": "unchanged from PR94 v2 decision",
+    "validation": "serialize_blocks canonical yes; wp_kses_post stable yes; blocks {paragraph,heading,table,list,list-item,shortcode}; no non-whitespace freeform; all prior anchors preserved"
+  },
+  "reconciled_manifests": [
+    "content/commercial-decision-2026-11-08-v2/manifest.json (ID33 content_sha256_lf)",
+    "content/commercial-decision-2026-11-08-v2/before-after.json (ID33 after_body_sha256 + provenance)",
+    "seo/index-decision-2026-11-08-v2/activation-manifest.json (ID33 body_sha256; excerpt_sha256 unchanged 04703687)"
+  ],
+  "staging_sync_scope": {
+    "key": "tehnet-staging-sync-truth-20261113-v1",
+    "purpose": "restore stale staging bodies of pages 31/33/35 to production truth so the decision scope can be verified on staging",
+    "targets": {
+      "31": {"expected": "bfc8e8d2...", "body_source": "content/network-support-2026-11-01/network-support.html (73d1b477)"},
+      "33": {"expected": "09eba561...", "body_source": "content/server-branch-2026-11-04/network-setup.html (709c49b6)"},
+      "35": {"expected": "647165b3...", "body_source": "content/mikrotik-service-2026-11-01/mikrotik-service.html (ab9d96e5)"}
+    },
+    "production_safety": "expected digests are stale staging values that can never exist on production; scope additionally hard-refuses production environment; body-only change_fields"
+  },
+  "safe_release_order": [
+    "1. Owner merges the reconciliation PR (superset of PR94) — M0 becomes merging this branch",
+    "2. Staging-only sync scope runs on staging (no production effect) to restore production-truth baselines",
+    "3. D1 content release (scope tehnet-commercial-decision-20261108-v2, reconciled): check requires exact 709c49b6-class baselines on production, tn_index_policy_20261108 absent, fresh backup+checksum, recovery qualification, drift guard, rollback rehearsal",
+    "4. PR99 v1 scope is SUPERSEDED for ID33 and MUST NOT be applied to production (its expected digest cannot match production; documented in its manifest)",
+    "5. D2 index runtime install-off (separate scope, default-OFF, no option)",
+    "6. D3 16-URL allowlist activation ONLY after verified D1+D2 and mandatory off-host recovery qualification; activation manifest already reconciled to the final body hashes",
+    "blog_public stays 0 through every step; each gate is a separate explicit owner approval"
+  ],
+  "pr_disposition": {
+    "PR94": "superseded by the reconciliation PR (same package, reconciled ID33); keep open until reconciliation PR merges, then close as superseded",
+    "PR99": "keep open as historical QA evidence; manifest marked SUPERSEDED_BY_RECONCILIATION for ID33; never apply to production"
+  },
+  "production_mutations": 0
+}

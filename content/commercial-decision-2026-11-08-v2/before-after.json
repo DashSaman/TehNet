@@ -54,11 +54,12 @@
       "before_excerpt_sha256": "67aa0ae9684bab45c3625b3fc03e19ec6f425140cad7715e18d794d6f80007f4",
       "after_excerpt": "ورودی پروژه، کاربرگ نیازسنجی، طراحی، پنجرهٔ تغییر و معیار تحویل شبکه شرکت در تهران؛ مسیر سرور، Wi-Fi و شعب با دامنهٔ جدا.",
       "before_body_sha256": "709c49b6d2e0cffa4d95c3709877ff06d40daa5223a3f39894881b7a429cbe5e",
-      "after_body_sha256": "d378d09aaf24a038cb685c9a0a0d0726674c5e876d28f6955492848bd11ae78e",
+      "after_body_sha256": "ab56940e609f5afa17aad6917dc2834490e0437aa7ecadc2c66adae6a22e2460",
       "before_body_source": "tests/fixtures/decision-v2-public-pages.json page.id=33",
       "after_body_source": "content/commercial-decision-2026-11-08-v2/network-setup.html",
       "change": "کاربرگ خالی و نمونهٔ فرضی نیازسنجی؛ خلاصهٔ سرور به N1 منتقل، anchor حفظ شد.",
-      "old_anchor_policy": "PRESERVE_ALL; native acceptance checks each anchor"
+      "old_anchor_policy": "PRESERVE_ALL; native acceptance checks each anchor",
+      "reconciliation_20261113": "PR99-derived why-tehnet credibility list + post-delivery support pointer merged; production-truth base 709c49b6 kept; title/excerpt unchanged from v2 decision"
     },
     {
       "id": 35,

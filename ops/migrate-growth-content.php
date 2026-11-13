@@ -5,6 +5,11 @@ final class TehNet_Growth_Content_Migration {
     private const DECISION_TARGETS=[8=>['uri'=>'services','file'=>'services.html','title'=>null],29=>['uri'=>'services/network-tehran','file'=>'network-tehran.html','title'=>'خدمات شبکه تهران؛ انتخاب خدمت و تعیین دامنهٔ پروژه'],31=>['uri'=>'services/network-support-tehran','file'=>'network-support.html','title'=>'پشتیبانی شبکه تهران؛ رخداد، نگهداری و گزارش تحویل'],33=>['uri'=>'services/network-setup-tehran','file'=>'network-setup.html','title'=>'راه‌اندازی شبکه شرکت در تهران؛ نیازسنجی تا پذیرش'],35=>['uri'=>'services/mikrotik-tehran','file'=>'mikrotik-service.html','title'=>'خدمات میکروتیک تهران؛ بررسی RouterOS و تغییر کنترل‌شده']];
     private const DECISION_PAGES=['A1'=>['slug'=>'network-support-contract-guide','parent_id'=>0,'file'=>'network-support-contract-guide.html','title'=>'قرارداد پشتیبانی شبکه؛ پیش از توافق چه چیزهایی را روشن کنیم؟'],'A2'=>['slug'=>'network-project-proposal-checklist','parent_id'=>0,'file'=>'network-project-proposal-checklist.html','title'=>'پیشنهادهای اجرای شبکه را چگونه هم‌دامنه مقایسه کنیم؟'],'A3'=>['slug'=>'business-server-planning-guide','parent_id'=>0,'file'=>'business-server-planning-guide.html','title'=>'نیازسنجی سرور شرکت؛ پیش از انتخاب CPU و RAM چه بپرسیم؟'],'A4'=>['slug'=>'server-backup-restore-acceptance','parent_id'=>0,'file'=>'server-backup-restore-acceptance.html','title'=>'اسنپ‌شات، بکاپ و آزمون بازیابی؛ چه مدرکی تحویل بگیریم؟'],'N1'=>['slug'=>'server-virtualization-tehran','parent_id'=>8,'file'=>'server-virtualization-tehran.html','title'=>'سرور و مجازی‌سازی در تهران؛ از نیازسنجی تا تحویل سرویس']];
     private bool $decision=false;
+    private const STAGING_SYNC_SCOPE='tehnet-staging-sync-truth-20261113-v1';
+    /** Staging-only body restoration to production truth after the 11-13 drift finding; expected digests are stale staging values that cannot exist on production. */
+    private const STAGING_SYNC_TARGETS=[31=>['uri'=>'services/network-support-tehran','file'=>'network-support.html','title'=>"پشتیبانی شبکه تهران",'excerpt'=>"پشتیبانی شبکه تهران؛ بررسی نیاز، تعیین محدودهٔ کار و انتخاب حضور در تهران یا دسترسی ریموت در صورت امکان.",'expected'=>'bfc8e8d2a83fd89cc9d17a2af26dc67f86ccda1e70bedcd519d2d6a1625bbe3a','lf'=>'73d1b477170f3e9c8c59610e8901a066b10f1e7200a7003dfe3d9ff1a6b1627a'],
+    33=>['uri'=>'services/network-setup-tehran','file'=>'network-setup.html','title'=>"راه‌اندازی شبکه شرکت در تهران",'excerpt'=>"راه‌اندازی شبکه شرکت در تهران؛ بررسی نیاز، تعیین محدودهٔ کار و انتخاب حضور در تهران یا دسترسی ریموت در صورت امکان.",'expected'=>'09eba56189c561933b6107fbdb2dcca7259450c7b78751ffb5f0df6e2d241818','lf'=>'709c49b6d2e0cffa4d95c3709877ff06d40daa5223a3f39894881b7a429cbe5e'],
+    35=>['uri'=>'services/mikrotik-tehran','file'=>'mikrotik-service.html','title'=>"خدمات MikroTik تهران",'excerpt'=>"خدمات MikroTik تهران؛ بررسی نیاز، تعیین محدودهٔ کار و انتخاب حضور در تهران یا دسترسی ریموت در صورت امکان.",'expected'=>'647165b37acf55aa4e9ca1faf56ee79754193282e6b2351b995316f04596a379','lf'=>'ab9d96e52fb50fc3f2d0f535d614c4d6dbd29395d10e32002f608b8cd7c950e7']];
     private const CATALOG_SCOPE='tehnet-commercial-catalog-20261101-v1';
     private const EDUCATION_SCOPE='tehnet-educational-integrity-20261104-v1';
     private const WINBOX_SCOPE='tehnet-winbox-core-guides-20261105-v1';
@@ -38,7 +43,7 @@ final class TehNet_Growth_Content_Migration {
     private array $educationTargets=[];
 
     public static function authorizes($authorization,array $requested):bool {
-        return is_string($authorization)&&($authorization==='tehnet-growth-20261031-v1'||$authorization===self::DECISION_SCOPE||$authorization===self::CATALOG_SCOPE||$authorization===self::EDUCATION_SCOPE||$authorization===self::WINBOX_SCOPE||isset(self::EXISTING_PAGE_SCOPES[$authorization]))&&($requested['key']??null)===$authorization;
+        return is_string($authorization)&&($authorization==='tehnet-growth-20261031-v1'||$authorization===self::DECISION_SCOPE||$authorization===self::STAGING_SYNC_SCOPE||$authorization===self::CATALOG_SCOPE||$authorization===self::EDUCATION_SCOPE||$authorization===self::WINBOX_SCOPE||isset(self::EXISTING_PAGE_SCOPES[$authorization]))&&($requested['key']??null)===$authorization;
     }
 
     public function __construct(string $path,string $digest,string $directory,bool $authorizedProduction=false) {
@@ -75,6 +80,21 @@ final class TehNet_Growth_Content_Migration {
                 $seen[$key]=true;$row['content']=file_get_contents($f);$pages[]=$row;
             }
             $this->existingPage=true;$this->manifest=$m=['schema'=>1,'key'=>$m['key'],'pages'=>$pages,'updates'=>$updates];
+        }elseif(($m['key']??'')===self::STAGING_SYNC_SCOPE){
+            if($authorizedProduction||home_url('/')==='https://tehnet.ir/')throw new RuntimeException('Staging sync scope is staging-only by contract');
+            if(($m['schema']??null)!==1||count($m['targets']??[])!==3||($m['pages']??[])!==[])throw new RuntimeException('Exact staging sync set required');
+            $updates=[];$syncSeen=[];
+            foreach($m['targets']as$t){
+                $id=$t['id']??0;$fixed=self::STAGING_SYNC_TARGETS[$id]??null;
+                if(!$fixed||isset($syncSeen[$id])||($t['type']??null)!=='page'||($t['uri']??null)!==$fixed['uri']||($t['url']??null)!=='https://tehnet.ir/'.$fixed['uri'].'/'||($t['content_file']??null)!==$fixed['file']||($t['change_fields']??null)!==['post_content','post_excerpt','post_title']||($t['title']??null)!==$fixed['title']||($t['excerpt']??null)!==$fixed['excerpt']||!is_string($t['title_observed']??null)||$t['title_observed']!==$fixed['title'])throw new RuntimeException('Unapproved staging sync target');
+                if(($t['expected_content_sha256']??'')!==$fixed['expected'])throw new RuntimeException('Staging sync baseline mismatch; staging is not the expected stale snapshot');
+                if(in_array($id,array_map('intval',[get_option('page_on_front'),get_option('page_for_posts'),get_option('woocommerce_shop_page_id')]),true))throw new RuntimeException('Protected role cannot be a staging sync target');
+                $f=dirname($path).'/'.$fixed['file'];
+                if(!is_file($f)||is_link($f)||!hash_equals($fixed['lf'],hash_file('sha256',$f)))throw new RuntimeException('Staging sync body checksum mismatch');
+                $syncSeen[$id]=true;$this->educationTargets[$id]=$t;$updates[]=['id'=>$id,'expected_content_sha256'=>$fixed['expected'],'replace'=>file_get_contents($f)];
+            }
+            $this->existingPage=true;
+            $this->manifest=$m=['schema'=>1,'key'=>$m['key'],'pages'=>[],'updates'=>$updates];
         }elseif(($m['key']??'')===self::WINBOX_SCOPE){
             if(($m['schema']??null)!==1||count($m['targets']??[])!==2)throw new RuntimeException('Exact two-owner WinBox scope required');
             $updates=[];

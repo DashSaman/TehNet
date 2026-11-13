@@ -102,6 +102,10 @@ INDEX_RUNTIME_FILES = ['site/plugins/tehnet-core/includes/class-index-policy.php
 DECISION_SCOPE = 'tehnet-commercial-decision-20261108-v2'
 DECISION_FILES = ["site/plugins/tehnet-core/includes/class-content-types.php","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-support-contract-guide-1-csv.php","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-support-contract-guide-print.php","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-project-proposal-checklist-1-csv.php","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-project-proposal-checklist-2-csv.php","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/network-project-proposal-checklist-print.php","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-1-csv.php","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-2-csv.php","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-3-csv.php","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/business-server-planning-guide-print.php","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/server-backup-restore-acceptance-1-csv.php","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/server-backup-restore-acceptance-2-csv.php","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/server-backup-restore-acceptance-print.php","site/mu-plugins/tehnet-technical-resources/decision-aids-20261108/.htaccess","site/themes/tehnet/assets/css/visual-refresh.css"]
 DECISION_BODIES = ["services.html","network-tehran.html","network-support.html","network-setup.html","mikrotik-service.html","network-support-contract-guide.html","network-project-proposal-checklist.html","business-server-planning-guide.html","server-backup-restore-acceptance.html","server-virtualization-tehran.html"]
+STAGING_SYNC_SCOPE = 'tehnet-staging-sync-truth-20261113-v1'
+STAGING_SYNC_BODIES = ['content/network-support-2026-11-01/network-support.html',
+    'content/server-branch-2026-11-04/network-setup.html',
+    'content/mikrotik-service-2026-11-01/mikrotik-service.html']
 CONTENT_SCOPES = {**LESSON_SCOPES,
     DECISION_SCOPE: ('content/commercial-decision-2026-11-08-v2', 'services.html', '/tmp/tn-commercial-decision-'),
     ILLUSTRATED_ROUTING_SCOPE: ('content/illustrated-routing-2026-11-04', 'static-routing.html', '/tmp/tn-illustrated-routing-release-'),
@@ -114,7 +118,7 @@ CONTENT_SCOPES = {**LESSON_SCOPES,
     MIKROTIK_SERVICE_SCOPE: ('content/mikrotik-service-2026-11-01', 'mikrotik-service.html', '/tmp/tn-mikrotik-service-release-'),
     SERVER_BRANCH_SCOPE: ('content/server-branch-2026-11-04', 'network-setup.html', '/tmp/tn-server-branch-release-'),
 }
-GUARDED_SCOPES = [INDEX_RUNTIME_SCOPE, INDEX_ACTIVATION_SCOPE, *CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE, GALLERY_KEYBOARD_SCOPE, COMMERCIAL_CATALOG_SCOPE, CORPORATE_SCOPE, PHONE_SCOPE, EDUCATION_SCOPE, WINBOX_CORE_SCOPE]
+GUARDED_SCOPES = [INDEX_RUNTIME_SCOPE, INDEX_ACTIVATION_SCOPE, STAGING_SYNC_SCOPE, *CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE, GALLERY_KEYBOARD_SCOPE, COMMERCIAL_CATALOG_SCOPE, CORPORATE_SCOPE, PHONE_SCOPE, EDUCATION_SCOPE, WINBOX_CORE_SCOPE]
 
 
 def scope_spec(scope):
@@ -128,6 +132,10 @@ def scope_spec(scope):
         directory = 'content/commercial-decision-2026-11-08-v2/'
         return list(DECISION_FILES), [directory + 'manifest.json', *[directory + f for f in DECISION_BODIES],
             'ops/migrate-growth-content.php'], [p for p in dict.fromkeys(scope_spec(EDUCATION_SCOPE)[2] + NETWORK_TRIAGE_FILES + CONCEPTUAL_ROUTING_FILES) if p not in DECISION_FILES]
+    if scope == STAGING_SYNC_SCOPE:
+        # Staging-only restoration of stale bodies to production truth; expected digests cannot exist on production.
+        directory = 'content/staging-sync-truth-20261113/'
+        return [], [directory + 'manifest.json', *STAGING_SYNC_BODIES, 'ops/migrate-growth-content.php'], []
     if scope == WINBOX_CORE_SCOPE:
         directory = 'content/winbox-guides-2026-11-05/'
         guarded = list(dict.fromkeys(scope_spec(EDUCATION_SCOPE)[2] + NETWORK_TRIAGE_FILES + CONCEPTUAL_ROUTING_FILES))
@@ -490,7 +498,7 @@ class Release:
             staged.append((self.extra[1], CONTENT_SCOPES[self.scope][1]))
         if self.scope == COMMERCIAL_CATALOG_SCOPE:
             staged.extend([(self.extra[1], 'services.html'), (self.extra[2], 'home.html')])
-        if self.scope in (EDUCATION_SCOPE, WINBOX_CORE_SCOPE, DECISION_SCOPE):
+        if self.scope in (EDUCATION_SCOPE, WINBOX_CORE_SCOPE, DECISION_SCOPE, STAGING_SYNC_SCOPE):
             staged.extend((source, PurePosixPath(source).name) for source in self.extra[1:-1])
         for source, name in staged:
             self.run(['docker', 'cp', str(member(self.b / 'payload', source)), self.c['app'] + ':' + self.container_stage + '/' + name])
