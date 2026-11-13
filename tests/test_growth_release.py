@@ -382,7 +382,8 @@ class ReleaseBoundaries(unittest.TestCase):
 
     def test_reconciled_decision_id33_body_matches_manifests(self):
         import hashlib, json
-        body = open('content/commercial-decision-2026-11-08-v2/network-setup.html', 'rb').read()
+        # Git blobs are LF; normalize the possibly-CRLF working tree before digest comparison.
+        body = open('content/commercial-decision-2026-11-08-v2/network-setup.html', 'rb').read().replace(b'\r\n', b'\n')
         digest = hashlib.sha256(body).hexdigest()
         self.assertEqual(digest, 'ab56940e609f5afa17aad6917dc2834490e0437aa7ecadc2c66adae6a22e2460')
         manifest = json.load(open('content/commercial-decision-2026-11-08-v2/manifest.json', encoding='utf-8'))
