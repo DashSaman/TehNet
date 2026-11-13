@@ -1,3 +1,5 @@
+## CURRENT —2026-11-14 cycle 9: b2b buyer revision VERIFIED staging (PR102, slug-resolved scope); noindex intact; WAITING_FOR_OWNER: M0=PR100 + off-host decision + remaining merges
+
 ## CURRENT —2026-11-13 cycle 8: PR94/99 ID33 collision RECONCILED (PR100, body ab56940e); combined staging receipts; off-host packet; noindex intact
 
 ## CURRENT —2026-11-13 cycle 7: 12 PRs CI green, owner packet on PR99 branch, PR98/99 VERIFIED staging; noindex intact
