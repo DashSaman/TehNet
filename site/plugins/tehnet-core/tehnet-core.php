@@ -26,7 +26,9 @@ require_once TEHNET_CORE_DIR . 'includes/class-quotes.php';
 function tehnet_core_boot(): void {
     (new TehNet_Core_Settings())->register();
     (new TehNet_Core_Content_Types())->register();
-    (new TehNet_Core_Schema())->register();
+    $schema = new TehNet_Core_Schema();
+    $schema->register();
+    add_action('wp_head', [$schema, 'render_collection_page'], 31);
     (new TehNet_Core_Inquiries())->register();
     (new TehNet_Core_Quotes())->register();
     if (class_exists('WooCommerce')) {

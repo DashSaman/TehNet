@@ -43,6 +43,79 @@ final class TehNet_Core_Schema {
             && (int) $page->post_parent === (int) $services->ID;
     }
 
+    private const COLLECTION_PAGES = ['learn/mikrotik/mtcna', 'lab'];
+
+    /**
+     * CollectionPage structured data for the two real collection-style pages:
+     * the MTCNA learning-path hub (slug mtcna) and the interactive lab (slug lab).
+     * Items are limited to actually published child pages - no fabricated entries.
+     */
+    public function render_collection_page(): void {
+        if (is_admin() || is_feed() || is_404() || ! is_page(self::COLLECTION_PAGES)) {
+            return;
+        }
+
+        $page = get_queried_object();
+        if (! $page instanceof WP_Post || $page->post_status !== 'publish') {
+            return;
+        }
+
+        $schema = $this->build_collection_page($page);
+        if ($schema === []) {
+            return;
+        }
+
+        echo "\n<script type=\"application/ld+json\" class=\"tehnet-collectionpage-schema\">";
+        echo wp_json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        echo "</script>\n";
+    }
+
+    /**
+     * Testable builder - public so the native verification can call it without
+     * touching the global query (read-only usage on closed staging).
+     */
+    public function build_collection_page(WP_Post $page): array {
+        if ($page->post_status !== 'publish') {
+            return [];
+        }
+
+        $schema = [
+            '@context' => 'https://schema.org',
+            '@type' => 'CollectionPage',
+            'name' => get_the_title($page),
+            'url' => get_permalink($page),
+            'inLanguage' => 'fa',
+            'isPartOf' => ['@type' => 'WebSite', 'name' => get_bloginfo('name'), 'url' => home_url('/')],
+        ];
+
+        $items = [];
+        foreach (get_pages([
+            'child_of' => (int) $page->ID,
+            'post_status' => 'publish',
+            'sort_column' => 'menu_order',
+            'hierarchical' => 0,
+        ]) as $child) {
+            if (! $child instanceof WP_Post) {
+                continue;
+            }
+            $items[] = [
+                '@type' => 'ListItem',
+                'position' => count($items) + 1,
+                'url' => get_permalink($child),
+                'name' => get_the_title($child),
+            ];
+        }
+
+        if ($items !== []) {
+            $schema['mainEntity'] = [
+                '@type' => 'ItemList',
+                'itemListElement' => $items,
+            ];
+        }
+
+        return $schema;
+    }
+
     private function build_local_business(): array {
         $name = trim(TehNet_Core_Settings::value('tehnet_business_name'));
         $display_address = trim(TehNet_Core_Settings::value('tehnet_address'));
