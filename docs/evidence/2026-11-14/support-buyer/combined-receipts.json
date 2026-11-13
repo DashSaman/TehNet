@@ -1,0 +1,55 @@
+{
+ "schema": 1,
+ "date": "2026-11-14",
+ "title": "Staging receipts for support buyer revision (page: support; staging ID 192, production ID 196)",
+ "identity": {
+  "production_ID": 196,
+  "staging_ID": 192,
+  "method": "slug-resolution scope (id:null+slug); manifest names the environment-resolved ID",
+  "baseline": "c03b121a (production 196 == staging 192 exactly; read-only SHA2 verified; no sync needed)"
+ },
+ "sequence": [
+  {
+   "step": "check",
+   "result": "FAILED once",
+   "detail": "slug-resolution block was not ported to this branch (scope entry alone) — block ported from the b2b branch, honestly recorded"
+  },
+  {
+   "step": "check (fixed bundle 71cfd347)",
+   "result": "READY",
+   "detail": "expected c03b121a matched; protected digest 4f3de8ed..."
+  },
+  {
+   "step": "apply",
+   "result": "APPLIED",
+   "detail": "body 8d74808d; protected unchanged"
+  },
+  {
+   "step": "native acceptance",
+   "result": "PASS 13/13",
+   "detail": "hash, title/excerpt unchanged, anchors, lead preserved, shortcode wrapped + registered, route links, blog_public=0"
+  },
+  {
+   "step": "browser",
+   "result": "PASS 12/12",
+   "detail": "sections/anchors, form.tn-ticket-form renders with nonce (regression gate), route links, noindex, mobile"
+  },
+  {
+   "step": "repeat check",
+   "result": "APPLIED 0 writes (idempotent)"
+  },
+  {
+   "step": "rollback drill",
+   "result": "ROLLED_BACK",
+   "detail": "ID 192 restored to exactly c03b121a; protected unchanged"
+  },
+  {
+   "step": "reviewed re-apply",
+   "result": "APPLIED",
+   "detail": "stale journal removed per recorded pattern; fresh run dir; final state applied with identical protected digest"
+  }
+ ],
+ "source_commit": "71cfd347ec91402e950d1805568e613848b4f366",
+ "production_mutations": 0,
+ "production_note": "production bundle must name target.id=196 (production-resolved)"
+}
