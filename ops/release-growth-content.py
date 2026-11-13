@@ -42,6 +42,7 @@ CORPORATE_SCOPE = 'tehnet-corporate-ui-20261101-v1'
 PHONE_SCOPE = 'tehnet-phone-rtl-20261101-v1'
 EDUCATION_SCOPE = 'tehnet-educational-integrity-20261104-v1'
 SERVER_BRANCH_SCOPE = 'tehnet-service-server-branch-20261104-v1'
+B2B_BUYER_SCOPE = 'tehnet-service-b2b-buyer-20261114-v1'
 SERVICE_DISCOVERY_SCOPE = 'tehnet-service-discovery-20261104-v1'
 NETWORK_TRIAGE_SCOPE = 'tehnet-lab-network-triage-20261104-v1'
 NETWORK_TRIAGE_FILES = [
@@ -106,6 +107,7 @@ CONTENT_SCOPES = {**LESSON_SCOPES,
     REMOTE_SUPPORT_SCOPE: ('content/remote-support-2026-11-01', 'remote-support.html', '/tmp/tn-remote-support-release-'),
     MIKROTIK_SERVICE_SCOPE: ('content/mikrotik-service-2026-11-01', 'mikrotik-service.html', '/tmp/tn-mikrotik-service-release-'),
     SERVER_BRANCH_SCOPE: ('content/server-branch-2026-11-04', 'network-setup.html', '/tmp/tn-server-branch-release-'),
+    B2B_BUYER_SCOPE: ('content/b2b-buyer-20261114', 'b2b-buyer-20261114.html', '/tmp/tn-b2b-buyer-'),
 }
 GUARDED_SCOPES = [*CONTENT_SCOPES, METADATA_SCOPE, SERVICE_METADATA_SCOPE, GALLERY_KEYBOARD_SCOPE, COMMERCIAL_CATALOG_SCOPE, CORPORATE_SCOPE, PHONE_SCOPE, EDUCATION_SCOPE, WINBOX_CORE_SCOPE]
 
@@ -188,7 +190,7 @@ def scope_spec(scope):
         return [], [directory + '/manifest.json',
                     directory + '/' + body,
                     'ops/migrate-growth-content.php'], FILES + ['site/plugins/tehnet-store/tehnet-store.php'] + (
-                        ['site/mu-plugins/tehnet-search-metadata.php'] if scope in (SUPPORT_SCOPE, IP_DHCP_DNS_SCOPE, NETWORK_SETUP_SCOPE, REMOTE_SUPPORT_SCOPE, MIKROTIK_SERVICE_SCOPE) else [])
+                        ['site/mu-plugins/tehnet-search-metadata.php'] if scope in (SUPPORT_SCOPE, IP_DHCP_DNS_SCOPE, NETWORK_SETUP_SCOPE, REMOTE_SUPPORT_SCOPE, MIKROTIK_SERVICE_SCOPE, B2B_BUYER_SCOPE) else [])
     if scope == METADATA_SCOPE:
         return ['site/mu-plugins/tehnet-search-metadata.php'], [
             'content/metadata-role-2026-11-01/manifest.json', 'ops/check-metadata-state.php'
