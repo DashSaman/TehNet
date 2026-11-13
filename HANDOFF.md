@@ -1,3 +1,7 @@
+## CHECKPOINT — 2026-11-13 P1 SEO JSON-LD (branch feat/seo-jsonld-20261112)
+
+شاخهٔ feat/seo-jsonld-20261112: CollectionPage JSON-LD برای /learn/mikrotik/mtcna/ (ItemList شش درس واقعی) و /lab/ — بدون ساختگی؛ آزمون ۱۲/۱۲ PASS روی staging preview (wp-cli read-only)؛ php -l OK؛ گپ زیرساختی جدید: docker-proxy پورت 18085 روی سرور مرده (restart container حل نکرد) — دسترسی front-end تا ترمیم ممکن نیست؛ production دست‌نخورده؛ انتشار فقط با مجوز مالک.
+
 ## CURRENT —2026-11-08 verified handoff; Queue next; PR89–91 NEEDS_APPROVAL
 
 PR88 واقعاً ادغام و منتشر شده است؛ source `69243f4`، دو owner62/63 و39PNG. [رسید production](docs/evidence/2026-11-05/winbox-core/production-verification.json) و شش تصویر زنده از commit شواهد `c33f0b3` به این PR مستندات منتقل و hash هر6تصویر دوباره تطبیق شدند. تأیید PR88 مصرف شده؛ ناشر آن دوباره اجرا نشود. بررسی خواندنی8نوامبر،14/25تصویر و anchorهای هر دو درس را روی سایت نشان داد؛ آزمون‌های60native/16renderer/1590staging/730live مربوط به receipt5نوامبرند، نه اجرای تازه.
