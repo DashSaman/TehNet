@@ -1,3 +1,5 @@
+## CURRENT —2026-11-13 cycle 7: 12 PRs CI green, owner packet on PR99 branch, PR98/99 VERIFIED staging; noindex intact
+
 ## NOTE — 2026-11-13 PR97 frontend verification clarification
 
 PR97 frontend verification performed via server-side curl inside the preview container (not Playwright/browser through tunnel). Real Playwright acceptance remains a separate post-merge release QA step. The staging container port binding (127.0.0.1:18085 docker-proxy) is dead — workaround: tunnel directly to container IP 172.18.0.3:80 via SSH. This does not block UI/UX work on other branches.
