@@ -1,0 +1,86 @@
+{
+ "base": "http://localhost:18085",
+ "page": "/services/network-setup-tehran/",
+ "status": "PASS",
+ "total": 17,
+ "failures": 0,
+ "checks": [
+  {
+   "name": "http_200",
+   "pass": true,
+   "detail": {
+    "status": 200
+   }
+  },
+  {
+   "name": "section_فرایند کار ا",
+   "pass": true
+  },
+  {
+   "name": "section_تحویل‌دادنی‌",
+   "pass": true
+  },
+  {
+   "name": "section_مرزهای خدمت",
+   "pass": true
+  },
+  {
+   "name": "section_بعد از راه‌ا",
+   "pass": true
+  },
+  {
+   "name": "section_چرا تهران نت",
+   "pass": true
+  },
+  {
+   "name": "section_درخواست بررس",
+   "pass": true
+  },
+  {
+   "name": "phone_shortcode_replaced",
+   "pass": true
+  },
+  {
+   "name": "inquiry_cta_contact_link",
+   "pass": true
+  },
+  {
+   "name": "no_console_errors",
+   "pass": true,
+   "detail": {
+    "errors": []
+   }
+  },
+  {
+   "name": "link_/contact/_200",
+   "pass": true
+  },
+  {
+   "name": "link_/technical-methodology/_200",
+   "pass": true
+  },
+  {
+   "name": "link_/services/network-support-tehran/_200",
+   "pass": true
+  },
+  {
+   "name": "link_/services/remote-support/_200",
+   "pass": true
+  },
+  {
+   "name": "link_/learn/mikrotik/mtcna/_200",
+   "pass": true
+  },
+  {
+   "name": "mobile_no_horizontal_overflow",
+   "pass": true,
+   "detail": {
+    "px": 0
+   }
+  },
+  {
+   "name": "lead_paragraph_rendered",
+   "pass": true
+  }
+ ]
+}

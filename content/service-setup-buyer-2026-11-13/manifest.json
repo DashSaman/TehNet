@@ -34,11 +34,11 @@
   ],
   "qualification": {
     "source_review": "PR95_KEYWORDS_90_BRIEFS_30_CLUSTER_SETUP_P1",
-    "internal_links": "PENDING_VERIFICATION",
-    "native_blocks": "PENDING_STAGING_RUN",
-    "browser": "PENDING_STAGING_RUN",
-    "rollback_drill": "PENDING_STAGING_RUN",
-    "migration": "PENDING_STAGING_RUN",
+    "internal_links": "PASS_5_TARGETS_ALL_PUBLISHED_NO_301_DEPENDENCY",
+    "native_blocks": "PASS_63_CHECKS_0_FAILURES_PLUS_TAMPER_NEGATIVE_EXIT_1",
+    "browser": "PASS_17_CHECKS_0_FAILURES_DESKTOP_1440_MOBILE_375",
+    "rollback_drill": "ROLLED_BACK_HUB_RESTORED_HASH_MATCH_09EBA5_PROTECTED_UNCHANGED",
+    "migration": "CHECK_READY_THEN_APPLIED_HUBS_1_PROTECTED_DIGEST_IDENTICAL",
     "production": "NOT_DEPLOYED"
   },
   "limits": [
