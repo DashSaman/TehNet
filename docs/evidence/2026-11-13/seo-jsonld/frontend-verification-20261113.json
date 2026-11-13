@@ -1,0 +1,58 @@
+{
+ "schema": 1,
+ "date": "2026-11-13",
+ "frontend_verification": "server-side curl inside preview container (bypasses dead 18085 docker-proxy binding)",
+ "verified": {
+  "mtcna_hub": {
+   "blocks": [
+    {
+     "class": "tehnet-collectionpage-schema",
+     "type": "CollectionPage",
+     "items": [
+      "http://localhost:18085/learn/mikrotik/mtcna/routeros-winbox/",
+      "http://localhost:18085/learn/mikrotik/mtcna/ip-dhcp-dns/",
+      "http://localhost:18085/learn/mikrotik/mtcna/static-routing/",
+      "http://localhost:18085/learn/mikrotik/mtcna/nat-masquerade/",
+      "http://localhost:18085/learn/mikrotik/mtcna/firewall-basics/",
+      "http://localhost:18085/learn/mikrotik/mtcna/queues-troubleshooting/"
+     ]
+    }
+   ],
+   "bytes": 49663
+  },
+  "lab": {
+   "blocks": [
+    {
+     "class": "tehnet-collectionpage-schema",
+     "type": "CollectionPage",
+     "items": [
+      "http://localhost:18085/lab/gns3-mikrotik/",
+      "http://localhost:18085/lab/wireguard-mtu/",
+      "http://localhost:18085/lab/voice-network-checklist/"
+     ]
+    }
+   ],
+   "bytes": 64477
+  },
+  "services": {
+   "blocks": [
+    {
+     "class": "tehnet-localbusiness-schema",
+     "type": "LocalBusiness"
+    }
+   ],
+   "bytes": 57605
+  },
+  "home": {
+   "blocks": [
+    {
+     "class": "tehnet-localbusiness-schema",
+     "type": "LocalBusiness"
+    }
+   ],
+   "bytes": 65835
+  }
+ },
+ "production_mutations": 0,
+ "production_status": "live pages still noindex, nofollow (unchanged; verified 2026-11-13)"
+}
