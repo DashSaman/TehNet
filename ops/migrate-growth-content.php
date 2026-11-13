@@ -21,6 +21,7 @@ final class TehNet_Growth_Content_Migration {
         'tehnet-service-remote-support-20261101-v1'=>['id'=>37,'uri'=>'services/remote-support','file'=>'remote-support.html'],
         'tehnet-service-mikrotik-20261101-v1'=>['id'=>35,'uri'=>'services/mikrotik-tehran','file'=>'mikrotik-service.html'],
         'tehnet-service-server-branch-20261104-v1'=>['id'=>33,'uri'=>'services/network-setup-tehran','file'=>'network-setup.html'],
+        'tehnet-service-setup-buyer-20261113-v1'=>['id'=>33,'uri'=>'services/network-setup-tehran','file'=>'network-setup-buyer-20261113.html'],
     ];
     private array $manifest;
     private string $digest;

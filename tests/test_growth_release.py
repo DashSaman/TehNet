@@ -277,6 +277,18 @@ class ReleaseBoundaries(unittest.TestCase):
         prefixes = [row[2] for row in self.module.CONTENT_SCOPES.values()]
         self.assertEqual(len(set(prefixes)), len(prefixes))
 
+    def test_setup_buyer_scope_is_body_only_current_guarded_and_separate(self):
+        scope = 'tehnet-service-setup-buyer-20261113-v1'
+        files, extra, runtime = self.module.scope_spec(scope)
+        self.assertEqual(files, [])
+        self.assertEqual(extra, ['content/service-setup-buyer-2026-11-13/manifest.json', 'content/service-setup-buyer-2026-11-13/network-setup-buyer-20261113.html', 'ops/migrate-growth-content.php'])
+        self.assertEqual(len(runtime), 8)
+        self.assertIn('site/mu-plugins/tehnet-search-metadata.php', runtime)
+        self.assertNotIn(scope, self.module.LESSON_SCOPES)
+        self.assertIn(scope, self.module.GUARDED_SCOPES)
+        prefixes = [row[2] for row in self.module.CONTENT_SCOPES.values()]
+        self.assertEqual(len(set(prefixes)), len(prefixes))
+
     def test_gallery_keyboard_scope_is_three_files_with_current_runtime_guards(self):
         scope = 'tehnet-gallery-keyboard-20261101-v1'
         files, extra, runtime = self.module.scope_spec(scope)
