@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "updated_utc": "2026-11-13T20:47:37Z",
+ "updated_utc": "2026-11-13T23:43:45Z",
  "single_writer": "Z Code primary executor",
  "supervisor": "Codex (read-only review; max 2 ordinary reviews/day)",
  "tasks": [
@@ -173,7 +173,7 @@
    ],
    "attempts": 1,
    "evidence": "netauto-main:/root/backups/tehnet-20261111/ — db-tehnet-20261111.sql.gz (572K, gzip -t OK, single-transaction dump of DB tehnet) + wp-content-20261111.tar.gz (101M, 7352 entries) + SHA256SUMS.txt both OK; disk after: 5.9G free (was 6.0G); restore rehearsal PASSED 2026-11-12 (isolated tehnet_restore_test, 52/52 tables, 6 key tables row-identical, test DB dropped)",
-   "last_progress": "2026-11-13T20:31Z cycle 9: backup 13:32Z is ~7h old (<24h) — refresh correctly skipped per rule; disk 88%/4.5G",
+   "last_progress": "2026-11-13T23:31Z cycle 10: backup 13:32Z is ~10h old (<24h) — refresh correctly skipped; disk 88%/4.5G",
    "next_action": "Refresh on next owner packet checkpoint or before first production release"
   },
   {
@@ -283,6 +283,26 @@
    "evidence": "PR102 (feat/b2b-buyer-20261114, CI green cf48ea69c); docs/evidence/2026-11-14/b2b-buyer/; honest defects: pageScope ordering fixed, heredoc literal mangles recorded",
    "last_progress": "2026-11-14",
    "next_action": "Owner merge decision; production bundle must name target.id=194"
+  },
+  {
+   "id": "TN-SUP-001",
+   "owner": "zcode",
+   "priority": "P1",
+   "title": "Commercial buyer-journey: /support/ ticket-page additive revision (PR103, scope tehnet-service-support-buyer-20261114-v1)",
+   "state": "VERIFIED_STAGING_NOT_DEPLOYED",
+   "dependencies": [],
+   "acceptance": [
+    "baseline c03b121a verified read-only on production 196 == staging 192 (no sync needed)",
+    "slug-resolution scope (id:null+slug support) — resolution block ported to this branch after first check FAILED (recorded)",
+    "native 13/13 PASS incl. shortcode registered",
+    "browser 12/12 incl. ticket-form regression gate (form.tn-ticket-form + nonce)",
+    "rollback drill restored exactly c03b121a",
+    "production mutations 0"
+   ],
+   "attempts": 1,
+   "evidence": "PR103 (feat/support-buyer-20261114, CI green ca271a813); docs/evidence/2026-11-14/support-buyer/",
+   "last_progress": "2026-11-14",
+   "next_action": "Owner merge decision; production bundle must name target.id=196"
   }
  ]
 }
