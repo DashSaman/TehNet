@@ -6,7 +6,7 @@
   "supervisor_notes": "Operational; fail-closed proven live; regression suite committed (10/10); next ordinary review from committed head d977717+.",
   "website_healthy": true,
   "public_pages_indexable": false,
-  "backups_verified": "2026-11-11 backup verified; 2026-11-12 restore rehearsal: backup restored into ISOLATED same-host test DB (52/52 tables, 6 key tables row-count equal); NOT an off-host recovery or wp-content restore proof — same-host only, DB-only",
+  "backups_verified": "2026-11-13: /root/backups/tehnet-20261113 (DB 570K gz + wp-content 101M, SHA256SUMS OK); 11-11 copy rotated; restore rehearsal of 11-11 backup PASSED on 11-12",
   "scheduled_jobs": "TEHNET-AUTOMOUS-GROWTH (Z Code cron, 3h, active) + TEHNET-WATCHDOG (schtasks 30m, active); watchdog log: ~/.zcode/tehnet-watchdog.log",
   "blocked_on_owner": [
     "merge/deploy PR89, PR90, PR91, PR93",
@@ -20,5 +20,7 @@
     "new_billing": "none activated"
   },
   "scheduler": "TEHNET-24H-GROWTH-ORCHESTRATOR (Z Code cron 0 */3 * * *, recurring, active, first scheduled run pending)",
-  "recovery_limits": "Backups are same-host (/root/backups). Off-host copy and wp-content restore rehearsal not yet performed — WAITING_FOR_OWNER decision on destination/capacity (host disk 84% full)"
+  "recovery_limits": "Backups are same-host (/root/backups). Off-host copy and wp-content restore rehearsal not yet performed — WAITING_FOR_OWNER decision on destination/capacity (host disk 84% full)",
+  "quota_incident": "2026-11-13: two scheduled cycles failed in ~7s on start-plan quota exhaustion (exceed quota limit); switched to purchased coding plan per Priority A; cycles resumed",
+  "current_session_model": "account:zai-individual-coding-plan/GLM-5.3-Flash"
 }

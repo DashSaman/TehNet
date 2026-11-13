@@ -1,3 +1,7 @@
+## CHECKPOINT — 2026-11-13 backup refresh (coding-plan session)
+
+پل Codex سالم و روی session خریداری‌شده ادامه یافت؛ incident سهمیهٔ start-plan ثبت شد (۲ چرخهٔ زمان‌بند ۷ ثانیه‌ای شکست خوردند، هیچ تغییر دادهای نمی‌گذاشتند)؛ backup تازهٔ ۲۰۲۶-۱۱-۱۳ با SHA256SUMS OK و چرخش نسخهٔ ۱۱-۱۱؛ دیسک 5.3G آزاد؛ صف و مدل‌ها طبق Priority A/B/C/D.
+
 ## CHECKPOINT — 2026-11-13 ORCHESTRATOR cycle 6
 
 بستهٔ تصمیم indexability v3 (recovery اجباری، rollback کامل D1، مسیرهای خصوصی واقعی، توالی D3) — WAITING_FOR_OWNER؛ re-review Codex در پنجرهٔ بعدی؛ سایت سالم؛ صفر mutation.
