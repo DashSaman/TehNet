@@ -1,12 +1,12 @@
 {
  "schema": 1,
- "updated_utc": "2026-11-14T15:49:43Z",
+ "updated_utc": "2026-11-14T16:09:54Z",
  "primary_executor": "Z Code",
  "supervisor_operational": true,
  "supervisor_notes": "Operational; fail-closed proven live; regression suite committed (10/10); next ordinary review from committed head d977717+.",
  "website_healthy": true,
  "public_pages_indexable": false,
- "backups_verified": "2026-11-13: /root/backups/tehnet-20261113 (DB 570K gz + wp-content 101M, SHA256SUMS OK); 11-11 copy rotated; restore rehearsal of 11-11 backup PASSED on 11-12",
+ "backups_verified": "2026-11-14: /root/backups/tehnet-20261114 (DB 592,716B + wp-content 111,670,331B, SHA256SUMS OK); 11-13 retained as previous; disk 89%/4.1G",
  "scheduled_jobs": "TEHNET-24H-GROWTH-ORCHESTRATOR (Z Code cron 0 */3 * * *, active, 16+ runs incl. cycle 7) + TEHNET-WATCHDOG (Windows schtasks 30m, Ready, verified live 2026-11-13 log 16:20Z SITE 200+noindex) + MYTEL-WATCHDOG (untouched)",
  "blocked_on_owner": [
   "M0: merge PR100 (reconciliation superset of PR94) — recommended first merge",
@@ -23,7 +23,7 @@
   "prepaid_like": "account:zai-highspeed-card — NOT auto-enabled; requires owner-verified balance + 10%/24h cap before any use",
   "new_billing": "none activated"
  },
- "scheduler": "TEHNET-24H-GROWTH-ORCHESTRATOR (Z Code cron 0 */3 * * *, recurring, active, first scheduled run pending)",
+ "scheduler": "TEHNET-24H-GROWTH-ORCHESTRATOR ACTIVE again (owner resumed; runCount 21; prompt includes owner addendum) + TEHNET-WATCHDOG schtasks active",
  "recovery_limits": "Backups are same-host (/root/backups). Off-host copy and wp-content restore rehearsal not yet performed — WAITING_FOR_OWNER decision on destination/capacity (host disk 84% full)",
  "quota_incident": "2026-11-13: two scheduled cycles failed in ~7s on start-plan quota exhaustion (exceed quota limit); switched to purchased coding plan per Priority A; cycles resumed",
  "current_session_model": "account:zai-individual-coding-plan/GLM-5.3-Flash",
@@ -62,5 +62,6 @@
   "execution mission: delivery blockers closed (baseline ref published+verified, Lab 13/13, D1 exact scope doc, intake 26/26, CAPTCHA-sim acceptance, HANDOFF rewritten)",
   "Codex reviews today: 2 milestone reviews (milestone-buyer-journey + delivery-blockers), both NEEDS_CHANGES with all findings closed same-cycle",
   "INCIDENT: scheduler paused by tool misuse — owner resume required; watchdog independent and active"
- ]
+ ],
+ "bridge_link_test": "TN-LINK-20261114-A PASS (connectivity+parse+readback; non-canonical APPROVE finding recorded)"
 }

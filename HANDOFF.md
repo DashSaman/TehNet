@@ -1,4 +1,5 @@
 ## ARCHIVED CHECKPOINT (superseded — keep for reference) — —2026-11-14 cycle 12: 16/16 open PRs CI GREEN (fresh snapshot); M0=merge PR100 d457580; backup 16h (skip); noindex intact; WAITING_FOR_OWNER: merges + off-host + D1/D2/D3
+### 2026-11-14 addendum 2 (cycle 13): backup tehnet-20261114 VERIFIED (26.5h rule); bridge link test TN-LINK-20261114-A PASS (nonce echoed; APPROVE non-canonical finding); scheduler re-activated by owner (runCount 21).
 
 ### 2026-11-14 evening addendum (execution mission, same day)
 - Baseline reproducibility: commit 7ce37e0e published as ref `reconcile-baseline-7ce37e0e` (fresh-fetch verified; doc: docs/evidence/2026-11-14/baseline/).

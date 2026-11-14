@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "updated_utc": "2026-11-14T15:49:43Z",
+ "updated_utc": "2026-11-14T16:09:54Z",
  "single_writer": "Z Code primary executor",
  "supervisor": "Codex (read-only review; max 2 ordinary reviews/day)",
  "tasks": [
@@ -374,6 +374,41 @@
    "evidence": "RUN_HISTORY cycle 12; watchdog (schtasks 30m) still active and monitoring",
    "last_progress": "2026-11-14",
    "next_action": "Owner resumes TEHNET-24H-GROWTH-ORCHESTRATOR"
+  },
+  {
+   "id": "TN-SAFE-004",
+   "owner": "zcode",
+   "priority": "P1",
+   "title": "Backup refresh tehnet-20261114 (>24h rule reached)",
+   "state": "VERIFIED",
+   "dependencies": [],
+   "acceptance": [
+    "DB sql.gz 592,716B + wp-content tar.gz 111,670,331B",
+    "SHA256SUMS verified OK",
+    "11-13 set retained as previous"
+   ],
+   "attempts": 1,
+   "evidence": "/root/backups/tehnet-20261114; disk 89% / 4.1G free",
+   "last_progress": "2026-11-14T16:05Z",
+   "next_action": "Refresh after 24h or before any production release"
+  },
+  {
+   "id": "TN-LINK-001",
+   "owner": "zcode",
+   "priority": "P0",
+   "title": "Bridge link test TN-LINK-20261114-A (owner addendum first-run)",
+   "state": "VERIFIED",
+   "dependencies": [],
+   "acceptance": [
+    "request -> real Codex output -> parse -> record -> GLM readback",
+    "nonce echoed by Codex; EVIDENCE/CORRECTION/ACCEPTANCE structure present; exit 0",
+    "finding recorded: parser accepted non-canonical APPROVE — vocabulary enforced at consumer",
+    "sanitized receipt committed; raw conversation not published; NOT labeled E2E"
+   ],
+   "attempts": 1,
+   "evidence": "ops/agent-control/LINK-TEST-TN-LINK-20261114-A.json",
+   "last_progress": "2026-11-14T16:08Z",
+   "next_action": "Use canonical vocabulary in all future packets"
   }
  ]
 }
