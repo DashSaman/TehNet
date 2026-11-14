@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "title": "Reproducible basis for the reconciliation baseline commit (out-of-Git production hotfix)",
+  "commit": "7ce37e0e3d4e92af15fe6bf4d5b22d3f871433cd",
+  "parent": "04c2af953b6676306b702933aecc412a76d67730 (origin/main, published)",
+  "tree": "5ef0f5f262397f9dfdb9cdf99e40e05bc43c4f7d",
+  "published_ref": "refs/heads/reconcile-baseline-7ce37e0e on origin (added 2026-11-14; no existing branch/history rewritten)",
+  "why_it_exists": "Production AND staging run class-content-types.php = 2d3059386df1 (tn_lab CPT rewrite=false hotfix applied outside Git); main carried the pre-hotfix b6532ef80c8c. The reconciliation bundle's file_guard compares live files against this baseline commit's digests, so the baseline must be publicly fetchable.",
+  "why_it_was_unfetchable": "The commit was created on a detached HEAD during the 2026-11-13 reconciliation session and referenced by SHA only; it was never an ancestor of any pushed branch, so GitHub could not serve it. Fixed by publishing the immutable commit under a NEW ref (no force-push, no history rewrite).",
+  "reproduce": [
+    "git fetch origin reconcile-baseline-7ce37e0e",
+    "git show 7ce37e0e:site/plugins/tehnet-core/includes/class-content-types.php | sha256sum  -> 2d3059386df16367e44698944d3eab5f5d7ae2f8a5798996506deebf1189c5df (production/staging live bytes)",
+    "git show 7ce37e0e:site/themes/tehnet/assets/css/visual-refresh.css | sha256sum  -> 3d70851009859205b81e0ff7b6ee9743553a4ab6fa226b93d2a376bb2b8296cf (unchanged vs live)",
+    "git rev-parse 7ce37e0e^{tree}  -> 5ef0f5f262397f9dfdb9cdf99e40e05bc43c4f7d"
+  ],
+  "verified_utc": "2026-11-14T03:5xZ (fresh fetch on executor host; digests match production read-only receipt)",
+  "behavioral_tests": "docs/evidence/2026-11-14/baseline/lab-behavioral-20261114.json"
+}
