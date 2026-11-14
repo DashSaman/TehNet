@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "updated_utc": "2026-11-13T23:43:45Z",
+ "updated_utc": "2026-11-14T02:47:22Z",
  "primary_executor": "Z Code",
  "supervisor_operational": true,
  "supervisor_notes": "Operational; fail-closed proven live; regression suite committed (10/10); next ordinary review from committed head d977717+.",
@@ -51,5 +51,10 @@
   "ticket-form regression gate: form.tn-ticket-form renders with nonce after revision",
   "honest defect: resolution block missing on fresh branch (first check FAILED) — ported, re-verified",
   "backup correctly skipped (10h old); buyer-journey pages now covered: 33 (PR100), 37 (PR101), b2b (PR102), support (PR103)"
+ ],
+ "cycle11_notes": [
+  "Codex milestone review (1st call today): NEEDS_CHANGES — all 5 findings corrected same cycle (activation D3-order trap closed, production-ID bundle notes, journey receipt retained, mandatory recovery wording in both packets, packet attribution fixed)",
+  "journey coherence verified as one system: 23/23, 17 links, 0 broken (docs/evidence/2026-11-14/journey/)",
+  "PR100 branch head d457580 (CI re-running); production mutations 0"
  ]
 }

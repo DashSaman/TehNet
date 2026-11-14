@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "updated_utc": "2026-11-13T23:43:45Z",
+ "updated_utc": "2026-11-14T02:47:22Z",
  "single_writer": "Z Code primary executor",
  "supervisor": "Codex (read-only review; max 2 ordinary reviews/day)",
  "tasks": [
@@ -303,6 +303,25 @@
    "evidence": "PR103 (feat/support-buyer-20261114, CI green ca271a813); docs/evidence/2026-11-14/support-buyer/",
    "last_progress": "2026-11-14",
    "next_action": "Owner merge decision; production bundle must name target.id=196"
+  },
+  {
+   "id": "TN-REV-002",
+   "owner": "zcode",
+   "priority": "P0",
+   "title": "Codex milestone review corrections — activation page37 -> PR101 final, release-order dependencies, packet/recovery wording",
+   "state": "VERIFIED",
+   "dependencies": [],
+   "acceptance": [
+    "activation-manifest page37 -> 8feda428 with D3-order dependency note (revert if PR101 rejected)",
+    "release-order 4b/4c + production-ID bundle notes in reconciliation-20261113.json",
+    "journey receipt committed (docs/evidence/2026-11-14/journey/)",
+    "OFFHOST + canonical packet recovery wording strictly mandatory",
+    "milestone packet attribution corrected"
+   ],
+   "attempts": 1,
+   "evidence": "PR100 branch d457580; agent-control ecde4c7/fa43217/87483cd — all CI green",
+   "last_progress": "2026-11-14",
+   "next_action": "Owner merge decisions (all findings closed)"
   }
  ]
 }
