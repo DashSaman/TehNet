@@ -1,14 +1,24 @@
-## CURRENT —2026-11-14 cycle 12: 16/16 open PRs CI GREEN (fresh snapshot); M0=merge PR100 d457580; backup 16h (skip); noindex intact; WAITING_FOR_OWNER: merges + off-host + D1/D2/D3
+## ARCHIVED CHECKPOINT (superseded — keep for reference) — —2026-11-14 cycle 12: 16/16 open PRs CI GREEN (fresh snapshot); M0=merge PR100 d457580; backup 16h (skip); noindex intact; WAITING_FOR_OWNER: merges + off-host + D1/D2/D3
+## CURRENT — 2026-11-14 (execution mission): delivery blockers resolved + integrated intake acceptance
 
-## CURRENT —2026-11-14 cycle 11: Codex milestone review applied (5/5 findings closed); journey coherence 23/23 verified; PR100 head d457580; noindex intact; WAITING_FOR_OWNER: M0 + off-host + merges
+Authoritative state (fresh CI snapshot PR_CI_SNAPSHOT_2026-11-14-cycle12.json: 16/16 open PRs green):
+- **M0 = merge PR100** (feat/setup-reconcile-20261113, head 5b86ccb) — supersedes PR94 (close PR94 after merge). Contains: reconciled ID33 body ab56940e, three reconciled manifests, staging-truth sync scope, D1 exact scope (see seo/commercial-decision-2026-11-08-v2/D1-EXACT-SCOPE.md: 10 pages + 15 runtime files), Codex-review corrections (activation page37=8feda428 requires PR101 deployed before D3).
+- **Reproducible baseline fixed**: out-of-Git production hotfix commit 7ce37e0e3d4e92af15fe6bf4d5b22d3f871433cd is now published as ref `reconcile-baseline-7ce37e0e` on origin (previously only local — Codex could not fetch it); fetch+digest reproduction verified (ctt=2d3059386df1, css=3d7085, tree=5ef0f5f2); Lab behavioral tests 13/13 (real routes 76/188, staging page 194 resolves via core rules, CPT collision fail-safe, stored rewrite_rules unchanged); rollback bytes available at that ref.
+- **Integrated intake acceptance PASS 26/26** (docs/evidence/2026-11-14/intake-acceptance/): service CTA → /services/ form → POST → private tn_ticket + receipt transient; B2B quote with real product (form tn_b2b_quote); support ticket (form tn_support_ticket); negatives (bad nonce 403, honeypot 400, bad context 400, invalid email 400, invalid qty 400); rate limit 429 on 6th ticket-bucket attempt (throttle counts ATTEMPTS — ops note); documented cleanup restored baseline counts. Limitations: CAPTCHA disabled on staging (real Google challenge NOT exercised), email/cron/payments closed by design.
+- Buyer-journey pages: 33 (PR100), 37 (PR101), b2b 191/194 (PR102), support 192/196 (PR103) — all VERIFIED_STAGING_NOT_DEPLOYED; contact page deliberately NOT revised (already complete).
 
-## CURRENT —2026-11-14 cycle 10: support ticket-page revision VERIFIED staging (PR103); journey covered 33/37/b2b/support; noindex intact; WAITING_FOR_OWNER: M0=PR100 + off-host decision + remaining merges
+WAITING_FOR_OWNER (unchanged gates): M0 merge PR100 → staging sync (hash-based only) → D1 (10 pages + 15 files, needs off-host recovery qualification first) → D2 install-off → D3 activation. merge ≠ deploy; every production release separately authorized. Queue lesson: PR93 complete, no rebuild.
 
-## CURRENT —2026-11-14 cycle 9: b2b buyer revision VERIFIED staging (PR102, slug-resolved scope); noindex intact; WAITING_FOR_OWNER: M0=PR100 + off-host decision + remaining merges
 
-## CURRENT —2026-11-13 cycle 8: PR94/99 ID33 collision RECONCILED (PR100, body ab56940e); combined staging receipts; off-host packet; noindex intact
+## ARCHIVED CHECKPOINT (superseded — keep for reference) — —2026-11-14 cycle 11: Codex milestone review applied (5/5 findings closed); journey coherence 23/23 verified; PR100 head d457580; noindex intact; WAITING_FOR_OWNER: M0 + off-host + merges
 
-## CURRENT —2026-11-13 cycle 7: 12 PRs CI green, owner packet on PR99 branch, PR98/99 VERIFIED staging; noindex intact
+## ARCHIVED CHECKPOINT (superseded — keep for reference) — —2026-11-14 cycle 10: support ticket-page revision VERIFIED staging (PR103); journey covered 33/37/b2b/support; noindex intact; WAITING_FOR_OWNER: M0=PR100 + off-host decision + remaining merges
+
+## ARCHIVED CHECKPOINT (superseded — keep for reference) — —2026-11-14 cycle 9: b2b buyer revision VERIFIED staging (PR102, slug-resolved scope); noindex intact; WAITING_FOR_OWNER: M0=PR100 + off-host decision + remaining merges
+
+## ARCHIVED CHECKPOINT (superseded — keep for reference) — —2026-11-13 cycle 8: PR94/99 ID33 collision RECONCILED (PR100, body ab56940e); combined staging receipts; off-host packet; noindex intact
+
+## ARCHIVED CHECKPOINT (superseded — keep for reference) — —2026-11-13 cycle 7: 12 PRs CI green, owner packet on PR99 branch, PR98/99 VERIFIED staging; noindex intact
 
 ## NOTE — 2026-11-13 PR97 frontend verification clarification
 
@@ -42,7 +52,7 @@ Restore rehearsal PASS (backup ۱۱نوامبر در DB تستی مجزا باز
 
 Backup تازهٔ تأییدشده روی سرور (netauto-main:/root/backups/tehnet-20261111، SHA256SUMS OK، دیسک 5.9G آزاد)؛ ممیزی ۸ صفحهٔ زنده: canonical سالم ۸/۸، noindex عمدی برقرار، یافتهٔ P2: MTCNA hub بدون JSON-LD؛ صف در ops/agent-control/؛ هیچ merge/deploy بدون مجوز مالک.
 
-## CURRENT —2026-11-08 verified handoff; Queue next; PR89–91 NEEDS_APPROVAL
+## ARCHIVED CHECKPOINT (superseded — keep for reference) — —2026-11-08 verified handoff; Queue next; PR89–91 NEEDS_APPROVAL
 
 PR88 واقعاً ادغام و منتشر شده است؛ source `69243f4`، دو owner62/63 و39PNG. [رسید production](docs/evidence/2026-11-05/winbox-core/production-verification.json) و شش تصویر زنده از commit شواهد `c33f0b3` به این PR مستندات منتقل و hash هر6تصویر دوباره تطبیق شدند. تأیید PR88 مصرف شده؛ ناشر آن دوباره اجرا نشود. بررسی خواندنی8نوامبر،14/25تصویر و anchorهای هر دو درس را روی سایت نشان داد؛ آزمون‌های60native/16renderer/1590staging/730live مربوط به receipt5نوامبرند، نه اجرای تازه.
 
