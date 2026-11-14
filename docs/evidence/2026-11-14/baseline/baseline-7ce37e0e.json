@@ -13,6 +13,7 @@
     "git show 7ce37e0e:site/themes/tehnet/assets/css/visual-refresh.css | sha256sum  -> 3d70851009859205b81e0ff7b6ee9743553a4ab6fa226b93d2a376bb2b8296cf (unchanged vs live)",
     "git rev-parse 7ce37e0e^{tree}  -> 5ef0f5f262397f9dfdb9cdf99e40e05bc43c4f7d"
   ],
-  "verified_utc": "2026-11-14T03:5xZ (fresh fetch on executor host; digests match production read-only receipt)",
-  "behavioral_tests": "docs/evidence/2026-11-14/baseline/lab-behavioral-20261114.json"
+  "verified_utc": "2026-11-14T15:34:40Z",
+  "behavioral_tests": "docs/evidence/2026-11-14/baseline/lab-behavioral-20261114.json",
+  "verified_method": "fresh `git fetch origin reconcile-baseline-7ce37e0e` on the executor repo, then git show digests recomputed (ctt=2d3059386df16367..., css=3d7085...)"
 }
