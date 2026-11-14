@@ -26,3 +26,9 @@ EVIDENCE: • `6fdfc76` commits v2; PR94 remains draft/unmerged, and all 16 path
 EVIDENCE: • PR100’s `seo/index-decision-2026-11-08-v2/activation-manifest.json` expects page37=`2f5210b2`; PR101 installs verified blob `8feda428`, so D3 rejects it if PR101 runs first. • `content/b2b-buyer-20261114/manifest.json` and `content/support-buyer-20261114/manifest.json` still name staging IDs191/192, whereas production requires194/196. • PR101’s `docs/evidence/20 |
 | 2026-11-14T15:33:52Z | delivery-blockers-baseline-intake | NEEDS_CHANGES | f2277b1c982b | DECISION: NEEDS_CHANGES
 EVIDENCE: • Baseline hashes/tree match `baseline-7ce37e0e.json`, but `verified_utc` contains `03:5xZ`; • `lab-behavioral-20261114.json` records booleans without a replayable driver; • `intake-acceptance/README.md` explicitly excludes enabled CAPTCHA and fresh browser verification; • `PR_CI_SNAPSHOT_2026-11-14-cycle12.json` names older PR100 head d457580, while current head  |
+| 2026-11-14T16:06:55Z | link-test-TN-LINK-20261114-A | APPROVE | 45383eeec1bb | DECISION: APPROVE
+EVIDENCE: • Received nonce TN-LINK-20261114-A; • Packet requests read-only connection verification only; • No execution, release, backup, rollback, or test artifacts supplied.
+CORRECTION: Limit approval to packet receipt and use the supervisor’s required verdict format.
+ACCEPTANCE: Receipt confirmed; persistent connectivity and project execution remain unverified.
+tokens used
+31, |
