@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "updated_utc": "2026-11-14T16:09:54Z",
+ "updated_utc": "2026-11-14T16:15:31Z",
  "primary_executor": "Z Code",
  "supervisor_operational": true,
  "supervisor_notes": "Operational; fail-closed proven live; regression suite committed (10/10); next ordinary review from committed head d977717+.",
@@ -63,5 +63,13 @@
   "Codex reviews today: 2 milestone reviews (milestone-buyer-journey + delivery-blockers), both NEEDS_CHANGES with all findings closed same-cycle",
   "INCIDENT: scheduler paused by tool misuse — owner resume required; watchdog independent and active"
  ],
- "bridge_link_test": "TN-LINK-20261114-A PASS (connectivity+parse+readback; non-canonical APPROVE finding recorded)"
+ "bridge_link_test": "TN-LINK-20261114-A PASS (connectivity+parse+readback; non-canonical APPROVE finding recorded)",
+ "manager_channel": {
+  "protocol": "TEHNET_MANAGER_CHANNEL_V1",
+  "location": "PR96 comment thread (owner conversation; Codex reads hourly)",
+  "handshake": "TN-LINK-20261114-A COMPLETED — request 6880308551 (16:05Z), sanitized ACK 6880417970 (16:12:22Z, UTC 16:12:03Z, checkpoint ab631ea)",
+  "receipt": "ops/agent-control/HANDSHAKE-TN-LINK-20261114-A.json",
+  "rules": "REVIEW_REQUEST per milestone with packet ID+SHA+evidence refs; source-bound replies; missing/stale/ambiguous = WAITING not approval; bridge CLI for transport tests/non-duplicate packets only; never two managers for one packet",
+  "scheduler": "prompt updated with the persistent channel directive (same automation id, no parallel instance)"
+ }
 }
