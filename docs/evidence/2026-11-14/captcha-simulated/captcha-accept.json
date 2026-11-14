@@ -1,0 +1,50 @@
+{
+ "status": "FAIL",
+ "total": 5,
+ "failures": 1,
+ "checks": [
+  {
+   "name": "captcha_valid_service_ticket_302",
+   "pass": true,
+   "detail": {
+    "status": 302,
+    "body": ""
+   }
+  },
+  {
+   "name": "captcha_valid_b2b_quote_302",
+   "pass": true,
+   "detail": {
+    "status": 302,
+    "body": ""
+   }
+  },
+  {
+   "name": "captcha_invalid_token_rejected",
+   "pass": true,
+   "detail": {
+    "status": 400
+   }
+  },
+  {
+   "name": "captcha_missing_token_rejected",
+   "pass": true,
+   "detail": {
+    "status": 400
+   }
+  },
+  {
+   "name": "captcha_records_created",
+   "pass": false,
+   "detail": {
+    "ids": [
+     796,
+     795
+    ]
+   }
+  }
+ ],
+ "label": "SIMULATED transport — NOT a real Google challenge",
+ "expectation_correction": "captcha_records_created expected >=3 was miscalibrated: only the 2 SUCCESS paths create records (service ticket + b2b quote); the invalid/missing-token paths correctly create nothing. Actual ids [795,796] = exactly the expected behaviour. Behaviour: CORRECT.",
+ "teardown": "captcha options deleted + tn-recaptcha-sim mu-plugin deleted (verified by teardown receipt)"
+}
