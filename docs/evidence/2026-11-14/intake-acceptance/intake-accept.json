@@ -1,0 +1,209 @@
+{
+ "status": "PASS",
+ "total": 26,
+ "failures": 0,
+ "checks": [
+  {
+   "name": "baseline_counts_captured",
+   "pass": true,
+   "detail": {
+    "tickets_before": 0,
+    "quotes_before": 0
+   }
+  },
+  {
+   "name": "throttle_state_cleared_before",
+   "pass": true,
+   "detail": {
+    "raw": "{\"throttle_cleared\":0}"
+   }
+  },
+  {
+   "name": "services_form_renders_with_nonce",
+   "pass": true,
+   "detail": {
+    "len": 10
+   }
+  },
+  {
+   "name": "services_context_preselected",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "name": "b2b_form_renders_with_nonce",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "name": "b2b_has_product_selects",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "name": "support_form_renders_with_nonce",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "name": "negative_bad_context_rejected",
+   "pass": true,
+   "detail": {
+    "status": 400
+   }
+  },
+  {
+   "name": "negative_invalid_email_rejected",
+   "pass": true,
+   "detail": {
+    "status": 400
+   }
+  },
+  {
+   "name": "service_ticket_302",
+   "pass": true,
+   "detail": {
+    "status": 302
+   }
+  },
+  {
+   "name": "service_ticket_redirect_receipt",
+   "pass": true,
+   "detail": {
+    "location": "http://localhost:18085/support/?tn_ticket=sent&tn_service_receipt=cSIFi0GP7TrFknsn1K1pOBLmf76O4IYo"
+   }
+  },
+  {
+   "name": "b2b_real_product_found",
+   "pass": true,
+   "detail": {
+    "pid": "85"
+   }
+  },
+  {
+   "name": "b2b_quote_302",
+   "pass": true,
+   "detail": {
+    "status": 302
+   }
+  },
+  {
+   "name": "b2b_quote_redirect_sent",
+   "pass": true,
+   "detail": {
+    "location": "http://localhost:18085/b2b/?tn_quote=sent"
+   }
+  },
+  {
+   "name": "support_ticket_302",
+   "pass": true,
+   "detail": {
+    "status": 302
+   }
+  },
+  {
+   "name": "duplicate_submissions_three_ok_then_429",
+   "pass": true,
+   "detail": {
+    "codes": [
+     302,
+     302,
+     302,
+     429
+    ]
+   }
+  },
+  {
+   "name": "rate_limit_429_on_6th_ticket",
+   "pass": true,
+   "detail": {
+    "status": 429,
+    "body": "<!DOCTYPE html>\n<html dir=\"rtl\" lang=\"fa-IR\">\n<head>\n\t<meta http-equiv=\"Content-"
+   }
+  },
+  {
+   "name": "negative_bad_nonce_rejected",
+   "pass": true,
+   "detail": {
+    "status": 403
+   }
+  },
+  {
+   "name": "negative_honeypot_rejected",
+   "pass": true,
+   "detail": {
+    "status": 400
+   }
+  },
+  {
+   "name": "negative_quote_invalid_qty_rejected",
+   "pass": true,
+   "detail": {
+    "status": 400
+   }
+  },
+  {
+   "name": "db_service_tickets_created",
+   "pass": true,
+   "detail": {
+    "count": 4
+   }
+  },
+  {
+   "name": "db_plain_ticket_created",
+   "pass": true,
+   "detail": {
+    "count": 1
+   }
+  },
+  {
+   "name": "db_quote_created",
+   "pass": true,
+   "detail": {
+    "ids": [
+     785
+    ]
+   }
+  },
+  {
+   "name": "db_threads_recorded",
+   "pass": true,
+   "detail": {
+    "threads_ok": 5
+   }
+  },
+  {
+   "name": "cleanup_executed",
+   "pass": true,
+   "detail": {
+    "deleted": [
+     789,
+     788,
+     787,
+     786,
+     784,
+     785,
+     764,
+     765,
+     766
+    ],
+    "receipt_transients_deleted": 8,
+    "throttle_transients_deleted": 2
+   }
+  },
+  {
+   "name": "cleanup_restored_baseline_counts",
+   "pass": true,
+   "detail": {
+    "tickets": "0->0",
+    "quotes": "0->0"
+   }
+  }
+ ],
+ "counts": {
+  "tickets_before": 0,
+  "quotes_before": 0,
+  "tickets_after": 0,
+  "quotes_after": 0
+ }
+}
