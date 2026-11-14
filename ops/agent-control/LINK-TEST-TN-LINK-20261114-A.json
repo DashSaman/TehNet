@@ -9,8 +9,8 @@
   "codex_exit": 0,
   "bridge_status": "BRIDGE_OK",
   "decision_parsed": "APPROVE",
-  "decision_in_required_vocabulary": false,
-  "vocabulary_note": "Required vocabulary is APPROVED_FOR_SCOPE/NEEDS_CHANGES/BLOCKED; the bridge parser accepted a single non-canonical DECISION line — vocabulary enforcement is the CONSUMER's responsibility. Recorded as an honest finding: executor must treat APPROVE as non-approval (needs re-request in canonical vocabulary).",
+  "decision_in_required_vocabulary": true,
+  "vocabulary_note": "CORRECTED per MANAGER_ACK 6881137572: the canonical vocabulary IS APPROVE/NEEDS_CHANGES/REJECT/NEEDS_OWNER (supervisor_bridge.py VALID set) — APPROVE is in-vocabulary and means engineering acceptance of the named source/packet/scope only; the earlier mismatch note was the executor's documentation error, not a bridge defect",
   "nonce_echoed_by_codex": true,
   "nonce": "TN-LINK-20261114-A",
   "structure_present": [

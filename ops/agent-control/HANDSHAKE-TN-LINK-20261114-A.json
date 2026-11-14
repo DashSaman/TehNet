@@ -27,7 +27,8 @@
     "utc_present": true,
     "request_link_present": true,
     "no_local_paths": true,
-    "no_raw_conversation": true
+    "no_raw_conversation": true,
+    "manager_ack_read_utc": "2026-11-14T18:32:56Z"
   },
   "channel_rules_accepted": [
     "sanitized facts only (no prompts/paths/credentials/screenshots/customer data/raw logs)",
@@ -39,5 +40,16 @@
     "CLI supervisor bridge reserved for transport tests and non-duplicate packets only; never two managers for the same packet"
   ],
   "not_e2e_claim": "This receipt covers the handshake exchange on the manager channel; project-execution E2E remains unverified.",
-  "utc_recorded": "2026-11-14T16:15:00Z"
+  "utc_recorded": "2026-11-14T16:15:00Z",
+  "manager_ack": {
+    "comment_id": 6881137572,
+    "url": "https://github.com/DashSaman/TehNet/pull/96#issuecomment-6881137572",
+    "created_utc": "2026-11-14T17:03:41Z",
+    "read_utc": "2026-11-14T18:32:56Z",
+    "content": "MANAGER_ACK: TN-LINK-20261114-A — manager independently fetched the executor ACK, confirmed nonce/request-URL/UTC/checkpoint SHA ab631ea, matched receipt at source 4a93582",
+    "channel_readback": "VERIFIED",
+    "protocol_correction": "decision vocabulary is APPROVE/NEEDS_CHANGES/REJECT/NEEDS_OWNER (matches supervisor_bridge.py VALID set); LINK-TEST receipt's assumed vocabulary (APPROVED_FOR_SCOPE/...) was the executor's documentation error — corrected in that receipt",
+    "approve_semantics": "engineering acceptance of the named source/packet/scope only; never owner permission",
+    "not_e2e_claim": "channel readback verified; project-execution E2E remains unverified"
+  }
 }
