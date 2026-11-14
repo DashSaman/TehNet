@@ -1,4 +1,10 @@
 ## ARCHIVED CHECKPOINT (superseded — keep for reference) — —2026-11-14 cycle 12: 16/16 open PRs CI GREEN (fresh snapshot); M0=merge PR100 d457580; backup 16h (skip); noindex intact; WAITING_FOR_OWNER: merges + off-host + D1/D2/D3
+
+### 2026-11-14 evening addendum (execution mission, same day)
+- Baseline reproducibility: commit 7ce37e0e published as ref `reconcile-baseline-7ce37e0e` (fresh-fetch verified; doc: docs/evidence/2026-11-14/baseline/).
+- Integrated intake acceptance PASS 26/26 (service journey/b2b/support + negatives + 429 + cleanup): docs/evidence/2026-11-14/intake-acceptance/.
+- CAPTCHA SIMULATED transport acceptance + teardown: docs/evidence/2026-11-14/captcha-simulated/ (labeled NOT a real Google challenge).
+- INCIDENT: 3h scheduler paused by tool misuse — owner resume required (RUN_HISTORY cycle 12); watchdog active.
 ## CURRENT — 2026-11-14 (execution mission): delivery blockers resolved + integrated intake acceptance
 
 Authoritative state (fresh CI snapshot PR_CI_SNAPSHOT_2026-11-14-cycle12.json: 16/16 open PRs green):

@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "updated_utc": "2026-11-14T05:34:43Z",
+ "updated_utc": "2026-11-14T15:49:43Z",
  "single_writer": "Z Code primary executor",
  "supervisor": "Codex (read-only review; max 2 ordinary reviews/day)",
  "tasks": [
@@ -339,6 +339,41 @@
    "evidence": "ops/agent-control/PR_CI_SNAPSHOT_2026-11-14-cycle12.json",
    "last_progress": "2026-11-14",
    "next_action": "Owner merge decisions — data current as of 05:34Z"
+  },
+  {
+   "id": "TN-EXEC-001",
+   "owner": "zcode",
+   "priority": "P0",
+   "title": "Execution mission: delivery blockers resolved — baseline ref published, Lab behavior 13/13, D1 exact scope, integrated intake 26/26, CAPTCHA-sim acceptance, HANDOFF rewritten",
+   "state": "VERIFIED",
+   "dependencies": [],
+   "acceptance": [
+    "baseline 7ce37e0e published as ref reconcile-baseline-7ce37e0e; fresh-fetch digests verified (ctt 2d3059386df1, tree 5ef0f5f2); reproducible doc committed",
+    "Lab behavioral 13/13 incl. CPT collision fail-safe + stored rewrite_rules unchanged + rollback bytes available",
+    "D1 exact scope extracted (10 pages + 15 runtime files, D1-EXACT-SCOPE.md)",
+    "intake acceptance 26/26 PASS: service journey/b2b/support + 5 negatives + rate limit 429 + cleanup restored baseline",
+    "CAPTCHA SIMULATED transport acceptance: valid passes, invalid/missing rejected, teardown verified",
+    "HANDOFF CURRENT rewritten (7 stale blocks archived)"
+   ],
+   "attempts": 1,
+   "evidence": "PR100 branch a54198cc (CI green); docs/evidence/2026-11-14/{baseline,intake-acceptance,captcha-simulated}; ops/agent-control/evidence-delivery-blockers.md + Codex verdict receipts (2 reviews today: milestone + delivery-blockers — both milestones, budget noted)",
+   "last_progress": "2026-11-14",
+   "next_action": "Owner merge decision (M0); remaining Codex acceptance items are owner-gated production checks"
+  },
+  {
+   "id": "TN-SCHED-002",
+   "owner": "owner",
+   "priority": "P0",
+   "title": "Incident: 3h scheduler accidentally paused by executor tool misuse (CronPauseSelf) — owner must resume from Automations page",
+   "state": "BLOCKED_ON_OWNER",
+   "dependencies": [],
+   "acceptance": [
+    "incident recorded honestly in RUN_HISTORY (cycle 12)"
+   ],
+   "attempts": 1,
+   "evidence": "RUN_HISTORY cycle 12; watchdog (schtasks 30m) still active and monitoring",
+   "last_progress": "2026-11-14",
+   "next_action": "Owner resumes TEHNET-24H-GROWTH-ORCHESTRATOR"
   }
  ]
 }
