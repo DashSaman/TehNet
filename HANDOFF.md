@@ -2,7 +2,8 @@
 ### 2026-11-14 addendum 3 (manager channel — PERSISTENT DIRECTIVE)
 - Channel: PR96 comment thread (owner conversation, Codex reads hourly). Handshake TN-LINK-20261114-A COMPLETED (request 6880308551 16:05Z; ACK 6880417970 16:12:22Z; receipt ops/agent-control/HANDSHAKE-TN-LINK-20261114-A.json).
 - Future milestones: post one REVIEW_REQUEST per milestone with unique packet ID + exact source SHA + evidence paths as a PR96 comment; manager replies source-bound DECISION/EVIDENCE/CORRECTION/ACCEPTANCE; missing/stale/ambiguous reply = WAITING (not authorization); no duplicate packets; CLI supervisor_bridge reserved for transport tests/non-duplicate packets; never two managers for the same packet.
-- Channel authorization covers communication only: no merge/deploy/noindex/infra/billing/data-move.
+- Channel authorization covers communication only: no merge/deploy/noindex/infra/billing/data-move.- Cycle 14: MANAGER_ACK 6881137572 read back (channel VERIFIED both directions); canonical decision vocabulary = APPROVE/NEEDS_CHANGES/REJECT/NEEDS_OWNER (bridge VALID set already canonical; executor receipts corrected).
+
 ### 2026-11-14 addendum 2 (cycle 13): backup tehnet-20261114 VERIFIED (26.5h rule); bridge link test TN-LINK-20261114-A PASS (nonce echoed; APPROVE non-canonical finding); scheduler re-activated by owner (runCount 21).
 
 ### 2026-11-14 evening addendum (execution mission, same day)
