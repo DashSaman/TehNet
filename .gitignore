@@ -26,3 +26,7 @@ qa/shop-ux-2026-10-16/baseline/
 !projects/software-hub/app/migrations/*.sql
 
 node_modules/
+
+# supervisor bridge runtime locks
+ops/agent-control/*.lock
+ops/agent-control/.last-supervisor-invocation.json

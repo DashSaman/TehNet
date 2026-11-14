@@ -1,4 +1,69 @@
-## CURRENT —2026-11-08 verified handoff; Queue next; PR89–91 NEEDS_APPROVAL
+## ARCHIVED CHECKPOINT (superseded — keep for reference) — —2026-11-14 cycle 12: 16/16 open PRs CI GREEN (fresh snapshot); M0=merge PR100 d457580; backup 16h (skip); noindex intact; WAITING_FOR_OWNER: merges + off-host + D1/D2/D3
+### 2026-11-14 addendum 3 (manager channel — PERSISTENT DIRECTIVE)
+- Channel: PR96 comment thread (owner conversation, Codex reads hourly). Handshake TN-LINK-20261114-A COMPLETED (request 6880308551 16:05Z; ACK 6880417970 16:12:22Z; receipt ops/agent-control/HANDSHAKE-TN-LINK-20261114-A.json).
+- Future milestones: post one REVIEW_REQUEST per milestone with unique packet ID + exact source SHA + evidence paths as a PR96 comment; manager replies source-bound DECISION/EVIDENCE/CORRECTION/ACCEPTANCE; missing/stale/ambiguous reply = WAITING (not authorization); no duplicate packets; CLI supervisor_bridge reserved for transport tests/non-duplicate packets; never two managers for the same packet.
+- Channel authorization covers communication only: no merge/deploy/noindex/infra/billing/data-move.
+### 2026-11-14 addendum 2 (cycle 13): backup tehnet-20261114 VERIFIED (26.5h rule); bridge link test TN-LINK-20261114-A PASS (nonce echoed; APPROVE non-canonical finding); scheduler re-activated by owner (runCount 21).
+
+### 2026-11-14 evening addendum (execution mission, same day)
+- Baseline reproducibility: commit 7ce37e0e published as ref `reconcile-baseline-7ce37e0e` (fresh-fetch verified; doc: docs/evidence/2026-11-14/baseline/).
+- Integrated intake acceptance PASS 26/26 (service journey/b2b/support + negatives + 429 + cleanup): docs/evidence/2026-11-14/intake-acceptance/.
+- CAPTCHA SIMULATED transport acceptance + teardown: docs/evidence/2026-11-14/captcha-simulated/ (labeled NOT a real Google challenge).
+- INCIDENT: 3h scheduler paused by tool misuse — owner resume required (RUN_HISTORY cycle 12); watchdog active.
+## CURRENT — 2026-11-14 (execution mission): delivery blockers resolved + integrated intake acceptance
+
+Authoritative state (fresh CI snapshot PR_CI_SNAPSHOT_2026-11-14-cycle12.json: 16/16 open PRs green):
+- **M0 = merge PR100** (feat/setup-reconcile-20261113, head 5b86ccb) — supersedes PR94 (close PR94 after merge). Contains: reconciled ID33 body ab56940e, three reconciled manifests, staging-truth sync scope, D1 exact scope (see seo/commercial-decision-2026-11-08-v2/D1-EXACT-SCOPE.md: 10 pages + 15 runtime files), Codex-review corrections (activation page37=8feda428 requires PR101 deployed before D3).
+- **Reproducible baseline fixed**: out-of-Git production hotfix commit 7ce37e0e3d4e92af15fe6bf4d5b22d3f871433cd is now published as ref `reconcile-baseline-7ce37e0e` on origin (previously only local — Codex could not fetch it); fetch+digest reproduction verified (ctt=2d3059386df1, css=3d7085, tree=5ef0f5f2); Lab behavioral tests 13/13 (real routes 76/188, staging page 194 resolves via core rules, CPT collision fail-safe, stored rewrite_rules unchanged); rollback bytes available at that ref.
+- **Integrated intake acceptance PASS 26/26** (docs/evidence/2026-11-14/intake-acceptance/): service CTA → /services/ form → POST → private tn_ticket + receipt transient; B2B quote with real product (form tn_b2b_quote); support ticket (form tn_support_ticket); negatives (bad nonce 403, honeypot 400, bad context 400, invalid email 400, invalid qty 400); rate limit 429 on 6th ticket-bucket attempt (throttle counts ATTEMPTS — ops note); documented cleanup restored baseline counts. Limitations: CAPTCHA disabled on staging (real Google challenge NOT exercised), email/cron/payments closed by design.
+- Buyer-journey pages: 33 (PR100), 37 (PR101), b2b 191/194 (PR102), support 192/196 (PR103) — all VERIFIED_STAGING_NOT_DEPLOYED; contact page deliberately NOT revised (already complete).
+
+WAITING_FOR_OWNER (unchanged gates): M0 merge PR100 → staging sync (hash-based only) → D1 (10 pages + 15 files, needs off-host recovery qualification first) → D2 install-off → D3 activation. merge ≠ deploy; every production release separately authorized. Queue lesson: PR93 complete, no rebuild.
+
+
+## ARCHIVED CHECKPOINT (superseded — keep for reference) — —2026-11-14 cycle 11: Codex milestone review applied (5/5 findings closed); journey coherence 23/23 verified; PR100 head d457580; noindex intact; WAITING_FOR_OWNER: M0 + off-host + merges
+
+## ARCHIVED CHECKPOINT (superseded — keep for reference) — —2026-11-14 cycle 10: support ticket-page revision VERIFIED staging (PR103); journey covered 33/37/b2b/support; noindex intact; WAITING_FOR_OWNER: M0=PR100 + off-host decision + remaining merges
+
+## ARCHIVED CHECKPOINT (superseded — keep for reference) — —2026-11-14 cycle 9: b2b buyer revision VERIFIED staging (PR102, slug-resolved scope); noindex intact; WAITING_FOR_OWNER: M0=PR100 + off-host decision + remaining merges
+
+## ARCHIVED CHECKPOINT (superseded — keep for reference) — —2026-11-13 cycle 8: PR94/99 ID33 collision RECONCILED (PR100, body ab56940e); combined staging receipts; off-host packet; noindex intact
+
+## ARCHIVED CHECKPOINT (superseded — keep for reference) — —2026-11-13 cycle 7: 12 PRs CI green, owner packet on PR99 branch, PR98/99 VERIFIED staging; noindex intact
+
+## NOTE — 2026-11-13 PR97 frontend verification clarification
+
+PR97 frontend verification performed via server-side curl inside the preview container (not Playwright/browser through tunnel). Real Playwright acceptance remains a separate post-merge release QA step. The staging container port binding (127.0.0.1:18085 docker-proxy) is dead — workaround: tunnel directly to container IP 172.18.0.3:80 via SSH. This does not block UI/UX work on other branches.
+
+## CHECKPOINT — 2026-11-13 Phase 0 reconciliation
+
+main همچنان 04c2af9 (هیچ merge مالک)؛ ۹ PR باز همگی CI سبز؛ PR93 تشخیص داده شد Queue ID67 را کامل پوشش می‌دهد و کار محلی queue duplicate بود — ادامه نمی‌یابد؛ توالی ادغام بدون تداخل در ops/agent-control/RECONCILIATION_2026-11-13.md؛ watchdog فعال؛ backup ۱۳-۱۱ تأیید.
+
+## CHECKPOINT — 2026-11-13 backup refresh (coding-plan session)
+
+پل Codex سالم و روی session خریداری‌شده ادامه یافت؛ incident سهمیهٔ start-plan ثبت شد (۲ چرخهٔ زمان‌بند ۷ ثانیه‌ای شکست خوردند، هیچ تغییر دادهای نمی‌گذاشتند)؛ backup تازهٔ ۲۰۲۶-۱۱-۱۳ با SHA256SUMS OK و چرخش نسخهٔ ۱۱-۱۱؛ دیسک 5.3G آزاد؛ صف و مدل‌ها طبق Priority A/B/C/D.
+
+## CHECKPOINT — 2026-11-13 ORCHESTRATOR cycle 6
+
+بستهٔ تصمیم indexability v3 (recovery اجباری، rollback کامل D1، مسیرهای خصوصی واقعی، توالی D3) — WAITING_FOR_OWNER؛ re-review Codex در پنجرهٔ بعدی؛ سایت سالم؛ صفر mutation.
+
+## CHECKPOINT — 2026-11-12 ORCHESTRATOR cycle 5
+
+بستهٔ تصمیم indexability v2 (پس از بازبینی Codex) در ops/agent-control/OWNER_DECISION_INDEXABILITY_2026-11-12.fa.md برای مالک ارائه شد: چهار مجوز جدا M0/D1/D2/D3 + ۱۶ URL دقیق + محدودیت off-host صادقانه؛ WAITING_FOR_OWNER؛ بقیهٔ صف آزاد؛ صفر mutation.
+
+## CHECKPOINT — 2026-11-12 ORCHESTRATOR cycle 3
+
+ممیزی ۵ صفحهٔ باقی‌ماندهٔ learn+lab: همگی سالم (canonical/noindex/H1)؛ گپ JSON-LD دوم روی /lab/؛ پاکسازی امن ۳۳MB build cache؛ یافته: دیسک ۸۴٪ عمدتاً دادهٔ فعال و reclaim بزرگ نیازمند تصمیم مالک؛ صفر mutation.
+
+## CHECKPOINT — 2026-11-12 ORCHESTRATOR cycle 2
+
+Restore rehearsal PASS (backup ۱۱نوامبر در DB تستی مجزا بازگردانی شد؛ ۵۲/۵۲ جدول و ۶/۶ جدول کلیدی هم‌شمار؛ تستی حذف شد)؛ ممیزی لینک داخلی ۲۵/۲۵ سالم؛ سایت ۲۰۰+noindex برقرار؛ هیچ production mutation.
+
+## CHECKPOINT — 2026-11-11 ORCHESTRATOR cycle 1
+
+Backup تازهٔ تأییدشده روی سرور (netauto-main:/root/backups/tehnet-20261111، SHA256SUMS OK، دیسک 5.9G آزاد)؛ ممیزی ۸ صفحهٔ زنده: canonical سالم ۸/۸، noindex عمدی برقرار، یافتهٔ P2: MTCNA hub بدون JSON-LD؛ صف در ops/agent-control/؛ هیچ merge/deploy بدون مجوز مالک.
+
+## ARCHIVED CHECKPOINT (superseded — keep for reference) — —2026-11-08 verified handoff; Queue next; PR89–91 NEEDS_APPROVAL
 
 PR88 واقعاً ادغام و منتشر شده است؛ source `69243f4`، دو owner62/63 و39PNG. [رسید production](docs/evidence/2026-11-05/winbox-core/production-verification.json) و شش تصویر زنده از commit شواهد `c33f0b3` به این PR مستندات منتقل و hash هر6تصویر دوباره تطبیق شدند. تأیید PR88 مصرف شده؛ ناشر آن دوباره اجرا نشود. بررسی خواندنی8نوامبر،14/25تصویر و anchorهای هر دو درس را روی سایت نشان داد؛ آزمون‌های60native/16renderer/1590staging/730live مربوط به receipt5نوامبرند، نه اجرای تازه.
 

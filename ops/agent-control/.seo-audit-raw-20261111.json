@@ -1,0 +1,82 @@
+[
+ {
+  "url": "https://tehnet.ir/",
+  "status": 200,
+  "canonical": "https://tehnet.ir/",
+  "robots": "noindex, nofollow",
+  "ldjson": 1,
+  "h1": 1,
+  "title": "تهران نتورک | TehNet &#8211; آموزش، خدمات و تجهیزات شبکه",
+  "links": 0
+ },
+ {
+  "url": "https://tehnet.ir/services/",
+  "status": 200,
+  "canonical": "https://tehnet.ir/services/",
+  "robots": "noindex, nofollow",
+  "ldjson": 1,
+  "h1": 1,
+  "title": "خدمات &#8211; تهران نتورک | TehNet",
+  "links": 0
+ },
+ {
+  "url": "https://tehnet.ir/shop/",
+  "status": 200,
+  "canonical": "https://tehnet.ir/shop/",
+  "robots": "noindex, nofollow",
+  "ldjson": 1,
+  "h1": 1,
+  "title": "فروشگاه &#8211; تهران نتورک | TehNet",
+  "links": 0
+ },
+ {
+  "url": "https://tehnet.ir/learn/mikrotik/mtcna/",
+  "status": 200,
+  "canonical": "https://tehnet.ir/learn/mikrotik/mtcna/",
+  "robots": "noindex, nofollow",
+  "ldjson": 0,
+  "h1": 1,
+  "title": "آموزش MTCNA میکروتیک &#8211; تهران نتورک | TehNet",
+  "links": 0
+ },
+ {
+  "url": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+  "status": 200,
+  "canonical": "https://tehnet.ir/learn/mikrotik/mtcna/routeros-winbox/",
+  "robots": "noindex, nofollow",
+  "ldjson": 1,
+  "h1": 1,
+  "title": "شروع با RouterOS و Winbox؛ راهنمای نوشتاری &#8211; تهران نتو",
+  "links": 0
+ },
+ {
+  "url": "https://tehnet.ir/technical-methodology/",
+  "status": 200,
+  "canonical": "https://tehnet.ir/technical-methodology/",
+  "robots": "noindex, nofollow",
+  "ldjson": 1,
+  "h1": 1,
+  "title": "روش منابع، آزمون و اصلاح محتوا &#8211; تهران نتورک | TehNet",
+  "links": 0
+ },
+ {
+  "url": "https://tehnet.ir/contact/",
+  "status": 200,
+  "canonical": "https://tehnet.ir/contact/",
+  "robots": "noindex, nofollow",
+  "ldjson": 1,
+  "h1": 1,
+  "title": "تماس با ما &#8211; تهران نتورک | TehNet",
+  "links": 0
+ },
+ {
+  "url": "https://tehnet.ir/about/",
+  "status": 200,
+  "canonical": "https://tehnet.ir/about/",
+  "robots": "noindex, nofollow",
+  "ldjson": 1,
+  "h1": 1,
+  "title": "درباره ما &#8211; تهران نتورک | TehNet",
+  "links": 0
+ }
+]

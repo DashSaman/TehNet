@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "test": "manager-channel handshake TN-LINK-20261114-A (owner addendum 2026-11-14)",
+  "channel": "GitHub PR96 comment thread (owner conversation; Codex manager reads it hourly)",
+  "request": {
+    "comment_id": 6880308551,
+    "url": "https://github.com/DashSaman/TehNet/pull/96#issuecomment-6880308551",
+    "author": "DashSaman",
+    "created_utc": "2026-11-14T16:05:00Z",
+    "protocol": "TEHNET_MANAGER_CHANNEL_V1",
+    "handshake": "HANDSHAKE_REQUEST: TN-LINK-20261114-A"
+  },
+  "ack": {
+    "comment_id": 6880417970,
+    "url": "https://github.com/DashSaman/TehNet/pull/96#issuecomment-6880417970",
+    "created_utc": "2026-11-14T16:12:22Z",
+    "ack_line": "HANDSHAKE_ACK: TN-LINK-20261114-A",
+    "acknowledged_utc_in_body": "2026-11-14T16:12:03Z",
+    "executor_checkpoint_sha": "ab631eae38de2d8fa53d2ea8087e6cbe66600808",
+    "reconciliation_head": "824f9835518eecc0e2e08c95b8542ba4a5845e5f",
+    "request_link_included": true,
+    "sanitized": true
+  },
+  "readback_verification": {
+    "method": "GET issues/comments/6880417970 after publish",
+    "ack_present": true,
+    "utc_present": true,
+    "request_link_present": true,
+    "no_local_paths": true,
+    "no_raw_conversation": true
+  },
+  "channel_rules_accepted": [
+    "sanitized facts only (no prompts/paths/credentials/screenshots/customer data/raw logs)",
+    "REVIEW_REQUEST with unique packet ID + exact source SHA + evidence paths for future milestones",
+    "source-bound DECISION/EVIDENCE/CORRECTION/ACCEPTANCE from manager",
+    "missing/stale/ambiguous reply = WAITING, not authorization",
+    "engineering approval is not owner authorization",
+    "no duplicate packets; continue independent authorized work while waiting",
+    "CLI supervisor bridge reserved for transport tests and non-duplicate packets only; never two managers for the same packet"
+  ],
+  "not_e2e_claim": "This receipt covers the handshake exchange on the manager channel; project-execution E2E remains unverified.",
+  "utc_recorded": "2026-11-14T16:15:00Z"
+}

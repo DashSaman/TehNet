@@ -1,0 +1,110 @@
+{
+ "79": {
+  "head": "5a5f757ea171",
+  "title": "Docs: plan an illustrated RouterOS 7 MTCNA article series",
+  "overall": "GREEN",
+  "checks": {
+   "release-operator-boundaries": "success",
+   "tracked-file-privacy": "success"
+  }
+ },
+ "82": {
+  "head": "0c11652628f2",
+  "title": "Prepare MTCNA drafts, 40-session teaching plan and WordPress preview d",
+  "overall": "GREEN",
+  "checks": {
+   "release-operator-boundaries": "success",
+   "tracked-file-privacy": "success"
+  }
+ },
+ "89": {
+  "head": "3c52cea433bb",
+  "title": "Learn: real WinBox static-route walkthrough in existing ID64 lesson (s",
+  "overall": "GREEN",
+  "checks": {
+   "release-operator-boundaries": "success",
+   "tracked-file-privacy": "success"
+  }
+ },
+ "90": {
+  "head": "9a082fffd237",
+  "title": "Learn: real WinBox masquerade walkthrough in existing ID65 NAT lesson ",
+  "overall": "GREEN",
+  "checks": {
+   "release-operator-boundaries": "success",
+   "tracked-file-privacy": "success"
+  }
+ },
+ "91": {
+  "head": "48b9d7a9f6df",
+  "title": "Learn: real WinBox firewall walkthrough in existing ID66 lesson (stagi",
+  "overall": "GREEN",
+  "checks": {
+   "tracked-file-privacy": "success",
+   "release-operator-boundaries": "success"
+  }
+ },
+ "93": {
+  "head": "c4c76ad598ed",
+  "title": "Queue: 12 real WinBox steps; isolated WordPress/WooCommerce staging ve",
+  "overall": "GREEN",
+  "checks": {
+   "release-operator-boundaries": "success",
+   "tracked-file-privacy": "success"
+  }
+ },
+ "94": {
+  "head": "c1fee2810c98",
+  "title": "feat(services): buyer decision pages and default-off index readiness",
+  "overall": "GREEN",
+  "checks": {
+   "release-operator-boundaries": "success",
+   "tracked-file-privacy": "success"
+  }
+ },
+ "95": {
+  "head": "e395ba04541f",
+  "title": "docs(seo): TehNet competitor audit, 90 keywords, 30 briefs and 180-day",
+  "overall": "GREEN",
+  "checks": {
+   "release-operator-boundaries": "success",
+   "tracked-file-privacy": "success"
+  }
+ },
+ "96": {
+  "head": "2c281bffba09",
+  "title": "Ops: Z Code -> Codex supervisor bridge and agent-control task queue",
+  "overall": "GREEN",
+  "checks": {
+   "tracked-file-privacy": "success",
+   "release-operator-boundaries": "success"
+  }
+ },
+ "97": {
+  "head": "d406036ed6b7",
+  "title": "SEO: CollectionPage JSON-LD for MTCNA hub and Lab pages (ID 40/7)",
+  "overall": "GREEN",
+  "checks": {
+   "release-operator-boundaries": "success",
+   "tracked-file-privacy": "success"
+  }
+ },
+ "98": {
+  "head": "39b0dada9df7",
+  "title": "QA: corrected UI/UX audit v2 + real findings (mobile menu selector, sh",
+  "overall": "GREEN",
+  "checks": {
+   "tracked-file-privacy": "success",
+   "release-operator-boundaries": "success"
+  }
+ },
+ "99": {
+  "head": "1bd0f56d2d7b",
+  "title": "feat(services): buyer-oriented network-setup-tehran revision \u2014 setup P",
+  "overall": "GREEN",
+  "checks": {
+   "release-operator-boundaries": "success",
+   "tracked-file-privacy": "success"
+  }
+ }
+}

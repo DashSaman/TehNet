@@ -1,0 +1,414 @@
+{
+ "schema": 1,
+ "updated_utc": "2026-11-14T16:09:54Z",
+ "single_writer": "Z Code primary executor",
+ "supervisor": "Codex (read-only review; max 2 ordinary reviews/day)",
+ "tasks": [
+  {
+   "id": "TN-SEO-JS-001",
+   "owner": "zcode",
+   "priority": "P1",
+   "title": "JSON-LD: CollectionPage for /learn/mikrotik/mtcna/ and /lab/ (PR97, staging+frontend VERIFIED)",
+   "state": "VERIFIED",
+   "dependencies": [],
+   "acceptance": [
+    "Native 12/12 PASS",
+    "Frontend render verified via server-side curl",
+    "publication_guard PASS",
+    "PR #97 open"
+   ],
+   "attempts": 1,
+   "evidence": "PR97 head d406036; frontend receipt docs/evidence/2026-11-13/seo-jsonld/; CI green",
+   "last_progress": "2026-11-13 CI re-verified",
+   "next_action": "Owner merge decision"
+  },
+  {
+   "id": "TN-COORD-001",
+   "owner": "zcode",
+   "priority": "P0",
+   "title": "Coordination: supervisor bridge verified; 3h scheduler + 30m watchdog live",
+   "state": "VERIFIED",
+   "dependencies": [],
+   "acceptance": [
+    "Bridge fail-closed proven live; regression suite 10/10",
+    "Cron automation TEHNET-AUTONOMOUS-GROWTH active (0 */3 * * *)",
+    "schtasks TEHNET-WATCHDOG active (30m) with harmless run-now evidence in watchdog log"
+   ],
+   "attempts": 1,
+   "evidence": "RUN_HISTORY bridge rounds; automation-1a252ce4; schtasks query Ready; watchdog log 2026-11-11T16:20:02Z",
+   "last_progress": "2026-11-11",
+   "next_action": "Scheduled cycles consume the queue from here"
+  },
+  {
+   "id": "TN-QUOTA-001",
+   "owner": "zcode",
+   "priority": "P0",
+   "title": "Model quota management: plan priority + verified fallback policy",
+   "state": "VERIFIED",
+   "dependencies": [],
+   "acceptance": [
+    "Connections inventoried via ListModels (no assumption)",
+    "Scheduler prompt encodes Priority A/B/C/D failover",
+    "No prepaid/highspeed auto-charge enabled without verified balance and spending cap",
+    "No new purchase"
+   ],
+   "attempts": 1,
+   "evidence": "ListModels 2026-11-11: zai-individual-coding-plan (purchased Coding Plan, GLM-5.3/Flash), zai-start-plan (current session), zai-offpeak-idle-plan, zai-highspeed-card (prepaid-like, NOT auto-enabled)",
+   "last_progress": "2026-11-11 cycle 1 ran on start-plan Flash (deterministic tasks only); no heavy-engineering switch needed",
+   "next_action": "Scheduled cycles start on Priority A; highspeed-card stays manual-only until owner-verified balance/cap"
+  },
+  {
+   "id": "TN-SEO-001",
+   "owner": "zcode",
+   "priority": "P2",
+   "title": "Live-page technical audit cycle 1 (robots/canonical/H1/JSON-LD)",
+   "state": "VERIFIED",
+   "dependencies": [],
+   "acceptance": [
+    "Direct HTTP evidence on 8 key pages recorded",
+    "No site mutation",
+    "Findings actionable and gated"
+   ],
+   "attempts": 1,
+   "evidence": "ops/agent-control/SEO_AUDIT_2026-11-11.md — canonical clean 8/8; noindex intact; finding: MTCNA hub lacks JSON-LD (fix via owner-approved release)",
+   "last_progress": "2026-11-11 cycle 1",
+   "next_action": "Next cycle: deeper internal-link check + candidate P2 fixes as a branch proposal"
+  },
+  {
+   "id": "TN-SEO-002",
+   "owner": "zcode",
+   "priority": "P2",
+   "title": "Internal link audit cycle (5 key pages)",
+   "state": "VERIFIED",
+   "dependencies": [],
+   "acceptance": [
+    "All internal links HTTP-checked",
+    "No mutation"
+   ],
+   "attempts": 1,
+   "evidence": "25/25 links OK across /, /services/, /learn/mikrotik/mtcna/, routeros-winbox, ip-dhcp-dns (2026-11-12)",
+   "last_progress": "2026-11-12 cycle 2",
+   "next_action": "Next cycle: extend audit to remaining learn pages + P2 fix proposals (JSON-LD hub)"
+  },
+  {
+   "id": "TN-SEO-003",
+   "owner": "zcode",
+   "priority": "P2",
+   "title": "Live audit cycle 3: remaining learn pages + /lab/",
+   "state": "VERIFIED",
+   "dependencies": [],
+   "acceptance": [
+    "Direct HTTP evidence recorded",
+    "No mutation"
+   ],
+   "attempts": 1,
+   "evidence": "static-routing/nat/firewall/queues/lab all 200+self-canonical+H1=1+noindex intact; JSON-LD gaps: /learn/mikrotik/mtcna/ and /lab/ (gated fixes)",
+   "last_progress": "2026-11-12 cycle 3",
+   "next_action": "Aggregate JSON-LD gap fix proposal into the next release-packet draft"
+  },
+  {
+   "id": "TN-SAFE-003",
+   "owner": "zcode",
+   "priority": "P1",
+   "title": "Server disk housekeeping (safe caches only)",
+   "state": "VERIFIED",
+   "dependencies": [],
+   "acceptance": [
+    "Only rebuildable caches pruned",
+    "No volume/image in use touched",
+    "Freed space recorded"
+   ],
+   "attempts": 1,
+   "evidence": "builder prune 33.3MB (until=168h); dangling images 0B; finding: 84% usage is active data — larger reclaim requires owner decision (unused tagged images list available on request)",
+   "last_progress": "2026-11-12 cycle 3",
+   "next_action": "Owner decision packet for any larger cleanup; otherwise weekly cache prune in cycles"
+  },
+  {
+   "id": "TN-RELSEQ-001",
+   "owner": "zcode",
+   "priority": "P1",
+   "title": "Collision-free release sequence for 7 open PRs documented",
+   "state": "VERIFIED",
+   "dependencies": [],
+   "acceptance": [
+    "Shared files identified (release script/migrator/CSS)",
+    "Sequence proposed with rebase+retest between merges",
+    "Every merge still gated on explicit owner approval"
+   ],
+   "attempts": 1,
+   "evidence": "ops/agent-control/RECONCILIATION_2026-11-13.md — PR95 first, PR93, WinBox trio, PR96, PR94 last with fresh CI",
+   "last_progress": "2026-11-13 cycle7: sequence re-verified for 12 open PRs; recommended order in owner packet",
+   "next_action": "Re-verify on any new PR or merge"
+  },
+  {
+   "id": "TN-IDX-001",
+   "owner": "zcode",
+   "priority": "P0",
+   "title": "Indexability: reconcile PR94 default-off allowlist with live production and prepare the scoped owner decision packet",
+   "state": "WAITING_FOR_OWNER",
+   "dependencies": [
+    "TN-SAFE-001"
+   ],
+   "acceptance": [
+    "PR94 implementation read and summarized with exact allowlist and release gates",
+    "Production noindex/sitemap status re-verified with HTTP evidence",
+    "Backup/rollback readiness confirmed before any release request",
+    "Scoped owner decision packet prepared; nothing merged without explicit owner approval"
+   ],
+   "attempts": 1,
+   "evidence": "packet v3 committed (recovery mandatory gate, full D1 rollback, real private routes, D3 sequencing); re-review by Codex due next window",
+   "last_progress": "2026-11-13 packet v3 + owner packet 2026-11-13; indexability unchanged, noindex intact",
+   "next_action": "Owner decisions D1-D4 remain"
+  },
+  {
+   "id": "TN-SAFE-001",
+   "owner": "zcode",
+   "priority": "P0",
+   "title": "Safety: confirm current backup/rollback evidence and free disk on production host",
+   "state": "VERIFIED",
+   "dependencies": [],
+   "acceptance": [
+    "Latest verified backup reference recorded with date and restore evidence",
+    "Free-disk reading recorded; housekeeping only per approved retention policy"
+   ],
+   "attempts": 1,
+   "evidence": "netauto-main:/root/backups/tehnet-20261111/ — db-tehnet-20261111.sql.gz (572K, gzip -t OK, single-transaction dump of DB tehnet) + wp-content-20261111.tar.gz (101M, 7352 entries) + SHA256SUMS.txt both OK; disk after: 5.9G free (was 6.0G); restore rehearsal PASSED 2026-11-12 (isolated tehnet_restore_test, 52/52 tables, 6 key tables row-identical, test DB dropped)",
+   "last_progress": "2026-11-13T23:31Z cycle 10: backup 13:32Z is ~10h old (<24h) — refresh correctly skipped; disk 88%/4.5G",
+   "next_action": "Refresh on next owner packet checkpoint or before first production release"
+  },
+  {
+   "id": "TN-QUEUE-001",
+   "owner": "codex-or-zcode",
+   "priority": "P1",
+   "title": "Queue lesson: COMPLETE as PR93 (verified staging package); local lab handoff retained as reference only",
+   "state": "SUPERSEDED_BY_PR93",
+   "dependencies": [],
+   "acceptance": [
+    "PR93 evidence read; overlap with handoff/queue-in-progress-20261106 documented",
+    "No duplicate local work restarted"
+   ],
+   "attempts": 0,
+   "evidence": "Reconciled 2026-11-13: PR93 (lab/cloud-queue-20261108) already delivers a COMPLETE queue package (12 real WinBox frames, native52/renderer8/browser518, cloud fixture) — supersedes the local handoff branch; see RECONCILIATION_2026-11-13.md",
+   "last_progress": "2026-11-13: PR93 is the complete qualified package (12 real steps, staging VERIFIED). No rebuild needed; handoff/queue-in-progress-20261106 kept for reference only.",
+   "next_action": "Owner merge decision for PR93; do NOT rebuild captures"
+  },
+  {
+   "id": "TN-LEARN-PUB-001",
+   "owner": "owner",
+   "priority": "P1",
+   "title": "Owner decision: merge sequence for open PRs — PR100 (reconciliation, supersedes PR94) is the M0 gate for D1/D2/D3",
+   "state": "NEEDS_OWNER",
+   "dependencies": [],
+   "acceptance": [
+    "Explicit per-release owner approval with bounded scope, backup and rollback references"
+   ],
+   "attempts": 0,
+   "evidence": "PR100 = superset of PR94 with reconciled ID33; 12 other open PRs CI green (cycle7 snapshot); M0/D1/D2/D3 terminology per ops/agent-control/OWNER_DECISION_INDEXABILITY_2026-11-12.fa.md",
+   "last_progress": "2026-11-13",
+   "next_action": "Await explicit owner approvals; merge != deploy"
+  },
+  {
+   "id": "TN-UIUX-002",
+   "owner": "zcode",
+   "priority": "P1",
+   "title": "PR98 audit v3-r2 bounded corrections (Escape-before-nav, real navigation assert, real theme toggle, hard no-JS, blocking HTTP)",
+   "state": "VERIFIED",
+   "dependencies": [],
+   "acceptance": [
+    "Regression run PASS 0 issues on 8 pages",
+    "Negative dead-port drill: BLOCKED verdict + exit code 2",
+    "Real toggle exercised both directions with reload persistence 8/8",
+    "publication_guard PASS",
+    "PR98 updated with bounded QA_BASELINE_VERIFIED wording"
+   ],
+   "attempts": 1,
+   "evidence": "commit 39b0dad; qa/uiux-audit/audit-v3-r2-regressions-results.json; CI green",
+   "last_progress": "2026-11-13",
+   "next_action": "Owner merge decision"
+  },
+  {
+   "id": "TN-SETUP-001",
+   "owner": "zcode",
+   "priority": "P1",
+   "title": "Commercial SEO: buyer-oriented revision of /services/network-setup-tehran/ (PR99, scope tehnet-service-setup-buyer-20261113-v1)",
+   "state": "SUPERSEDED_BY_RECONCILIATION",
+   "dependencies": [],
+   "acceptance": [
+    "Release check READY + apply APPLIED with identical protected digest",
+    "Native 63/63 PASS incl. tamper negative (exit 1)",
+    "Browser 17/17 PASS desktop+mobile",
+    "Rollback drill restored hub hash 09eba5... exactly",
+    "publication_guard PASS"
+   ],
+   "attempts": 1,
+   "evidence": "PR99 head 67f9a16 (+packet 1bd0f56); evidence docs/evidence/2026-11-13/service-setup-buyer/; manifest content/service-setup-buyer-2026-11-13/",
+   "last_progress": "2026-11-13: PR99 scope marked SUPERSEDED (commit 548a309); its verified QA evidence retained; never apply to production (baseline 09eba561 cannot match truth)",
+   "next_action": "None for ID33; PR99 stays as historical evidence"
+  },
+  {
+   "id": "TN-RECON-001",
+   "owner": "zcode",
+   "priority": "P0",
+   "title": "PR94/PR99 ID33 collision reconciliation — canonical body ab56940e + staging-truth sync + combined receipts (PR100)",
+   "state": "VERIFIED_STAGING_NOT_DEPLOYED",
+   "dependencies": [],
+   "acceptance": [
+    "Verified conflict matrix from read-only production SHA2 measurements",
+    "Reconciled body ab56940e canonical+KSES on staging; all prior anchors preserved",
+    "manifest/before-after/activation-manifest reconciled to same hash",
+    "Combined receipts: PR99 rollback -> staging sync APPLIED -> decision check READY -> apply (15 files/5 pages/5 hubs) -> native 48/48 -> browser 20/20 -> drift-negative REFUSED -> idempotent repeat -> rollback drill (ID33 exactly 709c49b6) -> reviewed re-apply -> final 48/48+20/20",
+    "production mutations 0"
+   ],
+   "attempts": 1,
+   "evidence": "PR100 (feat/setup-reconcile-20261113, head 467dd2a+); seo/commercial-decision-2026-11-08-v2/reconciliation-20261113.json; docs/evidence/2026-11-13/setup-reconcile/",
+   "last_progress": "2026-11-13",
+   "next_action": "Owner merge decision (supersedes PR94); close PR94 as superseded after merge"
+  },
+  {
+   "id": "TN-B2B-001",
+   "owner": "zcode",
+   "priority": "P1",
+   "title": "Commercial buyer-journey: /b2b/ quote-page additive revision (PR102, scope tehnet-service-b2b-buyer-20261114-v1)",
+   "state": "VERIFIED_STAGING_NOT_DEPLOYED",
+   "dependencies": [],
+   "acceptance": [
+    "baseline df89d925 verified read-only on production 194 == staging 191 (no sync needed)",
+    "slug-resolution scope (id:null+slug) added to machinery — strict gates kept",
+    "native 13/13 PASS incl. shortcode registered",
+    "browser 14/14 incl. quote-form regression gate (nonce/email/textarea)",
+    "rollback drill restored exactly df89d925",
+    "production mutations 0"
+   ],
+   "attempts": 1,
+   "evidence": "PR102 (feat/b2b-buyer-20261114, CI green cf48ea69c); docs/evidence/2026-11-14/b2b-buyer/; honest defects: pageScope ordering fixed, heredoc literal mangles recorded",
+   "last_progress": "2026-11-14",
+   "next_action": "Owner merge decision; production bundle must name target.id=194"
+  },
+  {
+   "id": "TN-SUP-001",
+   "owner": "zcode",
+   "priority": "P1",
+   "title": "Commercial buyer-journey: /support/ ticket-page additive revision (PR103, scope tehnet-service-support-buyer-20261114-v1)",
+   "state": "VERIFIED_STAGING_NOT_DEPLOYED",
+   "dependencies": [],
+   "acceptance": [
+    "baseline c03b121a verified read-only on production 196 == staging 192 (no sync needed)",
+    "slug-resolution scope (id:null+slug support) — resolution block ported to this branch after first check FAILED (recorded)",
+    "native 13/13 PASS incl. shortcode registered",
+    "browser 12/12 incl. ticket-form regression gate (form.tn-ticket-form + nonce)",
+    "rollback drill restored exactly c03b121a",
+    "production mutations 0"
+   ],
+   "attempts": 1,
+   "evidence": "PR103 (feat/support-buyer-20261114, CI green ca271a813); docs/evidence/2026-11-14/support-buyer/",
+   "last_progress": "2026-11-14",
+   "next_action": "Owner merge decision; production bundle must name target.id=196"
+  },
+  {
+   "id": "TN-REV-002",
+   "owner": "zcode",
+   "priority": "P0",
+   "title": "Codex milestone review corrections — activation page37 -> PR101 final, release-order dependencies, packet/recovery wording",
+   "state": "VERIFIED",
+   "dependencies": [],
+   "acceptance": [
+    "activation-manifest page37 -> 8feda428 with D3-order dependency note (revert if PR101 rejected)",
+    "release-order 4b/4c + production-ID bundle notes in reconciliation-20261113.json",
+    "journey receipt committed (docs/evidence/2026-11-14/journey/)",
+    "OFFHOST + canonical packet recovery wording strictly mandatory",
+    "milestone packet attribution corrected"
+   ],
+   "attempts": 1,
+   "evidence": "PR100 branch d457580; agent-control ecde4c7/fa43217/87483cd — all CI green",
+   "last_progress": "2026-11-14",
+   "next_action": "Owner merge decisions (all findings closed)"
+  },
+  {
+   "id": "TN-CI-003",
+   "owner": "zcode",
+   "priority": "P1",
+   "title": "Fresh CI snapshot of all 16 open PRs — decision basis for owner (cycle 12)",
+   "state": "VERIFIED",
+   "dependencies": [],
+   "acceptance": [
+    "16/16 open PRs CI GREEN incl. PR100 head d457580 (post-Codex-corrections) and PR102/103",
+    "snapshot committed as PR_CI_SNAPSHOT_2026-11-14-cycle12.json",
+    "canonical packet M0 row updated to PR100 + fresh CI"
+   ],
+   "attempts": 1,
+   "evidence": "ops/agent-control/PR_CI_SNAPSHOT_2026-11-14-cycle12.json",
+   "last_progress": "2026-11-14",
+   "next_action": "Owner merge decisions — data current as of 05:34Z"
+  },
+  {
+   "id": "TN-EXEC-001",
+   "owner": "zcode",
+   "priority": "P0",
+   "title": "Execution mission: delivery blockers resolved — baseline ref published, Lab behavior 13/13, D1 exact scope, integrated intake 26/26, CAPTCHA-sim acceptance, HANDOFF rewritten",
+   "state": "VERIFIED",
+   "dependencies": [],
+   "acceptance": [
+    "baseline 7ce37e0e published as ref reconcile-baseline-7ce37e0e; fresh-fetch digests verified (ctt 2d3059386df1, tree 5ef0f5f2); reproducible doc committed",
+    "Lab behavioral 13/13 incl. CPT collision fail-safe + stored rewrite_rules unchanged + rollback bytes available",
+    "D1 exact scope extracted (10 pages + 15 runtime files, D1-EXACT-SCOPE.md)",
+    "intake acceptance 26/26 PASS: service journey/b2b/support + 5 negatives + rate limit 429 + cleanup restored baseline",
+    "CAPTCHA SIMULATED transport acceptance: valid passes, invalid/missing rejected, teardown verified",
+    "HANDOFF CURRENT rewritten (7 stale blocks archived)"
+   ],
+   "attempts": 1,
+   "evidence": "PR100 branch a54198cc (CI green); docs/evidence/2026-11-14/{baseline,intake-acceptance,captcha-simulated}; ops/agent-control/evidence-delivery-blockers.md + Codex verdict receipts (2 reviews today: milestone + delivery-blockers — both milestones, budget noted)",
+   "last_progress": "2026-11-14",
+   "next_action": "Owner merge decision (M0); remaining Codex acceptance items are owner-gated production checks"
+  },
+  {
+   "id": "TN-SCHED-002",
+   "owner": "owner",
+   "priority": "P0",
+   "title": "Incident: 3h scheduler accidentally paused by executor tool misuse (CronPauseSelf) — owner must resume from Automations page",
+   "state": "BLOCKED_ON_OWNER",
+   "dependencies": [],
+   "acceptance": [
+    "incident recorded honestly in RUN_HISTORY (cycle 12)"
+   ],
+   "attempts": 1,
+   "evidence": "RUN_HISTORY cycle 12; watchdog (schtasks 30m) still active and monitoring",
+   "last_progress": "2026-11-14",
+   "next_action": "Owner resumes TEHNET-24H-GROWTH-ORCHESTRATOR"
+  },
+  {
+   "id": "TN-SAFE-004",
+   "owner": "zcode",
+   "priority": "P1",
+   "title": "Backup refresh tehnet-20261114 (>24h rule reached)",
+   "state": "VERIFIED",
+   "dependencies": [],
+   "acceptance": [
+    "DB sql.gz 592,716B + wp-content tar.gz 111,670,331B",
+    "SHA256SUMS verified OK",
+    "11-13 set retained as previous"
+   ],
+   "attempts": 1,
+   "evidence": "/root/backups/tehnet-20261114; disk 89% / 4.1G free",
+   "last_progress": "2026-11-14T16:05Z",
+   "next_action": "Refresh after 24h or before any production release"
+  },
+  {
+   "id": "TN-LINK-001",
+   "owner": "zcode",
+   "priority": "P0",
+   "title": "Bridge link test TN-LINK-20261114-A (owner addendum first-run)",
+   "state": "VERIFIED",
+   "dependencies": [],
+   "acceptance": [
+    "request -> real Codex output -> parse -> record -> GLM readback",
+    "nonce echoed by Codex; EVIDENCE/CORRECTION/ACCEPTANCE structure present; exit 0",
+    "finding recorded: parser accepted non-canonical APPROVE — vocabulary enforced at consumer",
+    "sanitized receipt committed; raw conversation not published; NOT labeled E2E"
+   ],
+   "attempts": 1,
+   "evidence": "ops/agent-control/LINK-TEST-TN-LINK-20261114-A.json",
+   "last_progress": "2026-11-14T16:08Z",
+   "next_action": "Use canonical vocabulary in all future packets"
+  }
+ ]
+}

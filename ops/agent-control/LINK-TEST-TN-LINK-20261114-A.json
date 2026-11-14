@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "test": "bridge link test TN-LINK-20261114-A (owner addendum, first-run connection verification)",
+  "label": "PARSE+READBACK LINK TEST — NOT an E2E project-execution verification",
+  "utc": "2026-11-14T16:08:52Z",
+  "source_sha": "a7dee08bfd356639b9b51a30fbcba4ed5758e257 (ops/agent-control-20261111)",
+  "packet_path": "ops/agent-control/evidence-link-test-TN-LINK-20261114-A.md",
+  "packet_digest_sha256": "45383eeec1bbed191776d8f466daf831504bc4029cf4165f107ba27fe9305f20",
+  "codex_exit": 0,
+  "bridge_status": "BRIDGE_OK",
+  "decision_parsed": "APPROVE",
+  "decision_in_required_vocabulary": false,
+  "vocabulary_note": "Required vocabulary is APPROVED_FOR_SCOPE/NEEDS_CHANGES/BLOCKED; the bridge parser accepted a single non-canonical DECISION line — vocabulary enforcement is the CONSUMER's responsibility. Recorded as an honest finding: executor must treat APPROVE as non-approval (needs re-request in canonical vocabulary).",
+  "nonce_echoed_by_codex": true,
+  "nonce": "TN-LINK-20261114-A",
+  "structure_present": [
+    "DECISION",
+    "EVIDENCE",
+    "CORRECTION",
+    "ACCEPTANCE"
+  ],
+  "codex_tokens_used": 31736,
+  "response_path": "ops/agent-control/.last-supervisor-invocation.json + decision row appended to SUPERVISOR_DECISIONS.md (read back by GLM executor — verified)",
+  "raw_conversation_published": false,
+  "result": "CONNECTIVITY VERIFIED (request -> real Codex output -> parse -> record -> GLM readback); persistent execution remains unverified per Codex ACCEPTANCE note"
+}
