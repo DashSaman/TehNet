@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "updated_utc": "2026-11-14T02:47:22Z",
+ "updated_utc": "2026-11-14T05:34:43Z",
  "single_writer": "Z Code primary executor",
  "supervisor": "Codex (read-only review; max 2 ordinary reviews/day)",
  "tasks": [
@@ -322,6 +322,23 @@
    "evidence": "PR100 branch d457580; agent-control ecde4c7/fa43217/87483cd — all CI green",
    "last_progress": "2026-11-14",
    "next_action": "Owner merge decisions (all findings closed)"
+  },
+  {
+   "id": "TN-CI-003",
+   "owner": "zcode",
+   "priority": "P1",
+   "title": "Fresh CI snapshot of all 16 open PRs — decision basis for owner (cycle 12)",
+   "state": "VERIFIED",
+   "dependencies": [],
+   "acceptance": [
+    "16/16 open PRs CI GREEN incl. PR100 head d457580 (post-Codex-corrections) and PR102/103",
+    "snapshot committed as PR_CI_SNAPSHOT_2026-11-14-cycle12.json",
+    "canonical packet M0 row updated to PR100 + fresh CI"
+   ],
+   "attempts": 1,
+   "evidence": "ops/agent-control/PR_CI_SNAPSHOT_2026-11-14-cycle12.json",
+   "last_progress": "2026-11-14",
+   "next_action": "Owner merge decisions — data current as of 05:34Z"
   }
  ]
 }

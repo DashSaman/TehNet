@@ -8,7 +8,7 @@ PR94 صریحاً «چهار تصمیم مستقل» را مستند کرده: �
 
 | # | تصمیم | دامنهٔ واقعی | حالت فعلی |
 |---|---|---|---|
-| M0 | ادغام شاخهٔ PR94 در main | ۱۰۷ فایل: صفحات تصمیم‌یار + ماژول سیاست ایندکس + runtime فروشگاه + آزمون‌ها؛ **شامل runtime اجرایی است** | باز؛ CI آن تاریخی است (run 42503696771 برای ec7eb0a) — پیش از ادغام، CI تازهٔ head لازم است |
+| M0 | ادغام **PR100** (feat/setup-reconcile-20261113، head d457580) به‌جای PR94 — superset شامل آشتی ID33 (بدنهٔ ab56940e) + سینک staging-truth + اصلاحات بازبینی Codex ۱۴ نوامبر | همان دامنهٔ PR94 + reconciliations؛ activation-manifest صفحهٔ 37 به بدنهٔ نهایی PR101 (8feda428) به‌روز شده | باز؛ **CI تازهٔ head سبز (snapshot ۱۴ نوامبر، همهٔ ۱۶ PR سبز)** — PR94 پس از merge بسته شود |
 | D1 | انتشار صفحات تصمیم‌یار | scope `tehnet-commercial-decision-20261108-v2`: **۱۰ صفحه (۵ موجود به‌روزشده + ۵ تازه)** + **۱۵ فایل runtime** (decision-aids: CSV/print PHP) — نه body-only؛ rollback شامل فایل‌های runtime هم هست | صفحه‌ها فقط در PR94 هستند |
 | D2 | نصب خاموش ماژول سیاست ایندکس | scope `tehnet-index-runtime-20261108-v1`: `class-index-policy.php` + bootstrap Core با checksum؛ **بدون option** → رفتار سایت دقیقاً مثل الان | ماژول در production نیست |
 | D3 | فعال‌سازی allowlist ۱۶ URL — **فقط پس از اتمام و تأیید D1/D2 و recovery اجباری** | scope `tehnet-index-allowlist-20261108-v1`: فقط ساخت یک option دقیق (path+ID)؛ `blog_public=0` سراسری دست‌نخورده | همهٔ صفحه‌ها الان `noindex, nofollow` |
