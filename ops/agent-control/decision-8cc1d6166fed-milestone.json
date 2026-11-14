@@ -1,0 +1,9 @@
+{
+ "schema": 1,
+ "topic": "milestone-buyer-journey-series-5-prs",
+ "decided_utc": "2026-11-14T02:39:44Z",
+ "packet_sha256_12": "8cc1d6166fed",
+ "codex_exit": 0,
+ "decision": "NEEDS_CHANGES",
+ "detail": "DECISION: NEEDS_CHANGES\nEVIDENCE: • PR100’s `seo/index-decision-2026-11-08-v2/activation-manifest.json` expects page37=`2f5210b2`; PR101 installs verified blob `8feda428`, so D3 rejects it if PR101 runs first. • `content/b2b-buyer-20261114/manifest.json` and `content/support-buyer-20261114/manifest.json` still name staging IDs191/192, whereas production requires194/196. • PR101’s `docs/evidence/2026-11-13/remote-buyer/` receipts report 13/13 browser checks and body `8feda428`; the packet misattributes support hashes/counts, and PR100’s manifest explicitly changes titles/excerpts. • `ops/agent-control/OFFHOST_RECOVERY_PACKET_2026-11-13.fa.md` confirms full recovery remains unqualified; the owner-decision document still mixes mandatory and advisory wording. • The 23/23 journey claim references only “qa or tmp,” without an identifiable retained receipt.\nCORRECTION: Reconcile page37’s activation hash and release order; prepare reviewed production-ID manifests without editing sealed bundles; correct packet claims and recovery wording; retain the journey command, environment, commit IDs, and results.\nACCEPTANCE: Verify the combined release candidate through D3 readiness, identity-mismatch refusal, post-D1 runtime guards, form regressions, and exact rollback. Keep production closed pending explicit owner authorization and verified off-host DB/wp-content recovery.\ntokens used\n117,204\n"
+}
