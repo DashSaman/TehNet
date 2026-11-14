@@ -1,4 +1,50 @@
-## CURRENT —2026-11-08 verified handoff; Queue next; PR89–91 NEEDS_APPROVAL
+## CURRENT — 2026-11-08؛ PR94 نسخهٔ دوم: خدمات و مقالات آماده، انتشار ممنوع تا تأیید
+**VERIFIED_STAGING_NOT_DEPLOYED**. [گزارش نهایی](seo/commercial-decision-2026-11-08-v2/report.fa.md)، [رسید](seo/commercial-decision-2026-11-08-v2/verification.json)، [صف کامل](content/commercial-decision-2026-11-08-v2/action-board.json)، [قبل/بعد](content/commercial-decision-2026-11-08-v2/before-after.json). سورس `ec7eb0a0f44305f3064ae7666106a0f4e4031c05`، [cloud42503696771](https://github.com/DashSaman/TehNet/actions/runs/42503696771) پذیرفته شد؛ ادامهٔ پایین این CURRENT سابقه است.
+
+۹متن اصلی کامل: S1–S4 روی owner29/33/31/35، N1 مستقل سرور و A1–A4 کامل تصمیم خرید با۸CSV/۴نسخهٔ چاپی. owner8 فقط body برای لینک‌های ورودی تغییر می‌کند؛ چهار owner دیگر body/title/excerpt در scope صریح v2. v1 body-only برای8/29 را پشت‌سرهم با v2 منتشر نکنید. home/menu/shop و MyTel تغییر ندارند. لینک‌های جدید هنوز در production ساخته نشده‌اند.
+
+ناشر canonical فعلی با scope `tehnet-commercial-decision-20261108-v2` واقعاً۱۵فایل+۵owner+۵page را check/apply/repeat و rollback کرد؛ ownerها با meta/revision بازگشتند، pageهای تازه draft شدند. سه route موجود Lab با همان URI و بدون نوشتن rewrite_rules اصلاح می‌شوند. guardهای strict داده و فایل حفظ‌اند؛ drift واقعی نیازمند reconciliation است. helper cleanup فقط fixture بسته است، هرگز production.
+
+مسیر واقعی N1→فرم Services با context server-scoping→nonce/handler موجود→رسید امن→تیکت private/open/thread پذیرفته و دادهٔ خود آزمون حذف شد.۲۱۱۲بررسی frontend با قالب/فونت/RTL واقعی و۴عرض،۳۷unit ناشر و۳۷رگرسیون native قبلی موفق‌اند. نور/تاریک JS و no-JS روشن آزموده شد؛ no-JS dark و چالش Google واقعی آزموده نیستند. صفر screenshot/بازبینی دستی تصویری. app/DB/CLI/network/Node relay جمع شدند.
+
+E آماده و OFF است: [تصمیم و inventory واقعی](seo/index-decision-2026-11-08-v2/README.fa.md). source noindex قبلاً Reading/blog_public0 احراز شد؛ دوباره SSH نکنید. runtime OFF دو فایل و activation فقط یک option دقیق۱۶مسیر است؛ blog_public همیشه0. XML دقیق۱۶، استثناهای فعال cart-2/tn-checkout/tn-account/support/b2b/shop/query، حفظ noindex producer دیگر و rollback با نگه‌داشتن رکورد تازه در fixture پذیرفته شدند. software/tunnels، WAF/bot training، payment/CAPTCHA و security/history/rotation/origin عوض نشده‌اند. تعداد indexed URL/traffic/AI citation UNKNOWN؛ parity احراز نشده و Issues63/75 بازند.
+
+**چهار گیت مستقل NEEDS_APPROVAL:** mergePR94؛ انتشار محدود محتوا؛ نصب index runtime خاموش؛ فعال‌سازی allowlist۱۶. پس از تأیید نیز backup تازه/checksum/recovery/drift، reconcile آخرین main و staging لازم‌اند. هیچ production write یا merge انجام نشده. PR88 قبلاً live و replay ممنوع؛89–91 باز/staging-only،93 باز/draft با Queue synthetic پذیرفته‌شده،94 باز/draft. CSS/publisher مشترک باید پس از merge واقعی reconcile شوند؛ تأیید88 مصرف شده است.
+
+فقطAPI/cloud؛ جز فایل دستور پیوست، سیستم/مرورگر/VM/فایل کار/credential/ACL محلی مالک خوانده یا دست‌کاری نشود. denied-list خصوصی قدیمی **NOT_RUN_OWNER_APPROVED_BRANCH_EXCEPTION** فقط همین شاخه، با source-pattern/publication_guard ابری؛ به main/-SEO/history تعمیم ندارد. credential rotation UNKNOWN است. [درس‌های قابل انتقال -SEO](docs/seo/portable-lessons-2026-11-08-v2.fa.md) فقط در TehNet آماده‌اند؛ central repo نوشته نشده است. تمام تصمیم‌های ممنوع/منتظر تأیید با گذشت زمان مجاز نمی‌شوند.
+
+## HISTORICAL CHECKPOINT — 2026-11-08؛ PR94: آزمون frontend و تیکت پذیرفته شد، منبع noindex احراز شد
+
+وضعیت [PR94](https://github.com/DashSaman/TehNet/pull/94): **VERIFIED_FULL_FRONTEND_AND_SYNTHETIC_TICKET_NOT_DEPLOYED**.
+[اجرای 42492885346](https://github.com/DashSaman/TehNet/actions/runs/42492885346)، سورس 0f3040118afed1d8e10f31606b9ad0f0f5f858ec: ۳۲۷ بررسی frontend، ۳۳ بررسی native، ۴ آزمون واحد و ۵ درخواست منفی پذیرفته شدند. قالب، CSS، JS و فونت واقعی از HTTP وردپرس سرو شدند؛ چهار عرض ۱۴۴۰/۷۶۸/۳۷۵/۳۲۰، تغییر حالت روشن/تیره و منوی موبایل، RTL، نبود overflow، H1، canonical و حفظ noindex آزموده شدند. بدون JS، markup فعلی روشن است؛ حالت تیرهٔ بدون JS تأیید نشده است. مالک فقط آزمون خودکار را انتخاب کرد؛ صفر تصویر ساخته، منتشر یا دستی بازبینی شد.
+
+کلیک واقعی صفحهٔ۲۹ به فرم موجود صفحهٔ۸، انتخاب context، POST به handler موجود، رسید بدون اطلاعات خصوصی و ذخیرهٔ یک تیکت private/open با thread در دیتابیس پذیرفته شد؛ همان رکورد و رسید ساختگی حذف شدند. CAPTCHA روشن است؛ پاسخ transport در fixture شبیه‌سازی می‌شود، نه چالش واقعی Google. ایمیل، HTTP خارجی، cron و پرداخت بسته‌اند. حذف app/DB/network مستقل تأیید شد؛ توقف relay درخواست شد ولی خروج آن مستقلاً ثبت نشد. [رسید و محدودیت‌ها](seo/readiness-2026-11-08/full-frontend-verification.json)، [گزارش آزمون](seo/readiness-2026-11-08/full-frontend-report.fa.md).
+
+**منبع production مشخص شد:** پس از تصریح تازهٔ مالک به استفاده از SSH موجود، خواندن مستقیم روی وردپرس دارای دامنهٔ مجاز نشان داد blog_public="0" است؛ callback هسته wp_robots_noindex ثبت شده و noindex/nofollow تولید می‌کند. sitemap هسته false و فاقد فیلتر اضافی بود. منبع سراسری، گزینهٔ Reading/Discourage search engines است؛ noindex اختصاصی رسید تیکت هم مستقل و عمدی است. هیچ گزینه، فایل سایت، CDN یا noindex تغییر نکرد. [provenance](seo/readiness-2026-11-08/noindex-provenance.fa.md). محدودیت connector با SSH رفع شد؛ افزونه یا snippet روی سایت نصب نشد. فقط پیکربندی اتصال موجود برای SSH خوانده شد؛ مرورگر، VM، فایل پروژه و تنظیمات محلی تغییر نکردند و هیچ secret به cloud یا Git منتقل نشد.
+
+runtime زنده WordPress7.1.4/PHP8.3.32/theme0.5.1 است؛ fixture از PHP8.3.36 استفاده می‌کند و یکسانی کامل runtime ادعا نمی‌شود. image پایه core7.0.2 دارد، اما نصب در حال اجرا7.1.4 است؛ نسخه را از image استنباط نکنید. فعال‌سازی indexability، scope ناشر canonical، backup/checksum/drift/rollback تولید و merge/deploy همچنان گیت جدا و NEEDS_APPROVAL هستند.
+
+بدنه‌های پیشنهادی فقط۸/۲۹ هستند؛ عنوان/H1/URL/excerpt/meta، سامانهٔ درخواست و صفحات دیگر حفظ‌اند. بخش‌های server/branch۳۳، firewall۳۵ و monitoring۳۱ قبلاً موجود بودند. نمونهٔ تحویل فرضی است؛ کیس واقعی و مدارک متخصص بدون شاهد BLOCKED هستند. GSC/Bing داده ندادند؛ رتبه، لید، AI citation و parity احراز نشده‌اند. MyTel فقط‌خواندنی و برند اصلی PBX است؛ inquiry-only، payment/CAPTCHA و گیت‌های security/history/rotation/origin حفظ‌اند.
+
+استثنای اسکن قدیمی NOT_RUN_OWNER_APPROVED_BRANCH_EXCEPTION فقط همین شاخه با source-pattern/publication_guard ابری است؛ به main، -SEO یا تاریخچه تعمیم ندارد. PR88 قبلاً live است و تکرار نشود؛ PR89–91/93/94 برای merge/deploy مجوز جدا می‌خواهند. Queue در PR93/c4c76ad پذیرفته‌شدهٔ synthetic است. گام بعد پس از بازبینی: scope برگشت‌پذیر انتشار بدنه‌های۸/۲۹ و تصمیم صریح درباره URLهای قابل‌ایندکس؛ تا تأیید، هیچ live write انجام نشود.
+
+## HISTORICAL CHECKPOINT —2026-11-08 SEO readiness before full frontend and SSH confirmation
+
+[PR94](https://github.com/DashSaman/TehNet/pull/94)، شاخه feat/seo-readiness-20261108: بستهٔ محدود SEO جدید، نه replay لاب یا بازنویسی خدمات. بدنهٔ زندهٔ۷صفحه از REST خوانده شد؛ server/branch33،firewall35،monitoring31 از قبل موجودند. بدنه8 فقط دو لینک عمیق به پذیرش فایروال/مانیتورینگ می‌گیرد؛ بدنه29 به ownerهای تخصصی و فرم موجود services هدایت می‌شود؛ هیچ صفحه/فرم/نرخ/SLA/schema تازه ساخته نشده است. عنوان/H1/URL/excerpt/meta محفوظ‌اند. متن قبل/بعد و hash دقیق در content/service-readiness-2026-11-08/ است.
+
+baseline خواندنی ابری تازه:۱۱URL عمومی200/self-canonical/یکH1 و noindex,nofollow؛ robots200؛ wp-sitemap.xml404؛ X-Robots-Tag در این مسیر غایب. index-policy.json پیشنهاد غیرفعال با استثناهای حساب/درخواست/خرید است؛ هیچ indexability/CDN/WAF/پرداختی عوض نشده. منبع دقیق productionِ noindex و تنظیم مؤثر کنترل جدید GSC AI **UNKNOWN** هستند؛ بدون احراز منبع و تأیید محدود فعال‌سازی نکنید.
+
+مرجع -SEO پوشهٔ تحقیق۸نوامبر404 داشت، ولی سه سند در docs/ اصلی واقعاً خوانده شدند؛ خواندن پوشهٔ ناموجود ادعا نشود. GSC و Bing INVALID_ARGUMENT دادند؛ داده TehNet یا صفرِ رتبه/AI citation احراز نشد. Google راهنمای۲۰۲۶ گزارش مستقل Generative AI و کنترل Include/Exclude/Inherit را دارد؛ با Google-Extended و Web report یکی نشوند. جزئیات منابع و control در seo/readiness-2026-11-08/ است.
+
+قالب گزارش تحویل صریحاً فرضی آماده است؛ متخصص/Case واقعی دارای شاهد و رضایت انتشار **BLOCKED** است و جعل نشود. ۴unit/۳۳native/۱۴۴component browser در source630c6f3/run42491528157 پاس‌اند؛ receipt و [جدول تغییر/محدودیت‌ها](seo/readiness-2026-11-08/README.fa.md) ثبت شد. مرورگر harness محتوایی است، نه frontend کامل/font/CAPTCHA.  authoring/render روی fixture با canonical publisher، تحویل واقعی خدمت، CAPTCHA یا انتشار زنده برابر نیست. merge/deploy/indexability هنوز **NEEDS_APPROVAL**.
+
+مالک فقط برای همین شاخه استثنای NOT_RUN_OWNER_APPROVED_BRANCH_EXCEPTION اسکن denied-list قدیمی را با source-pattern scan/publication_guard ابری تأیید کرد. هیچ فایل محلی جز پیوست تازهٔ خود مالک خوانده نشد؛ سیستم/VM/مرورگر/فهرست خصوصی محلی ممنوع‌اند. secret قدیمی/production به cloud عمومی نرود؛ استثنا به main/-SEO/history/rotation تعمیم ندارد.
+
+Queue در [PR93](https://github.com/DashSaman/TehNet/pull/93)/c4c76ad واقعاً در cloud و synthetic staging پذیرفته است و هنوز منتشر نشده؛ checkpoint قدیمی main دربارهٔ Queue جای این receipt نیست. PR88 قبلاً live و تأییدش مصرف‌شده؛ PR89–91/93 مجوز merge/production جدا لازم دارند. MyTel read-only و برند PBX/IVR، inquiry-only25قلم، noindex عمدی، payment/CAPTCHA و گیت‌های security/history/rotation/origin حفظ‌اند؛ Issues63/75 و parity/SEO/customer gain بازند.
+
+گام بعد: بعد از بازبینی PR94، احراز فقط‌خواندنی producerهای indexability و کنترل مؤثر GSC؛ تعیین URLهای مجاز و بستهٔ برگشت‌پذیر فعال‌سازی. برای بدنه‌های8/29، پیش از انتشار مجاز باید scope دقیق canonical publisher، fresh native/full-frontend QA،backup/checksum/drift/rollback احراز شود. Case واقعی و اختیار شبکه/برند جدید را از روی متن رقیب یا گذشت زمان فرض نکنید.
+
+## HISTORICAL CHECKPOINT —2026-11-08 main handoff before SEO PR94
 
 PR88 واقعاً ادغام و منتشر شده است؛ source `69243f4`، دو owner62/63 و39PNG. [رسید production](docs/evidence/2026-11-05/winbox-core/production-verification.json) و شش تصویر زنده از commit شواهد `c33f0b3` به این PR مستندات منتقل و hash هر6تصویر دوباره تطبیق شدند. تأیید PR88 مصرف شده؛ ناشر آن دوباره اجرا نشود. بررسی خواندنی8نوامبر،14/25تصویر و anchorهای هر دو درس را روی سایت نشان داد؛ آزمون‌های60native/16renderer/1590staging/730live مربوط به receipt5نوامبرند، نه اجرای تازه.
 

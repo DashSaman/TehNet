@@ -1,0 +1,22 @@
+name: SEO readiness read-only baseline and native content
+on:
+  push:
+    branches: [feat/seo-readiness-20261108]
+    paths: ['tools/seo_readiness_20261108.py', 'tests/seo_readiness_test.py', 'tests/seo-readiness-*', 'content/service-readiness-2026-11-08/**', 'seo/readiness-2026-11-08/index-policy.json', '.github/workflows/seo-readiness.yml']
+permissions:
+  contents: read
+jobs:
+  readiness:
+    if: github.repository == 'DashSaman/TehNet' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - run: python3 tools/publication_guard.py
+      - run: python3 -m unittest discover -s tests -p seo_readiness_test.py -v
+      - name: Read-only bounded public metadata
+        run: python3 tools/seo_readiness_20261108.py
+      - name: Isolated native WordPress body acceptance
+        run: bash tests/seo-readiness-native.sh

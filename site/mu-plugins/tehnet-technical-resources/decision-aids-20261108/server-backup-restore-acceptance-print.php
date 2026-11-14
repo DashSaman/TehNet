@@ -1,0 +1,13 @@
+<?php
+/** Fixed public educational aid; no input, database or WordPress bootstrap. */
+header('X-Robots-Tag: noindex, nofollow');
+header('X-Content-Type-Options: nosniff');
+header('Content-Type: text/html; charset=UTF-8');
+echo '<!doctype html>
+<html lang="fa" dir="rtl"><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><title>اسنپ‌شات، بکاپ و آزمون بازیابی؛ چه مدرکی تحویل بگیریم؟؛ کاربرگ چاپی</title><style>body{font:16px/1.9 sans-serif;max-width:1100px;margin:2rem auto;padding:1rem}table{width:100%;border-collapse:collapse;table-layout:fixed}th,td{border:1px solid #777;padding:.5rem;overflow-wrap:anywhere}h2{break-after:avoid}tr{break-inside:avoid}a{overflow-wrap:anywhere}@media print{body{margin:0;font-size:10pt}a{color:inherit;text-decoration:none}}</style><h1>اسنپ‌شات، بکاپ و آزمون بازیابی؛ چه مدرکی تحویل بگیریم؟</h1><p>قالب تصمیم‌گیری؛ نمونه‌ها فرضی‌اند و مورد آزموده‌نشده NOT_TESTED/UNKNOWN است. اطلاعات حساس را در نسخهٔ عمومی وارد نکنید. چاپ از گزینهٔ Print مرورگر.</p><h2>ماتریس خالی پذیرش؛ آمادهٔ چاپ و CSV</h2>
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>سرویس</th><th>منبع/نسخه</th><th>محیط بازیابی</th><th>آزمون کاربر مجاز</th><th>شاهد</th><th>محدودیت</th><th>نتیجه</th></tr></thead><tbody><tr><td>UNKNOWN</td><td>UNKNOWN</td><td>ایزوله و مصوب؛ جزئیات تعیین شود</td><td>کار نماینده باید تعریف شود</td><td>مرجع خصوصی لازم است</td><td>وابستگی‌ها نامعلوم</td><td>NOT_TESTED</td></tr><tr><td>UNKNOWN</td><td>UNKNOWN</td><td>UNKNOWN</td><td>مجوز مثبت و منفی</td><td>زمان‌ها و مشاهدهٔ داده</td><td>نقطهٔ داده و سازگاری نامعلوم</td><td>NOT_TESTED</td></tr></tbody></table></figure>
+
+<h2>نمونهٔ فرضی؛ نه restore انجام‌شده</h2>
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>سرویس فرضی</th><th>آزمون پیشنهادی</th><th>شاهد قابل درخواست</th><th>آنچه هنوز ثابت نمی‌شود</th><th>نتیجه</th></tr></thead><tbody><tr><td>فایل مشترک</td><td>بازکردن فایل نمونه توسط کاربر مجاز و منع حساب غیرمجاز</td><td>نسخه/نقطهٔ داده، زمان شروع و پذیرش، تأیید نماینده</td><td>درستی همهٔ فایل‌ها یا تحمل خرابی بعدی</td><td>NOT_TESTED</td></tr><tr><td>برنامهٔ اداری</td><td>کار نمایندهٔ برنامه با تأیید مسئول/فروشنده</td><td>وابستگی‌ها، نسخه، وضعیت داده و خروجی کار</td><td>عملکرد تمام فرایندها یا سازگاری هر نسخه</td><td>NOT_TESTED</td></tr><tr><td>بازگشت به محیط اصلی</td><td>طرح برگشت و کنترل تغییر جداگانه</td><td>تصمیم‌گیر و شرط توقف/بازگشت</td><td>موفقیتِ failback از صرف restore نتیجه نمی‌شود</td><td>NOT_TESTED</td></tr></tbody></table></figure>
+</html>
+';

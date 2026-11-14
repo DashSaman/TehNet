@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "key": "tehnet-staging-sync-truth-20261113-v1",
+  "status": "STAGING_ONLY_NOT_FOR_PRODUCTION",
+  "purpose": "restore stale staging bodies of 31/33/35 to production truth so the decision v2 scope can be verified on staging; expected digests are stale staging values that cannot exist on production",
+  "targets": [
+    {
+      "id": 31,
+      "type": "page",
+      "uri": "services/network-support-tehran",
+      "url": "https://tehnet.ir/services/network-support-tehran/",
+      "content_file": "network-support.html",
+      "src_ref": "content/network-support-2026-11-01/network-support.html",
+      "title_observed": "پشتیبانی شبکه تهران",
+      "title": "پشتیبانی شبکه تهران",
+      "excerpt": "پشتیبانی شبکه تهران؛ بررسی نیاز، تعیین محدودهٔ کار و انتخاب حضور در تهران یا دسترسی ریموت در صورت امکان.",
+      "expected_content_sha256": "bfc8e8d2a83fd89cc9d17a2af26dc67f86ccda1e70bedcd519d2d6a1625bbe3a",
+      "content_sha256_lf": "73d1b477170f3e9c8c59610e8901a066b10f1e7200a7003dfe3d9ff1a6b1627a",
+      "change_fields": [
+        "post_content",
+        "post_excerpt",
+        "post_title"
+      ],
+      "expected_excerpt_sha256": "fda3f249eed935adc9350f0803b272da9cd7c02e4670a77d93953fcaa7cd0600"
+    },
+    {
+      "id": 33,
+      "type": "page",
+      "uri": "services/network-setup-tehran",
+      "url": "https://tehnet.ir/services/network-setup-tehran/",
+      "content_file": "network-setup.html",
+      "src_ref": "content/server-branch-2026-11-04/network-setup.html",
+      "title_observed": "راه‌اندازی شبکه شرکت در تهران",
+      "title": "راه‌اندازی شبکه شرکت در تهران",
+      "excerpt": "راه‌اندازی شبکه شرکت در تهران؛ بررسی نیاز، تعیین محدودهٔ کار و انتخاب حضور در تهران یا دسترسی ریموت در صورت امکان.",
+      "expected_content_sha256": "09eba56189c561933b6107fbdb2dcca7259450c7b78751ffb5f0df6e2d241818",
+      "content_sha256_lf": "709c49b6d2e0cffa4d95c3709877ff06d40daa5223a3f39894881b7a429cbe5e",
+      "change_fields": [
+        "post_content",
+        "post_excerpt",
+        "post_title"
+      ],
+      "expected_excerpt_sha256": "67aa0ae9684bab45c3625b3fc03e19ec6f425140cad7715e18d794d6f80007f4"
+    },
+    {
+      "id": 35,
+      "type": "page",
+      "uri": "services/mikrotik-tehran",
+      "url": "https://tehnet.ir/services/mikrotik-tehran/",
+      "content_file": "mikrotik-service.html",
+      "src_ref": "content/mikrotik-service-2026-11-01/mikrotik-service.html",
+      "title_observed": "خدمات MikroTik تهران",
+      "title": "خدمات MikroTik تهران",
+      "excerpt": "خدمات MikroTik تهران؛ بررسی نیاز، تعیین محدودهٔ کار و انتخاب حضور در تهران یا دسترسی ریموت در صورت امکان.",
+      "expected_content_sha256": "647165b37acf55aa4e9ca1faf56ee79754193282e6b2351b995316f04596a379",
+      "content_sha256_lf": "ab9d96e52fb50fc3f2d0f535d614c4d6dbd29395d10e32002f608b8cd7c950e7",
+      "change_fields": [
+        "post_content",
+        "post_excerpt",
+        "post_title"
+      ],
+      "expected_excerpt_sha256": "e82c6cdbfab267e99f9a54f3c53264159fe49bb7bda13fc01c80f9a7446ee7fb"
+    }
+  ],
+  "pages": []
+}

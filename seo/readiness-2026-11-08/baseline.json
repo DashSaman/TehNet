@@ -1,0 +1,413 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "url": "https://tehnet.ir/",
+      "method": "GET",
+      "observed_utc": "2026-11-08T14:47:39.329429+00:00",
+      "production_mutations": 0,
+      "status": 200,
+      "final_url": "https://tehnet.ir/",
+      "body_sha256": "103d739e4624a0ccd5d05bab1af8e1bd0be88e88014e3c89f3689f43036621a5",
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "X-Robots-Tag": null,
+        "CF-Cache-Status": "DYNAMIC"
+      },
+      "meta_robots": [
+        {
+          "agent": "robots",
+          "content": "noindex, nofollow"
+        }
+      ],
+      "canonical": [
+        "https://tehnet.ir/"
+      ],
+      "h1_count": 1,
+      "form_count": 1,
+      "interpretation": "OBSERVED_ONLY_NOT_INDEX_VERDICT"
+    },
+    {
+      "url": "https://tehnet.ir/services/",
+      "method": "GET",
+      "observed_utc": "2026-11-08T14:47:39.329658+00:00",
+      "production_mutations": 0,
+      "status": 200,
+      "final_url": "https://tehnet.ir/services/",
+      "body_sha256": "88e4c2224f43b2ff293ce1713caf256f246073eb38ea92b8814e2468dace1121",
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "X-Robots-Tag": null,
+        "CF-Cache-Status": "DYNAMIC"
+      },
+      "meta_robots": [
+        {
+          "agent": "robots",
+          "content": "noindex, nofollow"
+        }
+      ],
+      "canonical": [
+        "https://tehnet.ir/services/"
+      ],
+      "h1_count": 1,
+      "form_count": 1,
+      "interpretation": "OBSERVED_ONLY_NOT_INDEX_VERDICT"
+    },
+    {
+      "url": "https://tehnet.ir/services/voice-network-readiness/",
+      "method": "GET",
+      "observed_utc": "2026-11-08T14:47:39.329828+00:00",
+      "production_mutations": 0,
+      "status": 200,
+      "final_url": "https://tehnet.ir/services/voice-network-readiness/",
+      "body_sha256": "36e47abe31f48f9081a2cd0dc9af352db2f7e754c4a35b354e64b1cae3c94616",
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "X-Robots-Tag": null,
+        "CF-Cache-Status": "DYNAMIC"
+      },
+      "meta_robots": [
+        {
+          "agent": "robots",
+          "content": "noindex, nofollow"
+        }
+      ],
+      "canonical": [
+        "https://tehnet.ir/services/voice-network-readiness/"
+      ],
+      "h1_count": 1,
+      "form_count": 0,
+      "interpretation": "OBSERVED_ONLY_NOT_INDEX_VERDICT"
+    },
+    {
+      "url": "https://tehnet.ir/services/remote-support/",
+      "method": "GET",
+      "observed_utc": "2026-11-08T14:47:40.243035+00:00",
+      "production_mutations": 0,
+      "status": 200,
+      "final_url": "https://tehnet.ir/services/remote-support/",
+      "body_sha256": "bc0acb89704ee66fc9146d7b38ec280b2f4c618696a8272838c720372f45aa20",
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "X-Robots-Tag": null,
+        "CF-Cache-Status": "DYNAMIC"
+      },
+      "meta_robots": [
+        {
+          "agent": "robots",
+          "content": "noindex, nofollow"
+        }
+      ],
+      "canonical": [
+        "https://tehnet.ir/services/remote-support/"
+      ],
+      "h1_count": 1,
+      "form_count": 0,
+      "interpretation": "OBSERVED_ONLY_NOT_INDEX_VERDICT"
+    },
+    {
+      "url": "https://tehnet.ir/services/mikrotik-tehran/",
+      "method": "GET",
+      "observed_utc": "2026-11-08T14:47:40.248359+00:00",
+      "production_mutations": 0,
+      "status": 200,
+      "final_url": "https://tehnet.ir/services/mikrotik-tehran/",
+      "body_sha256": "27c7c6c58a78be9bc129986c24a68db033249e37610ccb45bf95139ee387c92d",
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "X-Robots-Tag": null,
+        "CF-Cache-Status": "DYNAMIC"
+      },
+      "meta_robots": [
+        {
+          "agent": "robots",
+          "content": "noindex, nofollow"
+        }
+      ],
+      "canonical": [
+        "https://tehnet.ir/services/mikrotik-tehran/"
+      ],
+      "h1_count": 1,
+      "form_count": 0,
+      "interpretation": "OBSERVED_ONLY_NOT_INDEX_VERDICT"
+    },
+    {
+      "url": "https://tehnet.ir/services/network-setup-tehran/",
+      "method": "GET",
+      "observed_utc": "2026-11-08T14:47:40.299773+00:00",
+      "production_mutations": 0,
+      "status": 200,
+      "final_url": "https://tehnet.ir/services/network-setup-tehran/",
+      "body_sha256": "f81d8be8203701faa0f8accad9454eb34c1c8bb882a70c29981cb7cec165b2b6",
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "X-Robots-Tag": null,
+        "CF-Cache-Status": "DYNAMIC"
+      },
+      "meta_robots": [
+        {
+          "agent": "robots",
+          "content": "noindex, nofollow"
+        }
+      ],
+      "canonical": [
+        "https://tehnet.ir/services/network-setup-tehran/"
+      ],
+      "h1_count": 1,
+      "form_count": 0,
+      "interpretation": "OBSERVED_ONLY_NOT_INDEX_VERDICT"
+    },
+    {
+      "url": "https://tehnet.ir/services/network-support-tehran/",
+      "method": "GET",
+      "observed_utc": "2026-11-08T14:47:40.689016+00:00",
+      "production_mutations": 0,
+      "status": 200,
+      "final_url": "https://tehnet.ir/services/network-support-tehran/",
+      "body_sha256": "686a4d98c72bb0e9933b2eaa048ac28f476728bf33d7df90a82bc35f3757d875",
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "X-Robots-Tag": null,
+        "CF-Cache-Status": "DYNAMIC"
+      },
+      "meta_robots": [
+        {
+          "agent": "robots",
+          "content": "noindex, nofollow"
+        }
+      ],
+      "canonical": [
+        "https://tehnet.ir/services/network-support-tehran/"
+      ],
+      "h1_count": 1,
+      "form_count": 0,
+      "interpretation": "OBSERVED_ONLY_NOT_INDEX_VERDICT"
+    },
+    {
+      "url": "https://tehnet.ir/services/network-tehran/",
+      "method": "GET",
+      "observed_utc": "2026-11-08T14:47:40.798068+00:00",
+      "production_mutations": 0,
+      "status": 200,
+      "final_url": "https://tehnet.ir/services/network-tehran/",
+      "body_sha256": "672b0906f3aac4343d500031ff12c03f263d353820eb1c99aeab7485b4326745",
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "X-Robots-Tag": null,
+        "CF-Cache-Status": "DYNAMIC"
+      },
+      "meta_robots": [
+        {
+          "agent": "robots",
+          "content": "noindex, nofollow"
+        }
+      ],
+      "canonical": [
+        "https://tehnet.ir/services/network-tehran/"
+      ],
+      "h1_count": 1,
+      "form_count": 0,
+      "interpretation": "OBSERVED_ONLY_NOT_INDEX_VERDICT"
+    },
+    {
+      "url": "https://tehnet.ir/about/",
+      "method": "GET",
+      "observed_utc": "2026-11-08T14:47:40.942460+00:00",
+      "production_mutations": 0,
+      "status": 200,
+      "final_url": "https://tehnet.ir/about/",
+      "body_sha256": "12a45d1201bcd673bff3c82d0485004c4de0044c007e504f4f95a09480720c30",
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "X-Robots-Tag": null,
+        "CF-Cache-Status": "DYNAMIC"
+      },
+      "meta_robots": [
+        {
+          "agent": "robots",
+          "content": "noindex, nofollow"
+        }
+      ],
+      "canonical": [
+        "https://tehnet.ir/about/"
+      ],
+      "h1_count": 1,
+      "form_count": 0,
+      "interpretation": "OBSERVED_ONLY_NOT_INDEX_VERDICT"
+    },
+    {
+      "url": "https://tehnet.ir/contact/",
+      "method": "GET",
+      "observed_utc": "2026-11-08T14:47:41.141398+00:00",
+      "production_mutations": 0,
+      "status": 200,
+      "final_url": "https://tehnet.ir/contact/",
+      "body_sha256": "72af2f9bde6af25238187a770338c3677404f403f7ba7a8640a7da5fd7afe3b9",
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "X-Robots-Tag": null,
+        "CF-Cache-Status": "DYNAMIC"
+      },
+      "meta_robots": [
+        {
+          "agent": "robots",
+          "content": "noindex, nofollow"
+        }
+      ],
+      "canonical": [
+        "https://tehnet.ir/contact/"
+      ],
+      "h1_count": 1,
+      "form_count": 0,
+      "interpretation": "OBSERVED_ONLY_NOT_INDEX_VERDICT"
+    },
+    {
+      "url": "https://tehnet.ir/technical-methodology/",
+      "method": "GET",
+      "observed_utc": "2026-11-08T14:47:41.318298+00:00",
+      "production_mutations": 0,
+      "status": 200,
+      "final_url": "https://tehnet.ir/technical-methodology/",
+      "body_sha256": "f1f1d524049b0d525fb8665852ef8196087bde898c984aa23e1d1b47d3b5e6ab",
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "X-Robots-Tag": null,
+        "CF-Cache-Status": "DYNAMIC"
+      },
+      "meta_robots": [
+        {
+          "agent": "robots",
+          "content": "noindex, nofollow"
+        }
+      ],
+      "canonical": [
+        "https://tehnet.ir/technical-methodology/"
+      ],
+      "h1_count": 1,
+      "form_count": 0,
+      "interpretation": "OBSERVED_ONLY_NOT_INDEX_VERDICT"
+    },
+    {
+      "url": "https://tehnet.ir/robots.txt",
+      "method": "GET",
+      "observed_utc": "2026-11-08T14:47:41.557713+00:00",
+      "production_mutations": 0,
+      "status": 200,
+      "final_url": "https://tehnet.ir/robots.txt",
+      "body_sha256": "d5002dc74d13eeb00382a985e31d8dfa310cde3d2ba40e08c941a06a3cf87892",
+      "headers": {
+        "Content-Type": "text/plain; charset=utf-8",
+        "X-Robots-Tag": null,
+        "CF-Cache-Status": "HIT"
+      },
+      "meta_robots": [],
+      "canonical": [],
+      "h1_count": 0,
+      "form_count": 0,
+      "directives": [
+        "User-agent: *",
+        "Content-Signal: search=yes,ai-train=no,use=reference",
+        "Allow: /",
+        "User-agent: Amazonbot",
+        "Disallow: /",
+        "User-agent: Applebot-Extended",
+        "Disallow: /",
+        "User-agent: Bytespider",
+        "Disallow: /",
+        "User-agent: CCBot",
+        "Disallow: /",
+        "User-agent: ClaudeBot",
+        "Disallow: /",
+        "User-agent: Diffbot",
+        "Disallow: /",
+        "User-agent: Google-Extended",
+        "Disallow: /",
+        "User-agent: GPTBot",
+        "Disallow: /",
+        "User-agent: omgili",
+        "Disallow: /",
+        "User-agent: anthropic-ai",
+        "Disallow: /",
+        "User-agent: Claude-Web",
+        "Disallow: /",
+        "User-agent: cohere-ai",
+        "Disallow: /",
+        "User-agent: MistralAI-Training",
+        "Disallow: /",
+        "User-agent: meta-externalagent",
+        "Disallow: /",
+        "User-agent: GoogleOther",
+        "Disallow: /",
+        "User-agent: Baiduspider",
+        "Disallow: /",
+        "User-agent: PetalBot",
+        "Disallow: /",
+        "User-agent: AwarioSmartBot",
+        "User-agent: AwarioRssBot",
+        "Disallow: /",
+        "User-agent: Google-CloudVertexBot",
+        "Disallow: /",
+        "User-agent: QualifiedBot",
+        "Disallow: /",
+        "User-agent: Cotoyogi",
+        "Disallow: /",
+        "User-agent: ICC-Crawler",
+        "Disallow: /",
+        "User-agent: atlassian-bot",
+        "Disallow: /",
+        "User-agent: FishBot",
+        "Disallow: /",
+        "User-agent: BorderxBot",
+        "Disallow: /",
+        "User-agent: NavuBot",
+        "Disallow: /",
+        "User-agent: SemrushBot-SWA",
+        "Disallow: /",
+        "User-agent: WARDBot",
+        "Disallow: /",
+        "User-agent: magpie-crawler",
+        "Disallow: /",
+        "User-agent: KimiBot",
+        "Disallow: /",
+        "User-agent: CitibotSiteCrawler",
+        "Disallow: /",
+        "User-agent: *",
+        "Disallow: /wp-content/uploads/wc-logs/",
+        "Disallow: /wp-content/uploads/woocommerce_transient_files/",
+        "Disallow: /wp-content/uploads/woocommerce_uploads/",
+        "Disallow: /*?add-to-cart=",
+        "Disallow: /*?*add-to-cart=",
+        "Disallow: /wp-admin/",
+        "Allow: /wp-admin/admin-ajax.php"
+      ],
+      "interpretation": "OBSERVED_ONLY_NOT_INDEX_VERDICT"
+    },
+    {
+      "url": "https://tehnet.ir/wp-sitemap.xml",
+      "method": "GET",
+      "observed_utc": "2026-11-08T14:47:41.608997+00:00",
+      "production_mutations": 0,
+      "status": 404,
+      "final_url": "https://tehnet.ir/wp-sitemap.xml",
+      "body_sha256": "25c610aa7a4bd711f6a53fb6ce3f717ffae3c73841e6210ba14485683dca98ff",
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "X-Robots-Tag": null,
+        "CF-Cache-Status": "DYNAMIC"
+      },
+      "meta_robots": [
+        {
+          "agent": "robots",
+          "content": "noindex, nofollow"
+        }
+      ],
+      "canonical": [],
+      "h1_count": 0,
+      "form_count": 0,
+      "xml_detected": false,
+      "interpretation": "OBSERVED_ONLY_NOT_INDEX_VERDICT"
+    }
+  ],
+  "no_form_submissions": true,
+  "no_control_changes": true
+}

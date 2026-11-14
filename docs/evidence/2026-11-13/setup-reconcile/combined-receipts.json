@@ -1,0 +1,64 @@
+{
+ "schema": 1,
+ "date": "2026-11-13",
+ "title": "Combined staging receipts for PR94/PR99 reconciliation",
+ "sequence": [
+  {
+   "step": "PR99 v1 rollback",
+   "result": "ROLLED_BACK",
+   "detail": "hubs_restored=1, staging ID33 restored to 09eba561 (pre-PR99 stale state), protected unchanged"
+  },
+  {
+   "step": "staging sync scope tehnet-staging-sync-truth-20261113-v1 (commit 467dd2a)",
+   "result": "READY then APPLIED",
+   "detail": "hubs=3 (31,33,35) bodies restored to production truth 73d1b477/709c49b6/ab9d96e5; protected digest 4ecd7397... unchanged"
+  },
+  {
+   "step": "decision scope tehnet-commercial-decision-20261108-v2 (reconciled) check",
+   "result": "READY",
+   "detail": "15 files + 5 pages + 5 hubs pending; file_guard passed with truth baseline commit 7ce37e0e (records out-of-Git production hotfix 2d3059386df1 for class-content-types.php)"
+  },
+  {
+   "step": "apply #1",
+   "result": "APPLIED",
+   "detail": "pages 728-732 created; protected digest 20d810d8... unchanged"
+  },
+  {
+   "step": "native acceptance",
+   "result": "PASS 48/48",
+   "detail": "exact bodies incl. ID33 reconciled ab56940e; titles/excerpts per manifest; all prior anchors preserved on 8/29/31/33/35; new pages exact; blog_public=0; index option absent"
+  },
+  {
+   "step": "browser",
+   "result": "PASS 20/20",
+   "detail": "new title, sections incl. چرا تهران نتورک, anchors scope-and-cost/project-request/why-tehnet, MTCNA hub + remote-support links, phone replacement, noindex intact, aids CSV nosniff, N1/A1 200"
+  },
+  {
+   "step": "drift-negative: sync scope re-check",
+   "result": "REFUSED",
+   "detail": "baselines no longer match applied staging — drift gate fires as designed"
+  },
+  {
+   "step": "idempotent repeat: decision check",
+   "result": "APPLIED 0 pending 0 writes"
+  },
+  {
+   "step": "rollback drill",
+   "result": "ROLLED_BACK",
+   "detail": "15 files restored, 5 hubs restored, 5 pages drafted; ID33 back to exactly 709c49b6; protected unchanged"
+  },
+  {
+   "step": "re-apply after reviewed cleanup",
+   "result": "APPLIED",
+   "detail": "owned drafts 728-732 (meta _tn_growth_release) verified then deleted; stale ROLLED_BACK journal reviewed+removed per recorded pattern; fresh pages 743-747; same protected digest"
+  },
+  {
+   "step": "final verification",
+   "result": "native PASS 48/48 + browser PASS 20/20 on final applied state"
+  }
+ ],
+ "baseline_commit": "7ce37e0e3d4e92af15fe6bf4d5b22d3f871433cd",
+ "source_commit": "467dd2a7a14ea70f1f41ab93cf8ecf19dee7d5fb",
+ "production_mutations": 0,
+ "notes": "Staging final state = reconciled decision v2 APPLIED (preview for owner). PR99 v1 SUPERSEDED for ID33 and must never be applied to production (its expected digest 09eba561 cannot match production truth 709c49b6)."
+}
