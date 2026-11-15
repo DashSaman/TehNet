@@ -245,12 +245,13 @@ async function runJourney(spec) {
         if (!cleanup.error && missing.length) cleanup.error = 'incomplete_deletion:' + missing.join(',');
         if (!cleanup.error && extras.length) cleanup.error = 'extra_deletion:' + extras.join(',');
         if (!cleanup.error && skippedIds.some(id => wanted.includes(id))) cleanup.error = 'requested_id_skipped';
-        /* post-cleanup re-read: owned records must be gone */
+        /* post-cleanup re-read: owned records must be gone; ANY non-array payload fails */
         if (!cleanup.error) {
-          let after = null;
+          let after = null, postReadThrew = false;
           try { after = await traced('findOwnedRecords', effects.findOwnedRecords)(marker); }
-          catch (e) { cleanup.error = 'post_read_failed:' + e.message; }
-          if (Array.isArray(after)) {
+          catch (e) { postReadThrew = true; cleanup.error = 'post_read_failed:' + e.message; }
+          if (!postReadThrew && !Array.isArray(after)) cleanup.error = 'post_read_non_array';
+          if (!cleanup.error && Array.isArray(after)) {
             const remaining = after.filter(r => isOwnedRecord(r, marker)).map(r => r.id);
             cleanup.post_read_owned_remaining = remaining;
             if (remaining.length) cleanup.error = 'owned_still_present:' + remaining.join(',');

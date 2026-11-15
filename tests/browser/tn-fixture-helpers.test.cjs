@@ -329,6 +329,22 @@ t('journey: post-read finding owned records still present must FAIL cleanup', as
   assert.equal(res.status, 'FAILED_CLEANUP');
   assert.match(String(res.cleanup.error), /owned_still_present:42/);
 });
+t('journey: post-read returning {malformed:true} must FAIL cleanup (never fall through to PASSED)', async () => {
+  const s = goodEffects();
+  let reads = 0;
+  s.effects.findOwnedRecords = async () => { reads++; return reads === 1 ? [s.owned] : { malformed: true }; };
+  const res = await H.runJourney({ marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME }, effects: s.effects, operation: async () => 'ok' });
+  assert.equal(res.status, 'FAILED_CLEANUP');
+  assert.match(String(res.cleanup.error), /^post_read_non_array$/);
+});
+t('journey: post-read returning null must FAIL cleanup', async () => {
+  const s = goodEffects();
+  let reads = 0;
+  s.effects.findOwnedRecords = async () => { reads++; return reads === 1 ? [s.owned] : null; };
+  const res = await H.runJourney({ marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME }, effects: s.effects, operation: async () => 'ok' });
+  assert.equal(res.status, 'FAILED_CLEANUP');
+  assert.match(String(res.cleanup.error), /^post_read_non_array$/);
+});
 t('journey: non-array discovery must FAIL cleanup (not silently pass)', async () => {
   const s = goodEffects();
   s.effects.findOwnedRecords = async () => ({ notAnArray: true });
