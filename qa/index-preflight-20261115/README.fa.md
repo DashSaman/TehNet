@@ -1,49 +1,47 @@
-# TN-INDEX-PREFLIGHT-20261115 — پکیج پیش‌پرواز مسیر ایندکس (PR100)
+# TN-INDEX-PREFLIGHT-20261115 — پکیج پیش‌پرواز مسیر ایندکس (PR100) — rev2
+
+rev2: شواهد فقط‌خواندنی PRODUCTION اضافه شد؛ مرز مدیر (عدم بازنویسی production map با staging ID) رعایت شد.
 
 ## وضعیت کلی
 
 | بخش | نتیجه |
 |---|---|
 | A — قرارداد استاتیک (manifest ها، runtime class، migration PHP، operator، bundle ها) | **45/45 PASS** |
-| php -l (فقط syntax، بدون اجرا) | class-index-policy.php + migrate-index-policy.php → سالم |
-| B — readback فقط‌خواندنی staging (wp-cli، بدون هیچ write) | اجرا شد؛ **13/16 منطبق** |
-| توصیهٔ نهایی | **DRIFT DETECTED — قبل از D2/D3 نیازمند re-qualification** |
+| php -l (فقط syntax، بدون اجرا) | هر سه PHP سالم |
+| B — readback فقط‌خواندنی staging | **13/16 منطبق** (۳ drift) |
+| B′ — readback فقط‌خواندنی production | **هر ۱۱ fixed ID منطبق manifest**؛ 206=voice-network-readiness، 193 absent |
+| توصیهٔ نهایی | **MANIFEST RE-QUALIFICATION لازم است؛ binding باید محیط‌آگاه باشد** |
 
 - PR100 head پین‌شده: `a54198ce7ed3535d6783432d8401660e2e023f9d`
-- همهٔ artifactها از git (نه worktree) خوانده شدند تا drift بررسی، خودش drift نسازد.
-- staging readback: `staging-readback.json` — فقط‌خواندنی؛ `policy_option_present=false`، `blog_public="0"`، فیلتر core noindex فعال.
+- هر دو readback فقط‌خواندنی‌اند: هیچ write، هیچ wp_mail، هیچ HTTP؛ فقط get_option/get_post/get_page_by_path/get_permalink/get_post_meta/hash
 
-## سه drift واقعی (runtime به‌صورت fail-closed رد می‌کند — دقیقاً طبق طراحی)
+## یافتهٔ کلیدی ۱ — تفاوت ID بین محیط‌ها مشروع است (مرز مدیر تأیید به شواهد)
 
-1. **`/` (id 5) — body_hash_drift**
-   - staging `1a05541d…` ≠ manifest `6ba0eb04…` (excerpt منطبق است)
-   - علت محتمل: تغییرات محتوای مشروع پس از 2026-11-08 (دسته‌های D1 و پاک‌سازی لینک‌های home طبق 8c74794)
+| | production (tehnet.ir) | staging (localhost:18085) |
+|---|---|---|
+| voice-network-readiness | **id=206** (page/publish، permalink درست) | **id=193** (page/publish، permalink درست) |
+| id مقابل | 193 → **absent** | 206 → **absent** |
+| content hash | `7f384153…` | `7f384153…` — **هر دو منطبق manifest body** |
+| excerpt | موجود `c3e9109a…` | موجود `c3e9109a…` (یکسان در دو محیط) |
 
-2. **`/services/voice-network-readiness/` — id_drift + excerpt**
-   - manifest و `$fixed` در `ops/migrate-index-policy.php` هر دو id=206 انتظار دارند
-   - probe (`staging-id-check.php`, read-only): **id 206 در staging وجود ندارد** (`{"id":206,"missing":true}`)؛ صفحه فقط با **id=193** هست (publish، permalink درست، **hash محتوا با manifest منطبق**)؛ excerpt 202 بایتی اضافه شده
-   - یعنی اصلاح فقط manifest کافی نیست؛ `$fixed` هم باید به 193 اصلاح شود — هر دو artifact گاردشدهٔ PR100
+- manifest از هویت production ساخته شده بود (هر ۱۱ fixed id منطبق) → **production map صحیح است و دست‌نخورده می‌ماند؛ 206→193 رد می‌شود**
+- staging طی sync/re-release صفحه را با ID جدید بازساخته است — تفاوت مشروع محیط‌ها
+- **پیشنهاد (تصمیم مدیر):** binding محیط‌آگاه — یا map مختص هر محیط در manifest، یا plan() هنگام check روی هر محیط، expected id را از منبع همان محیط بردارد. هر دو تغییر محدود به artifact گاردشدهٔ PR100 است
 
-3. **`/services/remote-support/` (id 37) — excerpt_hash_drift**
-   - manifest انتظار excerpt خالی دارد؛ staging excerpt دارد (`60e99cdc…`)؛ محتوا منطبق
+## یافتهٔ کلیدی ۲ — manifest hash/عنوان در هر دو محیط نسبت به وضعیت فعلی کهنه است
 
-## وضعیت پیش‌نیازها (D2/D3)
+- production: `/`، `/services/`، چهار صفحهٔ service، `/about/`، remote-support → body hash با manifest تفاوت دارد (تغییرات مجاز پس از 2026-11-08: دسته‌های محتوایی + اصلاح زندهٔ 8c74794). `/contact/`، `/technical-methodology/` و body سه صفحهٔ دیگر منطبق‌اند
+- عنوان ۴ صفحهٔ service در production تغییر کرده (اصلاحات محتوایی ثبت‌شده)
+- excerpt: voice-network و remote-support در **هر دو محیط** excerpt دارند ولی manifest انتظار خالی دارد → انتظار excerpt در manifest کهنه است، نه اختلاف محیطی
+- طبق مرز مدیر: تطبیق باید با **bundle منتشرشدهٔ مقصود production** انجام شود، نه پذیرش خودکار DB staging
 
-- **M0**: PR100 هنوز merge نشده (PR100 باز است، head `a54198ce`)
-- **D1**: محتوای PR100 قبلاً روی staging verify شده (cycle 25)
-- **D2 (install-off)**: `runtime_class=false` در readback → نصب runtime هنوز انجام نشده — وضعیت انتظارِ پیش از D2
-- **D3 (activate 16 URL)**: `production_authorization = NEEDS_SEPARATE_EXACT_ALLOWLIST_OWNER_APPROVAL` — هنوز unauthorized؛ علاوه بر آن تا re-qualification سه drift بالا، `plan()` خودش activation را رد می‌کند
-- **مقصد off-host**: آماده نیست (آخرین recovery فقط same-host DB-only بود) — پیش‌نیاز صریح دستور
+## گام‌های دقیق re-qualification (تصمیم، نه پرسش مجدد از هدف کلی)
 
-## تصمیم دقیق (نه پرسش مجدد از هدف کلی ایندکس)
-
-قبل از هر اجرای D2 روی staging، سه اصلاح نیازمند review است:
-1. بازتولید `activation-manifest.json` با hashهای فعلی staging (بعد از تصمیم دربارهٔ excerptهای اضافه‌شده)
-2. اصلاح `$fixed` در `ops/migrate-index-policy.php`: `/services/voice-network-readiness/` از 206 به 193 (با اثبات مبدأ id 206 در inventory)
-3. تعیین تکلیف drift محتوای `/` (پذیرش نسخهٔ فعلی در manifest جدید یا بازگردانی محتوا)
-
-هر سه تغییر محدود به artifactهای PR100 است و مسیر تأیید همان GUARDED_SCOPES موجود را طی می‌کند. هیچ تغییری در این پکیج روی PR100 اعمال نشد.
+1. بازتولید `activation-manifest.json` از bundle مقصود + وضعیت تأییدشدهٔ production (hash/عنوان/excerpt)
+2. تعیین مکانیزم binding محیط‌آگاه برای id (206/193) در migration و manifest
+3. اجرای D2 (install-off) روی staging پس از تعیین مکانیزم — وضعیت فعلی: runtime class در staging absent
+4. D3 همچنان `NEEDS_SEPARATE_EXACT_ALLOWLIST_OWNER_APPROVAL` + پیش‌نیازهای PR101/102/103 و off-host/full recovery
 
 ## حدود انتشار
 
-بدون IP، بدون secret، بدون raw log، بدون محتوای خام صفحات (فقط hash و ID و عنوان‌هایی که خودشان در manifest گیت هستند).
+بدون IP، بدون secret، بدون raw log، بدون محتوای خام (فقط hash/ID/عنوان موجود در manifest گیت).

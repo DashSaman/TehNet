@@ -1,7 +1,7 @@
 {
  "packet": "TN-INDEX-PREFLIGHT-20261115",
- "started_utc": "2026-11-15T21:24:35Z",
- "finished_utc": "2026-11-15T21:24:35Z",
+ "started_utc": "2026-11-15T21:41:24Z",
+ "finished_utc": "2026-11-15T21:41:24Z",
  "pr100_ref": "origin/feat/setup-reconcile-20261113",
  "pr100_head_sha": "a54198ce7ed3535d6783432d8401660e2e023f9d",
  "static": {
@@ -263,9 +263,39 @@
     "name": "staging_all_16_targets_match_manifest",
     "pass": false,
     "detail": "13/16"
+   },
+   {
+    "name": "production_env_is_production",
+    "pass": true,
+    "detail": "production"
+   },
+   {
+    "name": "production_blog_public_0",
+    "pass": true,
+    "detail": "0"
+   },
+   {
+    "name": "production_core_noindex_filter_present",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "production_all_fixed_ids_match_manifest",
+    "pass": true,
+    "detail": "0 fixed-path id/lookup mismatches (created A1-A4/N1 pages are D1 staging scope, absent on production is expected pre-release)"
+   },
+   {
+    "name": "production_id206_is_voice_network_readiness",
+    "pass": true,
+    "detail": "{\"type\":\"page\",\"status\":\"publish\",\"path\":\"/services/voice-network-readiness/\",\"title\":\"آماده‌سازی و بررسی شبکه برای VoIP\"}"
+   },
+   {
+    "name": "production_id193_absent",
+    "pass": true,
+    "detail": "{\"missing\":true}"
    }
   ],
-  "passed": 50,
+  "passed": 56,
   "failed": 1
  },
  "staging": {
@@ -275,10 +305,8 @@
   "home": "http://localhost:18085/",
   "blog_public": "0",
   "wp_robots_noindex_filter": true,
-  "policy_option_state": "PRESENT:undefined",
-  "policy_option_present": false,
   "runtime_class_installed": false,
-  "d2_status": "RUNTIME_ABSENT_INSTALL_OFF_PENDING",
+  "policy_option_state": "NOT_PROBED",
   "targets": [
    {
     "path": "/",
@@ -363,39 +391,113 @@
   ],
   "matched": 13,
   "total": 16,
-  "negative_private_ok": false,
-  "checks": [
-   {
-    "name": "staging_env_is_staging",
-    "pass": true,
-    "detail": "staging"
+  "policy_option_present": false,
+  "d2_status": "RUNTIME_ABSENT_INSTALL_OFF_PENDING"
+ },
+ "production": {
+  "state": "COMPARED",
+  "observed_utc": "2026-11-15T21:39:38+00:00",
+  "env": "production",
+  "home": "https://tehnet.ir/",
+  "blog_public": "0",
+  "wp_robots_noindex_filter": true,
+  "runtime_class_installed": false,
+  "direct_ids": {
+   "193": {
+    "missing": true
    },
-   {
-    "name": "staging_blog_public_0",
-    "pass": true,
-    "detail": "0"
-   },
-   {
-    "name": "staging_core_noindex_filter_present",
-    "pass": true,
-    "detail": null
-   },
-   {
-    "name": "staging_policy_option_off",
-    "pass": true,
-    "detail": "policy not applied yet"
-   },
-   {
-    "name": "staging_runtime_class_state",
-    "pass": true,
-    "detail": "false"
-   },
-   {
-    "name": "staging_all_16_targets_match_manifest",
-    "pass": false,
-    "detail": "13/16"
+   "206": {
+    "type": "page",
+    "status": "publish",
+    "path": "/services/voice-network-readiness/",
+    "title": "آماده‌سازی و بررسی شبکه برای VoIP"
    }
-  ]
+  },
+  "policy_option_state": "NOT_PROBED",
+  "targets": [
+   {
+    "path": "/",
+    "match": false,
+    "reason": "body_hash_drift"
+   },
+   {
+    "path": "/services/",
+    "match": false,
+    "reason": "body_hash_drift"
+   },
+   {
+    "path": "/services/voice-network-readiness/",
+    "match": false,
+    "reason": "excerpt_hash_drift"
+   },
+   {
+    "path": "/services/remote-support/",
+    "match": false,
+    "reason": "body_hash_drift,excerpt_hash_drift"
+   },
+   {
+    "path": "/services/mikrotik-tehran/",
+    "match": false,
+    "reason": "body_hash_drift,excerpt_hash_drift,title_drift"
+   },
+   {
+    "path": "/services/network-setup-tehran/",
+    "match": false,
+    "reason": "body_hash_drift,excerpt_hash_drift,title_drift"
+   },
+   {
+    "path": "/services/network-support-tehran/",
+    "match": false,
+    "reason": "body_hash_drift,excerpt_hash_drift,title_drift"
+   },
+   {
+    "path": "/services/network-tehran/",
+    "match": false,
+    "reason": "body_hash_drift,excerpt_hash_drift,title_drift"
+   },
+   {
+    "path": "/about/",
+    "match": false,
+    "reason": "body_hash_drift"
+   },
+   {
+    "path": "/contact/",
+    "match": true,
+    "reason": "ok"
+   },
+   {
+    "path": "/technical-methodology/",
+    "match": true,
+    "reason": "ok"
+   },
+   {
+    "path": "/network-support-contract-guide/",
+    "match": false,
+    "reason": "missing_in_readback"
+   },
+   {
+    "path": "/network-project-proposal-checklist/",
+    "match": false,
+    "reason": "missing_in_readback"
+   },
+   {
+    "path": "/business-server-planning-guide/",
+    "match": false,
+    "reason": "missing_in_readback"
+   },
+   {
+    "path": "/server-backup-restore-acceptance/",
+    "match": false,
+    "reason": "missing_in_readback"
+   },
+   {
+    "path": "/services/server-virtualization-tehran/",
+    "match": false,
+    "reason": "missing_in_readback"
+   }
+  ],
+  "matched": 2,
+  "total": 16
  },
  "verdict": "FAIL"
 }

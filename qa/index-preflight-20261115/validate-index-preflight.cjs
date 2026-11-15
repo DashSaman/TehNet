@@ -48,7 +48,7 @@ function extractCreatedMap(migSrc) {
 const SHA_RE = /^[a-f0-9]{64}$/;
 
 /* --- main --- */
-function main(stagingReadbackPath) {
+function main(stagingReadbackPath, productionReadbackPath) {
   const startedUtc = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
   const head = gitRev(PR100_REF);
   console.log('PR100 head: ' + head);
@@ -140,7 +140,7 @@ function main(stagingReadbackPath) {
   }
   fs.rmSync(tmp, { recursive: true, force: true });
 
-  /* PART B — staging read-only comparison (optional input) */
+  /* PART B — read-only readback comparisons (optional inputs) */
   const result = {
     packet: 'TN-INDEX-PREFLIGHT-20261115',
     started_utc: startedUtc,
@@ -149,11 +149,11 @@ function main(stagingReadbackPath) {
     pr100_head_sha: head,
     static: { checks: checks.slice(), passed: checks.filter(c => c.pass).length, failed: checks.filter(c => !c.pass).length },
     staging: { state: 'NOT_RUN' },
+    production: { state: 'NOT_RUN' },
     verdict: null,
   };
 
-  if (stagingReadbackPath) {
-    const rb = JSON.parse(fs.readFileSync(stagingReadbackPath, 'utf8'));
+  const compareReadback = (rb, label) => {
     const cmp = [];
     const home = (rb.home || '').replace(/\/$/, '');
     for (const t of activation.targets) {
@@ -175,33 +175,50 @@ function main(stagingReadbackPath) {
       cmp.push({ path: t.path, match: reasons.length === 0, reason: reasons.join(',') || 'ok' });
     }
     const matched = cmp.filter(c => c.match).length;
-    result.staging = {
+    return {
       state: 'COMPARED',
       observed_utc: rb.observed_utc,
       env: rb.env,
       home: rb.home,
       blog_public: rb.blog_public,
       wp_robots_noindex_filter: rb.wp_robots_noindex,
-      policy_option_state: rb.policy_option === null ? 'NOT_APPLIED_OFF' : 'PRESENT:' + rb.policy_option_state,
-      policy_option_present: rb.policy_option !== null && rb.policy_option !== undefined,
       runtime_class_installed: rb.runtime_class === true,
-      d2_status: rb.runtime_class === true ? 'RUNTIME_PRESENT' : 'RUNTIME_ABSENT_INSTALL_OFF_PENDING',
+      direct_ids: rb.direct_ids || undefined,
+      policy_option_state: rb.policy_option === undefined ? 'NOT_PROBED' : (rb.policy_option === null ? 'NOT_APPLIED_OFF' : 'PRESENT'),
       targets: cmp,
       matched,
       total: cmp.length,
-      negative_private_ok: cmp.every(c => c.match) && rb.blog_public === '0',
     };
+  };
+
+  if (stagingReadbackPath) {
+    const rb = JSON.parse(fs.readFileSync(stagingReadbackPath, 'utf8'));
+    result.staging = compareReadback(rb, 'staging');
+    result.staging.policy_option_present = rb.policy_option_present === true;
+    result.staging.d2_status = rb.runtime_class === true ? 'RUNTIME_PRESENT' : 'RUNTIME_ABSENT_INSTALL_OFF_PENDING';
     ck('staging_env_is_staging', rb.env === 'staging', rb.env);
     ck('staging_blog_public_0', rb.blog_public === '0', rb.blog_public);
     ck('staging_core_noindex_filter_present', rb.wp_robots_noindex === true);
-    ck('staging_policy_option_off', rb.policy_option === null || rb.policy_option === undefined, 'policy not applied yet');
+    ck('staging_policy_option_off', rb.policy_option_present !== true, 'policy not applied yet');
     ck('staging_runtime_class_state', typeof rb.runtime_class === 'boolean', String(rb.runtime_class));
-    ck('staging_all_16_targets_match_manifest', matched === 16, matched + '/16');
-    result.staging.checks = checks.filter(c => c.name.startsWith('staging_'));
-    result.static.passed = checks.filter(c => c.pass).length;
-    result.static.failed = checks.filter(c => !c.pass).length;
-    result.static.checks = checks.slice();
+    ck('staging_all_16_targets_match_manifest', result.staging.matched === 16, result.staging.matched + '/16');
   }
+  if (productionReadbackPath) {
+    const rb = JSON.parse(fs.readFileSync(productionReadbackPath, 'utf8'));
+    result.production = compareReadback(rb, 'production');
+    ck('production_env_is_production', rb.env === 'production', rb.env);
+    ck('production_blog_public_0', rb.blog_public === '0', rb.blog_public);
+    ck('production_core_noindex_filter_present', rb.wp_robots_noindex === true);
+    const fixedIdMismatches = result.production.targets
+      .filter(t => fixed[t.path] !== undefined)
+      .filter(t => /id_drift|not_found|missing_in_readback/.test(t.reason));
+    ck('production_all_fixed_ids_match_manifest', fixedIdMismatches.length === 0, fixedIdMismatches.length + ' fixed-path id/lookup mismatches (created A1-A4/N1 pages are D1 staging scope, absent on production is expected pre-release)');
+    ck('production_id206_is_voice_network_readiness', (rb.direct_ids && rb.direct_ids['206'] && rb.direct_ids['206'].path === '/services/voice-network-readiness/') === true, JSON.stringify(rb.direct_ids && rb.direct_ids['206']));
+    ck('production_id193_absent', (rb.direct_ids && rb.direct_ids['193'] && rb.direct_ids['193'].missing === true) === true, JSON.stringify(rb.direct_ids && rb.direct_ids['193']));
+  }
+  result.static.checks = checks.slice();
+  result.static.passed = checks.filter(c => c.pass).length;
+  result.static.failed = checks.filter(c => !c.pass).length;
 
   const anyFail = result.static.failed > 0 || (result.staging.state === 'COMPARED' && result.staging.matched !== 16);
   result.verdict = anyFail ? 'FAIL' : (result.staging.state === 'COMPARED' ? 'PREFLIGHT_OK_D3_STILL_UNAUTHORIZED' : 'STATIC_OK_STAGING_NOT_RUN');
@@ -209,13 +226,15 @@ function main(stagingReadbackPath) {
   fs.writeFileSync(outPath, JSON.stringify(result, null, 1), 'utf8');
   console.log('\nTOTAL=' + checks.length + ' PASS=' + checks.filter(c => c.pass).length + ' FAIL=' + checks.filter(c => !c.pass).length);
   console.log('STAGING=' + result.staging.state + (result.staging.state === 'COMPARED' ? ' matched=' + result.staging.matched + '/16' : ''));
+  console.log('PRODUCTION=' + result.production.state + (result.production.state === 'COMPARED' ? ' matched=' + result.production.matched + '/16' : ''));
   console.log('VERDICT=' + result.verdict);
   console.log('WROTE ' + outPath);
   return anyFail ? 1 : 0;
 }
 
 if (require.main === module) {
-  const arg = process.argv[2];
-  process.exitCode = main(arg && fs.existsSync(arg) ? arg : undefined);
+  const sArg = process.argv[2];
+  const pArg = process.argv[3];
+  process.exitCode = main(sArg && fs.existsSync(sArg) ? sArg : undefined, pArg && fs.existsSync(pArg) ? pArg : undefined);
 }
 module.exports = { extractMaxPaths, extractFixedMap, extractCreatedMap };
