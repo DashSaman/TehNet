@@ -1,0 +1,90 @@
+{
+ "run_id": "TN-LOCAL-STAGING-MWI7N8JY",
+ "label": "LOCAL_STAGING (owner temporary overnight permission)",
+ "utc": "2026-11-15T19:11:17Z",
+ "browser": {
+  "engine": "chromium",
+  "version": "158.0.8127.18"
+ },
+ "checks": [
+  {
+   "name": "svc_http200",
+   "pass": true,
+   "detail": {
+    "status": 200
+   }
+  },
+  {
+   "name": "svc_cta_present",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "name": "svc_cta_lands_form",
+   "pass": true,
+   "detail": {
+    "url": "http://localhost:18085/services/?tn_service_context=server-scoping#service-request"
+   }
+  },
+  {
+   "name": "svc_submit_302",
+   "pass": true,
+   "detail": {
+    "url": "http://localhost:18085/support/?tn_ticket=sent&tn_service_receipt=ekVdKNrehed1CIfA4OgV7USleFTTRU2f"
+   }
+  },
+  {
+   "name": "svc_receipt_visible",
+   "pass": true,
+   "detail": {
+    "tracking": "TN-801"
+   }
+  },
+  {
+   "name": "b2b_submit_302",
+   "pass": true,
+   "detail": {
+    "url": "http://localhost:18085/b2b/?tn_quote=sent"
+   }
+  },
+  {
+   "name": "support_submit_302",
+   "pass": true,
+   "detail": {
+    "url": "http://localhost:18085/support/?tn_ticket=sent"
+   }
+  },
+  {
+   "name": "support_mobile375_no_overflow",
+   "pass": true,
+   "detail": {
+    "px": 0
+   }
+  },
+  {
+   "name": "svc_mobile320_no_overflow",
+   "pass": true,
+   "detail": {
+    "px": 0
+   }
+  },
+  {
+   "name": "b2b_nojs_form_html_post",
+   "pass": true,
+   "detail": {
+    "present": true,
+    "method": "post",
+    "submit": true
+   }
+  },
+  {
+   "name": "dark_mode_toggle",
+   "pass": true,
+   "detail": {
+    "theme": "dark"
+   }
+  }
+ ],
+ "status": "PASS",
+ "failures": 0
+}
