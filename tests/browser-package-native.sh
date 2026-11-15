@@ -39,6 +39,7 @@ cd /var/www/html
 php /lab/wp --allow-root config create --dbname=wordpress --dbuser=root --dbpass="$TN_FIXTURE_PASSWORD" --dbhost=db --skip-check --extra-php <<'"'"'PHP'"'"'
 define("WP_HOME","http://localhost:18085");
 define("WP_SITEURL","http://localhost:18085");
+define("WP_ENVIRONMENT_TYPE","staging");
 define("TN_RECAPTCHA_ENABLED",true);
 define("TN_RECAPTCHA_SITE_KEY","SIMULATED-SITE-KEY");
 define("TN_RECAPTCHA_SECRET_KEY","SIMULATED-SECRET-KEY");
