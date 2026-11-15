@@ -60,8 +60,13 @@ stage_app_pid="$(docker inspect -f '{{.State.Pid}}' "$stage_app")"
 sudo nsenter --target "$stage_app_pid" --net -- node -e 'const fs=require("node:fs"),net=require("node:net");net.createServer(c=>{const u=net.connect(80,"127.0.0.1");c.pipe(u);u.pipe(c);c.on("error",()=>u.destroy());u.on("error",()=>c.destroy());}).listen(18085,"127.0.0.1");fs.writeFileSync(process.argv[1]+"/relay.pid",String(process.pid),{mode:0o600});' "$stage_root" >"$stage_root/relay.log" 2>&1 &
 sleep 1
 # Bootstrap the request contexts before the immutable DB baseline.
+# Wait for Apache to start (via the port mapping)
+for n in {1..30}; do
+  test "$(curl --silent --show-error --max-time 5 --output /dev/null --write-out '%{http_code}' http://localhost:18085/ 2>/dev/null)" = "200" && break
+  sleep 2
+done
 for stage_path in / /services/ /b2b/ /support/ /shop/ /wp-admin/admin-post.php; do
- stage_http="$(sudo nsenter --target "$stage_app_pid" --net -- curl --silent --show-error --max-time 30 --output /dev/null --write-out '%{http_code}' "http://localhost:18085$stage_path")"
+ stage_http="$(curl --silent --show-error --max-time 30 --output /dev/null --write-out '%{http_code}' "http://localhost:18085$stage_path")"
  case "$stage_http" in 200|301|302|400) :;; *) echo "TN_FIXTURE_BOOTSTRAP_FAILED status=$stage_http"; exit 1;; esac
 done
 # The real browser journeys (Cases 1-4) against the isolated fixture.
