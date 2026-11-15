@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "note": "Production-truth b2b and support pages (bodies df89d925.../c03b121a... verified read-only against production tn_posts 194/196 on 2026-11-14). Synthetic fixture only.",
+  "pages": [
+    {
+      "id": 191,
+      "slug": "b2b",
+      "parent": 0,
+      "title": "خرید سازمانی و پیش‌فاکتور",
+      "body": "<!-- wp:paragraph --><p>درخواست پیش‌فاکتور سازمانی تهران نتورک: اقلام را با مقدار مشخص کنید؛ کارشناسان قیمت، موجودی و زمان تأمین را بررسی و پیش‌فاکتور رسمی صادر می‌کنند.</p><!-- /wp:paragraph -->\n[tn_b2b_quote]",
+      "body_sha256": "df89d9251a68595cbfc002d0bc9a2d697979f8ebeeca4b8d338cdd2ef25a9df3"
+    },
+    {
+      "id": 192,
+      "slug": "support",
+      "parent": 0,
+      "title": "پشتیبانی و تیکت",
+      "body": "<!-- wp:paragraph --><p>مشکل سفارش، استعلام یا پیش‌فاکتور خود را ثبت کنید؛ کارشناسان تهران نتورک در ساعات کاری پاسخ می‌دهند.</p><!-- /wp:paragraph -->\n[tn_support_ticket]",
+      "body_sha256": "c03b121aa300a0139a9e4226c2db60dc7d31d8fbdc3095d309901391aa776693"
+    }
+  ]
+}

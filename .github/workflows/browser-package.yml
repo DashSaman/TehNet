@@ -1,0 +1,37 @@
+name: Browser package isolated acceptance
+on:
+  workflow_dispatch:
+  push:
+    branches: [ops/agent-control-20261111]
+    paths: ['tests/browser-package-*', 'tests/fixtures/browser-journey-extra-pages.json', 'tests/fixtures/decision-v2-public-pages.json', '.github/workflows/browser-package.yml', 'ops/migrate-growth-content.php', 'site/plugins/tehnet-store/includes/class-tickets.php', 'site/plugins/tehnet-store/includes/class-quotes.php', 'site/plugins/tehnet-store/includes/class-recaptcha.php', 'site/plugins/tehnet-store/includes/class-policy.php']
+permissions:
+  contents: read
+concurrency:
+  group: browser-package-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  browser:
+    if: github.repository == 'DashSaman/TehNet' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Fetch the clean immutable baseline snapshot
+        run: git fetch --no-tags --depth=1 origin 7ce37e0e3d4e92af15fe6bf4d5b22d3f871433cd
+      - run: python3 tools/publication_guard.py
+      - name: Boundary regressions
+        run: python3 -m unittest discover -s tests -p test_growth_release.py -v
+      - run: node --check tests/browser-package.cjs && bash -n tests/browser-package-native.sh && php -l tests/browser-package-native.php
+      - name: Real browser journeys in disposable WordPress on the GitHub-hosted runner
+        run: bash tests/browser-package-native.sh
+      - name: Upload receipts
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: browser-package-receipts
+          path: browser-package-result.json
+          retention-days: 30
+          if-no-files-found: ignore
