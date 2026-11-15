@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "updated_utc": "2026-11-15T19:05:38Z",
+ "updated_utc": "2026-11-15T19:12:31Z",
  "primary_executor": "Z Code",
  "supervisor_operational": true,
  "supervisor_notes": "Operational; fail-closed proven live; regression suite committed (10/10); next ordinary review from committed head d977717+.",
@@ -78,5 +78,6 @@
  "browser_infra": "BLOCKED — 7 CI attempts, infrastructure committed (bc13177), Docker networking debugging needed on GitHub runner",
  "passive_content": "v3 COMMITTED_NOT_DEPLOYED (370ddb1) — 7 corrections applied, Gutenberg balanced",
  "remote_intake": "COMMITTED (a5c4ee0) — fragment ready for future integration",
- "execution_mission": "COMPLETE — passive v3 (a525aa5), remote intake preview (395413a), scheduler readback (6899657324), browser BLOCKED_DEFINITIVE (8 CI attempts), owner directive (amirreza-golavar drafted, 8c74794)"
+ "execution_mission": "IN_PROGRESS — passive v3 (370ddb1→22dea09), remote intake preview (395413a), LOCAL_STAGING browser PASS 11/11 (4faeef3), browser cloud BLOCKED_DEFINITIVE (8 CI attempts); deadline 04:30Z 11-16",
+ "local_staging_browser": "PASS 11/11 (TN-LOCAL-STAGING) — Services CTA+receipt TN-801, B2B quote, Support mobile-375, no-overflow 375/320, no-JS HTML POST, dark toggle; cleanup verified; owner-authorized LOCAL_STAGING per 6899649773; REVIEW_REQUEST posted to PR96"
 }
