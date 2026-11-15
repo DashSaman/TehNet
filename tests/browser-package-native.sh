@@ -19,11 +19,11 @@ echo "3066f85e46d1c1f6451296da0300b459963b504fd0d2f75869701ee744833aaf  $stage_r
 npm install --prefix "$stage_root/pw" --ignore-scripts --no-audit --no-fund playwright@1.56.1 >/dev/null
 PLAYWRIGHT_BROWSERS_PATH="$stage_root/browsers" node "$stage_root/pw/node_modules/playwright/cli.js" install --with-deps chromium >/dev/null
 docker network create --internal "$stage_net" >/dev/null
-docker run -d --name "$stage_db" --network "$stage_net" --network-alias db -e MARIADB_ROOT_PASSWORD="$stage_password" -e MARIADB_DATABASE=wordpress mariadb:11.4.13-noble >/dev/null
+docker run -d --name "$stage_db" --network host -e MARIADB_ROOT_PASSWORD="$stage_password" -e MARIADB_DATABASE=wordpress mariadb:11.4.13-noble >/dev/null
 for n in {1..40}; do if docker exec "$stage_db" healthcheck.sh --connect --innodb_initialized >/dev/null 2>&1; then break; fi; sleep 1; done
 docker create --name "$stage_cli" wordpress:cli-2.12.0-php8.3 >/dev/null
 docker cp "$stage_cli:/usr/local/bin/wp" "$stage_root/wp"
-docker run -d --name "$stage_app" --network "$stage_net" -e TN_FIXTURE_PASSWORD="$stage_password" -v "$PWD:/src:ro" -v "$stage_root:/lab" -v "$stage_root/web:/var/www/html" --entrypoint bash wordpress:7.1.4-php8.3-apache -eu -c '
+docker run -d --name "$stage_app" --network host -e TN_FIXTURE_PASSWORD="$stage_password" -v "$PWD:/src:ro" -v "$stage_root:/lab" -v "$stage_root/web:/var/www/html" --entrypoint bash wordpress:7.1.4-php8.3-apache -eu -c '
 for fixture_php in /src/tests/browser-package-native.php /src/ops/migrate-growth-content.php; do php -l "$fixture_php"; done
 cp -a /usr/src/wordpress/. /var/www/html/
 cp -a /src/site/. /var/www/html/wp-content/
@@ -36,7 +36,7 @@ add_filter("pre_http_request",static function($pre,$args,$url){if($url==="https:
 add_filter("woocommerce_available_payment_gateways","__return_empty_array",PHP_INT_MAX);
 PHP
 cd /var/www/html
-php /lab/wp --allow-root config create --dbname=wordpress --dbuser=root --dbpass="$TN_FIXTURE_PASSWORD" --dbhost=db --skip-check --extra-php <<'"'"'PHP'"'"'
+php /lab/wp --allow-root config create --dbname=wordpress --dbuser=root --dbpass="$TN_FIXTURE_PASSWORD" --dbhost=127.0.0.1 --skip-check --extra-php <<'"'"'PHP'"'"'
 define("WP_HOME","http://localhost:18085");
 define("WP_SITEURL","http://localhost:18085");
 define("WP_ENVIRONMENT_TYPE","staging");
@@ -56,9 +56,7 @@ exec apache2-foreground
 for n in {1..120}; do test -f "$stage_root/READY" && break; if test "$(docker inspect -f '{{.State.Running}}' "$stage_app")" != true; then docker logs "$stage_app"; exit 1; fi; sleep 1; done
 test -f "$stage_root/READY"
 export TN_STAGE_APP="$stage_app" TN_STAGE_DB="$stage_db" TN_STAGE_NET="$stage_net" TN_FIXTURE_PASSWORD="$stage_password"
-stage_app_pid="$(docker inspect -f '{{.State.Pid}}' "$stage_app")"
-sudo nsenter --target "$stage_app_pid" --net -- node -e 'const fs=require("node:fs"),net=require("node:net");net.createServer(c=>{const u=net.connect(80,"127.0.0.1");c.pipe(u);u.pipe(c);c.on("error",()=>u.destroy());u.on("error",()=>c.destroy());}).listen(18085,"127.0.0.1");fs.writeFileSync(process.argv[1]+"/relay.pid",String(process.pid),{mode:0o600});' "$stage_root" >"$stage_root/relay.log" 2>&1 &
-sleep 1
+# Host network: no relay needed, Apache directly on runner port 80
 # Bootstrap the request contexts before the immutable DB baseline.
 # Wait for Apache to start (via the port mapping) — set +e for the wait phase
 set +e
@@ -99,8 +97,7 @@ done
 # Execute Chromium inside the container's network namespace (MANAGER_REVIEW correction):
 # Apache listens on 127.0.0.1:80 inside this namespace; the browser joins the same namespace
 # via nsenter so it can reach Apache without host port mapping.
-export TN_BROWSER_BASE="http://127.0.0.1:80"
+export TN_BROWSER_BASE="http://localhost:18085"
 export GITHUB_SHA="$GITHUB_SHA"
-stage_app_pid="$(docker inspect -f '{{.State.Pid}}' "$stage_app")"
-sudo nsenter --target "$stage_app_pid" --net -- env   TN_BROWSER_BASE="$TN_BROWSER_BASE"   GITHUB_SHA="$GITHUB_SHA"   TN_STAGE_APP="$stage_app"   NODE_PATH="$stage_root/pw/node_modules"   PLAYWRIGHT_BROWSERS_PATH="$stage_root/browsers"   HOME="$HOME"   node "$PWD/tests/browser-package.cjs"
+NODE_PATH="$stage_root/pw/node_modules" PLAYWRIGHT_BROWSERS_PATH="$stage_root/browsers" TN_BROWSER_BASE="$TN_BROWSER_BASE" GITHUB_SHA="$GITHUB_SHA" node tests/browser-package.cjs
 echo "TN_BROWSER_PACKAGE_NATIVE_DONE"
