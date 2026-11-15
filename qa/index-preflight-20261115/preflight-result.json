@@ -1,0 +1,401 @@
+{
+ "packet": "TN-INDEX-PREFLIGHT-20261115",
+ "started_utc": "2026-11-15T21:24:35Z",
+ "finished_utc": "2026-11-15T21:24:35Z",
+ "pr100_ref": "origin/feat/setup-reconcile-20261113",
+ "pr100_head_sha": "a54198ce7ed3535d6783432d8401660e2e023f9d",
+ "static": {
+  "checks": [
+   {
+    "name": "class_key_matches",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "class_option_name",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "class_max_paths_is_16",
+    "pass": true,
+    "detail": 16
+   },
+   {
+    "name": "class_fail_closed_no_blog_public_write",
+    "pass": true,
+    "detail": "class must never write options"
+   },
+   {
+    "name": "class_fail_closed_blog_public_gate",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "class_no_content_writes",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "class_nonapproved_gets_noindex",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "class_approved_removal_scoped",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "mig_baseline_blog_public_0_required",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "mig_core_noindex_filter_required",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "mig_never_updates_blog_public",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "mig_single_option_write_paths",
+    "pass": true,
+    "detail": "writes confined to the one policy option via $set"
+   },
+   {
+    "name": "mig_production_gate_needs_key_env",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "mig_enforces_16_targets",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "mig_staging_gate_closed_isolation",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "mig_fixed_map_11",
+    "pass": true,
+    "detail": 11
+   },
+   {
+    "name": "mig_created_map_5",
+    "pass": true,
+    "detail": 5
+   },
+   {
+    "name": "act_schema_key_operation",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "act_exactly_16_targets",
+    "pass": true,
+    "detail": 16
+   },
+   {
+    "name": "act_paths_exactly_max_paths_set",
+    "pass": true,
+    "detail": "set equality both directions enforced below"
+   },
+   {
+    "name": "act_no_lab_paths",
+    "pass": true,
+    "detail": "RETAIN_NOINDEX pages excluded"
+   },
+   {
+    "name": "act_unique_paths",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "act_11_fixed_5_created",
+    "pass": true,
+    "detail": {
+     "ids": 11,
+     "keys": 5
+    }
+   },
+   {
+    "name": "act_unique_ids",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "act_unique_keys",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "act_keys_are_A1_A4_N1",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "act_fixed_ids_match_migration_map",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "act_created_keys_match_migration_map",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "act_hash_format_valid",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "act_titles_present",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "act_d3_still_needs_exact_owner_approval",
+    "pass": true,
+    "detail": "NEEDS_SEPARATE_EXACT_ALLOWLIST_OWNER_APPROVAL"
+   },
+   {
+    "name": "act_no_private_post_types",
+    "pass": true,
+    "detail": "allowlist is plain public pages only"
+   },
+   {
+    "name": "rt_install_off_contract",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "rt_needs_owner_approval",
+    "pass": true,
+    "detail": "NEEDS_SEPARATE_OWNER_APPROVAL"
+   },
+   {
+    "name": "op_has_index_scopes",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "op_authorization_env_binding",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "op_runtime_files_declared",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "bundle_exists:network-support-contract-guide.html",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "bundle_exists:network-project-proposal-checklist.html",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "bundle_exists:business-server-planning-guide.html",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "bundle_exists:server-backup-restore-acceptance.html",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "bundle_exists:server-virtualization-tehran.html",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "php_runtime_present",
+    "pass": true,
+    "detail": "php-runtime/php.exe (local runtime, path withheld)"
+   },
+   {
+    "name": "php_lint:class-index-policy.php",
+    "pass": true,
+    "detail": "No syntax errors detected in [TMP]\\class-index-policy.php"
+   },
+   {
+    "name": "php_lint:migrate-index-policy.php",
+    "pass": true,
+    "detail": "No syntax errors detected in [TMP]\\migrate-index-policy.php"
+   },
+   {
+    "name": "staging_env_is_staging",
+    "pass": true,
+    "detail": "staging"
+   },
+   {
+    "name": "staging_blog_public_0",
+    "pass": true,
+    "detail": "0"
+   },
+   {
+    "name": "staging_core_noindex_filter_present",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "staging_policy_option_off",
+    "pass": true,
+    "detail": "policy not applied yet"
+   },
+   {
+    "name": "staging_runtime_class_state",
+    "pass": true,
+    "detail": "false"
+   },
+   {
+    "name": "staging_all_16_targets_match_manifest",
+    "pass": false,
+    "detail": "13/16"
+   }
+  ],
+  "passed": 50,
+  "failed": 1
+ },
+ "staging": {
+  "state": "COMPARED",
+  "observed_utc": "2026-11-15T21:22:17+00:00",
+  "env": "staging",
+  "home": "http://localhost:18085/",
+  "blog_public": "0",
+  "wp_robots_noindex_filter": true,
+  "policy_option_state": "PRESENT:undefined",
+  "policy_option_present": false,
+  "runtime_class_installed": false,
+  "d2_status": "RUNTIME_ABSENT_INSTALL_OFF_PENDING",
+  "targets": [
+   {
+    "path": "/",
+    "match": false,
+    "reason": "body_hash_drift"
+   },
+   {
+    "path": "/services/",
+    "match": true,
+    "reason": "ok"
+   },
+   {
+    "path": "/services/voice-network-readiness/",
+    "match": false,
+    "reason": "id_drift:193,excerpt_hash_drift"
+   },
+   {
+    "path": "/services/remote-support/",
+    "match": false,
+    "reason": "excerpt_hash_drift"
+   },
+   {
+    "path": "/services/mikrotik-tehran/",
+    "match": true,
+    "reason": "ok"
+   },
+   {
+    "path": "/services/network-setup-tehran/",
+    "match": true,
+    "reason": "ok"
+   },
+   {
+    "path": "/services/network-support-tehran/",
+    "match": true,
+    "reason": "ok"
+   },
+   {
+    "path": "/services/network-tehran/",
+    "match": true,
+    "reason": "ok"
+   },
+   {
+    "path": "/about/",
+    "match": true,
+    "reason": "ok"
+   },
+   {
+    "path": "/contact/",
+    "match": true,
+    "reason": "ok"
+   },
+   {
+    "path": "/technical-methodology/",
+    "match": true,
+    "reason": "ok"
+   },
+   {
+    "path": "/network-support-contract-guide/",
+    "match": true,
+    "reason": "ok"
+   },
+   {
+    "path": "/network-project-proposal-checklist/",
+    "match": true,
+    "reason": "ok"
+   },
+   {
+    "path": "/business-server-planning-guide/",
+    "match": true,
+    "reason": "ok"
+   },
+   {
+    "path": "/server-backup-restore-acceptance/",
+    "match": true,
+    "reason": "ok"
+   },
+   {
+    "path": "/services/server-virtualization-tehran/",
+    "match": true,
+    "reason": "ok"
+   }
+  ],
+  "matched": 13,
+  "total": 16,
+  "negative_private_ok": false,
+  "checks": [
+   {
+    "name": "staging_env_is_staging",
+    "pass": true,
+    "detail": "staging"
+   },
+   {
+    "name": "staging_blog_public_0",
+    "pass": true,
+    "detail": "0"
+   },
+   {
+    "name": "staging_core_noindex_filter_present",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "staging_policy_option_off",
+    "pass": true,
+    "detail": "policy not applied yet"
+   },
+   {
+    "name": "staging_runtime_class_state",
+    "pass": true,
+    "detail": "false"
+   },
+   {
+    "name": "staging_all_16_targets_match_manifest",
+    "pass": false,
+    "detail": "13/16"
+   }
+  ]
+ },
+ "verdict": "FAIL"
+}
