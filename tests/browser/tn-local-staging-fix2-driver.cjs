@@ -10,7 +10,7 @@ const SHA=process.env.GITHUB_SHA||'local';
 const ST=new Date().toISOString().replace(/\.\d+Z$/,'Z');
 const o={run_id:RID,started_utc:ST,finished_utc:null,sha:SHA,base:BASE,label:'LOCAL_STAGING',browser:null,status:'RUNNING',limitations:['SIMULATED CAPTCHA','LOCAL_STAGING not cloud','original CSS preserved','nav errors NOT suppressed'],checks:[],owned:[],cleanup:null};
 const cks=[];let fail=0;
-const ck=(n,ok,d)=>{fail+=ok?0:1;checks.push({name:n,pass:!!ok,detail:d||{}});console.log((ok?'OK  ':'FAIL')+' '+n);};
+const ck=(n,ok,d)=>{fail+=ok?0:1;cks.push({name:n,pass:!!ok,detail:d||{}});console.log((ok?'OK  ':'FAIL')+' '+n);};
 function sw(p){const b=Buffer.from(p).toString('base64');return execSync(SSH+' "docker exec '+CTN+' sh -c \'echo '+b+' | base64 -d > /tmp/_tn_d.php && '+WPC+' eval-file /tmp/_tn_d.php\'"',{encoding:'utf8',timeout:30000}).trim().split('\n').pop();}
 function dbc(t){return JSON.parse(sw('<?php echo json_encode(["n"=>(int)wp_count_posts("'+t+'")->publish+(int)wp_count_posts("'+t+'")->private]);')).n;}
 function dbr(t,i){return JSON.parse(sw('<?php $p=get_post('+i+');if(!$p||$p->post_type!=="'+t+'"){echo "{}";exit;}echo json_encode(["id"=>$p->ID,"status"=>$p->post_status,"kind"=>get_post_meta($p->ID,"_tn_request_kind",true),"state"=>get_post_meta($p->ID,"_tn_quote_state",true)?:get_post_meta($p->ID,"_tn_ticket_state",true),"thread"=>count((array)get_post_meta($p->ID,"_tn_thread",true)),"company"=>get_post_meta($p->ID,"_tn_company",true)]);'));}
