@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "updated_utc": "2026-11-15T10:49:32Z",
+ "updated_utc": "2026-11-15T16:12:21Z",
  "single_writer": "Z Code primary executor",
  "supervisor": "Codex (read-only review; max 2 ordinary reviews/day)",
  "tasks": [
@@ -450,6 +450,69 @@
    "last_progress": "2026-11-15T12:43Z",
    "next_action": "Author workflow + fixture extension, run on GitHub runner, receipts",
    "detail": "8 CI attempts exhausted (port mapping, relay, nsenter netns, host network) — all fail at Docker networking layer; infrastructure committed for future debugging; browser execution BLOCKED_DEFINITIVE"
+  },
+  {
+   "id": "TN-PASSIVE-CONTENT-V3",
+   "owner": "zcode",
+   "priority": "P0",
+   "title": "Passive content v3 consolidated — 7 corrections from MANAGER_REVIEW applied, 7 CI-blocked fixes applied",
+   "state": "COMMITTED_NOT_DEPLOYED",
+   "dependencies": [],
+   "acceptance": [
+    "wiremap split-pair distinction accurate",
+    "contractor-intent claim removed",
+    "PL/Channel/MPTL explained",
+    "table owner/deadline/retest columns",
+    "FAIL multi-cause note",
+    "ordered list",
+    "captions",
+    "کف terminology fixed",
+    "Gutenberg blocks balanced 47/47"
+   ],
+   "attempts": 1,
+   "evidence": "commit 370ddb1; branch feat/passive-network-content-20261115; passive content v3 in original file path",
+   "last_progress": "2026-11-15T06:24Z",
+   "next_action": "Owner merge or manager review"
+  },
+  {
+   "id": "TN-REMOTE-INTAKE",
+   "owner": "zcode",
+   "priority": "P1",
+   "title": "Remote intake example fragment — template + 2 fictional examples",
+   "state": "COMMITTED_NOT_DEPLOYED",
+   "dependencies": [],
+   "acceptance": [
+    "template with 6 required fields",
+    "2 fictional examples",
+    "links to /support/ and /b2b/",
+    "no credentials/passwords"
+   ],
+   "attempts": 1,
+   "evidence": "commit a5c4ee0; content/remote-intake-example-20261115/",
+   "last_progress": "2026-11-15T06:24Z",
+   "next_action": "Integration into deployment requires separate review"
+  },
+  {
+   "id": "TN-BROWSER-INFRA",
+   "owner": "zcode",
+   "priority": "P0",
+   "title": "Browser workflow infrastructure — WP_ENVIRONMENT_TYPE, port mapping, robust wait loop committed",
+   "state": "BLOCKED",
+   "dependencies": [
+    "Docker networking debugging on GitHub-hosted runner"
+   ],
+   "acceptance": [
+    "7 CI runs attempted",
+    "WP_ENVIRONMENT_TYPE=staging added",
+    "port mapping added",
+    "180s wait loop",
+    "fixture verified",
+    "seed build passed"
+   ],
+   "attempts": 7,
+   "evidence": "commits a2b1908..bc13177; workflow id 419080797 active on agent-control branch",
+   "last_progress": "2026-11-15T12:47Z",
+   "next_action": "Docker networking debugging on GitHub runner — separate session"
   }
  ]
 }

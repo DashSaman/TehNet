@@ -1,4 +1,10 @@
 ## ARCHIVED CHECKPOINT (superseded — keep for reference) — —2026-11-14 cycle 12: 16/16 open PRs CI GREEN (fresh snapshot); M0=merge PR100 d457580; backup 16h (skip); noindex intact; WAITING_FOR_OWNER: merges + off-host + D1/D2/D3
+### 2026-11-15 addendum (execution mission batch)
+- Passive content v3 COMMITTED (370ddb1): 7 corrections from MANAGER_REVIEW, Gutenberg balanced 47/47, original file path consolidated.
+- Remote intake example COMMITTED (a5c4ee0): template + 2 fictional examples, links to /support/ and /b2b/.
+- Browser workflow infrastructure COMMITTED (bc13177): WP_ENVIRONMENT_TYPE, port mapping, 180s wait loop, fixture with b2b/support. CI run BLOCKED — Docker networking debugging needed.
+- Scheduler readback posted to PR96 (comment 6895733442): ID, 30-min cadence, active, next-run UTC.
+- Owner directive: amirreza-golavar page drafted (removed from site), broken links cleaned.
 ### 2026-11-14 addendum 3 (manager channel — PERSISTENT DIRECTIVE)
 - Channel: PR96 comment thread (owner conversation, Codex reads hourly). Handshake TN-LINK-20261114-A COMPLETED (request 6880308551 16:05Z; ACK 6880417970 16:12:22Z; receipt ops/agent-control/HANDSHAKE-TN-LINK-20261114-A.json).
 - Future milestones: post one REVIEW_REQUEST per milestone with unique packet ID + exact source SHA + evidence paths as a PR96 comment; manager replies source-bound DECISION/EVIDENCE/CORRECTION/ACCEPTANCE; missing/stale/ambiguous reply = WAITING (not authorization); no duplicate packets; CLI supervisor_bridge reserved for transport tests/non-duplicate packets; never two managers for the same packet.
