@@ -37,14 +37,14 @@ add_filter("woocommerce_available_payment_gateways","__return_empty_array",PHP_I
 PHP
 cd /var/www/html
 php /lab/wp --allow-root config create --dbname=wordpress --dbuser=root --dbpass="$TN_FIXTURE_PASSWORD" --dbhost=127.0.0.1 --skip-check --extra-php <<'"'"'PHP'"'"'
-define("WP_HOME","http://localhost:18085");
-define("WP_SITEURL","http://localhost:18085");
+define("WP_HOME","http://localhost:80");
+define("WP_SITEURL","http://localhost:80");
 define("WP_ENVIRONMENT_TYPE","staging");
 define("TN_RECAPTCHA_ENABLED",true);
 define("TN_RECAPTCHA_SITE_KEY","SIMULATED-SITE-KEY");
 define("TN_RECAPTCHA_SECRET_KEY","SIMULATED-SECRET-KEY");
 PHP
-php /lab/wp --allow-root core install --url=http://localhost:18085 --title="Synthetic fixture" --admin_user=fixture --admin_password="$TN_FIXTURE_PASSWORD" --admin_email=fixture@example.invalid --skip-email
+php /lab/wp --allow-root core install --url=http://localhost:80 --title="Synthetic fixture" --admin_user=fixture --admin_password="$TN_FIXTURE_PASSWORD" --admin_email=fixture@example.invalid --skip-email
 php /lab/wp --allow-root option update blog_public 0
 php /lab/wp --allow-root plugin activate woocommerce tehnet-core tehnet-store
 php /lab/wp --allow-root theme activate tehnet
@@ -62,7 +62,7 @@ export TN_STAGE_APP="$stage_app" TN_STAGE_DB="$stage_db" TN_STAGE_NET="$stage_ne
 set +e
 up=false
 for n in $(seq 1 60); do
-  code="$(curl --silent --max-time 5 --output /dev/null --write-out '%{http_code}' http://localhost:18085/ 2>/dev/null)"
+  code="$(curl --silent --max-time 5 --output /dev/null --write-out '%{http_code}' http://localhost:80/ 2>/dev/null)"
   if test "$code" = "200"; then up=true; echo "APACHE_UP after ${n} attempts"; break; fi
   sleep 3
 done
@@ -90,14 +90,14 @@ if test "$up" != "true"; then
   exit 1
 fi
 for stage_path in / /services/ /b2b/ /support/ /shop/ /wp-admin/admin-post.php; do
- stage_http="$(curl --silent --show-error --max-time 30 --output /dev/null --write-out '%{http_code}' "http://localhost:18085$stage_path")"
+ stage_http="$(curl --silent --show-error --max-time 30 --output /dev/null --write-out '%{http_code}' "http://localhost:80$stage_path")"
  case "$stage_http" in 200|301|302|400) :;; *) echo "TN_FIXTURE_BOOTSTRAP_FAILED status=$stage_http"; exit 1;; esac
 done
 # The real browser journeys (Cases 1-4) against the isolated fixture.
 # Execute Chromium inside the container's network namespace (MANAGER_REVIEW correction):
 # Apache listens on 127.0.0.1:80 inside this namespace; the browser joins the same namespace
 # via nsenter so it can reach Apache without host port mapping.
-export TN_BROWSER_BASE="http://localhost:18085"
+export TN_BROWSER_BASE="http://localhost:80"
 export GITHUB_SHA="$GITHUB_SHA"
 NODE_PATH="$stage_root/pw/node_modules" PLAYWRIGHT_BROWSERS_PATH="$stage_root/browsers" TN_BROWSER_BASE="$TN_BROWSER_BASE" GITHUB_SHA="$GITHUB_SHA" node tests/browser-package.cjs
 echo "TN_BROWSER_PACKAGE_NATIVE_DONE"
