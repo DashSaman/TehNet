@@ -4,6 +4,11 @@ if(!defined('WP_CLI')||!WP_CLI||wp_get_environment_type()!=='staging'||home_url(
 $phase=$args[0]??'seed';
 $checks=[];$ck=static function($yes,$label)use(&$checks){if(!$yes)throw new RuntimeException($label);$checks[]=$label;};
 if($phase==='seed'){
+    /* Delete default WP content so import_id allocation reaches the production-truth IDs. */
+    global $wpdb;
+    $wpdb->query("DELETE FROM {$wpdb->posts} WHERE ID <= 100 AND post_type IN ('post','page')");
+    $wpdb->query("DELETE FROM {$wpdb->postmeta} WHERE post_id <= 100");
+    $wpdb->query("ALTER TABLE {$wpdb->posts} AUTO_INCREMENT = 5");
     $dec=json_decode(file_get_contents('/src/tests/fixtures/decision-v2-public-pages.json'),true,512,JSON_THROW_ON_ERROR);
     foreach($dec['pages']as$p){
         $id=wp_insert_post(wp_slash(['import_id'=>$p['id'],'post_type'=>'page','post_status'=>'publish','post_parent'=>$p['parent'],'post_name'=>$p['slug'],'post_title'=>$p['title'],'post_excerpt'=>$p['excerpt']??'Synthetic fixture','post_content'=>$p['body']]),true);
