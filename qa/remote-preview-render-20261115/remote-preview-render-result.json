@@ -1,16 +1,26 @@
 {
  "packet": "TN-REMOTE-PREVIEW-RENDER-20261115",
- "run_id": "TN-REMOTE-PREVIEW-RENDER-MWIFCGQI",
- "started_utc": "2026-11-15T22:46:51Z",
- "finished_utc": "2026-11-15T22:46:52Z",
- "label": "LOCAL_STAGING existing tools (playwright 158.0.8127.18, headless, file:// standalone)",
+ "rev": 2,
+ "run_id": "TN-REMOTE-PREVIEW-RENDER-MWIFWNS7",
+ "started_utc": "2026-11-15T23:02:34Z",
+ "finished_utc": "2026-11-15T23:02:34Z",
+ "label": "LOCAL_STAGING existing tools (playwright, headless, file:// standalone)",
  "source": {
   "commit": "395413a0bb1d57f63321e1fef6e9d78833a50ce3",
   "file": "content/remote-intake-example-20261115/remote-support-with-intake.preview.html",
-  "blob_sha256": "c33df1e3a033760915122e4f7268bd040987489b9d10ce5bffc41e5e772a8f49",
+  "pinned_sha256": "c33df1e3a033760915122e4f7268bd040987489b9d10ce5bffc41e5e772a8f49",
+  "input_sha256": "c33df1e3a033760915122e4f7268bd040987489b9d10ce5bffc41e5e772a8f49",
   "bytes": 20805
  },
  "assertions": [
+  {
+   "id": "p0_pinned_digest_match",
+   "pass": true,
+   "detail": {
+    "pinned": "c33df1e3a0337609…",
+    "input": "c33df1e3a0337609…"
+   }
+  },
   {
    "id": "d1_standalone_loads",
    "pass": true,
@@ -36,22 +46,36 @@
    }
   },
   {
-   "id": "d3_intake_h2_before_why_tehnet",
+   "id": "d3_session_example_h2_order",
    "pass": true,
    "detail": {
     "sessionExampleIdx": 5,
-    "whyTehnetIdx": 8
+    "whyTehnetIdx": 8,
+    "note": "pre-existing fictional-session H2 — NOT the intake"
    }
   },
   {
-   "id": "d4_inpage_anchors_resolve",
+   "id": "d4_intake_h3_in_scope_and_request",
    "pass": true,
    "detail": {
-    "anchors": [
-     "before-connection",
-     "session-boundaries",
-     "session-handoff"
-    ],
+    "intake": {
+     "found": true,
+     "insideScopeBeforeWhy": true,
+     "listLi": 6
+    }
+   }
+  },
+  {
+   "id": "d5_intake_six_field_list",
+   "pass": true,
+   "detail": {
+    "li": 6
+   }
+  },
+  {
+   "id": "d6_inpage_anchors_resolve",
+   "pass": true,
+   "detail": {
     "resolved": [
      true,
      true,
@@ -60,7 +84,7 @@
    }
   },
   {
-   "id": "d5_internal_links_exact",
+   "id": "d7_internal_links_exact",
    "pass": true,
    "detail": {
     "expected": 13,
@@ -68,47 +92,85 @@
    }
   },
   {
-   "id": "d6_external_links_three",
+   "id": "d8_external_links_three",
    "pass": true,
    "detail": {
     "count": 3
    }
   },
   {
-   "id": "d7_phone_shortcode_literal_standalone",
+   "id": "d9_phone_shortcode_literal_standalone",
    "pass": true,
    "detail": {
-    "note": "standalone render does NOT expand shortcodes"
+    "note": "standalone does NOT expand shortcodes"
    }
   },
   {
-   "id": "d8_editorial_note_literal_standalone",
+   "id": "d10_editorial_note_literal_standalone",
    "pass": true,
    "detail": {
-    "note": "standalone render does NOT expand shortcodes"
+    "note": "standalone does NOT expand shortcodes"
    }
   },
   {
-   "id": "d9_no_forms_present",
+   "id": "d11_no_forms_present",
    "pass": true,
    "detail": {
     "forms": 0
    }
   },
   {
-   "id": "k1_first_tab_focuses_link",
+   "id": "k1_first_tab_focuses_first_link",
    "pass": true,
    "detail": {
-    "tag": "A",
-    "href": "/support/"
+    "focused": "/support/"
    }
   },
   {
-   "id": "k2_tab_traversal_follows_dom_links",
+   "id": "k2_exact_ordered_focus",
    "pass": true,
    "detail": {
-    "traversed": 6,
-    "urlsShown": "none — activation not pressed"
+    "positions": [
+     {
+      "step": 1,
+      "href": "/support/",
+      "expected": "/support/"
+     },
+     {
+      "step": 2,
+      "href": "/b2b/",
+      "expected": "/b2b/"
+     },
+     {
+      "step": 3,
+      "href": "#before-connection",
+      "expected": "#before-connection"
+     },
+     {
+      "step": 4,
+      "href": "#session-boundaries",
+      "expected": "#session-boundaries"
+     },
+     {
+      "step": 5,
+      "href": "#session-handoff",
+      "expected": "#session-handoff"
+     },
+     {
+      "step": 6,
+      "href": "/services/network-support-tehran/",
+      "expected": "/services/network-support-tehran/"
+     }
+    ],
+    "hrefsSanitized": true
+   }
+  },
+  {
+   "id": "k3_negative_repeated_focus_rejected",
+   "pass": true,
+   "detail": {
+    "fabricated": "six repeats of first href",
+    "predicateVerdictOnFabricated": false
    }
   },
   {
@@ -133,14 +195,25 @@
    }
   },
   {
-   "id": "m4_intake_section_visible_mobile",
+   "id": "m4_intake_h3_rendered_mobile",
    "pass": true,
-   "detail": {}
+   "detail": {
+    "heightPx": 22,
+    "widthPx": 374,
+    "note": "actual intake H3 (not session-example)"
+   }
+  },
+  {
+   "id": "m5_session_example_visible_mobile_separately_named",
+   "pass": true,
+   "detail": {
+    "note": "pre-existing section, tracked separately"
+   }
   }
  ],
  "summary": {
-  "total": 15,
-  "passed": 15,
+  "total": 20,
+  "passed": 20,
   "failed": 0
  },
  "scope": {
@@ -151,9 +224,9 @@
   "external_navigations": 0
  },
  "limitations": [
-  "STANDALONE static render — does NOT prove WordPress shortcode/theme rendering: [tehnet_phone] and [tn_editorial_note] remain literal text here (d7/d8 assert their literal preservation in source).",
-  "WordPress-integration claim remains NOT_RUN: the intake fragment is NOT_DEPLOYED to staging, so no fixture render of the integrated page exists.",
-  "Keyboard check verifies focus traversal only (no Enter activation, no navigations)."
+  "STANDALONE static render — does NOT prove WordPress shortcode/theme rendering; [tehnet_phone] and [tn_editorial_note] remain literal (asserted as source preservation).",
+  "WordPress-integration claim remains NOT_RUN: intake fragment NOT_DEPLOYED; no fixture render of the integrated page exists.",
+  "Keyboard check verifies exact ordered focus traversal only (no Enter activation, no navigations)."
  ],
  "production_touched": false
 }
