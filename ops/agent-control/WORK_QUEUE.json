@@ -447,9 +447,9 @@
    ],
    "attempts": 1,
    "evidence": "pattern: .github/workflows/commercial-decision.yml + tests/commercial-decision-native.sh; route decision ops/agent-control/BROWSER-ROUTE-DECISION-20261115.md",
-   "last_progress": "2026-11-15T12:0xZ",
+   "last_progress": "2026-11-15T12:43Z",
    "next_action": "Author workflow + fixture extension, run on GitHub runner, receipts",
-   "detail": "7 CI failures; root cause = Docker Apache startup on GitHub runner; infrastructure committed (a2b1908); needs container log analysis next session"
+   "detail": "8 CI attempts exhausted (port mapping, relay, nsenter netns, host network) — all fail at Docker networking layer; infrastructure committed for future debugging; browser execution BLOCKED_DEFINITIVE"
   }
  ]
 }
