@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "updated_utc": "2026-11-15T10:31:01Z",
+ "updated_utc": "2026-11-15T10:49:32Z",
  "single_writer": "Z Code primary executor",
  "supervisor": "Codex (read-only review; max 2 ordinary reviews/day)",
  "tasks": [
@@ -429,6 +429,26 @@
    "evidence": "docs/evidence/2026-11-15/browser-start + browser-full on agent-control; REVIEW_REQUEST comment 6893008211 (10:30:37Z); STARTED comment 6892848563",
    "last_progress": "2026-11-15T10:30Z",
    "next_action": "WAITING for manager review on PR96; no duplicate packets"
+  },
+  {
+   "id": "TN-BROWSER-CLOUD",
+   "owner": "zcode",
+   "priority": "P0",
+   "title": "Author GitHub-hosted browser workflow (fixture + Cases 1-4) per MANAGER_REVIEW corrections",
+   "state": "IN_PROGRESS",
+   "dependencies": [
+    "host-browser route STOPPED"
+   ],
+   "acceptance": [
+    "workflow on authorized GitHub runner with run/job attestation",
+    "fixture incl. b2b/support production-truth pages",
+    "Cases 1-4 with CTA-origin + keyboard-only + specific success states + finally-safe cleanup",
+    "receipts with exact run IDs + bundle hashes"
+   ],
+   "attempts": 1,
+   "evidence": "pattern: .github/workflows/commercial-decision.yml + tests/commercial-decision-native.sh; route decision ops/agent-control/BROWSER-ROUTE-DECISION-20261115.md",
+   "last_progress": "2026-11-15T16:4xZ — authoring started next wake",
+   "next_action": "Author workflow + fixture extension, run on GitHub runner, receipts"
   }
  ]
 }

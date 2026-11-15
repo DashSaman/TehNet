@@ -6,6 +6,7 @@
 - Cycle 15 (21:31Z): minimal close — no new channel traffic (WAITING by design), backup fresh, decision-row housekeeping committed. Next natural task: none pending; owner gates unchanged.
 - Cycle 16 (00:30Z 11-15): minimal — no new channel traffic, backup fresh, nothing to execute; WAITING unchanged.
 - Cycle 17 (03:31Z 11-15): minimal — channel silent, main unchanged, baseline ref intact; WAITING unchanged.
+- Cycle 18: MANAGER_REVIEW NEEDS_CHANGES (6893046637) — HOST-BROWSER ROUTE STOPPED; authorized cloud runner = GitHub-hosted (commercial-decision.yml pattern); browser BLOCKED-until-cloud-run; workflow authoring next wake. See ops/agent-control/BROWSER-ROUTE-DECISION-20261115.md.
 - Browser package COMPLETE (Cases 1-4 PASS, receipts committed): REVIEW_REQUEST TN-BROWSER-20261115-PACKAGE-1 on PR96 comment 6893008211 — AWAITING manager review; site files untouched.
 
 ### 2026-11-14 addendum 2 (cycle 13): backup tehnet-20261114 VERIFIED (26.5h rule); bridge link test TN-LINK-20261114-A PASS (nonce echoed; APPROVE non-canonical finding); scheduler re-activated by owner (runCount 21).

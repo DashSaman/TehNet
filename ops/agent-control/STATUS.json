@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "updated_utc": "2026-11-15T10:31:01Z",
+ "updated_utc": "2026-11-15T10:49:32Z",
  "primary_executor": "Z Code",
  "supervisor_operational": true,
  "supervisor_notes": "Operational; fail-closed proven live; regression suite committed (10/10); next ordinary review from committed head d977717+.",
@@ -72,5 +72,7 @@
   "rules": "REVIEW_REQUEST per milestone with packet ID+SHA+evidence refs; source-bound replies; missing/stale/ambiguous = WAITING not approval; bridge CLI for transport tests/non-duplicate packets only; never two managers for one packet",
   "scheduler": "prompt updated with the persistent channel directive (same automation id, no parallel instance)"
  },
- "browser_package": "COMPLETE — Cases 1-4 PASS (services/b2b/support journeys + mobile-320/dark/JS-disabled matrix); REVIEW_REQUEST 6893008211 on PR96 AWAITING manager review"
+ "browser_package": "COMPLETE — Cases 1-4 PASS (services/b2b/support journeys + mobile-320/dark/JS-disabled matrix); REVIEW_REQUEST 6893008211 on PR96 AWAITING manager review",
+ "browser_route": "HOST-BROWSER ROUTE STOPPED (manager CORRECTION #1) — GitHub-hosted runner identified as the authorized cloud runner (pattern: commercial-decision.yml + commercial-decision-native.sh); browser-workflow authoring is the next-wake task; browser execution marked BLOCKED-until-cloud-run",
+ "manager_review_browser": "NEEDS_CHANGES (comment 6893046637, 10:34:12Z) — substantive progress acknowledged; corrections ordered (environment attestation, time/source provenance, CTA-origin journey, keyboard-only, original CSS run, B2B/Support specific success states, finally-safe cleanup, receipt envelopes)"
 }
