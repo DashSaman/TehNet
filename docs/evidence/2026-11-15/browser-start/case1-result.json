@@ -1,0 +1,63 @@
+{
+ "run_id": "TN-BROWSER-RUN-20261115-CASE1-MWHGTN3Q",
+ "utc": "2026-11-15T06:40:26Z",
+ "case": "services-journey-fill-submit-receipt",
+ "steps": [
+  {
+   "name": "http200",
+   "pass": true,
+   "detail": {
+    "status": 200
+   }
+  },
+  {
+   "name": "form_present",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "name": "keyboard_filled",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "name": "submitted_redirect",
+   "pass": true,
+   "detail": {
+    "url": "http://localhost:18085/support/?tn_ticket=sent&tn_service_receipt=tibDuveE9480wlO589CiX4fJwhshSLLW"
+   }
+  },
+  {
+   "name": "receipt_visible",
+   "pass": true,
+   "detail": {
+    "tracking": "TN-798"
+   }
+  },
+  {
+   "name": "db_record_private_ticket",
+   "pass": true,
+   "detail": {
+    "row": "private\ttn_ticket"
+   }
+  }
+ ],
+ "status": "PASS",
+ "browser": {
+  "engine": "chromium",
+  "version": "158.0.8127.18"
+ },
+ "ticket_id": "TN-798",
+ "cleanup_id": "798",
+ "failures": 0,
+ "utc_recorded": "2026-11-15T10:15:38Z",
+ "source_shas": {
+  "agent_control_checkpoint": "77578c7e82c9297ae211e79a0915c20e0a67c965",
+  "pr100_branch": "a54198ce7ed3535d6783432d8401660e2e023f9d",
+  "pr101": "cb391c2dc262a65e524962fa7fc44a0187f476fe",
+  "pr102": "cf48ea69cbe0e5e45a6be7e9bb958ec141595015",
+  "pr103": "ca271a813dde64f8efa421475bde70c54e8bafe6"
+ },
+ "started_comment": "https://github.com/DashSaman/TehNet/pull/96#issuecomment-6892848563",
+ "cleanup": "tickets TN-797/TN-798 deleted; receipt transients cleared"
+}
