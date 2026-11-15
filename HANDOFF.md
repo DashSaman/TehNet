@@ -4,6 +4,7 @@
 - Future milestones: post one REVIEW_REQUEST per milestone with unique packet ID + exact source SHA + evidence paths as a PR96 comment; manager replies source-bound DECISION/EVIDENCE/CORRECTION/ACCEPTANCE; missing/stale/ambiguous reply = WAITING (not authorization); no duplicate packets; CLI supervisor_bridge reserved for transport tests/non-duplicate packets; never two managers for the same packet.
 - Channel authorization covers communication only: no merge/deploy/noindex/infra/billing/data-move.- Cycle 14: MANAGER_ACK 6881137572 read back (channel VERIFIED both directions); canonical decision vocabulary = APPROVE/NEEDS_CHANGES/REJECT/NEEDS_OWNER (bridge VALID set already canonical; executor receipts corrected).
 - Cycle 15 (21:31Z): minimal close — no new channel traffic (WAITING by design), backup fresh, decision-row housekeeping committed. Next natural task: none pending; owner gates unchanged.
+- Cycle 16 (00:30Z 11-15): minimal — no new channel traffic, backup fresh, nothing to execute; WAITING unchanged.
 
 ### 2026-11-14 addendum 2 (cycle 13): backup tehnet-20261114 VERIFIED (26.5h rule); bridge link test TN-LINK-20261114-A PASS (nonce echoed; APPROVE non-canonical finding); scheduler re-activated by owner (runCount 21).
 
