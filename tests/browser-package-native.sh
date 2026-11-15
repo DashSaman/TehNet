@@ -23,7 +23,7 @@ docker run -d --name "$stage_db" --network "$stage_net" -e MARIADB_ROOT_PASSWORD
 for n in {1..40}; do if docker exec "$stage_db" healthcheck.sh --connect --innodb_initialized >/dev/null 2>&1; then break; fi; sleep 1; done
 docker create --name "$stage_cli" wordpress:cli-2.12.0-php8.3 >/dev/null
 docker cp "$stage_cli:/usr/local/bin/wp" "$stage_root/wp"
-docker run -d --name "$stage_app" --network "$stage_net" -e TN_FIXTURE_PASSWORD="$stage_password" -v "$PWD:/src:ro" -v "$stage_root:/lab" -v "$stage_root/web:/var/www/html" --entrypoint bash wordpress:7.1.4-php8.3-apache -eu -c '
+docker run -d --name "$stage_app" --network "$stage_net" -p 127.0.0.1:18085:80 -e TN_FIXTURE_PASSWORD="$stage_password" -v "$PWD:/src:ro" -v "$stage_root:/lab" -v "$stage_root/web:/var/www/html" --entrypoint bash wordpress:7.1.4-php8.3-apache -eu -c '
 for fixture_php in /src/tests/browser-package-native.php /src/ops/migrate-growth-content.php; do php -l "$fixture_php"; done
 cp -a /usr/src/wordpress/. /var/www/html/
 cp -a /src/site/. /var/www/html/wp-content/
