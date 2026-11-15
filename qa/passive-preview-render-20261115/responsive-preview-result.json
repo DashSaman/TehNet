@@ -1,0 +1,181 @@
+{
+ "packet": "TN-PASSIVE-RESPONSIVE-PREVIEW-20261115",
+ "rev": 1,
+ "run_id": "TN-PASSIVE-RESPONSIVE-PREVIEW-MWIH36DP",
+ "started_utc": "2026-11-15T23:35:37Z",
+ "finished_utc": "2026-11-15T23:35:38Z",
+ "label": "LOCAL_STAGING existing tools (playwright 158.0.8127.18, headless, file:// standalone before/after)",
+ "inputs": {
+  "before": {
+   "role": "canonical standalone",
+   "sha256": "180ddbf10d208abe6ffbc5f4f48e97a417908052c6053a9261235ba170c3d16b",
+   "pinned": "180ddbf10d208abe6ffbc5f4f48e97a417908052c6053a9261235ba170c3d16b"
+  },
+  "after": {
+   "role": "responsive preview candidate",
+   "sha256": "afee2771d9af317f2c98cc71530f3c4273b501d72f0cfb78ad37c20d9eb0b565",
+   "pinned": "afee2771d9af317f2c98cc71530f3c4273b501d72f0cfb78ad37c20d9eb0b565",
+   "file": "content/passive-responsive-preview-20261115/passive-responsive-preview.candidate.html"
+  }
+ },
+ "diagnosis": {
+  "theme_pattern": "pinned theme visual-refresh.css:79-84 provides overflow handling ONLY via the .tn-decision-table wrapper (max-width:100%; overflow-x:auto; padded bordered cells); plain wp-block-table figures get NO overflow rule from the pinned theme source",
+  "draft_tables_use_wrapper": false,
+  "missing_integration_context": "candidate mirrors the theme OWN established pattern; whether WP core block CSS adds overflow outside the pinned theme source is NOT_VERIFIED_FROM_PINNED_SOURCE — the canonical draft is therefore NOT declared defective"
+ },
+ "assertions": [
+  {
+   "id": "p0_before_digest_match",
+   "pass": true,
+   "detail": {
+    "input": "180ddbf10d208abe…"
+   }
+  },
+  {
+   "id": "p1_after_digest_match",
+   "pass": true,
+   "detail": {
+    "input": "afee2771d9af317f…"
+   }
+  },
+  {
+   "id": "b1_before_mobile_overflow_present",
+   "pass": true,
+   "detail": {
+    "overflowPx": 52,
+    "note": "the already-reported finding reproduced"
+   }
+  },
+  {
+   "id": "b2_before_exact_ordered_focus",
+   "pass": true,
+   "detail": {
+    "positions": [
+     "https://www.flukenetworks.com/blog/cabling-chronicles/wire-map-testing-it-s-not-all-about-color",
+     "/services/network-setup-tehran/",
+     "/services/#service-request",
+     "/services/network-support-tehran/",
+     "https://www.flukenetworks.com/knowledge-base/dsx-cableanalyzer-series/permanent-link-definition-dsx-cableanalyzer",
+     "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+    ]
+   }
+  },
+  {
+   "id": "a1_after_mobile_page_fits",
+   "pass": true,
+   "detail": {
+    "overflowPx": 0,
+    "note": "BEFORE was 52px"
+   }
+  },
+  {
+   "id": "a2_scrolled_region_scrollable",
+   "pass": true,
+   "detail": {
+    "wrappers": [
+     {
+      "sw": 704,
+      "cw": 292
+     },
+     {
+      "sw": 704,
+      "cw": 292
+     }
+    ]
+   }
+  },
+  {
+   "id": "a3_captions_preserved",
+   "pass": true,
+   "detail": {
+    "captions": [
+     "قالب تحویل لینک‌های پسیو — داد",
+     "مقایسه اقلام پیش‌فاکتور — قالب"
+    ]
+   }
+  },
+  {
+   "id": "a4_header_semantics_preserved",
+   "pass": true,
+   "detail": {
+    "thTotal": 14
+   }
+  },
+  {
+   "id": "a5_links_unchanged",
+   "pass": true,
+   "detail": {
+    "count": 6
+   }
+  },
+  {
+   "id": "a6_visible_text_preserved",
+   "pass": true,
+   "detail": {
+    "note": "normalized whitespace comparison — canonical wording/cells intact"
+   }
+  },
+  {
+   "id": "a7_after_exact_ordered_focus",
+   "pass": true,
+   "detail": {
+    "positions": [
+     "REGION:جدول — برای دیدن همه ستو",
+     "https://www.flukenetworks.com/blog/cabling-chronicles/wire-map-testing-it-s-not-all-about-color",
+     "REGION:جدول — برای دیدن همه ستو",
+     "/services/network-setup-tehran/",
+     "/services/#service-request",
+     "/services/network-support-tehran/"
+    ]
+   }
+  },
+  {
+   "id": "a8_keyboard_column_reachability",
+   "pass": true,
+   "detail": {
+    "before": 0,
+    "after": 412,
+    "max": 412,
+    "reachable": true,
+    "lastVisible": true
+   }
+  },
+  {
+   "id": "a9_desktop_no_overflow",
+   "pass": true,
+   "detail": {
+    "overflowPx": 0
+   }
+  },
+  {
+   "id": "a10_desktop_tables_fit",
+   "pass": true,
+   "detail": {
+    "fit": [
+     true,
+     true
+    ]
+   }
+  }
+ ],
+ "summary": {
+  "total": 14,
+  "passed": 14,
+  "failed": 0
+ },
+ "scope": {
+  "form_posts": 0,
+  "screenshots": 0,
+  "traces": 0,
+  "public_url": "none",
+  "external_navigations": 0,
+  "canonical_draft_edits": 0,
+  "theme_production_mutations": 0
+ },
+ "limitations": [
+  "Preview proposal NOT_DEPLOYED — not WordPress/KSES acceptance, no authority to alter theme/production.",
+  "Standalone render only; WordPress rendering of the candidate remains NOT_RUN.",
+  "Column reachability probe focuses the region (tabindex=0, role=region, aria-label) then exercises the full scrollable range; Tab traversal performed without activation."
+ ],
+ "production_touched": false
+}

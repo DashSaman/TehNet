@@ -1,0 +1,7 @@
+{
+ "canonical_sha256": "180ddbf10d208abe6ffbc5f4f48e97a417908052c6053a9261235ba170c3d16b",
+ "candidate_sha256": "afee2771d9af317f2c98cc71530f3c4273b501d72f0cfb78ad37c20d9eb0b565",
+ "tables_wrapped": 2,
+ "roundtrip_preserves_canonical_bytes": true,
+ "generated_utc": "2026-11-15T23:35:30Z"
+}
