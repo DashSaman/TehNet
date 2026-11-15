@@ -1,0 +1,37 @@
+{
+ "run_id": "TN-BROWSER-RUN-20261115-CASE3-MWHH5FO5",
+ "utc": "2026-11-15T06:49:36Z",
+ "case": "support-ticket-journey",
+ "steps": [
+  {
+   "name": "http200_mobile375",
+   "pass": true,
+   "detail": {
+    "status": 200
+   }
+  },
+  {
+   "name": "form_present",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "name": "keyboard_filled_mobile375",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "name": "submitted_redirect",
+   "pass": true,
+   "detail": {
+    "url": "http://localhost:18085/support/?tn_ticket=sent"
+   }
+  }
+ ],
+ "status": "PASS",
+ "browser": {
+  "engine": "chromium",
+  "version": "158.0.8127.18"
+ },
+ "failures": 0
+}
