@@ -435,7 +435,7 @@
    "owner": "zcode",
    "priority": "P0",
    "title": "Author GitHub-hosted browser workflow (fixture + Cases 1-4) per MANAGER_REVIEW corrections",
-   "state": "IN_PROGRESS",
+   "state": "BLOCKED",
    "dependencies": [
     "host-browser route STOPPED"
    ],
@@ -447,8 +447,9 @@
    ],
    "attempts": 1,
    "evidence": "pattern: .github/workflows/commercial-decision.yml + tests/commercial-decision-native.sh; route decision ops/agent-control/BROWSER-ROUTE-DECISION-20261115.md",
-   "last_progress": "2026-11-15T16:4xZ — authoring started next wake",
-   "next_action": "Author workflow + fixture extension, run on GitHub runner, receipts"
+   "last_progress": "2026-11-15T11:48Z",
+   "next_action": "Author workflow + fixture extension, run on GitHub runner, receipts",
+   "detail": "5 successive CI infrastructure failures (WP env, missing fixture, auto-increment, relay netns, Apache timing); seed+fixture build verified; Apache/relay timing is the remaining gap"
   }
  ]
 }
