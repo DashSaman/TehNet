@@ -43,17 +43,32 @@ const out = {
     'original CSS preserved (no scroll-behavior override); navigation errors NOT suppressed',
     'DB access via SSH wp-cli (read-only probes + marker-scoped owned delete only)',
   ],
-  checks: [], owned_tokens: [], bundle_hashes: {}, cleanup: null, journey: null,
+  checks: [], owned_tokens_captured: 0, expected_artifact_digests: {}, cleanup: null, journey: null,
+  not_run_cases: [
+    { case: 'cta_pointer_navigation', status: 'NOT_RUN', reason: 'pointer CTA case not yet executed' },
+    { case: 'keyboard_full_tab_traversal', status: 'NOT_RUN', reason: 'c1 uses programmatic focus+Enter — partial keyboard check only' },
+    { case: 'support_ticket_journey', status: 'NOT_RUN', reason: 'dedicated support-ticket POST journey not yet executed' },
+    { case: 'b2b_keyboard_only', status: 'NOT_RUN', reason: 'B2B journey currently uses locators, not full keyboard traversal' },
+    { case: 'mobile_viewport', status: 'NOT_RUN', reason: 'mobile viewport coverage not yet executed' },
+    { case: 'theme_variant', status: 'NOT_RUN', reason: 'alternate theme coverage not yet executed' },
+  ],
 };
+/* Receipt tokens live EXCLUSIVELY in this private in-memory list. They are never
+ * written to `out`, logs, or artifacts — only counts and [REDACTED] placeholders. */
+const privTokens = [];
 const checks = [];
 let fail = 0;
+/* Logging boundary is sanitized: neither console output nor the checks ledger
+ * ever receives the bare marker, bare tokens, or query-carried token values. */
 const ck = (n, ok, d) => {
   fail += ok ? 0 : 1;
-  checks.push({ name: n, pass: !!ok, detail: d || {} });
-  console.log((ok ? 'OK  ' : 'FAIL') + ' ' + n + (d ? ' ' + JSON.stringify(d).slice(0, 200) : ''));
+  const safe = d ? H.safeDetail(d, RUN_MARKER, privTokens) : {};
+  checks.push({ name: n, pass: !!ok, detail: safe });
+  console.log((ok ? 'OK  ' : 'FAIL') + ' ' + n + (d ? ' ' + JSON.stringify(safe).slice(0, 200) : ''));
 };
 
-/* guarded artifact digests this fixture was released from (pinned to PR100 head) */
+/* Guarded artifact digests pinned to the PR100 head — REPO-SIDE EXPECTATION ONLY.
+ * These do NOT by themselves attest the installed PR100/101/102/103 combination. */
 function bundleHashes() {
   const files = {
     index_activation_manifest: 'seo/index-decision-2026-11-08-v2/activation-manifest.json',
@@ -61,7 +76,7 @@ function bundleHashes() {
     index_runtime_class: 'site/plugins/tehnet-core/includes/class-index-policy.php',
     commercial_decision_manifest: 'content/commercial-decision-2026-11-08-v2/manifest.json',
   };
-  const dig = {};
+  const dig = { attestation: 'repo-side expectation only; installed combination attestation NOT claimed' };
   for (const [k, f] of Object.entries(files)) {
     try {
       const blob = execSync('git show ' + PR100_REF + ':' + f, { encoding: 'utf8', timeout: 10000, cwd: REPO, maxBuffer: 32 * 1024 * 1024 });
@@ -70,7 +85,7 @@ function bundleHashes() {
   }
   return dig;
 }
-out.bundle_hashes = bundleHashes();
+out.expected_artifact_digests = bundleHashes();
 
 /* SSH wp-cli eval-file with base64 payload; returns the JSON line */
 function sshwp(php) {
@@ -104,7 +119,7 @@ function captureReceiptToken(url) {
 (async () => {
   const res = await H.runJourney({
     marker: RUN_MARKER,
-    expectedFixture: { home_url: BASE + '/' },
+    expectedFixture: { home_url: BASE + '/', db_name: 'tehnetux' }, /* disposable app/DB identity REQUIRED */
     effects: {
       preflightProbes: async () => JSON.parse(sshwp(H.buildPreflightProbePhp())),
       openBrowser: async () => {
@@ -124,7 +139,11 @@ function captureReceiptToken(url) {
         const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, locale: 'fa' });
         const page = await ctx.newPage();
         const redirects = [];
-        page.on('response', r => { if (r.status() >= 300 && r.status() < 400) redirects.push({ code: r.status(), location: r.headers()['location'] || '' }); });
+        const posts = []; /* actual POST response binding */
+        page.on('response', r => {
+          if (r.status() >= 300 && r.status() < 400) redirects.push({ code: r.status(), location: r.headers()['location'] || '' });
+          if ((r.request().method() || '').toUpperCase() === 'POST') posts.push({ status: r.status(), location: r.headers()['location'] || '' });
+        });
         const r1 = await page.goto(BASE + '/services/network-setup-tehran/', { waitUntil: 'domcontentloaded', timeout: 20000 });
         ck('c1_origin_200', r1.status() === 200, { status: r1.status() });
         const cta = page.locator('a[href*="tn_service_context=server-scoping"]').first();
@@ -150,9 +169,13 @@ function captureReceiptToken(url) {
         await page.locator('form.tn-service-request button[type="submit"]').first().focus({ timeout: 10000 });
         await Promise.all([page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 20000 }), page.keyboard.press('Enter')]);
         ck('c1_submit_302_redirect', /tn_ticket=sent/.test(page.url()), { url: page.url().slice(0, 140) });
+        /* bind the ACTUAL POST response to this submission (status + owned receipt token) */
         const postRed = redirects.map(r => r.location).filter(l => /tn_service_receipt=/.test(l)).pop();
         const token = captureReceiptToken(postRed);
-        if (token) out.owned_tokens.push(token); /* owned: captured from THIS run's redirect only */
+        const boundPost = posts.find(p => captureReceiptToken(p.location));
+        if (token) privTokens.push(token); /* PRIVATE state only — never written to out/logs */
+        out.owned_tokens_captured = privTokens.length;
+        ck('c1_post_response_bound', !!boundPost && (boundPost.status === 302 || boundPost.status === 200), { status: boundPost ? boundPost.status : 'none', method: 'POST' });
         ck('c1_owned_receipt_token_captured', !!token, { token: token ? '[REDACTED]' : 'none' });
         await page.waitForSelector('.tn-service-receipt', { timeout: 10000 });
         const receipt = await page.evaluate(() => document.querySelector('.tn-service-receipt').innerText);
@@ -165,6 +188,7 @@ function captureReceiptToken(url) {
         if (svc) {
           const d = dbOwnedDetail(svc.id);
           ck('c1_db_record_private_ticket', d.status === 'private' && d.kind === 'service', { id: d.id, status: d.status, kind: d.kind });
+          ck('c1_post_receipt_row_bound', !!(tn && parseInt(tn[1], 10) === svc.id), { receipt_id: tn ? 'TN-' + tn[1] : null, owned_row: svc.id });
         }
         await ctx.close();
       } catch (e) { ck('c1_error', false, { err: String(e.message).slice(0, 150) }); }
@@ -223,12 +247,16 @@ function captureReceiptToken(url) {
   ck('journey_status', res.status === 'PASSED', { status: res.status, operationError: res.operationError, closeError: res.closeError });
   out.journey = { status: res.status, operation_error: res.operationError, close_error: res.closeError, effect_log: res.effectLog };
 
-  /* OWNED transient cleanup — only this run's captured tokens; owned-post cleanup has
+  /* OWNED transient cleanup — only this run's PRIVATE tokens; owned-post cleanup has
      already been VERIFIED inside runJourney (delete-result + post-read non-array guards). */
-  const tc = clearOwnedReceiptTransients(out.owned_tokens);
+  const tc = clearOwnedReceiptTransients(privTokens);
   ck('owned_transients_cleared', tc.cleared === tc.requested * 2, tc);
+  ck('expected_artifact_digests_present', Object.entries(out.expected_artifact_digests)
+    .filter(([k]) => k !== 'attestation').every(([, v]) => v && typeof v.sha256 === 'string'),
+    { note: 'repo-side expectation only; installed combination attestation NOT claimed' });
 
-  /* sanitized result binding — actual checks array bound, marker + receipt tokens redacted */
+  /* sanitized result binding — actual checks array bound; marker + private tokens +
+     query-carried receipt values redacted at the artifact boundary */
   out.finished_utc = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
   out.status = (fail || res.status !== 'PASSED') ? 'FAIL' : 'PASS';
   out.failures = fail;
@@ -241,7 +269,7 @@ function captureReceiptToken(url) {
     post_read_owned_remaining: res.cleanup.post_read_owned_remaining,
     error: res.cleanup.error,
   };
-  const safe = H.serializeOutput(out, checks, RUN_MARKER);
+  const safe = H.serializeOutput(out, checks, RUN_MARKER, privTokens);
   fs.writeFileSync('fix2-clean-result.json', JSON.stringify(safe, null, 1));
   console.log('FIX2 v4 RESULT: ' + out.status + ' | checks=' + out.total + ' failures=' + fail + ' journey=' + res.status);
   for (const c of checks.filter(c => !c.pass)) console.log('  FAIL:', c.name, JSON.stringify(c.detail).slice(0, 200));
@@ -250,7 +278,7 @@ function captureReceiptToken(url) {
   out.status = 'ERROR';
   out.error = String(e.message).split('\n')[0];
   out.finished_utc = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
-  fs.writeFileSync('fix2-clean-error.json', JSON.stringify(H.serializeOutput(out, checks, RUN_MARKER), null, 1));
+  fs.writeFileSync('fix2-clean-error.json', JSON.stringify(H.serializeOutput(out, checks, RUN_MARKER, privTokens), null, 1));
   console.log('DRIVER ERROR:', out.error);
   process.exitCode = 1;
 });

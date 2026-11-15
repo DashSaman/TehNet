@@ -41,7 +41,7 @@ t('NEG3 journey: non-throwing incomplete deletion {deleted:[],skipped:[42]} must
   const s = goodEffects();
   s.effects.deleteOwnedRecords = async () => ({ deleted: [], skipped: [42] }); // wp_delete_post silently failed
   const res = await H.runJourney({
-    marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME }, effects: s.effects, operation: async () => 'ok',
+    marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME, db_name: 'tehnetux' }, effects: s.effects, operation: async () => 'ok',
   });
   assert.equal(res.status, 'FAILED_CLEANUP', 'incomplete cleanup must never be PASSED');
   assert.match(String(res.cleanup.error), /incomplete_deletion/);
@@ -90,38 +90,38 @@ t('ownership: unowned sentinels rejected with reasons', () => {
 
 /* --- preflight verdict: fail closed --- */
 const PERFECT = {
-  env: 'staging', blog_public: '0', home: FIXTURE_HOME, mail_blocked: true, http_blocked: true,
+  env: 'staging', blog_public: '0', home: FIXTURE_HOME, db_name: 'tehnetux', mail_blocked: true, http_blocked: true,
   cron_disabled: true, http_probe_blocked: true, payments_disabled: true,
 };
 const KEY_TO_CHECK = {
-  env: 'env_staging', blog_public: 'blog_public_0', home: 'fixture_identity',
+  env: 'env_staging', blog_public: 'blog_public_0', home: 'fixture_identity', db_name: 'fixture_db_identity',
   mail_blocked: 'mail_block_confirmed', http_blocked: 'http_block_confirmed', cron_disabled: 'cron_disabled',
   http_probe_blocked: 'http_probe_blocked', payments_disabled: 'payments_disabled',
 };
 t('preflight: perfect probes pass', () => {
-  const v = H.evaluatePreflight(PERFECT, { home_url: FIXTURE_HOME });
+  const v = H.evaluatePreflight(PERFECT, { home_url: FIXTURE_HOME, db_name: 'tehnetux' });
   assert.equal(v.ok, true);
   assert.deepEqual(v.failed, []);
-  assert.equal(v.checks.length, 8);
+  assert.equal(v.checks.length, 9);
 });
 t('preflight: any false/missing evidence fails (fail closed)', () => {
   for (const key of Object.keys(PERFECT)) {
     const broken = Object.assign({}, PERFECT);
     delete broken[key];
-    const v = H.evaluatePreflight(broken, { home_url: FIXTURE_HOME });
+    const v = H.evaluatePreflight(broken, { home_url: FIXTURE_HOME, db_name: 'tehnetux' });
     assert.equal(v.ok, false, 'missing ' + key + ' must fail');
     assert.deepEqual(v.failed, [KEY_TO_CHECK[key]]);
   }
-  const vNull = H.evaluatePreflight(null, { home_url: FIXTURE_HOME });
+  const vNull = H.evaluatePreflight(null, { home_url: FIXTURE_HOME, db_name: 'tehnetux' });
   assert.equal(vNull.ok, false);
-  assert.equal(vNull.failed.length, 8);
+  assert.equal(vNull.failed.length, 9);
 });
 t('preflight: fixture identity — a DIFFERENT staging with identical flags must be rejected', () => {
   const impostor = Object.assign({}, PERFECT, { home: 'http://localhost:19999/' });
-  const v = H.evaluatePreflight(impostor, { home_url: FIXTURE_HOME });
+  const v = H.evaluatePreflight(impostor, { home_url: FIXTURE_HOME, db_name: 'tehnetux' });
   assert.equal(v.ok, false);
   assert.deepEqual(v.failed, ['fixture_identity']);
-  assert.equal(H.evaluatePreflight(PERFECT, { home_url: FIXTURE_HOME }).ok, true);
+  assert.equal(H.evaluatePreflight(PERFECT, { home_url: FIXTURE_HOME, db_name: 'tehnetux' }).ok, true);
   const vNoExpected = H.evaluatePreflight(PERFECT, null);
   assert.equal(vNoExpected.ok, false, 'preflight without an expected fixture identity is insufficient');
 });
@@ -131,13 +131,13 @@ t('preflight: payments probe with leftover sentinel (non-zero) fails', () => {
   assert.ok(v.failed.includes('payments_disabled'));
 });
 t('preflight: assertPreflight throws listing failed names', () => {
-  const v = H.evaluatePreflight(Object.assign({}, PERFECT, { mail_blocked: false, blog_public: '1' }), { home_url: FIXTURE_HOME });
+  const v = H.evaluatePreflight(Object.assign({}, PERFECT, { mail_blocked: false, blog_public: '1' }), { home_url: FIXTURE_HOME, db_name: 'tehnetux' });
   assert.throws(() => H.assertPreflight(v), e => {
     assert.equal(e.name, 'PreflightBlocked');
     assert.deepEqual(e.failed.sort(), ['blog_public_0', 'mail_block_confirmed']);
     return true;
   });
-  assert.equal(H.assertPreflight(H.evaluatePreflight(PERFECT, { home_url: FIXTURE_HOME })).ok, true);
+  assert.equal(H.assertPreflight(H.evaluatePreflight(PERFECT, { home_url: FIXTURE_HOME, db_name: 'tehnetux' })).ok, true);
 });
 
 /* --- generated PHP: real PHP comparison, no JS syntax, no env vars, no newest-single --- */
@@ -250,7 +250,7 @@ function goodEffects() {
 t('journey: bad preflight aborts BEFORE browser/submit/DB effects', async () => {
   const calls = [];
   const res = await H.runJourney({
-    marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME },
+    marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME, db_name: 'tehnetux' },
     effects: {
       preflightProbes: async () => Object.assign({}, PERFECT, { mail_blocked: false }),
       openBrowser: async () => { calls.push('openBrowser'); throw new Error('MUST NOT OPEN'); },
@@ -269,7 +269,7 @@ t('journey: bad preflight aborts BEFORE browser/submit/DB effects', async () => 
 t('journey: separate fixture with IDENTICAL flags but different endpoint is aborted', async () => {
   const calls = [];
   const res = await H.runJourney({
-    marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME },
+    marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME, db_name: 'tehnetux' },
     effects: {
       preflightProbes: async () => Object.assign({}, PERFECT, { home: 'http://localhost:19999/' }),
       openBrowser: async () => { calls.push('openBrowser'); throw new Error('MUST NOT OPEN'); },
@@ -289,7 +289,7 @@ t('journey: missing expectedFixture is rejected (fail closed)', async () => {
 });
 t('journey: bad marker aborts before ANY effect', async () => {
   const res = await H.runJourney({
-    marker: 'TNMARK-old', expectedFixture: { home_url: FIXTURE_HOME },
+    marker: 'TNMARK-old', expectedFixture: { home_url: FIXTURE_HOME, db_name: 'tehnetux' },
     effects: {
       preflightProbes: async () => PERFECT, openBrowser: async () => ({}),
       closeBrowser: async () => {}, findOwnedRecords: async () => [], deleteOwnedRecords: async () => ({}),
@@ -302,7 +302,7 @@ t('journey: bad marker aborts before ANY effect', async () => {
 t('journey: happy path — owned only deleted, sentinels preserved, browser closed', async () => {
   const s = goodEffects();
   const res = await H.runJourney({
-    marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME }, effects: s.effects,
+    marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME, db_name: 'tehnetux' }, effects: s.effects,
     operation: async ctx => {
       const payload = await ctx.submitForm({ email: H.formEmail(GOOD), form: 'tn-service-request' });
       return { payload };
@@ -325,7 +325,7 @@ t('journey: post-read finding owned records still present must FAIL cleanup', as
   const s = goodEffects();
   let reads = 0;
   s.effects.findOwnedRecords = async () => { reads++; return [s.owned, s.sentinelA]; }; // owned ALWAYS found
-  const res = await H.runJourney({ marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME }, effects: s.effects, operation: async () => 'ok' });
+  const res = await H.runJourney({ marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME, db_name: 'tehnetux' }, effects: s.effects, operation: async () => 'ok' });
   assert.equal(res.status, 'FAILED_CLEANUP');
   assert.match(String(res.cleanup.error), /owned_still_present:42/);
 });
@@ -333,7 +333,7 @@ t('journey: post-read returning {malformed:true} must FAIL cleanup (never fall t
   const s = goodEffects();
   let reads = 0;
   s.effects.findOwnedRecords = async () => { reads++; return reads === 1 ? [s.owned] : { malformed: true }; };
-  const res = await H.runJourney({ marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME }, effects: s.effects, operation: async () => 'ok' });
+  const res = await H.runJourney({ marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME, db_name: 'tehnetux' }, effects: s.effects, operation: async () => 'ok' });
   assert.equal(res.status, 'FAILED_CLEANUP');
   assert.match(String(res.cleanup.error), /^post_read_non_array$/);
 });
@@ -341,28 +341,28 @@ t('journey: post-read returning null must FAIL cleanup', async () => {
   const s = goodEffects();
   let reads = 0;
   s.effects.findOwnedRecords = async () => { reads++; return reads === 1 ? [s.owned] : null; };
-  const res = await H.runJourney({ marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME }, effects: s.effects, operation: async () => 'ok' });
+  const res = await H.runJourney({ marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME, db_name: 'tehnetux' }, effects: s.effects, operation: async () => 'ok' });
   assert.equal(res.status, 'FAILED_CLEANUP');
   assert.match(String(res.cleanup.error), /^post_read_non_array$/);
 });
 t('journey: non-array discovery must FAIL cleanup (not silently pass)', async () => {
   const s = goodEffects();
   s.effects.findOwnedRecords = async () => ({ notAnArray: true });
-  const res = await H.runJourney({ marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME }, effects: s.effects, operation: async () => 'ok' });
+  const res = await H.runJourney({ marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME, db_name: 'tehnetux' }, effects: s.effects, operation: async () => 'ok' });
   assert.equal(res.status, 'FAILED_CLEANUP');
   assert.match(String(res.cleanup.error), /non_array_discovery/);
 });
 t('journey: extra deletion beyond requested owned ids must FAIL cleanup', async () => {
   const s = goodEffects();
   s.effects.deleteOwnedRecords = async () => ({ deleted: [42, 77], skipped: [], failed: [] });
-  const res = await H.runJourney({ marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME }, effects: s.effects, operation: async () => 'ok' });
+  const res = await H.runJourney({ marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME, db_name: 'tehnetux' }, effects: s.effects, operation: async () => 'ok' });
   assert.equal(res.status, 'FAILED_CLEANUP');
   assert.match(String(res.cleanup.error), /extra_deletion:77/);
 });
 t('journey: thrown operation still closes browser + owned-only cleanup', async () => {
   const s = goodEffects();
   const res = await H.runJourney({
-    marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME }, effects: s.effects,
+    marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME, db_name: 'tehnetux' }, effects: s.effects,
     operation: async ctx => {
       await ctx.submitForm({ email: H.formEmail(GOOD) });
       throw new Error('forced operation error');
@@ -377,7 +377,7 @@ t('journey: thrown operation still closes browser + owned-only cleanup', async (
 t('journey: cleanup failure produces FAILED result (not silent success)', async () => {
   const s = goodEffects();
   s.effects.deleteOwnedRecords = async () => { throw new Error('delete failed'); };
-  const res = await H.runJourney({ marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME }, effects: s.effects, operation: async () => 'ok' });
+  const res = await H.runJourney({ marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME, db_name: 'tehnetux' }, effects: s.effects, operation: async () => 'ok' });
   assert.equal(res.status, 'FAILED_CLEANUP');
   assert.match(String(res.cleanup.error), /^delete_failed:delete failed$/);
   assert.ok(s.calls.includes('closeBrowser'));
@@ -385,10 +385,49 @@ t('journey: cleanup failure produces FAILED result (not silent success)', async 
 t('journey: closeBrowser failure also produces FAILED_CLEANUP; cleanup still runs', async () => {
   const s = goodEffects();
   s.effects.closeBrowser = async () => { throw new Error('close failed'); };
-  const res = await H.runJourney({ marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME }, effects: s.effects, operation: async () => 'ok' });
+  const res = await H.runJourney({ marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME, db_name: 'tehnetux' }, effects: s.effects, operation: async () => 'ok' });
   assert.equal(res.status, 'FAILED_CLEANUP');
   assert.equal(res.closeError, 'close failed');
   assert.deepEqual(res.cleanup.deleted, [42]);
+});
+
+/* MANAGER_REVIEW 6902516548 regressions: token values must never reach logs or artifacts */
+t('REG token-leak: bare AND query-carried synthetic tokens vanish from logs AND serialized artifacts', () => {
+  const SYNTH = 'SYNTHBARETOKEN123';
+  const marker = GOOD;
+  const rawDetail = {
+    url: 'http://x/services/network-setup-tehran/?tn_service_receipt=' + SYNTH + '&ok=1',
+    bare: 'captured token: ' + SYNTH,
+    nested: { loc: 'http://x/?tn_service_receipt=' + SYNTH },
+  };
+  /* log boundary: safeDetail output (what console.log would print) */
+  const logStr = JSON.stringify(H.safeDetail(rawDetail, marker, [SYNTH]));
+  assert.ok(!logStr.includes(SYNTH), 'log string must not contain the bare token');
+  assert.ok(logStr.includes('[REDACTED]'), 'redaction placeholder present');
+  /* artifact boundary: serializeOutput with the private token list */
+  const out = { run_id: 'x', checks: [], owned_tokens_captured: 1, note: 'token=' + SYNTH };
+  const checks = [{ name: 'c1', pass: true, detail: rawDetail }];
+  const copy = H.serializeOutput(out, checks, marker, [SYNTH]);
+  const artStr = JSON.stringify(copy);
+  assert.ok(!artStr.includes(SYNTH), 'artifact must not contain the bare token');
+  assert.ok(!artStr.includes(marker), 'artifact must not contain the marker');
+  /* private-state shape: tokens live only in memory; output carries counts/placeholders */
+  assert.equal(copy.owned_tokens_captured, 1);
+  assert.ok(!('owned_tokens' in copy));
+});
+t('REG db-identity: wrong or missing disposable DB binding fails preflight (fail closed)', () => {
+  const impostorDb = Object.assign({}, PERFECT, { db_name: 'someotherdb' });
+  const v = H.evaluatePreflight(impostorDb, { home_url: FIXTURE_HOME, db_name: 'tehnetux' });
+  assert.equal(v.ok, false);
+  assert.deepEqual(v.failed, ['fixture_db_identity']);
+  const noDb = Object.assign({}, PERFECT);
+  delete noDb.db_name;
+  const v2 = H.evaluatePreflight(noDb, { home_url: FIXTURE_HOME, db_name: 'tehnetux' });
+  assert.equal(v2.ok, false);
+  assert.ok(v2.failed.includes('fixture_db_identity'));
+  const probePhp = H.buildPreflightProbePhp();
+  assert.ok(probePhp.includes('$wpdb->dbname'), 'probe must carry the disposable DB identity evidence');
+  assert.ok(probePhp.includes('global $wpdb;'));
 });
 
 /* --- runner --- */

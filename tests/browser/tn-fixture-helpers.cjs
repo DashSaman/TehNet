@@ -50,12 +50,14 @@ function isOwnedRecord(rec, marker) {
   return ownershipRejectionReason(rec, marker) === null;
 }
 
-/* --- preflight verdict (fail closed; requires expected fixture identity) --- */
+/* --- preflight verdict (fail closed; requires expected fixture identity incl. disposable DB) --- */
 function evaluatePreflight(probes, expected) {
   const p = (probes && typeof probes === 'object') ? probes : {};
   const homeUrl = expected && typeof expected.home_url === 'string' ? expected.home_url : null;
+  const dbName = expected && typeof expected.db_name === 'string' && expected.db_name ? expected.db_name : null;
   const checks = [
     ['fixture_identity', homeUrl !== null && p.home === homeUrl],
+    ['fixture_db_identity', dbName !== null && p.db_name === dbName],
     ['env_staging', p.env === 'staging'],
     ['blog_public_0', p.blog_public === '0'],
     ['mail_block_confirmed', p.mail_blocked === true],
@@ -94,11 +96,14 @@ function phpIntList(ids) {
 /* Read-only probe — mirrors ops/migrate-growth-content.php isolation guard.
  * Does NOT call wp_mail (no send attempt): block is evidenced by the installed
  * pre_wp_mail filter, which must return false for the probe value.
- * home_url() enables the expected-fixture-identity check. */
+ * home_url() + $wpdb->dbname enable the expected fixture identity binding
+ * (matching flags/home alone is insufficient — the disposable app/DB instance
+ * must be identified). */
 function buildPreflightProbePhp() {
-  return '<?php\n' +
+  return '<?php\nglobal $wpdb;\n' +
     '$env=(string)wp_get_environment_type();\n' +
     '$home=home_url("/");\n' +
+    '$db=(string)$wpdb->dbname;\n' +
     '$blog=(string)get_option("blog_public","1");\n' +
     '$mail_blocked=(apply_filters("pre_wp_mail",null,array())===false);\n' +
     '$http_blocked=(defined("WP_HTTP_BLOCK_EXTERNAL")&&WP_HTTP_BLOCK_EXTERNAL);\n' +
@@ -106,7 +111,7 @@ function buildPreflightProbePhp() {
     '$http_probe=is_wp_error(apply_filters("pre_http_request",false,array(),"https://example.invalid"));\n' +
     '$gws=apply_filters("woocommerce_available_payment_gateways",array("tn-guard-sentinel"=>"sentinel"));\n' +
     '$payments_disabled=(is_array($gws)&&count($gws)===0);\n' +
-    'echo json_encode(array("env"=>$env,"home"=>$home,"blog_public"=>$blog,"mail_blocked"=>$mail_blocked,' +
+    'echo json_encode(array("env"=>$env,"home"=>$home,"db_name"=>$db,"blog_public"=>$blog,"mail_blocked"=>$mail_blocked,' +
     '"http_blocked"=>$http_blocked,"cron_disabled"=>$cron_disabled,"http_probe_blocked"=>$http_probe,' +
     '"payments_disabled"=>$payments_disabled));\n';
 }
@@ -151,20 +156,44 @@ function buildDeleteOwnedPhp(marker, ids) {
 
 /* --- output serialization: real checks array bound + token redaction ---
  * Actual application params redacted: tn_service_receipt (service receipt token)
- * and tn_zp_receipt (payment receipt), plus generic token/key carriers. */
+ * and tn_zp_receipt (payment receipt), plus generic token/key carriers.
+ * redactTokens/safeDetail keep bare receipt values OUT of logs and artifacts:
+ * tokens live only in private in-memory cleanup state and never in output. */
 function redactText(value, marker) {
   if (typeof value !== 'string') return value;
   let out = value.split(marker).join('[REDACTED]');
   return out.replace(/([?&](?:tn_service_receipt|tn_zp_receipt|tn_token|token|key|tn_receipt)=)[^&]*/gi, '$1[REDACTED]');
 }
-function serializeOutput(out, checks, marker) {
+function redactTokens(value, tokens) {
+  if (typeof value !== 'string' || !Array.isArray(tokens)) return value;
+  let out = value;
+  for (const t of tokens) {
+    if (typeof t === 'string' && t.length > 0) out = out.split(t).join('[REDACTED]');
+  }
+  return out;
+}
+/* Sanitize any detail/log string before it reaches console or a checks ledger. */
+function safeDetail(detail, marker, tokens) {
+  const walk = node => {
+    if (typeof node === 'string') return redactTokens(redactText(node, marker), tokens);
+    if (Array.isArray(node)) return node.map(walk);
+    if (node && typeof node === 'object') {
+      const copy = {};
+      for (const k of Object.keys(node)) copy[k] = walk(node[k]);
+      return copy;
+    }
+    return node;
+  };
+  return walk(detail);
+}
+function serializeOutput(out, checks, marker, tokens) {
   assertRunMarker(marker);
   const copy = JSON.parse(JSON.stringify(out));
   copy.checks = JSON.parse(JSON.stringify(checks || []));
   const walk = node => {
     for (const k of Object.keys(node)) {
       const v = node[k];
-      if (typeof v === 'string') node[k] = redactText(v, marker);
+      if (typeof v === 'string') node[k] = redactTokens(redactText(v, marker), tokens);
       else if (v && typeof v === 'object') walk(v);
     }
   };
@@ -185,7 +214,9 @@ async function runJourney(spec) {
   const log = [];
   const traced = (name, fn) => async (...a) => { log.push({ effect: name }); return fn(...a); };
   if (!isRunMarker(marker)) return { status: 'ABORTED_BAD_MARKER', effectLog: log };
-  if (!expected || typeof expected.home_url !== 'string' || !expected.home_url) {
+  if (!expected || typeof expected.home_url !== 'string' || !expected.home_url
+    || typeof expected.db_name !== 'string' || !expected.db_name) {
+    /* Disposable app/DB identity binding is REQUIRED, not optional. */
     return { status: 'ABORTED_BAD_SPEC', effectLog: log };
   }
   /* 1. read-only preflight — before ANY mutation; identity must match the expected fixture */
@@ -281,5 +312,5 @@ module.exports = {
   evaluatePreflight, assertPreflight,
   phpSingleQuoted, phpIntList,
   buildPreflightProbePhp, buildFindOwnedPhp, buildDeleteOwnedPhp,
-  redactText, serializeOutput, runJourney, ALLOWED_TYPES,
+  redactText, redactTokens, safeDetail, serializeOutput, runJourney, ALLOWED_TYPES,
 };
