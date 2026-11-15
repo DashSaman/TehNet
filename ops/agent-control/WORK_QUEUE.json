@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "updated_utc": "2026-11-15T03:32:30Z",
+ "updated_utc": "2026-11-15T10:31:01Z",
  "single_writer": "Z Code primary executor",
  "supervisor": "Codex (read-only review; max 2 ordinary reviews/day)",
  "tasks": [
@@ -409,6 +409,26 @@
    "evidence": "ops/agent-control/LINK-TEST-TN-LINK-20261114-A.json",
    "last_progress": "2026-11-14T16:08Z",
    "next_action": "Use canonical vocabulary in all future packets"
+  },
+  {
+   "id": "TN-BROWSER-PKG",
+   "owner": "zcode",
+   "priority": "P0",
+   "title": "Browser-acceptance package COMPLETE (Cases 1-4) — REVIEW_REQUEST posted to PR96",
+   "state": "AWAITING_MANAGER_REVIEW",
+   "dependencies": [],
+   "acceptance": [
+    "Case 1 services journey PASS (receipt TN-798, DB private tn_ticket)",
+    "Case 2 b2b quote journey PASS (quote 799 state=received, real product 85)",
+    "Case 3 support journey mobile-375 PASS",
+    "Case 4 matrix 13/13 (m320 no-overflow x3, dark toggle, real JS-disabled HTML POST)",
+    "cleanup restored baseline (0 tickets/0 quotes)",
+    "zero site/runtime/production files changed"
+   ],
+   "attempts": 1,
+   "evidence": "docs/evidence/2026-11-15/browser-start + browser-full on agent-control; REVIEW_REQUEST comment 6893008211 (10:30:37Z); STARTED comment 6892848563",
+   "last_progress": "2026-11-15T10:30Z",
+   "next_action": "WAITING for manager review on PR96; no duplicate packets"
   }
  ]
 }
