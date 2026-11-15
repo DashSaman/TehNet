@@ -23,7 +23,7 @@ docker run -d --name "$stage_db" --network "$stage_net" --network-alias db -e MA
 for n in {1..40}; do if docker exec "$stage_db" healthcheck.sh --connect --innodb_initialized >/dev/null 2>&1; then break; fi; sleep 1; done
 docker create --name "$stage_cli" wordpress:cli-2.12.0-php8.3 >/dev/null
 docker cp "$stage_cli:/usr/local/bin/wp" "$stage_root/wp"
-docker run -d --name "$stage_app" --network "$stage_net" -p 127.0.0.1:18085:80 -e TN_FIXTURE_PASSWORD="$stage_password" -v "$PWD:/src:ro" -v "$stage_root:/lab" -v "$stage_root/web:/var/www/html" --entrypoint bash wordpress:7.1.4-php8.3-apache -eu -c '
+docker run -d --name "$stage_app" --network "$stage_net" -e TN_FIXTURE_PASSWORD="$stage_password" -v "$PWD:/src:ro" -v "$stage_root:/lab" -v "$stage_root/web:/var/www/html" --entrypoint bash wordpress:7.1.4-php8.3-apache -eu -c '
 for fixture_php in /src/tests/browser-package-native.php /src/ops/migrate-growth-content.php; do php -l "$fixture_php"; done
 cp -a /usr/src/wordpress/. /var/www/html/
 cp -a /src/site/. /var/www/html/wp-content/
@@ -96,6 +96,11 @@ for stage_path in / /services/ /b2b/ /support/ /shop/ /wp-admin/admin-post.php; 
  case "$stage_http" in 200|301|302|400) :;; *) echo "TN_FIXTURE_BOOTSTRAP_FAILED status=$stage_http"; exit 1;; esac
 done
 # The real browser journeys (Cases 1-4) against the isolated fixture.
-export TN_BROWSER_BASE="http://localhost:18085"
-NODE_PATH="$stage_root/pw/node_modules" PLAYWRIGHT_BROWSERS_PATH="$stage_root/browsers" node tests/browser-package.cjs
+# Execute Chromium inside the container's network namespace (MANAGER_REVIEW correction):
+# Apache listens on 127.0.0.1:80 inside this namespace; the browser joins the same namespace
+# via nsenter so it can reach Apache without host port mapping.
+export TN_BROWSER_BASE="http://127.0.0.1:80"
+export GITHUB_SHA="$GITHUB_SHA"
+stage_app_pid="$(docker inspect -f '{{.State.Pid}}' "$stage_app")"
+sudo nsenter --target "$stage_app_pid" --net -- env   TN_BROWSER_BASE="$TN_BROWSER_BASE"   GITHUB_SHA="$GITHUB_SHA"   TN_STAGE_APP="$stage_app"   NODE_PATH="$stage_root/pw/node_modules"   PLAYWRIGHT_BROWSERS_PATH="$stage_root/browsers"   HOME="$HOME"   node "$PWD/tests/browser-package.cjs"
 echo "TN_BROWSER_PACKAGE_NATIVE_DONE"
