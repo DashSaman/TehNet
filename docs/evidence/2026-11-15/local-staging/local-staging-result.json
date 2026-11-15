@@ -30,7 +30,7 @@
    "name": "svc_submit_302",
    "pass": true,
    "detail": {
-    "url": "http://localhost:18085/support/?tn_ticket=sent&tn_service_receipt=ekVdKNrehed1CIfA4OgV7USleFTTRU2f"
+    "url": "http://localhost:18085/support/?tn_ticket=sent&tn_service_receipt=REDACTED"
    }
   },
   {
