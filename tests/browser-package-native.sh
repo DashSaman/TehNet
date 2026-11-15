@@ -69,7 +69,28 @@ for n in $(seq 1 60); do
   sleep 3
 done
 set -e
-if test "$up" != "true"; then echo "TN_APACHE_START_FAILED after 180s"; docker logs "$stage_app" 2>&1 | tail -20; exit 1; fi
+if test "$up" != "true"; then
+  # Bounded diagnostic per MANAGER_REVIEW: curl from three layers, record distinctly
+  echo "=== DIAGNOSTIC PROBE ==="
+  # (a) inside container: direct Apache port 80
+  app_code="$(docker exec "$stage_app" curl --silent --max-time 5 --output /dev/null --write-out '%{http_code}' http://127.0.0.1:80/ 2>&1)" || app_code="curl_exit_$?"
+  echo "PROBE_A_container_apache80: $app_code"
+  # (b) from the host: published port 18085 with verbose status
+  host_code="$(curl --silent --max-time 5 --output /dev/null --write-out '%{http_code}' http://127.0.0.1:18085/ 2>&1)" || host_code="curl_exit_$?"
+  echo "PROBE_B_host_published18085: $host_code"
+  # (c) docker port mapping check
+  port_map="$(docker port "$stage_app" 2>/dev/null || echo 'no-mapping')"
+  echo "PROBE_C_docker_port_mapping: $port_map"
+  # (d) container process check: is Apache actually running?
+  apache_pid="$(docker exec "$stage_app" pgrep -c apache2 2>/dev/null || echo 0)"
+  echo "PROBE_D_apache_process_count: $apache_pid"
+  # (e) container port 80 listener
+  listener="$(docker exec "$stage_app" sh -c 'ss -tlnp 2>/dev/null | grep ":80 " || echo "no-listener"')"
+  echo "PROBE_E_container_port80_listener: $listener"
+  echo "=== END DIAGNOSTIC ==="
+  docker logs "$stage_app" 2>&1 | tail -20
+  exit 1
+fi
 for stage_path in / /services/ /b2b/ /support/ /shop/ /wp-admin/admin-post.php; do
  stage_http="$(curl --silent --show-error --max-time 30 --output /dev/null --write-out '%{http_code}' "http://localhost:18085$stage_path")"
  case "$stage_http" in 200|301|302|400) :;; *) echo "TN_FIXTURE_BOOTSTRAP_FAILED status=$stage_http"; exit 1;; esac
