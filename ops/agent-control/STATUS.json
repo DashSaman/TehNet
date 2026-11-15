@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "updated_utc": "2026-11-15T19:18:03Z",
+ "updated_utc": "2026-11-15T19:36:50Z",
  "primary_executor": "Z Code",
  "supervisor_operational": true,
  "supervisor_notes": "Operational; fail-closed proven live; regression suite committed (10/10); next ordinary review from committed head d977717+.",
@@ -79,5 +79,6 @@
  "passive_content": "v3 COMMITTED_NOT_DEPLOYED (370ddb1) — 7 corrections applied, Gutenberg balanced",
  "remote_intake": "COMMITTED (a5c4ee0) — fragment ready for future integration",
  "execution_mission": "IN_PROGRESS — passive v3 (370ddb1→22dea09), remote intake preview (395413a), LOCAL_STAGING browser PASS 11/11 (4faeef3), browser cloud BLOCKED_DEFINITIVE (8 CI attempts); deadline 04:30Z 11-16",
- "local_staging_browser": "PASS 11/11 (TN-LOCAL-STAGING) — Services CTA+receipt TN-801, B2B quote, Support mobile-375, no-overflow 375/320, no-JS HTML POST, dark toggle; cleanup verified; owner-authorized LOCAL_STAGING per 6899649773; REVIEW_REQUEST posted to PR96"
+ "local_staging_browser": "PASS 11/11 (TN-LOCAL-STAGING) — Services CTA+receipt TN-801, B2B quote, Support mobile-375, no-overflow 375/320, no-JS HTML POST, dark toggle; cleanup verified; owner-authorized LOCAL_STAGING per 6899649773; REVIEW_REQUEST posted to PR96",
+ "local_fix2": "PASS 14/14 — keyboard-only fill with focus assertions, POST captured, no-JS B2B submission, dark toggle; original CSS preserved; cleanup verified; REVIEW_REQUEST posted to PR96 (comment pending)"
 }
