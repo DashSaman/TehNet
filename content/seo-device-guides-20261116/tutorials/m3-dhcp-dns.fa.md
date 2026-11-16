@@ -154,27 +154,35 @@ gateway بیرون از subnet به‌خودی‌خود با «عبارت ARP» 
 
 ### کنترل مثبت — accept موقتِ فقط-کلاینت‌آزمایشی، قبل از default drop واقعی
 
-کد واقعی زنجیرهٔ input دو **accept** محدود دارد و بستنِ بقیه با default drop آخر است (rule drop جداگانه‌ای برای 53 وجود ندارد). کنترل مثبت یعنی افزودن دو accept موقتِ فقط برای کلاینت آزمایشی، **بلافاصله قبل از همان default drop**. دو نکتهٔ کنسولی الزامی: متغیر `:local` بین خط‌های تعاملی جدا زنده نمی‌ماند (باید در یک بلاک `do={}` یا بدون متغیر نوشته شود)؛ و شمارهٔ ردیف print هویت پایدار rule نیست — هدف باید با comment یکتا **find** شود و قبل از هر add، «دقیقاً یک» هدف وجود داشته باشد (در غیر این صورت fail closed):
+کد واقعی زنجیرهٔ input دو **accept** محدود دارد و بستنِ بقیه با default drop آخر است (rule drop جداگانه‌ای برای 53 وجود ندارد). کنترل مثبت یعنی افزودن دو accept موقتِ فقط برای کلاینت آزمایشی، **بلافاصله قبل از همان default drop**.
+
+**نکتهٔ کنسولی الزامی:** متغیر `:local` بین خط‌های تعاملی جدا زنده نمی‌ماند — کل توالی باید در یک بلاک `{ }` قرار گیرد تا متغیرها در scope باقی بمانند. همچنین شمارهٔ ردیف print هویت پایدار rule نیست — هدف باید با comment یکتا **find** شود و قبل از هر add، «دقیقاً یک» هدف وجود داشته باشد (در غیر این صورت fail closed):
 
 ```routeros
-# گام کنترل — قبل از هر add: دقیقاً یک هدف؟ اگر خروجی ≠ 1 بود، ادامه ندهید
-:put [:len [/ip firewall filter find where chain="input" and action="drop" and comment~"TN-M3 input default drop"]]
-
-# درج دو accept موقت با find اینلاین به همان هدف یکتا
-/ip firewall filter add chain=input action=accept protocol=udp dst-port=53 src-address=10.9.9.9 comment="TN-M3 کنترل موقت udp — حذف پس از تست" place-before=[:find [/ip firewall filter where chain="input" and action="drop" and comment~"TN-M3 input default drop"]]
-/ip firewall filter add chain=input action=accept protocol=tcp dst-port=53 src-address=10.9.9.9 comment="TN-M3 کنترل موقت tcp — حذف پس از تست" place-before=[:find [/ip firewall filter where chain="input" and action="drop" and comment~"TN-M3 input default drop"]]
+{
+    :local targets [/ip firewall filter find where chain="input" and action="drop" and comment~"TN-M3 input default drop"]
+    :if ([:len $targets] != 1) do={ :error "TN-M3: exactly 1 default-drop expected, found [:len $targets] — aborting" }
+    /ip firewall filter add chain=input action=accept protocol=udp dst-port=53 src-address=10.9.9.9 comment="TN-M3 کنترل موقت udp — حذف پس از تست" place-before=[:pick $targets 0]
+    /ip firewall filter add chain=input action=accept protocol=tcp dst-port=53 src-address=10.9.9.9 comment="TN-M3 کنترل موقت tcp — حذف پس از تست" place-before=[:pick $targets 0]
+}
 ```
 
-با هر دو rule کنترل، پرس‌وجوی کلاینت آزمایشی باید موفق شود (مسیر رفت+برگشت سالم). سپس مرز **بازگردانده می‌شود** (حذف با comment یکتا):
+با هر دو rule کنترل، پرس‌وجوی کلاینت آزمایشی باید موفق شود (مسیر رفت+برگشت سالم). سپس مرز **بازگردانده می‌شود** (حذف با شمارش و تأیید):
 
 ```routeros
-/ip firewall filter
-remove [find where comment~"TN-M3 کنترل موقت udp"]
-remove [find where comment~"TN-M3 کنترل موقت tcp"]
-:put "TN-M3: boundary restored"
+{
+    :local tmpUdp [:len [/ip firewall filter find where comment~"TN-M3 کنترل موقت udp"]]
+    :local tmpTcp [:len [/ip firewall filter find where comment~"TN-M3 کنترل موقت tcp"]]
+    :if ($tmpUdp != 1 or $tmpTcp != 1) do={ :error "TN-M3: expected exactly 1 udp + 1 tcp temp rule, found udp=$tmpUdp tcp=$tmpTcp — aborting" }
+    /ip firewall filter remove [/ip firewall filter find where comment~"TN-M3 کنترل موقت udp"]
+    /ip firewall filter remove [/ip firewall filter find where comment~"TN-M3 کنترل موقت tcp"]
+    :local afterUdp [:len [/ip firewall filter find where comment~"TN-M3 کنترل موقت udp"]]
+    :local afterTcp [:len [/ip firewall filter find where comment~"TN-M3 کنترل موقت tcp"]]
+    :if ($afterUdp = 0 and $afterTcp = 0) do={ :put "TN-M3: boundary restored" } else={ :error "TN-M3: cleanup incomplete — udp=$afterUdp tcp=$afterTcp" }
+}
 ```
 
-اگر گام کنترل ≠ 1 بود یا remove چیزی حذف نکرد، **fail closed** — بدون شمارندهٔ قابل‌استناد، timeout قابل‌تفسیر نیست.
+اگر گام کنترل ≠ 1 بود یا هر remove چیزی حذف نکرد، **fail closed** — بدون شمارندهٔ قابل‌استناد، timeout قابل‌تفسیر نیست.
 
 **ترتیب تفسیر (الزامی):** تا کنترل مثبت موفق نشده، timeout را اثر فایروال ننامید — timeout بدون کنترل فقط می‌تواند بی‌مسیری باشد.
 

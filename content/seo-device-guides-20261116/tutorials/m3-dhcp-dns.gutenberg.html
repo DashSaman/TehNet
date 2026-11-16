@@ -311,31 +311,41 @@ add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و �
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>کد واقعی زنجیرهٔ input دو <strong>accept</strong> محدود دارد و بستنِ بقیه با default drop آخر است (rule drop جداگانه‌ای برای 53 وجود ندارد). کنترل مثبت یعنی افزودن دو accept موقتِ فقط برای کلاینت آزمایشی، <strong>بلافاصله قبل از همان default drop</strong>. دو نکتهٔ کنسولی الزامی: متغیر `:local` بین خط‌های تعاملی جدا زنده نمی‌ماند (باید در یک بلاک `do={}` یا بدون متغیر نوشته شود)؛ و شمارهٔ ردیف print هویت پایدار rule نیست — هدف باید با comment یکتا <strong>find</strong> شود و قبل از هر add، «دقیقاً یک» هدف وجود داشته باشد (در غیر این صورت fail closed):</p>
+<p>کد واقعی زنجیرهٔ input دو <strong>accept</strong> محدود دارد و بستنِ بقیه با default drop آخر است (rule drop جداگانه‌ای برای 53 وجود ندارد). کنترل مثبت یعنی افزودن دو accept موقتِ فقط برای کلاینت آزمایشی، <strong>بلافاصله قبل از همان default drop</strong>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>نکتهٔ کنسولی الزامی:</strong> متغیر `:local` بین خط‌های تعاملی جدا زنده نمی‌ماند — کل توالی باید در یک بلاک `{ }` قرار گیرد تا متغیرها در scope باقی بمانند. همچنین شمارهٔ ردیف print هویت پایدار rule نیست — هدف باید با comment یکتا <strong>find</strong> شود و قبل از هر add، «دقیقاً یک» هدف وجود داشته باشد (در غیر این صورت fail closed):</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code class="language-routeros"># گام کنترل — قبل از هر add: دقیقاً یک هدف؟ اگر خروجی ≠ 1 بود، ادامه ندهید
-:put [:len [/ip firewall filter find where chain="input" and action="drop" and comment~"TN-M3 input default drop"]]
-
-# درج دو accept موقت با find اینلاین به همان هدف یکتا
-/ip firewall filter add chain=input action=accept protocol=udp dst-port=53 src-address=10.9.9.9 comment="TN-M3 کنترل موقت udp — حذف پس از تست" place-before=[:find [/ip firewall filter where chain="input" and action="drop" and comment~"TN-M3 input default drop"]]
-/ip firewall filter add chain=input action=accept protocol=tcp dst-port=53 src-address=10.9.9.9 comment="TN-M3 کنترل موقت tcp — حذف پس از تست" place-before=[:find [/ip firewall filter where chain="input" and action="drop" and comment~"TN-M3 input default drop"]]</code></pre>
+<pre class="wp-block-code"><code class="language-routeros">{
+    :local targets [/ip firewall filter find where chain="input" and action="drop" and comment~"TN-M3 input default drop"]
+    :if ([:len $targets] != 1) do={ :error "TN-M3: exactly 1 default-drop expected, found [:len $targets] — aborting" }
+    /ip firewall filter add chain=input action=accept protocol=udp dst-port=53 src-address=10.9.9.9 comment="TN-M3 کنترل موقت udp — حذف پس از تست" place-before=[:pick $targets 0]
+    /ip firewall filter add chain=input action=accept protocol=tcp dst-port=53 src-address=10.9.9.9 comment="TN-M3 کنترل موقت tcp — حذف پس از تست" place-before=[:pick $targets 0]
+}</code></pre>
 <!-- /wp:code -->
 
 <!-- wp:paragraph -->
-<p>با هر دو rule کنترل، پرس‌وجوی کلاینت آزمایشی باید موفق شود (مسیر رفت+برگشت سالم). سپس مرز <strong>بازگردانده می‌شود</strong> (حذف با comment یکتا):</p>
+<p>با هر دو rule کنترل، پرس‌وجوی کلاینت آزمایشی باید موفق شود (مسیر رفت+برگشت سالم). سپس مرز <strong>بازگردانده می‌شود</strong> (حذف با شمارش و تأیید):</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code class="language-routeros">/ip firewall filter
-remove [find where comment~"TN-M3 کنترل موقت udp"]
-remove [find where comment~"TN-M3 کنترل موقت tcp"]
-:put "TN-M3: boundary restored"</code></pre>
+<pre class="wp-block-code"><code class="language-routeros">{
+    :local tmpUdp [:len [/ip firewall filter find where comment~"TN-M3 کنترل موقت udp"]]
+    :local tmpTcp [:len [/ip firewall filter find where comment~"TN-M3 کنترل موقت tcp"]]
+    :if ($tmpUdp != 1 or $tmpTcp != 1) do={ :error "TN-M3: expected exactly 1 udp + 1 tcp temp rule, found udp=$tmpUdp tcp=$tmpTcp — aborting" }
+    /ip firewall filter remove [/ip firewall filter find where comment~"TN-M3 کنترل موقت udp"]
+    /ip firewall filter remove [/ip firewall filter find where comment~"TN-M3 کنترل موقت tcp"]
+    :local afterUdp [:len [/ip firewall filter find where comment~"TN-M3 کنترل موقت udp"]]
+    :local afterTcp [:len [/ip firewall filter find where comment~"TN-M3 کنترل موقت tcp"]]
+    :if ($afterUdp = 0 and $afterTcp = 0) do={ :put "TN-M3: boundary restored" } else={ :error "TN-M3: cleanup incomplete — udp=$afterUdp tcp=$afterTcp" }
+}</code></pre>
 <!-- /wp:code -->
 
 <!-- wp:paragraph -->
-<p>اگر گام کنترل ≠ 1 بود یا remove چیزی حذف نکرد، <strong>fail closed</strong> — بدون شمارندهٔ قابل‌استناد، timeout قابل‌تفسیر نیست.</p>
+<p>اگر گام کنترل ≠ 1 بود یا هر remove چیزی حذف نکرد، <strong>fail closed</strong> — بدون شمارندهٔ قابل‌استناد، timeout قابل‌تفسیر نیست.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
