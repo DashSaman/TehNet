@@ -372,8 +372,48 @@ n3 = svg(960, 560,
     'خط زمان یک رخداد فرضی از ثبت تا گزارش مکتوب با پنج نقطه: ثبت رخداد، اولین پاسخ انسانی که فاصله‌اش زمان پاسخ است، شروع کار، رفع با تأیید مسئول که فاصله‌اش زمان رفع است، و گزارش مکتوب با ثبت قبل و بعد. بازه استثنای انتظار قطعه با توافق کتبی ساعت‌شمار را متوقف می‌کند. جعبه شش سؤال پیش از امضا دامنه، پاسخ و رفع جدا، ساعات پوشش، مسئول تأیید، شواهد و مسیر تشدید را فهرست می‌کند. این نمودار مفهومی و تألیفی TehNet است.',
     chr(10).join(b))
 
+
+# ---------------- N5 backup/export two-track ----------------
+b = []
+b.append(text(480, 36, 'دو مسیر مکمل — نه جایگزین هم', 13, 'middle', '#1a1a1a', 'bold'))
+# track 1: backup binary
+b.append(rect(80, 90, 380, 210, '#fafafa', '#1e88e5', 2))
+b.append(text(270, 116, 'مسیر ۱: backup باینری', 13, 'middle', '#1e88e5', 'bold'))
+b.append(text(270, 142, 'فایل کامل تنظیمات — سریع', 11, 'middle', '#1a1a1a'))
+b.append(text(270, 162, 'بازگشت روی همان دستگاه/نگارش', 11, 'middle', '#1a1a1a'))
+b.append(text(270, 184, 'با رمز محافظت شود', 11, 'middle', '#455a64'))
+b.append(text(270, 206, 'هفتگی — Scheduler سندشده', 10, 'middle', '#78909c'))
+b.append(rect(140, 232, 260, 48, '#e3f2fd', '#1e88e5', 1))
+b.append(text(270, 252, 'بازیابی: /system backup load', 11, 'middle', '#0d47a1'))
+b.append(text(270, 272, 'روی دستگاه آزمایشی فصلی', 10, 'middle', '#546e7a'))
+# track 2: export text
+b.append(rect(500, 90, 380, 210, '#fafafa', '#43a047', 2))
+b.append(text(690, 116, 'مسیر ۲: export متنی', 13, 'middle', '#2e7d32', 'bold'))
+b.append(text(690, 142, 'فایل خوانا — حسابرسی/مقایسه/مهاجرت', 11, 'middle', '#1a1a1a'))
+b.append(text(690, 162, 'بدون مقادیر حساس (این الگو)', 11, 'middle', '#455a64'))
+b.append(text(690, 184, 'ماهانه + بعد از هر تغییر مهم', 10, 'middle', '#78909c'))
+b.append(rect(560, 232, 260, 48, '#e8f5e9', '#43a047', 1))
+b.append(text(690, 252, 'مقایسه: diff دو export', 11, 'middle', '#1b5e20'))
+b.append(text(690, 272, 'بین‌مدل = UNKNOWN — آزمون قبل از اتکا', 10, 'middle', '#546e7a'))
+# restore-test gate
+b.append(rect(200, 350, 560, 64, '#fdecea', '#d32f2f', 2))
+b.append(text(480, 374, 'گیت بازیابی‌آزمون (فصلی): load روی دستگاه آزمایشی + مقایسه', 12, 'middle', '#d32f2f', 'bold'))
+b.append(text(480, 398, 'تا آزمون نشده: «پشتیبانِ آزموده» حساب نمی‌شود — یا NOT_RUN ثبت', 10, 'middle', '#616161'))
+# off-device box
+b.append(rect(80, 440, 380, 60, '#fff8e1', '#f9a825', 2))
+b.append(text(270, 464, 'یک نسخه خارج از دستگاه (مسیر مالک)', 11, 'middle', '#e65100', 'bold'))
+b.append(text(270, 484, 'خرابی دستگاه = رفتن هر دو نسخه‌ی روی آن', 10, 'middle', '#8d6e63'))
+b.append(rect(500, 440, 380, 60, '#fff8e1', '#f9a825', 2))
+b.append(text(690, 464, 'export متنی: بدون مقادیر حساس نگهداری شود', 11, 'middle', '#e65100', 'bold'))
+b.append(text(690, 484, 'نسخهٔ شامل‌رمز ساخته نمی‌شود (این الگو)', 10, 'middle', '#8d6e63'))
+b.append(text(480, 533, 'نمودار مفهومی تألیفی TehNet — نه عکس واقعی — دستورها RouterOS سندشده؛ اجرا NOT_RUN', 10, 'middle', '#78909c'))
+n5 = svg(960, 560,
+    'نمودار دو مسیر backup و export درس N5 با گیت بازیابی‌آزمون',
+    'دو مسیر مکمل: مسیر اول فایل backup باینری رمزدار با کاربرد بازگشت سریع روی همان دستگاه و بازیابی از طریق دستور load روی دستگاه آزمایشی در آزمون فصلی. مسیر دوم فایل export متنی بدون مقادیر حساس برای حسابرسی و مقایسه و مهاجرت با هشدار UNKNOWN بین‌مدل. گیت بازیابی‌آزمون می‌گوید تا آزمون نشده پشتیبان آزموده حساب نمی‌شود. یک نسخه خارج از دستگاه نگهداری می‌شود چون خرابی دستگاه هر دو نسخه روی دستگاه را از بین می‌برد. این نمودار مفهومی و تألیفی TehNet است.',
+    chr(10).join(b))
+
 os.makedirs(OUT, exist_ok=True)
-for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3)):
+for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5)):
     p = os.path.join(OUT, name)
     with io.open(p, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)

@@ -30,7 +30,10 @@
    "assets/tutorial-n2-monitoring-loop.svg": "d813f22c6a82fc8a7d0187cd9ca87272284136acfa03864fa6a448849e9a0592",
    "tutorials/n3-support-contract-sla.fa.md": "a2e7bf3b99d4e09c9c952a8bc109d4f7985494606d32aa9f6aebc5d4493003f3",
    "tutorials/n3-support-contract-sla.gutenberg.html": "12fa813e473fe43510693bca8bbbb2667c2001de6259f97ca4a02a20e1a2c616",
-   "assets/tutorial-n3-sla-timeline.svg": "96a3b346ce26850e69aa3aba9b1e5b65e96872ed76d46c01a6bb1ecf2ec38c42"
+   "assets/tutorial-n3-sla-timeline.svg": "96a3b346ce26850e69aa3aba9b1e5b65e96872ed76d46c01a6bb1ecf2ec38c42",
+   "tutorials/n5-config-backup-export.fa.md": "e1823b762113c9090f8f61523068514813983752b77144bce7547ef3c55d022f",
+   "tutorials/n5-config-backup-export.gutenberg.html": "fa5ddc2aa80dbba7f3ce614496824a8f549ebbf953cd2241c58ddb0567ec898b",
+   "assets/tutorial-n5-backup-export.svg": "cad58d7728ad7aca213dd9671688889cb8e1d3aa21ec92a16b24ba5007509ab4"
   }
  },
  "preview_style_injected_at_render_time": "body{background:#fff;color:#111;font-family:Tahoma,Arial,sans-serif;margin:24px auto;max-width:960px;line-height:1.9} pre{background:#f6f8fa;border:1px solid #ddd;padding:12px;overflow:auto} code{font-family:Consolas,monospace;font-size:13px} table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto} th,td{border:1px solid #999;padding:5px 9px} img{max-width:100%;height:auto} blockquote{border-right:3px solid #1e88e5;padding-right:12px;color:#444}",
@@ -282,6 +285,22 @@
     "img_present": true,
     "links": 10,
     "overflow_styled": 166
+   },
+   "tutorials/n5-config-backup-export.gutenberg.html@desktop": {
+    "shot": "n5-desktop-tracks.png",
+    "h1": "backup و export پیکربندی MikroTik — تفاوت، زمان‌بندی و آزمون بازیابی (N5)",
+    "img_complete": true,
+    "img_present": true,
+    "links": 10,
+    "overflow_styled": 0
+   },
+   "tutorials/n5-config-backup-export.gutenberg.html@mobile": {
+    "shot": "n5-mobile-tracks.png",
+    "h1": "backup و export پیکربندی MikroTik — تفاوت، زمان‌بندی و آزمون بازیابی (N5)",
+    "img_complete": true,
+    "img_present": true,
+    "links": 10,
+    "overflow_styled": 0
    }
   },
   "styled_overflow_mobile_px": {
@@ -337,7 +356,8 @@
   "n1": "N1 layer-ladder lesson renders desktop 0px overflow, mobile 92px (recorded); six-rung ladder + ICMP-policy warning legible; packet-flow source URL visible in rendered text",
   "n4": "N4 acceptance-phases lesson renders desktop 0px overflow, mobile 126px (recorded); four-phase flow + fail-loop + sample matrix legible",
   "n2": "N2 monitoring-loop lesson renders desktop AND mobile both 0px overflow; four-phase loop + dead-end branch legible",
-  "n3": "N3 SLA-timeline lesson renders desktop 0px overflow, mobile 166px (recorded); Response/Resolution timeline + exception band + six-questions box + empty A/B comparison table legible"
+  "n3": "N3 SLA-timeline lesson renders desktop 0px overflow, mobile 166px (recorded); Response/Resolution timeline + exception band + six-questions box + empty A/B comparison table legible",
+  "n5": "N5 two-track lesson renders desktop AND mobile both 0px overflow; backup/export tracks + restore-test gate + off-device and no-secrets boxes legible"
  },
  "boundary_item5": {
   "captures_untracked": "git rm --cached of the 12 evidence PNGs + render-evidence/.gitignore (forward commit; no force-push, no history claims); captures remain on local disk only",
@@ -349,13 +369,14 @@
   "manager-side browser run"
  ],
  "production_touched": false,
- "utc_extended": "2026-11-16T20:16:35Z",
+ "utc_extended": "2026-11-16T20:27:37Z",
  "pages_extra": [
   "tutorials/s2-poe-budget.gutenberg.html",
   "tutorials/s3-sfp-dac-fiber.gutenberg.html",
   "tutorials/n1-network-troubleshooting.gutenberg.html",
   "tutorials/n4-delivery-acceptance.gutenberg.html",
   "tutorials/n2-monitoring-maintenance.gutenberg.html",
-  "tutorials/n3-support-contract-sla.gutenberg.html"
+  "tutorials/n3-support-contract-sla.gutenberg.html",
+  "tutorials/n5-config-backup-export.gutenberg.html"
  ]
 }

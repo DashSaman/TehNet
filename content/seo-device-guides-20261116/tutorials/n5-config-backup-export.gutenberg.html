@@ -1,0 +1,304 @@
+<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from ../tutorials/n5-config-backup-export.fa.md -->
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">backup و export پیکربندی MikroTik — تفاوت، زمان‌بندی و آزمون بازیابی (N5)</h1>
+<!-- /wp:heading -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><p>وضعیت درس: <strong>DRAFT / NOT_DEPLOYED — در انتظار مرور.</strong></p><p>آموزش تصویری از سری پشتیبانی؛ مخاطب: کارشناس شبکه.</p><p>سناریوی کاملاً فرضی و آموزشی با دادهٔ ساختگی؛ هیچ شبکهٔ واقعی دستکاری نشده و هیچ اجرای واقعی NOT_RUN است.</p><p>نمودار مفهومی و تألیفی است (نه عکس واقعی).</p></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پاسخ کوتاه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>دو ابزار مکمل‌اند نه جایگزین هم: <strong>backup</strong> (فایل باینری کامل، سریع برای بازگرداندن روی همان دستگاه/نگارش) و <strong>export</strong> (فایل متنی خوانا برای حسابرسی، مقایسه و مهاجرت). هیچ‌کدام به‌تنهایی «پشتیبان» نیستند تا یک‌بار <strong>بازیابی‌آزمون</strong> شوند (قاعدهٔ درس N2). نسخه‌ها را تاریخ‌دار نگه دارید، یک نسخه را <strong>خارج از دستگاه</strong> نگه دارید و به‌خاطر داشته باشید export می‌تواند شامل رمزها باشد — نگهداری‌اش امن، مثل خود رمز.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پیش‌نیازها</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>مبنا: <a href="/guides/mikrotik-dhcp-dns/">DHCP و DNS (M3)</a> — همین hEX فرضی</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>قاعدهٔ بازیابی‌آزمون: <a href="n4-delivery-acceptance.fa.md">چک‌لیست پذیرش (N4)</a> و چک‌لیست فصلی <a href="n2-monitoring-maintenance.fa.md">N2</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مبنا آزمایشگاه (Lab Baseline) — دقیق و کامل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>بند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقدار فرضی</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>دستگاه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>hEX (RB750Gr3)، ‏RouterOS v7.16+ (مبناى M3)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>فایل backup</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`hex-backup-YYYY-MM-DD.backup` با رمز (فرض آموزشی)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>فایل export</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`hex-export-YYYY-MM-DD.rsc` متنی</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نگهداری نسخه‌ها</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>روی دستگاه (پوشهٔ فایل‌ها) + <strong>یک نسخهٔ خارج از دستگاه</strong> (درایو/سرویس نگهداری فایل مالک — خارج دامنهٔ این درس)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>زمان‌بندی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>backup هفتگی خودکار با Scheduler + export ماهانه دستی/زمان‌بندی‌شده + export فوری بعد از هر تغییر مهم</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">backup در برابر export — دو مسیر متفاوت</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>بند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>backup (باینری)</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>export (متنی .rsc)</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>ماهیت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تصویر کامل تنظیمات</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فرمان‌های بازسازی تنظیمات به‌صورت متنی</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>بهترین کاربرد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بازگشت سریع روی <strong>همان دستگاه/نگارش</strong></td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>حسابرسی، مقایسهٔ نسخه‌ها، مهاجرت، مستندسازی</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>خوانایی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>غیرقامل‌مطالعه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خوانا و قابل‌diff</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>رمزها</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فایل با رمز محافظت می‌شود (`password=`)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>به‌صورت پیش‌فرض مقادیر حساس حذف می‌شوند؛ با پارامتر حساس‌نما شامل می‌شوند — این درس فقط نسخهٔ حذف‌شده تولید می‌کند و نسخهٔ شامل‌رمز را نمی‌سازد</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>وابستگی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>به مدل/نگارش RouterOS حساس‌تر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>عمومی‌تر؛ برخی تنظیمات وابسته به سخت‌افزار ممکن است روی مدل دیگر معنی ندهد — <strong>UNKNOWN</strong> برای هر مهاجرت بین‌مدل؛ قبل از اتکا، بازیابی‌آزمون</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:image -->
+<figure class="wp-block-image size-large"><img src="../assets/tutorial-n5-backup-export.svg" alt="نمودار دو مسیر backup و export درس N5 با گیت بازیابی‌آزمون" width="900" loading="lazy"/><figcaption>نمودار دو مسیر backup و export درس N5 با گیت بازیابی‌آزمون</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> دو مسیر مکمل کنار هم: مسیر اول ‏backup باینری رمزدار (هفتگی با Scheduler؛ کاربرد: بازگشت سریع روی همان دستگاه؛ بازیابی از طریق `/system backup load` روی دستگاه آزمایشی در آزمون فصلی) و مسیر دوم ‏export متنی بدون مقادیر حساس (ماهانه؛ کاربرد: حسابرسی، مقایسه با diff، مهاجرت با هشدار UNKNOWN بین‌مدل). زیر این دو، گیت قرمز «بازیابی‌آزمون فصلی» آمده: تا load روی دستگاه آزمایشی و مقایسه انجام نشده، پشتیبان «آزموده» حساب نمی‌شود و صادقانه NOT_RUN ثبت می‌گردد. دو جعبهٔ زرد پایین: یک نسخه خارج از دستگاه (چون خرابی دستگاه هر دو نسخه روی آن را می‌برد) و نگهداری امن export بدون مقادیر حساس. برچسب «تألیفی/مفهومی».</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>دستورهای مبنا (اجرا NOT_RUN):</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros"># backup هفتگی — با رمز؛ تاریخ در نام
+/system backup save name="hex-backup-2026-11-16" password="********" comment="TN-N5 weekly"
+
+# export متنی ماهانه — بدون مقادیر حساس
+/export file="hex-export-2026-11-16"</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">زمان‌بندی خودکار — با Scheduler سندشدهٔ RouterOS</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>قابلیت Scheduler بخشی از RouterOS است (در این درس فقط نام قابلیت؛ URL بخش مستندات جداگانه تأیید نشده و عیناً ساخته نشده — الگوی صادقانهٔ S2). نمونهٔ الگو (اجرا NOT_RUN):</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros">/system scheduler
+add name=tn-n5-weekly-backup interval=7d on-event="/system backup save name=\"hex-backup-auto\" password=\"********\" comment=\"TN-N5 auto\"" start-time=03:30:00 comment="TN-N5 weekly"</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>اقدام زمان‌بندی‌شده فقط <strong>ساخت فایل روی خود دستگاه</strong> است؛ انتقال فایل به بیرون دستگاه در این درس نیست (نیازمند تصمیم مسیر امن مالک).</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>ساعت اجرا خارج ساعات کاری انتخاب شده؛ بدون هیچ اقدام مؤثر دیگر.</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">بازیابی و آزمون بازیابی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>مسیر</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>دستور مبنا</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>محدودیت سندشده‌وار</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>بازگرداندن backup</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/system backup load name="hex-backup-..." password="<strong>*</strong>***"`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بهترین بازگشت روی همان دستگاه و نگارش نزدیک</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اعمال export روی دستگاه تازه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>import فایل rsc از File list</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>UNKNOWN بین‌مدل</strong>؛ قبل از اتکا: آزمون روی دستگاه آزمایشی</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>رویهٔ آزمون بازیابی (فصلی — قاعدهٔ N2): فایل backup را روی <strong>دستگاه آزمایشی</strong> (نه روتر تولید) با نگارش نزدیک load کنید، سپس مقایسهٔ export دستگاه آزمایشی با export اصلی — تطبیق ساختار = آزمون موفق. اگر دستگاه آزمایشی ندارید، آزمون انجام نشده است و صادقانه NOT_RUN ثبت می‌شود؛ فایل پشتیبانِ بدون آزمون را «آزموده» ننویسید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">خطاهای رایج</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>خطا</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>چرا گران است</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>درست</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>فقط backup و هرگز export</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>حسابرسی/مقایسه/مهاجرت ناممکن می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هر دو، هفتگی/ماهانه</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>export شامل‌رمز روی اشتراک‌فایل</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فایل متنیِ شامل رمز = لو رفتن رمز</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>export بدون حساس‌ها برای نگهداری متنی</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>backup روی همان دستگاه به‌عنوان «خارج»</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خرابی دستگاه = رفتن هر دو نسخه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>یک نسخه واقعاً خارج دستگاه</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>بازیابی بین‌مدل بدون آزمون</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>UNKNOWN بین‌مدل</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>آزمون روی دستگاه آزمایشی قبل از اتکا</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نام فایل بدون تاریخ</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ناآگاهی از کهنه/تازه بودن</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تاریخ در نام + comment</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">تمرین کوتاه (با پاسخ موردانتظار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>کدام برای مقایسهٔ تنظیمات دیروز و امروز مناسب‌تر است؟ — <strong>پاسخ موردانتظار:</strong> export متنی (قابل‌diff)؛ backup باینری برای این کار خوانا نیست.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>فایل backup بدون رمز روی دستگاه مانده؛ ریسک؟ — <strong>پاسخ موردانتظار:</strong> هرکس به فایل دسترسی داشته باشد کل تنظیمات را بازیابی می‌کند؛ فایل backup همیشه با رمز و نگهداری امن.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>«ماهانه export می‌گیریم» کدام نیاز حسابرسی را پوشش نمی‌دهد؟ — <strong>پاسخ موردانتظار:</strong> بازگشت سریع به تنظیمات قبلی پس از خرابی — آن نیاز مسیر backup است؛ دو مسیر مکمل‌اند.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>بازیابی بین‌مدل (hEX به RB5009) چرا نیاز به آزمون دارد؟ — <strong>پاسخ موردانتظار:</strong> UNKNOWN بین‌مدل سندشده‌وار — برخی تنظیمات وابسته به سخت‌افزار/نگارش روی مدل دیگر معنی یا اعتبار ندارند.</li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">چک‌لیست تحویل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[ ] هر دو مسیر فعال: backup هفتگی (رمزدار) + export ماهانه متنی</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] Scheduler تعریف‌شده با نام/comment قابل‌شناسایی (اجرای واقعی NOT_RUN)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] یک نسخه خارج از دستگاه نگهداری می‌شود (مسیر مالک)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] بازیابی‌آزمون فصلی برنامه‌ریزی شده؛ وضعیت فعلی NOT_RUN ثبت شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] نام‌فایل‌ها تاریخ‌دار و commentدار</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] export نگهداری‌شده بدون مقادیر حساس است</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] UNKNOWN بین‌مدل در سند مهاجرت ثبت شده</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">منابع (تأیید/تاریخ‌دار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>قابلیت‌های ‏backup، ‏export، ‏scheduler: بخش‌های سندشدهٔ RouterOS — در این درس <strong>فقط نام قابلیت</strong> استفاده شده و URL بخش مستندات‌شان جداگانه تأیید نشده است (عیناً URL ساخته نشده — الگوی صادقانهٔ S2؛ مدیریت سیستم، شبکهٔ واقعی دست‌نخورده)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>قاعدهٔ بازیابی‌آزمون و ثبت قبل/بعد: درس‌های <a href="n2-monitoring-maintenance.fa.md">N2</a> و <a href="n4-delivery-acceptance.fa.md">N4</a> همین سری</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>تجربهٔ فرایندی عمومی نگهداری پشتیبان — بدون ادعای آمار/مورد واقعی</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">آموزش‌های مرتبط و مسیر خدمت</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>پیوند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقصد</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>درس‌های مرتبط</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="n2-monitoring-maintenance.fa.md">N2 نگهداری دوره‌ای</a> · <a href="n4-delivery-acceptance.fa.md">N4 پذیرش تحویل</a> · <a href="/guides/mikrotik-dhcp-dns/">M3 مبنا</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نقشهٔ کامل سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/topic-map/">topic map</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نگهداری و پشتیبان‌گیری شبکهٔ شما</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="https://tehnet.ir/services/network-support-tehran/">خدمات پشتیبانی شبکهٔ تهران</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>درس بعدی سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>N6 — مسیر رخداد و تشدید (تولید در نوبت بعدی؛ فعلاً فقط در topic map)</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->

@@ -3,13 +3,13 @@
  "validator": "validate-seo-guides.cjs rev8 (rev7 + S2 tutorial candidate)",
  "command": "node validate-seo-guides.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-16T20:15:51Z",
- "finished_utc": "2026-11-16T20:15:51Z",
- "control_head": "49ce31aaf44df62b7f04bc1f6bf3b8d263986a2c",
+ "started_utc": "2026-11-16T20:26:44Z",
+ "finished_utc": "2026-11-16T20:26:44Z",
+ "control_head": "2a3a33b4c1d52a1432aa687340de1c1e61633ff4",
  "exit": 0,
  "good_candidate": {
   "ok": true,
-  "checks": 97,
+  "checks": 102,
   "failed": 0
  },
  "injected_negatives": [
@@ -120,9 +120,11 @@
   "tutorials/n2-monitoring-maintenance.gutenberg.html": "681dc965c246a27ef23956792de4eafb450a8847e5a5636b67179b260e4671d2",
   "tutorials/n3-support-contract-sla.fa.md": "a2e7bf3b99d4e09c9c952a8bc109d4f7985494606d32aa9f6aebc5d4493003f3",
   "tutorials/n3-support-contract-sla.gutenberg.html": "12fa813e473fe43510693bca8bbbb2667c2001de6259f97ca4a02a20e1a2c616",
+  "tutorials/n5-config-backup-export.fa.md": "e1823b762113c9090f8f61523068514813983752b77144bce7547ef3c55d022f",
+  "tutorials/n5-config-backup-export.gutenberg.html": "fa5ddc2aa80dbba7f3ce614496824a8f549ebbf953cd2241c58ddb0567ec898b",
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",
   "switch-catalog.csv": "aaa5aed94204ad93b312449d9b0c934164c59d2d6375eb3b5727fe94ae164718",
-  "image-provenance.csv": "8a80ec2775859e0ca34ff10ca0a45e933cd434fea7e46b11d8ecb8b6c3ac092d",
+  "image-provenance.csv": "45cba7590cac6fc5888b7ce9cb2a9187ee3b14a315a9b17270d2a33176c5ee12",
   "page-edits/mikrotik-service.proposed.html": "c8c22f3e453bdbc5934d9e3b4e9b84e81e11b0fbfedb9e901fdce300dceabdfb",
   "page-edits/network-setup.proposed.html": "ac244d2142a4022b20b98803e48c218c5138f5398b72a6f7bca1bae1fbe52c0b",
   "page-edits/network-support.proposed.html": "52b58eefe6cd3ff50c65077ddc99f9ae66637a2fe4181bd16a6a9579adebf953"

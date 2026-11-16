@@ -71,6 +71,13 @@
    "type": "tutorial",
    "bytes": 20850,
    "per_model_images": 0
+  },
+  {
+   "md": "../tutorials/n5-config-backup-export.fa.md",
+   "html": "../tutorials/n5-config-backup-export.gutenberg.html",
+   "type": "tutorial",
+   "bytes": 19118,
+   "per_model_images": 0
   }
  ]
 }
