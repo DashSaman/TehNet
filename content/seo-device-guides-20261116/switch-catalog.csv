@@ -9,7 +9,7 @@ CRS309-1G-8S+IN,1x Gigabit,8x SFP+ 10G,خیر,RouterOS/SwOS dual-boot,98DX8208,n
 CRS310-1G-5S-4S+IN,1x Gigabit,4x SFP 1G+5x SFP+ 10G,خیر,RouterOS/SwOS,UNKNOWN (same-family 98DX226S claim unverified),VLAN کامل,L3HW UNKNOWN,UNKNOWN,تجمیع فایبر,UNKNOWN,عرضهٔ فعال,search-20261116
 CRS317-1G-16S+RM,1x Gigabit,16x SFP+ 10G,خیر,RouterOS/SwOS,98DX8216,non-blocking,L3HW محدود به بسته‌های سند,UNKNOWN,دیتاسنتر کوچک,UNKNOWN,عرضهٔ محدود,UNKNOWN جزئیات
 CRS318-16P-2S+IN / netPower 16P,16x Gigabit PoE-out,2x SFP+ 10G,af/at (OUT نسخهٔ outdoor),RouterOS,UNKNOWN,VLAN/L2,خیر (سند),800MHz ARM 256MB,دوربین/AP access,تجمیع 40G,$279 میکروتیک؛عرضهٔ فعال,search netPower 20261116
-CRS326-24G-2S+RM,24x Gigabit,2x SFP+ 10G,خیر,RouterOS/SwOS,98DX3357 (UNKNOWN ریویژن),VLAN/L2 کامل؛~68Gbps,محدود L3HW,800MHz 16MB flash,access/distribution دفتر,باگ‌های مرجع قدیمی نبیند,عرضهٔ فعال (~44-49M تومان),bazareshabake;search-20261116
+CRS326-24G-2S+RM,24x Gigabit,2x SFP+ 10G,خیر,RouterOS/SwOS dual-boot,98DX3357,VLAN/L2 کامل؛non-blocking,محدود L3HW,ARM32 دو-هستهٔ 800MHz/512MB,access/distribution دفتر,max 24W؛1U,عرضهٔ فعال ($209 پیشنهادی),https://mikrotik.com/product/CRS326-24G-2SplusRM (fetched 2026-11-16 search)
 CRS326-24S+2Q+RM,خیر مسی,24x SFP+ 10G+2x QSFP+ 40G,خیر,RouterOS/SwOS,UNKNOWN,core non-blocking,L3HW بستهٔ سند,UNKNOWN,core/distribution سازمانی,ادغام مسی endpoint,عرضهٔ فعال (~168M تومان),bazareshabake;search-20261116
 CRS328-4C-20S-4S+RM,4x Combo Gigabit,20x SFP+1x 10G SFP+4x SFP+,خیر,RouterOS/SwOS,UNKNOWN,L2 کامل,L3HW محدود,UNKNOWN,تجمیع فایبر,UNKNOWN,عرضهٔ محدود,UNKNOWN
 CRS354-48G-4S+2Q+RM,48x Gigabit,4x SFP++2x QSFP+ 40G,خیر,RouterOS/SwOS,UNKNOWN,L2 کامل+bagging,L3HW محدود,UNKNOWN,access متراکم 48 پورت,UNKNOWN,عرضهٔ فعال,UNKNOWN دقیق

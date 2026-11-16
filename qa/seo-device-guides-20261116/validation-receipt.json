@@ -2,9 +2,9 @@
  "packet": "TN-FIVE-HOUR-CONTINUE-CONTENT-QUALITY-20261116",
  "validator": "validate-seo-guides.cjs rev3 (line-scoped SKU audit + CSV-parsed coverage + determinism + self-negatives)",
  "command": "node qa/seo-device-guides-20261116/validate-seo-guides.cjs (cwd qa/seo-device-guides-20261116)",
- "started_utc": "2026-11-16T12:26:17Z",
- "finished_utc": "2026-11-16T12:26:17Z",
- "control_head": "f08d79b9aa8f906bc67cd50fc6f9b5191f2a5719",
+ "started_utc": "2026-11-16T12:28:53Z",
+ "finished_utc": "2026-11-16T12:28:54Z",
+ "control_head": "906d0ac08cae6fa818a740d98ad2af034ef754de",
  "exit": 0,
  "checks": [
   {
@@ -85,11 +85,11 @@
    "detail": {
     "before": [
      "6359d0aa1200",
-     "4cc87b52799e"
+     "21369855aae3"
     ],
     "after": [
      "6359d0aa1200",
-     "4cc87b52799e"
+     "21369855aae3"
     ]
    }
   },
@@ -116,9 +116,9 @@
  ],
  "digests": {
   "articles/mikrotik-routers.gutenberg.html": "6359d0aa1200e4ece216e2bad86e57c124557447a56799f0c8539cc59831ef01",
-  "articles/mikrotik-switches-crs.gutenberg.html": "4cc87b52799e4e7cc94996318e052159c99128f6249128078bd12789f67bf020",
+  "articles/mikrotik-switches-crs.gutenberg.html": "21369855aae3e172096180fa1d1d72537828a366b8d55d6cbc43f7efe1de2637",
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",
-  "switch-catalog.csv": "09b4c79025c03c581c610d73750fa893c5cf74f6c96130f581115112cbdd287b",
+  "switch-catalog.csv": "4940dfa66ca85b082701149ce77e79d9d5cc43231883f5d7216c74d1b6cd98df",
   "image-provenance.csv": "2fdd9b32a06caa1e91ec2179a907ce457ff9f192d78f46d462f9000ce5962d03",
   "page-edits/mikrotik-service.patch": "641666f27bc4e7485f8a5cbf24261331258b944c4987018a83fd855e6ef909ac",
   "page-edits/network-setup.patch": "f034b42b90890105568a04861d754ac8e3e85bea7f7779ddf8d448cd702d67d5",

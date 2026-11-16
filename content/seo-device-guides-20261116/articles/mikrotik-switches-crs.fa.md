@@ -28,7 +28,7 @@
 |---|---|---|---|---|---|---|
 | RB260GS | 5x Gb | 1x SFP | خیر | SwOS | پایه | دفتر ۵ نفرهٔ ساده |
 | RB260GSP | 5x Gb | 1x SFP | دارد (سطوح UNKNOWN) | SwOS | پایه | CCTV کوچک |
-| CSS610-8G-2S+IN | 8x Gb | 2x SFP+ 10G | خیر | SwOS Lite | 88E6193X | access ارزان با uplink 10G |
+| CSS610-8G-2S+IN | 8x Gb | 2x SFP+ 10G | خیر | SwOS Lite فقط | 88E6193X | access ارزان با uplink 10G |
 | CSS610-1G-4P-1S+IN | 4x Gb | 1x SFP+ | af/at | SwOS Lite | UNKNOWN | دوربین/AP کوچک |
 | CRS112-8P-4S-IN | 8x Gb PoE | 4x SFP 1G | af/at+پسیو | RouterOS L5 | QCA8511 400MHz | access PoE با uplink فیبر |
 | CRS309-1G-8S+IN | 1x Gb | 8x SFP+ 10G | خیر | RouterOS/SwOS | 98DX8208؛ تا 80Gbps | سرور/NAS 10G |
@@ -36,7 +36,7 @@
 | CRS310-1G-5S-4S+IN | 1x Gb | 5x SFP+4x SFP+10G | خیر | RouterOS/SwOS | خانوادهٔ 98DX | تجمیع فایبر |
 | CRS317-1G-16S+RM | 1x Gb | 16x SFP+ | خیر | RouterOS/SwOS | 98DX8216 | دیتاسنتر کوچک |
 | CRS318-16P-2S+ (netPower 16P) | 16x Gb PoE | 2x SFP+ | af/at | RouterOS | 800MHz/256MB | access دوربین/AP |
-| CRS326-24G-2S+RM | 24x Gb | 2x SFP+ | خیر | RouterOS/SwOS | ~68Gbps | access/distribution |
+| CRS326-24G-2S+RM | 24x Gb | 2x SFP+ | خیر | RouterOS/SwOS | 98DX3357/512MB | access/distribution |
 | CRS326-24S+2Q+RM | — | 24x SFP++2x QSFP+ 40G | خیر | RouterOS/SwOS | core | core/distribution |
 | CRS328-4C-20S-4S+RM | 4x Combo | 20x SFP+4x SFP+ | خیر | RouterOS/SwOS | UNKNOWN | تجمیع فایبر |
 | CRS354-48G-4S+2Q+RM | 48x Gb | 4x SFP++2x QSFP+ | خیر | RouterOS/SwOS | UNKNOWN | access متراکم |
