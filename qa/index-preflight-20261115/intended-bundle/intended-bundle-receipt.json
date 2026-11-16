@@ -1,0 +1,369 @@
+{
+ "packet": "TN-INDEX-INTENDED-BUNDLE-20261116",
+ "run_utc": "2026-11-16T00:10:02Z",
+ "mode": "SOURCE_ONLY — all inputs read from git at pinned SHAs; no DB, no SSH, no server contact",
+ "command": "node qa/index-preflight-20261115/intended-bundle/build-intended-manifest.cjs (executed 3x, outputs byte-identical)",
+ "determinism": {
+  "generations": 3,
+  "manifest_sha256": "593f34b1954c443e3ff9bd0e28f02f2a946dba4042eb801e20d1e4bae9bdfb0c",
+  "byte_identical": true
+ },
+ "inputs": {
+  "pr100_head": "a54198ce7ed3535d6783432d8401660e2e023f9d",
+  "pr101_head": "cb391c2dc262a65e524962fa7fc44a0187f476fe",
+  "payload_digests": {
+   "decision_services_html": "130de122301c55e7980f6dace4f576b5254a0a325bd75cea5d09faec72bf990d",
+   "decision_network_tehran_html": "abe760a97700b3a7b5eb8a2205f724e2b7ab3818d1afe02342c6fa2b28d5eff0",
+   "sync_network_support_html": "73d1b477170f3e9c8c59610e8901a066b10f1e7200a7003dfe3d9ff1a6b1627a",
+   "sync_network_setup_html": "709c49b6d2e0cffa4d95c3709877ff06d40daa5223a3f39894881b7a429cbe5e",
+   "sync_mikrotik_html": "ab9d96e52fb50fc3f2d0f535d614c4d6dbd29395d10e32002f608b8cd7c950e7",
+   "decision_A1_html": "a8b11e725d73f3f04b51c57958825fc0f7f4b0c7764454895a49e8e782a91ccd",
+   "decision_A2_html": "a11e50ed377c4958fa8466676b895738a72c718ed2b4f8f8d049046f99993b8b",
+   "decision_A3_html": "67e7e81664fa64f908fa8212c40e1119d2efe0b4eaca41d83d05819c69773963",
+   "decision_A4_html": "10a42956c4e488d1e80af0e1260c87db97a2e45b3a3542814c4433943299bf38",
+   "decision_N1_html": "b79aba49434a8e6931607db123388b0a169caff85db057b441b615bc7cfcfd1d",
+   "pr101_remote_support_html": "2f5210b20f6d51559aee901c5a9d56120ff16b150b8c28e95516f646fe0d866c"
+  },
+  "canonical_draft_reference": "unused here — index candidate binds scope manifests + guarded PHP constants only"
+ },
+ "transform_contract": {
+  "post_content": "payload file bytes verbatim (content_sha256_lf equality enforced by guarded migration; re-verified here against git blob hashes)",
+  "title_excerpt": "strings pinned in guarded scope manifests / PHP constants; excerpt sha256 proofs: decision strings equal the 11-08 manifest values; staging-sync strings equal their exc constants (both proofs passed)",
+  "preconditions": "expected_content_sha256 / expected_excerpt_sha256 are PRE-CONDITION digests of current DB state, not post-release values — recorded, never used as intended values"
+ },
+ "checks": {
+  "checks": [
+   {
+    "name": "decision_manifest_key",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "decision_exact_targets",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "original_manifest_exact16",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "remote_payload_content_only",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "remote_payload_status",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "payload_lf_match:services.html",
+    "pass": true,
+    "detail": {
+     "file": "services.html",
+     "expected": "130de122301c",
+     "actual": "130de122301c"
+    }
+   },
+   {
+    "name": "payload_lf_match:network-tehran.html",
+    "pass": true,
+    "detail": {
+     "file": "network-tehran.html",
+     "expected": "abe760a97700",
+     "actual": "abe760a97700"
+    }
+   },
+   {
+    "name": "payload_lf_match:network-support.html",
+    "pass": true,
+    "detail": {
+     "file": "network-support.html",
+     "expected": "73d1b477170f",
+     "actual": "73d1b477170f"
+    }
+   },
+   {
+    "name": "payload_lf_match:network-setup.html",
+    "pass": true,
+    "detail": {
+     "file": "network-setup.html",
+     "expected": "709c49b6d2e0",
+     "actual": "709c49b6d2e0"
+    }
+   },
+   {
+    "name": "payload_lf_match:mikrotik-service.html",
+    "pass": true,
+    "detail": {
+     "file": "mikrotik-service.html",
+     "expected": "ab9d96e52fb5",
+     "actual": "ab9d96e52fb5"
+    }
+   },
+   {
+    "name": "payload_lf_match:network-support-contract-guide.html",
+    "pass": true,
+    "detail": {
+     "file": "network-support-contract-guide.html",
+     "expected": "a8b11e725d73",
+     "actual": "a8b11e725d73"
+    }
+   },
+   {
+    "name": "payload_lf_match:network-project-proposal-checklist.html",
+    "pass": true,
+    "detail": {
+     "file": "network-project-proposal-checklist.html",
+     "expected": "a11e50ed377c",
+     "actual": "a11e50ed377c"
+    }
+   },
+   {
+    "name": "payload_lf_match:business-server-planning-guide.html",
+    "pass": true,
+    "detail": {
+     "file": "business-server-planning-guide.html",
+     "expected": "67e7e81664fa",
+     "actual": "67e7e81664fa"
+    }
+   },
+   {
+    "name": "payload_lf_match:server-backup-restore-acceptance.html",
+    "pass": true,
+    "detail": {
+     "file": "server-backup-restore-acceptance.html",
+     "expected": "10a42956c4e4",
+     "actual": "10a42956c4e4"
+    }
+   },
+   {
+    "name": "payload_lf_match:server-virtualization-tehran.html",
+    "pass": true,
+    "detail": {
+     "file": "server-virtualization-tehran.html",
+     "expected": "b79aba49434a",
+     "actual": "b79aba49434a"
+    }
+   },
+   {
+    "name": "payload_lf_match:remote-support.html",
+    "pass": true,
+    "detail": {
+     "file": "remote-support.html",
+     "expected": "2f5210b20f6d",
+     "actual": "2f5210b20f6d"
+    }
+   },
+   {
+    "name": "excerpt_string_proof:id29",
+    "pass": true,
+    "detail": {
+     "id": 29,
+     "computed": "c63f6f937ba5",
+     "expected": "c63f6f937ba5"
+    }
+   },
+   {
+    "name": "excerpt_precondition_proof:id29",
+    "pass": true,
+    "detail": {
+     "id": 29,
+     "precondition": "125e36b24aec",
+     "note": "pre-condition pins the current DB excerpt before content replacement"
+    }
+   },
+   {
+    "name": "excerpt_string_proof:id31",
+    "pass": true,
+    "detail": {
+     "id": 31,
+     "computed": "9a95a58bf915",
+     "expected": "9a95a58bf915"
+    }
+   },
+   {
+    "name": "excerpt_precondition_proof:id31",
+    "pass": true,
+    "detail": {
+     "id": 31,
+     "precondition": "fda3f249eed9",
+     "note": "pre-condition pins the current DB excerpt before content replacement"
+    }
+   },
+   {
+    "name": "excerpt_string_proof:id33",
+    "pass": true,
+    "detail": {
+     "id": 33,
+     "computed": "04703687f543",
+     "expected": "04703687f543"
+    }
+   },
+   {
+    "name": "excerpt_precondition_proof:id33",
+    "pass": true,
+    "detail": {
+     "id": 33,
+     "precondition": "67aa0ae9684b",
+     "note": "pre-condition pins the current DB excerpt before content replacement"
+    }
+   },
+   {
+    "name": "excerpt_string_proof:id35",
+    "pass": true,
+    "detail": {
+     "id": 35,
+     "computed": "9bb7b9837a9d",
+     "expected": "9bb7b9837a9d"
+    }
+   },
+   {
+    "name": "excerpt_precondition_proof:id35",
+    "pass": true,
+    "detail": {
+     "id": 35,
+     "precondition": "e82c6cdbfab2",
+     "note": "pre-condition pins the current DB excerpt before content replacement"
+    }
+   },
+   {
+    "name": "sync_excerpt_transform_proof:id31",
+    "pass": true,
+    "detail": {
+     "id": 31,
+     "expected": "fda3f249eed9"
+    }
+   },
+   {
+    "name": "sync_excerpt_transform_proof:id33",
+    "pass": true,
+    "detail": {
+     "id": 33,
+     "expected": "67aa0ae9684b"
+    }
+   },
+   {
+    "name": "sync_excerpt_transform_proof:id35",
+    "pass": true,
+    "detail": {
+     "id": 35,
+     "expected": "e82c6cdbfab2"
+    }
+   },
+   {
+    "name": "decision_title_const_match:id29",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "decision_title_const_match:id31",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "decision_title_const_match:id33",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "decision_title_const_match:id35",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "sync_titles_pinned",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "allowlist_paths_unchanged",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "production_ids_preserved",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "voice206_preserved",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "no_staging_id_in_production_rows",
+    "pass": true,
+    "detail": {
+     "note": "production rows carry production ids only; the 193 mapping lives solely in staging_environment_binding"
+    }
+   },
+   {
+    "name": "no_private_additions",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "blocked_rows_flagged",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "not_for_activation",
+    "pass": true,
+    "detail": null
+   }
+  ],
+  "summary": {
+   "total": 39,
+   "passed": 39
+  }
+ },
+ "row_resolution": {
+  "resolved_complete": [
+   "/business-server-planning-guide/",
+   "/network-project-proposal-checklist/",
+   "/network-support-contract-guide/",
+   "/server-backup-restore-acceptance/",
+   "/services/mikrotik-tehran/",
+   "/services/network-setup-tehran/",
+   "/services/network-support-tehran/",
+   "/services/network-tehran/",
+   "/services/server-virtualization-tehran/"
+  ],
+  "blocked_content_decision": [
+   "/",
+   "/about/",
+   "/contact/",
+   "/services/",
+   "/services/remote-support/",
+   "/services/voice-network-readiness/",
+   "/technical-methodology/"
+  ],
+  "resolved_count": 9,
+  "blocked_count": 7
+ },
+ "identity_binding": {
+  "production_ids_preserved": true,
+  "voice_network_readiness": {
+   "production": 206,
+   "staging_unresolved_separate_mapping": 193
+  }
+ },
+ "negative_private": {
+  "allowlist_exact16_unchanged": true,
+  "private_additions_rejected": true,
+  "staging_ids_absent_from_production_rows": true,
+  "missing_or_conflicting_source_rejected": true
+ },
+ "candidate_status": "NOT_FOR_ACTIVATION",
+ "production_authorization": "NEEDS_SEPARATE_EXACT_ALLOWLIST_OWNER_APPROVAL",
+ "scope_limits": [
+  "SOURCE-ONLY candidate under qa/index-preflight-20261115/intended-bundle/; guarded originals (activation-manifest.json, runtime class, migration PHP, release scripts) NOT modified",
+  "no merge, no D2 install, no D3 activation, no blog_public change, no backup transfer, no production contact",
+  "NOT_FOR_ACTIVATION until 7 BLOCKED_CONTENT_DECISION rows are resolved by owner content decisions and explicit release gates"
+ ],
+ "production_touched": false
+}

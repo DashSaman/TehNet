@@ -1,0 +1,290 @@
+{
+ "checks": [
+  {
+   "name": "decision_manifest_key",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "decision_exact_targets",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "original_manifest_exact16",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "remote_payload_content_only",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "remote_payload_status",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "payload_lf_match:services.html",
+   "pass": true,
+   "detail": {
+    "file": "services.html",
+    "expected": "130de122301c",
+    "actual": "130de122301c"
+   }
+  },
+  {
+   "name": "payload_lf_match:network-tehran.html",
+   "pass": true,
+   "detail": {
+    "file": "network-tehran.html",
+    "expected": "abe760a97700",
+    "actual": "abe760a97700"
+   }
+  },
+  {
+   "name": "payload_lf_match:network-support.html",
+   "pass": true,
+   "detail": {
+    "file": "network-support.html",
+    "expected": "73d1b477170f",
+    "actual": "73d1b477170f"
+   }
+  },
+  {
+   "name": "payload_lf_match:network-setup.html",
+   "pass": true,
+   "detail": {
+    "file": "network-setup.html",
+    "expected": "709c49b6d2e0",
+    "actual": "709c49b6d2e0"
+   }
+  },
+  {
+   "name": "payload_lf_match:mikrotik-service.html",
+   "pass": true,
+   "detail": {
+    "file": "mikrotik-service.html",
+    "expected": "ab9d96e52fb5",
+    "actual": "ab9d96e52fb5"
+   }
+  },
+  {
+   "name": "payload_lf_match:network-support-contract-guide.html",
+   "pass": true,
+   "detail": {
+    "file": "network-support-contract-guide.html",
+    "expected": "a8b11e725d73",
+    "actual": "a8b11e725d73"
+   }
+  },
+  {
+   "name": "payload_lf_match:network-project-proposal-checklist.html",
+   "pass": true,
+   "detail": {
+    "file": "network-project-proposal-checklist.html",
+    "expected": "a11e50ed377c",
+    "actual": "a11e50ed377c"
+   }
+  },
+  {
+   "name": "payload_lf_match:business-server-planning-guide.html",
+   "pass": true,
+   "detail": {
+    "file": "business-server-planning-guide.html",
+    "expected": "67e7e81664fa",
+    "actual": "67e7e81664fa"
+   }
+  },
+  {
+   "name": "payload_lf_match:server-backup-restore-acceptance.html",
+   "pass": true,
+   "detail": {
+    "file": "server-backup-restore-acceptance.html",
+    "expected": "10a42956c4e4",
+    "actual": "10a42956c4e4"
+   }
+  },
+  {
+   "name": "payload_lf_match:server-virtualization-tehran.html",
+   "pass": true,
+   "detail": {
+    "file": "server-virtualization-tehran.html",
+    "expected": "b79aba49434a",
+    "actual": "b79aba49434a"
+   }
+  },
+  {
+   "name": "payload_lf_match:remote-support.html",
+   "pass": true,
+   "detail": {
+    "file": "remote-support.html",
+    "expected": "2f5210b20f6d",
+    "actual": "2f5210b20f6d"
+   }
+  },
+  {
+   "name": "excerpt_string_proof:id29",
+   "pass": true,
+   "detail": {
+    "id": 29,
+    "computed": "c63f6f937ba5",
+    "expected": "c63f6f937ba5"
+   }
+  },
+  {
+   "name": "excerpt_precondition_proof:id29",
+   "pass": true,
+   "detail": {
+    "id": 29,
+    "precondition": "125e36b24aec",
+    "note": "pre-condition pins the current DB excerpt before content replacement"
+   }
+  },
+  {
+   "name": "excerpt_string_proof:id31",
+   "pass": true,
+   "detail": {
+    "id": 31,
+    "computed": "9a95a58bf915",
+    "expected": "9a95a58bf915"
+   }
+  },
+  {
+   "name": "excerpt_precondition_proof:id31",
+   "pass": true,
+   "detail": {
+    "id": 31,
+    "precondition": "fda3f249eed9",
+    "note": "pre-condition pins the current DB excerpt before content replacement"
+   }
+  },
+  {
+   "name": "excerpt_string_proof:id33",
+   "pass": true,
+   "detail": {
+    "id": 33,
+    "computed": "04703687f543",
+    "expected": "04703687f543"
+   }
+  },
+  {
+   "name": "excerpt_precondition_proof:id33",
+   "pass": true,
+   "detail": {
+    "id": 33,
+    "precondition": "67aa0ae9684b",
+    "note": "pre-condition pins the current DB excerpt before content replacement"
+   }
+  },
+  {
+   "name": "excerpt_string_proof:id35",
+   "pass": true,
+   "detail": {
+    "id": 35,
+    "computed": "9bb7b9837a9d",
+    "expected": "9bb7b9837a9d"
+   }
+  },
+  {
+   "name": "excerpt_precondition_proof:id35",
+   "pass": true,
+   "detail": {
+    "id": 35,
+    "precondition": "e82c6cdbfab2",
+    "note": "pre-condition pins the current DB excerpt before content replacement"
+   }
+  },
+  {
+   "name": "sync_excerpt_transform_proof:id31",
+   "pass": true,
+   "detail": {
+    "id": 31,
+    "expected": "fda3f249eed9"
+   }
+  },
+  {
+   "name": "sync_excerpt_transform_proof:id33",
+   "pass": true,
+   "detail": {
+    "id": 33,
+    "expected": "67aa0ae9684b"
+   }
+  },
+  {
+   "name": "sync_excerpt_transform_proof:id35",
+   "pass": true,
+   "detail": {
+    "id": 35,
+    "expected": "e82c6cdbfab2"
+   }
+  },
+  {
+   "name": "decision_title_const_match:id29",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "decision_title_const_match:id31",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "decision_title_const_match:id33",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "decision_title_const_match:id35",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "sync_titles_pinned",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "allowlist_paths_unchanged",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "production_ids_preserved",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "voice206_preserved",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "no_staging_id_in_production_rows",
+   "pass": true,
+   "detail": {
+    "note": "production rows carry production ids only; the 193 mapping lives solely in staging_environment_binding"
+   }
+  },
+  {
+   "name": "no_private_additions",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "blocked_rows_flagged",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "not_for_activation",
+   "pass": true,
+   "detail": null
+  }
+ ],
+ "summary": {
+  "total": 39,
+  "passed": 39
+ }
+}
