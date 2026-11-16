@@ -180,8 +180,44 @@ s2 = svg(960, 560,
     'PSU جداگانه با ولتاژ ۲۴ یا ۴۸ ولت به ورودی DC سوئیچ netPower 16P می‌رسد. سوئیچ حدود ۱۶ وات مصرف خودی دارد و سقف هر ورودی DC سندشده حدود ۶۷ وات است. خروجی PoE به هشت دوربین با جمع هشتاد وات، چهار تلفن با جمع بیست وات و پورت‌های آزاد رشد تقسیم می‌شود. جمع تقاضا صد وات و با حاشیهٔ امن دوازده صد وات است که باید از توان قابل تامین PSU منهای مصرف خود سوئیچ کمتر باشد. این نمودار مفهومی و تألیفی TehNet است.',
     chr(10).join(b))
 
+
+# ---------------- S3 module decision flow ----------------
+b = []
+b.append(text(480, 36, 'فاصلهٔ دو سر لینک؟', 14, 'middle', '#1a1a1a', 'bold'))
+branches = [
+    ('تا ~۳ متر — همان رک', 130, '#1e88e5', 'کابل DAC', 'S+DA0001 (1m) — Discontinued', 'جایگزین رسمی: DAC 3m (جدول سازگاری)', 'بدون ماژول — کابل مستقیم'),
+    ('تا ~۳۰۰ متر — داخل ساختمان', 330, '#fb8c00', 'فیبر مالتی‌مود (OM3)', 'ماژول: S+85DLC03D', '850nm — LC — دو سر لینک', '2x $59'),
+    ('تا ~۱۰ کیلومتر — بین ساختمان‌ها', 530, '#43a047', 'فیبر تک‌مود (OS2)', 'ماژول: S+31DLC10D', '1310nm — 10GBASE-LR — دو سر لینک', '2x $69'),
+]
+for title, y, color, med, mod, spec, cost in branches:
+    b.append(rect(360, y - 26, 500, 92, '#fafafa', color, 2))
+    b.append(text(610, y - 6, title, 13, 'middle', color, 'bold'))
+    b.append(text(610, y + 16, med + ' — ' + mod, 11, 'middle', '#1a1a1a'))
+    b.append(text(610, y + 36, spec + '  |  ' + cost, 10, 'middle', '#546e7a'))
+b.append(line(480, 48, 480, 104, '#37474f', 2))
+b.append(line(480, 104, 250, 104, '#37474f', 2)); b.append(line(250, 104, 250, 104 - 0, '#37474f', 2))
+b.append(line(480, 104, 610, 104, '#37474f', 2))
+b.append(line(250, 104, 250, 160, '#37474f', 2))
+b.append(line(610, 104, 610, 304, '#37474f', 2))
+b.append(line(480, 104, 480, 504 - 92, '#37474f', 2))
+b.append(text(240, 128, '①', 12, 'middle', '#1e88e5', 'bold'))
+b.append(text(620, 128, '', 12, 'middle'))
+b.append(text(700, 328, '③', 12, 'middle', '#43a047', 'bold'))
+# compatibility side note
+b.append(rect(30, 190, 300, 150, '#ede7f6', '#6a1b9a', 2))
+b.append(text(180, 214, 'قواعد سازگاری (سند رسمی)', 12, 'middle', '#6a1b9a', 'bold'))
+notes = ['1G در SFP+ با استثنا و speed اجباری', '(CCR1016 SFP+1 فقط 10G)', '25G: sfp-rate-select=low', 'S+RJ10: CRS309 حداکثر 4 ماژول', 'third-party: MSA باید سازگار باشد', '— ولی تضمین کامل نمی‌شود (UNKNOWN)']
+for ni, n in enumerate(notes):
+    b.append(text(180, 238 + ni * 17, n, 10, 'middle', '#455a64'))
+b.append(text(610, 62, '②', 12, 'middle', '#fb8c00', 'bold'))
+b.append(text(480, 652, 'نمودار مفهومی تألیفی TehNet — نه عکس واقعی — ماژول‌ها از صفحات رسمی mikrotik.com (دسترسی %s)' % ACCESS_DATE, 11, 'middle', '#78909c'))
+s3 = svg(960, 680,
+    'نمودار تصمیم انتخاب ماژول S3: DAC، مالتی‌مود یا تک‌مود بر پایهٔ فاصله',
+    'فلوچارت تصمیم بر پایهٔ فاصلهٔ دو سر لینک: تا حدود سه متر همان رک کابل DAC بدون ماژول؛ تا حدود سیصد متر داخل ساختمان فیبر مالتی‌مود با ماژول S+85DLC03D با طول‌موج ۸۵۰ نانومتر؛ تا ده کیلومتر بین ساختمان‌ها فیبر تک‌مود با ماژول S+31DLC10D با طول‌موج ۱۳۱۰ نانومتر و استاندارد 10GBASE-LR. کنار نمودار قواعد سازگاری سندشده آمده: ماژول 1G در پورت SFP+ با تنظیم اجباری سرعت و استثناهای سخت‌افزاری، rate-select برای 25G، سقف ماژول S+RJ10 روی CRS309 و وضعیت UNKNOWN ماژول‌های غیرمیکروتیک. این نمودار مفهومی و تألیفی TehNet است.',
+    chr(10).join(b))
+
 os.makedirs(OUT, exist_ok=True)
-for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2)):
+for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3)):
     p = os.path.join(OUT, name)
     with io.open(p, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)

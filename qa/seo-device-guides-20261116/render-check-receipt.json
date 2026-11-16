@@ -15,7 +15,10 @@
    "articles/mikrotik-switches-crs.gutenberg.html": "8ced5d505eb352f21b5596706b65c804993f13881326aa89eb41f4e9e2e4a066",
    "tutorials/s2-poe-budget.fa.md": "74cbeec432f6a9fdebbb16c6ee62038a462d37c01740d5417ce5cb8f28768878",
    "tutorials/s2-poe-budget.gutenberg.html": "a425e485327181e651874e70076c229dd2cb41b2b4d2191b8ad72ad48767230a",
-   "assets/tutorial-s2-poe-budget.svg": "590dcf20d5949f7061547e8c81e7a1c3fc5d506bfc1c3a205d45902235d96b7a"
+   "assets/tutorial-s2-poe-budget.svg": "590dcf20d5949f7061547e8c81e7a1c3fc5d506bfc1c3a205d45902235d96b7a",
+   "tutorials/s3-sfp-dac-fiber.fa.md": "91bdede2fcd9a6ef89aa5475c7c102a664be4806da66e9f76750cfda663b2c31",
+   "tutorials/s3-sfp-dac-fiber.gutenberg.html": "93caa2c5c6e91c364e3836c5867bb9ec1ea41dcd675f4198418ee5299a0a174e",
+   "assets/tutorial-s3-module-decision.svg": "766a92f3c810c7bdec63831edff49e35891621654f26905fe5927fba3345a559"
   }
  },
  "preview_style_injected_at_render_time": "body{background:#fff;color:#111;font-family:Tahoma,Arial,sans-serif;margin:24px auto;max-width:960px;line-height:1.9} pre{background:#f6f8fa;border:1px solid #ddd;padding:12px;overflow:auto} code{font-family:Consolas,monospace;font-size:13px} table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto} th,td{border:1px solid #999;padding:5px 9px} img{max-width:100%;height:auto} blockquote{border-right:3px solid #1e88e5;padding-right:12px;color:#444}",
@@ -187,6 +190,22 @@
     "h1": "بودجهٔ PoE — محاسبهٔ توان، استاندارد و PSU (S2)",
     "img_complete": true,
     "overflow": 136
+   },
+   "tutorials/s3-sfp-dac-fiber.gutenberg.html@desktop": {
+    "shot": "s3-desktop-svg.png",
+    "h1": "SFP، DAC و فیبر — انتخاب و سازگاری ماژول‌ها (S3)",
+    "img_complete": true,
+    "img_present": true,
+    "links": 6,
+    "overflow_styled": 0
+   },
+   "tutorials/s3-sfp-dac-fiber.gutenberg.html@mobile": {
+    "shot": "s3-mobile-svg.png",
+    "h1": "SFP، DAC و فیبر — انتخاب و سازگاری ماژول‌ها (S3)",
+    "img_complete": true,
+    "img_present": true,
+    "links": 6,
+    "overflow_styled": 593
    }
   },
   "styled_overflow_mobile_px": {
@@ -237,7 +256,8 @@
   "separator_cells": "0 in all four outputs (builder rev4)",
   "code_tables": "M2 9 code blocks / 7 tables; M3 12 / 5; tables render with borders in preview style",
   "charset": "raw fragments carry no <meta charset>; preview server sends charset=utf-8 (WP theme supplies it at publish)",
-  "s2": "S2 budget lesson renders desktop 0px overflow, mobile 136px (preview-harness limitation, recorded); diagram legible; worked example renders (mixed bidi acceptable)"
+  "s2": "S2 budget lesson renders desktop 0px overflow, mobile 136px (preview-harness limitation, recorded); diagram legible; worked example renders (mixed bidi acceptable)",
+  "s3": "S3 decision-flow lesson renders desktop styled 0px overflow, mobile 593px (harness limitation, recorded); flowchart boxes/branches and compatibility table legible; note: initial SVG canvas cropped the third branch — fixed (680px) before evidence capture"
  },
  "boundary_item5": {
   "captures_untracked": "git rm --cached of the 12 evidence PNGs + render-evidence/.gitignore (forward commit; no force-push, no history claims); captures remain on local disk only",
@@ -249,8 +269,9 @@
   "manager-side browser run"
  ],
  "production_touched": false,
- "utc_extended": "2026-11-16T19:47:52Z",
+ "utc_extended": "2026-11-16T19:55:10Z",
  "pages_extra": [
-  "tutorials/s2-poe-budget.gutenberg.html"
+  "tutorials/s2-poe-budget.gutenberg.html",
+  "tutorials/s3-sfp-dac-fiber.gutenberg.html"
  ]
 }

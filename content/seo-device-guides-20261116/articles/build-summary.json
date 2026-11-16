@@ -36,6 +36,13 @@
    "type": "tutorial",
    "bytes": 23440,
    "per_model_images": 0
+  },
+  {
+   "md": "../tutorials/s3-sfp-dac-fiber.fa.md",
+   "html": "../tutorials/s3-sfp-dac-fiber.gutenberg.html",
+   "type": "tutorial",
+   "bytes": 21103,
+   "per_model_images": 0
   }
  ]
 }

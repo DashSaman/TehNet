@@ -212,6 +212,9 @@ function validate(candidateInputs) {
     { md: 'tutorials/s2-poe-budget.fa.md', html: 'tutorials/s2-poe-budget.gutenberg.html', svg: 'assets/tutorial-s2-poe-budget.svg', label: 'S2',
       sectionsOverride: ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'محاسبهٔ بودجه', 'مثال کارشده', 'خطاهای رایج', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'],
       service: 'https://tehnet.ir/services/network-setup-tehran/' },
+    { md: 'tutorials/s3-sfp-dac-fiber.fa.md', html: 'tutorials/s3-sfp-dac-fiber.gutenberg.html', svg: 'assets/tutorial-s3-module-decision.svg', label: 'S3',
+      sectionsOverride: ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'قواعد سازگاری', 'مثال کارشده', 'خطاهای رایج', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'],
+      service: 'https://tehnet.ir/services/network-setup-tehran/' },
   ];
   const TUT_SECTIONS_COMMON = ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'تست پذیرش', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'];
   for (let ti = 0; ti < TUTORIALS.length; ti++) {
@@ -264,6 +267,8 @@ if (require.main === module) {
     'tutorials/m3-dhcp-dns.gutenberg.html',
     'tutorials/s2-poe-budget.fa.md',
     'tutorials/s2-poe-budget.gutenberg.html',
+    'tutorials/s3-sfp-dac-fiber.fa.md',
+    'tutorials/s3-sfp-dac-fiber.gutenberg.html',
     'router-catalog.csv',
     'switch-catalog.csv',
     'image-provenance.csv',

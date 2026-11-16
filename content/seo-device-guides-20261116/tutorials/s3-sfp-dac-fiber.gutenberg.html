@@ -1,0 +1,378 @@
+<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from ../tutorials/s3-sfp-dac-fiber.fa.md -->
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">SFP، DAC و فیبر — انتخاب و سازگاری ماژول‌ها (S3)</h1>
+<!-- /wp:heading -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><p>وضعیت درس: <strong>DRAFT / NOT_DEPLOYED — در انتظار مرور.</strong></p><p>آموزش تصویری از سری switching؛ مخاطب: کارشناس شبکهٔ مبتدی تا متوسط.</p><p>سناریوی کاملاً فرضی و آموزشی با دادهٔ ساختگی؛ هیچ شبکهٔ واقعی دستکاری نشده است.</p><p>نمودار مفهومی و تألیفی است (نه عکس واقعی)؛ اجرای RouterOS این درس NOT_RUN است (بدون fixture مجاز).</p></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پاسخ کوتاه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>ماژول را با <strong>فاصله و محیط</strong> انتخاب کنید، نه با قیمت: درون همان رک (تا ~۳ متر) کابل DAC؛ داخل ساختمان (تا ~۳۰۰ متر) فیبر مالتی‌مود با ماژول ‏850nm؛ بین ساختمان‌ها/شهر (تا ‏10km) فیبر تک‌مود با ماژول ‏1310nm. سازگاری هم قانون دارد: پورت‌های ‏SFP+ معمولاً ماژول ‏1G را هم می‌پذیرند <strong>اما با استثناهای سندشده و تنظیم اجباری سرعت</strong>؛ و ماژول‌های MSA-مطابق غیرمیکروتیک «باید سازگار باشند» ولی سازنده تضمین کامل نمی‌دهد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پیش‌نیازها</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>مبانی سوئیچ: <a href="/guides/mikrotik-switches-crs/">مقایسهٔ سوئیچ‌های CRS میکروتیک (S1)</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>بودجهٔ توان (برای مصرف ماژول‌ها در سوئیچ‌های PoE): <a href="s2-poe-budget.fa.md">بودجهٔ PoE (S2)</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مبنا آزمایشگاه (Lab Baseline) — دقیق و کامل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>نقش</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>دستگاه</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>پورت‌های مرتبط</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>سوئیچ 10G مرکز رک</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>CRS309-1G-8S+IN</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏8× SFP+</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سرور</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سرور فرضی با کارت شبکهٔ ‏10G ‏SFP+</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>NAS</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>NAS فرضی با پورت ‏SFP+</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سوئیچ طبقهٔ دیگر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>CRS326-24G-2S+RM (فرضی، طبقهٔ بالا)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏2× SFP+</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ساختمان دوم</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سوئیچ فرضی با ‏SFP+</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">جدول ماژول‌های سندشدهٔ رسمی (fetch شده با تاریخ)</h3>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>ماژول</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>نوع</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>سرعت</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>فاصله/رسانه</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مشخصهٔ کلیدی</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>قیمت پیشنهادی</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>وضعیت</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>S+DA0001</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>DAC (کابل مستقیم)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏10G (+FC)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏1m</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏SFP/SFP+ هر دو سر، MSA-مطابق، «low power»</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏$29</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>Discontinued</strong> (صفحهٔ رسمی)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>S+85DLC03D</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>نوری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏10G</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تا ‏300m، فیبر <strong>مالتی‌مود</strong>، ‏850nm، LC</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏$59</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فعال</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>S+31DLC10D</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>نوری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏10G (و ‏1G)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تا ‏10km، فیبر <strong>تک‌مود</strong>، ‏1310nm، LC دوبل</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏10GBASE-LR (SFF-8431)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏$69</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فعال</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>مکمل سندشدهٔ خانواده: DAC ‏3 متری (S+DA0003) در جدول سازگاری رسمی آمده است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">قواعد سازگاری — عیناً از سند رسمی Wired Interface Compatibility</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>قاعده</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>جزئیات سندشده</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>‏1G در cage ‏SFP+</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بسیاری از دستگاه‌ها سازگارند <strong>اما استثنا دارد</strong>: ‏CCR1016-12S-1S+ و ‏CRS212-1G-10S-1S+ پورت ‏SFP+1 فقط روی ‏10G کار می‌کند؛ ‏CRS226-24G-2S+/CRS210-8G-2S+ فقط ‏SFP+1 از ‏1G پشتیبانی می‌کند و ‏SFP+2 فقط ‏10G</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>تنظیم اجباری سرعت برای ‏1G نوری در ‏SFP+</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/interface ethernet set sfp-sfpplus1 auto-negotiation=no speed=1G-baseX` ‏(v7.12+)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ماژول‌های ‏25G در پورت‌های پایین‌تر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>نیازمند `sfp-rate-select=low` «برای جلوگیری از خرابی داده»</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏DAC/AOC</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏DACهای ‏SFP+ ‏1m/3m و ‏AOC ‏S+AO0005 در جدول سازگاری رسمی‌اند</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏S+RJ10 (مسی)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فقط در cage ‏SFP+؛ فقط auto-negotiation؛ سقف تعداد per-device (مثلاً ‏CRS309 حداکثر ‏4)؛ هشدار گرمایش در دستگاه‌های passive</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>پورت‌های Combo</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فقط ‏1G و ‏10G (بدون ‏2.5G/5G)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ماژول غیرمیکروتیک</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>«MSA-مطابق باید سازگار باشد» اما «تضمین کامل با همهٔ سازندگان نمی‌شود» — <strong>UNKNOWN</strong> برای هر ماژول خاص خارج از فهرست رسمی</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:image -->
+<figure class="wp-block-image size-large"><img src="../assets/tutorial-s3-module-decision.svg" alt="نمودار تصمیم انتخاب ماژول S3 — بر پایهٔ فاصله (تصویر مفهومی تألیفی)" width="900" loading="lazy"/><figcaption>نمودار تصمیم انتخاب ماژول S3 — بر پایهٔ فاصله (تصویر مفهومی تألیفی)</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> فلوچارت تصمیم از بالا: «فاصلهٔ دو سر لینک؟» سه شاخه: ‏«تا ~۳ متر، همان رک» → کابل ‏DAC ‏(S+DA0001/0003، بدون ماژول)؛ ‏«تا ~۳۰۰ متر، داخل ساختمان» → فیبر مالتی‌مود + ماژول ‏S+85DLC03D ‏(850nm)؛ ‏«تا ‏10km، بین ساختمان‌ها» → فیبر تک‌مود + ماژول ‏S+31DLC10D ‏(1310nm، ‏10GBASE-LR). حاشیه: یادآوری قواعد سازگاری ‏(1G در SFP+ با speed اجباری و استثناهای سندشده) و برچسب «تألیفی/مفهومی».</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مثال کارشده — سه سناریوی مبنا</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>سناریو</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>فاصله/محیط</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>انتخاب سندشده</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>محاسبهٔ هزینهٔ ماژول (دو سر)</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>سرور و NAS در همان رک CRS309</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏~1-2m</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏DAC ‏(S+DA0001 — توجه: Discontinued؛ جایگزین رسمی: DAC ‏3m از جدول سازگاری)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏کابل واحد؛ دو ماژول لازم ندارد → ‏$29</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اتصال به CRS326 طبقهٔ بالا</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏~80m داکت داخل ساختمان</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فیبر مالتی‌مود + ‏2× ‏S+85DLC03D ‏(850nm)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏2× ‏$59 = ‏$118</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اتصال به ساختمان دوم</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏~2km بیرون</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فیبر تک‌مود + ‏2× ‏S+31DLC10D ‏(1310nm، ‏10GBASE-LR)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏2× ‏$69 = ‏$138</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>نکتهٔ اجرا: ماژول نوری دو‌تایی است — دو سر لینک باید هم‌نوع باشند (هر دو ‏850nm مالتی‌مود یا هر دو ‏1310nm تک‌مود با فیبر همان نوع)؛ قاطی‌کردن نوع فیبر با نوع ماژول، لینک نمی‌زند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">خطاهای رایج</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>نشانه</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>علت محتمل</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>بررسی</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>راه‌حل</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>لینک ‏1G روی پورت ‏SFP+ بالا نمی‌آید</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سرعت اجباری تنظیم نشده یا دستگاه جزو استثناهاست</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/interface ethernet print` + سند سازگاری همان مدل</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`auto-negotiation=no speed=1G-baseX`؛ در استثناها از پورت دیگر استفاده کنید</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>فیبر نو ولی لینک ندارد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>نوع فیبر با ماژول نمی‌خواند (MM با ماژول SM)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>برچسب فیبر ‏(OM3/OS2) و مشخصهٔ ماژول</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هم‌نوع‌سازی فیبر و ماژول</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏DAC 3متری لینک نمی‌زند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خارج از طول سندشده یا جنس نامرغوب</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>طول/کد رسمی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فقط طول‌های سندشدهٔ جدول سازگاری</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ماژول third-party لینک ناپایدار</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تضمین رسمی نمی‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تست با ماژول رسمی به‌عنوان مرجع</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ماژول رسمی یا مدل تست‌شده؛ UNKNOWN را UNKNOWN نگه دارید</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏CRS309 با چند ‏S+RJ10 ناپایدار/داغ</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سقف ‏۴ ماژول و هشدار passive cooling</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تعداد/دما</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سقف سندشده؛ خنک‌کاری یا ماژول نوری</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">تمرین کوتاه (با پاسخ موردانتظار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>لینک ‏1G روی پورت ‏SFP+ ‏CCR1016-12S-1S+ (پورت ‏SFP+1) ممکن است؟ — <strong>پاسخ موردانتظار:</strong> خیر؛ استثنای سندشده: آن پورت فقط ‏10G کار می‌کند.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>برای ‏80m داخل ساختمان با فیبر موجود «OM3» چه ماژولی؟ — <strong>پاسخ موردانتظار:</strong> ‏S+85DLC03D ‏(850nm مالتی‌مود، تا ‏300m) — دو عدد، دو سر.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>چرا برای فاصلهٔ بین‌ساختمانی 2km ‏DAC یا ماژول ‏850nm انتخاب غلط است؟ — <strong>پاسخ موردانتظار:</strong> ‏DAC سقف چند‌متری دارد؛ ‏850nm مالتی‌مود تا ‏~300m سندشده؛ ‏2km خارج هر دو → تک‌مود ‏1310nm ‏(S+31DLC10D).</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>پرسش قبل از خرید ماژول third-party؟ — <strong>پاسخ موردانتظار:</strong> سازنده تضمین کامل نمی‌دهد (فقط «باید سازگار باشد»)؛ بدون تست/فهرست رسمی، سازگاری UNKNOWN است.</li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">چک‌لیست تحویل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[ ] فاصله/محیط هر لینک اندازه‌گیری و ثبت شده (نه حدس)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] ماژول دو سر لینک هم‌نوع (سرعت/طول‌موج/فیبر) انتخاب شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] استثناهای سازگاری مدل دقیق شما از سند رسمی چک شده (به‌ویژه برای ‏1G)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] تنظیم اجباری سرعت برای ماژول‌های زیرسرعت اعمال/مستند شده (اجرای واقعی NOT_RUN)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] طول DAC داخل سقف سندشده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] ماژول third-party: وضعیت UNKNOWN ثبت شده و تست مرجع با ماژول رسمی انجام شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] برچسب/مدل فیبر ‏(OM3/OS2) با ماژول مطابق است</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">منابع رسمی (fetch شده با تاریخ)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>‏S+DA0001 — ‏DAC ‏1m، ‏MSA، ‏low power، ‏Discontinued: https://mikrotik.com/product/SplusDA0001 (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>‏S+85DLC03D — ‏10G ‏SFP+، ‏850nm، تا ‏300m مالتی‌مود: https://mikrotik.com/product/Splus85DLC03D (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>‏S+31DLC10D — ‏10GBASE-LR، ‏1310nm، تا ‏10km تک‌مود، ‏1G/10G: https://mikrotik.com/product/s_31dlc10d (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>سند Wired Interface Compatibility — قواعد ‏1G/SFP+، استثناها، تنظیم سرعت، ‏rate-select، ‏DAC/AOC، ‏S+RJ10، ‏combo: https://help.mikrotik.com/docs/spaces/ROS/pages/220233794/MikroTik+wired+interface+compatibility (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">آموزش‌های مرتبط و مسیر خدمت</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>پیوند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقصد</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>درس قبلی (مبانی سوئیچ)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/mikrotik-switches-crs/">مقایسهٔ سوئیچ‌های CRS میکروتیک (S1)</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>درس قبلی (توان)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="s2-poe-budget.fa.md">بودجهٔ PoE (S2)</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نقشهٔ کامل سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/topic-map/">topic map</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>طراحی/اجرای فیبر و 10G برای سازمان شما</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="https://tehnet.ir/services/network-setup-tehran/">خدمات راه‌اندازی شبکهٔ تهران</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>درس بعدی سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>N1 — عیب‌یابی شبکه (تولید در نوبت بعدی؛ فعلاً فقط در topic map)</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
