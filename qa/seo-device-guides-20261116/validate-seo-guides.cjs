@@ -338,6 +338,8 @@ if (require.main === module) {
     'tutorials/n2-rack-cable.gutenberg.html',
     'tutorials/n1-office-design.fa.md',
     'tutorials/n1-office-design.gutenberg.html',
+    'tutorials/n3-cable-test-report.fa.md',
+    'tutorials/n3-cable-test-report.gutenberg.html',
     'router-catalog.csv',
     'switch-catalog.csv',
     'image-provenance.csv',

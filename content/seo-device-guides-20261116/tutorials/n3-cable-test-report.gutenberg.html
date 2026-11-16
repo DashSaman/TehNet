@@ -1,0 +1,370 @@
+<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from ../tutorials/n3-cable-test-report.fa.md -->
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">گزارش تست کابل — معیارها، ابزار و قالب (N3)</h1>
+<!-- /wp:heading -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><p>وضعیت درس: <strong>DRAFT / NOT_DEPLOYED — در انتظار مرور.</strong> (درس مصوب سرفصل ‏N3: گزارش تست کابل)</p><p>آموزش تصویری از سری پشتیبانی؛ مخاطب: کارشناس شبکه.</p><p>سناریوی کاملاً فرضی و آموزشی با دادهٔ ساختگی؛ هیچ شبکهٔ واقعی دستکاری نشده و هیچ اجرای واقعی NOT_RUN است.</p><p>نمودار مفهومی و تألیفی است (نه عکس واقعی).</p></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پاسخ کوتاه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>گزارش تست کابل یعنی: برای هر لینک، پنج معیار ‏(wire-map، ‏length، ‏NEXT، ‏return loss، ‏propagation delay) با ابزار تستر مناسب اندازه‌گیری، به‌صورت عددی ثبت و با حد آستانه مقایسه شود. گزارش بدون اعداد یا با «OK» کلی قابل‌استناد نیست. ابزار تستر ‏cable-certification‌level ‏(نه صرفاً ‏wire-map tester) برای شبکهٔ ۱ گیگابیت کافی است؛ برای ‏10G ‏Cat6a لازم است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پیش‌نیازها</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>کابل‌کشی: <a href="n2-rack-cable.fa.md">N2 رک و کابل</a> · عیب‌یابی لایه‌ای: <a href="n1-network-troubleshooting.fa.md">N1 عیب‌یابی</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مبنا آزمایشگاه (Lab Baseline) — دقیق و کامل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>بند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقدار فرضی</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>شبکه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دفتر ‏۱۲ کاربر — ‏۱۲ لینک Cat6 از ‏patch panel تا کاربر</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>تستر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏Cable certification tester ‏(مثل ‏Fluke ‏DSX-5000 یا مشابه — مدل دقیق از پروژه واقعی)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>استاندارد تست</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏TIA/EIA-568.2-D ‏Cat6 permanent link</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اجرای واقعی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>NOT_RUN</strong> — قالب آموزشی</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پنج معیار تست کابل — سند رسمی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>معیار</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>تعریف</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>آستانهٔ قبول ‏(Cat6 permanent link)</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>ابزار</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>‏Wire-map</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>اتصال صحیح ‏۸ رشته</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بدون ‏miswire/short/open</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هر تستر</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏Length</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>طول هر جفت ≤ ‏90 متر ‏(permanent link)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏≤ ‏90m ± ‏10%</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تستر با ‏TDR</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏NEXT ‏(Near-End Crosstalk)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تداخل جفت‌های مجاور</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>≥ حد Cat6 در فرکانس تست</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>certification tester</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏Return Loss</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بازتاب سیگنال از ناهمگونی امپدانس</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>≥ حد Cat6</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>certification tester</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏Propagation Delay</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تأخیر انتشار</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>≤ ‏555 ns برای ‏90m</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>certification tester</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:image -->
+<figure class="wp-block-image size-large"><img src="../assets/tutorial-n3-cable-test.svg" alt="نمودار پنج معیار تست کابل درس N3 (تصویر مفهومی تألیفی)" width="900" loading="lazy"/><figcaption>نمودار پنج معیار تست کابل درس N3 (تصویر مفهومی تألیفی)</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>سند رسمی TIA/EIA-568.2-D این آستانه‌ها را تعریف می‌کند — در این درس فقط نام برده شده و اعداد دقیق per-frequency در سند رسمی است (URL عمومی بدون نیاز به fetch خاص).</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">قالب گزارش تست — جدول per-link</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>لینک</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>‏Wire-map</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>‏Length ‏(m)</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>‏NEXT ‏(dB)</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>‏Return Loss ‏(dB)</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>‏Delay ‏(ns)</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>حکم</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>‏A-101-P01→SW1:ether1</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>✓</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏28</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏44.3</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏23.1</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏482</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>PASS</strong></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏A-101-P02→SW1:ether2</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>✓</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏31</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏43.8</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏22.7</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏495</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>PASS</strong></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>...</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>...</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>...</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>...</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>...</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>...</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>...</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏A-101-P07→SW1:ether7</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>✗ miswire</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏22</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>FAIL</strong></td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>(اعداد بالا <strong>نمونهٔ قالب آموزشی</strong>‌اند — NOT_RUN؛ تست واقعی با عدد واقعی جایگزین می‌شود.)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">قواعد گزارش — حداقل‌های قابل‌استناد</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>قاعده</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>دلیل</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>هر لینک جدا تست شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>یک لینک خراب، کل شبکه را تحت تأثیر قرار می‌دهد</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اعداد خام + حد آستانه ثبت شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>«OK» کلی قابل‌ررسی نیست</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>مدل تستر و نسخهٔ firmware ثبت شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>قابل‌تکرار بودن تست</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏PASS/FAIL per-link (نه per-batch)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هر لینک مستقل ارزیابی می‌شود</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>لینک FAIL → تصویر/کپی خروجی تستر ضمیمه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>قابل‌ررسی برای پیمانکار</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">خطاهای رایج</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>نشانه</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>علت محتمل</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>بررسی</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>راه‌حل</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>‏NEXT پایین</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کابل نزدیک منبع مغناطیسی یا جفت‌ها جدا نشده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مسیر کابل + جدا‌کردن جفت‌ها در ترمینال</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>باز‌ترمینال با جدایی صحیح</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏Length > 90m</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>طول فیزیکی از حد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>اندازه‌گیری واقعی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کوتاه‌کردن یا ‏switch میانی</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏Return Loss پایین</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>امپدانس ناهمگونی ‏(کابل/کانکتور)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کانکتور‌ها را چک کنید</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>باز‌ترمینال با کانکتور استاندارد</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>کابل بدون برچسب</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>عدم برچسب‌گذاری در نصب</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏wire-map + بررسی فیزیکی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>برچسب‌گذاری مجدد</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>لینک ‏10G ناممکن روی Cat5e</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کابل Cat5 حد Cat6 را ندارد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تست ‏certification</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کابل Cat6/Cat6a تعویض</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">تمرین کوتاه (با پاسخ موردانتظار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>چرا wire-map tester برای شبکهٔ ۱ گیگابیت کافی است ولی برای ‏10G نه؟ — <strong>پاسخ موردانتظار:</strong> ‏1G ‏(1000BASE-T) فقط wire-map و طول را نیاز دارد؛ ‏10G ‏(10GBASE-T) روی ‏Cat6a با NEXT/Return Loss سختگیرانه‌تر — تستر certification لازم.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>«پنج لینک از ‏۱۲ PASS شدند» — کافی برای گزارش؟ — <strong>پاسخ موردانتظار:</strong> خیر؛ هر ‏۱۲ لینک جدا با اعداد خام باید ثبت شود — خلاصه‌سازی قابل‌استناد نیست.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>کابل ‏95 متر با wire-map درست ولی ‏NEXT پایین — مشکل چیست؟ — <strong>پاسخ موردانتظار:</strong> طول از ‏90 متر permanent link گذشته (حد Cat6) → کابل کوتاه‌تر یا Cat6a.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>بعد از تعویض patch cable، لینک وصل شد — آیا گزارش قبلی هنوز معتبر است؟ — <strong>پاسخ موردانتظار:</strong> خیر؛ بعد از هر تغییر فیزیکی باید تست مجدد انجام و گزارش جدید ثبت شود.</li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">چک‌لیست تحویل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[ ] هر ‏۱۲ لینک جدا تست شده با پنج معیار</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] مدل تستر و نسخهٔ firmware ثبت شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] استاندارد تست ‏(TIA/EIA-568.2-D ‏Cat6 permanent link) مشخص</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] اعداد خام + حد آستانه + حکم PASS/FAIL per-link</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] لینک‌های FAIL با خروجی تستر ضمیمه شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] بعد از هر تغییر فیزیکی، تست مجدد انجام شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] اجرای واقعی این درس NOT_RUN (قالب آموزشی)</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">منابع</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>‏TIA/EIA-568.2-D (استاندارد کابل‌کشی ساختاریافته — مرجع عمومی؛ اعداد per-frequency در سند اصلی)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>تجربهٔ فرایندی عمومی تست کابل — بدون ادعای آمار/مورد واقعی</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">آموزش‌های مرتبط و مسیر خدمت</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>پیوند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقصد</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>درس‌های مرتبط</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="n2-rack-cable.fa.md">N2 رک و کابل</a> · ‏<a href="n1-network-troubleshooting.fa.md">N1 عیب‌یابی</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نقشهٔ کامل سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/topic-map/">topic map</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>تست کابل استاندارد برای سازمان شما</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="https://tehnet.ir/services/network-setup-tehran/">خدمات راه‌اندازی شبکهٔ تهران</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>درس بعدی سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>در topic map ثبت است</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->

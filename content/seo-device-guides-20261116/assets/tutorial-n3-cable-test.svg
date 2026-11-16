@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560">
+<title>نمودار پنج معیار تست کابل درس N3</title>
+<desc>پنج معیار تست کابل Cat6 permanent link: وایر مپ اتصال صحیح هشت رشته؛ طول حداکثر نود متر؛ تداخل نزدیک با حد استاندارد؛ بازتاب سیگنال با حد استاندارد؛ و تأخیر انتشار حداکثر پانصد و پنجاه و پنج نانوثانیه. ابزار تستر certification لازم است نه تستر ساده وایرمپ. این نمودار مفهومی و تألیفی TehNet است.</desc>
+<text x="480" y="36" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1a1a1a" font-weight="bold">پنج معیار تست کابل Cat6 permanent link (TIA/EIA-568.2-D)</text>
+<rect x="100" y="110" width="760" height="50" rx="8" fill="#fafafa" stroke="#43a047" stroke-width="2"/>
+<text x="150" y="134" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#43a047" font-weight="bold">Wire-map</text>
+<text x="200" y="152" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">اتصال صحیح ۸ رشته — بدون miswire</text>
+<rect x="100" y="180" width="760" height="50" rx="8" fill="#fafafa" stroke="#1e88e5" stroke-width="2"/>
+<text x="150" y="204" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1e88e5" font-weight="bold">Length</text>
+<text x="200" y="222" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">طول هر جفت ≤ ۹۰ متر permanent link</text>
+<rect x="100" y="250" width="760" height="50" rx="8" fill="#fafafa" stroke="#fb8c00" stroke-width="2"/>
+<text x="150" y="274" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#fb8c00" font-weight="bold">NEXT</text>
+<text x="200" y="292" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">تداخل جفت‌های مجاور ≥ حد Cat6</text>
+<rect x="100" y="320" width="760" height="50" rx="8" fill="#fafafa" stroke="#6a1b9a" stroke-width="2"/>
+<text x="150" y="344" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#6a1b9a" font-weight="bold">Return Loss</text>
+<text x="200" y="362" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">بازتاب سیگنال ≥ حد Cat6</text>
+<rect x="100" y="390" width="760" height="50" rx="8" fill="#fafafa" stroke="#d32f2f" stroke-width="2"/>
+<text x="150" y="414" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#d32f2f" font-weight="bold">Prop. Delay</text>
+<text x="200" y="432" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">تأخیر انتشار ≤ ۵۵۵ ns</text>
+<text x="480" y="470" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">ابزار: certification tester (نه wire-map tester) — per-link جدا</text>
+<text x="480" y="492" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#90a4ae" font-weight="normal">TIA/EIA-568.2-D استاندارد مرجع (دسترسی 2026-11-16)</text>
+<text x="480" y="533" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#78909c" font-weight="normal">نمودار مفهومی تألیفی TehNet — نه عکس واقعی — اجرا NOT_RUN</text>
+</svg>

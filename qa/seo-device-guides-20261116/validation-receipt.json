@@ -3,13 +3,13 @@
  "validator": "validate-seo-guides.cjs rev8 (rev7 + S2 tutorial candidate)",
  "command": "node validate-seo-guides.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-16T22:28:23Z",
- "finished_utc": "2026-11-16T22:28:23Z",
- "control_head": "5ee120a9618d4a52e36aad75ce94fe09883e8f63",
+ "started_utc": "2026-11-16T22:36:34Z",
+ "finished_utc": "2026-11-16T22:36:35Z",
+ "control_head": "e1fa041f6e295430ddaf2f2ba076c6bfa116c6ab",
  "exit": 0,
  "good_candidate": {
   "ok": true,
-  "checks": 146,
+  "checks": 148,
   "failed": 0
  },
  "injected_negatives": [
@@ -142,9 +142,11 @@
   "tutorials/n2-rack-cable.gutenberg.html": "dbbb77627bde73f6ea5cc3d4288264aa7f1f00696a4e107c8d23838e002d06df",
   "tutorials/n1-office-design.fa.md": "10035f348e16082bf5d2c10b6b423ebd2b9c9fc9f050fb5cd999022ee807f635",
   "tutorials/n1-office-design.gutenberg.html": "41c820dd57e0f639fd3618124e35512c3d580d1ca22403a62be55bcd0b74e519",
+  "tutorials/n3-cable-test-report.fa.md": "60b41212eb33d3479dad462d067f583ef56912fbb4bfdf29ba9e06afde1749fd",
+  "tutorials/n3-cable-test-report.gutenberg.html": "fcb772cf02d1c24738985b0f541abb4a154fce3d94ba27e73ca9d23fed76982e",
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",
   "switch-catalog.csv": "aaa5aed94204ad93b312449d9b0c934164c59d2d6375eb3b5727fe94ae164718",
-  "image-provenance.csv": "31f22ba9d03a491041eae5cc5eebe6a0145a9b8ec3212df12ff056d2df3f5fa1",
+  "image-provenance.csv": "57df5b7e151f4d35deef50d356335a408f859ad0a794345a752e307192cb96b4",
   "page-edits/mikrotik-service.proposed.html": "c8c22f3e453bdbc5934d9e3b4e9b84e81e11b0fbfedb9e901fdce300dceabdfb",
   "page-edits/network-setup.proposed.html": "ac244d2142a4022b20b98803e48c218c5138f5398b72a6f7bca1bae1fbe52c0b",
   "page-edits/network-support.proposed.html": "52b58eefe6cd3ff50c65077ddc99f9ae66637a2fe4181bd16a6a9579adebf953"

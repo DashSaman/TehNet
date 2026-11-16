@@ -829,8 +829,31 @@ n2 = svg(960, 560,
     'رک دوازده یونیت با چیدمان از بالا به پایین: patch panel، فضای خالی، سوئیچ CRS326، فضای تهویه، روتر hEX، و فضای رشد. کابل‌های دیواری از سقف یا دیوار به patch panel می‌رسند و با patch cable کوتاه به سوئیچ وصل می‌شوند. الگوی برچسب‌گذاری شامل طبقه اتاق و شماره پورت است. کابل شبکه باید حداقل سی سانتی‌متر از کابل برق فاصله داشته باشد. این نمودار مفهومی و تألیفی TehNet است.',
     chr(10).join(b))
 
+
+# ---------------- N3c cable-test criteria ----------------
+b = []
+b.append(text(480, 36, 'پنج معیار تست کابل Cat6 permanent link (TIA/EIA-568.2-D)', 12, 'middle', '#1a1a1a', 'bold'))
+criteria = [
+    ('Wire-map', 'اتصال صحیح ۸ رشته — بدون miswire', '#43a047', 130),
+    ('Length', 'طول هر جفت ≤ ۹۰ متر permanent link', '#1e88e5', 200),
+    ('NEXT', 'تداخل جفت‌های مجاور ≥ حد Cat6', '#fb8c00', 270),
+    ('Return Loss', 'بازتاب سیگنال ≥ حد Cat6', '#6a1b9a', 340),
+    ('Prop. Delay', 'تأخیر انتشار ≤ ۵۵۵ ns', '#d32f2f', 410),
+]
+for title, desc, color, y in criteria:
+    b.append(rect(100, y - 20, 760, 50, '#fafafa', color, 2))
+    b.append(text(150, y + 4, title, 12, 'middle', color, 'bold'))
+    b.append(text(200, y + 22, desc, 10, 'middle', '#37474f'))
+b.append(text(480, 470, 'ابزار: certification tester (نه wire-map tester) — per-link جدا', 10, 'middle', '#37474f'))
+b.append(text(480, 492, 'TIA/EIA-568.2-D استاندارد مرجع (دسترسی 2026-11-16)', 10, 'middle', '#90a4ae'))
+b.append(text(480, 533, 'نمودار مفهومی تألیفی TehNet — نه عکس واقعی — اجرا NOT_RUN', 10, 'middle', '#78909c'))
+n3c = svg(960, 560,
+    'نمودار پنج معیار تست کابل درس N3',
+    'پنج معیار تست کابل Cat6 permanent link: وایر مپ اتصال صحیح هشت رشته؛ طول حداکثر نود متر؛ تداخل نزدیک با حد استاندارد؛ بازتاب سیگنال با حد استاندارد؛ و تأخیر انتشار حداکثر پانصد و پنجاه و پنج نانوثانیه. ابزار تستر certification لازم است نه تستر ساده وایرمپ. این نمودار مفهومی و تألیفی TehNet است.',
+    chr(10).join(b))
+
 os.makedirs(OUT, exist_ok=True)
-for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4), ('tutorial-m5-vpn-architecture.svg', m5), ('tutorial-m6-dual-wan-failover.svg', m6), ('tutorial-s5-uplink-trunk.svg', s5), ('tutorial-s6-psu-power.svg', s6), ('tutorial-s5-loop-rstp-lacp.svg', s5c), ('tutorial-s6-nas-upgrade.svg', s6c), ('tutorial-n1-office-design.svg', n1c), ('tutorial-n2-rack-cable.svg', n2)):
+for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4), ('tutorial-m5-vpn-architecture.svg', m5), ('tutorial-m6-dual-wan-failover.svg', m6), ('tutorial-s5-uplink-trunk.svg', s5), ('tutorial-s6-psu-power.svg', s6), ('tutorial-s5-loop-rstp-lacp.svg', s5c), ('tutorial-s6-nas-upgrade.svg', s6c), ('tutorial-n1-office-design.svg', n1c), ('tutorial-n2-rack-cable.svg', n2), ('tutorial-n3-cable-test.svg', n3c)):
     p = os.path.join(OUT, name)
     with io.open(p, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)

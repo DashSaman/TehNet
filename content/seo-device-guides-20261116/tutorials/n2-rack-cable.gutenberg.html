@@ -1,0 +1,366 @@
+<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from ../tutorials/n2-rack-cable.fa.md -->
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">رک و کابل‌کشی — چیدمان، برچسب‌گذاری و استاندارد (N2)</h1>
+<!-- /wp:heading -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><p>وضعیت درس: <strong>DRAFT / NOT_DEPLOYED — در انتظار مرور.</strong> (درس مصوب سرفصل ‏N2: رک/کابل)</p><p>آموزش تصویری از سری پشتیبانی؛ مخاطب: کارشناس شبکه.</p><p>سناریوی کاملاً فرضی و آموزشی با دادهٔ ساختگی؛ هیچ شبکهٔ واقعی دستکاری نشده و هیچ اجرای واقعی NOT_RUN است.</p><p>نمودار مفهومی و تألیفی است (نه عکس واقعی).</p></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پاسخ کوتاه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>رک و کابل‌کشی ‏۳۰٪ از زمان نصب و ‏۸۰٪ از عیب‌یابی‌های آینده را تعیین می‌کند. چهار اصل: <strong>رک اندازهٔ مناسب</strong> ‏(۲۰٪ فضای خالی برای رشد)، <strong>کابل‌کشی تمیز</strong> ‏(patch panel + دور‌کردن منظم)، <strong>برچسب‌گذاری دو‌سر</strong> ‏(هر کابل با شناسهٔ یکتا در هر دو سر) و <strong>طول استاندارد</strong> ‏(Cat6: ‏100 متر کل مسیر). بدون برچسب، هیچ عیب‌یابی لایه‌ای (N1) در دسترس نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پیش‌نیازها</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>طراحی دفتر: <a href="n1-office-design.fa.md">N1 طراحی شبکهٔ دفتر</a> · عیب‌یابی: <a href="n1-network-troubleshooting.fa.md">N1</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مبنا آزمایشگاه (Lab Baseline) — سناریوی فرضی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>بند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقدار فرضی</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>رک</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏Wall-mount ‏12U ‏(یا ‏floor-standing ‏22U)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سوئیچ</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏CRS326-24G-2S+RM ‏(1U)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>روتر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏hEX ‏(RB750Gr3) ‏(1U)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏patch panel</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏24 پورت Cat6 ‏(1U)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>کابل</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏Cat6 ‏(unshielded) — همهٔ پورت‌های LAN</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>پورت‌ها</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۱۲ کاربر + ‏۴ دوربین + ‏۱ AP + ‏۱ NAS + ‏۱ چاپگر</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اجرای واقعی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>NOT_RUN</strong> — آموزشی</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">جدول چیدمان رک — از بالا به پایین</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>‏U</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>تجهیز</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>دلیل ترتیب</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>‏1</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏Patch panel ‏24 پورت Cat6</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>نزدیک‌ترین به سوراخ‌های کابل از بالا</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏2</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فضای خالی ‏(دسترسی به patch panel)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏3</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سوئیچ ‏CRS326 ‏(۲۴ پورت)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>نزدیک به patch panel — کابل‌های patch کوتاه</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏4</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فضای خالی ‏(تهویه)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏5</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>روتر ‏hEX</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏6-12</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فضای خالی ‏(رشد)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>پایین</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>شelf ‏(اختیاری — ‏UPS)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>قاعده: تجهیزات سنگین پایین؛ patch panel بالا؛ سوئیچ نزدیک patch panel؛ فضای خالی برای تهویه و رشد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">کابل‌کشی — چهار اصل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>اصل</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>جزئیات</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>‏Patch panel</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>همهٔ کابل‌های از سقف/دیوار به patch panel می‌آیند؛ از patch panel با patch cable کوتاه ‏(۰٫۵-۱m) به سوئیچ</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>برچسب دو‌سر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هر کابل در هر دو سر با شناسه یکتا برچسب‌خورده: `A-01` ‏(طبقه A، پورت ۱)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>طول Cat6</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>حداکثر ‏100 متر از patch panel تا کاربر ‏(شامل patch cable‌ها)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>جدایی مسیر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کابل‌های برق و شبکه در مسیرهای جدا؛ حداقل ‏30cm فاصله موازی</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">برچسب‌گذاری — الگوی پیشنهادی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>نوع</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>الگوی برچسب</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مثال</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>کابل از patch panel به کاربر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`{طبقه}-{اتاق}-{شماره پورت}`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏`A-101-P01`</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>پورت سوئیچ</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏`{نام سوئیچ}:{پورت}`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏`SW1:ether1`</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>پورت patch panel</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`PP1:{شماره}`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏`PP1:P01`</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>رزرو/سایر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏`R-{هدف}`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏`R-CCTV-01`</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">جدول محاسبهٔ طول کابل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>مسیر</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>طول تقریبی</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>نوع کابل</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>حداکثر استاندارد</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>‏patch panel → کاربر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏15-30 متر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏Cat6</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏100 متر ‏(کل مسیر)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏patch panel → سوئیچ</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏0.5-1 متر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏Cat6 patch cable</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کوتاه</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سوئیچ → روتر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏0.5 متر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏Cat6 patch cable</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کوتاه</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">خطاهای رایج</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>نشانه</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>علت محتمل</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>بررسی</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>راه‌حل</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>کابل پیدا نمی‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بدون برچسب یا برچسب ناخوانا</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بررسی فیزیکی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>برچسب‌گذاری دو‌سر با چاپگر لیبل</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>کابل اضافه جلوی تهویه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بدون مدیریت کابل</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بازبینی رک</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دور‌کردن کابل با ‏velcro ‏(نه بست پلاستیکی)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>لینک ‏100Mbps به‌جای ‏1Gbps</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کابل Cat5 به‌جای Cat6 یا کابل خراب</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/interface ethernet monitor`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تعویض کابل Cat6</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>قطعی متناوب</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کابل نزدیک برق/منبع مغناطیسی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مسیر کابل</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>جدایی مسیر ≥ ‏30cm</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">تمرین کوتاه (با پاسخ موردانتظار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>چرا patch panel قبل از سوئیچ نصب می‌شود؟ — <strong>پاسخ موردانتظار:</strong> تا کابل‌های دیواری در patch panel ختم شوند و تغییرات با patch cable کوتاه انجام شود — بدون دستکاری کابل اصلی دیواری.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>کابل Cat6 حداکثر چند متر؟ — <strong>پاسخ موردانتظار:</strong> ‏100 متر کل مسیر ‏(شامل patch cable‌ها و مسیر داخل دیوار).</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>چرا کابل شبکه نباید نزدیک کابل برق باشد؟ — <strong>پاسخ موردانتظار:</strong> تداخل الکترومغناطیسی ‏(EMI) → خطا/قطعی متناوب؛ حداقل ‏30cm فاصله موازی.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>برچسب `A-101-P01` چه اطلاعاتی دارد؟ — <strong>پاسخ موردانتظار:</strong> طبقه A، اتاق ۱۰۱، پورت patch panel شماره ۰۱.</li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">چک‌لیست تحویل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[ ] رک با فضای خالی ≥۲۰٪ نصب شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] ‏patch panel نصب و کابل‌های دیواری ختم شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] سوئیچ نزدیک patch panel نصب شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] برچسب دو‌سر همهٔ کابل‌ها خوانا و ثبت‌شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] کابل‌های دور‌شده با ‏velcro ‏(نه بست پلاستیکی)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] کابل برق و شبکه جدا ‏(≥۳۰cm)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] همهٔ طول‌ها ≤ ‏100 متر ‏(Cat6)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] اجرای واقعی این درس NOT_RUN (آموزشی)</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">منابع</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Bridging and Switching ‏(الگوی پل): https://manual.mikrotik.com/docs/bridging-and-switching/ ‏(دسترسی 2026-11-16)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>استاندارد ‏TIA/EIA-568 ‏(کابل‌کشی ساختاریافته) — به‌عنوان مرجع عمومی؛ جزئیات اجرا per-پروژه</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>تجربهٔ فرایندی عمومی نصب رک — بدون ادعای آمار/پروژهٔ واقعی</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">آموزش‌های مرتبط و مسیر خدمت</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>پیوند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقصد</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>درس‌های مرتبط</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="n1-office-design.fa.md">N1 طراحی دفتر</a> · ‏<a href="/guides/mikrotik-vlan/">M2 VLAN</a> · ‏<a href="n4-delivery-acceptance.fa.md">N4 پذیرش</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نقشهٔ کامل سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/topic-map/">topic map</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>رک و کابل‌کشی استاندارد برای سازمان شما</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="https://tehnet.ir/services/network-setup-tehran/">خدمات راه‌اندازی شبکهٔ تهران</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>درس بعدی سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>N3 — گزارش تست کابل (تولید در نوبت بعدی؛ فعلاً فقط در topic map)</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->

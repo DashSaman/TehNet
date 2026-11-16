@@ -270,6 +270,7 @@ const jobs = [
   ['../tutorials/s5-loop-rstp-lacp.fa.md', '../tutorials/s5-loop-rstp-lacp.gutenberg.html', 'tutorial'],
   ['../tutorials/s6-nas-server-upgrade.fa.md', '../tutorials/s6-nas-server-upgrade.gutenberg.html', 'tutorial'],
   ['../tutorials/n2-rack-cable.fa.md', '../tutorials/n2-rack-cable.gutenberg.html', 'tutorial'],
+  ['../tutorials/n3-cable-test-report.fa.md', '../tutorials/n3-cable-test-report.gutenberg.html', 'tutorial'],
   ['../tutorials/n1-office-design.fa.md', '../tutorials/n1-office-design.gutenberg.html', 'tutorial'],
 ];
 const summary = [];
