@@ -1,5 +1,5 @@
 {
- "packet": "TN-M2-M3-RENDER-CHECK-20261116",
+ "packet": "TN-M2-M3-RENDER-CHECK-20261116 + articles extension (same wake)",
  "tool": "ZCode in-app browser (IAB, Chromium) via control-browser skill — real browser execution, NOT a static check",
  "server": "preview-server.py on 127.0.0.1 (stdlib http.server with explicit charset=utf-8, mimicking the WordPress theme header)",
  "command": "node_repl browser cells; python -I preview-server.py 8138",
@@ -11,7 +11,9 @@
  },
  "pages": [
   "tutorials/m2-vlan-small-office.gutenberg.html",
-  "tutorials/m3-dhcp-dns.gutenberg.html"
+  "tutorials/m3-dhcp-dns.gutenberg.html",
+  "articles/mikrotik-routers.gutenberg.html",
+  "articles/mikrotik-switches-crs.gutenberg.html"
  ],
  "evidence_files": [
   "m2-desktop-code.png",
@@ -21,7 +23,11 @@
   "m3-desktop-code.png",
   "m3-desktop-svg.png",
   "m3-desktop-top.png",
-  "m3-mobile-top.png"
+  "m3-mobile-top.png",
+  "routers-desktop-schematic.png",
+  "routers-desktop-table.png",
+  "routers-mobile-top.png",
+  "switches-desktop-table.png"
  ],
  "checks": {
   "svg_render": "both diagrams render; labels/port/legend readable at 900px display width; M2 port labels restacked (no overlap); M3 flow labels shortened into the gap (no client-box collision)",
@@ -29,7 +35,12 @@
   "links": "M2 page: 6 links with hrefs; M1/M2/M3 cross-links present as /guides/... proposed slugs",
   "keyboard": "Tab keypress moved focus to an <A> element (document.activeElement verified)",
   "rtl": "Persian RTL text renders correctly with charset=utf-8 (characterSet UTF-8 observed)",
-  "mobile": "390x844 renders readable, no horizontal cutoff of text content"
+  "mobile": "390x844 renders readable, no horizontal cutoff of text content",
+  "articles": {
+   "routers": "17 imgs render (decision diagram + per-model schematics); comparison table clean — 0 separator junk cells after builder rev4; RTL headers readable at 1280",
+   "switches": "16 imgs render (schematics with SKU captions); junkCells=0 verified programmatically in-page; table render pass",
+   "note": "article previews re-rendered after rev4 separator fix — evidence routers-desktop-table.png / routers-desktop-schematic.png / routers-mobile-top.png / switches-desktop-table.png"
+  }
  },
  "findings_fixed_this_packet": [
   "builder rev4: Markdown table separator rows previously rendered as visible junk <td>--- cells in ALL outputs (11+7+29+17 cells) — now skipped; regenerated outputs have 0",
@@ -43,5 +54,6 @@
   "production site",
   "RouterOS execution"
  ],
- "production_touched": false
+ "production_touched": false,
+ "utc_extended": "2026-11-16T19:00:13Z"
 }

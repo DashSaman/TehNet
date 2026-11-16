@@ -5,20 +5,20 @@ keyword,intent,evidence_url,target_url_or_draft,primary_or_secondary,current_gap
 راه‌اندازی شبکه شرکت تهران,service,inventory:/services/network-setup-tehran/,network-setup-2026-11-01/,primary,ورودی موردنیاز از مشتری صریح نیست,بخش «ورودی موردنیاز» + چک‌لیست,high
 انتخاب تجهیزات شبکه برای دفتر,guide,competitor-evidence.csv#vira-novin,network-setup-2026-11-01/,secondary,جدول نیاز/تجهیز وجود ندارد,جدول سناریو→تجهیز,high
 پشتیبانی شبکه تهران,service,inventory:/services/network-support-tehran/,network-support-2026-11-01/,primary,خروجی قابل‌تحویل/گزارش نامشخص,بخش «گزارش و تحویل» با اقلام,high
-قرارداد پشتیبانی شبکه,service-decision,inventory:/network-support-contract-guide/,network-support-2026-11-01/,secondary,لینک داخلی به راهنمای قرارداد نیست,لینک با anchor طبیعی,medium
+قرارداد پشتیبانی شبکه,service-decision,inventory:/network-support-contract-guide/,network-support-2026-11-01/,secondary,لینک داخلی به راهنمای قرارداد نیست؛ مقصد در GET 2026-11-16 با 404 مشاهده شد,لینک با anchor به مقصد زنده /services/network-support-tehran/ (تعمیر کاندید page-edits/candidates/) تا تصمیم بازتولید راهنما,medium
 انتخاب روتر میکروتیک,guide,D,E,primary,صفحه‌ای برای تصمیم خرید/انتخاب نیست,مقالهٔ D جدید (draft),high
 مقایسه روترهای میکروتیک,guide,competitor-evidence.csv#netdrco,D,primary,رقبا مقایسهٔ سطحی دارند,جدول منبع‌دار + کاربرد هر مدل,high
 تفاوت RB4011 و RB5009,comparison,competitor-evidence.csv#netdrco,D,high-intent,مقایسهٔ دقیق پورت/عملکرد,ردیف اختصاصی + بخش ارتقا,high
 hEX قدیمی و نسل جدید,comparison,competitor-evidence.csv#barghchi-hex,D,high-intent,تفکیک RB750Gr3 و E50UG,ردیف جدا + بخش revision,high
-روتر میکروتیک دست دوم,buy-guide,D,secondary,راهنمای بررسی دست‌دوم نیست,بخش خرید دست‌دوم,medium
+روتر میکروتیک دست دوم,buy-guide,D,secondary,راهنمای بررسی دست‌دوم نیست,بخش خرید دست‌دوم,medium,
 سوئیچ میکروتیک برای شرکت,guide,competitor-evidence.csv#arghavannet,E,primary,تصمیم access/core توضیح ندارد,سناریوهای دفتر/access/core,high
 سوئیچ PoE میکروتیک,guide,competitor-evidence.csv#arghavannet,E,secondary,PoE standards مخلوط شده,جدول af/at/passive جدا,high
 تفاوت CSS و CRS,comparison,competitor-evidence.csv#mrshabake,E,high-intent,SwOS Lite/L3 offload مبهم,بخش تفاوت + جدول OS,high
 سوئیچ برای شبکه 10G,guide,competitor-evidence.csv#almaseasia,E,secondary,گزینه‌های 10G پراکنده,ردیف‌های CRS310/326/354,high
 تفاوت روتر سوئیچ روترسوئیچ,education,competitor-evidence.csv#barghchi-os,E,secondary,پاسخ کوتاه لایه۲/۳ نیست,پاسخ مستقیم ابتدای بخش,medium
 سوئیچ مدیریتی میکروتیک,guide,E,E,secondary,معیار «مدیریتی» مبهم,معیارهای انتخاب در مقدمه,medium
-L009 یا RB2011,comparison,D,secondary,جانشین RB2011 نامشخص,ردیف L009 + راهنمای ارتقا,medium
-CCR یا RB5009,comparison,D,secondary,تفکیک لبهٔ سازمانی مبهم,ردیف CCR + بخش نیاز سازمانی,medium
+L009 یا RB2011,comparison,D,secondary,جانشین RB2011 نامشخص,ردیف L009 + راهنمای ارتقا,medium,
+CCR یا RB5009,comparison,D,secondary,تفکیک لبهٔ سازمانی مبهم,ردیف CCR + بخش نیاز سازمانی,medium,
 کانفیگ VPN میکروتیک,service,D,mikrotik-service-2026-11-01/,secondary,VPN سناریو کم است,سناریو۳ مقالهٔ D + صفحهٔ خدمت,medium
 سوئیچ فیبر نوری میکروتیک,guide,E,E,secondary,SFP خانواده پراکنده,جدول ستون فیبر E,medium
 CRS309 برای NAS,comparison,E,E,secondary,کاربرد NAS صریح نیست,سناریو۴ مقالهٔ E,low
