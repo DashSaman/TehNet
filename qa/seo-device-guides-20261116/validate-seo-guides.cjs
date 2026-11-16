@@ -245,6 +245,9 @@ function validate(candidateInputs) {
     { md: 'tutorials/s5-uplink-trunk.fa.md', html: 'tutorials/s5-uplink-trunk.gutenberg.html', svg: 'assets/tutorial-s5-uplink-trunk.svg', label: 'S5',
       sectionsOverride: ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'محاسبهٔ ظرفیت آپ‌لینک', 'راه‌اندازی ترانک', 'جدول بررسی ترانک', 'خطاهای رایج', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع', 'آموزش‌های مرتبط'],
       service: 'https://tehnet.ir/services/network-setup-tehran/' },
+    { md: 'tutorials/s6-psu-power.fa.md', html: 'tutorials/s6-psu-power.gutenberg.html', svg: 'assets/tutorial-s6-psu-power.svg', label: 'S6',
+      sectionsOverride: ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'محاسبهٔ انتخاب PSU', 'جدول تصمیم PSU', 'خطاهای رایج', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع', 'آموزش‌های مرتبط'],
+      service: 'https://tehnet.ir/services/network-setup-tehran/' },
   ];
   const TUT_SECTIONS_COMMON = ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'تست پذیرش', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'];
   for (let ti = 0; ti < TUTORIALS.length; ti++) {
@@ -319,6 +322,8 @@ if (require.main === module) {
     'tutorials/m6-dual-wan-failover.gutenberg.html',
     'tutorials/s5-uplink-trunk.fa.md',
     'tutorials/s5-uplink-trunk.gutenberg.html',
+    'tutorials/s6-psu-power.fa.md',
+    'tutorials/s6-psu-power.gutenberg.html',
     'router-catalog.csv',
     'switch-catalog.csv',
     'image-provenance.csv',

@@ -3,13 +3,13 @@
  "validator": "validate-seo-guides.cjs rev8 (rev7 + S2 tutorial candidate)",
  "command": "node validate-seo-guides.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-16T21:15:55Z",
- "finished_utc": "2026-11-16T21:15:55Z",
- "control_head": "bfaf8e31ecb0ff0e6e4d1779a3090a18aa95637a",
+ "started_utc": "2026-11-16T21:26:10Z",
+ "finished_utc": "2026-11-16T21:26:11Z",
+ "control_head": "5d28ad2f07342cd364611e97c3589a80a30c92d2",
  "exit": 0,
  "good_candidate": {
   "ok": true,
-  "checks": 127,
+  "checks": 132,
   "failed": 0
  },
  "injected_negatives": [
@@ -132,9 +132,11 @@
   "tutorials/m6-dual-wan-failover.gutenberg.html": "91d9dd2c4a6c8e313bbf0eb73970bac15117400ff2da571fe9406d8f35a55b59",
   "tutorials/s5-uplink-trunk.fa.md": "b687e693361bf6e75b6afeffbf6def6136d45698b9e1cd396164846a5915418d",
   "tutorials/s5-uplink-trunk.gutenberg.html": "9398935f2c3b1107a58099f4fde8e4f2e7e6d77e56d0d766d93435f29235aa7e",
+  "tutorials/s6-psu-power.fa.md": "84bef00eea77ffa20ad945af086d28a32b54a071fc9acd13a9e479c4c015cd2e",
+  "tutorials/s6-psu-power.gutenberg.html": "976a0c5214a20cfb8898f271a978c7ebc52991ce04d1b41134ed0ce57f44163c",
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",
   "switch-catalog.csv": "aaa5aed94204ad93b312449d9b0c934164c59d2d6375eb3b5727fe94ae164718",
-  "image-provenance.csv": "f0c319b07b0f9b33bedf97d59abb84be1d686328d9b002a1b168c9baa08bcd02",
+  "image-provenance.csv": "52508792651383b04e3563ab13e72735e6b7915078eaeec8fe252019042c6b54",
   "page-edits/mikrotik-service.proposed.html": "c8c22f3e453bdbc5934d9e3b4e9b84e81e11b0fbfedb9e901fdce300dceabdfb",
   "page-edits/network-setup.proposed.html": "ac244d2142a4022b20b98803e48c218c5138f5398b72a6f7bca1bae1fbe52c0b",
   "page-edits/network-support.proposed.html": "52b58eefe6cd3ff50c65077ddc99f9ae66637a2fe4181bd16a6a9579adebf953"

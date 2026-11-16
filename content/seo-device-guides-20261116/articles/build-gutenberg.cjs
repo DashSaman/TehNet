@@ -266,6 +266,7 @@ const jobs = [
   ['../tutorials/m5-vpn-selection.fa.md', '../tutorials/m5-vpn-selection.gutenberg.html', 'tutorial'],
   ['../tutorials/m6-dual-wan-failover.fa.md', '../tutorials/m6-dual-wan-failover.gutenberg.html', 'tutorial'],
   ['../tutorials/s5-uplink-trunk.fa.md', '../tutorials/s5-uplink-trunk.gutenberg.html', 'tutorial'],
+  ['../tutorials/s6-psu-power.fa.md', '../tutorials/s6-psu-power.gutenberg.html', 'tutorial'],
 ];
 const summary = [];
 for (const job of jobs) {

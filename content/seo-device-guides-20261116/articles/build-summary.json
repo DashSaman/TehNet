@@ -113,6 +113,13 @@
    "type": "tutorial",
    "bytes": 16265,
    "per_model_images": 0
+  },
+  {
+   "md": "../tutorials/s6-psu-power.fa.md",
+   "html": "../tutorials/s6-psu-power.gutenberg.html",
+   "type": "tutorial",
+   "bytes": 15438,
+   "per_model_images": 0
   }
  ]
 }

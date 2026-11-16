@@ -48,7 +48,10 @@
    "assets/tutorial-m6-dual-wan-failover.svg": "5abffc5e8ff5aa26637b7acfec05442d5fe257a726233b0acb40df7b5fe25c87",
    "tutorials/s5-uplink-trunk.fa.md": "b687e693361bf6e75b6afeffbf6def6136d45698b9e1cd396164846a5915418d",
    "tutorials/s5-uplink-trunk.gutenberg.html": "9398935f2c3b1107a58099f4fde8e4f2e7e6d77e56d0d766d93435f29235aa7e",
-   "assets/tutorial-s5-uplink-trunk.svg": "4d480df19795948ade31a928cc6b04ea93bc21342337eb2f690644a5529d233c"
+   "assets/tutorial-s5-uplink-trunk.svg": "4d480df19795948ade31a928cc6b04ea93bc21342337eb2f690644a5529d233c",
+   "tutorials/s6-psu-power.fa.md": "84bef00eea77ffa20ad945af086d28a32b54a071fc9acd13a9e479c4c015cd2e",
+   "tutorials/s6-psu-power.gutenberg.html": "976a0c5214a20cfb8898f271a978c7ebc52991ce04d1b41134ed0ce57f44163c",
+   "assets/tutorial-s6-psu-power.svg": "94191ee5ddf26cc673ec47fbef8b93018b96505e5c6abbb661af299f1ae22278"
   }
  },
  "preview_style_injected_at_render_time": "body{background:#fff;color:#111;font-family:Tahoma,Arial,sans-serif;margin:24px auto;max-width:960px;line-height:1.9} pre{background:#f6f8fa;border:1px solid #ddd;padding:12px;overflow:auto} code{font-family:Consolas,monospace;font-size:13px} table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto} th,td{border:1px solid #999;padding:5px 9px} img{max-width:100%;height:auto} blockquote{border-right:3px solid #1e88e5;padding-right:12px;color:#444}",
@@ -396,6 +399,22 @@
     "img_present": true,
     "links": 9,
     "overflow_styled": 93
+   },
+   "tutorials/s6-psu-power.gutenberg.html@desktop": {
+    "shot": "s6-desktop-psu.png",
+    "h1": "برق و PSU سوئیچ — انتخاب، ولتاژ و پشتیبان‌گیری (S6)",
+    "img_complete": true,
+    "img_present": true,
+    "links": 8,
+    "overflow_styled": 0
+   },
+   "tutorials/s6-psu-power.gutenberg.html@mobile": {
+    "shot": "s6-mobile-psu.png",
+    "h1": "برق و PSU سوئیچ — انتخاب، ولتاژ و پشتیبان‌گیری (S6)",
+    "img_complete": true,
+    "img_present": true,
+    "links": 8,
+    "overflow_styled": 96
    }
   },
   "styled_overflow_mobile_px": {
@@ -457,7 +476,8 @@
   "m4": "M4 HW-vs-CPU flow lesson renders desktop 0px overflow, mobile 359px (recorded); flow diagram (input->decision->HW/CPU paths) + shared-memory + must-choose + six-requirements boxes legible",
   "m5": "M5 VPN architecture lesson renders desktop 0px overflow, mobile 120px (recorded); branch/hq boxes + tunnel with two options + documented gotchas box legible",
   "m6": "M6 dual-WAN lesson renders desktop 0px overflow, mobile 424px (recorded); two-WAN diagram with test-host boxes + primary/backup + after-failure band legible",
-  "s5": "S5 uplink/trunk lesson renders desktop 0px overflow, mobile 93px (recorded); two-switch trunk diagram + capacity calc box + untagged warning legible"
+  "s5": "S5 uplink/trunk lesson renders desktop 0px overflow, mobile 93px (recorded); two-switch trunk diagram + capacity calc box + untagged warning legible",
+  "s6": "S6 PSU three-check lesson renders desktop 0px overflow, mobile 96px (recorded); three checks + verdict box + compatible-PSU list legible"
  },
  "boundary_item5": {
   "captures_untracked": "git rm --cached of the 12 evidence PNGs + render-evidence/.gitignore (forward commit; no force-push, no history claims); captures remain on local disk only",
@@ -469,7 +489,7 @@
   "manager-side browser run"
  ],
  "production_touched": false,
- "utc_extended": "2026-11-16T21:16:41Z",
+ "utc_extended": "2026-11-16T21:26:57Z",
  "pages_extra": [
   "tutorials/s2-poe-budget.gutenberg.html",
   "tutorials/s3-sfp-dac-fiber.gutenberg.html",
@@ -482,6 +502,7 @@
   "tutorials/m4-intervlan-l3hw.gutenberg.html",
   "tutorials/m5-vpn-selection.gutenberg.html",
   "tutorials/m6-dual-wan-failover.gutenberg.html",
-  "tutorials/s5-uplink-trunk.gutenberg.html"
+  "tutorials/s5-uplink-trunk.gutenberg.html",
+  "tutorials/s6-psu-power.gutenberg.html"
  ]
 }

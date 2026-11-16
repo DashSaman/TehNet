@@ -1,0 +1,253 @@
+<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from ../tutorials/s6-psu-power.fa.md -->
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">برق و PSU سوئیچ — انتخاب، ولتاژ و پشتیبان‌گیری (S6)</h1>
+<!-- /wp:heading -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><p>وضعیت درس: <strong>DRAFT / NOT_DEPLOYED — در انتظار مرور.</strong></p><p>آموزش تصویری از سری switching؛ مخاطب: مدیر IT/خریدار + کارشناس شبکه.</p><p>سناریوی کاملاً فرضی و آموزشی با دادهٔ ساختگی؛ هیچ شبکهٔ واقعی دستکاری نشده و هیچ اجرای واقعی NOT_RUN است.</p><p>نمودار مفهومی و تألیفی است (نه عکس واقعی).</p></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پاسخ کوتاه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>PSU سه چک می‌خواهد: <strong>ولتاژ مطابق</strong> (بعضی سوئیچ‌ها مثل netPower 16P مبدل داخلی ندارند — ولتاژ PSU = ولتاژ PoE خروجی)، <strong>توان اسمی</strong> ≥ (demand PoE + حاشیهٔ امن + مصرف خود سوئیچ) و <strong>ورودی‌های مستقل</strong> (دو جک DC سقف جریان جدا دارند — یک PSU واحد برای دو ورودی، نقطهٔ خرابی واحد است). فهرست PSU سازگار را از صفحهٔ رسمی محصول بگیرید، نه از حدس بازار.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پیش‌نیازها</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>محاسبهٔ demand: <a href="s2-poe-budget.fa.md">بودجهٔ PoE (S2)</a> · قواعد ترانک: <a href="s5-uplink-trunk.fa.md">S5</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مبنا آزمایشگاه (Lab Baseline) — همان سوئیچ و demand درس S2</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>بند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقدار فرضی/سندشده</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>سوئیچ</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>netPower 16P (CRS318-16P-2S+OUT) — fetch ‏2026-11-16</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>PSU پیوست</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>ندارد</strong> (سند رسمی)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ورودی‌ها</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دو جک DC مستقل: ‏18-30V یا ‏48-57V</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>demand ‏(از S2)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏8 دوربین ×10W + ‏4 تلفن ×5W = ‏100W → با حاشیهٔ ×1.2 = ‏120W</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>مصرف خود سوئیچ</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>≈16W (سند رسمی)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>PSUهای سازگار (فهرست رسمی صفحهٔ محصول)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏24HPOW · ‏MTP250-53V47-OD · ‏MTP250-26V94-OD · ‏48POW · ‏48V2A96W</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">محاسبهٔ انتخاب PSU — سه‌گام سندشده‌محور</h2>
+<!-- /wp:heading -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-text">گام ۱ — ولتاژ: دستگاه‌های PoEگیرنده af/at هستند → PSU باید 48V باشد (سند رسمی: 24V → خروجی 24V پسیو؛ 48V → af/at)
+گام ۲ — توان: demand+حاشیه (120W) + مصرف سوئیچ (16W) → PSU ≥ 136W
+گام ۳ — سقف جریان: سقف هر ورودی DC سندشده ≈67W (24V: ‏2.8A · ‏48V: ‏1.4A)
+       → با یک ورودی، سقف ≈67W &lt; ‏136W → دو ورودی DC لازم است؛ جمع دو ورودی ≈134W
+       → 136W &gt; ‏134W → تفسیر محافظه‌کارانه: کسری کوچک → UNKNOWN رسمی (بودجهٔ تضمینی جفت-PSU در سند نیامده)
+       → تصمیم محافظه‌کارانه: کاهش demand (دوربین‌های کم‌مصرف‌تر) یا SKU بالاتر — حاشیه حذف نمی‌شود</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p><strong>UNKNOWN صریح:</strong> توان اسمی دقیق هر PSU فهرست‌شده (به‌جز 48V2A96W که از کدش ≈96W پیداست) در fetch این درس نیامده — خریدار باید از برگهٔ رسمی همان PSU توان اسمی بگیرد؛ حدس زده نمی‌شود.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">جدول تصمیم PSU — برای همین demand</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>سناریوی PSU</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>ولتاژ</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>توان قابل‌تامین PoE (تفسیر محافظه‌کارانه)</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>حکم برای demand ‏120W</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>یک PSU ‏48V تک‌ورودی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏48V</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>≈67W (سقف یک ورودی)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>رد</strong></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>دو ورودی DC با PSU جفت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏24V یا ‏48V</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>≈134W ‏(2×67W)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مشروط — کسری ‏2W+ حاشیه = مرزی؛ ترجیح: کاهش demand یا SKU بالاتر</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>PSU بزرگ‌تر از فهرست سازگار با دو جک</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏48V</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>≥ ‏136W لازم</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>قبول مشروط به تأیید توان اسمی از برگهٔ PSU — <strong>UNKNOWN</strong> تا برگه دیده شود</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:image -->
+<figure class="wp-block-image size-large"><img src="../assets/tutorial-s6-psu-power.svg" alt="نمودار سه‌چک انتخاب PSU درس S6 با حکم مبنای ۱۲۰ وات (تصویر مفهومی تألیفی)" width="900" loading="lazy"/><figcaption>نمودار سه‌چک انتخاب PSU درس S6 با حکم مبنای ۱۲۰ وات (تصویر مفهومی تألیفی)</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> سه جعبهٔ چک به‌ترتیب: ‏چک ۱ ولتاژ ‏(af/at → ‏48V؛ ‏netPower بدون مبدل داخلی: ‏PSU ‏24V یعنی خروجی ‏24V پسیو)، ‏چک ۲ توان اسمی ‏(PSU ≥ ‏demand×1.2 + مصرف سوئیچ = ‏136W در این مبنا؛ مقدار از برگهٔ رسمی PSU)، ‏چک ۳ ورودی‌های مستقل ‏(دو جک DC با سقف هر ورودی ≈67W و دو PSU مستقل بهتر از یک PSU واحد). زیر آن جعبهٔ حکم برای ‏demand ‏120W این مبنا: تک‌ورودی رد؛ دو ورودی ≈134W مرزی (کاهش demand یا SKU بالاتر)؛ ‏PSU بزرگ‌تر قبول مشروط به برگهٔ رسمی. پایین: فهرست PSUهای سازگار سندشده از صفحهٔ رسمی محصول با یادداشت ‏UNKNOWN توان اسمی تا دیدن برگه. برچسب «تألیفی/مفهومی».</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">خطاهای رایج</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>خطا</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>چرا گران است</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>درست</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>PSU با ولتاژ ناهمسان با دستگاه‌های PoEگیرنده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دوربین af با خروجی ‏24V پسیو بالا نمی‌آید</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ولتاژ PSU = نیاز استاندارد دستگاه‌ها ‏(48V برای af/at)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>یک PSU برای دو جک DC</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>یک نقطهٔ خرابی؛ سقف جریان هر ورودی هم به آن گره می‌خورد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دو PSU مستقل (سند: دو ورودی مستقل) — حتی به‌بهانهٔ سادگی</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>توان اسمی PSU را از اسمش حدس زدن</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کد محصول ≠ توان</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>برگهٔ رسمی همان PSU</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>PSU نزدیک سقف خودش (بدون حاشیه)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خاموشی محافظتی/عمر کوتاه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>توان اسمی ≥ ‏demand+حاشیه+مصرف سوئیچ</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>فهرست PSU سازگار را از بازار</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سازگاری تضمین‌شده فقط از صفحهٔ محصول</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فهرست رسمی + برگهٔ PSU</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">تمرین کوتاه (با پاسخ موردانتظار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>چرا netPower 16P با PSU ‏24V دوربین‌های af را روشن نمی‌کند؟ — <strong>پاسخ موردانتظار:</strong> مبدل داخلی ندارد؛ خروجی PoE همان ‏24V می‌شود که af/at نیست (سند رسمی).</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>demand ‏120W با دو ورودی ≈134W — قبول؟ — <strong>پاسخ موردانتظار:</strong> مشروط/مرزی در تفسیر محافظه‌کارانه؛ حاشیه حذف نمی‌شود — کاهش demand یا SKU بالاتر.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>یک PSU بزرگ برای دو جک؟ — <strong>پاسخ موردانتظار:</strong> نقطهٔ خرابی واحد؛ دو PSU مستقل روی دو ورودی مستقل سندشده.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>توان اسمی یک PSU فهرست‌شده را از کجا بگیرید؟ — <strong>پاسخ موردانتظار:</strong> برگهٔ رسمی همان PSU؛ کد محصول ملاک توان نیست (UNKNOWN تا برگه).</li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">چک‌لیست تحویل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[ ] ولتاژ PSU با نیاز استاندارد دستگاه‌های PoEگیرنده هم‌سان (af/at → ‏48V)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] توان اسمی PSU ≥ ‏demand×1.2 + مصرف سوئیچ (برگهٔ رسمی PSU، نه حدس از کد)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] دو ورودی DC با دو PSU مستقل (یا ریسک تک‌PSU مستند و پذیرفته)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] سقف جریان هر ورودی DC در محاسبه لحاظ شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] فهرست PSU از صفحهٔ رسمی محصول (نه بازار)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] اجرای واقعی این درس NOT_RUN (مبنا فرضی)</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">منابع (fetch/تأیید شده با تاریخ)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>صفحهٔ رسمی netPower 16P — بدون PSU، ورودی‌های DC مستقل، سقف‌های جریان، فهرست PSUهای سازگار: https://mikrotik.com/product/netpower_16p (دسترسی 2026-11-16 — همان fetch درس S2)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>روش محاسبهٔ demand و حاشیه: <a href="s2-poe-budget.fa.md">بودجهٔ PoE (S2)</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>تجربهٔ فرایندی عمومی خرید PSU — بدون ادعای قیمت/مدل بازار</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">آموزش‌های مرتبط و مسیر خدمت</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>پیوند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقصد</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>درس‌های مرتبط</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="s2-poe-budget.fa.md">S2 بودجهٔ PoE</a> · <a href="s5-uplink-trunk.fa.md">S5 آپ‌لینک</a> · <a href="n2-monitoring-maintenance.fa.md">N2 نگهداری</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نقشهٔ کامل سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/topic-map/">topic map</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>طراحی برق/PSU برای سازمان شما</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="https://tehnet.ir/services/network-setup-tehran/">خدمات راه‌اندازی شبکهٔ تهران</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>پایان خوشهٔ S درس‌ها؛ درس‌های بعدی سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>در topic map ثبت است</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->

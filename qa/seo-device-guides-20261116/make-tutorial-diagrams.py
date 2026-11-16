@@ -639,8 +639,46 @@ s5 = svg(960, 560,
     'دو سوئیچ با یک آپ‌لینک ترانک تگ‌دار وصل شده‌اند که VLANهای ده و بیست و هشتاد و هشت را حمل می‌کند. سوئیچ طبقه دوازده پورت کاربر و دوربین دارد و سقف تئوریک پایین‌دست دوازده گیگابیت است که با ضریب تجمعی مهندسی و اندازه‌گیری واقعی باید با ظرفیت آپ‌لینک سنجیده شود. هشدار قرمز نمودار می‌گوید ترانک بدون تگ ممنوع است چون جداسازی از بین می‌رود. این نمودار مفهومی و تألیفی TehNet است.',
     chr(10).join(b))
 
+
+# ---------------- S6 PSU three-check flow ----------------
+b = []
+b.append(text(480, 36, 'انتخاب PSU — سه چک سندشده‌محور', 13, 'middle', '#1a1a1a', 'bold'))
+checks = [
+    ('چک ۱: ولتاژ', 'af/at → 48V (netPower بدون مبدل داخلی: PSU 24V = خروجی 24V پسیو)', '#1e88e5'),
+    ('چک ۲: توان اسمی', 'PSU ≥ demand×1.2 + مصرف سوئیچ (136W در این مبنا) — از برگهٔ رسمی PSU', '#43a047'),
+    ('چک ۳: ورودی‌های مستقل', 'دو جک DC = دو PSU مستقل؛ سقف هر ورودی ≈67W', '#fb8c00'),
+]
+for ci, (title, sub, color) in enumerate(checks):
+    y = 80 + ci * 86
+    b.append(rect(120, y, 720, 66, '#fafafa', color, 2))
+    b.append(text(200, y + 26, title, 12, 'middle', color, 'bold'))
+    words, lines, cur = sub.split(' '), [], ''
+    for w in words:
+        if len(cur + ' ' + w) <= 52 or not cur:
+            cur = (cur + ' ' + w).strip()
+        else:
+            lines.append(cur); cur = w
+    lines.append(cur)
+    for li, ln in enumerate(lines[:2]):
+        b.append(text(560, y + 20 + li * 16, ln, 10, 'middle', '#37474f'))
+# decision box
+b.append(rect(120, 350, 720, 90, '#fdecea', '#d32f2f', 2))
+b.append(text(480, 374, 'حکم برای demand ‏120W این مبنا (تفسیر محافظه‌کارانهٔ سقف‌ها):', 11, 'middle', '#d32f2f', 'bold'))
+verdicts = ['تک‌ورودی ≈67W → رد', 'دو ورودی ≈134W → مرزی (کسری حاشیه) → کاهش demand یا SKU بالاتر', 'PSU بزرگ‌تر: قبول مشروط به برگهٔ رسمی توان — UNKNOWN تا برگه']
+for vi, v in enumerate(verdicts):
+    b.append(text(480, 398 + vi * 14, v, 10, 'middle', '#616161'))
+# PSU list box
+b.append(rect(120, 460, 720, 62, '#e8f5e9', '#43a047', 2))
+b.append(text(480, 482, 'PSUهای سازگار از صفحهٔ رسمی netPower 16P (فetch 2026-11-16):', 10, 'middle', '#2e7d32', 'bold'))
+b.append(text(480, 502, '24HPOW · MTP250-53V47-OD · MTP250-26V94-OD · 48POW · 48V2A96W — توان اسمی: از برگهٔ رسمی همان PSU (UNKNOWN تا برگه)', 9, 'middle', '#546e7a'))
+b.append(text(480, 533, 'نمودار مفهومی تألیفی TehNet — نه عکس واقعی — اجرا NOT_RUN', 10, 'middle', '#78909c'))
+s6 = svg(960, 560,
+    'نمودار سه‌چک انتخاب PSU درس S6 با حکم مبنای ۱۲۰ وات',
+    'انتخاب PSU سه چک دارد: اول ولتاژ که برای استاندارد af و at باید چهل‌وهشت ولت باشد چون netPower مبدل داخلی ندارد؛ دوم توان اسمی که باید حداقل صد و سی و شش وات باشد یعنی جمع تقاضا با حاشیه و مصرف خود سوئیچ و از برگهٔ رسمی همان PSU گرفته شود؛ سوم ورودی‌های مستقل که دو جک DC با سقف جریان هرکدام حدود شصت‌وهفت وات هستند و دو PSU مستقل بهتر از یک PSU واحد است. حکم مبنا: تک‌ورودی رد، دو ورودی مرزی، و PSU بزرگ‌تر مشروط به برگهٔ رسمی. فهرست PSUهای سازگار از صفحهٔ رسمی محصول آمده است. این نمودار مفهومی و تألیفی TehNet است.',
+    chr(10).join(b))
+
 os.makedirs(OUT, exist_ok=True)
-for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4), ('tutorial-m5-vpn-architecture.svg', m5), ('tutorial-m6-dual-wan-failover.svg', m6), ('tutorial-s5-uplink-trunk.svg', s5)):
+for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4), ('tutorial-m5-vpn-architecture.svg', m5), ('tutorial-m6-dual-wan-failover.svg', m6), ('tutorial-s5-uplink-trunk.svg', s5), ('tutorial-s6-psu-power.svg', s6)):
     p = os.path.join(OUT, name)
     with io.open(p, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)
