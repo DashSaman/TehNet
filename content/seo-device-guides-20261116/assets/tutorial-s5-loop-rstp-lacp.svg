@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560">
+<title>نمودار درس S5: حلقه و RSTP و LACP بین دو سوئیچ</title>
+<desc>دو سوئیچ با دو لینک موازی در حالت باند هشت‌ده‌سه‌اید یا LACP وصل شده‌اند که تنظیمات lacp-rate سی ثانیه و مانیتورینگ MII دارد. یک وصله حلقوی تصادفی بین دو پورت آزاد رسم شده که بدون RSTP طوفان برودکست می‌سازد و با RSTP پورت زائد بلوکه می‌شود. جعبه آبی قواعد سند رسمی باندینگ را فهرست می‌کند: هم‌سراعی اعضا، حذف IP از اسلیوها، مانیتورینگ MII، سازگاری هش لایه دو و دو، و چک HW آفلود بر اساس چیپ. این نمودار مفهومی و تألیفی TehNet است.</desc>
+<rect x="620" y="140" width="240" height="170" rx="8" fill="#fafafa" stroke="#0d47a1" stroke-width="3"/>
+<text x="740" y="166" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0d47a1" font-weight="bold">سوئیچ A</text>
+<text x="740" y="190" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">protocol-mode=rstp</text>
+<text x="740" y="210" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">bond1: ether1+ether2</text>
+<text x="740" y="230" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#546e7a" font-weight="normal">lacp-rate=30s · MII</text>
+<rect x="100" y="140" width="240" height="170" rx="8" fill="#fafafa" stroke="#0d47a1" stroke-width="3"/>
+<text x="220" y="166" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0d47a1" font-weight="bold">سوئیچ B</text>
+<text x="220" y="190" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">protocol-mode=rstp</text>
+<text x="220" y="210" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">bond1: ether1+ether2</text>
+<text x="220" y="230" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#546e7a" font-weight="normal">lacp-rate=30s · MII</text>
+<line x1="340" y1="185" x2="620" y2="185" stroke="#43a047" stroke-width="4"/>
+<text x="480" y="175" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#2e7d32" font-weight="normal">LACP عضو ۱</text>
+<line x1="340" y1="225" x2="620" y2="225" stroke="#43a047" stroke-width="4"/>
+<text x="480" y="215" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#2e7d32" font-weight="normal">LACP عضو ۲</text>
+<text x="480" y="240" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#78909c" font-weight="normal">bond1 — 802.3ad · hash=layer-2-and-3</text>
+<rect x="300" y="60" width="360" height="36" rx="8" fill="#fff3e0" stroke="#ef6c00" stroke-width="2"/>
+<text x="480" y="82" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#e65100" font-weight="normal">وصلهٔ حلقوی تصادفی (فرض)</text>
+<line x1="370" y1="96" x2="370" y2="140" stroke="#ef6c00" stroke-width="3" stroke-dasharray="6,4"/>
+<line x1="590" y1="96" x2="590" y2="140" stroke="#ef6c00" stroke-width="3" stroke-dasharray="6,4"/>
+<text x="395" y="128" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#d32f2f" font-weight="bold">بدون RSTP: طوفان broadcast</text>
+<text x="565" y="128" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#2e7d32" font-weight="bold">با RSTP: پورت alternate</text>
+<rect x="60" y="340" width="840" height="150" rx="8" fill="#e3f2fd" stroke="#1e88e5" stroke-width="2"/>
+<text x="480" y="364" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0d47a1" font-weight="bold">قواعد سند رسمی Bonding</text>
+<text x="90" y="390" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#0d47a1" font-weight="normal">همهٔ اعضا: هم‌سرعت + هم‌دوبلکس اجباری</text>
+<text x="90" y="407" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#0d47a1" font-weight="normal">IP از slaveها حذف شود قبل از bonding</text>
+<text x="90" y="424" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#0d47a1" font-weight="normal">link-monitoring=mii توصیه · ARP monitor توصیه نمی‌شود</text>
+<text x="90" y="441" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#0d47a1" font-weight="normal">transmit-hash-policy: فقط layer-2 و layer-2-and-3 با 802.3ad سازگارند</text>
+<text x="90" y="458" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#0d47a1" font-weight="normal">layer-3-and-4: fully compliant نیست</text>
+<text x="90" y="475" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#0d47a1" font-weight="normal">HW offload باند: فقط چیپ‌های فهرست‌شده — per-model چک شود</text>
+<text x="480" y="533" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#78909c" font-weight="normal">نمودار مفهومی تألیفی TehNet — نه عکس واقعی — بر پایهٔ اسناد رسمی Bonding/Bridging (دسترسی 2026-11-16/17)؛ اجرا NOT_RUN</text>
+</svg>

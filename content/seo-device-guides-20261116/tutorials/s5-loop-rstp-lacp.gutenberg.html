@@ -1,0 +1,285 @@
+<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from ../tutorials/s5-loop-rstp-lacp.fa.md -->
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">حلقه، RSTP و LACP — جلوگیری از حلقه و تجمیع لینک (S5)</h1>
+<!-- /wp:heading -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><p>وضعیت درس: <strong>DRAFT / NOT_DEPLOYED — در انتظار مرور.</strong> (درس مصوب سرفصل ‏S5: loop/RSTP/LACP)</p><p>آموزش تصویری از سری switching؛ مخاطب: کارشناس شبکه.</p><p>سناریوی کاملاً فرضی و آموزشی با دادهٔ ساختگی؛ هیچ شبکهٔ واقعی دستکاری نشده و هیچ اجرای واقعی NOT_RUN است.</p><p>نمودار مفهومی و تألیفی است (نه عکس واقعی).</p></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پاسخ کوتاه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>دو ابزار مکمل: <strong>RSTP روی پل</strong> جلوی حلقهٔ لایهٔ 2 را می‌گیرد (پورت زائد را بلوکه می‌کند) و <strong>LACP ‏(bonding ‏mode=802.3ad)</strong> دو یا چند کابل را به یک لینک تجمعی مدیریت‌شده تبدیل می‌کند که لینک قطع‌شده‌اش را خودش حذف می‌کند. قواعد سندشدهٔ LACP: همهٔ اعضا هم‌سرعت/هم‌دوبلکس، ‏MII monitoring توصیه می‌شود (ARP monitor توصیه <strong>نمی‌شود</strong>)، `transmit-hash-policy` فقط layer-2 و layer-2-and-3 با ‏802.3ad سازگارند، و روی سوئیچ، سیم‌کشی باند باید با پورت‌های همان چیپ و پشتیبانی HW سندشده انجام شود.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پیش‌نیازها</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>پل و VLAN: <a href="/guides/mikrotik-vlan/">M2</a> · ترانک بین سوئیچ‌ها: <a href="s5-uplink-trunk.fa.md">S5 مکمل — آپ‌لینک/ترانک</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مبنا آزمایشگاه (Lab Baseline) — دقیق و کامل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>بند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقدار فرضی</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>سوئیچ‌ها</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دو عدد سوئیچ فرضی ‏RouterOS v7.16+ ‏(سوئیچ A و ‏B)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>باند LACP</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏bond1 = ‏ether1+ether2، ‏mode=802.3ad، ‏lacp-rate=30secs، ‏link-monitoring=mii</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>پل</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هر دو سوئیچ یک پل با ‏protocol-mode=rstp؛ ‏bond1 عضو پل</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سناریوی حلقهٔ تصادفی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>یک وصلهٔ سوم بین دو پورت آزاد دو سوئیچ (باعث حلقهٔ L2 در نبود RSTP)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سقف باند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دو لینک ‏1G: جمع ظاهری ‏2Gbps؛ ترافیک تک‌فلوی ‏TCP حداکثر ‏~1Gbps ‏(hash per-flow)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اجرای واقعی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>NOT_RUN</strong> — دستورها از سند رسمی Bonding/Bridging نقل شده‌اند</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">تنظیم LACP — عین الگوی سند رسمی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros"># هر دو سوئیچ A و B — یکسان:
+# پیش‌شرط سند رسمی: روی slaveها IP نباشد
+/interface bonding
+add name=bond1 slaves=ether1,ether2 mode=802.3ad lacp-rate=30secs \
+    link-monitoring=mii transmit-hash-policy=layer-2-and-3 comment="TN-S5"
+/ip address
+add address=10.0.0.A/30 interface=bond1 comment="TN-S5"</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>نکات سند رسمی که در این درس رعایت شده:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>«همهٔ دستگاه‌های aggregate باید هم‌سرعت و هم‌دوبلکس باشند» — دو سر ‏1G/full.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>‏transmit-hash-policy: فقط `layer-2` و `layer-2-and-3` با ‏802.3ad سازگارند؛ «layer-3-and-4 fully compliant نیست».</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>‏link-monitoring=mii توصیه می‌شود؛ «ARP monitoring توصیه نمی‌شود چون reply ممکن است فقط روی یک slave برگردد».</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>وضعیت هر پورت عضو: `/interface bonding monitor-slaves bond1` ‏(پرچم‌های ‏A/G/S/C/D).</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">RSTP روی پل — سند رسمی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros">/interface bridge
+add name=bridge1 protocol-mode=rstp vlan-filtering=no comment="TN-S5"
+/interface bridge port
+add bridge=bridge1 interface=bond1
+# بعد از تکمیل VLAN table — فیلترینگ آخر (الگوی M2/S5مکمل)</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>RSTP ‏(protocol-mode=rstp) فریم‌های ‏BPDU را بین سوئیچ‌ها رد و بدل می‌کند و پورت زائد مسیر حلقه را بلوکه می‌کند؛ در سناریوی حلقهٔ تصادفی، پورت مذکور نقش ‏alternate/backup می‌گیرد و برداشت کابل حلقه فقط از حالت بلوکه خارج می‌شود — بدون طوفان broadcast.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">سناریوی حلقهٔ تصادفی — چه می‌شود و چه انتظاری داشته باشیم</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>حالت</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>بدون RSTP</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>با ‏RSTP سندشده</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>وصلهٔ حلقه وصل می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>طوفان broadcast؛ ‏MAC table ناپایدار</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>پورت زائد در حالت ‏discard/alternate</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>وصله برداشته می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بازیابی خودکار طی چند ثانیه (تایمرهای RSTP سند رسمی)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>همان</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p><strong>UNKNOWN:</strong> زمان دقیق همگرایی (convergence) به مدل/تعداد پل وابسته است — سند رسمی تایمرها را سند می‌کند ولی عدد تجربی این ملبا NOT_RUN است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image -->
+<figure class="wp-block-image size-large"><img src="../assets/tutorial-s5-loop-rstp-lacp.svg" alt="نمودار RSTP و LACP درس S5 (تصویر مفهومی تألیفی)" width="900" loading="lazy"/><figcaption>نمودار RSTP و LACP درس S5 (تصویر مفهومی تألیفی)</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> سمت چپ دو لینک موازی بین سوئیچ A و ‏B با برچسب ‏«bond1 ‏802.3ad/LACP — ‏lacp-rate=30s، ‏MII»؛ سمت راست یک وصلهٔ حلقوی تصادفی با علامت حلقه؛ روی پل هر دو سوئیچ ‏«protocol-mode=rstp» با پورت بلوکه‌شده روی مسیر حلقه. جعبه‌های کناری: «هم‌سرعت/هم‌دوبلکس اجباری»، ‏«layer-3-and-4 غیرسازگار»، ‏«MII بله، ‏ARP خیر»، ‏«حذف IP از slaveها». برچسب «تألیفی/مفهومی».</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">خطاهای رایج</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>نشانه</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>علت محتمل</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>بررسی</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>راه‌حل</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>طوفان broadcast پس از وصلهٔ اضافه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏RSTP روی پل فعال نیست</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`protocol-mode` پل</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏rstp + بازبینی ‏BPDU روی ترانک</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏bond1 هرگز جمع نمی‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏lacp-mode/passive یا سرعت ناهمسان یا ‏switch side بدون ‏LACP</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏monitor-slaves</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هر دو طرف active؛ هم‌سرعت</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>فقط یک لینک ترافیک می‌برد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏hash per-flow است — طبیعی ‏LACP</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>چند فلوی جدا تست کنید</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>طبیعی؛ جمع فقط روی فلوهای مختلف</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>بعد از ‏bonding، لینک ناپایدار</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏IP روی slave باقی مانده (نقض پیش‌شرط سند)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/ip address print`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>حذف IP از slaveها</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏HW offload باند فعال نیست</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>چیپ/device فهرست نشده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سند Bonding</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مسیر CPU همچنان کار می‌کند؛ per-model چک</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">تمرین کوتاه (با پاسخ موردانتظار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>چرا ARP monitoring توصیه نمی‌شود؟ — <strong>پاسخ موردانتظار:</strong> سند رسمی: reply ممکن است فقط از یک slave برگردد و وضعیت سایر اعضا را کور می‌کند؛ ‏MII ملاک است.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>دو لینک 1G در ‏LACP، یک دانلود تک‌فلوی بزرگ — سرعت؟ — <strong>پاسخ موردانتظار:</strong> حداکثر ≈1Gbps؛ چون ‏hash بر پایهٔ flow است و یک ‏TCP روی یک عضو می‌ماند — جمع 2G برای فلوهای مختلف.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>وصلهٔ حلقه وصل شد و هیچ چیز نمی‌سوزد — کدام تنظیم نجات داد؟ — <strong>پاسخ موردانتظار:</strong> ‏protocol-mode=rstp روی پل؛ پورت زائد بلوکه شد.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>transmit-hash-policy=layer-3-and-4 انتخاب کنیم؟ — <strong>پاسخ موردانتظار:</strong> خیر برای ‏802.3ad؛ سند رسمی: fully compliant نیست — ‏layer-2 یا ‏layer-2-and-3.</li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">چک‌لیست تحویل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[ ] ‏IP از slaveها حذف شده قبل از bonding (پیش‌شرط سند)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] ‏bond ‏802.3ad با ‏lacp-rate و ‏transmit-hash-policy سازگار ‏(layer-2/layer-2-and-3)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] ‏link-monitoring=mii فعال؛ ‏monitor-slaves پرچم‌ها ثبت شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] ‏protocol-mode=rstp روی پل هر دو سوئیچ</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] سناریوی حلقهٔ تصادفی تست و رفتار بلوکه ثبت شده (اجرای واقعی NOT_RUN)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] ‏HW-offload باند فقط در صورت فهرست‌بودن چیپ/device ادعا می‌شود (UNKNOWN per-model ثبت شده)</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">منابع رسمی (fetch شده با تاریخ)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>‏Bonding ‏(RouterOS ‏help) — ‏802.3ad/LACP، ‏lacp-rate/mode، ‏transmit-hash-policy، ‏MII/ARP، ‏HW offload و چیپ‌ها: https://help.mikrotik.com/docs/spaces/ROS/pages/8323193/Bonding (دسترسی 2026-11-17)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>‏Bridging and Switching — ‏RSTP و جدول VLAN: https://manual.mikrotik.com/docs/bridging-and-switching/ (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>‏L3HW — باند در ‏HW و محدودیت‌ها: https://help.mikrotik.com/docs/display/ROS/L3+Hardware+Offloading (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">آموزش‌های مرتبط و مسیر خدمت</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>پیوند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقصد</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>درس‌های مرتبط</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="s5-uplink-trunk.fa.md">S5 مکمل: آپ‌لینک/ترانک</a> · ‏<a href="/guides/mikrotik-vlan/">M2</a> · ‏<a href="m6-dual-wan-failover.fa.md">M6 dual-WAN</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نقشهٔ کامل سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/topic-map/">topic map</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>طراحی تجمیع لینک و مقاوم‌سازی حلقه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="https://tehnet.ir/services/network-setup-tehran/">خدمات راه‌اندازی شبکهٔ تهران</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>درس بعدی سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>S6 — ارتقای NAS/سرور 2.5G/10G (تولید در نوبت بعدی؛ فعلاً فقط در topic map)</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->

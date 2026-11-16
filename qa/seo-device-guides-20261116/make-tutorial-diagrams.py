@@ -677,8 +677,48 @@ s6 = svg(960, 560,
     'انتخاب PSU سه چک دارد: اول ولتاژ که برای استاندارد af و at باید چهل‌وهشت ولت باشد چون netPower مبدل داخلی ندارد؛ دوم توان اسمی که باید حداقل صد و سی و شش وات باشد یعنی جمع تقاضا با حاشیه و مصرف خود سوئیچ و از برگهٔ رسمی همان PSU گرفته شود؛ سوم ورودی‌های مستقل که دو جک DC با سقف جریان هرکدام حدود شصت‌وهفت وات هستند و دو PSU مستقل بهتر از یک PSU واحد است. حکم مبنا: تک‌ورودی رد، دو ورودی مرزی، و PSU بزرگ‌تر مشروط به برگهٔ رسمی. فهرست PSUهای سازگار از صفحهٔ رسمی محصول آمده است. این نمودار مفهومی و تألیفی TehNet است.',
     chr(10).join(b))
 
+
+# ---------------- S5c loop/RSTP/LACP ----------------
+b = []
+# switch A (right) and B (left) with bond links
+b.append(rect(620, 140, 240, 170, '#fafafa', '#0d47a1', 3))
+b.append(text(740, 166, 'سوئیچ A', 12, 'middle', '#0d47a1', 'bold'))
+b.append(text(740, 190, 'protocol-mode=rstp', 10, 'middle', '#37474f'))
+b.append(text(740, 210, 'bond1: ether1+ether2', 10, 'middle', '#37474f'))
+b.append(text(740, 230, 'lacp-rate=30s · MII', 10, 'middle', '#546e7a'))
+b.append(rect(100, 140, 240, 170, '#fafafa', '#0d47a1', 3))
+b.append(text(220, 166, 'سوئیچ B', 12, 'middle', '#0d47a1', 'bold'))
+b.append(text(220, 190, 'protocol-mode=rstp', 10, 'middle', '#37474f'))
+b.append(text(220, 210, 'bond1: ether1+ether2', 10, 'middle', '#37474f'))
+b.append(text(220, 230, 'lacp-rate=30s · MII', 10, 'middle', '#546e7a'))
+# two bond links
+b.append(line(340, 185, 620, 185, '#43a047', 4))
+b.append(text(480, 175, 'LACP عضو ۱', 10, 'middle', '#2e7d32'))
+b.append(line(340, 225, 620, 225, '#43a047', 4))
+b.append(text(480, 215, 'LACP عضو ۲', 10, 'middle', '#2e7d32'))
+b.append(text(480, 240, 'bond1 — 802.3ad · hash=layer-2-and-3', 9, 'middle', '#78909c'))
+# accidental loop patch (dashed, between upper free ports)
+b.append(rect(300, 60, 360, 36, '#fff3e0', '#ef6c00', 2))
+b.append(text(480, 82, 'وصلهٔ حلقوی تصادفی (فرض)', 10, 'middle', '#e65100'))
+b.append(line(370, 96, 370, 140, '#ef6c00', 3, '6,4'))
+b.append(line(590, 96, 590, 140, '#ef6c00', 3, '6,4'))
+b.append(text(395, 128, 'بدون RSTP: طوفان broadcast', 10, 'middle', '#d32f2f', 'bold'))
+b.append(text(565, 128, 'با RSTP: پورت alternate', 10, 'middle', '#2e7d32', 'bold'))
+# side box: LACP rules
+b.append(rect(60, 340, 840, 150, '#e3f2fd', '#1e88e5', 2))
+b.append(text(480, 364, 'قواعد سند رسمی Bonding', 12, 'middle', '#0d47a1', 'bold'))
+rules = ['همهٔ اعضا: هم‌سرعت + هم‌دوبلکس اجباری', 'IP از slaveها حذف شود قبل از bonding', 'link-monitoring=mii توصیه · ARP monitor توصیه نمی‌شود',
+         'transmit-hash-policy: فقط layer-2 و layer-2-and-3 با 802.3ad سازگارند', 'layer-3-and-4: fully compliant نیست', 'HW offload باند: فقط چیپ‌های فهرست‌شده — per-model چک شود']
+for ri, rq in enumerate(rules):
+    b.append(text(90, 390 + ri * 17, rq, 10, 'start', '#0d47a1'))
+b.append(text(480, 533, 'نمودار مفهومی تألیفی TehNet — نه عکس واقعی — بر پایهٔ اسناد رسمی Bonding/Bridging (دسترسی 2026-11-16/17)؛ اجرا NOT_RUN', 10, 'middle', '#78909c'))
+s5c = svg(960, 560,
+    'نمودار درس S5: حلقه و RSTP و LACP بین دو سوئیچ',
+    'دو سوئیچ با دو لینک موازی در حالت باند هشت‌ده‌سه‌اید یا LACP وصل شده‌اند که تنظیمات lacp-rate سی ثانیه و مانیتورینگ MII دارد. یک وصله حلقوی تصادفی بین دو پورت آزاد رسم شده که بدون RSTP طوفان برودکست می‌سازد و با RSTP پورت زائد بلوکه می‌شود. جعبه آبی قواعد سند رسمی باندینگ را فهرست می‌کند: هم‌سراعی اعضا، حذف IP از اسلیوها، مانیتورینگ MII، سازگاری هش لایه دو و دو، و چک HW آفلود بر اساس چیپ. این نمودار مفهومی و تألیفی TehNet است.',
+    chr(10).join(b))
+
 os.makedirs(OUT, exist_ok=True)
-for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4), ('tutorial-m5-vpn-architecture.svg', m5), ('tutorial-m6-dual-wan-failover.svg', m6), ('tutorial-s5-uplink-trunk.svg', s5), ('tutorial-s6-psu-power.svg', s6)):
+for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4), ('tutorial-m5-vpn-architecture.svg', m5), ('tutorial-m6-dual-wan-failover.svg', m6), ('tutorial-s5-uplink-trunk.svg', s5), ('tutorial-s6-psu-power.svg', s6), ('tutorial-s5-loop-rstp-lacp.svg', s5c)):
     p = os.path.join(OUT, name)
     with io.open(p, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)

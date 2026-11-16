@@ -120,6 +120,13 @@
    "type": "tutorial",
    "bytes": 15438,
    "per_model_images": 0
+  },
+  {
+   "md": "../tutorials/s5-loop-rstp-lacp.fa.md",
+   "html": "../tutorials/s5-loop-rstp-lacp.gutenberg.html",
+   "type": "tutorial",
+   "bytes": 16587,
+   "per_model_images": 0
   }
  ]
 }

@@ -248,6 +248,9 @@ function validate(candidateInputs) {
     { md: 'tutorials/s6-psu-power.fa.md', html: 'tutorials/s6-psu-power.gutenberg.html', svg: 'assets/tutorial-s6-psu-power.svg', label: 'S6',
       sectionsOverride: ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'محاسبهٔ انتخاب PSU', 'جدول تصمیم PSU', 'خطاهای رایج', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع', 'آموزش‌های مرتبط'],
       service: 'https://tehnet.ir/services/network-setup-tehran/' },
+    { md: 'tutorials/s5-loop-rstp-lacp.fa.md', html: 'tutorials/s5-loop-rstp-lacp.gutenberg.html', svg: 'assets/tutorial-s5-loop-rstp-lacp.svg', label: 'S5c',
+      sectionsOverride: ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'تنظیم LACP', 'RSTP روی پل', 'سناریوی حلقهٔ تصادفی', 'خطاهای رایج', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'],
+      service: 'https://tehnet.ir/services/network-setup-tehran/' },
   ];
   const TUT_SECTIONS_COMMON = ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'تست پذیرش', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'];
   for (let ti = 0; ti < TUTORIALS.length; ti++) {
@@ -324,6 +327,8 @@ if (require.main === module) {
     'tutorials/s5-uplink-trunk.gutenberg.html',
     'tutorials/s6-psu-power.fa.md',
     'tutorials/s6-psu-power.gutenberg.html',
+    'tutorials/s5-loop-rstp-lacp.fa.md',
+    'tutorials/s5-loop-rstp-lacp.gutenberg.html',
     'router-catalog.csv',
     'switch-catalog.csv',
     'image-provenance.csv',

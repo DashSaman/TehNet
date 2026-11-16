@@ -3,13 +3,13 @@
  "validator": "validate-seo-guides.cjs rev8 (rev7 + S2 tutorial candidate)",
  "command": "node validate-seo-guides.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-16T21:53:47Z",
- "finished_utc": "2026-11-16T21:53:47Z",
- "control_head": "33dc291cd79da913f4523c323f5c931827fec1e7",
+ "started_utc": "2026-11-16T22:02:25Z",
+ "finished_utc": "2026-11-16T22:02:25Z",
+ "control_head": "c595dc0211ebedd01f6e79e4ed96fe16b932ddca",
  "exit": 0,
  "good_candidate": {
   "ok": true,
-  "checks": 132,
+  "checks": 137,
   "failed": 0
  },
  "injected_negatives": [
@@ -134,9 +134,11 @@
   "tutorials/s5-uplink-trunk.gutenberg.html": "0a74747675d7374db14e456da9d79ed9068eb663b5f365d0585b72baae150a53",
   "tutorials/s6-psu-power.fa.md": "84bef00eea77ffa20ad945af086d28a32b54a071fc9acd13a9e479c4c015cd2e",
   "tutorials/s6-psu-power.gutenberg.html": "976a0c5214a20cfb8898f271a978c7ebc52991ce04d1b41134ed0ce57f44163c",
+  "tutorials/s5-loop-rstp-lacp.fa.md": "2667bdb9449dac0d1c3afb096eabe867b602d47a695e5d7de7400ca6009aa12a",
+  "tutorials/s5-loop-rstp-lacp.gutenberg.html": "55e05da6276515441a8d0c8e192c8767008dc044005294cc96a1f5b1c95a8568",
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",
   "switch-catalog.csv": "aaa5aed94204ad93b312449d9b0c934164c59d2d6375eb3b5727fe94ae164718",
-  "image-provenance.csv": "52508792651383b04e3563ab13e72735e6b7915078eaeec8fe252019042c6b54",
+  "image-provenance.csv": "2abd173ac0ff181f1903bbdea255b6d2f3912cc85c9f8c640ffaf6aa99e3670b",
   "page-edits/mikrotik-service.proposed.html": "c8c22f3e453bdbc5934d9e3b4e9b84e81e11b0fbfedb9e901fdce300dceabdfb",
   "page-edits/network-setup.proposed.html": "ac244d2142a4022b20b98803e48c218c5138f5398b72a6f7bca1bae1fbe52c0b",
   "page-edits/network-support.proposed.html": "52b58eefe6cd3ff50c65077ddc99f9ae66637a2fe4181bd16a6a9579adebf953"
