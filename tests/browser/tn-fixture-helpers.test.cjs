@@ -458,14 +458,14 @@ t('REG contract: browser+cleanup evidence bound to the SAME disposable instance'
 });
 t('REG pre-effect gate: missing digests or unproven contract block BEFORE any effect', () => {
   const okContract = { ok: true, failed: [] };
-  const digests = { a: 'a'.repeat(64), b: 'b'.repeat(64) };
-  assert.equal(H.preEffectGate({ artifactDigests: digests, fixtureContract: okContract }).status, 'PRE_EFFECT_EVIDENCE_OK');
-  const g1 = H.preEffectGate({ artifactDigests: Object.assign({}, digests, { b: null }), fixtureContract: okContract });
+  const digests = Object.fromEntries(REQ_KEYS.map(k => [k, 'a'.repeat(64)]));
+  assert.equal(H.preEffectGate({ requiredDigestKeys: REQ_KEYS, artifactDigests: digests, fixtureContract: okContract }).status, 'PRE_EFFECT_EVIDENCE_OK');
+  const g1 = H.preEffectGate({ requiredDigestKeys: REQ_KEYS, artifactDigests: Object.assign({}, digests, { [REQ_KEYS[1]]: null }), fixtureContract: okContract });
   assert.equal(g1.status, 'BLOCKED_MISSING_EVIDENCE');
-  assert.deepEqual(g1.missingDigests, ['b']);
-  const g2 = H.preEffectGate({ artifactDigests: digests, fixtureContract: null });
+  assert.deepEqual(g1.missingDigests, [REQ_KEYS[1]]);
+  const g2 = H.preEffectGate({ requiredDigestKeys: REQ_KEYS, artifactDigests: digests, fixtureContract: null });
   assert.equal(g2.status, 'BLOCKED_FIXTURE_OWNERSHIP');
-  const g3 = H.preEffectGate({ artifactDigests: digests, fixtureContract: { ok: false, failed: ['cleanup_marker_bound'] } });
+  const g3 = H.preEffectGate({ requiredDigestKeys: REQ_KEYS, artifactDigests: digests, fixtureContract: { ok: false, failed: ['cleanup_marker_bound'] } });
   assert.equal(g3.status, 'BLOCKED_FIXTURE_OWNERSHIP');
 });
 t('REG exact POST binding: only POST+302+equal token passes; 200/mismatch/GET rejected', () => {
@@ -477,6 +477,99 @@ t('REG exact POST binding: only POST+302+equal token passes; 200/mismatch/GET re
   assert.equal(H.postBindingOk({ method: 'GET', status: 302, location: 'http://x/?tn_service_receipt=' + token }, { status: 302, token }), false, 'GET must not pass');
   assert.equal(H.postBindingOk(null, { status: 302, token }), false);
   assert.equal(H.postBindingOk({ method: 'POST', status: 302, location: 'http://x/' }, { status: 302, token }), false, 'missing token must fail');
+});
+
+/* MANAGER_REVIEW 6905236591 regressions: adapter-level gaps */
+const REQ_KEYS = ['index_activation_manifest', 'index_runtime_manifest', 'index_runtime_class', 'commercial_decision_manifest'];
+t('REG digestMap→gate: empty/partial map REJECTED with explicit missing keys (no filtering bypass)', () => {
+  const valid = Object.fromEntries(REQ_KEYS.map(k => [k, 'a'.repeat(64)]));
+  assert.equal(H.validateDigestMap(REQ_KEYS, valid).ok, true);
+  const empty = H.validateDigestMap(REQ_KEYS, {}); // the exact all-missing case
+  assert.equal(empty.ok, false);
+  assert.deepEqual(empty.missing, REQ_KEYS);
+  const partial = H.validateDigestMap(REQ_KEYS, { [REQ_KEYS[0]]: 'a'.repeat(64) });
+  assert.equal(partial.ok, false);
+  assert.deepEqual(partial.missing, REQ_KEYS.slice(1));
+  const invalid = H.validateDigestMap(REQ_KEYS, Object.assign({}, valid, { [REQ_KEYS[2]]: 'short' }));
+  assert.equal(invalid.ok, false);
+  assert.deepEqual(invalid.missing, [REQ_KEYS[2]]);
+  // through the actual gate
+  const g = H.preEffectGate({ requiredDigestKeys: REQ_KEYS, artifactDigests: {}, fixtureContract: { ok: true, failed: [] } });
+  assert.equal(g.status, 'BLOCKED_MISSING_EVIDENCE');
+  assert.deepEqual(g.missingDigests, REQ_KEYS);
+  const g0 = H.preEffectGate({ requiredDigestKeys: [], artifactDigests: valid, fixtureContract: { ok: true, failed: [] } });
+  assert.equal(g0.ok, false, 'empty required key set must not pass vacuously');
+});
+t('REG identity two-channel: copied marker evidence is not accepted; real channel shape required', () => {
+  const expected = { home_url: FIXTURE_HOME, cleanup_binding: { fixture_marker_name: 'tn_fixture_run_owner', fixture_marker_value: 'TN-FIXTURE-OWNED-001' } };
+  assert.equal(H.identityBindingOk({ home_url: FIXTURE_HOME, fixture_marker_name: 'tn_fixture_run_owner', fixture_marker_value: 'TN-FIXTURE-OWNED-001' }, expected).ok, true);
+  // value copied wrongly / channel mismatch rejects:
+  assert.equal(H.identityBindingOk({ home_url: FIXTURE_HOME, fixture_marker_name: 'tn_fixture_run_owner', fixture_marker_value: 'COPIED-GUESS' }, expected).ok, false);
+  assert.equal(H.identityBindingOk({ home_url: 'http://other/', fixture_marker_name: 'tn_fixture_run_owner', fixture_marker_value: 'TN-FIXTURE-OWNED-001' }, expected).ok, false);
+  assert.equal(H.identityBindingOk(null, expected).ok, false);
+});
+t('REG journey identity gate: marker mismatch => BLOCKED_IDENTITY with ZERO submit/delete', async () => {
+  const calls = [];
+  const res = await H.runJourney({
+    marker: GOOD, expectedFixture: {
+      home_url: FIXTURE_HOME, db_name: 'tehnetux',
+      cleanup_binding: { fixture_marker_name: 'tn_fixture_run_owner', fixture_marker_value: 'TN-FIXTURE-OWNED-001' },
+    },
+    effects: {
+      preflightProbes: async () => Object.assign({}, PERFECT),
+      openBrowser: async () => { calls.push('openBrowser'); return { b: 1 }; },
+      readBrowserMarker: async () => { calls.push('readBrowserMarker'); return { home_url: FIXTURE_HOME, fixture_marker_name: 'tn_fixture_run_owner', fixture_marker_value: 'MISMATCHED-READBACK' }; },
+      closeBrowser: async () => { calls.push('closeBrowser'); },
+      findOwnedRecords: async () => { calls.push('findOwnedRecords'); return []; },
+      deleteOwnedRecords: async () => { calls.push('deleteOwnedRecords'); return { deleted: [], skipped: [], failed: [] }; },
+      submitForm: async () => { calls.push('submitForm'); },
+    },
+    operation: async ctx => { await ctx.submitForm({}); },
+  });
+  assert.equal(res.status, 'BLOCKED_IDENTITY');
+  assert.ok(res.identity.failed.includes('marker_value_channel_equality'));
+  assert.ok(calls.includes('openBrowser') && calls.includes('readBrowserMarker') && calls.includes('closeBrowser'));
+  assert.ok(!calls.includes('submitForm'), 'no submit on identity failure');
+  assert.ok(!calls.includes('deleteOwnedRecords'), 'no delete on identity failure');
+  assert.ok(!calls.includes('findOwnedRecords'), 'discovery also skipped on identity failure');
+  assert.equal(res.cleanup.requested, 0);
+});
+t('REG journey identity gate: matching readback proceeds to a PASSED run', async () => {
+  const calls = [];
+  const res = await H.runJourney({
+    marker: GOOD, expectedFixture: {
+      home_url: FIXTURE_HOME, db_name: 'tehnetux',
+      cleanup_binding: { fixture_marker_name: 'tn_fixture_run_owner', fixture_marker_value: 'TN-FIXTURE-OWNED-001' },
+    },
+    effects: {
+      preflightProbes: async () => Object.assign({}, PERFECT),
+      openBrowser: async () => ({ b: 1 }),
+      readBrowserMarker: async () => ({ home_url: FIXTURE_HOME, fixture_marker_name: 'tn_fixture_run_owner', fixture_marker_value: 'TN-FIXTURE-OWNED-001' }),
+      closeBrowser: async () => { calls.push('closeBrowser'); },
+      findOwnedRecords: async marker => {
+        calls.push('findOwnedRecords');
+        return calls.length === 1
+          ? [{ id: 42, type: 'tn_ticket', email: 'x+' + marker + '@example.invalid' }, { id: 51, type: 'tn_quote', email: 'y@example.invalid' }]
+          : [{ id: 51, type: 'tn_quote', email: 'y@example.invalid' }]; // owned gone on post-read
+      },
+      deleteOwnedRecords: async ids => { calls.push('deleteOwnedRecords:' + ids.join(',')); return { deleted: ids, skipped: [], failed: [] }; },
+      submitForm: async () => { calls.push('submitForm'); },
+    },
+    operation: async ctx => { await ctx.submitForm({}); return 'ok'; },
+  });
+  assert.equal(res.status, 'PASSED');
+  assert.ok(calls.includes('submitForm'));
+  assert.deepEqual(res.cleanup.deleted, [42]);
+});
+t('REG collector-shape POST: predicate consumes the REAL collector object (method preserved)', () => {
+  // exact shape the driver collector now pushes:
+  const collected = { method: 'POST', status: 302, location: 'http://x/?tn_service_receipt=abc123def456' };
+  assert.equal(H.postBindingOk(collected, { status: 302, token: 'abc123def456' }), true);
+  // the OLD broken shape (status+location only, no method) must FAIL, not be fabricated:
+  const oldShape = { status: 302, location: 'http://x/?tn_service_receipt=abc123def456' };
+  assert.equal(H.postBindingOk(oldShape, { status: 302, token: 'abc123def456' }), false);
+  // a genuinely observed GET redirect must fail:
+  assert.equal(H.postBindingOk({ method: 'GET', status: 302, location: 'http://x/?tn_service_receipt=abc123def456' }, { status: 302, token: 'abc123def456' }), false);
 });
 
 /* --- runner --- */

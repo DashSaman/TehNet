@@ -98,11 +98,15 @@ const FIXTURE_CONTRACT = process.env.TN_FIXTURE_CONTRACT_PATH
   : null;
 
 function digestMap() {
+  /* EXPLICIT required key set; missing/invalid entries stay IN the map as null so the
+   * gate sees them (no silent filtering). Validated by H.validateDigestMap pre-effect. */
+  const REQUIRED_DIGEST_KEYS = ['index_activation_manifest', 'index_runtime_manifest', 'index_runtime_class', 'commercial_decision_manifest'];
   const m = {};
-  for (const [k, v] of Object.entries(out.expected_artifact_digests)) {
-    if (k !== 'attestation' && v && typeof v.sha256 === 'string') m[k] = v.sha256;
+  for (const k of REQUIRED_DIGEST_KEYS) {
+    const v = out.expected_artifact_digests[k];
+    m[k] = v && typeof v.sha256 === 'string' && /^[a-f0-9]{64}$/.test(v.sha256) ? v.sha256 : null;
   }
-  return m;
+  return { REQUIRED_DIGEST_KEYS, map: m };
 }
 function writeBlockedReceipt(status) {
   out.finished_utc = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
@@ -144,31 +148,54 @@ function captureReceiptToken(url) {
 }
 
 (async () => {
-  /* PRE-EFFECT GATE (MANAGER_REVIEW 6904041928): all required source/runtime/payload
-   * evidence and the fixture contract are validated BEFORE the browser opens or any
-   * mutating effect runs. Missing evidence => explicit blocked receipt, zero mutations. */
-  let fixtureVerdict = null;
-  if (FIXTURE_CONTRACT) {
-    /* read-only evidence gatherers for the supplied contract (browser side + cleanup side) */
-    const browserEvidence = { home_url: BASE + '/', fixture_marker_name: FIXTURE_CONTRACT.fixture_marker_name, fixture_marker_value: null }; // browser-side marker value is read from the rendered fixture page during the journey's first identity load
-    const cleanupEvidence = JSON.parse(sshwp('<?php global $wpdb; echo json_encode(["db_name"=>$wpdb->dbname,"fixture_marker_name"=>get_option("' + FIXTURE_CONTRACT.fixture_marker_name + '")!==false?get_option("' + FIXTURE_CONTRACT.fixture_marker_name + '"):null,"fixture_marker_value"=>get_option("' + FIXTURE_CONTRACT.fixture_marker_name + '"),"source_fingerprints"=>get_option("tn_fixture_source_fingerprints")]));'));
-    browserEvidence.fixture_marker_value = cleanupEvidence.fixture_marker_value; // bound via the same marker option the rendered page exposes
-    fixtureVerdict = H.evaluateFixtureContract(browserEvidence, cleanupEvidence, FIXTURE_CONTRACT);
+  /* PRE-EFFECT GATE (MANAGER_REVIEW 6905236591): explicit required digest key set,
+   * cleanup-side readback and contract completeness validated BEFORE openBrowser or
+   * any mutating effect. The browser-side marker is later READ FROM THE RENDERED
+   * ENDPOINT (separate channel, via readBrowserMarker) — never copied from cleanup. */
+  let cleanupEvidence = null, fixtureVerdict = null;
+  if (FIXTURE_CONTRACT && FIXTURE_CONTRACT.fixture_marker_name && FIXTURE_CONTRACT.cleanup_fingerprint_source) {
+    const optName = H.phpSingleQuoted(FIXTURE_CONTRACT.fixture_marker_name);
+    const fpName = H.phpSingleQuoted(FIXTURE_CONTRACT.cleanup_fingerprint_source);
+    /* correct key/value fields: marker NAME = the contract's option name (literal string),
+       marker VALUE = the installed option value; fingerprints from the named source */
+    cleanupEvidence = JSON.parse(sshwp('<?php global $wpdb; echo json_encode(["db_name"=>$wpdb->dbname,"fixture_marker_name"=>' + optName + ',"fixture_marker_value"=>(string)get_option(' + optName + ',""),"source_fingerprints"=>get_option(' + fpName + ',null)]));'));
+    /* browser side starts with marker_value=null — filled ONLY by readBrowserMarker
+       from the rendered endpoint inside the journey (separate channel, no copying) */
+    fixtureVerdict = H.evaluateFixtureContract(
+      { home_url: BASE + '/', fixture_marker_name: FIXTURE_CONTRACT.fixture_marker_name, fixture_marker_value: null },
+      cleanupEvidence, FIXTURE_CONTRACT);
   }
-  const gate = H.preEffectGate({ artifactDigests: digestMap(), fixtureContract: fixtureVerdict });
+  const dm = digestMap();
+  const gate = H.preEffectGate({ requiredDigestKeys: dm.REQUIRED_DIGEST_KEYS, artifactDigests: dm.map, fixtureContract: fixtureVerdict });
   ck('pre_effect_gate', gate.ok, { status: gate.status, missingDigests: gate.missingDigests, contractFailed: gate.verdict ? gate.verdict.failed : 'NO_CONTRACT_SUPPLIED' });
   if (!gate.ok) { writeBlockedReceipt(gate.status); return; }
   ck('expected_artifact_digests_present', true, { note: 'validated BEFORE effects (see pre_effect_gate); repo-side expectation only — installed-combination attestation stays separate' });
 
   const res = await H.runJourney({
     marker: RUN_MARKER,
-    expectedFixture: { home_url: BASE + '/', db_name: 'tehnetux' }, /* disposable app/DB identity REQUIRED */
+    expectedFixture: {
+      home_url: BASE + '/', db_name: 'tehnetux',
+      cleanup_binding: { fixture_marker_name: FIXTURE_CONTRACT.fixture_marker_name, fixture_marker_value: cleanupEvidence.fixture_marker_value },
+    },
     effects: {
       preflightProbes: async () => JSON.parse(sshwp(H.buildPreflightProbePhp())),
       openBrowser: async () => {
         const b = await chromium.launch({ headless: true });
         out.browser = { engine: 'chromium', version: b.version() };
         return b;
+      },
+      /* browser-side marker: READ from the rendered endpoint via the contract-named
+         mechanism (meta:<name>). Separate channel — never copied from cleanup evidence. */
+      readBrowserMarker: async ({ browser }) => {
+        const src = FIXTURE_CONTRACT.browser_marker_source || '';
+        if (!/^meta:/.test(src)) return { home_url: BASE + '/', fixture_marker_name: FIXTURE_CONTRACT.fixture_marker_name, fixture_marker_value: null };
+        const sel = 'meta[name="' + src.slice(5) + '"]';
+        const ctx = await browser.newContext({ viewport: { width: 640, height: 480 }, locale: 'fa' });
+        const p = await ctx.newPage();
+        await p.goto(BASE + '/', { waitUntil: 'domcontentloaded', timeout: 20000 });
+        const value = await p.evaluate(s => { const m = document.querySelector(s); return m ? m.getAttribute('content') : null; }, sel);
+        await ctx.close();
+        return { home_url: BASE + '/', fixture_marker_name: FIXTURE_CONTRACT.fixture_marker_name, fixture_marker_value: value };
       },
       closeBrowser: async b => { await b.close(); },
       findOwnedRecords: async marker => JSON.parse(sshwp(H.buildFindOwnedPhp(marker))),
@@ -182,10 +209,10 @@ function captureReceiptToken(url) {
         const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, locale: 'fa' });
         const page = await ctx.newPage();
         const redirects = [];
-        const posts = []; /* actual POST response binding */
+        const posts = []; /* actual POST response binding — REAL method preserved */
         page.on('response', r => {
           if (r.status() >= 300 && r.status() < 400) redirects.push({ code: r.status(), location: r.headers()['location'] || '' });
-          if ((r.request().method() || '').toUpperCase() === 'POST') posts.push({ status: r.status(), location: r.headers()['location'] || '' });
+          if ((r.request().method() || '').toUpperCase() === 'POST') posts.push({ method: r.request().method().toUpperCase(), status: r.status(), location: r.headers()['location'] || '' });
         });
         const r1 = await page.goto(BASE + '/services/network-setup-tehran/', { waitUntil: 'domcontentloaded', timeout: 20000 });
         ck('c1_origin_200', r1.status() === 200, { status: r1.status() });
@@ -218,7 +245,7 @@ function captureReceiptToken(url) {
         const boundPost = posts.find(p => captureReceiptToken(p.location));
         if (token) privTokens.push(token); /* PRIVATE state only — never written to out/logs */
         out.owned_tokens_captured = privTokens.length;
-        ck('c1_post_response_bound', H.postBindingOk(boundPost, { status: 302, token: token || '' }), { status: boundPost ? boundPost.status : 'none', method: boundPost ? 'POST' : 'none', tokenEqual: !!(boundPost && token && captureReceiptToken(boundPost.location) === token) });
+        ck('c1_post_response_bound', H.postBindingOk(boundPost, { status: 302, token: token || '' }), { status: boundPost ? boundPost.status : 'none', method: boundPost ? boundPost.method : 'none', tokenEqual: !!(boundPost && token && captureReceiptToken(boundPost.location) === token) });
         ck('c1_owned_receipt_token_captured', !!token, { token: token ? '[REDACTED]' : 'none' });
         await page.waitForSelector('.tn-service-receipt', { timeout: 10000 });
         const receipt = await page.evaluate(() => document.querySelector('.tn-service-receipt').innerText);

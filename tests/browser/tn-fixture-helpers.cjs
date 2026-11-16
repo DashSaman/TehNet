@@ -223,11 +223,30 @@ async function runJourney(spec) {
   const probes = await traced('preflightProbes', effects.preflightProbes)();
   const verdict = evaluatePreflight(probes, expected);
   if (!verdict.ok) return { status: 'ABORTED_PREFLIGHT', verdict, effectLog: log };
-  /* 2. browser + operation; any throw still reaches cleanup */
-  let browser = null, opened = false, operationError = null, operationResult = null, closeError = null;
+  /* 2. OPTIONAL two-channel identity gate (MANAGER_REVIEW 6905236591): the browser-side
+   * fixture marker must be READ from the actual rendered endpoint (separate channel,
+   * never copied from cleanup evidence) and equal the cleanup-side marker, BEFORE any
+   * submit/delete. Failure => BLOCKED_IDENTITY with ZERO mutating effects. */
+  let browser = null, opened = false, operationError = null, operationResult = null, closeError = null, identityVerdict = null;
   try {
     browser = await traced('openBrowser', effects.openBrowser)();
     opened = true;
+    if (typeof effects.readBrowserMarker === 'function') {
+      const browserMarker = await traced('readBrowserMarker', effects.readBrowserMarker)({ browser });
+      identityVerdict = identityBindingOk(browserMarker, expected);
+      if (!identityVerdict.ok) {
+        try { await traced('closeBrowser', effects.closeBrowser)(browser); }
+        catch (e) { closeError = e; }
+        opened = false;
+        return {
+          status: 'BLOCKED_IDENTITY',
+          identity: identityVerdict,
+          cleanup: { requested: 0, deleted: [], delete_failed_ids: [], skipped_unowned: [], post_read_owned_remaining: [], error: null, note: 'identity gate failed — zero submit/delete effects executed' },
+          operationError: null, closeError, operationResult: null,
+          effectLog: log,
+        };
+      }
+    }
     if (typeof operation === 'function') {
       operationResult = await operation({
         browser,
@@ -338,16 +357,23 @@ function evaluateFixtureContract(browserEvidence, cleanupEvidence, expected) {
   };
 }
 /* Pre-effect evidence gate (pure): MUST run before openBrowser or any mutating effect.
- * Missing digests or an unproven fixture contract yield an explicit blocked status. */
-function preEffectGate({ artifactDigests, fixtureContract }) {
-  const missing = Object.entries(artifactDigests || {})
-    .filter(([, v]) => !v || !/^[a-f0-9]{64}$/.test(v))
-    .map(([k]) => k);
+ * requiredDigestKeys is EXPLICIT; every required key must carry a valid 64-hex digest.
+ * Missing/invalid entries are REPORTED, never filtered out before checking (so an
+ * empty or partial map cannot bypass the gate). Missing digests or an unproven
+ * fixture contract yield an explicit blocked status. */
+function validateDigestMap(requiredKeys, map) {
+  const keys = Array.isArray(requiredKeys) ? requiredKeys : [];
+  const m = (map && typeof map === 'object') ? map : {};
+  const missing = keys.filter(k => !(typeof m[k] === 'string' && /^[a-f0-9]{64}$/.test(m[k])));
+  return { ok: keys.length > 0 && missing.length === 0, missing, received_keys: Object.keys(m) };
+}
+function preEffectGate({ requiredDigestKeys, artifactDigests, fixtureContract }) {
+  const dig = validateDigestMap(requiredDigestKeys, artifactDigests);
   if (!fixtureContract || fixtureContract.ok !== true) {
-    return { ok: false, status: 'BLOCKED_FIXTURE_OWNERSHIP', missingDigests: missing, verdict: fixtureContract || null };
+    return { ok: false, status: 'BLOCKED_FIXTURE_OWNERSHIP', missingDigests: dig.missing, verdict: fixtureContract || null };
   }
-  if (missing.length) {
-    return { ok: false, status: 'BLOCKED_MISSING_EVIDENCE', missingDigests: missing, verdict: fixtureContract };
+  if (!dig.ok) {
+    return { ok: false, status: 'BLOCKED_MISSING_EVIDENCE', missingDigests: dig.missing, verdict: fixtureContract };
   }
   return { ok: true, status: 'PRE_EFFECT_EVIDENCE_OK', missingDigests: [], verdict: fixtureContract };
 }
@@ -360,6 +386,21 @@ function postBindingOk(post, expected) {
   const m = /([?&]tn_service_receipt=)([0-9a-f]+)/i.exec(post.location || '');
   return !!m && typeof expected.token === 'string' && expected.token.length > 0 && m[2] === expected.token;
 }
+/* Two-channel identity binding (pure): the browser-side marker (READ from the rendered
+ * endpoint — a separate channel) must match the cleanup-side marker exactly, and the
+ * rendered endpoint must equal the expected app endpoint. No copied evidence. */
+function identityBindingOk(browserMarker, expected) {
+  const b = (browserMarker && typeof browserMarker === 'object') ? browserMarker : {};
+  const cb = (expected && typeof expected.cleanup_binding === 'object') ? expected.cleanup_binding : {};
+  const checks = [
+    ['browser_marker_read', typeof b.fixture_marker_name === 'string' && b.fixture_marker_name.length > 0 && typeof b.fixture_marker_value === 'string' && b.fixture_marker_value.length > 0],
+    ['browser_endpoint', b.home_url === expected.home_url],
+    ['marker_name_channel_equality', b.fixture_marker_name === cb.fixture_marker_name],
+    ['marker_value_channel_equality', b.fixture_marker_value === cb.fixture_marker_value],
+  ];
+  const failed = checks.filter(x => !x[1]).map(x => x[0]);
+  return { ok: failed.length === 0, failed, checks: checks.map(([name, pass]) => ({ name, pass })) };
+}
 
 module.exports = {
   newRunMarker, isRunMarker, assertRunMarker, formEmail,
@@ -368,5 +409,5 @@ module.exports = {
   phpSingleQuoted, phpIntList,
   buildPreflightProbePhp, buildFindOwnedPhp, buildDeleteOwnedPhp,
   redactText, redactTokens, safeDetail, serializeOutput, runJourney, ALLOWED_TYPES,
-  evaluateFixtureContract, preEffectGate, postBindingOk,
+  evaluateFixtureContract, preEffectGate, postBindingOk, validateDigestMap, identityBindingOk,
 };
