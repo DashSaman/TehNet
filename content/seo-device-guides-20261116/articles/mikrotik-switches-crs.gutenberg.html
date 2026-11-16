@@ -1,0 +1,387 @@
+<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated from articles/mikrotik-switches-crs.fa.md -->
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">سوئیچ میکروتیک برای شرکت؛ مقایسهٔ CSS، CRS و تصمیم سوئیچ/روتر/روترسوئیچ</h1>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>پاسخ کوتاه:</strong> CSS = سوئیچ سادهٔ لایه۲ با SwOS (ارزان‌تر)؛ CRS = روترسوئیچ با RouterOS (مدیریتی‌تر، قابلیت L3 hardware offload در مدل‌های سندشده)؛ روتر (RB/CCR) برای مسیریابی/فایروال/VPN است و هیچ CRSای جان آن را نمی‌گیرد. برای access لایه۲ ارزان CSS610/RB260؛ برای access با PoE دفتری CRS112/netPower؛ برای uplink 10G و core، CRS309/310/326/354. جدول کامل و شرایط هر مدل ادامه مطلب.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><em>بازبینی منابع: 2026-11-16. قیمت‌های تومانی فقط به‌عنوان مشاهدهٔ فروشگاهی با تاریخ ثبت شده‌اند، نه قیمت پیشنهادی.</em></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">فهرست مطالب</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>1. <a href="#basics">پاسخ به سه پرسش مبنایی</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>2. <a href="#table">جدول مقایسهٔ مدل‌ها</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>3. <a href="#css-vs-crs">CSS در برابر CRS؛ دقیق‌تر از برچسب</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>4. <a href="#l3hw">routing نرم‌افزاری و L3 hardware offload</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>5. <a href="#poe">PoE؛ استانداردها را مخلوط نکنید</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>6. <a href="#scenarios">سناریوهای واقعی</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>7. <a href="#faq">پرسش‌های پرتکرار</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>8. <a href="#sources">منابع</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="basics">پاسخ به سه پرسش مبنایی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>روتر، سوئیچ و روترسوئیچ چه تفاوتی دارند؟</strong> روتر در لایه۳ بین شبکه‌ها بر اساس IP مسیر می‌دهد (میکروتیک: RouterOS با فایروال/VPN کامل). سوئیچ لایه۲ فریم‌ها را بر اساس MAC بین پورت‌های یک شبکهٔ محلی می‌برد (میکروتیک: SwOS با امکانات محدود). روترسوئیچ MikroTik دستگاهی با پورت‌های سوئیچی زیاد و RouterOS است که هر دو نقش را می‌پذیرد — اما به اندازهٔ هر نقش، نه بیشتر.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>routing نرم‌افزاری با L3 hardware offload چه فرقی دارد؟</strong> در routing نرم‌افزاری CPU هر بستهٔ بین‌شبکه‌ای را پردازش می‌کند (قوانین فایروال کامل اعمال می‌شوند). در L3HW چیپ سوئیچ مسیر را سخت‌افزاری می‌کند (سرعت بالا) اما فقط ویژگی‌هایی که سند سازنده اجازه داده از hardware عبور می‌کنند؛ قوانین خاص می‌توانند بسته را به CPU برگردانند و سرعت را پایین بیاورند. فهرست دقیق per-model در راهنمای فعلی MikroTik است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>چرا یک CRS جای روتر فایروال/VPN را نمی‌گیرد؟</strong> CPU CRSها کوچک است (مثلاً CRS309: دو-هستهٔ 800MHz) و برای قوانین فایروال، NAT و VPN طراحی نشده است. ترکیب درست در اکثر شبکه‌های شرکتی: روتر (RB5009/RB4011/CCR) در لبه + CRS برای سوئیچینگ.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="table">جدول مقایسهٔ مدل‌ها</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>مدل/SKU</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>پورت مسی</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>فیبر</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>PoE-out</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>OS</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>چیپ/نکته</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مناسب برای</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>RB260GS</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>5x Gb</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>1x SFP</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خیر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>SwOS</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>پایه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دفتر ۵ نفرهٔ ساده</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>RB260GSP</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>5x Gb</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>1x SFP</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دارد (سطوح UNKNOWN)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>SwOS</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>پایه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>CCTV کوچک</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>CSS610-8G-2S+IN</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>8x Gb</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>2x SFP+ 10G</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خیر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>SwOS Lite</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>88E6193X</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>access ارزان با uplink 10G</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>CSS610-1G-4P-1S+IN</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>4x Gb</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>1x SFP+</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>af/at</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>SwOS Lite</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>UNKNOWN</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دوربین/AP کوچک</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>CRS112-8P-4G-IN</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>8x Gb PoE</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>4x Gb uplink</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>af/at+پسیو تا ~30W</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>RouterOS</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>88E6095/6390</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>access PoE دفتری</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>CRS309-1G-8S+IN</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>1x Gb</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>8x SFP+ 10G</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خیر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>RouterOS/SwOS</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>98DX8208؛ تا 80Gbps</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سرور/NAS 10G</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>CRS310-8G+2S+IN</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>8x Gb (2.5G)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>2x SFP+</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خیر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>RouterOS/SwOS</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خانوادهٔ 98DX</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دفتر با uplink 10G</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>CRS310-1G-5S-4S+IN</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>1x Gb</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>5x SFP+4x SFP+10G</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خیر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>RouterOS/SwOS</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خانوادهٔ 98DX</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تجمیع فایبر</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>CRS317-1G-16S+RM</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>1x Gb</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>16x SFP+</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خیر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>RouterOS/SwOS</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>98DX8216</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دیتاسنتر کوچک</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>CRS318-16P-2S+ (netPower 16P)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>16x Gb PoE</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>2x SFP+</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>af/at</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>RouterOS</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>800MHz/256MB</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>access دوربین/AP</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>CRS326-24G-2S+RM</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>24x Gb</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>2x SFP+</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خیر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>RouterOS/SwOS</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>~68Gbps</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>access/distribution</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>CRS326-24S+2Q+RM</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>24x SFP++2x QSFP+ 40G</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خیر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>RouterOS/SwOS</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>core</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>core/distribution</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>CRS328-4C-20S-4S+RM</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>4x Combo</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>20x SFP+4x SFP+</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خیر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>RouterOS/SwOS</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>UNKNOWN</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تجمیع فایبر</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>CRS354-48G-4S+2Q+RM</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>48x Gb</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>4x SFP++2x QSFP+</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خیر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>RouterOS/SwOS</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>UNKNOWN</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>access متراکم</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>منبع: صفحات رسمی MikroTik و مشاهدات فروشگاهی با تاریخ (جزئیات و UNKNOWNها در <a href="switch-catalog.csv">switch-catalog.csv</a>)؛ بازبینی 2026-11-16.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="css-vs-crs">CSS در برابر CRS؛ دقیق‌تر از برچسب</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>برچسب‌ها معیار فنی نیستند — چیپ و OS معیارند: CSS610 با SwOS Lite کار می‌کند (مدیریت وب محدود؛ بدون SSH/کنسول؛ RouterOS ندارد) و چیپ Marvell دارد؛ CRS با RouterOS کامل (و در بسیاری مدل‌ها dual-boot با SwOS). کدام قابلیت موجود است به چیپ، مدل و نسخهٔ OS وابسته است — مثلاً چیپ CSS610-8G-2S+IN بر اساس صفحهٔ سازنده 88E6193X است نه 88E6190 که در خانوادهٔ CRS310 دیده می‌شود. «همهٔ CRSها dual-boot و L3HW دارند» فرض غلطی رایج در مقایسه‌های فارسی است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="l3hw">routing نرم‌افزاری و L3 hardware offload</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>L3HW مسیر بین VLANها را به چیپ می‌سپارد؛ سرعت خط بالا می‌ماند اما محدودیت‌های سند رسمی برقرار است (تعداد route، قواعد خاص، برخی قابلیت‌ها CPU-bound). اگر بین VLANها فایروال دقیق لازم دارید، ترافیک به CPU برمی‌گردد و همان محدودیت CPU CRS بر شما اعمال می‌شود. در آن حالت روتر مستقل (RB5009/CCR) در کنار CRS درست‌تر است. تفاوت این دو حالت را قبل از خرید با سند فعلی MikroTik تطبیق دهید؛ اسناد قدیمی frozen ممکن است با نسخهٔ جاری help.mikrotik.com متفاوت باشند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="poe">PoE؛ استانداردها را مخلوط نکنید</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>سه خانواده را جدا کنید: **پسیو MikroTik** (ولتاژ خاص؛ فقط دستگاه‌های MikroTik سازگار)، **802.3af** (تا ~15.4W) و **802.3at** (تا ~30W). بودجهٔ کل PoE-out را از جمع مصرف دستگاه‌ها حساب کنید نه تعداد پورت؛ مثال سندشده: netPower 16P با max ~316W در برابر آداپتورهای 48V~96W پیوست — برای بار کامل باید PSU بزرگ‌تر بخرید. سازگاری ماژول نوری را از شکل قفسه (SFP/SFP+) نتیجه نگیرید؛ استاندارد ماژول مهم است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="scenarios">سناریوهای واقعی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>1. **دفتر با تلفن و دوربین PoE (۱۰–۲۰ دستگاه):** CRS112-8P-4G-IN یا netPower 16P؛ بودجهٔ PoE را جمع بزنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>2. **access layer متراکم (۴۸ پورت):** CRS354-48G-4S+2Q+RM با uplink به core.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>3. **uplink فیبر 10G برای دفتر:** CRS310-8G+2S+IN در access؛ CRS326-24S+2Q+RM در distribution.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>4. **شبکهٔ 10G سرور/NAS:** CRS309-1G-8S+IN (کم‌صدا، ارزان)؛ routing بین VLANها را به روتر بسپارید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>5. **تجمیع شعب روی فایبر:** CRS328-4C-20S-4S+RM یا CRS326-24S+2Q+RM.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>6. **محیطی که روتر جدا لازم دارد:** هر CRS بالا + RB5009/CCR2116؛ CRS قرار نیست VPN/فایروال بدهد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="faq">پرسش‌های پرتکرار</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>SwOS و RouterOS روی یک دستگاه؟</strong> در بسیاری از CRSها dual-boot ممکن است؛ روی CSS610 فقط SwOS Lite است — قبل از خرید از سند مدل بپرسید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>CRS326-24G-2S+RM برای core کافی است؟</strong> برای distribution/access بله؛ برای core با ترافیک 40G، CRS326-24S+2Q+RM منطقی‌تر است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>PoE پسیو برای دوربین IP معمولی؟</strong> معمولاً نه؛ دوربین‌های استاندارد af/at می‌خواهند — استاندارد دوربین را چک کنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>آیا CRS به‌جای روتر مودم هم می‌آید؟</strong> خیر؛ PPPoE/NAT/fایروال کار CPU روتر است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="sources">منابع</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>mikrotik.com: crs309_1g_8s_in، netpower_16p، ccr2116 (دسترسی 2026-11-16)؛ help.mikrotik.com CSS610 series Manual</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>مشاهده‌های فارسی با تاریخ: mrshabake.com (2022-02)، imenertebat.org (2025-11)، almaseasia.com، bazareshabake.com، arghavannet.com (competitor-evidence.csv)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>CTA: <a href="/services/mikrotik-tehran/">خدمات میکروتیک تهران نتورک</a> · <a href="/services/network-setup-tehran/">راه‌اندازی شبکهٔ سازمانی</a> · <a href="/b2b/">درخواست سازمانی</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->

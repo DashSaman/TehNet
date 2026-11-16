@@ -1,0 +1,31 @@
+keyword,intent,evidence_url,target_url_or_draft,primary_or_secondary,current_gap,concrete_edit,priority
+خدمات میکروتیک تهران,service-local,competitor-evidence.csv#icaller,mikrotik-service-2026-11-01/,primary,نبود لیست صریح کارها/خروجی تحویل,افزودن بخش «کارها و خروجی تحویل» + CTA به /b2b/,high
+پشتیبانی و تنظیم میکروتیک,service,competitor-evidence.csv#engostar,mikrotik-service-2026-11-01/,secondary,پاسخ مستقیم به «چه می‌کنید؟»,پاراگراف پاسخ کوتاه ابتدای صفحه,high
+کانفیگ میکروتیک,service,competitor-evidence.csv#falnic,mikrotik-service-2026-11-01/,secondary,ترم مترادف استفاده نشده,درج طبیعی «کانفیگ» در متن,medium
+راه‌اندازی شبکه شرکت تهران,service,inventory:/services/network-setup-tehran/,network-setup-2026-11-01/,primary,ورودی موردنیاز از مشتری صریح نیست,بخش «ورودی موردنیاز» + چک‌لیست,high
+انتخاب تجهیزات شبکه برای دفتر,guide,competitor-evidence.csv#vira-novin,network-setup-2026-11-01/,secondary,جدول نیاز/تجهیز وجود ندارد,جدول سناریو→تجهیز,high
+پشتیبانی شبکه تهران,service,inventory:/services/network-support-tehran/,network-support-2026-11-01/,primary,خروجی قابل‌تحویل/گزارش نامشخص,بخش «گزارش و تحویل» با اقلام,high
+قرارداد پشتیبانی شبکه,service-decision,inventory:/network-support-contract-guide/,network-support-2026-11-01/,secondary,لینک داخلی به راهنمای قرارداد نیست,لینک با anchor طبیعی,medium
+انتخاب روتر میکروتیک,guide,D,E,primary,صفحه‌ای برای تصمیم خرید/انتخاب نیست,مقالهٔ D جدید (draft),high
+مقایسه روترهای میکروتیک,guide,competitor-evidence.csv#netdrco,D,primary,رقبا مقایسهٔ سطحی دارند,جدول منبع‌دار + کاربرد هر مدل,high
+تفاوت RB4011 و RB5009,comparison,competitor-evidence.csv#netdrco,D,high-intent,مقایسهٔ دقیق پورت/عملکرد,ردیف اختصاصی + بخش ارتقا,high
+hEX قدیمی و نسل جدید,comparison,competitor-evidence.csv#barghchi-hex,D,high-intent,تفکیک RB750Gr3 و E50UG,ردیف جدا + بخش revision,high
+روتر میکروتیک دست دوم,buy-guide,D,secondary,راهنمای بررسی دست‌دوم نیست,بخش خرید دست‌دوم,medium
+سوئیچ میکروتیک برای شرکت,guide,competitor-evidence.csv#arghavannet,E,primary,تصمیم access/core توضیح ندارد,سناریوهای دفتر/access/core,high
+سوئیچ PoE میکروتیک,guide,competitor-evidence.csv#arghavannet,E,secondary,PoE standards مخلوط شده,جدول af/at/passive جدا,high
+تفاوت CSS و CRS,comparison,competitor-evidence.csv#mrshabake,E,high-intent,SwOS Lite/L3 offload مبهم,بخش تفاوت + جدول OS,high
+سوئیچ برای شبکه 10G,guide,competitor-evidence.csv#almaseasia,E,secondary,گزینه‌های 10G پراکنده,ردیف‌های CRS310/326/354,high
+تفاوت روتر سوئیچ روترسوئیچ,education,competitor-evidence.csv#barghchi-os,E,secondary,پاسخ کوتاه لایه۲/۳ نیست,پاسخ مستقیم ابتدای بخش,medium
+سوئیچ مدیریتی میکروتیک,guide,E,E,secondary,معیار «مدیریتی» مبهم,معیارهای انتخاب در مقدمه,medium
+L009 یا RB2011,comparison,D,secondary,جانشین RB2011 نامشخص,ردیف L009 + راهنمای ارتقا,medium
+CCR یا RB5009,comparison,D,secondary,تفکیک لبهٔ سازمانی مبهم,ردیف CCR + بخش نیاز سازمانی,medium
+کانفیگ VPN میکروتیک,service,D,mikrotik-service-2026-11-01/,secondary,VPN سناریو کم است,سناریو۳ مقالهٔ D + صفحهٔ خدمت,medium
+سوئیچ فیبر نوری میکروتیک,guide,E,E,secondary,SFP خانواده پراکنده,جدول ستون فیبر E,medium
+CRS309 برای NAS,comparison,E,E,secondary,کاربرد NAS صریح نیست,سناریو۴ مقالهٔ E,low
+netPower 16P دوربین,comparison,competitor-evidence.csv#arghavannet,E,secondary,مدل نامبرده نشده,ردیف CRS318 + سناریو۱,medium
+RB5009 قیمت,comparison,E,D,secondary,قیمت تومانی ادعا نشده,(قیمت فقط MSRP با منبع),low
+hEX S با SFP,comparison,D,D,secondary,SFP 1G/2.5G تفکیک نیست,ردیف hEX S + revision,medium
+مدارک MTCNA مزیت پشتیبانی,service,competitor-evidence.csv#سیسکوپردازش,mikrotik-service-2026-11-01/,low,گواهی ادعا نمی‌کنیم,(بدون ادعای مدرک),low
+سوئیچ برای دوربین مداربسته,guide,competitor-evidence.csv#arghavannet,E,secondary,سناریوی CCTV صریح نیست,سناریو۱ مقالهٔ E,medium
+راه‌اندازی hotspot میکروتیک,service,competitor-evidence.csv#icaller,mikrotik-service-2026-11-01/,low,در لیست کارها نیست,(فقط در صورت واقعی‌بودن سرویس),low
+RB3011 دست دوم,comparison,D,D,secondary,هشدار revision نیست,بخش دست‌دوم مقالهٔ D,medium

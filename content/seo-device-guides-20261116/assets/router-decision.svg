@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" font-family="Tahoma,sans-serif" direction="rtl">
+<rect width="640" height="420" fill="#f7f9fc"/><text x="320" y="30" text-anchor="middle" font-size="18" fill="#123">نمودار تصمیم: انتخاب روتر میکروتیک (شماتیک تألیفی — 2026-11-16)</text>
+<g font-size="13">
+<rect x="220" y="50" width="200" height="40" rx="8" fill="#1a6cff" fill-opacity=".15"/><text x="320" y="75" text-anchor="middle">نیاز کاربر چیست؟</text>
+<path d="M320 90 L320 110" stroke="#456"/>
+<rect x="60" y="110" width="150" height="36" rx="6" fill="#fff" stroke="#456"/><text x="135" y="133" text-anchor="middle">خانه/دفتر کوچک</text>
+<rect x="245" y="110" width="150" height="36" rx="6" fill="#fff" stroke="#456"/><text x="320" y="133" text-anchor="middle">شعبه/رک ۱U</text>
+<rect x="430" y="110" width="150" height="36" rx="6" fill="#fff" stroke="#456"/><text x="505" y="133" text-anchor="middle">VPN/10G سازمانی</text>
+<path d="M135 146 v24" stroke="#456"/><path d="M320 146 v24" stroke="#456"/><path d="M505 146 v24" stroke="#456"/>
+<rect x="60" y="170" width="150" height="36" rx="6" fill="#e8f5ee" stroke="#2a8"/><text x="135" y="193" text-anchor="middle">hEX / E50UG</text>
+<rect x="245" y="170" width="150" height="36" rx="6" fill="#e8f5ee" stroke="#2a8"/><text x="320" y="193" text-anchor="middle">RB3011 قدیمی / L009</text>
+<rect x="430" y="170" width="150" height="36" rx="6" fill="#e8f5ee" stroke="#2a8"/><text x="505" y="193" text-anchor="middle">RB5009 / RB4011</text>
+<path d="M320 206 v24" stroke="#456"/>
+<rect x="170" y="230" width="300" height="36" rx="6" fill="#fff" stroke="#456"/><text x="320" y="253" text-anchor="middle">کور سازمانی پرترافیک (چند-گیگ)</text>
+<path d="M320 266 v24" stroke="#456"/>
+<rect x="170" y="290" width="300" height="36" rx="6" fill="#fdecea" stroke="#a33"/><text x="320" y="313" text-anchor="middle">CCR2004 / CCR2116 (+CRS برای سوئیچینگ)</text>
+<text x="320" y="370" text-anchor="middle" fill="#678" font-size="11">معیارهای گره‌ها: تعداد پورت، سرعت لینک (1G/2.5G/10G)، بار VPN، رک/فضا — قبل از خرید تست با ترافیک واقعی</text>
+<text x="320" y="392" text-anchor="middle" fill="#89a" font-size="11">تصویر شماتیک تألیفی TehNet — نه عکس محصول؛ صفحهٔ رسمی هر مدل در mikrotik.com</text>
+</g></svg>

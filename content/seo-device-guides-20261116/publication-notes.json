@@ -1,0 +1,7 @@
+{"packet":"TN-SEO-DEVICE-GUIDES-20261116","status":"READY_FOR_REVIEW / NOT_DEPLOYED",
+ "branch":"content/site-improvements-20261116",
+ "slugs":{"proposed":["mikrotik-routers","mikrotik-switches-crs"],"note":"NOT published URLs; not in sitemap"},
+ "research":{"live_queries":13,"competitor_domains":["icaller.ir","engostar.net","falnic.com","netdrco.com","mrshabake.com","imenertebat.org","arghavannet.com","bazareshabake.com","almaseasia.com","vira-novin.com","barghchi.com"],"official_sources":["mikrotik.com product pages","help.mikrotik.com RB5009 QG","manual.mikrotik.com CRS309"],"search_date":"2026-11-16","geo_note":"rank position in Tehran NOT claimed; search geolocation UNKNOWN"},
+ "image_policy":"no competitor images; 33 original SVG schematics + 2 decision diagrams; real photos NOT_EMBEDDED (rights not verified)",
+ "seo_policy":{"schema":"none added (avoid duplication with existing plugins)","llms.txt":"not claimed as ranking shortcut","rank_promises":"none"},
+ "production_changes":0}

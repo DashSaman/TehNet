@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" font-family="Tahoma,sans-serif" direction="rtl">
+<rect width="640" height="420" fill="#f7f9fc"/><text x="320" y="30" text-anchor="middle" font-size="18" fill="#123">نمودار تصمیم: سوئیچ/روترسوئیچ میکروتیک (شماتیک تألیفی — 2026-11-16)</text>
+<g font-size="13">
+<rect x="220" y="50" width="200" height="40" rx="8" fill="#1a6cff" fill-opacity=".15"/><text x="320" y="75" text-anchor="middle">نقش دستگاه؟</text>
+<path d="M320 90 L320 110" stroke="#456"/>
+<rect x="40" y="110" width="170" height="36" rx="6" fill="#fff" stroke="#456"/><text x="125" y="133" text-anchor="middle">فقط L2 ارزان</text>
+<rect x="235" y="110" width="170" height="36" rx="6" fill="#fff" stroke="#456"/><text x="320" y="133" text-anchor="middle">access با PoE</text>
+<rect x="430" y="110" width="170" height="36" rx="6" fill="#fff" stroke="#456"/><text x="515" y="133" text-anchor="middle">uplink 10G/core</text>
+<path d="M125 146 v24" stroke="#456"/><path d="M320 146 v24" stroke="#456"/><path d="M515 146 v24" stroke="#456"/>
+<rect x="40" y="170" width="170" height="36" rx="6" fill="#e8f5ee" stroke="#2a8"/><text x="125" y="193" text-anchor="middle">RB260 / CSS610</text>
+<rect x="235" y="170" width="170" height="36" rx="6" fill="#e8f5ee" stroke="#2a8"/><text x="320" y="193" text-anchor="middle">CRS112 / netPower16P</text>
+<rect x="430" y="170" width="170" height="36" rx="6" fill="#e8f5ee" stroke="#2a8"/><text x="515" y="193" text-anchor="middle">CRS309/310/326/354</text>
+<path d="M320 206 v24" stroke="#456"/>
+<rect x="170" y="230" width="300" height="36" rx="6" fill="#fdecea" stroke="#a33"/><text x="320" y="253" text-anchor="middle">routing/firewall/VPN سنگین؟ => روتر جدا (RB5009/CCR)</text>
+<text x="320" y="330" text-anchor="middle" fill="#678" font-size="11">L3HW فقط با سند per-model؛ قوانین CPU-bound سرعت را می‌شکند — قبل از خرید سند رسمی مدل</text>
+<text x="320" y="392" text-anchor="middle" fill="#89a" font-size="11">تصویر شماتیک تألیفی TehNet — نه عکس محصول</text>
+</g></svg>
