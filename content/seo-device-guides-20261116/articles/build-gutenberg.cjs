@@ -117,7 +117,12 @@ function mdToGutenberg(md, perModel) {
     ['CCR2116-12G-4S+', 'schematic-ccr2116-12g-4s.svg'],
     ['CCR2216-1G-12XS-2XQ', 'schematic-ccr2216-1g-12xs-2xq.svg'],
   ];
-  for (const [sku, file] of strongPairs) {
+  /* ARTICLE-TYPE GATE (6917789938): router-family schematics (RB951/hAP/CCR-family/
+   * hAP-Wi-Fi) may ONLY be embedded in the ROUTER guide. The switch guide must never
+   * receive them — enforced here in the builder, not by hand-editing output. */
+  const isRouterGuide = String(perModel).includes('routers');
+  const isSwitchGuide = String(perModel).includes('switches');
+  for (const [sku, file] of isRouterGuide ? strongPairs : []) {
     const anchor = '<!-- wp:paragraph -->' + NLX + '<p><strong>' + sku + '</strong>';
     const i = html.indexOf(anchor);
     if (i >= 0 && !embedded(file)) {
@@ -125,9 +130,9 @@ function mdToGutenberg(md, perModel) {
       imgCount++;
     }
   }
-  /* 2) table-only models (RB951/hAP/CCR1009-family): embed right after the quick-compare table */
+  /* 2) table-only models (RB951/hAP/CCR1009-family): ROUTER guide only */
   const tableEnd = html.indexOf('<!-- /wp:table -->');
-  if (tableEnd >= 0) {
+  if (isRouterGuide && tableEnd >= 0) {
     const tableOnly = [
       ['schematic-rb951ui-2hnd.svg', 'RB951Ui-2HnD — شماتیک تألیفی'],
       ['schematic-hap-rb951ui-2nd.svg', 'hAP (RB951Ui-2nD) — شماتیک تألیفی'],
@@ -141,13 +146,13 @@ function mdToGutenberg(md, perModel) {
       imgCount += tableOnly.length;
     }
   }
-  /* 2b) hAP Wi-Fi family paragraph (short name in MD, no suffix) — same outside-block rule */
-  const hapShort = '<p><strong>hAPهای Wi-Fi دار</strong>';
+  /* 2b) hAP Wi-Fi family paragraph — ROUTER guide only (gated) */
+  if (isRouterGuide) { const hapShort = '<p><strong>hAPهای Wi-Fi دار</strong>';
   const hapI = html.indexOf(hapShort);
   if (hapI >= 0 && !embedded('schematic-hap-wi-fi-hap-ax-3.svg')) {
     const blockStart = html.lastIndexOf('<!-- wp:paragraph -->', hapI);
     html = html.slice(0, blockStart) + imgBlock('schematic-hap-wi-fi-hap-ax-3.svg', 'hAPهای Wi-Fi دار — شماتیک تألیفی') + NLX + NLX + html.slice(blockStart);
-    imgCount++;
+    imgCount++; }
   }
   /* 3) switch guides: embed ALL switch schematics after first table (full coverage) */
   const isSwitch = String(perModel).includes('switches');
