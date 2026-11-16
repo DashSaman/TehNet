@@ -77,36 +77,43 @@
     {
      "name": "baseline-as-final:31",
      "rejected": true,
-     "reason": "Cannot read properties of undefined (reading '8')"
+     "reasonMatched": true,
+     "reason": "GEN_REJECT: decision body checksum mismatch: network-support.html"
     },
     {
      "name": "baseline-body-as-final:31",
      "rejected": true,
+     "reasonMatched": true,
      "reason": "GEN_REJECT: decision body checksum mismatch: network-support.html"
     },
     {
      "name": "conflicting-title:29",
      "rejected": true,
+     "reasonMatched": true,
      "reason": "GEN_REJECT: const TITLE drift for decision target 29"
     },
     {
      "name": "missing-input:buyer",
      "rejected": true,
+     "reasonMatched": true,
      "reason": "Cannot read properties of null (reading 'content_sha256_lf')"
     },
     {
      "name": "missing-input:A1-body",
      "rejected": true,
-     "reason": "The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array "
+     "reasonMatched": true,
+     "reason": "GEN_REJECT: decision page body payload MISSING: network-support-contract-guide.html"
     },
     {
      "name": "private-target-added",
      "rejected": true,
+     "reasonMatched": true,
      "reason": "GEN_REJECT: original manifest must carry exactly 16 targets"
     },
     {
      "name": "path-swapped",
      "rejected": true,
+     "reasonMatched": true,
      "reason": "GEN_REJECT: unknown path: /about/"
     }
    ]
@@ -121,36 +128,43 @@
   {
    "name": "baseline-as-final:31",
    "rejected": true,
-   "reason": "Cannot read properties of undefined (reading '8')"
+   "reasonMatched": true,
+   "reason": "GEN_REJECT: decision body checksum mismatch: network-support.html"
   },
   {
    "name": "baseline-body-as-final:31",
    "rejected": true,
+   "reasonMatched": true,
    "reason": "GEN_REJECT: decision body checksum mismatch: network-support.html"
   },
   {
    "name": "conflicting-title:29",
    "rejected": true,
+   "reasonMatched": true,
    "reason": "GEN_REJECT: const TITLE drift for decision target 29"
   },
   {
    "name": "missing-input:buyer",
    "rejected": true,
+   "reasonMatched": true,
    "reason": "Cannot read properties of null (reading 'content_sha256_lf')"
   },
   {
    "name": "missing-input:A1-body",
    "rejected": true,
-   "reason": "The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array "
+   "reasonMatched": true,
+   "reason": "GEN_REJECT: decision page body payload MISSING: network-support-contract-guide.html"
   },
   {
    "name": "private-target-added",
    "rejected": true,
+   "reasonMatched": true,
    "reason": "GEN_REJECT: original manifest must carry exactly 16 targets"
   },
   {
    "name": "path-swapped",
    "rejected": true,
+   "reasonMatched": true,
    "reason": "GEN_REJECT: unknown path: /about/"
   }
  ],

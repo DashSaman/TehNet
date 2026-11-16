@@ -77,9 +77,17 @@ function generate(inputs) {
     throwIf(!p, 'const page missing from manifest: ' + key);
     throwIf(dpConst[key].slug !== p.slug || dpConst[key].file !== p.content_file || dpConst[key].title !== p.title, 'const slug/file/TITLE drift for decision page ' + key);
   }
-  /* payload body bytes must equal their pinned LF digests (checksum gate) */
-  for (const t of decision.targets) throwIf(sha256(decisionBodies[t.id]) !== t.content_sha256_lf, 'decision body checksum mismatch: ' + t.content_file);
-  for (const p of decision.pages) throwIf(sha256(decisionPageBodies[p.key]) !== p.content_sha256_lf, 'decision page body checksum mismatch: ' + p.content_file);
+  /* payload body bytes must equal their pinned LF digests (checksum gate);
+   * missing payloads get an explicit MISSING reason, not a program crash */
+  for (const t of decision.targets) {
+    throwIf(typeof decisionBodies[t.id] !== 'string', 'decision body payload MISSING: ' + t.content_file);
+    throwIf(sha256(decisionBodies[t.id]) !== t.content_sha256_lf, 'decision body checksum mismatch: ' + t.content_file);
+  }
+  for (const p of decision.pages) {
+    throwIf(typeof decisionPageBodies[p.key] !== 'string', 'decision page body payload MISSING: ' + p.content_file);
+    throwIf(sha256(decisionPageBodies[p.key]) !== p.content_sha256_lf, 'decision page body checksum mismatch: ' + p.content_file);
+  }
+  throwIf(typeof buyerBody !== 'string', 'buyer body payload MISSING');
   throwIf(sha256(buyerBody) !== buyer.content_sha256_lf, 'buyer body checksum mismatch');
   throwIf(buyer.key !== 'tehnet-service-remote-buyer-20261113-v1', 'wrong buyer scope key');
   throwIf(buyer.target.id !== 37, 'buyer target id must be 37');
@@ -215,31 +223,44 @@ function generate(inputs) {
 /* ---------- private-negative / conflict validation (real injected failures) ---------- */
 function runNegatives(baseInputs) {
   const results = [];
-  function expectReject(name, mutate) {
+  function expectReject(name, mutate, reasonRe) {
     const inputs = JSON.parse(JSON.stringify(baseInputs));
     mutate(inputs);
     let rejected = false, reason = null;
-    try { generate(inputs); } catch (e) { rejected = true; reason = String(e.message).split('\n')[0]; }
-    results.push({ name, rejected, reason: rejected ? reason.slice(0, 90) : 'NOT REJECTED — VALIDATION GAP' });
-    if (!rejected) throw new Error('NEGATIVE NOT ENFORCED: ' + name);
+    try { generate(inputs); } catch (e) {
+      reason = String(e.message).split('\n')[0];
+      rejected = reasonRe instanceof RegExp ? reasonRe.test(reason) : false;
+    }
+    results.push({ name, rejected, reasonMatched: rejected, reason: reason ? reason.slice(0, 110) : 'NOT REJECTED — VALIDATION GAP' });
+    if (!rejected) throw new Error('NEGATIVE NOT ENFORCED (or wrong reason): ' + name + ' -> ' + reason);
   }
-  /* N1: sync baseline substituted as final payload for 31 must fail the checksum gate */
-  expectReject('baseline-as-final:31', ins => {
-    ins.decision.targets.find(t => t.id === 31).content_sha256_lf = ins.sync[31].lf;
-    ins.decisionBodies = undefined; delete ins.decisionBodies;
-  });
-  /* N1b (structural): swapping the payload body bytes for 31 breaks lf equality */
-  expectReject('baseline-body-as-final:31', ins => { ins.decisionBodies[31] = 'STALE_BASELINE_BODY'; });
-  /* N2: conflicting title for 29 must fail the const comparison */
-  expectReject('conflicting-title:29', ins => { ins.decision.targets.find(t => t.id === 29).title = 'عنوان متفاوت غیرمصوب'; });
+  /* N1: sync baseline digest substituted as final payload for 31 — ONLY the digest is
+   * corrupted; the checksum gate must reject with the checksum reason */
+  expectReject('baseline-as-final:31',
+    ins => { ins.decision.targets.find(t => t.id === 31).content_sha256_lf = ins.sync[31].lf; },
+    /checksum mismatch/i);
+  /* N1b: swapping the payload body bytes for 31 breaks lf equality — same gate */
+  expectReject('baseline-body-as-final:31',
+    ins => { ins.decisionBodies[31] = 'STALE_BASELINE_BODY'; },
+    /checksum mismatch/i);
+  /* N2: conflicting title for 29 must fail the const-vs-manifest title comparison */
+  expectReject('conflicting-title:29',
+    ins => { ins.decision.targets.find(t => t.id === 29).title = 'عنوان متفاوت'; },
+    /const TITLE drift/);
   /* N3: missing required input (buyer manifest) must fail */
-  expectReject('missing-input:buyer', ins => { ins.buyer = null; });
-  /* N3b: missing decision page payload body must fail */
-  expectReject('missing-input:A1-body', ins => { ins.decisionPageBodies.A1 = null; });
-  /* N4: private/non-allowlist target must fail the exact-16 set */
-  expectReject('private-target-added', ins => { ins.original.targets.push({ path: '/support/', id: 999, title: 'x', body_sha256: 'b'.repeat(64) }); });
+  expectReject('missing-input:buyer', ins => { ins.buyer = null; }, /Cannot read|buyer/);
+  /* N3b: missing decision page payload body must fail the checksum gate */
+  expectReject('missing-input:A1-body',
+    ins => { ins.decisionPageBodies.A1 = null; },
+    /payload MISSING/);
+  /* N4: private/non-allowlist target must fail the exact-16 row check */
+  expectReject('private-target-added',
+    ins => { ins.original.targets.push({ path: '/support/', id: 999, title: 'x', body_sha256: 'b'.repeat(64) }); },
+    /exactly 16/);
   /* N4b: allowlist path swapped to a non-allowlist route */
-  expectReject('path-swapped', ins => { ins.original.targets.find(t => t.path === '/about/').path = '/my-account/'; });
+  expectReject('path-swapped',
+    ins => { ins.original.targets.find(t => t.path === '/about/').path = '/my-account/'; },
+    /exactly 16|unknown path/);
   return results;
 }
 
