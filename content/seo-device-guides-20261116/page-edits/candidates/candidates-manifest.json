@@ -1,0 +1,74 @@
+{
+ "packet": "TN-CANDIDATE-LINK-REPAIRS-20261116",
+ "status": "CANDIDATE / NOT_DEPLOYED — awaiting manager review; accepted packets untouched",
+ "base_note": "same pinned after-D1 base as pages-manifest.json (a54198ce… commits; per-page after_d1_sha256 identical)",
+ "mapping": [
+  {
+   "dead": "/network-support-contract-guide/",
+   "live": "/services/network-support-tehran/",
+   "why": "راهنمای حذف‌شده (404 در 2026-11-16)؛ مادر خدمت پشتیبانی زنده است و پرسش‌های قرارداد/حجم را پوشش می‌دهد"
+  },
+  {
+   "dead": "/services/server-virtualization-tehran/",
+   "live": "/services/",
+   "why": "زیرصفحهٔ خدمت 404 شده؛ تا تصمیم مالک دربارهٔ بازتولید، لینک به مادر خدمات می‌رود"
+  },
+  {
+   "dead": "/network-project-proposal-checklist/",
+   "live": "/services/network-setup-tehran/",
+   "why": "چک‌لیست پیشنهاد حذف شده؛ جریان پیشنهاد/اجرا در صفحهٔ خدمت راه‌اندازی زنده است"
+  },
+  {
+   "dead": "/business-server-planning-guide/",
+   "live": "/services/network-setup-tehran/",
+   "why": "راهنمای نیازسنجی حذف شده؛ فرگمنت #planning-sheet متعلق به صفحهٔ مرده حذف می‌شود"
+  }
+ ],
+ "pages": [
+  {
+   "name": "network-setup",
+   "base_commit": "a54198ce7ed3535d6783432d8401660e2e023f9d",
+   "base_file": "content/commercial-decision-2026-11-08-v2/network-setup.html",
+   "after_d1_sha256": "ab56940e609f5afa17aad6917dc2834490e0437aa7ecadc2c66adae6a22e2460",
+   "replacements": [
+    {
+     "dead": "/services/server-virtualization-tehran/",
+     "live": "/services/",
+     "replaced": 1
+    },
+    {
+     "dead": "/network-project-proposal-checklist/",
+     "live": "/services/network-setup-tehran/",
+     "replaced": 1
+    },
+    {
+     "dead": "/business-server-planning-guide/",
+     "live": "/services/network-setup-tehran/",
+     "replaced": 1
+    }
+   ],
+   "patch": "candidates/network-setup.candidate-v2.patch",
+   "proposed": "candidates/network-setup.candidate-v2.proposed.html"
+  },
+  {
+   "name": "network-support",
+   "base_commit": "a54198ce7ed3535d6783432d8401660e2e023f9d",
+   "base_file": "content/commercial-decision-2026-11-08-v2/network-support.html",
+   "after_d1_sha256": "f0ecdcfe014371ac22df9647512a6ccd73b18d52a357c4fc681e442ff3ec37de",
+   "replacements": [
+    {
+     "dead": "/network-support-contract-guide/",
+     "live": "/services/network-support-tehran/",
+     "replaced": 2
+    },
+    {
+     "dead": "/services/server-virtualization-tehran/",
+     "live": "/services/",
+     "replaced": 1
+    }
+   ],
+   "patch": "candidates/network-support.candidate-v2.patch",
+   "proposed": "candidates/network-support.candidate-v2.proposed.html"
+  }
+ ]
+}

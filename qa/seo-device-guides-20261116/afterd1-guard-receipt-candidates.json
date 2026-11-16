@@ -1,0 +1,38 @@
+{
+ "packet": "TN-AFTERD1-GUARD-VERIFY-20261116",
+ "command": "node verify-afterd1-guard.cjs",
+ "cwd": "qa/seo-device-guides-20261116/",
+ "started_utc": "2026-11-16T18:54:33Z",
+ "finished_utc": "2026-11-16T18:54:33Z",
+ "exit": 0,
+ "failures": 0,
+ "results": [
+  {
+   "name": "network-setup",
+   "checks": {
+    "g1_base_digest": "PASS",
+    "g2_header_prefix": "PASS",
+    "g3_context_verified": "PASS (3 hunk[s], all context lines match base)",
+    "g4_proposed_matches": "PASS"
+   },
+   "base_commit": "a54198ce7ed3535d6783432d8401660e2e023f9d"
+  },
+  {
+   "name": "network-support",
+   "checks": {
+    "g1_base_digest": "PASS",
+    "g2_header_prefix": "PASS",
+    "g3_context_verified": "PASS (3 hunk[s], all context lines match base)",
+    "g4_proposed_matches": "PASS"
+   },
+   "base_commit": "a54198ce7ed3535d6783432d8401660e2e023f9d"
+  }
+ ],
+ "mode": "LOCAL_TEST — read-only against git history; temp dir under OS tmp; no repo file modified",
+ "not_run": [
+  "WordPress/KSES apply of patches",
+  "production deployment",
+  "browser rendering"
+ ],
+ "production_touched": false
+}

@@ -17,7 +17,11 @@ const NL = String.fromCharCode(10);
 const QA = __dirname;
 const ROOT = path.resolve(QA, '../..');                       // repo root
 const CONTENT = path.join(ROOT, 'content/seo-device-guides-20261116');
-const MANIFEST = JSON.parse(fs.readFileSync(path.join(CONTENT, 'page-edits/pages-manifest.json'), 'utf8'));
+/* optional argv[2]: alternate manifest (e.g. candidates/candidates-manifest.json);
+ * candidate manifests carry page.patch/page.proposed RELATIVE to page-edits/ */
+const MANIFEST_ARG = process.argv[2];
+const MANIFEST_PATH = MANIFEST_ARG ? path.join(CONTENT, 'page-edits', MANIFEST_ARG) : path.join(CONTENT, 'page-edits/pages-manifest.json');
+const MANIFEST = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
 const startedUtc = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
 
 function git(args, opts) {
@@ -31,7 +35,8 @@ let failures = 0;
 for (const page of MANIFEST.pages) {
   const r = { name: page.name, checks: {} };
   // G0: locate the commit referenced by the patch header
-  const patchPath = path.join(CONTENT, page.patch);
+  const patchRel = page.patch.startsWith('page-edits/') ? page.patch : 'page-edits/' + page.patch;
+  const patchPath = path.join(CONTENT, patchRel);
   const patchText = fs.readFileSync(patchPath, 'utf8');
   const hdr = patchText.match(/^--- a\/(.+?)@([0-9a-f]{40}) \(after-D1 ([0-9a-f]{12})…\)/m);
   if (!hdr) { r.checks.g0_header_parse = 'FAIL: no parseable header'; failures++; results.push(r); continue; }
@@ -42,8 +47,9 @@ for (const page of MANIFEST.pages) {
   try {
     baseContent = git(['show', baseCommit + ':' + baseFile], { stdio: ['ignore', 'pipe', 'pipe'] });
     const digest = sha256(Buffer.from(baseContent, 'utf8'));
-    r.checks.g1_base_digest = digest === page.after_d1_sha256 ? 'PASS' : 'FAIL: ' + digest.slice(0, 12) + ' != ' + page.after_d1_sha256.slice(0, 12);
-    if (digest !== page.after_d1_sha256) failures++;
+    const expected = page.after_d1_sha256 || MANIFEST.pages.find(function(p){ return p.name === page.name; }).after_d1_sha256;
+    r.checks.g1_base_digest = digest === expected ? 'PASS' : 'FAIL: ' + digest.slice(0, 12) + ' != ' + expected.slice(0, 12);
+    if (digest !== expected) failures++;
   } catch (e) { r.checks.g1_base_digest = 'FAIL: git show error ' + String(e.message).slice(0, 60); failures++; results.push(r); continue; }
   // G2: header after-D1 prefix == manifest digest prefix
   r.checks.g2_header_prefix = hdrPrefix === page.after_d1_sha256.slice(0, 12) ? 'PASS' : 'FAIL: ' + hdrPrefix + ' vs ' + page.after_d1_sha256.slice(0, 12);
@@ -94,7 +100,8 @@ for (const page of MANIFEST.pages) {
     r.checks.g3_context_verified = ctxBad === 0 ? 'PASS (' + hunks.length + ' hunk[s], all context lines match base)' : 'FAIL: ' + ctxBad + ' context mismatch[es]';
     if (ctxBad !== 0) failures++;
     const rebuiltText = rebuilt.join(NL);
-    const proposed = fs.readFileSync(path.join(CONTENT, page.proposed), 'utf8');
+    const proposedRel = page.proposed.startsWith('page-edits/') ? page.proposed : 'page-edits/' + page.proposed;
+    const proposed = fs.readFileSync(path.join(CONTENT, proposedRel), 'utf8');
     const identical = rebuiltText === proposed;
     r.checks.g4_proposed_matches = identical ? 'PASS' : 'FAIL: rebuilt ' + sha256(Buffer.from(rebuiltText, 'utf8')).slice(0, 12) + ' vs proposed ' + sha256(Buffer.from(proposed, 'utf8')).slice(0, 12);
     if (!identical) failures++;
@@ -119,7 +126,8 @@ const receipt = {
   not_run: ['WordPress/KSES apply of patches', 'production deployment', 'browser rendering'],
   production_touched: false,
 };
-fs.writeFileSync(path.join(QA, 'afterd1-guard-receipt.json'), JSON.stringify(receipt, null, 1));
+const receiptName = MANIFEST_ARG ? 'afterd1-guard-receipt-candidates.json' : 'afterd1-guard-receipt.json';
+fs.writeFileSync(path.join(QA, receiptName), JSON.stringify(receipt, null, 1));
 for (const r of results) console.log(r.name, JSON.stringify(r.checks));
-console.log('GUARD=' + (ok ? 'PASS' : 'FAIL') + ' failures=' + failures + ' | RECEIPT afterd1-guard-receipt.json | exit=' + receipt.exit);
+console.log('GUARD=' + (ok ? 'PASS' : 'FAIL') + ' failures=' + failures + ' | RECEIPT ' + receiptName + ' | exit=' + receipt.exit);
 process.exitCode = ok ? 0 : 1;
