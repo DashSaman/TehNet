@@ -64,6 +64,13 @@
    "type": "tutorial",
    "bytes": 20424,
    "per_model_images": 0
+  },
+  {
+   "md": "../tutorials/n3-support-contract-sla.fa.md",
+   "html": "../tutorials/n3-support-contract-sla.gutenberg.html",
+   "type": "tutorial",
+   "bytes": 20850,
+   "per_model_images": 0
   }
  ]
 }

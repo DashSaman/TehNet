@@ -328,8 +328,52 @@ n2 = svg(960, 660,
     'حلقهٔ چهارمرحله‌ای مانیتورینگ: متریک‌های پایه شامل دسترسی، منابع، دما، خطای پورت و فضای pool؛ آستانه‌های هشدار که پیشنهاد شروع هستند و با داده واقعی کالیبره می‌شوند؛ هشدار با Netwatch probe و ثبت در لاگ؛ و اقدام با چک‌لیست هفتگی ماهانه و فصلی همراه تست بازیابی. انتهای حلقه به متریک‌ها برمی‌گردد. شاخهٔ جدا نشان می‌دهد هشدار بدون اقدام بی‌اثر است. این نمودار مفهومی و تألیفی TehNet است.',
     chr(10).join(b))
 
+
+# ---------------- N3 SLA incident timeline ----------------
+b = []
+b.append(text(480, 36, 'خط زمان یک رخداد فرضی و نقاط اندازه‌گیری SLA', 13, 'middle', '#1a1a1a', 'bold'))
+b.append(line(60, 220, 900, 220, '#37474f', 3))
+points = [
+    (120, 'ثبت رخداد', 'مهر شروع ساعت‌شمار', '#1e88e5'),
+    (330, 'اولین پاسخ انسانی', 'فاصله = Response Time', '#6a1b9a'),
+    (540, 'شروع کار', '—', '#fb8c00'),
+    (750, 'رفع + تأیید مسئول', 'فاصلهٔ شروع→تأیید = Resolution', '#43a047'),
+    (880, 'گزارش مکتوب', 'قبل/بعد (الگوی N1/N4)', '#78909c'),
+]
+for x, t, sub, color in points:
+    b.append(circle = None) if False else None
+    b.append('<circle cx="%d" cy="220" r="9" fill="%s" stroke="#263238" stroke-width="2"/>' % (x, color))
+    b.append(text(x, 196, t, 11, 'middle', color, 'bold'))
+    b.append(text(x, 246, sub, 9, 'middle', '#546e7a'))
+# response bracket
+b.append(line(120, 160, 330, 160, '#6a1b9a', 2))
+b.append(line(120, 154, 120, 166, '#6a1b9a', 2))
+b.append(line(330, 154, 330, 166, '#6a1b9a', 2))
+b.append(text(225, 146, 'Response', 11, 'middle', '#6a1b9a', 'bold'))
+# resolution bracket
+b.append(line(540, 160, 750, 160, '#43a047', 2))
+b.append(line(540, 154, 540, 166, '#43a047', 2))
+b.append(line(750, 154, 750, 166, '#43a047', 2))
+b.append(text(645, 146, 'Resolution', 11, 'middle', '#2e7d32', 'bold'))
+# exception band
+b.append(rect(560, 280, 340, 46, '#fff3e0', '#ef6c00', 2))
+b.append(text(730, 300, 'استثنا: انتظار قطعه — ساعت‌شمار متوقف با توافق کتبی', 10, 'middle', '#e65100'))
+b.append(text(730, 318, '(بدون بند استثنا، این بازه علیه هر دو طرف عمل می‌کند)', 9, 'middle', '#8d6e63'))
+# six questions box
+b.append(rect(60, 360, 840, 150, '#fafafa', '#6a1b9a', 2))
+b.append(text(480, 384, 'شش سؤال قبل از امضا', 12, 'middle', '#6a1b9a', 'bold'))
+qs = ['۱. دامنهٔ مشمول دستگاه‌به‌دستگاه + استثناهای صریح', '۲. پاسخ و رفع — دو عدد جدا، به‌تفکیک اولویت', '۳. ساعات پوشش + مسیر خارج از ساعت',
+      '۴. مسئول تأیید هر کار + معیار تأیید (الگوی N4)', '۵. شواهد انجام کار: ثبت قبل/بعد (الگوی N1)', '۶. مسیر تشدید + گزارش دوره‌ای']
+for qi, q in enumerate(qs):
+    b.append(text(90, 410 + qi * 16, q, 10, 'start', '#37474f'))
+b.append(text(480, 533, 'نمودار مفهومی تألیفی TehNet — نه عکس واقعی — رخداد و اعداد کاملاً فرضی؛ اجرا NOT_RUN', 10, 'middle', '#78909c'))
+n3 = svg(960, 560,
+    'نمودار توالی رخداد و نقاط اندازه‌گیری SLA درس N3',
+    'خط زمان یک رخداد فرضی از ثبت تا گزارش مکتوب با پنج نقطه: ثبت رخداد، اولین پاسخ انسانی که فاصله‌اش زمان پاسخ است، شروع کار، رفع با تأیید مسئول که فاصله‌اش زمان رفع است، و گزارش مکتوب با ثبت قبل و بعد. بازه استثنای انتظار قطعه با توافق کتبی ساعت‌شمار را متوقف می‌کند. جعبه شش سؤال پیش از امضا دامنه، پاسخ و رفع جدا، ساعات پوشش، مسئول تأیید، شواهد و مسیر تشدید را فهرست می‌کند. این نمودار مفهومی و تألیفی TehNet است.',
+    chr(10).join(b))
+
 os.makedirs(OUT, exist_ok=True)
-for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2)):
+for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3)):
     p = os.path.join(OUT, name)
     with io.open(p, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)

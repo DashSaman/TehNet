@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560">
+<title>نمودار توالی رخداد و نقاط اندازه‌گیری SLA درس N3</title>
+<desc>خط زمان یک رخداد فرضی از ثبت تا گزارش مکتوب با پنج نقطه: ثبت رخداد، اولین پاسخ انسانی که فاصله‌اش زمان پاسخ است، شروع کار، رفع با تأیید مسئول که فاصله‌اش زمان رفع است، و گزارش مکتوب با ثبت قبل و بعد. بازه استثنای انتظار قطعه با توافق کتبی ساعت‌شمار را متوقف می‌کند. جعبه شش سؤال پیش از امضا دامنه، پاسخ و رفع جدا، ساعات پوشش، مسئول تأیید، شواهد و مسیر تشدید را فهرست می‌کند. این نمودار مفهومی و تألیفی TehNet است.</desc>
+<text x="480" y="36" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#1a1a1a" font-weight="bold">خط زمان یک رخداد فرضی و نقاط اندازه‌گیری SLA</text>
+<line x1="60" y1="220" x2="900" y2="220" stroke="#37474f" stroke-width="3"/>
+<circle cx="120" cy="220" r="9" fill="#1e88e5" stroke="#263238" stroke-width="2"/>
+<text x="120" y="196" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#1e88e5" font-weight="bold">ثبت رخداد</text>
+<text x="120" y="246" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#546e7a" font-weight="normal">مهر شروع ساعت‌شمار</text>
+<circle cx="330" cy="220" r="9" fill="#6a1b9a" stroke="#263238" stroke-width="2"/>
+<text x="330" y="196" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#6a1b9a" font-weight="bold">اولین پاسخ انسانی</text>
+<text x="330" y="246" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#546e7a" font-weight="normal">فاصله = Response Time</text>
+<circle cx="540" cy="220" r="9" fill="#fb8c00" stroke="#263238" stroke-width="2"/>
+<text x="540" y="196" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#fb8c00" font-weight="bold">شروع کار</text>
+<text x="540" y="246" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#546e7a" font-weight="normal">—</text>
+<circle cx="750" cy="220" r="9" fill="#43a047" stroke="#263238" stroke-width="2"/>
+<text x="750" y="196" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#43a047" font-weight="bold">رفع + تأیید مسئول</text>
+<text x="750" y="246" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#546e7a" font-weight="normal">فاصلهٔ شروع→تأیید = Resolution</text>
+<circle cx="880" cy="220" r="9" fill="#78909c" stroke="#263238" stroke-width="2"/>
+<text x="880" y="196" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#78909c" font-weight="bold">گزارش مکتوب</text>
+<text x="880" y="246" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#546e7a" font-weight="normal">قبل/بعد (الگوی N1/N4)</text>
+<line x1="120" y1="160" x2="330" y2="160" stroke="#6a1b9a" stroke-width="2"/>
+<line x1="120" y1="154" x2="120" y2="166" stroke="#6a1b9a" stroke-width="2"/>
+<line x1="330" y1="154" x2="330" y2="166" stroke="#6a1b9a" stroke-width="2"/>
+<text x="225" y="146" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#6a1b9a" font-weight="bold">Response</text>
+<line x1="540" y1="160" x2="750" y2="160" stroke="#43a047" stroke-width="2"/>
+<line x1="540" y1="154" x2="540" y2="166" stroke="#43a047" stroke-width="2"/>
+<line x1="750" y1="154" x2="750" y2="166" stroke="#43a047" stroke-width="2"/>
+<text x="645" y="146" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#2e7d32" font-weight="bold">Resolution</text>
+<rect x="560" y="280" width="340" height="46" rx="8" fill="#fff3e0" stroke="#ef6c00" stroke-width="2"/>
+<text x="730" y="300" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#e65100" font-weight="normal">استثنا: انتظار قطعه — ساعت‌شمار متوقف با توافق کتبی</text>
+<text x="730" y="318" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#8d6e63" font-weight="normal">(بدون بند استثنا، این بازه علیه هر دو طرف عمل می‌کند)</text>
+<rect x="60" y="360" width="840" height="150" rx="8" fill="#fafafa" stroke="#6a1b9a" stroke-width="2"/>
+<text x="480" y="384" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#6a1b9a" font-weight="bold">شش سؤال قبل از امضا</text>
+<text x="90" y="410" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#37474f" font-weight="normal">۱. دامنهٔ مشمول دستگاه‌به‌دستگاه + استثناهای صریح</text>
+<text x="90" y="426" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#37474f" font-weight="normal">۲. پاسخ و رفع — دو عدد جدا، به‌تفکیک اولویت</text>
+<text x="90" y="442" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#37474f" font-weight="normal">۳. ساعات پوشش + مسیر خارج از ساعت</text>
+<text x="90" y="458" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#37474f" font-weight="normal">۴. مسئول تأیید هر کار + معیار تأیید (الگوی N4)</text>
+<text x="90" y="474" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#37474f" font-weight="normal">۵. شواهد انجام کار: ثبت قبل/بعد (الگوی N1)</text>
+<text x="90" y="490" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#37474f" font-weight="normal">۶. مسیر تشدید + گزارش دوره‌ای</text>
+<text x="480" y="533" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#78909c" font-weight="normal">نمودار مفهومی تألیفی TehNet — نه عکس واقعی — رخداد و اعداد کاملاً فرضی؛ اجرا NOT_RUN</text>
+</svg>

@@ -224,6 +224,9 @@ function validate(candidateInputs) {
     { md: 'tutorials/n2-monitoring-maintenance.fa.md', html: 'tutorials/n2-monitoring-maintenance.gutenberg.html', svg: 'assets/tutorial-n2-monitoring-loop.svg', label: 'N2',
       sectionsOverride: ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'متریک‌های پایه', 'نمونهٔ Netwatch', 'چک‌لیست نگهداری دوره‌ای', 'مثال کارشده', 'خطاهای رایج', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع', 'آموزش‌های مرتبط'],
       service: 'https://tehnet.ir/services/network-support-tehran/' },
+    { md: 'tutorials/n3-support-contract-sla.fa.md', html: 'tutorials/n3-support-contract-sla.gutenberg.html', svg: 'assets/tutorial-n3-sla-timeline.svg', label: 'N3',
+      sectionsOverride: ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'شش سؤال کلیدی قبل از امضا', 'SLA سنجش‌پذیر', 'جدول مقایسهٔ ساختاریافتهٔ A/B', 'خطاهای رایج قبل از امضا', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع', 'آموزش‌های مرتبط'],
+      service: 'https://tehnet.ir/services/network-support-tehran/' },
   ];
   const TUT_SECTIONS_COMMON = ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'تست پذیرش', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'];
   for (let ti = 0; ti < TUTORIALS.length; ti++) {
@@ -284,6 +287,8 @@ if (require.main === module) {
     'tutorials/n4-delivery-acceptance.gutenberg.html',
     'tutorials/n2-monitoring-maintenance.fa.md',
     'tutorials/n2-monitoring-maintenance.gutenberg.html',
+    'tutorials/n3-support-contract-sla.fa.md',
+    'tutorials/n3-support-contract-sla.gutenberg.html',
     'router-catalog.csv',
     'switch-catalog.csv',
     'image-provenance.csv',

@@ -1,0 +1,370 @@
+<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from ../tutorials/n3-support-contract-sla.fa.md -->
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">قرارداد پشتیبانی و SLA — سؤالات کلیدی قبل از امضا (N3)</h1>
+<!-- /wp:heading -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><p>وضعیت درس: <strong>DRAFT / NOT_DEPLOYED — در انتظار مرور.</strong></p><p>آموزش از سری پشتیبانی؛ مخاطب: مدیر کسب‌وکار و مدیر IT.</p><p>سناریوی کاملاً فرضی و آموزشی با دادهٔ ساختگی؛ هیچ پیمانکار/قیمت/پروژهٔ واقعی‌ای در این درس نیست و هیچ اجرای واقعی NOT_RUN است.</p><p>نمودار مفهومی و تألیفی است (نه عکس واقعی).</p></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پاسخ کوتاه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>دو پیشنهاد پشتیبانی وقتی قابل‌مقایسه می‌شوند که شش چیز صریح باشند: <strong>دامنهٔ سرویس‌ها</strong> (چه چیزهایی مشمول است)، <strong>زمان اولین پاسخ و زمان رفع</strong> (دو عدد جدا، نه یک «ریسپانسیو» مبهم)، <strong>مسئول تأیید</strong> هر کار، <strong>استثناها</strong> (قطعی اینترنت ISP، تأمین قطعه، سخت‌افزار مشتری)، <strong>شواهد انجام کار</strong> (ثبت قبل/بعد + گزارش) و <strong>مسیر تشدید</strong> وقتی کار جلو نمی‌رود. بدون این‌ها، هر دو پیشنهاد «پشتیبانی» خوانده می‌شوند ولی دو چیز کاملاً متفاوت را می‌فروشند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پیش‌نیازها</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>الگوی ثبت رخداد و تست پذیرش: <a href="n1-network-troubleshooting.fa.md">عیب‌یابی (N1)</a> · <a href="n4-delivery-acceptance.fa.md">چک‌لیست پذیرش تحویل (N4)</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>مبانی DHCP/DNS برای درک دامنهٔ سرویس: <a href="/guides/mikrotik-dhcp-dns/">M3</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مبنا آزمایشگاه — سناریوی مقایسهٔ فرضی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>بند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقدار فرضی آموزشی</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>سازمان</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دفتر ۲۵ نفره + اتاق سرور کوچک (فرضی)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سرویس‌های مشمول فرضی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>شبکهٔ LAN، اینترنت دفتر، ‏NAS، چاپگر شبکه</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>خارج از دامنه فرضی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سرور فیزیکی، ‏Wi-Fi، نرم‌افزارهای کسب‌وکار</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>هدف درس</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ساخت «برگهٔ سؤالات قبل از امضا» و «جدول مقایسهٔ ساختاریافته» دو پیشنهاد فرضی A/B</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>پیشنهادهای A و B کاملاً ساختگی و فقط برای آموزش ساختار مقایسه‌اند؛ هیچ شباهتی به پیشنهاد واقعی هیچ شرکتی ادعا نمی‌شود.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">شش سؤال کلیدی قبل از امضا</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>#</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>سؤال</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>چرا گران است اگر نباشد</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>خروجی قابل‌ثبت</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>‏۱</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دامنهٔ سرویس دقیقاً چیست؟ (دستگاه‌به‌دستگاه یا «شبکه»؟)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>«شبکه» می‌تواند یعنی فقط روتر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فهرست دستگاه/سرویس مشمول + استثناهای صریح</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۲</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>زمان اولین <strong>پاسخ</strong> و زمان <strong>رفع</strong> چند است؟ (دو عدد جدا)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>پاسخ فوری با رفع هفته‌ای بعد، هم SLA خوانده می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دو عدد به‌تفکیک اولویت (بحرانی/عادی)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۳</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ساعات پوشش چیست؟ (کاری/‏24-7/تعطیلات)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>رخداد جمعه‌شب، دوشنبه صبح حساب می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>جدول ساعت‌ها + مسیر تماس خارج از ساعت</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۴</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مسئول تأیید اتمام هر کار کیست؟</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>«تمام شد» بدون تأیید کارفرما قابل‌چالش است</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>نام/نقش تأییدکننده + معیار تأیید (الگوی N4)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۵</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>استثناها چیست؟ (ISP، تأمین قطعه، سخت‌افزار مشتری)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بدون استثنا، SLA برای چیزی که کنترل ندارید تعهد می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فهرست استثنا + رفتار در استثنا (اطلاع‌رسانی/توقف ساعت)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۶</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>شواهد انجام کار چیست؟</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>«بررسی شد» بدون خروجی قابل‌ررسی نیست</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>الگوی N1/N4: ثبت قبل/بعد + دستورهای اجراشده</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">SLA سنجش‌پذیر — از عبارت به عدد</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>عبارت مبهم</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>نسخهٔ سنجش‌پذیر</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>نحوهٔ اندازه‌گیری</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>«پاسخ‌گوییم»</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>«اولین پاسخ غیر‌خودکار حداکثر ‏2 ساعت کاری از ثبت رخداد»</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مهر زمان ثبت تا مهر زمان اولین پاسخ انسانی</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>«سریع رفع می‌کنیم»</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>«رفع حداکثر ‏8 ساعت کاری برای رخداد بحرانی» (بحرانی=کل دفتر قطع)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تعریف بحرانی از قبل نوشته شود</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>«پشتیبانی دورهای داریم»</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>«یک بازدید/بررسی دوره‌ای ماهانه با گزارش مکتوب»</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>گزارش ماهانه با چک‌لیست (الگوی N2)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>«در دسترس بودن شبکه»</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>عددی فقط با مانیتور قابل‌ادعا است</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بدون مانیتور (N2) هیچ SLA در دسترس بودن قابل‌سنجش نیست — <strong>UNKNOWN برای مبنا بدون ابزار</strong></td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>نمودار زیر توالی یک رخداد و نقاط اندازه‌گیری SLA را نشان می‌دهد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image -->
+<figure class="wp-block-image size-large"><img src="../assets/tutorial-n3-sla-timeline.svg" alt="نمودار توالی رخداد و نقاط اندازه‌گیری SLA درس N3 (تصویر مفهومی تألیفی)" width="900" loading="lazy"/><figcaption>نمودار توالی رخداد و نقاط اندازه‌گیری SLA درس N3 (تصویر مفهومی تألیفی)</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> خط زمان از چپ به راست: ‏«ثبت رخداد» (مهر شروع) → «اولین پاسخ انسانی» (فاصله = Response Time) → «شروع کار» → «رفع و تأیید مسئول» (فاصلهٔ شروع تا تأیید = Resolution Time) → «گزارش مکتوب». زیر خط، بازه‌های استثنا با رنگ متفاوت (مثلاً انتظار قطعه — ساعت‌شمار متوقف با توافق). برچسب «تألیفی/مفهومی».</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">جدول مقایسهٔ ساختاریافتهٔ A/B (نمونهٔ خالی برای پرکردن)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>بند سنجش</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>پیشنهاد A (فرضی)</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>پیشنهاد B (فرضی)</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>دامنه: دستگاه/سرویس مشمول</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>پاسخ بحرانی/عادی (ساعت کاری)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>رفع بحرانی/عادی (ساعت کاری)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ساعات پوشش + مسیر خارج‌ساعت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>استثناها (ISP/قطعه/سخت‌افزار)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>شواهد انجام کار (قبل/بعد)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>مسیر تشدید + نام مسئول</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>گزارش دوره‌ای</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>قاعده: تا هر دو ستون پر نشوند، «ارزان‌تر/بهتر» معنا ندارد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">خطاهای رایج قبل از امضا</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>خطا</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>چرا گران است</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>درست</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>مقایسهٔ فقط قیمت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏SLA بی‌عدد و بی‌دامنه با نصف قیمت، سرویس متفاوتی است</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>جدول ساختاریافتهٔ بالا پر شود</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اشتباه Response با Resolution</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>«پاسخ در ‏15دقیقه» یعنی رفع نیست</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دو عدد جدا بخواهید</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>SLA برای وابستگی خارج از کنترل</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>قطعی ISP یا تأمین قطعه، ساعت‌شمار را منصفانه نمی‌بندد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>استثناها صریح + رفتار هنگام استثنا</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>«ریسپانسیو بودن» بدون ثبت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بدون مهر زمان و لاگ، هیچ ادعایی قابل‌اثبات نیست</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ثبت رخداد (الگوی N1) شرط است</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نبود مسئول تأیید</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>پایان کار جدل‌برانگیز می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تأییدکننده + معیار (الگوی N4)</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">تمرین کوتاه (با پاسخ موردانتظار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>پیشنهادی می‌گوید «پاسخ در ‏15 دقیقه»؛ دو سؤال فوری شما؟ — <strong>پاسخ موردانتظار:</strong> پاسخ انسانی یا خودکار؟ و بعد از پاسخ، رفع تا کِی (Resolution جدا)؟</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>قطعی اینترنت از سمت ISP رخ داده و رفع ‏6 ساعت طول کشیده؛ SLA شکسته؟ — <strong>پاسخ موردانتظار:</strong> اگر استثنای ISP صریح باشد، ساعت‌شمار متوقف/معاف است — به‌شرط ثبت زمان‌ها؛ بدون بند استثنا، قابل‌چالش است.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>«پشتیبانی دوره‌ای» را چطور سنجش‌پذیر کنید؟ — <strong>پاسخ موردانتظار:</strong> تعداد/دورهٔ بازدید + گزارش مکتوب با چک‌لیست (الگوی N2) — بدون گزارش، انجام‌شده حساب نمی‌شود.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>برای مقایسهٔ A/B از کجا شروع کنید؟ — <strong>پاسخ موردانتظار:</strong> پرکردن جدول ساختاریافتهٔ ۸ بندی برای هر دو؛ تا پر نشود هیچ مقایسه‌ای معتبر نیست.</li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">چک‌لیست تحویل (قبل از امضا)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[ ] دامنهٔ مشمول/استثنا دستگاه‌به‌دستگاه فهرست شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] Response و Resolution جدا، به‌تفکیک اولویت و ساعت کاری عددی شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] استثناها (ISP/قطعه/سخت‌افزار) + رفتار ساعت‌شمار صریح است</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] مسئول تأیید + معیار تأیید هر کار مشخص است</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] شواهد انجام کار (ثبت قبل/بعد — الگوی N1/N4) الزامی شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] مسیر تشدید و گزارش دوره‌ای تعریف شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] جدول مقایسهٔ A/B هر دو ستونش کامل است</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] این درس فرضی است؛ اجرا/خرید واقعی NOT_RUN</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">منابع (تأیید/تاریخ‌دار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>الگوهای ثبت رخداد/پذیرش: درس‌های <a href="n1-network-troubleshooting.fa.md">N1</a> و <a href="n4-delivery-acceptance.fa.md">N4</a> همین سری</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>تعریف زنجیره‌ها برای تشخیص «کدام rule» در اختلاف‌های فنی: https://manual.mikrotik.com/docs/firewall-and-quality-of-service/packet-flow-in-routeros/ (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>تجربهٔ فرایندی عمومی قرارداد — روش، بدون ادعای قیمت/پیمانکار/پروژهٔ واقعی</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">آموزش‌های مرتبط و مسیر خدمت</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>پیوند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقصد</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>درس‌های مرتبط</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="n1-network-troubleshooting.fa.md">N1</a> · <a href="n4-delivery-acceptance.fa.md">N4</a> · <a href="n2-monitoring-maintenance.fa.md">N2</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نقشهٔ کامل سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/topic-map/">topic map</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>پشتیبانی شبکهٔ سازمان شما</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="https://tehnet.ir/services/network-support-tehran/">خدمات پشتیبانی شبکهٔ تهران</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>درس بعدی سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>N5 — backup و export پیکربندی MikroTik (تولید در نوبت بعدی؛ فعلاً فقط در topic map)</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
