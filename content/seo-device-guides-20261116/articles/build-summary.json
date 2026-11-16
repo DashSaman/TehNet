@@ -99,6 +99,13 @@
    "type": "tutorial",
    "bytes": 18834,
    "per_model_images": 0
+  },
+  {
+   "md": "../tutorials/m6-dual-wan-failover.fa.md",
+   "html": "../tutorials/m6-dual-wan-failover.gutenberg.html",
+   "type": "tutorial",
+   "bytes": 19264,
+   "per_model_images": 0
   }
  ]
 }

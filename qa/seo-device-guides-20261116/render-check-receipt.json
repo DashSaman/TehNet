@@ -42,7 +42,10 @@
    "assets/tutorial-m4-l3hw-flow.svg": "def4227b8f02e4dbf04bf54015199c3f03d2f3dff02cfcf04a20a6d03a85a3f5",
    "tutorials/m5-vpn-selection.fa.md": "ae4ef5dd1466d3cf953a5919ce95a8c1fa45e72e8c4057d3eaa415a98cedb101",
    "tutorials/m5-vpn-selection.gutenberg.html": "87af887c0d27c64db5315c126b71447bf7af334094932715d215ea6c483d29d2",
-   "assets/tutorial-m5-vpn-architecture.svg": "1141544193204bd01d187b0d14f5dc7536d1857169a132e47c3323c68b4c2e36"
+   "assets/tutorial-m5-vpn-architecture.svg": "1141544193204bd01d187b0d14f5dc7536d1857169a132e47c3323c68b4c2e36",
+   "tutorials/m6-dual-wan-failover.fa.md": "6a591c4138888a6f95f8e432e52f4df403711f00f651670a8db464fa8b0e0448",
+   "tutorials/m6-dual-wan-failover.gutenberg.html": "91d9dd2c4a6c8e313bbf0eb73970bac15117400ff2da571fe9406d8f35a55b59",
+   "assets/tutorial-m6-dual-wan-failover.svg": "5abffc5e8ff5aa26637b7acfec05442d5fe257a726233b0acb40df7b5fe25c87"
   }
  },
  "preview_style_injected_at_render_time": "body{background:#fff;color:#111;font-family:Tahoma,Arial,sans-serif;margin:24px auto;max-width:960px;line-height:1.9} pre{background:#f6f8fa;border:1px solid #ddd;padding:12px;overflow:auto} code{font-family:Consolas,monospace;font-size:13px} table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto} th,td{border:1px solid #999;padding:5px 9px} img{max-width:100%;height:auto} blockquote{border-right:3px solid #1e88e5;padding-right:12px;color:#444}",
@@ -358,6 +361,22 @@
     "img_present": true,
     "links": 7,
     "overflow_styled": 120
+   },
+   "tutorials/m6-dual-wan-failover.gutenberg.html@desktop": {
+    "shot": "m6-desktop-failover.png",
+    "h1": "dual-WAN و failover — دو اینترنت با مسیر پشتیبان (M6)",
+    "img_complete": true,
+    "img_present": true,
+    "links": 9,
+    "overflow_styled": 0
+   },
+   "tutorials/m6-dual-wan-failover.gutenberg.html@mobile": {
+    "shot": "m6-mobile-failover.png",
+    "h1": "dual-WAN و failover — دو اینترنت با مسیر پشتیبان (M6)",
+    "img_complete": true,
+    "img_present": true,
+    "links": 9,
+    "overflow_styled": 424
    }
   },
   "styled_overflow_mobile_px": {
@@ -417,7 +436,8 @@
   "n5": "N5 two-track lesson renders desktop AND mobile both 0px overflow; backup/export tracks + restore-test gate + off-device and no-secrets boxes legible",
   "n6": "N6 incident-path lesson renders desktop 0px overflow, mobile 126px (recorded); seven-step path + escalation/exceptions side boxes legible",
   "m4": "M4 HW-vs-CPU flow lesson renders desktop 0px overflow, mobile 359px (recorded); flow diagram (input->decision->HW/CPU paths) + shared-memory + must-choose + six-requirements boxes legible",
-  "m5": "M5 VPN architecture lesson renders desktop 0px overflow, mobile 120px (recorded); branch/hq boxes + tunnel with two options + documented gotchas box legible"
+  "m5": "M5 VPN architecture lesson renders desktop 0px overflow, mobile 120px (recorded); branch/hq boxes + tunnel with two options + documented gotchas box legible",
+  "m6": "M6 dual-WAN lesson renders desktop 0px overflow, mobile 424px (recorded); two-WAN diagram with test-host boxes + primary/backup + after-failure band legible"
  },
  "boundary_item5": {
   "captures_untracked": "git rm --cached of the 12 evidence PNGs + render-evidence/.gitignore (forward commit; no force-push, no history claims); captures remain on local disk only",
@@ -429,7 +449,7 @@
   "manager-side browser run"
  ],
  "production_touched": false,
- "utc_extended": "2026-11-16T20:58:08Z",
+ "utc_extended": "2026-11-16T21:08:13Z",
  "pages_extra": [
   "tutorials/s2-poe-budget.gutenberg.html",
   "tutorials/s3-sfp-dac-fiber.gutenberg.html",
@@ -440,6 +460,7 @@
   "tutorials/n5-config-backup-export.gutenberg.html",
   "tutorials/n6-incident-path.gutenberg.html",
   "tutorials/m4-intervlan-l3hw.gutenberg.html",
-  "tutorials/m5-vpn-selection.gutenberg.html"
+  "tutorials/m5-vpn-selection.gutenberg.html",
+  "tutorials/m6-dual-wan-failover.gutenberg.html"
  ]
 }

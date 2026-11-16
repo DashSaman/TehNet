@@ -1,0 +1,334 @@
+<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from ../tutorials/m6-dual-wan-failover.fa.md -->
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">dual-WAN و failover — دو اینترنت با مسیر پشتیبان (M6)</h1>
+<!-- /wp:heading -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><p>وضعیت درس: <strong>DRAFT / NOT_DEPLOYED — در انتظار مرور.</strong></p><p>آموزش تصویری از سری MikroTik؛ مخاطب: مدیر شبکه.</p><p>سناریوی کاملاً فرضی و آموزشی با دادهٔ ساختگی؛ هیچ شبکهٔ واقعی دستکاری نشده و هیچ اجرای واقعی NOT_RUN است.</p><p>نمودار مفهومی و تألیفی است (نه عکس واقعی).</p></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پاسخ کوتاه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>failover سندشدهٔ RouterOS = دو default route با <strong>distance متفاوت</strong> (اصلی=1، پشتیبان=2) که هرکدام با `check-gateway=ping` یک <strong>مقصد خارج از شبکه</strong> را مانیتور می‌کنند — نه فقط gateway ISP، چون ممکن است لینک بالا باشد ولی اینترنت قطع. برای gatewayهای از طریق میانی، الگوی رسمی <strong>recursive routing</strong> (مسیر میزبان تست با scope=10 و default با target-scope=11) است. دو یادآوری مهم: NAT باید برای <strong>هر دو</strong> WAN تعریف شود؛ و با سوییچ مسیر، اتصال‌های برقرار می‌شکنند (حالت اتصال‌محور پیشرفته، خارج دامنهٔ این درس).</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پیش‌نیازها</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>مبنا و NAT: <a href="/guides/mikrotik-dhcp-dns/">M3</a> · ثبت قبل/بعد: <a href="n4-delivery-acceptance.fa.md">N4</a> · عیب‌یابی لایه‌ای: <a href="n1-network-troubleshooting.fa.md">N1</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مبنا آزمایشگاه (Lab Baseline) — دقیق و کامل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>بند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقدار فرضی</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>روتر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>hEX (RB750Gr3)، ‏RouterOS v7.16+</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏WAN-A اصلی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ether1 — ‏gateway فرضی ‏10.111.0.1 (ISP-A)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏WAN-B پشتیبان</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ether5 — ‏gateway فرضی ‏10.112.0.1 (ISP-B)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>مقصدهای تست خارج از شبکه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏8.8.8.8 (از WAN-A) · ‏8.8.4.4 (از WAN-B) — عین الگوی سند رسمی</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>LAN</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏192.168.88.0/24 روی `bridge` (مبناى M3)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اجرای واقعی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>NOT_RUN</strong> — دستورها عیناً از سند رسمی failover با مبنا وصل‌شده</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">جدول مقایسهٔ روش‌ها — چه می‌گیرد / چه نمی‌گیرد</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>روش</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>می‌گیرد</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>نمی‌گیرد</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>پیچیدگی</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>‏check-gateway فقط روی gateway ISP</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>قطع لینک مستقیم</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>«لینک بالا، اینترنت قطع» (خرابی میانی ISP)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کم</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏recursive به مقصد خارج از شبکه (الگوی رسمی)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خرابی میانی هم؛ هر WAN با مقصد خودش</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>اگر خود مقصد تست قطع شود (faux failover) → گام دوم: میزبان دوم</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>متوسط</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>دو میزبان تست برای هر WAN</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کاهش ‏faux failover</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سند رسمی: با ‏ECMP، failover کامل فقط وقتی <strong>همه</strong> میزبان‌ها از دسترس خارج شوند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>متوسط</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏ECMP به‌عنوان failover</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏ECMP توزیع بار است نه failover؛ اتصال‌ها می‌شکنند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">دستورهای مبنا — عین الگوی سند رسمی (اجرا NOT_RUN)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros"># NAT برای هر دو WAN (سند رسمی: هر uplink یک masquerade)
+/ip firewall nat
+add chain=srcnat action=masquerade out-interface=ether1 comment="TN-M6 WAN-A"
+add chain=srcnat action=masquerade out-interface=ether5 comment="TN-M6 WAN-B"
+
+# مسیرهای میزبان تست (scope=10) — الگوی recursive سند رسمی
+/ip route
+add dst-address=8.8.8.8 scope=10 gateway=10.111.0.1 comment="TN-M6 تست WAN-A"
+add dst-address=8.8.4.4 scope=10 gateway=10.112.0.1 comment="TN-M6 تست WAN-B"
+
+# default اصلی و پشتیبان — target-scope=11 از مسیرهای تست حل می‌شود
+add distance=1 gateway=8.8.8.8 target-scope=11 check-gateway=ping comment="TN-M6 primary"
+add distance=2 gateway=8.8.4.4 target-scope=11 check-gateway=ping comment="TN-M6 backup"</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>سند رسمی توضیح می‌دهد: default routeها «به‌طور recursive از طریق میزبان‌های تست حل می‌شوند» و «بدون مسیرهای میزبان، هر دو default غیرفعال می‌مانند» — یعنی دو ردیف scope=10 شرط کارکرد کل الگو است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">سناریوی آزمون failover (الگوی N4 — ثبت قبل/بعد)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>گام</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>عمل</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>انتظار</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>شاهد</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>‏۰</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>وضعیت عادی: `/ip route print` — primary ‏active، backup غیرفعال</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فقط primary active</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خروجی print</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۱</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>قطع WAN-A (کابل ether1 — فرض سناریو)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>route backup ‏active می‌شود؛ ترافیک از WAN-B</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>route print + `ping 8.8.8.8` موفق</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۲</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>برگشت WAN-A</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>primary دوباره ‏active (distance کمتر برمی‌گردد)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>route print</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۳</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ثبت اثر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>اتصال‌های برقرار حین سوییچ شکستند (رفتار موردانتظار این الگو)؛ لاگ رخداد ثبت شد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>گزارش قبل/بعد</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>توضیح صادقانه: این الگو failover «مسیر» را سند می‌کند؛ حفظ اتصال‌های موجود حین سوییچ نیازمند طراحی اتصال‌محور (routing-table + mangle) است که خارج دامنهٔ این درس و برای پروژهٔ واقعی یک بند SOW جداگانه است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">نمودار</h2>
+<!-- /wp:heading -->
+
+<!-- wp:image -->
+<figure class="wp-block-image size-large"><img src="../assets/tutorial-m6-dual-wan-failover.svg" alt="نمودار dual-WAN و failover M6 — قبل/بعد قطع (تصویر مفهومی تألیفی)" width="900" loading="lazy"/><figcaption>نمودار dual-WAN و failover M6 — قبل/بعد قطع (تصویر مفهومی تألیفی)</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> روتر hEX در مرکز با دو خروجی: ‏WAN-A به ISP-A ‏(gateway ‏10.111.0.1 — مسیر سبز اصلی) و ‏WAN-B به ISP-B ‏(gateway ‏10.112.0.1 — مسیر خاکستری پشتیبان). از هر ‏WAN یک خط به مقصد تست خارج از شبکه ‏(8.8.8.8 از A و ‏8.8.4.4 از B) کشیده شده — همان چیزی که ‏check-gateway مانیتور می‌کند. نیمهٔ پایین: حالت «بعد از قطع WAN-A» — مسیر سبز با ضربدر و مسیر پشتیبان فعال با فلش. برچسب «تألیفی/مفهومی» و یادداشت NOT_RUN.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">خطاهای رایج</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>نشانه</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>علت محتمل</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>بررسی</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>راه‌حل</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>failover انجام نشد ولی اینترنت قطع بود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>check-gateway فقط gateway ISP را می‌پینگد — لینک up بود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>الگوی recursive با مقصد خارج از شبکه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>الگوی این درس</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>هر دو default غیرفعال ماندند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مسیرهای میزبان تست (scope=10) جا افتاده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سند رسمی: «بدون آن‌ها هر دو default غیرفعال می‌مانند»</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>افزودن دو مسیر میزبان</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>failover نیمه‌کاره با دو میزبان</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>رفتار سندشدهٔ ‏ECMP: بستن فقط با از دسترس‌رفتن <strong>همهٔ</strong> میزبان‌ها</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>طراحی را با نیاز بسنجید</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تک‌میزبان برای failover سریع؛ یا پذیرش رفتار</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>بعد از failover سایت‌ها کند/خطا</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>cache DNS کلاینت/روتر از مسیر قبلی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>flush + تست مجدد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مورد عیب‌یابی عملیاتی، نه rule</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏WAN-B کار نمی‌کند وقتی لازم شد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>NAT برای WAN-B تعریف نشده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/ip firewall nat print`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هر دو masquerade (الگوی سند رسمی)</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">تمرین کوتاه (با پاسخ موردانتظار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>چرا check-gateway روی gateway ISP کافی نیست؟ — <strong>پاسخ موردانتظار:</strong> لینک تا ISP می‌تواند بالا باشد ولی اینترنت قطع؛ مانیتور باید مقصد خارج از شبکه باشد (الگوی recursive سند رسمی).</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>نقش scope=10 و target-scope=11 چیست؟ — <strong>پاسخ موردانتظار:</strong> میزبان‌های تست با scope=10 تعریف می‌شوند و default با target-scope=11 فقط از طریق آن‌ها حل می‌شود؛ بدون آن‌ها defaultها غیرفعال می‌مانند (سند رسمی).</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>‏ECMP را برای failover انتخاب می‌کنید؟ — <strong>پاسخ موردانتظار:</strong> خیر؛ ‏ECMP توزیع بار است و اتصال‌ها می‌شکنند؛ به‌عنوان افزایش قابلیت‌اتکای تشخیص با پذیرش «بستن فقط با از دسترس‌رفتن همهٔ میزبان‌ها» سند شده.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>بعد از failover کاربران می‌گویند بعضی سایت‌ها نمی‌آیند؛ اولین بررسی؟ — <strong>پاسخ موردانتظار:</strong> cache DNS (کلاینت/روتر) و اتصال‌های شکسته؛ flush و اتصال مجدد — رفتار موردانتظار الگو.</li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">چک‌لیست تحویل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[ ] NAT هر دو WAN تعریف شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] الگوی recursive با دو مقصد تست خارج از شبکه (scope=10 / target-scope=11)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] primary/backup با distance=1/2 و check-gateway=ping</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] سناریوی آزمون سه‌گامی با ثبت قبل/بعد اجرا شده (اجرای واقعی این درس NOT_RUN)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] رفتار شکستن اتصال‌ها به مشتری اعلام شده (بند SOW)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] استثنای ISP/قطعه در مسیر رخداد (N6) و قرارداد (N3) هم‌سو است</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">منابع رسمی (fetch شده با تاریخ)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>‏Failover ‏(WAN ‏Backup) — الگوی recursive با scope/target-scope، دستورهای عیناً نقل‌شده، رفتار ‏ECMP: https://manual.mikrotik.com/docs/high-availability-solutions/load-balancing/failover-wan-backup/ (دسترسی 2026-11-17) و نسخهٔ help: https://help.mikrotik.com/docs/spaces/ROS/pages/26476608/Failover+WAN+Backup (دسترسی 2026-11-17)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>Packet Flow (کدام زنجیره هنگام تفسیر لاگ‌ها): https://manual.mikrotik.com/docs/firewall-and-quality-of-service/packet-flow-in-routeros/ (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">آموزش‌های مرتبط و مسیر خدمت</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>پیوند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقصد</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>درس‌های مرتبط</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="n1-network-troubleshooting.fa.md">N1</a> · <a href="n4-delivery-acceptance.fa.md">N4</a> · <a href="n6-incident-path.fa.md">N6</a> · <a href="/guides/mikrotik-dhcp-dns/">M3</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نقشهٔ کامل سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/topic-map/">topic map</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>طراحی dual-WAN برای سازمان شما</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="https://tehnet.ir/services/mikrotik-tehran/">خدمات میکروتیک تهران</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>پایان خوشهٔ M درس‌های فرضی؛ درس‌های بعدی سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>در topic map ثبت است</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->

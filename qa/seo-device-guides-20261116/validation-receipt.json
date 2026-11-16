@@ -3,13 +3,13 @@
  "validator": "validate-seo-guides.cjs rev8 (rev7 + S2 tutorial candidate)",
  "command": "node validate-seo-guides.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-16T20:57:24Z",
- "finished_utc": "2026-11-16T20:57:24Z",
- "control_head": "7054a0bbd353695979f4da11f8a1f6be0ee3b3f3",
+ "started_utc": "2026-11-16T21:07:27Z",
+ "finished_utc": "2026-11-16T21:07:27Z",
+ "control_head": "34f797abae977c8277e24c6addf568ba625ece36",
  "exit": 0,
  "good_candidate": {
   "ok": true,
-  "checks": 117,
+  "checks": 122,
   "failed": 0
  },
  "injected_negatives": [
@@ -128,9 +128,11 @@
   "tutorials/m4-intervlan-l3hw.gutenberg.html": "d666db323e850d08bc00c3670a2f27336d21a3999723b0056970a54fd5b496ca",
   "tutorials/m5-vpn-selection.fa.md": "ae4ef5dd1466d3cf953a5919ce95a8c1fa45e72e8c4057d3eaa415a98cedb101",
   "tutorials/m5-vpn-selection.gutenberg.html": "87af887c0d27c64db5315c126b71447bf7af334094932715d215ea6c483d29d2",
+  "tutorials/m6-dual-wan-failover.fa.md": "6a591c4138888a6f95f8e432e52f4df403711f00f651670a8db464fa8b0e0448",
+  "tutorials/m6-dual-wan-failover.gutenberg.html": "91d9dd2c4a6c8e313bbf0eb73970bac15117400ff2da571fe9406d8f35a55b59",
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",
   "switch-catalog.csv": "aaa5aed94204ad93b312449d9b0c934164c59d2d6375eb3b5727fe94ae164718",
-  "image-provenance.csv": "060d706d5b5d07baeac6df10501ccacc23888e5cc7df5ee7f9df08f64c50d383",
+  "image-provenance.csv": "44ae3c6021c721c674034750120064a5936e5a23cc32a8dc624c62cb16ff2bb1",
   "page-edits/mikrotik-service.proposed.html": "c8c22f3e453bdbc5934d9e3b4e9b84e81e11b0fbfedb9e901fdce300dceabdfb",
   "page-edits/network-setup.proposed.html": "ac244d2142a4022b20b98803e48c218c5138f5398b72a6f7bca1bae1fbe52c0b",
   "page-edits/network-support.proposed.html": "52b58eefe6cd3ff50c65077ddc99f9ae66637a2fe4181bd16a6a9579adebf953"

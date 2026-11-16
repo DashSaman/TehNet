@@ -554,8 +554,55 @@ m5 = svg(960, 560,
     'شعبه با روتر hEX و شبکهٔ ۱۹۲.۱۶۸.۲۰ و مرکز با RB5009 و شبکهٔ ۱۹۲.۱۶۸.۱۰ با یک تونل بین خودشان وصل شده‌اند. دو گزینهٔ سندشده روی تونل نمایش داده شده: WireGuard با کلید عمومی و خصوصی و allowed-address و keepalive، یا IPsec با peer و policy و proposal. پنج تلهٔ سندشده پایین نمودار آمده: فایروال پیش‌فرض جلوی WireGuard، شکستن تونل با masquerade در IPsec، گذر Fasttrack از روی policy، هشدار PSK و حساسیت زمانی. مسیرهای متقابل دو شبکه با خط‌چین بنفش رسم شده است. این نمودار مفهومی و تألیفی TehNet است.',
     chr(10).join(b))
 
+
+# ---------------- M6 dual-WAN failover ----------------
+b = []
+# title states
+b.append(text(300, 40, 'حالت عادی — primary', 13, 'middle', '#2e7d32', 'bold'))
+b.append(text(660, 40, 'بعد از قطع WAN-A — backup فعال', 13, 'middle', '#e65100', 'bold'))
+# center router
+b.append(rect(390, 200, 180, 80, '#fafafa', '#0d47a1', 3))
+b.append(text(480, 230, 'hEX (RB750Gr3)', 12, 'middle', '#0d47a1', 'bold'))
+b.append(text(480, 254, 'LAN: 192.168.88.0/24', 10, 'middle', '#546e7a'))
+# WAN-A (top-left) primary green
+b.append(rect(60, 130, 180, 64, '#fafafa', '#43a047', 3))
+b.append(text(150, 154, 'WAN-A — ISP-A', 12, 'middle', '#2e7d32', 'bold'))
+b.append(text(150, 176, 'gateway فرضی 10.111.0.1 — distance 1', 10, 'middle', '#37474f'))
+# WAN-B (top-right) backup gray->active dashed after failure
+b.append(rect(620, 130, 180, 64, '#fafafa', '#78909c', 3))
+b.append(text(710, 154, 'WAN-B — ISP-B', 12, 'middle', '#546e7a', 'bold'))
+b.append(text(710, 176, 'gateway فرضی 10.112.0.1 — distance 2', 10, 'middle', '#37474f'))
+# test hosts
+b.append(rect(60, 300, 180, 56, '#e8f5e9', '#43a047', 2))
+b.append(text(150, 322, 'میزبان تست: 8.8.8.8', 11, 'middle', '#2e7d32'))
+b.append(text(150, 340, 'scope=10 — check-gateway', 9, 'middle', '#546e7a'))
+b.append(rect(620, 300, 180, 56, '#fff3e0', '#fb8c00', 2))
+b.append(text(710, 322, 'میزبان تست: 8.8.4.4', 11, 'middle', '#e65100'))
+b.append(text(710, 340, 'scope=10 — check-gateway', 9, 'middle', '#546e7a'))
+# links normal state
+b.append(line(240, 162, 390, 220, '#43a047', 4))
+b.append(line(620, 162, 570, 220, '#78909c', 3, '8,6'))
+b.append(line(150, 194, 150, 300, '#43a047', 2))
+b.append(line(710, 194, 710, 300, '#78909c', 2))
+b.append(text(300, 185, 'primary — distance 1', 10, 'middle', '#2e7d32', 'bold'))
+b.append(text(600, 185, 'backup — distance 2', 10, 'middle', '#546e7a'))
+# LAN below
+b.append(rect(390, 360, 180, 60, '#fafafa', '#1e88e5', 2))
+b.append(text(480, 386, 'LAN کاربران', 11, 'middle', '#0d47a1'))
+b.append(text(480, 406, '192.168.88.0/24', 10, 'middle', '#546e7a'))
+b.append(line(480, 280, 480, 360, '#37474f', 3))
+# after-failure panel
+b.append(rect(60, 440, 840, 56, '#fdecea', '#d32f2f', 2))
+b.append(text(480, 462, 'بعد از قطع WAN-A: مسیر primary از دسترس (check-gateway به 8.8.8.8) → مسیر backup فعال می‌شود', 11, 'middle', '#d32f2f', 'bold'))
+b.append(text(480, 482, 'اتصال‌های برقرار حین سوییچ شکسته می‌شوند (رفتار موردانتظار این الگو) — DNS cache هم flush شود', 10, 'middle', '#616161'))
+b.append(text(480, 533, 'نمودار مفهومی تألیفی TehNet — نه عکس واقعی — الگوی عیناً از سند رسمی Failover (دسترسی 2026-11-17)؛ اجرا NOT_RUN', 10, 'middle', '#78909c'))
+m6 = svg(960, 560,
+    'نمودار dual-WAN و failover درس M6 با دو WAN و میزبان‌های تست',
+    'روتر hEX با دو خروجی اینترنت: WAN-A به عنوان primary با distance یک که میزبان تست هشت‌هشت‌هشت‌هشت از طریق آن مانیتور می‌شود و WAN-B به عنوان پشتیبان با distance دو و میزبان تست هشت‌هشت‌چهار‌چهار. مسیرهای میزبان با scope ده تعریف شده‌اند و مسیرهای default با target-scope یازده به‌طور recursive از طریق میزبان‌ها حل می‌شوند؛ بدون این مسیرها هر دو default غیرفعال می‌مانند. بعد از قطع WAN-A مسیر پشتیبان فعال می‌شود و اتصال‌های برقرار می‌شکنند که در چک‌لیست پذیرش ثبت شده است. این نمودار مفهومی و تألیفی TehNet است.',
+    chr(10).join(b))
+
 os.makedirs(OUT, exist_ok=True)
-for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4), ('tutorial-m5-vpn-architecture.svg', m5)):
+for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4), ('tutorial-m5-vpn-architecture.svg', m5), ('tutorial-m6-dual-wan-failover.svg', m6)):
     p = os.path.join(OUT, name)
     with io.open(p, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)

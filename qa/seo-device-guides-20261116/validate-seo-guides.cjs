@@ -239,6 +239,9 @@ function validate(candidateInputs) {
     { md: 'tutorials/m5-vpn-selection.fa.md', html: 'tutorials/m5-vpn-selection.gutenberg.html', svg: 'assets/tutorial-m5-vpn-architecture.svg', label: 'M5',
       sectionsOverride: ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'جدول مقایسه', 'مثال کارشده', 'جدول تصمیم', 'نمودار معماری', 'خطاهای رایج', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'],
       service: 'https://tehnet.ir/services/mikrotik-tehran/' },
+    { md: 'tutorials/m6-dual-wan-failover.fa.md', html: 'tutorials/m6-dual-wan-failover.gutenberg.html', svg: 'assets/tutorial-m6-dual-wan-failover.svg', label: 'M6',
+      sectionsOverride: ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'جدول مقایسهٔ روش‌ها', 'دستورهای مبنا', 'سناریوی آزمون failover', 'خطاهای رایج', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'],
+      service: 'https://tehnet.ir/services/mikrotik-tehran/' },
   ];
   const TUT_SECTIONS_COMMON = ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'تست پذیرش', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'];
   for (let ti = 0; ti < TUTORIALS.length; ti++) {
@@ -309,6 +312,8 @@ if (require.main === module) {
     'tutorials/m4-intervlan-l3hw.gutenberg.html',
     'tutorials/m5-vpn-selection.fa.md',
     'tutorials/m5-vpn-selection.gutenberg.html',
+    'tutorials/m6-dual-wan-failover.fa.md',
+    'tutorials/m6-dual-wan-failover.gutenberg.html',
     'router-catalog.csv',
     'switch-catalog.csv',
     'image-provenance.csv',
