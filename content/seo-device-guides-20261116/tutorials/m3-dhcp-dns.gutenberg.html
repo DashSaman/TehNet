@@ -307,45 +307,56 @@ add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و �
 <!-- /wp:code -->
 
 <!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">کنترل مثبت — accept موقتِ فقط-کلاینت‌آزمایشی، قبل از default drop</h3>
+<h3 class="wp-block-heading">کنترل مثبت — accept موقتِ فقط-کلاینت‌آزمایشی، قبل از default drop واقعی</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>کد واقعی زنجیرهٔ input دو <strong>accept</strong> محدود دارد و بستنِ بقیه با default drop آخر است (rule drop جداگانه‌ای برای 53 وجود ندارد). پس کنترل مثبت با اضافه‌کردن دو accept موقتِ فقط برای کلاینت آزمایشی، <strong>بلافاصله قبل از default drop</strong> انجام می‌شود؛ اندیس به‌جای حدس، محاسبه می‌شود:</p>
+<p>کد واقعی زنجیرهٔ input دو <strong>accept</strong> محدود دارد و بستنِ بقیه با default drop آخر است (rule drop جداگانه‌ای برای 53 وجود ندارد). کنترل مثبت یعنی افزودن دو accept موقتِ فقط برای کلاینت آزمایشی، <strong>بلافاصله قبل از همان default drop</strong>. دو نکتهٔ کنسولی الزامی: متغیر `:local` بین خط‌های تعاملی جدا زنده نمی‌ماند (باید در یک بلاک `do={}` یا بدون متغیر نوشته شود)؛ و شمارهٔ ردیف print هویت پایدار rule نیست — هدف باید با comment یکتا <strong>find</strong> شود و قبل از هر add، «دقیقاً یک» هدف وجود داشته باشد (در غیر این صورت fail closed):</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code class="language-routeros">:local n [:len [/ip firewall filter find where chain=input]]
-/ip firewall filter
-add chain=input action=accept protocol=udp dst-port=53 src-address=10.9.9.9 comment="TN-M3 کنترل موقت udp — حذف پس از تست" place-before=($n - 1)
-add chain=input action=accept protocol=tcp dst-port=53 src-address=10.9.9.9 comment="TN-M3 کنترل موقت tcp — حذف پس از تست" place-before=($n - 1)</code></pre>
+<pre class="wp-block-code"><code class="language-routeros"># گام کنترل — قبل از هر add: دقیقاً یک هدف؟ اگر خروجی ≠ 1 بود، ادامه ندهید
+:put [:len [/ip firewall filter find where chain="input" and action="drop" and comment~"TN-M3 input default drop"]]
+
+# درج دو accept موقت با find اینلاین به همان هدف یکتا
+/ip firewall filter add chain=input action=accept protocol=udp dst-port=53 src-address=10.9.9.9 comment="TN-M3 کنترل موقت udp — حذف پس از تست" place-before=[:find [/ip firewall filter where chain="input" and action="drop" and comment~"TN-M3 input default drop"]]
+/ip firewall filter add chain=input action=accept protocol=tcp dst-port=53 src-address=10.9.9.9 comment="TN-M3 کنترل موقت tcp — حذف پس از تست" place-before=[:find [/ip firewall filter where chain="input" and action="drop" and comment~"TN-M3 input default drop"]]</code></pre>
 <!-- /wp:code -->
 
 <!-- wp:paragraph -->
-<p>با هر دو rule کنترل، پرس‌وجوی کلاینت آزمایشی باید موفق شود (مسیر رفت+برگشت سالم). سپس مرز <strong>بازگردانده می‌شود</strong>:</p>
+<p>با هر دو rule کنترل، پرس‌وجوی کلاینت آزمایشی باید موفق شود (مسیر رفت+برگشت سالم). سپس مرز <strong>بازگردانده می‌شود</strong> (حذف با comment یکتا):</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
 <pre class="wp-block-code"><code class="language-routeros">/ip firewall filter
-remove [find where comment="TN-M3 کنترل موقت udp — حذف پس از تست"]
-remove [find where comment="TN-M3 کنترل موقت tcp — حذف پس از تست"]</code></pre>
+remove [find where comment~"TN-M3 کنترل موقت udp"]
+remove [find where comment~"TN-M3 کنترل موقت tcp"]
+:put "TN-M3: boundary restored"</code></pre>
 <!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>اگر گام کنترل ≠ 1 بود یا remove چیزی حذف نکرد، <strong>fail closed</strong> — بدون شمارندهٔ قابل‌استناد، timeout قابل‌تفسیر نیست.</p>
+<!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
 <p><strong>ترتیب تفسیر (الزامی):</strong> تا کنترل مثبت موفق نشده، timeout را اثر فایروال ننامید — timeout بدون کنترل فقط می‌تواند بی‌مسیری باشد.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">تفکیک UDP/TCP در پروب‌ها و شمارنده‌ها</h3>
+<h3 class="wp-block-heading">تفکیک UDP/TCP و شمارنده‌ها — جریان تازه و دلتای ≥1</h3>
 <!-- /wp:heading -->
 
 <!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
-<li>پروب UDP: `nslookup nas.lan 192.168.88.1` (حالت پیش‌فرض)</li>
+<li>پروب UDP: `nslookup nas.lan 192.168.88.1` (حالت پیش‌فرض UDP)</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
-<li>پروب TCP: `nslookup -vc nas.lan 192.168.88.1` (پرس‌وجوی TCP)</li>
+<li>پروب TCP: `nslookup -vc nas.lan 192.168.88.1` (پرس‌وجوی TCP — فرمان جدا)</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
-<li>شمارنده‌ها با `/ip firewall filter print stats`: برای کلاینت مورداعتماد، acceptهای udp و tcp جدا شمرده می‌شوند؛ برای کلاینت غیرمورداعتمادِ بعد از بازگرداندن مرز، <strong>شمارندهٔ default drop</strong> به‌ازای هر پروب رشد می‌کند (پروب udp = +1، پروب tcp = +1 — دو پروب جدا، دو دلتای جدا).</li>
+<li><strong>یک فرمان ≠ یک بسته:</strong> یک nslookup ممکن است چند پرس‌وجو/تلاش مجدد بسازد و handshake رد‌شدهٔ TCP می‌تواند retransmit داشته باشد — پس وعدهٔ «دقیقاً +1» نادرست است.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><strong>جریان تازه:</strong> هر فراخوانی nslookup یک فراخوانی جدید است (پورت مبدأ جدید → ورودی conntrack جدید) و مسیر «established/related accept → default drop» را دور نمی‌زند. حذف ruleهای کنترل، وضعیت اتصال‌های قبلی را پاک نمی‌کند — اگر ورودی conntrack قدیمی مشکوک بود، `/ip firewall connection print` را ببینید یا قبل از پروب بعدی همان رخداد را با فراخوانی تازه بسازید.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><strong>روش دلتا (به‌جای عددمیثاق):</strong> قبل از هر پروب، شمارندهٔ default drop را یادداشت کنید؛ بعد از پروب، دلتای مثبت (≥1) با همان جهت پروتکل = بسته(ها) رسیده و مرز بسته است. بدون دلتا یا بدون کنترل مثبت، timeout قابل‌تفسیر نیست.</li>
 <!-- /wp:list-item -->
 </ul>
 <!-- /wp:list -->
@@ -430,9 +441,9 @@ remove [find where comment="TN-M3 کنترل موقت tcp — حذف پس از �
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>همان کلاینت، پس از remove دو rule کنترل</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>پروب UDP سپس پروب TCP (با فاصله)</td>
+<td>پروب UDP سپس پروب TCP (با فاصله، هرکدام فراخوانی تازه)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>هر دو timeout؛ شمارندهٔ default drop دوبار رشد می‌کند (دو دلتای جدا برای udp/tcp)</td>
+<td>هر دو timeout؛ شمارندهٔ default drop برای هر پروب <strong>دلتای مثبت (≥1)</strong> نشان می‌دهد — عددمیثاق «دقیقاً +1» ادعا نمی‌شود</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>منفی</td>
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->

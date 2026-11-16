@@ -30,6 +30,44 @@
 <h2 class="wp-block-heading">مبنا آزمایشگاه (Lab Baseline) — دقیق و کامل</h2>
 <!-- /wp:heading -->
 
+<!-- wp:paragraph -->
+<p>سخت‌افزار سند رسمی CRS112-8P-4S-IN: <strong>هشت پورت Gigabit RJ45 ‏(PoE-out) + چهار پورت ‏SFP ‏1G</strong> — این مدل پورت ‏SFP+ ‏10G ندارد و آپ‌لینک نوری‌اش سقف ‏1Gbps است. تخصیص پورت‌به‌پورت شامل آپ‌لینک و مدیریت:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>پورت CRS112</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>تخصیص</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>VLAN</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>ether1-5 (۵×RJ45 PoE)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۵ کاربر دفتر — access ‏pvid=10</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>10</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ether6-7 (۲×RJ45 PoE)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۲ دوربین — access ‏pvid=20</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>20</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ether8 (RJ45 PoE)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>آپ‌لینک ترانک 1G با Cat6</strong> به سوئیچ مرکز — تگ‌دار 10/20/88</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>trunk</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>sfp-sfpplus1-4 ‏(4×SFP ‏1G)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>رشد — ماژول‌های ‏1G SFP ‏(مدل دقیق per-لینک: ‏UNKNOWN تا انتخاب؛ این پورت‌ها ‏10G نیستند)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
 <!-- wp:table -->
 <figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
 <th>بند</th>
@@ -38,66 +76,88 @@
 <!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
 <td>سوئیچ طبقه</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>CRS112-8P-4S-IN — ‏۸ کاربر دفتر ‏(VLAN10) + ‏۴ دوربین ‏(VLAN20)</td>
+<td>CRS112-8P-4S-IN — ‏۵ کاربر ‏(VLAN10) + ‏۲ دوربین ‏(VLAN20) + آپ‌لینک + ‏۴×SFP رشد</td>
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>سوئیچ مرکز</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>CRS326-24G-2S+RM — هستهٔ شبکه</td>
-<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
-<td>آپ‌لینک</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>‏SFP+ ‏1m ‏DAC ‏(فاصلهٔ رک‌به‌رک — الگوی S3) یا کابل ‏Cat6 ‏1G</td>
+<td>CRS326-24G-2S+RM — هستهٔ شبکه (پورت GbE مقابل با Cat6)</td>
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>‏VLANهای عبوری از ترانک</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>‏10 (دفتر) + ‏20 (دوربین) + ‏88 (مدیریت — مبناى M3)</td>
-<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
-<td>ظرفیت پایین‌دست</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>‏۱۲ پورت ‏1G ‏(۱۲ کاربر بالقوه) → جمع ‏تئوریک ‏12Gbps</td>
+<td>‏10 (دفتر) + ‏20 (دوربین) + ‏88 (مدیریت — در این درس روی پل هر دو سوئیچ تعریف می‌شود؛ از M2/M3 ارثی نیست)</td>
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>اجرای واقعی</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td><strong>NOT_RUN</strong> — دستورها الگوی سند ‏Bridging and Switching</td>
+<td><strong>NOT_RUN</strong> — دستورها الگوی سند ‏Bridging and Switching با شروعِ صریح از تنظیمات کارخانه</td>
 <!-- /wp:table-cell --></tr></tbody></table>
 <!-- /wp:table -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">محاسبهٔ ظرفیت آپ‌لینک — قبل از انتخاب</h2>
+<h2 class="wp-block-heading">محاسبهٔ ظرفیت آپ‌لینک — با واحد و جهت درست</h2>
 <!-- /wp:heading -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code class="language-text">سقف تئوریک پایین‌دست:   ۱۲ پورت × 1Gbps = 12Gbps
-مصرف واقع‌بینانه:        هر کاربر به‌ندرت همزمان خط را پر می‌کند
-ضریب تجمعی رایج:        4:1 تا 8:1 (فرض آموزشی — UNKNOWN per-سازمان)
-آپ‌لینک 1G برای:         جمع واقعی ≤ ~125-250MB/s و رشد کم
-آپ‌لینک 10G برای:        سرور/NAS/دوربین‌های سنگین روی همان سوئیچ
-قاعده:                  آپ‌لینک ≥ بزرگ‌ترین ترافیک همزمانِ محتمل + رشد ۲۴ ماه</code></pre>
+<pre class="wp-block-code"><code class="language-text">سقف تئوریک پایین‌دست:    ۷ پورت استفاده‌شده × 1Gbps = 7Gbps (۵ کاربر + ۲ دوربین)
+                       (۱۲ پورت مسی کل؛ رشد روی SFPها/پورت‌های آزاد)
+ضریب تجمعی (فرض سناریو — UNKNOWN per-سازمان): 4:1 تا 8:1
+نیازمندی آپ‌لینک از این فرض:  12Gbps ÷ 4 = 3Gbps  ·  12Gbps ÷ 8 = 1.5Gbps
+یعنی:                  آپ‌لینک 1G از نظر تئوریک این نسبت را برآورده نمی‌کند؛
+                       توجیه 1G فقط با فرض واقع‌بینانهٔ ترافیک همزمان کم (سناریو-فرض، نه قاعده)
+واحدها (سند رسمی واحدی):  1Gbps = 125MB/s حداکثر خام در هر جهت — «250MB/s» یعنی 2Gbps یک‌جهته
+دوطرفه:                 Full-duplex یعنی هر جهت مستقل 1Gbps؛ جمع دو جهت بودجهٔ یک‌جهته را دو برابر نمی‌کند
+قاعده:                  آپ‌لینک ≥ بزرگ‌ترین ترافیک همزمانِ محتمل + رشد ۲۴ ماه؛ در غیر این صورت ارتقای مدل/آپ‌لینک</code></pre>
 <!-- /wp:code -->
 
 <!-- wp:paragraph -->
-<p>ضریب تجمعی یک فرض مهندسی است نه قاعدهٔ ثابت — اندازه‌گیری واقعی (مثلاً مانیتور پورت در بازه‌های شلوغ — الگوی N2) ملاک نهایی است.</p>
+<p>دو یادداشت صادقانه: ‏(۱) ضریب تجمعی فرض سناریو است نه مقدار sourced — اندازه‌گیری واقعی (الگوی N2) ملاک نهایی؛ ‏(۲) اگر محاسبه نشان دهد ‏1G کافی نیست، این مدل برای آن ترافیک انتخاب غلط است (SFPهایش ‏1G هستند) → مدل با آپ‌لینک ‏10G (الگوی CRS326 با ‏S+ و ماژول‌های S3) — ارتقای مدل، نه معجزه روی آپ‌لینک 1G.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">راه‌اندازی ترانک — دو طرف باید هم‌نوع باشند</h2>
+<h2 class="wp-block-heading">راه‌اندازی ترانک — شروع صریح و توالی کامل (فیلترینگ آخر)</h2>
 <!-- /wp:heading -->
 
-<!-- wp:code -->
-<pre class="wp-block-code"><code class="language-routeros"># سمت CRS112 (طبقه) — پورت آپ‌لینک: sfp-sfpplus1 با DAC به مرکز
-/interface bridge set bridge vlan-filtering=yes hw=yes
-/interface bridge vlan
-add bridge=bridge vlan-ids=10 tagged=sfp-sfpplus1
-add bridge=bridge vlan-ids=20 tagged=sfp-sfpplus1
-add bridge=bridge vlan-ids=88 tagged=sfp-sfpplus1
+<!-- wp:paragraph -->
+<p>شروع صریح: هر دو سوئیچ از تنظیمات کارخانه/فاقد پل سفارشی ‏(بازرسی اول)؛ نگارش ‏RouterOS v7.16+. اگر bridge پیش‌فرض وجود دارد، مالکیت را بازرسی و همان را به‌کار بگیرید یا حذف/بازسازی کنید — دو bridge روی پورت‌های مشترک ممنوع. توجه سازوکار: CRS112 ‏VLAN/HW را از طریق پلِ hardware-offloaded سند می‌کند؛ پس از هر تغییر، `hw` flag پورت‌ها را در `/interface bridge port print` چک کنید.</p>
+<!-- /wp:paragraph -->
 
-# سمت مرکز (CRS326) — پورت مقابل با همان سه VLAN تگ‌دار
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros"># --- سمت CRS112 (طبقه) ---
+# بازرسی مالکیت
+/interface bridge print
+/interface bridge port print
+# پل و اعضا با pvid هر access پورت
+/interface bridge
+add name=bridge1 vlan-filtering=no protocol-mode=rstp
+/interface bridge port
+add bridge=bridge1 interface=ether1 pvid=10
+add bridge=bridge1 interface=ether2 pvid=10
+add bridge=bridge1 interface=ether3 pvid=10
+add bridge=bridge1 interface=ether4 pvid=10
+add bridge=bridge1 interface=ether5 pvid=10
+add bridge=bridge1 interface=ether6 pvid=20
+add bridge=bridge1 interface=ether7 pvid=20
+add bridge=bridge1 interface=ether8 frame-types=admit-all comment="uplink trunk 1G Cat6"
+# جدول VLAN: ترانک تگ‌دار برای هر سه VLAN + اعضای access
 /interface bridge vlan
-add bridge=bridge vlan-ids=10,20,88 tagged=sfp-sfpplus1</code></pre>
+add bridge=bridge1 vlan-ids=10 tagged=ether8 untagged=ether1,ether2,ether3,ether4,ether5
+add bridge=bridge1 vlan-ids=20 tagged=ether8 untagged=ether6,ether7
+add bridge=bridge1 vlan-ids=88 tagged=ether8,bridge1
+# مسیر مدیریت روی VLAN88 (الگوی tagged CPU path)
+/interface vlan
+add name=mgmt88 vlan-id=88 interface=bridge1
+/ip address
+add address=192.168.88.2/24 interface=mgmt88
+# فیلترینگ آخر — با مسیر بازگشت: set bridge1 vlan-filtering=no از جلسهٔ MAC/Console
+/interface bridge
+set bridge1 vlan-filtering=yes
+
+# --- سمت CRS326 (مرکز) — پورت مقابل (فرض: ether24) با همان سه VLAN تگ‌دار ---
+/interface bridge vlan
+add bridge=bridge vlan-ids=10,20,88 tagged=ether24</code></pre>
 <!-- /wp:code -->
 
 <!-- wp:paragraph -->
-<p>(الگوی سندشدهٔ ‏Bridging and Switching: ترانک = VLANها تگ‌دار روی پورت آپ‌لینک؛ جدول ‏VLAN هر دو طرف باید همهٔ VLANهای عبوری را داشته باشد — جاافتادن یک VLAN در یک طرف = قطع همان VLAN در طرف دیگر.)</p>
+<p>هر دو طرف باید عضو مشترک و تنظیم یکسان داشته باشند؛ جدول چاپی به‌تنهایی اثبات forward/isolation نیست — ردیف‌های ماتریس پذیرش با نام پورت مبدأ/مقصد و نقش VLAN/IP اجرا می‌شوند (الگوی N4).</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:image -->
@@ -105,7 +165,7 @@ add bridge=bridge vlan-ids=10,20,88 tagged=sfp-sfpplus1</code></pre>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
-<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> دو سوئیچ: طبقه ‏(CRS112 با ‏۱۲ پورت کاربر دوربین) و مرکز ‏(CRS326). بین آن‌ها آپ‌لینک با برچسب «ترانک تگ‌دار ‏VLAN ‏10/20/88». روی آپ‌لینک جعبهٔ محاسبه: سقف پایین‌دست ‏12Gbps تئوریک، ضریب تجمعی، آپ‌لینک انتخابی. یک هشدار قرمز: «ترانک untagged = از دست دادن جداسازی». راهنما و برچسب «تألیفی/مفهومی».</p>
+<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> دو سوئیچ: طبقه ‏(CRS112-8P-4S-IN با تخصیص ‏۵ کاربر ‏+ ۲ دوربین + ether8 آپ‌لینک + ‏۴×SFP رشد) و مرکز ‏(CRS326). بین آن‌ها آپ‌لینک Cat6 ‏1G با برچسب «ترانک تگ‌دار ‏VLAN ‏10/20/88». جعبهٔ محاسبه با واحد درست: ‏7Gbps تئوریک پایین‌دست ÷ 4:1-8:1 = ‏1.5-3Gbps نیازمندی (یعنی ‏1G با فرض سناریو پوشش داده می‌شود و عدد تئوریک را نه)، ‏1Gbps = ‏125MB/s هر جهت. هشدار قرمز: «ترانک untagged = از دست دادن جداسازی». راهنما و برچسب «تألیفی/مفهومی».</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
@@ -202,11 +262,11 @@ add bridge=bridge vlan-ids=10,20,88 tagged=sfp-sfpplus1</code></pre>
 <ol class="wp-block-list"><!-- wp:list-item -->
 <li>آپ‌لینک untagged با VLAN10 چه خطری دارد؟ — <strong>پاسخ موردانتظار:</strong> ‏VLANهای 20/88 از ترانک حذف می‌شوند؛ جداسازی و مدیریت از سوئیچ طبقه از دست می‌رود.</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
-<li>‏۱۲ پورت 1G پشت آپ‌لینک 1G یعنی چه؟ — <strong>پاسخ موردانتظار:</strong> oversubscription ‏12:1 تئوریک؛ با ضریب تجمعی واقعی معمولاً قابل‌تحمل ولی نیازمند اندازه‌گیری (الگوی N2) و برنامهٔ ارتقا.</li>
+<li>‏۱۲ پورت 1G پشت آپ‌لینک 1G یعنی چه؟ — <strong>پاسخ موردانتظار:</strong> oversubscription تئوریک؛ از نسبت 4:1-8:1 نیازمندی واقعی ‏1.5-3Gbps است یعنی ‏1G تئوریک را برآورده نمی‌کند — تنها با فرض ترافیک همزمان کم و اندازه‌گیری (الگوی N2) قابل‌تحمل؛ وگرنه ارتقای آپ‌لینک/مدل.</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
 <li>VLAN مدیریتی 88 را به ترانک اضافه نکنیم؟ — <strong>پاسخ موردانتظار:</strong> مدیریت سوئیچ طبقه از مرکز ناممکن می‌شود؛ یا باید مسیر مدیریتی جدا باشد.</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
-<li>کابل آپ‌لینک رک‌به‌رک ۱ متری؟ — <strong>پاسخ موردانتظار:</strong> ‏DAC (الگوی S3: ‏S+DA0001/0003) — ارزان‌تر و بدون ماژول.</li>
+<li>کابل آپ‌لینک رک‌به‌رک ۱ متری روی CRS112؟ — <strong>پاسخ موردانتظار:</strong> پورت‌های SFP این مدل ‏1G هستند؛ ‏S+DA0001 ‏(DAC ‏10G) برای این مدل گزینهٔ درستی نیست — Cat6 ‏RJ45 ‏1G یا ماژول ‏1G SFP مناسب فاصله (الگوی S3؛ مدل دقیق ماژول per-لینک UNKNOWN تا انتخاب).</li>
 <!-- /wp:list-item -->
 </ol>
 <!-- /wp:list -->

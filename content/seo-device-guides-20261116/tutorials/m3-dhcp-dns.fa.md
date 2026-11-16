@@ -152,32 +152,39 @@ gateway بیرون از subnet به‌خودی‌خود با «عبارت ARP» 
    add dst-address=10.9.9.0/24 gateway=bridge comment="TN-M3 مسیر برگشتِ فقط-تست — بعد از تست حذف شود"
    ```
 
-### کنترل مثبت — accept موقتِ فقط-کلاینت‌آزمایشی، قبل از default drop
+### کنترل مثبت — accept موقتِ فقط-کلاینت‌آزمایشی، قبل از default drop واقعی
 
-کد واقعی زنجیرهٔ input دو **accept** محدود دارد و بستنِ بقیه با default drop آخر است (rule drop جداگانه‌ای برای 53 وجود ندارد). پس کنترل مثبت با اضافه‌کردن دو accept موقتِ فقط برای کلاینت آزمایشی، **بلافاصله قبل از default drop** انجام می‌شود؛ اندیس به‌جای حدس، محاسبه می‌شود:
-
-```routeros
-:local n [:len [/ip firewall filter find where chain=input]]
-/ip firewall filter
-add chain=input action=accept protocol=udp dst-port=53 src-address=10.9.9.9 comment="TN-M3 کنترل موقت udp — حذف پس از تست" place-before=($n - 1)
-add chain=input action=accept protocol=tcp dst-port=53 src-address=10.9.9.9 comment="TN-M3 کنترل موقت tcp — حذف پس از تست" place-before=($n - 1)
-```
-
-با هر دو rule کنترل، پرس‌وجوی کلاینت آزمایشی باید موفق شود (مسیر رفت+برگشت سالم). سپس مرز **بازگردانده می‌شود**:
+کد واقعی زنجیرهٔ input دو **accept** محدود دارد و بستنِ بقیه با default drop آخر است (rule drop جداگانه‌ای برای 53 وجود ندارد). کنترل مثبت یعنی افزودن دو accept موقتِ فقط برای کلاینت آزمایشی، **بلافاصله قبل از همان default drop**. دو نکتهٔ کنسولی الزامی: متغیر `:local` بین خط‌های تعاملی جدا زنده نمی‌ماند (باید در یک بلاک `do={}` یا بدون متغیر نوشته شود)؛ و شمارهٔ ردیف print هویت پایدار rule نیست — هدف باید با comment یکتا **find** شود و قبل از هر add، «دقیقاً یک» هدف وجود داشته باشد (در غیر این صورت fail closed):
 
 ```routeros
-/ip firewall filter
-remove [find where comment="TN-M3 کنترل موقت udp — حذف پس از تست"]
-remove [find where comment="TN-M3 کنترل موقت tcp — حذف پس از تست"]
+# گام کنترل — قبل از هر add: دقیقاً یک هدف؟ اگر خروجی ≠ 1 بود، ادامه ندهید
+:put [:len [/ip firewall filter find where chain="input" and action="drop" and comment~"TN-M3 input default drop"]]
+
+# درج دو accept موقت با find اینلاین به همان هدف یکتا
+/ip firewall filter add chain=input action=accept protocol=udp dst-port=53 src-address=10.9.9.9 comment="TN-M3 کنترل موقت udp — حذف پس از تست" place-before=[:find [/ip firewall filter where chain="input" and action="drop" and comment~"TN-M3 input default drop"]]
+/ip firewall filter add chain=input action=accept protocol=tcp dst-port=53 src-address=10.9.9.9 comment="TN-M3 کنترل موقت tcp — حذف پس از تست" place-before=[:find [/ip firewall filter where chain="input" and action="drop" and comment~"TN-M3 input default drop"]]
 ```
+
+با هر دو rule کنترل، پرس‌وجوی کلاینت آزمایشی باید موفق شود (مسیر رفت+برگشت سالم). سپس مرز **بازگردانده می‌شود** (حذف با comment یکتا):
+
+```routeros
+/ip firewall filter
+remove [find where comment~"TN-M3 کنترل موقت udp"]
+remove [find where comment~"TN-M3 کنترل موقت tcp"]
+:put "TN-M3: boundary restored"
+```
+
+اگر گام کنترل ≠ 1 بود یا remove چیزی حذف نکرد، **fail closed** — بدون شمارندهٔ قابل‌استناد، timeout قابل‌تفسیر نیست.
 
 **ترتیب تفسیر (الزامی):** تا کنترل مثبت موفق نشده، timeout را اثر فایروال ننامید — timeout بدون کنترل فقط می‌تواند بی‌مسیری باشد.
 
-### تفکیک UDP/TCP در پروب‌ها و شمارنده‌ها
+### تفکیک UDP/TCP و شمارنده‌ها — جریان تازه و دلتای ≥1
 
-- پروب UDP: `nslookup nas.lan 192.168.88.1` (حالت پیش‌فرض)
-- پروب TCP: `nslookup -vc nas.lan 192.168.88.1` (پرس‌وجوی TCP)
-- شمارنده‌ها با `/ip firewall filter print stats`: برای کلاینت مورداعتماد، acceptهای udp و tcp جدا شمرده می‌شوند؛ برای کلاینت غیرمورداعتمادِ بعد از بازگرداندن مرز، **شمارندهٔ default drop** به‌ازای هر پروب رشد می‌کند (پروب udp = +1، پروب tcp = +1 — دو پروب جدا، دو دلتای جدا).
+- پروب UDP: `nslookup nas.lan 192.168.88.1` (حالت پیش‌فرض UDP)
+- پروب TCP: `nslookup -vc nas.lan 192.168.88.1` (پرس‌وجوی TCP — فرمان جدا)
+- **یک فرمان ≠ یک بسته:** یک nslookup ممکن است چند پرس‌وجو/تلاش مجدد بسازد و handshake رد‌شدهٔ TCP می‌تواند retransmit داشته باشد — پس وعدهٔ «دقیقاً +1» نادرست است.
+- **جریان تازه:** هر فراخوانی nslookup یک فراخوانی جدید است (پورت مبدأ جدید → ورودی conntrack جدید) و مسیر «established/related accept → default drop» را دور نمی‌زند. حذف ruleهای کنترل، وضعیت اتصال‌های قبلی را پاک نمی‌کند — اگر ورودی conntrack قدیمی مشکوک بود، `/ip firewall connection print` را ببینید یا قبل از پروب بعدی همان رخداد را با فراخوانی تازه بسازید.
+- **روش دلتا (به‌جای عددمیثاق):** قبل از هر پروب، شمارندهٔ default drop را یادداشت کنید؛ بعد از پروب، دلتای مثبت (≥1) با همان جهت پروتکل = بسته(ها) رسیده و مرز بسته است. بدون دلتا یا بدون کنترل مثبت، timeout قابل‌تفسیر نیست.
 
 جدول تست:
 
@@ -189,7 +196,7 @@ remove [find where comment="TN-M3 کنترل موقت tcp — حذف پس از �
 | 4 | همان کلاینت | `nslookup -vc nas.lan` (پروب TCP) | پاسخ TCP | مثبت |
 | 5 | همان کلاینت | `nslookup www.google.com` | پاسخ (از cache/بالادستی) | مثبت |
 | 6 | کلاینت غیرمورداعتماد (تنظیم فیکسچر بالا) + دو accept کنترل موقت در | پروب UDP و پروب TCP | **هر دو موفق** — اثبات مسیر رفت‌وبرگشت (پیش‌شرط تفسیر هر timeout) | کنترل |
-| 7 | همان کلاینت، پس از remove دو rule کنترل | پروب UDP سپس پروب TCP (با فاصله) | هر دو timeout؛ شمارندهٔ default drop دوبار رشد می‌کند (دو دلتای جدا برای udp/tcp) | منفی |
+| 7 | همان کلاینت، پس از remove دو rule کنترل | پروب UDP سپس پروب TCP (با فاصله، هرکدام فراخوانی تازه) | هر دو timeout؛ شمارندهٔ default drop برای هر پروب **دلتای مثبت (≥1)** نشان می‌دهد — عددمیثاق «دقیقاً +1» ادعا نمی‌شود | منفی |
 | 8 | همان کلاینت | `ping 192.168.88.1` | timeout — ICMP فقط از مورداعتماد (شاهد: رشد شمارندهٔ default drop) | منفی |
 | 9 | سمت روتر | `:put [:resolve nas.lan]` | 192.168.88.10 — فقط بررسی cache روتر؛ **به‌جای تست 1-4 نیست** | ابزار |
 

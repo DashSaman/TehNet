@@ -20,14 +20,14 @@
    "md": "../tutorials/m2-vlan-small-office.fa.md",
    "html": "../tutorials/m2-vlan-small-office.gutenberg.html",
    "type": "tutorial",
-   "bytes": 52262,
+   "bytes": 53115,
    "per_model_images": 0
   },
   {
    "md": "../tutorials/m3-dhcp-dns.fa.md",
    "html": "../tutorials/m3-dhcp-dns.gutenberg.html",
    "type": "tutorial",
-   "bytes": 39570,
+   "bytes": 41788,
    "per_model_images": 0
   },
   {
@@ -111,7 +111,7 @@
    "md": "../tutorials/s5-uplink-trunk.fa.md",
    "html": "../tutorials/s5-uplink-trunk.gutenberg.html",
    "type": "tutorial",
-   "bytes": 16265,
+   "bytes": 21032,
    "per_model_images": 0
   },
   {
