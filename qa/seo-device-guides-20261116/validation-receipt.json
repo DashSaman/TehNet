@@ -3,13 +3,13 @@
  "validator": "validate-seo-guides.cjs rev8 (rev7 + S2 tutorial candidate)",
  "command": "node validate-seo-guides.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-16T22:13:42Z",
- "finished_utc": "2026-11-16T22:13:42Z",
- "control_head": "13b81ff2779a8bef5daa5a67a627c5badd3ec958",
+ "started_utc": "2026-11-16T22:23:05Z",
+ "finished_utc": "2026-11-16T22:23:06Z",
+ "control_head": "2da2cc7e5c265b5edcb3a35ace88a10019142ca2",
  "exit": 0,
  "good_candidate": {
   "ok": true,
-  "checks": 137,
+  "checks": 142,
   "failed": 0
  },
  "injected_negatives": [
@@ -136,9 +136,11 @@
   "tutorials/s6-psu-power.gutenberg.html": "976a0c5214a20cfb8898f271a978c7ebc52991ce04d1b41134ed0ce57f44163c",
   "tutorials/s5-loop-rstp-lacp.fa.md": "2667bdb9449dac0d1c3afb096eabe867b602d47a695e5d7de7400ca6009aa12a",
   "tutorials/s5-loop-rstp-lacp.gutenberg.html": "55e05da6276515441a8d0c8e192c8767008dc044005294cc96a1f5b1c95a8568",
+  "tutorials/n1-office-design.fa.md": "10035f348e16082bf5d2c10b6b423ebd2b9c9fc9f050fb5cd999022ee807f635",
+  "tutorials/n1-office-design.gutenberg.html": "41c820dd57e0f639fd3618124e35512c3d580d1ca22403a62be55bcd0b74e519",
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",
   "switch-catalog.csv": "aaa5aed94204ad93b312449d9b0c934164c59d2d6375eb3b5727fe94ae164718",
-  "image-provenance.csv": "2abd173ac0ff181f1903bbdea255b6d2f3912cc85c9f8c640ffaf6aa99e3670b",
+  "image-provenance.csv": "31f22ba9d03a491041eae5cc5eebe6a0145a9b8ec3212df12ff056d2df3f5fa1",
   "page-edits/mikrotik-service.proposed.html": "c8c22f3e453bdbc5934d9e3b4e9b84e81e11b0fbfedb9e901fdce300dceabdfb",
   "page-edits/network-setup.proposed.html": "ac244d2142a4022b20b98803e48c218c5138f5398b72a6f7bca1bae1fbe52c0b",
   "page-edits/network-support.proposed.html": "52b58eefe6cd3ff50c65077ddc99f9ae66637a2fe4181bd16a6a9579adebf953"

@@ -760,8 +760,34 @@ s6c = svg(960, 560,
     'NAS و سرور با کابل DAC مستقیم به سوئیچ CRS309 که هشت پورت SFP+ ده گیگابیت دارد وصل شده‌اند. سوئیچ ظرفیت سوئیچینگ صد و شصت و دو گیگابیت و throughput هشتاد و یک گیگابیت دارد. سرعت قبل ارتقا صد و بیست و پنج مگابایت بر ثانیه و بعد ارتقا هزار و دویست و پنجاه مگابایت بر ثانیه است. تلهٔ بعدی دیسک است نه شبکه. این نمودار مفهومی و تألیفی TehNet است.',
     chr(10).join(b))
 
+
+# ---------------- N1c office-design ladder ----------------
+b = []
+b.append(text(480, 36, 'شش گام طراحی شبکهٔ دفتر', 13, 'middle', '#1a1a1a', 'bold'))
+steps_n1 = [
+    ('۱. نیازسنجی', 'جدول demand: کاربر · دوربین · تلفن · NAS · AP', 90, '#1e88e5'),
+    ('۲. توپولوژی ستاره‌ای', 'سوئیچ مرکز — همه به سوئیچ، سوئیچ به روتر', 190, '#6a1b9a'),
+    ('۳. نقشهٔ پورت', 'جدول پورت/دستگاه/VLAN/PoE', 290, '#fb8c00'),
+    ('۴. آدرس‌دهی و VLAN', 'جدول VLAN/subnet/gateway', 390, '#43a047'),
+    ('۵. انتخاب تجهیز', 'سوئیچ پورت کافی · روتر ظرفیت · PoE budget', 490, '#0d47a1'),
+    ('۶. مستندسازی و پذیرش', 'الگوی N4 — ماتریس تست مثبت/منفی', 590, '#d32f2f'),
+]
+for title, sub, y, color in steps_n1:
+    b.append(rect(120, y - 30, 720, 66, '#fafafa', color, 2))
+    b.append(text(180, y - 6, title, 12, 'middle', color, 'bold'))
+    b.append(text(480, y - 4, sub, 10, 'middle', '#37474f'))
+    if y < 590:
+        b.append(line(480, y + 36, 480, y + 90, '#37474f', 2))
+        b.append(text(494, y + 62, 'OK', 10, 'start', '#43a047', 'bold'))
+b.append(text(120, 632, 'رشد ۲۴ ماه: +۲۰-۵۰٪ پورت — در سوئیچ و آپ‌لینک لحاظ شود', 10, 'middle', '#e65100'))
+b.append(text(480, 662, 'نمودار مفهومی تألیفی TehNet — نه عکس واقعی — اجرا NOT_RUN', 10, 'middle', '#78909c'))
+n1c = svg(960, 690,
+    'نمودار شش‌گام طراحی شبکهٔ دفتر درس N1',
+    'شش گام طراحی: نیازسنجی با جدول تقاضا، توپولوژی ستاره‌ای با سوئیچ مرکز، نقشه پورت به پورت، آدرس‌دهی و VLAN، انتخاب تجهیز با PoE، و مستندسازی با آزمون پذیرش. هشدار رشد بیست‌وچهار ماهه در بالای نمودار آمده است. این نمودار مفهومی و تألیفی TehNet است.',
+    chr(10).join(b))
+
 os.makedirs(OUT, exist_ok=True)
-for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4), ('tutorial-m5-vpn-architecture.svg', m5), ('tutorial-m6-dual-wan-failover.svg', m6), ('tutorial-s5-uplink-trunk.svg', s5), ('tutorial-s6-psu-power.svg', s6), ('tutorial-s5-loop-rstp-lacp.svg', s5c), ('tutorial-s6-nas-upgrade.svg', s6c)):
+for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4), ('tutorial-m5-vpn-architecture.svg', m5), ('tutorial-m6-dual-wan-failover.svg', m6), ('tutorial-s5-uplink-trunk.svg', s5), ('tutorial-s6-psu-power.svg', s6), ('tutorial-s5-loop-rstp-lacp.svg', s5c), ('tutorial-s6-nas-upgrade.svg', s6c), ('tutorial-n1-office-design.svg', n1c)):
     p = os.path.join(OUT, name)
     with io.open(p, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)

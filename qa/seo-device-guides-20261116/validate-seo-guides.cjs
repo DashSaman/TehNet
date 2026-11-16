@@ -332,6 +332,8 @@ if (require.main === module) {
     'tutorials/s6-psu-power.gutenberg.html',
     'tutorials/s5-loop-rstp-lacp.fa.md',
     'tutorials/s5-loop-rstp-lacp.gutenberg.html',
+    'tutorials/n1-office-design.fa.md',
+    'tutorials/n1-office-design.gutenberg.html',
     'router-catalog.csv',
     'switch-catalog.csv',
     'image-provenance.csv',

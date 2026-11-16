@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="690" viewBox="0 0 960 690">
+<title>نمودار شش‌گام طراحی شبکهٔ دفتر درس N1</title>
+<desc>شش گام طراحی: نیازسنجی با جدول تقاضا، توپولوژی ستاره‌ای با سوئیچ مرکز، نقشه پورت به پورت، آدرس‌دهی و VLAN، انتخاب تجهیز با PoE، و مستندسازی با آزمون پذیرش. هشدار رشد بیست‌وچهار ماهه در بالای نمودار آمده است. این نمودار مفهومی و تألیفی TehNet است.</desc>
+<text x="480" y="36" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#1a1a1a" font-weight="bold">شش گام طراحی شبکهٔ دفتر</text>
+<rect x="120" y="60" width="720" height="66" rx="8" fill="#fafafa" stroke="#1e88e5" stroke-width="2"/>
+<text x="180" y="84" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1e88e5" font-weight="bold">۱. نیازسنجی</text>
+<text x="480" y="86" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">جدول demand: کاربر · دوربین · تلفن · NAS · AP</text>
+<line x1="480" y1="126" x2="480" y2="180" stroke="#37474f" stroke-width="2"/>
+<text x="494" y="152" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#43a047" font-weight="bold">OK</text>
+<rect x="120" y="160" width="720" height="66" rx="8" fill="#fafafa" stroke="#6a1b9a" stroke-width="2"/>
+<text x="180" y="184" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#6a1b9a" font-weight="bold">۲. توپولوژی ستاره‌ای</text>
+<text x="480" y="186" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">سوئیچ مرکز — همه به سوئیچ، سوئیچ به روتر</text>
+<line x1="480" y1="226" x2="480" y2="280" stroke="#37474f" stroke-width="2"/>
+<text x="494" y="252" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#43a047" font-weight="bold">OK</text>
+<rect x="120" y="260" width="720" height="66" rx="8" fill="#fafafa" stroke="#fb8c00" stroke-width="2"/>
+<text x="180" y="284" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#fb8c00" font-weight="bold">۳. نقشهٔ پورت</text>
+<text x="480" y="286" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">جدول پورت/دستگاه/VLAN/PoE</text>
+<line x1="480" y1="326" x2="480" y2="380" stroke="#37474f" stroke-width="2"/>
+<text x="494" y="352" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#43a047" font-weight="bold">OK</text>
+<rect x="120" y="360" width="720" height="66" rx="8" fill="#fafafa" stroke="#43a047" stroke-width="2"/>
+<text x="180" y="384" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#43a047" font-weight="bold">۴. آدرس‌دهی و VLAN</text>
+<text x="480" y="386" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">جدول VLAN/subnet/gateway</text>
+<line x1="480" y1="426" x2="480" y2="480" stroke="#37474f" stroke-width="2"/>
+<text x="494" y="452" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#43a047" font-weight="bold">OK</text>
+<rect x="120" y="460" width="720" height="66" rx="8" fill="#fafafa" stroke="#0d47a1" stroke-width="2"/>
+<text x="180" y="484" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0d47a1" font-weight="bold">۵. انتخاب تجهیز</text>
+<text x="480" y="486" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">سوئیچ پورت کافی · روتر ظرفیت · PoE budget</text>
+<line x1="480" y1="526" x2="480" y2="580" stroke="#37474f" stroke-width="2"/>
+<text x="494" y="552" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#43a047" font-weight="bold">OK</text>
+<rect x="120" y="560" width="720" height="66" rx="8" fill="#fafafa" stroke="#d32f2f" stroke-width="2"/>
+<text x="180" y="584" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#d32f2f" font-weight="bold">۶. مستندسازی و پذیرش</text>
+<text x="480" y="586" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">الگوی N4 — ماتریس تست مثبت/منفی</text>
+<text x="120" y="632" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#e65100" font-weight="normal">رشد ۲۴ ماه: +۲۰-۵۰٪ پورت — در سوئیچ و آپ‌لینک لحاظ شود</text>
+<text x="480" y="662" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#78909c" font-weight="normal">نمودار مفهومی تألیفی TehNet — نه عکس واقعی — اجرا NOT_RUN</text>
+</svg>
