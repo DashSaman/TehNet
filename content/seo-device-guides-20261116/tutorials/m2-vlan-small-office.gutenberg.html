@@ -397,8 +397,26 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">گام ۱: سمت سوئیچ — پل، پورت‌ها و جدول VLAN (فیلترینگ هنوز خاموش)</h2>
+<h2 class="wp-block-heading">گام ۱: سمت سوئیچ — بازرسی مالکیت، سپس پل/پورت‌ها/جدول VLAN (فیلترینگ هنوز خاموش)</h2>
 <!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>قبل از هر add، مالکیت bridge/پورت را بازرسی کنید</strong> — کارخانهٔ CRS112 معمولاً یک bridge پیش‌فرض (نام `bridge`) دارد و add دوم روی همان پورت‌ها ممنوع است:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros">/interface bridge print
+/interface bridge port print</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>اگر bridge پیش‌فرض خالی/بدون عضو است: یا همان را به‌کار بگیرید (`set` با پارامترهای گام زیر) یا اول حذفش کنید و بعد add — <strong>هرگز دو bridge روی پورت‌های مشترک نگه ندارید</strong>.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>دستورهای ادامهٔ این گام با فرض ساخت `bridge1` نوشته شده‌اند؛ اگر bridge موجود را به‌کار گرفتید، به‌جای هر add از `set` با نام همان استفاده کنید.</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
 
 <!-- wp:code -->
 <pre class="wp-block-code"><code class="language-routeros"># CRS112-8P-4S-IN
@@ -449,13 +467,16 @@ add dst-address=0.0.0.0/0 gateway=192.168.10.1</code></pre>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>فقط در صورت موفقیت مرحلهٔ الف:</p>
+<p>فقط در صورت موفقیت مرحلهٔ الف — و با ترتیبِ حفظِ جلسه:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>قدم ب-۰ (الزامی قبل از حذف IP):</strong> جلسهٔ جایگزین را «قبل از حذف» باز و احراز کنید: در WinBox از فهرست Neighbors، اتصال به `bridge1` با <strong>MAC address</strong> برقرار کنید (لایهٔ ۲، مستقل از IP) و ورود موفق را ببینید. تا وقتی این جلسهٔ MAC باز و پاسخ‌گوست، حذف IP موقت خطر قطع کامل مدیریت ندارد. پنجرهٔ WinBox با IP موقت را هم نبندید تا در صورت نیاز بلافاصله همان‌جا rollback کنید.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code class="language-routeros"># مرحلهٔ ب — انتقال مدیریت به مسیر تگ‌دار VLAN10 و سپس فعال‌سازی فیلترینگ
-/ip address
-remove [find comment="mgmt موقت untagged — پس از فیلترینگ حذف شود"]
+<pre class="wp-block-code"><code class="language-routeros"># مرحلهٔ ب — transition اتمی روی جلسهٔ MAC (چهار دستور پشت‌سرهم، بدون وقفه)
+/ip address remove [find comment="mgmt موقت untagged — پس از فیلترینگ حذف شود"]
 /interface vlan
 add name=sw-mgmt10 vlan-id=10 interface=bridge1
 /ip address
@@ -465,7 +486,11 @@ set bridge1 vlan-filtering=yes</code></pre>
 <!-- /wp:code -->
 
 <!-- wp:paragraph -->
-<p>این گام عمداً آخرین گام سمت سوئیچ است — دقیقاً به همان ترتیبی که سند رسمی توصیه می‌کند. از این نقطه مسیر مدیریتی تگ‌دار است: فریم بی‌تگ لپ‌تاپ روی ACC-10 با `pvid=10` تگ می‌شود، تا `bridge1` (عضو تگ‌دار VLAN10 در جدول) می‌رسد و `sw-mgmt10` آن را می‌بیند؛ تست ۱۴ جدول پذیرش همین مسیر را می‌سنجد.</p>
+<p>این گام عمداً آخرین گام سمت سوئیچ است — دقیقاً به همان ترتیبی که سند رسمی توصیه می‌کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>شرط بازیابی آزموده‌شده:</strong> اگر بلافاصله پس از این چهار دستور حتی جلسهٔ MAC هم پاسخ نداد (یعنی مسیر تگ‌دار هم نیامده)، همان اتصال MAC را دوباره باز کنید و برگردانید: `/interface bridge set bridge1 vlan-filtering=no` — و به مرحلهٔ الف برگردید. از این نقطه (تأییدشده با تست ۱۴) مسیر مدیریتی تگ‌دار است: فریم بی‌تگ لپ‌تاپ روی ACC-10 با `pvid=10` تگ می‌شود، تا `bridge1` (عضو تگ‌دار VLAN10 در جدول) می‌رسد و `sw-mgmt10` آن را می‌بیند.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->

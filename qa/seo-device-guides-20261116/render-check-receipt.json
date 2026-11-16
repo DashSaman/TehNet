@@ -1,59 +1,236 @@
 {
- "packet": "TN-M2-M3-RENDER-CHECK-20261116 + articles extension (same wake)",
- "tool": "ZCode in-app browser (IAB, Chromium) via control-browser skill — real browser execution, NOT a static check",
- "server": "preview-server.py on 127.0.0.1 (stdlib http.server with explicit charset=utf-8, mimicking the WordPress theme header)",
- "command": "node_repl browser cells; python -I preview-server.py 8138",
- "utc": "2026-11-16T18:48:18Z",
- "mode": "LOCAL_TEST — localhost only; preview style (white bg/code bg/table borders) injected at render time for readability; generated HTML files NOT modified; no production touch",
- "viewports": {
-  "desktop": "1280x900",
-  "mobile": "390x844"
- },
- "pages": [
-  "tutorials/m2-vlan-small-office.gutenberg.html",
-  "tutorials/m3-dhcp-dns.gutenberg.html",
-  "articles/mikrotik-routers.gutenberg.html",
-  "articles/mikrotik-switches-crs.gutenberg.html"
- ],
- "evidence_files": [
-  "m2-desktop-code.png",
-  "m2-desktop-svg.png",
-  "m2-desktop-top.png",
-  "m2-mobile-top.png",
-  "m3-desktop-code.png",
-  "m3-desktop-svg.png",
-  "m3-desktop-top.png",
-  "m3-mobile-top.png",
-  "routers-desktop-schematic.png",
-  "routers-desktop-table.png",
-  "routers-mobile-top.png",
-  "switches-desktop-table.png"
- ],
- "checks": {
-  "svg_render": "both diagrams render; labels/port/legend readable at 900px display width; M2 port labels restacked (no overlap); M3 flow labels shortened into the gap (no client-box collision)",
-  "code_display": "pre.wp-block-code shows escaped RouterOS commands (verified textContent: class language-routeros, /system backup visible) with preview styling",
-  "links": "M2 page: 6 links with hrefs; M1/M2/M3 cross-links present as /guides/... proposed slugs",
-  "keyboard": "Tab keypress moved focus to an <A> element (document.activeElement verified)",
-  "rtl": "Persian RTL text renders correctly with charset=utf-8 (characterSet UTF-8 observed)",
-  "mobile": "390x844 renders readable, no horizontal cutoff of text content",
-  "articles": {
-   "routers": "17 imgs render (decision diagram + per-model schematics); comparison table clean — 0 separator junk cells after builder rev4; RTL headers readable at 1280",
-   "switches": "16 imgs render (schematics with SKU captions); junkCells=0 verified programmatically in-page; table render pass",
-   "note": "article previews re-rendered after rev4 separator fix — evidence routers-desktop-table.png / routers-desktop-schematic.png / routers-mobile-top.png / switches-desktop-table.png"
+ "packet": "TN-M2-M3-RENDER-CHECK-20261116 (v2 — independently interpretable)",
+ "executed_by": "GLM-reported LOCAL_TEST run (IAB Chromium via existing control-browser tooling) — manager/side execution not claimed",
+ "utc": "2026-11-16T19:40:10Z",
+ "server": "preview-server.py 127.0.0.1:8138 (stdlib, charset=utf-8; mimics WP theme header)",
+ "bound_inputs": {
+  "sha256": {
+   "tutorials/m2-vlan-small-office.fa.md": "5099bd097ffbd245890dc00149f56a0df3477eec946d2d0631e30a864fbcac85",
+   "tutorials/m2-vlan-small-office.gutenberg.html": "39407f987f4d7e4c98fbb714724be680afa54cbfc392a7573f81ff9382811a6a",
+   "tutorials/m3-dhcp-dns.fa.md": "ad0cc4e0c71a7247963fca019f617f712fced60308cbb6872b2d45a86ade4bc7",
+   "tutorials/m3-dhcp-dns.gutenberg.html": "72fc02395bfc0d040379a36018f2fe75e71e631cf9fba1f2087240417cfaf121",
+   "assets/tutorial-m2-topology.svg": "d4fe6335c11873dea21587858a38d9180446b06d8ce2122e3579941921bf70d6",
+   "assets/tutorial-m3-dhcp-dns-flow.svg": "ded90672128454bf759a5669685d34415937369bd4003449195f2e6d0138ee5a",
+   "articles/mikrotik-routers.gutenberg.html": "e8365d01aac407d5b40acd277e2b43a0d3751c048b8bfc51fed1af7a76a0cb75",
+   "articles/mikrotik-switches-crs.gutenberg.html": "8ced5d505eb352f21b5596706b65c804993f13881326aa89eb41f4e9e2e4a066"
   }
  },
- "findings_fixed_this_packet": [
-  "builder rev4: Markdown table separator rows previously rendered as visible junk <td>--- cells in ALL outputs (11+7+29+17 cells) — now skipped; regenerated outputs have 0",
-  "tutorial figure images: fixed 640x360 distorted the 960-wide SVG aspect — now width=900 without fixed height",
-  "M2 SVG: port labels restacked to avoid overlap; device text re-wrapped",
-  "M3 SVG: flow labels shortened/two-line; untrusted-client box enlarged with counter + positive-control text (aligned to new blocker-3 fixture)",
-  "preview-only finding (NOT an artifact defect): raw fragment HTML has no <meta charset>; standalone preview without charset header shows mojibake. WordPress supplies charset at render time; preview harness now sends charset=utf-8 explicitly"
- ],
+ "preview_style_injected_at_render_time": "body{background:#fff;color:#111;font-family:Tahoma,Arial,sans-serif;margin:24px auto;max-width:960px;line-height:1.9} pre{background:#f6f8fa;border:1px solid #ddd;padding:12px;overflow:auto} code{font-family:Consolas,monospace;font-size:13px} table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto} th,td{border:1px solid #999;padding:5px 9px} img{max-width:100%;height:auto} blockquote{border-right:3px solid #1e88e5;padding-right:12px;color:#444}",
+ "replayable_checks": {
+  "measured_page_metrics_js": "(() => { const imgs=[...document.querySelectorAll('img')]; imgs.forEach(i=>i.loading='eager'); return new Promise(res=>setTimeout(()=>res({h1:(document.querySelector('h1')||{}).textContent||null,images_total:imgs.length,images_loaded_eager_forced:imgs.filter(i=>i.complete&&i.naturalWidth>0).length,overflow_raw_px:document.documentElement.scrollWidth-document.documentElement.clientWidth,code_blocks:document.querySelectorAll('pre code').length,tables:document.querySelectorAll('table').length,separator_cells:[...document.querySelectorAll('td,th')].filter(c=>/^-{2,}$/.test(c.textContent.trim())).length}),900)) })()",
+  "styled_overflow_js": "inject PREVIEW_STYLE then read document.documentElement.scrollWidth - document.documentElement.clientWidth",
+  "keyboard_traversal_js": "focus first a[href] via el.focus(); press Tab once; read document.activeElement",
+  "viewport_note": "desktop=1280x900, mobile=390x844 (IAB setViewportSize)"
+ },
+ "measured": {
+  "per_page_viewport": {
+   "tutorials/m2-vlan-small-office.gutenberg.html@desktop": {
+    "code_blocks": 9,
+    "h1": "VLAN برای دفتر کوچک — راهنمای تصویری MikroTik (M2)",
+    "images_loaded_eager_forced": 1,
+    "images_total": 1,
+    "overflow_raw_px": 0,
+    "separator_cells": 0,
+    "tables": 7,
+    "overflow_with_table_wrapper_px": 0,
+    "tab_focus_after_up_to_3_tabs": {
+     "href": null,
+     "tag": "BODY"
+    }
+   },
+   "tutorials/m3-dhcp-dns.gutenberg.html@desktop": {
+    "code_blocks": 12,
+    "h1": "DHCP و DNS در MikroTik — راهنمای تصویری پیکربندی و عیب‌یابی (M3)",
+    "images_loaded_eager_forced": 1,
+    "images_total": 1,
+    "overflow_raw_px": 0,
+    "separator_cells": 0,
+    "tables": 5,
+    "overflow_with_table_wrapper_px": 0,
+    "tab_focus_after_up_to_3_tabs": {
+     "href": null,
+     "tag": "BODY"
+    }
+   },
+   "articles/mikrotik-routers.gutenberg.html@desktop": {
+    "code_blocks": 0,
+    "h1": "انتخاب و مقایسهٔ روترهای میکروتیک؛ از hEX قدیمی تا RB5009 و کور سازمانی",
+    "images_loaded_eager_forced": 17,
+    "images_total": 17,
+    "overflow_raw_px": 0,
+    "separator_cells": 0,
+    "tables": 2,
+    "overflow_with_table_wrapper_px": 0,
+    "tab_focus_after_up_to_3_tabs": {
+     "href": null,
+     "tag": "BODY"
+    }
+   },
+   "articles/mikrotik-switches-crs.gutenberg.html@desktop": {
+    "code_blocks": 0,
+    "h1": "سوئیچ میکروتیک برای شرکت؛ مقایسهٔ CSS، CRS و تصمیم سوئیچ/روتر/روترسوئیچ",
+    "images_loaded_eager_forced": 16,
+    "images_total": 16,
+    "overflow_raw_px": 0,
+    "separator_cells": 0,
+    "tables": 1,
+    "overflow_with_table_wrapper_px": 0,
+    "tab_focus_after_up_to_3_tabs": {
+     "href": null,
+     "tag": "BODY"
+    }
+   },
+   "tutorials/m2-vlan-small-office.gutenberg.html@mobile": {
+    "code_blocks": 9,
+    "h1": "VLAN برای دفتر کوچک — راهنمای تصویری MikroTik (M2)",
+    "images_loaded_eager_forced": 1,
+    "images_total": 1,
+    "overflow_raw_px": 839,
+    "separator_cells": 0,
+    "tables": 7,
+    "overflow_with_table_wrapper_px": 839,
+    "tab_focus_after_up_to_3_tabs": {
+     "href": null,
+     "tag": "BODY"
+    },
+    "overflow_styled_px": 234,
+    "keyboard_traversal": {
+     "links_total": 6,
+     "focus_started_on_link": true,
+     "after_one_tab": {
+      "href": "http://127.0.0.1:8138/guides/mikrotik-routers/",
+      "tag": "A"
+     }
+    }
+   },
+   "tutorials/m3-dhcp-dns.gutenberg.html@mobile": {
+    "code_blocks": 12,
+    "h1": "DHCP و DNS در MikroTik — راهنمای تصویری پیکربندی و عیب‌یابی (M3)",
+    "images_loaded_eager_forced": 1,
+    "images_total": 1,
+    "overflow_raw_px": 718,
+    "separator_cells": 0,
+    "tables": 5,
+    "overflow_with_table_wrapper_px": 718,
+    "tab_focus_after_up_to_3_tabs": {
+     "href": null,
+     "tag": "BODY"
+    },
+    "overflow_styled_px": 133,
+    "keyboard_traversal": {
+     "links_total": 7,
+     "focus_started_on_link": true,
+     "after_one_tab": {
+      "href": "http://127.0.0.1:8138/guides/mikrotik-vlan/",
+      "tag": "A"
+     }
+    }
+   },
+   "articles/mikrotik-routers.gutenberg.html@mobile": {
+    "code_blocks": 0,
+    "h1": "انتخاب و مقایسهٔ روترهای میکروتیک؛ از hEX قدیمی تا RB5009 و کور سازمانی",
+    "images_loaded_eager_forced": 17,
+    "images_total": 17,
+    "overflow_raw_px": 313,
+    "separator_cells": 0,
+    "tables": 2,
+    "overflow_with_table_wrapper_px": 313,
+    "tab_focus_after_up_to_3_tabs": {
+     "href": null,
+     "tag": "BODY"
+    },
+    "overflow_styled_px": 0,
+    "keyboard_traversal": {
+     "links_total": 15,
+     "focus_started_on_link": true,
+     "after_one_tab": {
+      "href": "http://127.0.0.1:8138/articles/mikrotik-routers.gutenberg.html#ch1",
+      "tag": "A"
+     }
+    }
+   },
+   "articles/mikrotik-switches-crs.gutenberg.html@mobile": {
+    "code_blocks": 0,
+    "h1": "سوئیچ میکروتیک برای شرکت؛ مقایسهٔ CSS، CRS و تصمیم سوئیچ/روتر/روترسوئیچ",
+    "images_loaded_eager_forced": 16,
+    "images_total": 16,
+    "overflow_raw_px": 352,
+    "separator_cells": 0,
+    "tables": 1,
+    "overflow_with_table_wrapper_px": 313,
+    "tab_focus_after_up_to_3_tabs": {
+     "href": null,
+     "tag": "BODY"
+    },
+    "overflow_styled_px": 0,
+    "keyboard_traversal": {
+     "links_total": 13,
+     "focus_started_on_link": true,
+     "after_one_tab": {
+      "href": "http://127.0.0.1:8138/articles/mikrotik-switches-crs.gutenberg.html#basics",
+      "tag": "A"
+     }
+    }
+   },
+   "_style_injected": "body{background:#fff;color:#111;font-family:Tahoma,Arial,sans-serif;margin:24px auto;max-width:960px;line-height:1.9} pre{background:#f6f8fa;border:1px solid #ddd;padding:12px;overflow:auto} code{font-family:Consolas,monospace;font-size:13px} table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto} th,td{border:1px solid #999;padding:5px 9px} img{max-width:100%;height:auto} blockquote{border-right:3px solid #1e88e5;padding-right:12px;color:#444}"
+  },
+  "styled_overflow_mobile_px": {
+   "tutorials/m2-vlan-small-office.gutenberg.html@mobile": 234,
+   "tutorials/m3-dhcp-dns.gutenberg.html@mobile": 133,
+   "articles/mikrotik-routers.gutenberg.html@mobile": 0,
+   "articles/mikrotik-switches-crs.gutenberg.html@mobile": 0
+  },
+  "keyboard_traversal_mobile": {
+   "tutorials/m2-vlan-small-office.gutenberg.html@mobile": {
+    "links_total": 6,
+    "focus_started_on_link": true,
+    "after_one_tab": {
+     "href": "http://127.0.0.1:8138/guides/mikrotik-routers/",
+     "tag": "A"
+    }
+   },
+   "tutorials/m3-dhcp-dns.gutenberg.html@mobile": {
+    "links_total": 7,
+    "focus_started_on_link": true,
+    "after_one_tab": {
+     "href": "http://127.0.0.1:8138/guides/mikrotik-vlan/",
+     "tag": "A"
+    }
+   },
+   "articles/mikrotik-routers.gutenberg.html@mobile": {
+    "links_total": 15,
+    "focus_started_on_link": true,
+    "after_one_tab": {
+     "href": "http://127.0.0.1:8138/articles/mikrotik-routers.gutenberg.html#ch1",
+     "tag": "A"
+    }
+   },
+   "articles/mikrotik-switches-crs.gutenberg.html@mobile": {
+    "links_total": 13,
+    "focus_started_on_link": true,
+    "after_one_tab": {
+     "href": "http://127.0.0.1:8138/articles/mikrotik-switches-crs.gutenberg.html#basics",
+     "tag": "A"
+    }
+   }
+  },
+  "keyboard_method_note": "focus-first-link-then-Tab (deterministic); an earlier probe without initial focus landed on BODY and is recorded as flaky-probe artifact, not as page failure"
+ },
+ "findings": {
+  "images": "ALL images load when forced eager (1/1, 1/1, 17/17, 16/16); artifacts ship loading=lazy so DOM complete=false until scrolled — screenshots confirmed visual rendering",
+  "mobile_overflow": "raw unstyled fragment preview overflows at 390px (839/718/313/352px) from fixed-width img (900px) and wide has-fixed-layout tables; full theme-like preview style reduces articles to 0px and tutorials to 234/133px (residual = preview-harness limitation; WP theme supplies responsive wrappers at publish). Measured values recorded as-is; NOT claimed as zero.",
+  "separator_cells": "0 in all four outputs (builder rev4)",
+  "code_tables": "M2 9 code blocks / 7 tables; M3 12 / 5; tables render with borders in preview style",
+  "charset": "raw fragments carry no <meta charset>; preview server sends charset=utf-8 (WP theme supplies it at publish)"
+ },
+ "boundary_item5": {
+  "captures_untracked": "git rm --cached of the 12 evidence PNGs + render-evidence/.gitignore (forward commit; no force-push, no history claims); captures remain on local disk only",
+  "receipt_sanitized": "this JSON receipt is machine-readable and contains no binary captures"
+ },
  "not_run": [
-  "WordPress/KSES render",
-  "production site",
-  "RouterOS execution"
+  "WordPress/theme/KSES render",
+  "RouterOS execution (no fixture)",
+  "manager-side browser run"
  ],
- "production_touched": false,
- "utc_extended": "2026-11-16T19:00:13Z"
+ "production_touched": false
 }

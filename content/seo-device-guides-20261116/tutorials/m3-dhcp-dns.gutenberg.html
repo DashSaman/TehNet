@@ -139,7 +139,7 @@
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
-<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> سمت راست، لپ‌تاپ کلاینت (DHCP گیرنده). وسط، روتر hEX با دو بلوک داخلی: «DHCP Server (گره‌خورده به bridge، pool 20-254، network با gateway/DNS)» و «DNS Cache + static entries (nas.lan → 192.168.88.10)». سمت چپ، اینترنت/forwardکنندهٔ بالادستی. چهار فلش توالی: (1) Discover از کلاینت، (2) Offer با آدرس+gateway 192.168.88.1+DNS 192.168.88.1، (3) پرس‌وجوی نام کلاینت به 192.168.88.1 روی پورت 53، (4) پاسخ از cache یا بالادستی. یک مرز خط‌چین قرمز «مرز مورداعتماد: 53 فقط از 192.168.88.0/24، با rule شمارنده‌دار» دور بلوک روتر کشیده شده و یک کلاینت خاکستری بیرون مرز نشان داده شده که پرس‌وجویش با rule شمارنده‌دار بسته می‌شود — و کنترل مثبت مسیر (disable موقت ruleها) سالم بودن رفت‌وبرگشت را جدا از فیلترینگ اثبات می‌کند.</p>
+<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> سمت راست، لپ‌تاپ کلاینت (DHCP گیرنده). وسط، روتر hEX با دو بلوک داخلی: «DHCP Server (گره‌خورده به bridge، pool 20-254، network با gateway/DNS)» و «DNS Cache + static entries (nas.lan → 192.168.88.10)». سمت چپ، اینترنت/forwardکنندهٔ بالادستی. چهار فلش توالی: (1) Discover از کلاینت، (2) Offer با آدرس+gateway 192.168.88.1+DNS 192.168.88.1، (3) پرس‌وجوی نام کلاینت به 192.168.88.1 روی پورت 53، (4) پاسخ از cache یا بالادستی. یک مرز خط‌چین قرمز «مرز مورداعتماد: 53 فقط از 192.168.88.0/24، با شمارندهٔ default drop» دور بلوک روتر کشیده شده و یک کلاینت خاکستری بیرون مرز نشان داده شده که پرس‌وجویش توسط مرز (acceptهای src-restricted + default drop شمارنده‌دار) بسته می‌شود — و کنترل مثبت مسیر (accept موقتِ فقط-کلاینت‌آزمایشی) سالم بودن رفت‌وبرگشت را جدا از فیلترینگ اثبات می‌کند.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
@@ -242,7 +242,11 @@ add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و �
 <!-- /wp:code -->
 
 <!-- wp:paragraph -->
-<p>دقت همسان‌سازی: ICMP ورودی فقط از `192.168.88.0/24` پذیرفته می‌شود؛ پس ping کلاینت غیرمورداعتماد به خود روتر (تست ۸) به‌جا timeout می‌گیرد — به‌واسطهٔ rule محدود و default drop، نه نبود مسیر. و این آزمون منفی فقط در <strong>حالت ب</strong> معتبر است؛ در حالت الف، فایروال کارخانه منابع LAN را عبور می‌دهد و rule شمارنده‌دار وجود ندارد.</p>
+<p>دقت همسان‌سازی: ICMP ورودی فقط از `192.168.88.0/24` پذیرفته می‌شود؛ پس ping کلاینت غیرمورداعتماد به خود روتر (تست ۸) به‌جا timeout می‌گیرد — به‌واسطهٔ rule محدود و default drop، نه نبود مسیر.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>محدودهٔ آزمون منفی — حالت ب فقط:</strong> در حالت الف (فایروال کارخانه) هیچ rule شمارنده‌داری برای 53 وجود ندارد و رفتار کارخانه با منابع LAN لیست‌شده قابل‌شمارش نیست؛ بنابراین آزمون «کلاینت غیرمورداعتماد روی LAN» در حالت الف <strong>قابل‌اجرا نیست</strong> (NOT_APPLICABLE برای این مبنا). آزمون منفیِ حالت الف فقط دربارهٔ منابع سمت اینترنت معنا دارد و اجرای آن نیازمند یک خط آزمایش سمت WAN است که در این درس در دسترس نیست — صادقانه <strong>NOT_RUN</strong> ثبت می‌شود.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
@@ -266,36 +270,84 @@ add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و �
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">فیکسچر تست منفی — مسیر رفت/برگشت واقعی + شاهد شمارنده</h3>
+<h3 class="wp-block-heading">فیکسچر کلاینت غیرمورداعتماد — مسیر رفت/برگشت با تنظیم دقیق سمت کلاینت</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>کلاینت منفی فقط با «تعویض subnet» لزوماً به روتر نمی‌رسد: بدون gateway، بسته اصلاً از دستگاه خارج نمی‌شود و timeout صرفاً یعنی بی‌مسیری — نه اثبات فایروال. فیکسچر کامل این درس:</p>
+<p>gateway بیرون از subnet به‌خودی‌خود با «عبارت ARP» برقرار نمی‌شود؛ مسیر باید با تنظیم و احراز صریح سمت کلاینت ساخته شود:</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:list {"ordered":true} -->
 <ol class="wp-block-list"><!-- wp:list-item -->
-<li>کلاینت منفی: لپ‌تاپ با IP دستی <strong>10.9.9.9/24 و gateway=192.168.88.1</strong> (روی همان لینک L2؛ ARP مستقیم جواب می‌دهد → مسیر رفت برقرار است).</li>
-<!-- /wp:list-item --><!-- wp:list-item -->
-<li>مسیر برگشت (موقت، فقط این تست — تا حتی پاسخ فرضی هم بتواند برگردد):</li>
+<li>کلاینت روی یکی از پورت‌های LAN (مثلاً ether3)، ویندوز، تنظیم دقیق:</li>
 <!-- /wp:list-item -->
 </ol>
 <!-- /wp:list -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code class="language-routeros">/ip route
-add dst-address=10.9.9.0/24 gateway=bridge comment="TN-M3 مسیر برگشتِ فقط-تست — بعد از تست حذف شود"</code></pre>
+<pre class="wp-block-code"><code class="language-bat">   netsh interface ip set address "Ethernet" static 10.9.9.9 255.255.255.0 192.168.88.1</code></pre>
 <!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>یعنی IP=10.9.9.9/24 و <strong>default gateway=192.168.88.1</strong>؛ چون gateway در subnet دیگری است، ویندوز برای هر مقصد از طریق gateway می‌فرستد و next-hop (همان 192.168.88.1) را روی همین لینک ARP می‌کند — روتر چون مالک آن IP روی پل است پاسخ ARP می‌دهد.</p>
+<!-- /wp:paragraph -->
 
 <!-- wp:list {"ordered":true} -->
 <ol class="wp-block-list"><!-- wp:list-item -->
-<li><strong>کنترل مثبت مسیر</strong> (ردیف 6): دو rule «53 غیرمورداعتماد» را موقتاً disable کنید → `nslookup nas.lan 192.168.88.1` باید <strong>موفق</strong> شود (اثبات رفت‌وبرگشت سالم)؛ سپس enable کنید.</li>
+<li>احراز مسیر سمت کلاینت: `route print -4` باید مسیر `0.0.0.0/0 → 192.168.88.1` روی Ethernet نشان دهد؛ پس از اولین پروب، `arp -a` باید ورودی `192.168.88.1` با MAC روتر را نشان دهد (اثبات لایهٔ ۲).</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
-<li><strong>شاهد اصلی فیلترینگ</strong> (ردیف 7): با ruleها فعال، همان nslookup باید timeout بگیرد <strong>و</strong> شمارندهٔ دو rule «53 غیرمورداعتماد» در `/ip firewall filter print stats` افزایش یابد — یعنی بسته رسیده و rule بسته‌اش کرده؛ اگر timeout بود و شمارنده صفر ماند، مشکل مسیر است نه فایروال.</li>
-<!-- /wp:list-item --><!-- wp:list-item -->
-<li>مشاهدهٔ تکمیلی: `/tool sniffer quick port=53 interface=bridge` هنگام nslookup باید Query رسیده را نشان دهد (و پاسخی خارج نشود).</li>
+<li>مسیر برگشت روی روتر (موقت — فقط تا پاسخ فرضی بتواند برگردد؛ به‌تنهایی برای رفت کافی نیست):</li>
 <!-- /wp:list-item -->
 </ol>
+<!-- /wp:list -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros">   /ip route
+   add dst-address=10.9.9.0/24 gateway=bridge comment="TN-M3 مسیر برگشتِ فقط-تست — بعد از تست حذف شود"</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">کنترل مثبت — accept موقتِ فقط-کلاینت‌آزمایشی، قبل از default drop</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>کد واقعی زنجیرهٔ input دو <strong>accept</strong> محدود دارد و بستنِ بقیه با default drop آخر است (rule drop جداگانه‌ای برای 53 وجود ندارد). پس کنترل مثبت با اضافه‌کردن دو accept موقتِ فقط برای کلاینت آزمایشی، <strong>بلافاصله قبل از default drop</strong> انجام می‌شود؛ اندیس به‌جای حدس، محاسبه می‌شود:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros">:local n [:len [/ip firewall filter find where chain=input]]
+/ip firewall filter
+add chain=input action=accept protocol=udp dst-port=53 src-address=10.9.9.9 comment="TN-M3 کنترل موقت udp — حذف پس از تست" place-before=($n - 1)
+add chain=input action=accept protocol=tcp dst-port=53 src-address=10.9.9.9 comment="TN-M3 کنترل موقت tcp — حذف پس از تست" place-before=($n - 1)</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>با هر دو rule کنترل، پرس‌وجوی کلاینت آزمایشی باید موفق شود (مسیر رفت+برگشت سالم). سپس مرز <strong>بازگردانده می‌شود</strong>:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros">/ip firewall filter
+remove [find where comment="TN-M3 کنترل موقت udp — حذف پس از تست"]
+remove [find where comment="TN-M3 کنترل موقت tcp — حذف پس از تست"]</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p><strong>ترتیب تفسیر (الزامی):</strong> تا کنترل مثبت موفق نشده، timeout را اثر فایروال ننامید — timeout بدون کنترل فقط می‌تواند بی‌مسیری باشد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">تفکیک UDP/TCP در پروب‌ها و شمارنده‌ها</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>پروب UDP: `nslookup nas.lan 192.168.88.1` (حالت پیش‌فرض)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>پروب TCP: `nslookup -vc nas.lan 192.168.88.1` (پرس‌وجوی TCP)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>شمارنده‌ها با `/ip firewall filter print stats`: برای کلاینت مورداعتماد، acceptهای udp و tcp جدا شمرده می‌شوند؛ برای کلاینت غیرمورداعتمادِ بعد از بازگرداندن مرز، <strong>شمارندهٔ default drop</strong> به‌ازای هر پروب رشد می‌کند (پروب udp = +1، پروب tcp = +1 — دو پروب جدا، دو دلتای جدا).</li>
+<!-- /wp:list-item -->
+</ul>
 <!-- /wp:list -->
 
 <!-- wp:paragraph -->
@@ -348,9 +400,9 @@ add dst-address=10.9.9.0/24 gateway=bridge comment="TN-M3 مسیر برگشتِ 
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>همان کلاینت</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>`nslookup www.google.com`</td>
+<td>`nslookup -vc nas.lan` (پروب TCP)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>پاسخ (از cache/بالادستی)</td>
+<td>پاسخ TCP</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>مثبت</td>
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
@@ -358,29 +410,29 @@ add dst-address=10.9.9.0/24 gateway=bridge comment="TN-M3 مسیر برگشتِ 
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>همان کلاینت</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>`ping 192.168.88.1`</td>
+<td>`nslookup www.google.com`</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>reply</td>
+<td>پاسخ (از cache/بالادستی)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>مثبت</td>
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>6</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>کلاینت منفی 10.9.9.9 (gw=192.168.88.1) + دو rule 53-drop موقتاً disable</td>
+<td>کلاینت غیرمورداعتماد (تنظیم فیکسچر بالا) + دو accept کنترل موقت در</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>`nslookup nas.lan 192.168.88.1`</td>
+<td>پروب UDP و پروب TCP</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td><strong>پاسخ موفق</strong> — اثبات مسیر رفت‌وبرگشت</td>
+<td><strong>هر دو موفق</strong> — اثبات مسیر رفت‌وبرگشت (پیش‌شرط تفسیر هر timeout)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>کنترل</td>
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>7</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>همان کلاینت، ruleها enable</td>
+<td>همان کلاینت، پس از remove دو rule کنترل</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>`nslookup nas.lan 192.168.88.1`</td>
+<td>پروب UDP سپس پروب TCP (با فاصله)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>timeout <strong>و</strong> شمارندهٔ دو rule drop افزایش می‌یابد (بسته رسیده، rule بسته)</td>
+<td>هر دو timeout؛ شمارندهٔ default drop دوبار رشد می‌کند (دو دلتای جدا برای udp/tcp)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>منفی</td>
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
@@ -390,7 +442,7 @@ add dst-address=10.9.9.0/24 gateway=bridge comment="TN-M3 مسیر برگشتِ 
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>`ping 192.168.88.1`</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>timeout — به‌واسطهٔ محدودیت ICMP به مورداعتماد (شاهد: رشد شمارندهٔ input default drop، نه صفر ماندن)</td>
+<td>timeout — ICMP فقط از مورداعتماد (شاهد: رشد شمارندهٔ default drop)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>منفی</td>
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
@@ -407,12 +459,24 @@ add dst-address=10.9.9.0/24 gateway=bridge comment="TN-M3 مسیر برگشتِ 
 <!-- /wp:table -->
 
 <!-- wp:paragraph -->
-<p>بعد از پایان تست‌ها، مسیر آزمایشی را حذف کنید:</p>
+<p>مشاهدهٔ تکمیلی اختیاری: `/tool sniffer quick port=53 interface=bridge` هنگام پروب‌ها Query رسیده را نشان می‌دهد و پس از بازگرداندن مرز پاسخی خارج نمی‌شود.</p>
 <!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">پاک‌سازی پس از تست (الزامی)</h3>
+<!-- /wp:heading -->
 
 <!-- wp:code -->
 <pre class="wp-block-code"><code class="language-routeros">/ip route
 remove [find comment="TN-M3 مسیر برگشتِ فقط-تست — بعد از تست حذف شود"]</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>سمت کلاینت، بازگشت به DHCP:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-bat">netsh interface ip set address "Ethernet" dhcp</code></pre>
 <!-- /wp:code -->
 
 <!-- wp:paragraph -->
