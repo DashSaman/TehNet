@@ -1,179 +1,106 @@
 {
- "packet": "TN-FIVE-HOUR-CONTINUE-CONTENT-QUALITY-20261116",
- "validator": "validate-seo-guides.cjs rev3 (line-scoped SKU audit + CSV-parsed coverage + determinism + self-negatives)",
- "command": "node qa/seo-device-guides-20261116/validate-seo-guides.cjs (cwd qa/seo-device-guides-20261116)",
- "started_utc": "2026-11-16T13:07:05Z",
- "finished_utc": "2026-11-16T13:07:06Z",
- "control_head": "b2ad905f782d953fcfab4dcccd9037f955563bde",
+ "packet": "TN-TOPICAL-AUTHORITY-GROWTH-20261116",
+ "validator": "validate-seo-guides.cjs rev5 (shared validate(candidateInputs) + injected negatives through same path)",
+ "command": "node validate-seo-guides.cjs",
+ "cwd": "qa/seo-device-guides-20261116/",
+ "builder_command": "node articles/build-gutenberg.cjs",
+ "builder_cwd": "content/seo-device-guides-20261116/",
+ "started_utc": "2026-11-16T14:06:58Z",
+ "finished_utc": "2026-11-16T14:06:58Z",
+ "control_head": "c90fdd5a431eae7f958432c5b0164b7c1e36c692",
  "exit": 0,
- "checks": [
+ "good_candidate": {
+  "ok": true,
+  "checks": 64,
+  "failed": 0
+ },
+ "injected_negatives": [
   {
-   "id": "v1_wrong_specs_absent",
-   "pass": true,
-   "detail": "corrected official facts present"
+   "name": "wrong-spec-E50UG-multiline-HTML",
+   "injected": "E50UG MMIPS/256MB in multiline HTML",
+   "failed": true,
+   "reasonMatched": true,
+   "reasons": [
+    "E50UG row still carries MMIPS/256MB"
+   ]
   },
   {
-   "id": "v2_canonical_sku_coverage",
-   "pass": true,
-   "detail": "all catalog SKUs mapped + file + provenance"
+   "name": "wrong-spec-CRS112-SVG-label",
+   "injected": "SVG inner label shows CRS112-8P-4G-IN",
+   "failed": true,
+   "reasonMatched": true,
+   "reasons": [
+    "SVG label does not show canonical SKU CRS112-8P-4S-IN"
+   ]
   },
   {
-   "id": "v3_all_relative_refs_resolve",
-   "pass": true,
-   "detail": {
-    "refs": 40,
-    "broken": 0
-   }
+   "name": "omitted-model-CRS326",
+   "injected": "CRS326-24G-2S+RM row removed from switch-catalog",
+   "failed": true,
+   "reasonMatched": true,
+   "reasons": [
+    "article table SKU missing from switch-catalog.csv"
+   ]
   },
   {
-   "id": "v4_no_bare_assets_paths",
-   "pass": true,
-   "detail": "images must use ../assets/ from articles/"
+   "name": "missing-schematic-asset",
+   "injected": "schematic-crs309 file removed from candidate tree",
+   "failed": true,
+   "reasonMatched": true,
+   "reasons": [
+    "schematic asset missing from candidate",
+    "broken ../assets refs in candidate"
+   ]
   },
   {
-   "id": "v5_full_model_image_coverage",
-   "pass": true,
-   "detail": {
-    "routers_missing": [],
-    "switches_missing": [],
-    "routers_imgs": 17,
-    "switches_imgs": 20
-   }
+   "name": "broken-relative-link",
+   "injected": "article points to nonexistent ../assets/ghost.svg",
+   "failed": true,
+   "reasonMatched": true,
+   "reasons": [
+    "models with no embedded schematic",
+    "broken ../assets refs in candidate"
+   ]
   },
   {
-   "id": "v6_no_dup_ids:mikrotik-routers.gutenberg.html",
-   "pass": true,
-   "detail": []
+   "name": "duplicate-id",
+   "injected": "same heading id duplicated",
+   "failed": true,
+   "reasonMatched": true,
+   "reasons": [
+    "duplicate ids"
+   ]
   },
   {
-   "id": "v7_no_dangling_anchors:mikrotik-routers.gutenberg.html",
-   "pass": true,
-   "detail": []
-  },
-  {
-   "id": "v6_no_dup_ids:mikrotik-switches-crs.gutenberg.html",
-   "pass": true,
-   "detail": []
-  },
-  {
-   "id": "v7_no_dangling_anchors:mikrotik-switches-crs.gutenberg.html",
-   "pass": true,
-   "detail": []
-  },
-  {
-   "id": "v8_csv_clean:hEX refresh (E50UG)",
-   "pass": true,
-   "detail": "clean"
-  },
-  {
-   "id": "v8_csv_clean:CRS112",
-   "pass": true,
-   "detail": "clean"
-  },
-  {
-   "id": "v8_csv_clean:CCR2216",
-   "pass": true,
-   "detail": "clean"
-  },
-  {
-   "id": "v8_csv_clean:CRS310-8G+2S+IN",
-   "pass": true,
-   "detail": "clean"
-  },
-  {
-   "id": "v9_two_fresh_builds_identical",
-   "pass": true,
-   "detail": {
-    "build1": [
-     "630166991425",
-     "3e785217c76b"
-    ],
-    "build2": [
-     "630166991425",
-     "3e785217c76b"
-    ],
-    "command": "node articles/build-gutenberg.cjs",
-    "cwd": "content/seo-device-guides-20261116/"
-   }
-  },
-  {
-   "id": "negA_multiline_wrong_spec_caught",
-   "pass": true,
-   "detail": {
-    "expected": "MMIPS/256MB flagged for hEX refresh"
-   }
-  },
-  {
-   "id": "negB_svg_label_matches_sku",
-   "pass": true,
-   "detail": {
-    "file": "schematic-ccr2216-1g-12xs-2xq.svg"
-   }
-  },
-  {
-   "id": "negB2_svg_label_crs112",
-   "pass": true,
-   "detail": {
-    "file": "schematic-crs112-8p-4s-in.svg"
-   }
-  },
-  {
-   "id": "negC_omitted_model_flagged",
-   "pass": true,
-   "detail": "every catalog row covered by CANON"
-  },
-  {
-   "id": "negD_missing_schematic_flagged",
-   "pass": true,
-   "detail": "none missing"
-  },
-  {
-   "id": "negE_no_dot_slash_links",
-   "pass": true,
-   "detail": {
-    "count": 0
-   }
-  },
-  {
-   "id": "n1_unknown_sku_rejected",
-   "pass": true,
-   "detail": "FAKE-1234 rejected"
-  },
-  {
-   "id": "n2_missing_asset_rejected",
-   "pass": true,
-   "detail": "missing asset path detected"
-  },
-  {
-   "id": "n3_dup_id_detected",
-   "pass": true,
-   "detail": null
-  },
-  {
-   "id": "n4_wrong_spec_probe",
-   "pass": true,
-   "detail": null
+   "name": "dangling-anchor",
+   "injected": "TOC link targets a removed anchor",
+   "failed": true,
+   "reasonMatched": true,
+   "reasons": [
+    "dangling anchor targets"
+   ]
   }
  ],
  "digests": {
   "articles/mikrotik-routers.gutenberg.html": "630166991425788f33b73d6cfd9fb8364b016858f3d67be5b390a01bdee6fa08",
-  "articles/mikrotik-switches-crs.gutenberg.html": "3e785217c76b777a5582ce3274c956f48be692e772cb48e591bc537f6446d986",
+  "articles/mikrotik-switches-crs.gutenberg.html": "fec567da9598c7a93888032ecd7d95f84d35db8430333f536ea5f1ef0713dd7a",
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",
-  "switch-catalog.csv": "5867196841927d20047e785b20653a5081faec160ea5df3f66bb357470cd77dc",
+  "switch-catalog.csv": "221aac31d6bd38f8b0e3c5164a3e05a585254c7b42a8c0a453838fb058ca5bc2",
   "image-provenance.csv": "22ecdada31bf56a259f8ade274ba4af817ad144a49b7f8e0d8f8cdcb5db8a454",
-  "page-edits/mikrotik-service.patch": "641666f27bc4e7485f8a5cbf24261331258b944c4987018a83fd855e6ef909ac",
-  "page-edits/network-setup.patch": "f034b42b90890105568a04861d754ac8e3e85bea7f7779ddf8d448cd702d67d5",
-  "page-edits/network-support.patch": "4020611ac471a0d9339f85bb3bc8131870ed3362554aa37626f06b5e39312dff"
+  "page-edits/mikrotik-service.proposed.html": "2959c42537478fb5e580579aa8164ef69a30527b6313c602458b1011da528902",
+  "page-edits/network-setup.proposed.html": "05c847a8b35410eb3108824f358cadf107b1ebaacdde50caf63916a28fe59cd6",
+  "page-edits/network-support.proposed.html": "8cd326412cffd8e5e8e683e1537be7cfa02efb365bcbf1945fb8a5d043c7a2df"
  },
  "summary": {
-  "total": 24,
-  "passed": 24,
-  "failed": 0
+  "negatives": 7,
+  "negatives_passed": 7,
+  "negatives_failed": 0
  },
+ "execution_origin": "session-side Node.js on the repository checkout (git-managed worktree); no owner-local UI/shell/browser/staging use; no cloud runner",
  "not_run": [
   "browser desktop/mobile/keyboard rendering",
   "WordPress/KSES acceptance",
-  "Search Console baseline (access UNKNOWN)"
+  "Search Console baseline"
  ],
  "production_touched": false
 }

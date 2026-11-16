@@ -1,0 +1,18 @@
+== GOOD CANDIDATE ==
+DBG candidateInputs type=object isArray=true len=41
+D:\Codex-Projects\Codex\2026-10-15\referenced-chatgpt-conversation-this-is-an\work\TehNet-growth-20261031\qa\seo-device-guides-20261116\validate-seo-guides.cjs:134
+  for (const [name, content] of candidateInputs.filter(x => x.name.endsWith('.html'))) {
+                           ^
+
+TypeError: .for is not iterable
+    at validate (D:\Codex-Projects\Codex\2026-10-15\referenced-chatgpt-conversation-this-is-an\work\TehNet-growth-20261031\qa\seo-device-guides-20261116\validate-seo-guides.cjs:134:28)
+    at Object.<anonymous> (D:\Codex-Projects\Codex\2026-10-15\referenced-chatgpt-conversation-this-is-an\work\TehNet-growth-20261031\qa\seo-device-guides-20261116\validate-seo-guides.cjs:206:16)
+    at Module._compile (node:internal/modules/cjs/loader:1872:14)
+    at Object..js (node:internal/modules/cjs/loader:2003:10)
+    at Module.load (node:internal/modules/cjs/loader:1594:32)
+    at Module._load (node:internal/modules/cjs/loader:1396:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47
+
+Node.js v24.19.0

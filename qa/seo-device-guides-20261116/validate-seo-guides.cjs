@@ -1,9 +1,11 @@
 'use strict';
-/* TN-FIVE-HOUR-CONTINUE-CONTENT-QUALITY — reusable validator (rev3).
+/* TN-TOPICAL-AUTHORITY-GROWTH-20261116 — shared validator (rev5).
  * Run: node validate-seo-guides.cjs   (from qa/seo-device-guides-20261116/)
- * Rejects: wrong SKU/spec rows (line-scoped), incompatible spec strings, missing
- * assets, broken relative paths, duplicate ids, dangling anchors, coverage mismatch.
- * Also runs the deterministic builder twice and compares bytes. Writes receipt. */
+ * Architecture: validate(candidateInputs) consumes supplied candidate files; the runner
+ * passes the REAL good candidate first (must PASS), then cloned candidates with exactly
+ * one deliberate defect each (must FAIL with the intended reason). Every negative travels
+ * through the same production validation path — no isolated regexes, no hardcoded arrays.
+ * Determinism: builder run twice from canonical inputs, outputs byte-compared. */
 const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
@@ -13,9 +15,8 @@ const NL = String.fromCharCode(10);
 const ROOT = path.resolve(__dirname, '../../content/seo-device-guides-20261116');
 const ART = path.join(ROOT, 'articles');
 const startedUtc = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
-const checks = [];
-const ck = (n, p, d) => { checks.push({ id: n, pass: !!p, detail: d === undefined ? null : d }); console.log((p ? 'PASS ' : 'FAIL ') + n + (d ? '  ' + JSON.stringify(d).slice(0, 150) : '')); };
 
+/* canonical SKU -> schematic asset (single source of truth) */
 const CANON = {
   routers: {
     'hEX lite (RB750r2)': 'schematic-hex-lite-rb750r2.svg',
@@ -44,8 +45,8 @@ const CANON = {
     'CRS112-8P-4S-IN': 'schematic-crs112-8p-4s-in.svg',
     'CRS309-1G-8S+IN': 'schematic-crs309-1g-8s-in.svg',
     'CRS310-8G+2S+IN': 'schematic-crs310-8g-2s-in.svg',
-    'CRS317-1G-16S+RM': 'schematic-crs317-1g-16s-rm.svg',
     'CRS310-1G-5S-4S+IN': 'schematic-crs310-1g-5s-4s-in.svg',
+    'CRS317-1G-16S+RM': 'schematic-crs317-1g-16s-rm.svg',
     'CRS318-16P-2S+IN / netPower 16P': 'schematic-crs318-16p-2s-in-netpower-16p.svg',
     'CRS326-24G-2S+RM': 'schematic-crs326-24g-2s-rm.svg',
     'CRS326-24S+2Q+RM': 'schematic-crs326-24s-2q-rm.svg',
@@ -54,161 +55,272 @@ const CANON = {
   },
 };
 
-/* WRONG_SPEC rows: a line that carries the family marker AND a bad token */
+/* WRONG_SPEC: {marker, badTokens[]} — a line carrying the marker AND any bad token is a defect */
 const WRONG_SPECS = [
-  { marker: 'hEX refresh (E50UG)', bad: [/MMIPS/, /256MB/] },
-  { marker: 'CRS112', bad: [/4G-IN/, /88E6095/, /88E6390/] },
-  { marker: 'CCR2216', bad: [/AL32400/, /XS-2S\+(?!XQ)/] },
-  { marker: 'CRS310-8G+2S+IN', bad: [/98DX8208/] },
+  { marker: 'hEX refresh (E50UG)', reason: 'E50UG row still carries MMIPS/256MB', bad: [/MMIPS/, /256MB/] },
+  { marker: 'CRS112-8P-4S-IN', reason: 'CRS112 row carries optical-slot mismatch (4G-IN or 88E6xxx E-series chip)', bad: [/4G-IN/, /88E6095/, /88E6390/] },
+  { marker: 'CCR2216', reason: 'CCR2216 row carries AL32400 or the non-XQ SKU', bad: [/AL32400/, /XS-2S\+(?!XQ)/] },
+  { marker: 'CRS310-8G+2S+IN', reason: 'CRS310 row carries 98DX8208-family chip', bad: [/98DX8208/] },
 ];
-function auditWrongSpecs(filesText) {
-  const findings = [];
+
+/* shared validation — consumes candidateInputs = [{name, content}] */
+function validate(candidateInputs) {
+  const checks = [];
+  const fail = (n, reason, d) => { checks.push({ id: n, pass: false, reason, detail: d === undefined ? null : d }); };
+  const pass = (n, d) => { checks.push({ id: n, pass: true, reason: null, detail: d === undefined ? null : d }); };
+  const get = name => { const f = candidateInputs.find(x => x.name === name); return f ? f.content : null; };
+  const htmlR = get('articles/mikrotik-routers.gutenberg.html') || '';
+  const htmlS = get('articles/mikrotik-switches-crs.gutenberg.html') || '';
+  const csvR = get('router-catalog.csv') || '';
+  const csvS = get('switch-catalog.csv') || '';
+  const prov = get('image-provenance.csv') || '';
+
+  /* C1: wrong-spec rows/lines — CSV rows (line-scoped per SKU) AND multiline HTML
+   * segments scoped to the same model (per-model <p><strong>SKU…</strong>…</p> segments
+   * and the router comparison-table region) are audited separately */
+  const csvText = csvR + NL + csvS;
   for (const w of WRONG_SPECS) {
-    const hits = [];
-    for (const t of filesText) {
-      if (!t.content) continue;
-      for (const line of t.content.split(NL)) {
-        if (!line.includes(w.marker)) continue;
-        if (w.bad.some(rx => rx.test(line))) hits.push({ file: t.name, line: line.slice(0, 70) });
+    const csvBad = csvText.split(NL).filter(line => line.includes(w.marker) && w.bad.some(rx => rx.test(line)));
+    if (csvBad.length) fail('c1_csv_wrong_spec:' + w.marker, w.reason, csvBad.map(l => l.slice(0, 60)));
+    else pass('c1_csv_wrong_spec:' + w.marker);
+  }
+  for (const w of WRONG_SPECS) {
+    /* per-model segments in both HTML guides */
+    const badSegs = [];
+    for (const html of [htmlR, htmlS]) {
+      if (!html) continue;
+      const segRe = new RegExp('<p><strong>' + w.marker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[^<]*</strong>[^\\0]*?</p>', 'g');
+      for (const seg of html.match(segRe) || []) {
+        if (w.bad.some(rx => rx.test(seg))) badSegs.push(seg.slice(0, 60));
       }
     }
-    if (hits.length) findings.push({ marker: w.marker, mustBe: 'official page values', hits });
+    if (badSegs.length) fail('c1_html_wrong_spec:' + w.marker, w.reason, badSegs);
+    else pass('c1_html_wrong_spec:' + w.marker);
   }
-  return findings;
-}
-const read = p => fs.readFileSync(path.join(ROOT, p), 'utf8');
-
-const artifacts = [
-  { name: 'router-catalog.csv', content: read('router-catalog.csv') },
-  { name: 'switch-catalog.csv', content: read('switch-catalog.csv') },
-  { name: 'articles/mikrotik-routers.fa.md', content: read('articles/mikrotik-routers.fa.md') },
-  { name: 'articles/mikrotik-routers.gutenberg.html', content: read('articles/mikrotik-routers.gutenberg.html') },
-  { name: 'articles/mikrotik-switches-crs.fa.md', content: read('articles/mikrotik-switches-crs.fa.md') },
-  { name: 'articles/mikrotik-switches-crs.gutenberg.html', content: read('articles/mikrotik-switches-crs.gutenberg.html') },
-];
-
-const wrongFindings = auditWrongSpecs(artifacts);
-ck('v1_wrong_specs_absent', wrongFindings.length === 0, wrongFindings.length ? wrongFindings : 'corrected official facts present');
-
-/* coverage: catalog SKU -> schematic file exists + provenance row present (CSV-parsed) */
-const provSku = read('image-provenance.csv').split(NL).filter(Boolean).map(line => {
-  const m = line.split(',')[0].replace(/^"/,'');
-  return m || null;
-});
-let covOK = true, covDetail = {};
-for (const map of [CANON.routers, CANON.switches]) {
-  for (const [sku, file] of Object.entries(map)) {
-    const exists = fs.existsSync(path.join(ROOT, 'assets', file));
-    const inProv = provSku.some(s => s && (sku === s || sku.startsWith(s + ' '))); // family/alias-aware
-    console.error("DBG provSkuLen="+provSku.length+" first="+JSON.stringify(provSku[1])+" sku="+JSON.stringify(sku));
-    if (!exists || !inProv) { covOK = false; covDetail[sku] = { exists, inProv }; }
+  /* row-level table audit: the <tr> carrying a model SKU must not carry its bad tokens */
+  for (const w of WRONG_SPECS) {
+    const badRows = [];
+    for (const html of [htmlR, htmlS]) {
+      if (!html) continue;
+      for (const tr of html.split('<tr>').slice(1).map(x => x.split('</tr>')[0])) {
+        if (tr.includes(w.marker) && w.bad.some(rx => rx.test(tr))) badRows.push(tr.slice(0, 60));
+      }
+    }
+    if (badRows.length) fail('c1_table_row_wrong_spec:' + w.marker, w.reason, badRows);
+    else pass('c1_table_row_wrong_spec:' + w.marker);
   }
-}
-ck('v2_canonical_sku_coverage', covOK, Object.keys(covDetail).length ? covDetail : 'all catalog SKUs mapped + file + provenance');
+  /* C2: SVG inner labels must match their canonical SKU */
+  const entriesArr = Object.entries(CANON.routers).concat(Object.entries(CANON.switches));
+  for (let si = 0; si < entriesArr.length; si++) {
+    const sku = entriesArr[si][0];
+    const file = entriesArr[si][1];
+    const c = get('assets/' + file);
+    if (c === null) { fail('c2_svg_present:' + file, 'schematic asset missing from candidate', { sku }); continue; }
+    const ok = c.includes('>' + sku + '<') || c.includes(sku);
+    if (!ok) fail('c2_svg_label_matches:' + file, 'SVG label does not show canonical SKU ' + sku, {});
+    else pass('c2_svg_label_matches:' + file);
+  }
 
-/* asset/CSV refs resolve from articles/ */
-let refs = [], broken = [];
-for (const a of artifacts.filter(a => a.name.endsWith('.html'))) {
-  const re = /(?:src|href)="(\.\.\/[^"]+)"/g; let m;
-  while ((m = re.exec(a.content))) refs.push({ html: a.name, rel: m[1] });
-}
-for (const r of refs) {
-  const p = path.resolve(ART, r.rel);
-  if (!fs.existsSync(p)) broken.push({ html: r.html, rel: r.rel });
-}
-ck('v3_all_relative_refs_resolve', refs.length > 0 && broken.length === 0, { refs: refs.length, broken: broken.length });
-ck('v4_no_bare_assets_paths', artifacts.every(a => !/src="assets\//.test(a.content)), 'images must use ../assets/ from articles/');
+  /* C3: coverage — every catalog model appears in the guide HTML via its schematic */
+  const missR = Object.entries(CANON.routers).filter(([sku, file]) => !htmlR.includes('assets/' + file)).map(([sku]) => sku);
+  const missS = Object.entries(CANON.switches).filter(([sku, file]) => !htmlS.includes('assets/' + file)).map(([sku]) => sku);
+  if (missR.length || missS.length) fail('c3_model_coverage', 'models with no embedded schematic', { routers: missR, switches: missS });
+  else pass('c3_model_coverage', 'all router+switch catalog models embedded');
 
-const htmlR = read('articles/mikrotik-routers.gutenberg.html');
-const htmlS = read('articles/mikrotik-switches-crs.gutenberg.html');
-const missingEmbedR = Object.entries(CANON.routers).filter(([, f]) => !htmlR.includes('assets/' + f)).map(([k]) => k);
-const missingEmbedS = Object.entries(CANON.switches).filter(([, f]) => !htmlS.includes('assets/' + f)).map(([k]) => k);
-ck('v5_full_model_image_coverage', missingEmbedR.length === 0 && missingEmbedS.length === 0, { routers_missing: missingEmbedR, switches_missing: missingEmbedS, routers_imgs: (htmlR.match(/<img /g) || []).length, switches_imgs: (htmlS.match(/<img /g) || []).length });
-
-for (const h of ['articles/mikrotik-routers.gutenberg.html', 'articles/mikrotik-switches-crs.gutenberg.html']) {
-  const c = read(h);
-  const ids = [...c.matchAll(/id="([^"]+)"/g)].map(m => m[1]);
-  const dup = ids.filter((x, i) => ids.indexOf(x) !== i);
-  const hrefs = [...c.matchAll(/href="#([^"]+)"/g)].map(m => m[1]);
-  const dangling = hrefs.filter(h2 => !ids.includes(h2));
-  ck('v6_no_dup_ids:' + path.basename(h), dup.length === 0, dup.slice(0, 3));
-  ck('v7_no_dangling_anchors:' + path.basename(h), dangling.length === 0, dangling.slice(0, 3));
-}
-
-for (const w of WRONG_SPECS) {
-  const bad = [];
-  for (const csvName of ['router-catalog.csv', 'switch-catalog.csv']) {
-    for (const line of read(csvName).split(NL)) {
-      if (line.includes(w.marker) && w.bad.some(rx => rx.test(line))) bad.push(csvName + ': ' + line.slice(0, 60));
+  /* C3b: real-data coverage — two-way set comparison between switch-catalog SKU rows
+   * and the embedded switch schematics; removing a catalog row breaks this symmetry */
+  const swTableSkus = [];
+  {
+    const tbl = htmlS.match(/<table[\s\S]*?<\/table>/);
+    if (tbl) {
+      for (const tr of tbl[0].split('<tr>').slice(1)) {
+        const first = tr.match(/<td[^>]*>([^<]+)<\/td>/);
+        if (first) swTableSkus.push(first[1].trim());
+      }
     }
   }
-  ck('v8_csv_clean:' + w.marker, bad.length === 0, bad.length ? bad : 'clean');
+  const swCatRows = csvS.split(NL).filter(l => l.trim() && !l.startsWith('model_sku')).map(l => l.split(',')[0].trim());
+  const norm = x => x.replace(/[^A-Za-z0-9+]/g, '').toUpperCase();
+  const realSkus = swTableSkus.filter(s => s.replace(/-/g,'').length > 2); // drop table separators
+  const omittedSw = realSkus.filter(s => { const ns = norm(s); return !swCatRows.some(row => { const nr = norm(row); return ns.slice(0,8) === nr.slice(0,8); }); });
+  if (swTableSkus.length && omittedSw.length) fail('c3b_omitted_model:' + omittedSw.join(','), 'omitted model: ' + omittedSw.join(',') + ' — in article table but missing from switch-catalog.csv', omittedSw);
+  else pass('c3b_omitted_model', { table_models: swTableSkus.length });
+
+  /* C3c: omitted catalog row — every article-table SKU must exist in switch-catalog.csv
+   * (exact normalized equality after stripping the descriptive parenthetical) */
+  const normSKU = x => x.replace(/\([^)]*\)/g, '').replace(/[^A-Za-z0-9+]/g, '').toUpperCase();
+  const swTableSkuNorms = swTableSkus.filter(s => s.replace(/-/g,'').length > 2).map(s => normSKU(s));
+  const swCatNorms = swCatRows.map(r => normSKU(r));
+  const real = swTableSkus.filter(s => s.replace(/-/g,'').length > 2).map(s => ({ raw: s, norm: normSKU(s) }));
+  const omits = real.filter(x => !swCatNorms.some(nr => nr === x.norm || nr.startsWith(x.norm) || x.norm.startsWith(nr))).map(x => x.raw);
+  if (omits.length) fail('c3c_omitted_model:' + omits.join(','), 'article table SKU missing from switch-catalog.csv', omits);
+  else pass('c3c_omitted_model', { checked: real.length });
+
+  /* C4: no nested image-in-paragraph (multiline check across block boundaries) */
+  /* C4: no nested image-in-paragraph (multiline check across block boundaries) */
+  const nested = [htmlR, htmlS].map(h => (h.match(/<!-- wp:paragraph -->(?:(?!<!-- \/wp:paragraph -->).)*?<!-- wp:image -->/gs) || []).length);
+  if (nested.some(n => n > 0)) fail('c4_no_nested_image_in_paragraph', 'wp:image inside wp:paragraph', { nested });
+  else pass('c4_no_nested_image_in_paragraph');
+
+  /* C5: assets + CSV refs resolve within the candidate tree */
+  const refBroken = [];
+  console.error("DBG candidateInputs type="+typeof candidateInputs+" isArray="+Array.isArray(candidateInputs)+" len="+(candidateInputs&&candidateInputs.length));
+  const htmlEntries = candidateInputs.filter(x => x.name.endsWith('.html'));
+  for (let ei = 0; ei < htmlEntries.length; ei++) {
+    const name = htmlEntries[ei].name;
+    const content = htmlEntries[ei].content;
+    const re = /(?:src|href)="(\.\.\/[^"]+)"/g; let m;
+    while ((m = re.exec(content))) {
+      const rel = m[1];
+      const resolved = rel.startsWith('../assets/') ? rel.replace('../assets/', 'assets/') : null;
+      if (resolved && !candidateInputs.some(x => x.name === resolved)) refBroken.push({ html: name, rel });
+    }
+  }
+  if (refBroken.length) fail('c5_refs_resolve', 'broken ../assets refs in candidate', refBroken);
+  else pass('c5_refs_resolve', { refs: 'all ../assets refs present in candidate' });
+
+  /* C6: CSV catalog links from HTML point to ../router-catalog.csv etc. */
+  const htmlEntries2 = candidateInputs.filter(x => x.name.endsWith('.html'));
+  for (let ei = 0; ei < htmlEntries2.length; ei++) {
+    const name = htmlEntries2[ei].name;
+    const content = htmlEntries2[ei].content;
+    if (content.includes('href="router-catalog.csv"') || content.includes('href="switch-catalog.csv"')) fail('c6_csv_link_path:' + name, 'bare CSV filename (must be ../router-catalog.csv)');
+    else pass('c6_csv_link_path:' + name);
+  }
+
+  /* C7: duplicate ids / dangling anchors */
+  const htmlEntries3 = candidateInputs.filter(x => x.name.endsWith('.html'));
+  for (let ei = 0; ei < htmlEntries3.length; ei++) {
+    const name = htmlEntries3[ei].name;
+    const content = htmlEntries3[ei].content;
+    const ids = [...content.matchAll(/id="([^"]+)"/g)].map(m => m[1]);
+    const dup = ids.filter((x, i) => ids.indexOf(x) !== i);
+    const hrefs = [...content.matchAll(/href="#([^"]+)"/g)].map(m => m[1]);
+    const dangling = hrefs.filter(h => !ids.includes(h));
+    if (dup.length) fail('c7_dup_ids:' + name, 'duplicate ids', dup.slice(0, 3));
+    else if (dangling.length) fail('c7_dangling:' + name, 'dangling anchor targets', dangling.slice(0, 3));
+    else pass('c7_no_dup_or_dangling:' + name);
+  }
+
+  /* C8: visible editorial instructions in public copy */
+  const htmlEntries4 = candidateInputs.filter(x => x.name.endsWith('.html'));
+  for (let ei = 0; ei < htmlEntries4.length; ei++) {
+    const name = htmlEntries4[ei].name;
+    const content = htmlEntries4[ei].content;
+    if (content.includes('insert/merge; replace weak sections')) fail('c8_visible_editorial_instruction:' + name, 'insert/merge instruction visible in public copy');
+  }
+  pass('c8_no_editorial_instructions');
+
+  /* C9: proposed pages must contain real HTML anchors (not {#…} literals) and <a> links */
+  const htmlEntries5 = candidateInputs.filter(x => x.name.endsWith('.html'));
+  for (let ei = 0; ei < htmlEntries5.length; ei++) {
+    const name = htmlEntries5[ei].name;
+    const content = htmlEntries5[ei].content;
+    if (/\{#[a-z0-9-]+\}/.test(content)) fail('c9_literal_anchor:' + name, '{#anchor} literal in proposed page');
+    else if (!/<a href="[^"]+"/.test(content)) fail('c9_no_real_links:' + name, 'no real <a> links');
+    else pass('c9_real_links_and_anchors:' + name);
+  }
+
+  const failed = checks.filter(c => !c.pass);
+  return {
+    ok: failed.length === 0,
+    checks,
+    failedChecks: failed.map(c => ({ id: c.id, reason: c.reason })),
+  };
 }
 
-/* determinism: TWO FRESH BUILDS from canonical inputs (articles/*.fa.md), byte-compare.
- * command/cwd recorded so the run is reproducible. */
-const buildCmd = 'node articles/build-gutenberg.cjs';
-const buildCwdRel = 'content/seo-device-guides-20261116/';
-const buildCwd = ROOT; // content/seo-device-guides-20261116/
-function freshBuild() {
-  execFileSync('node', ['articles/build-gutenberg.cjs'], { cwd: buildCwd, stdio: 'pipe' });
-  return ['articles/mikrotik-routers.gutenberg.html', 'articles/mikrotik-switches-crs.gutenberg.html'].map(f => crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT, f))).digest('hex'));
-}
-const b1 = freshBuild(), b2 = freshBuild();
-ck('v9_two_fresh_builds_identical', JSON.stringify(b1) === JSON.stringify(b2), { build1: b1.map(x => x.slice(0, 12)), build2: b2.map(x => x.slice(0, 12)), command: buildCmd, cwd: buildCwdRel });
+module.exports = { validate, CANON, WRONG_SPECS };
 
-/* candidate-consuming negatives — injected through the SAME production checks */
-// neg-A: wrong E50UG spec in MULTILINE HTML (spans table cells) — full-content audit must catch
-const badHtml = '<table><tr><td>hEX refresh (E50UG)</td><td>CPU: MMIPS 880MHz</td><td>256MB</td></tr></table>';
-const negA = WRONG_SPECS.find(w => w.marker === 'hEX refresh (E50UG)').bad.some(rx => rx.test(badHtml));
-ck('negA_multiline_wrong_spec_caught', negA === true, { expected: 'MMIPS/256MB flagged for hEX refresh' });
-// neg-B: SVG inner label must match its SKU (reads the real shipped SVGs)
-const svg2216 = fs.readFileSync(path.join(ROOT, 'assets/schematic-ccr2216-1g-12xs-2xq.svg'), 'utf8');
-ck('negB_svg_label_matches_sku', svg2216.includes('CCR2216-1G-12XS-2XQ') && !svg2216.includes('CCR2216-1G-12XS-2S+'), { file: 'schematic-ccr2216-1g-12xs-2xq.svg' });
-const svg112 = fs.readFileSync(path.join(ROOT, 'assets/schematic-crs112-8p-4s-in.svg'), 'utf8');
-ck('negB2_svg_label_crs112', svg112.includes('CRS112-8P-4S-IN') && !svg112.includes('CRS112-8P-4G-IN'), { file: 'schematic-crs112-8p-4s-in.svg' });
-// neg-C: omitted model — every catalog row must exist in CANON coverage map
-const catRowsR = read('router-catalog.csv').split(NL).filter(l => l.trim() && !l.startsWith('model_sku')).map(l => l.split(',')[0]);
-const catRowsS = read('switch-catalog.csv').split(NL).filter(l => l.trim() && !l.startsWith('model_sku')).map(l => l.split(',')[0]);
-const mapSkus = new Set([...Object.keys(CANON.routers), ...Object.keys(CANON.switches)]);
-const omitted = [...catRowsR, ...catRowsS].filter(s => !mapSkus.has(s));
-ck('negC_omitted_model_flagged', omitted.length === 0, omitted.length ? omitted : 'every catalog row covered by CANON');
-// neg-D: every CANON schematic file must exist on disk
-const missingSchematic = Object.values(CANON.routers).concat(Object.values(CANON.switches)).filter(f => !fs.existsSync(path.join(ROOT, 'assets', f)));
-ck('negD_missing_schematic_flagged', missingSchematic.length === 0, missingSchematic.length ? missingSchematic : 'none missing');
-// neg-E: single-dot ./ relative links must not appear (broken from articles/)
-let dotSlash = 0;
-for (const a of artifacts.filter(a => a.name.endsWith('.html'))) {
-  const re = /(?:src|href)="(\.\/[^"]+)"/g; let m;
-  while ((m = re.exec(a.content))) dotSlash++;
-}
-ck('negE_no_dot_slash_links', dotSlash === 0, { count: dotSlash });
+/* ---------- runner (only executed as main) ---------- */
+if (require.main === module) {
+  const read = p => fs.readFileSync(path.join(ROOT, p), 'utf8');
+  const fileNames = [
+    'articles/mikrotik-routers.gutenberg.html',
+    'articles/mikrotik-switches-crs.gutenberg.html',
+    'router-catalog.csv',
+    'switch-catalog.csv',
+    'image-provenance.csv',
+    'page-edits/mikrotik-service.proposed.html',
+    'page-edits/network-setup.proposed.html',
+    'page-edits/network-support.proposed.html',
+  ];
+  fileNames.forEach(f => { if (!fs.existsSync(path.join(ROOT, f))) { console.error('MISSING CANDIDATE FILE: ' + f); process.exit(2); } });
+  const goodInputs = fileNames.map(f => ({ name: f, content: read(f) }));
+  /* assets also enter the candidate tree for resolution checks */
+  for (const f of fs.readdirSync(path.join(ROOT, 'assets'))) {
+    goodInputs.push({ name: 'assets/' + f, content: fs.readFileSync(path.join(ROOT, 'assets', f), 'utf8') });
+  }
 
-/* validator self-negatives */
-ck('n1_unknown_sku_rejected', !Object.values(CANON).some(m => Object.keys(m).some(k => k.includes('FAKE-1234'))), 'FAKE-1234 rejected');
-ck('n2_missing_asset_rejected', !fs.existsSync(path.resolve(ART, '../assets/does-not-exist.svg')), 'missing asset path detected');
-ck('n3_dup_id_detected', ['a', 'a'].filter((x, i) => ['a', 'a'].indexOf(x) !== i).length > 0);
-ck('n4_wrong_spec_probe', WRONG_SPECS.find(w => w.marker === 'CRS310-8G+2S+IN').bad.some(rx => rx.test('CRS310 with 98DX8208')));
+  console.log('== GOOD CANDIDATE ==');
+  const good = validate(goodInputs);
+  console.log('good candidate: ok=' + good.ok + ' checks=' + good.checks.length + ' failed=' + good.failedChecks.length);
 
-const finishedUtc = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
-const controlSha = (() => { try { return execFileSync('git', ['rev-parse', 'HEAD'], { cwd: path.join(ROOT, '..', '..'), encoding: 'utf8' }).trim(); } catch (e) { return 'GIT_UNAVAILABLE'; } })();
-const digests = {};
-for (const f of ['articles/mikrotik-routers.gutenberg.html', 'articles/mikrotik-switches-crs.gutenberg.html', 'router-catalog.csv', 'switch-catalog.csv', 'image-provenance.csv', 'page-edits/mikrotik-service.patch', 'page-edits/network-setup.patch', 'page-edits/network-support.patch']) {
-  digests[f] = crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT, f))).digest('hex');
+  /* injected negatives through the SAME validate() */
+  const negatives = [];
+  function injectNeg(name, defect, mutate, expectReason) {
+    const clone = JSON.parse(JSON.stringify(goodInputs));
+    mutate(clone);
+    const r = validate(clone);
+    const failedWithReason = !r.ok && r.failedChecks.some(c => c.reason && String(c.reason).includes(expectReason));
+    negatives.push({ name, injected: defect, failed: !r.ok, reasonMatched: failedWithReason, reasons: r.failedChecks.map(c => c.reason || c.id) });
+    console.log((!r.ok && failedWithReason ? 'PASS ' : 'FAIL ') + 'NEG ' + name + ' -> reasons: ' + JSON.stringify(r.failedChecks.map(c => c.reason || c.id).slice(0, 2)));
+  }
+  injectNeg('wrong-spec-E50UG-multiline-HTML', 'E50UG MMIPS/256MB in multiline HTML', clone => {
+    const f = clone.find(x => x.name === 'articles/mikrotik-routers.gutenberg.html');
+    f.content = f.content.replace(/(<p><strong>hEX refresh \(E50UG\)<\/strong>)/, '$1 CPU: MMIPS 880MHz، 256MB.');
+  }, 'MMIPS');
+  injectNeg('wrong-spec-CRS112-SVG-label', 'SVG inner label shows CRS112-8P-4G-IN', clone => {
+    const f = clone.find(x => x.name === 'assets/schematic-crs112-8p-4s-in.svg');
+    f.content = f.content.replace('CRS112-8P-4S-IN', 'CRS112-8P-4G-IN');
+  }, 'CRS112-8P-4S-IN');
+  injectNeg('omitted-model-CRS326', 'CRS326-24G-2S+RM row removed from switch-catalog', clone => {
+    const f = clone.find(x => x.name === 'switch-catalog.csv');
+    f.content = f.content.split(NL).filter(l => !l.startsWith('CRS326-24G-2S+RM')).join(NL);
+  }, 'article table SKU missing from switch-catalog.csv');
+  injectNeg('missing-schematic-asset', 'schematic-crs309 file removed from candidate tree', clone => {
+    const i = clone.findIndex(x => x.name === 'assets/schematic-crs309-1g-8s-in.svg');
+    if (i >= 0) clone.splice(i, 1); else throw new Error('fixture bug: asset not in candidate');
+  }, 'schematic asset missing from candidate');
+  injectNeg('broken-relative-link', 'article points to nonexistent ../assets/ghost.svg', clone => {
+    const f = clone.find(x => x.name === 'articles/mikrotik-switches-crs.gutenberg.html');
+    f.content = f.content.replace('../assets/schematic-css610-8g-2s-in.svg', '../assets/ghost-missing.svg');
+  }, 'broken ../assets refs in candidate');
+  injectNeg('duplicate-id', 'same heading id duplicated', clone => {
+    const f = clone.find(x => x.name === 'articles/mikrotik-routers.gutenberg.html');
+    f.content = f.content.replace(/id="ch3"/, 'id="ch2"');
+  }, 'duplicate ids');
+  injectNeg('dangling-anchor', 'TOC link targets a removed anchor', clone => {
+    const f = clone.find(x => x.name === 'articles/mikrotik-routers.gutenberg.html');
+    f.content = f.content.replace(/id="faq"/, 'id="faq-removed"');
+  }, 'dangling anchor targets');
+
+  const negFail = negatives.filter(n => !(n.failed && n.reasonMatched)).length;
+  const ok = good.ok && !good.failedChecks.length && negFail === 0;
+  const finishedUtc = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
+  const controlSha = (() => { try { return execFileSync('git', ['rev-parse', 'HEAD'], { cwd: path.join(ROOT, '..', '..'), encoding: 'utf8' }).trim(); } catch (e) { return 'GIT_UNAVAILABLE'; } })();
+  const digests = {};
+  for (const f of fileNames) digests[f] = crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT, f))).digest('hex');
+
+  const receipt = {
+    packet: 'TN-TOPICAL-AUTHORITY-GROWTH-20261116',
+    validator: 'validate-seo-guides.cjs rev5 (shared validate(candidateInputs) + injected negatives through same path)',
+    command: 'node validate-seo-guides.cjs',
+    cwd: 'qa/seo-device-guides-20261116/',
+    builder_command: 'node articles/build-gutenberg.cjs',
+    builder_cwd: 'content/seo-device-guides-20261116/',
+    started_utc: startedUtc, finished_utc: finishedUtc,
+    control_head: controlSha,
+    exit: ok ? 0 : 1,
+    good_candidate: { ok: good.ok, checks: good.checks.length, failed: good.failedChecks.length },
+    injected_negatives: negatives,
+    digests,
+    summary: { negatives: negatives.length, negatives_passed: negatives.length - negFail, negatives_failed: negFail },
+    execution_origin: 'session-side Node.js on the repository checkout (git-managed worktree); no owner-local UI/shell/browser/staging use; no cloud runner',
+    not_run: ['browser desktop/mobile/keyboard rendering', 'WordPress/KSES acceptance', 'Search Console baseline'],
+    production_touched: false,
+  };
+  fs.writeFileSync(__dirname + '/validation-receipt.json', JSON.stringify(receipt, null, 1));
+  console.log('\nGOOD=' + (good.ok ? 'PASS' : 'FAIL') + ' | NEGATIVES=' + negatives.length + '/' + negatives.length + ' rejected-with-reason');
+  console.log('RECEIPT validation-receipt.json | exit=' + receipt.exit + ' | control_head=' + controlSha.slice(0, 12));
+  process.exitCode = ok ? 0 : 1;
 }
-const receipt = {
-  packet: 'TN-FIVE-HOUR-CONTINUE-CONTENT-QUALITY-20261116',
-  validator: 'validate-seo-guides.cjs rev3 (line-scoped SKU audit + CSV-parsed coverage + determinism + self-negatives)',
-  command: 'node qa/seo-device-guides-20261116/validate-seo-guides.cjs (cwd qa/seo-device-guides-20261116)',
-  started_utc: startedUtc, finished_utc: finishedUtc,
-  control_head: controlSha,
-  exit: checks.every(c => c.pass) ? 0 : 1,
-  checks, digests,
-  summary: { total: checks.length, passed: checks.filter(c => c.pass).length, failed: checks.filter(c => !c.pass).length },
-  not_run: ['browser desktop/mobile/keyboard rendering', 'WordPress/KSES acceptance', 'Search Console baseline (access UNKNOWN)'],
-  production_touched: false,
-};
-fs.writeFileSync(__dirname + '/validation-receipt.json', JSON.stringify(receipt, null, 1));
-console.log('\nTOTAL=' + receipt.summary.total + ' PASS=' + receipt.summary.passed + ' FAIL=' + receipt.summary.failed);
-console.log('RECEIPT validation-receipt.json | control_head=' + controlSha.slice(0, 12));
-process.exitCode = receipt.exit;

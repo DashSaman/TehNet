@@ -1,25 +1,18 @@
---- a/content/commercial-decision-2026-11-08-v2/mikrotik-service.html@a54198ce7ed3535d6783432d8401660e2e023f9d (after-D1 118f34b1ec9e…)
+--- a/content/mikrotik-service-2026-11-01/mikrotik-service.html@a54198ce7ed3535d6783432d8401660e2e023f9d
 
-+++ b/content/commercial-decision-2026-11-08-v2/mikrotik-service.html (proposed, NOT_DEPLOYED)
++++ b/content/mikrotik-service-2026-11-01/mikrotik-service.html (proposed, NOT_DEPLOYED)
 
-@@ -130,6 +130,52 @@
+@@ -124,6 +124,40 @@
 
  <p><strong>منابع و حد بررسی:</strong> دو صفحهٔ جاری MikroTik، بخش‌های Export/Import و محدودیت‌های Safe Mode، و بخش پردازش سخت‌افزاری Bridge در ۱ نوامبر ۲۰۲۶ بازبینی شدند. انتخابگر مستند نسخهٔ7.26 را نشان می‌داد؛ این نسخهٔ دستگاه یا توصیهٔ ارتقای آن نیست. سایت قدیمی مستندات پیام توقف ویرایش دارد و پشتوانهٔ جاری این متن نیست. قالب درخواست و مثال، پیشنهاد توضیحی‌اند؛ هیچ کانفیگ، آزمون شبکه، بازیابی یا پروژهٔ مشتری در این متن گزارش نشده است.</p>
  <!-- /wp:paragraph -->
  
-+<!-- READY_FOR_REVIEW proposed add-on (TN-SEO-PAGES-20261116; base=PR100 decision after-D1 body 118f34b1ec9e…) -->
-+<!-- wp:paragraph -->
-+<p>(insert/merge; replace weak sections, keep existing service-scope rules)</p>
-+<!-- /wp:paragraph -->
-+
 +<!-- wp:paragraph -->
 +<p><strong>پاسخ کوتاه:</strong> ما کارهای رایج MikroTik را با محدودهٔ روشن انجام می‌دهیم: نصب و کانفیگ RouterOS، فایروال و NAT، VLAN، چند لینک اینترنت، VPN سایت‌به‌سایت، مدیریت پهنای باند، و رفع اختلال با ثبت قبل/بعد تغییرات.</p>
 +<!-- /wp:paragraph -->
-+
 +<!-- wp:heading -->
-+<h2 class="wp-block-heading">کارها و خروجی تحویل {#kars}</h2>
++<h2 class="wp-block-heading">کارها و خروجی تحویل </h2>
 +<!-- /wp:heading -->
-+
 +<!-- wp:list -->
 +<ul class="wp-block-list"><!-- wp:list-item -->
 +<li>کانفیگ اولیهٔ RouterOS (interface، NAT، DHCP، فایروال پایه)</li>
@@ -32,25 +25,20 @@
 +<!-- /wp:list-item -->
 +</ul>
 +<!-- /wp:list -->
-+
 +<!-- wp:paragraph -->
 +<p><strong>خروجی قابل‌تحویل:</strong> پیکربندی مستندشده، فایل backup، گزارش تغییرات.</p>
 +<!-- /wp:paragraph -->
-+
 +<!-- wp:paragraph -->
 +<p><strong>محدودیت‌ها:</strong> تضمین سرعت اینترنت ISP، رفع خرابی سخت‌افزار فیزیکی و کاری خارج از محدودهٔ توافق‌شده انجام نمی‌شود.</p>
 +<!-- /wp:paragraph -->
-+
 +<!-- wp:heading -->
-+<h2 class="wp-block-heading">انتخاب مسیر {#mosir}</h2>
++<h2 class="wp-block-heading">انتخاب مسیر </h2>
 +<!-- /wp:heading -->
-+
 +<!-- wp:paragraph -->
-+<p>اگر هنوز تجهیز ندارید، راهنمای [انتخاب و مقایسهٔ روترهای میکروتیک](/guides/mikrotik-routers/) مدل مناسب را مشخص می‌کند؛ برای سوئیچ و PoE راهنمای [سوئیچ‌های CRS](/guides/mikrotik-switches-crs/) است.</p>
++<p>اگر هنوز تجهیز ندارید، راهنمای <a href="/guides/mikrotik-routers/">انتخاب و مقایسهٔ روترهای میکروتیک</a> مدل مناسب را مشخص می‌کند؛ برای سوئیچ و PoE راهنمای <a href="/guides/mikrotik-switches-crs/">سوئیچ‌های CRS</a> است.</p>
 +<!-- /wp:paragraph -->
-+
 +<!-- wp:paragraph -->
-+<p><strong>CTA:</strong> برای برآورد، [درخواست سازمانی](/b2b/) یا [سامانهٔ پشتیبانی](/support/) با شرح کوتاه و بدون رمز/backup ثبت کنید. هماهنگی تلفنی: [tehnet_phone].</p>
++<p><strong>CTA:</strong> برای برآورد، <a href="/b2b/">درخواست سازمانی</a> یا <a href="/support/">سامانهٔ پشتیبانی</a> با شرح کوتاه و بدون رمز/backup ثبت کنید. هماهنگی تلفنی: [tehnet_phone].</p>
 +<!-- /wp:paragraph -->
 +
  <!-- wp:shortcode -->

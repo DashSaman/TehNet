@@ -1,25 +1,20 @@
---- a/content/commercial-decision-2026-11-08-v2/network-setup.html@a54198ce7ed3535d6783432d8401660e2e023f9d (after-D1 ab56940e609f…)
+--- a/content/server-branch-2026-11-04/network-setup.html@a54198ce7ed3535d6783432d8401660e2e023f9d
 
-+++ b/content/commercial-decision-2026-11-08-v2/network-setup.html (proposed, NOT_DEPLOYED)
++++ b/content/server-branch-2026-11-04/network-setup.html (proposed, NOT_DEPLOYED)
 
-@@ -266,6 +266,42 @@
+@@ -270,6 +270,55 @@
 
- <p><strong>حد بازبینی این دو بخش:</strong> منابع رسمی Microsoft و MikroTik در۴نوامبر۲۰۲۶ برای نکته‌های مشخص بالا خوانده شدند. این صفحه خدمت‌نامه و قالب بررسی است؛ در تهیهٔ آن، Hyper-V، سرور مشتری، تونل، backup/restore یا تست شبکه اجرا نشده است. معیار و نتیجهٔ هر پروژه باید با همان محیط و مسئول مجاز تعیین و ثبت شوند.</p>
- <!-- /wp:paragraph -->
  
-+<!-- READY_FOR_REVIEW proposed add-on (TN-SEO-PAGES-20261116; base=PR100 decision after-D1 body ab56940e609f…) -->
-+<!-- wp:paragraph -->
-+<p>(insert/merge; replace weak sections, keep existing service-scope rules)</p>
+ <!-- wp:paragraph -->
+ <p><strong>حد بازبینی این دو بخش:</strong> منابع رسمی Microsoft و MikroTik در۴نوامبر۲۰۲۶ برای نکته‌های مشخص بالا خوانده شدند. این صفحه خدمت‌نامه و قالب بررسی است؛ در تهیهٔ آن، Hyper-V، سرور مشتری، تونل، backup/restore یا تست شبکه اجرا نشده است. معیار و نتیجهٔ هر پروژه باید با همان محیط و مسئول مجاز تعیین و ثبت شوند.</p>
 +<!-- /wp:paragraph -->
 +
 +<!-- wp:paragraph -->
 +<p><strong>پاسخ کوتاه:</strong> راه‌اندازی شبکه در چهار گام انجام می‌شود: نیازسنجی و نقشه، اجرا (کابل/تجهیز)، پیکربندی و تست پذیرش، تحویل مستندات. تجهیزات پیشنهادی بسته به سناریو متفاوت است.</p>
 +<!-- /wp:paragraph -->
-+
 +<!-- wp:heading -->
-+<h2 class="wp-block-heading">ورودی موردنیاز از شما {#inputs}</h2>
++<h2 class="wp-block-heading">ورودی موردنیاز از شما </h2>
 +<!-- /wp:heading -->
-+
 +<!-- wp:list -->
 +<ul class="wp-block-list"><!-- wp:list-item -->
 +<li>نقشه/تعداد پریزها و نقاط نصب، تعداد کاربر و VLANهای موردنیاز</li>
@@ -30,19 +25,37 @@
 +<!-- /wp:list-item -->
 +</ul>
 +<!-- /wp:list -->
-+
 +<!-- wp:heading -->
-+<h2 class="wp-block-heading">انتخاب تجهیز بر اساس سناریو {#equipment}</h2>
++<h2 class="wp-block-heading">انتخاب تجهیز بر اساس سناریو </h2>
 +<!-- /wp:heading -->
-+
++<!-- wp:table -->
++<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
++<th>سناریو</th>
++<!-- /wp:table-cell --><!-- wp:table-cell -->
++<th>تجهیز پیشنهادی برای بررسی</th>
++<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
++<td>---</td>
++<!-- /wp:table-cell --><!-- wp:table-cell -->
++<td>---</td>
++<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
++<td>دفتر تا ۱۰ نفر</td>
++<!-- /wp:table-cell --><!-- wp:table-cell -->
++<td>روتر hEX + سوئیچ CSS610</td>
++<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
++<td>شعبه با PoE (دوربین/تلفن)</td>
++<!-- /wp:table-cell --><!-- wp:table-cell -->
++<td>CRS112 یا netPower 16P</td>
++<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
++<td>دفتر بزرگ/رک</td>
++<!-- /wp:table-cell --><!-- wp:table-cell -->
++<td>RB3011/L009 یا RB5009 + CRS354</td>
++<!-- /wp:table-cell --></tr></tbody></table>
++<!-- /wp:table -->
 +<!-- wp:paragraph -->
-+<p>(جدول راهنمای انتخاب است؛ مدل دقیق پس از نیازسنجی. جزئیات: [راهنمای روترهای میکروتیک](/guides/mikrotik-routers/) و [سوئیچ‌های CRS](/guides/mikrotik-switches-crs/).)</p>
++<p>(جدول راهنمای انتخاب است؛ مدل دقیق پس از نیازسنجی. جزئیات: <a href="/guides/mikrotik-routers/">راهنمای روترهای میکروتیک</a> و <a href="/guides/mikrotik-switches-crs/">سوئیچ‌های CRS</a>.)</p>
 +<!-- /wp:paragraph -->
-+
 +<!-- wp:paragraph -->
-+<p><strong>CTA:</strong> برای نیازسنجی و برآورد، [درخواست سازمانی](/b2b/) را با همان ورودی‌های بالا ثبت کنید.</p>
-+<!-- /wp:paragraph -->
-+
++<p><strong>CTA:</strong> برای نیازسنجی و برآورد، <a href="/b2b/">درخواست سازمانی</a> را با همان ورودی‌های بالا ثبت کنید.</p>
+ <!-- /wp:paragraph -->
+ 
  <!-- wp:shortcode -->
- [tn_editorial_note]
- <!-- /wp:shortcode -->

@@ -1,0 +1,20 @@
+== GOOD CANDIDATE ==
+DBG candidateInputs type=object isArray=true len=41
+good candidate: ok=false checks=62 failed=36
+DBG candidateInputs type=object isArray=true len=41
+PASS NEG wrong-spec-E50UG-multiline-HTML -> reasons: ["E50UG row still carries MMIPS/256MB","wrong spec inside comparison table region"]
+DBG candidateInputs type=object isArray=true len=41
+PASS NEG wrong-spec-CRS112-SVG-label -> reasons: ["wrong spec inside comparison table region","SVG label does not show canonical SKU hEX lite (RB750r2)"]
+DBG candidateInputs type=object isArray=true len=41
+PASS NEG omitted-model-CRS326 -> reasons: ["wrong spec inside comparison table region","SVG label does not show canonical SKU hEX lite (RB750r2)"]
+DBG candidateInputs type=object isArray=true len=40
+PASS NEG missing-schematic-asset -> reasons: ["wrong spec inside comparison table region","SVG label does not show canonical SKU hEX lite (RB750r2)"]
+DBG candidateInputs type=object isArray=true len=41
+PASS NEG broken-relative-link -> reasons: ["wrong spec inside comparison table region","SVG label does not show canonical SKU hEX lite (RB750r2)"]
+DBG candidateInputs type=object isArray=true len=41
+PASS NEG duplicate-id -> reasons: ["wrong spec inside comparison table region","SVG label does not show canonical SKU hEX lite (RB750r2)"]
+DBG candidateInputs type=object isArray=true len=41
+PASS NEG dangling-anchor -> reasons: ["wrong spec inside comparison table region","SVG label does not show canonical SKU hEX lite (RB750r2)"]
+
+GOOD=FAIL | NEGATIVES=7/7 rejected-with-reason
+RECEIPT validation-receipt.json | exit=1 | control_head=c90fdd5a431e
