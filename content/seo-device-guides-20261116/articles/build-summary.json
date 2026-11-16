@@ -85,6 +85,13 @@
    "type": "tutorial",
    "bytes": 20760,
    "per_model_images": 0
+  },
+  {
+   "md": "../tutorials/m4-intervlan-l3hw.fa.md",
+   "html": "../tutorials/m4-intervlan-l3hw.gutenberg.html",
+   "type": "tutorial",
+   "bytes": 21000,
+   "per_model_images": 0
   }
  ]
 }

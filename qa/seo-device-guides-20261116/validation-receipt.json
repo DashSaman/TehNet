@@ -3,13 +3,13 @@
  "validator": "validate-seo-guides.cjs rev8 (rev7 + S2 tutorial candidate)",
  "command": "node validate-seo-guides.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-16T20:37:24Z",
- "finished_utc": "2026-11-16T20:37:24Z",
- "control_head": "f9213b9676c38d1538315ac4ad24a652b09198a9",
+ "started_utc": "2026-11-16T20:46:29Z",
+ "finished_utc": "2026-11-16T20:46:29Z",
+ "control_head": "363fc647e2a92e1c30a74460ab0341af9f6ccae2",
  "exit": 0,
  "good_candidate": {
   "ok": true,
-  "checks": 107,
+  "checks": 112,
   "failed": 0
  },
  "injected_negatives": [
@@ -124,9 +124,11 @@
   "tutorials/n5-config-backup-export.gutenberg.html": "fa5ddc2aa80dbba7f3ce614496824a8f549ebbf953cd2241c58ddb0567ec898b",
   "tutorials/n6-incident-path.fa.md": "eaf0d6975fc8627417d90ed52d3e1dff135bf8393147986188188eb3651e9544",
   "tutorials/n6-incident-path.gutenberg.html": "f9a848f0c2adf629fcc1cc6955860f32f883bfba6e1ea68ceb74903e4b7d052b",
+  "tutorials/m4-intervlan-l3hw.fa.md": "343ef9d76c3ce522a18b3eef651e0db5b82f6f9479d4e740892f34f4dac7f1bb",
+  "tutorials/m4-intervlan-l3hw.gutenberg.html": "d666db323e850d08bc00c3670a2f27336d21a3999723b0056970a54fd5b496ca",
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",
   "switch-catalog.csv": "aaa5aed94204ad93b312449d9b0c934164c59d2d6375eb3b5727fe94ae164718",
-  "image-provenance.csv": "deaf552632be397a883e611a3b991b669264d8fc425f701976bb39b9db5c68d5",
+  "image-provenance.csv": "d6dab4687ba452268e9f164f72f748cdf99052573a44cf2818554fa33b1ccb1e",
   "page-edits/mikrotik-service.proposed.html": "c8c22f3e453bdbc5934d9e3b4e9b84e81e11b0fbfedb9e901fdce300dceabdfb",
   "page-edits/network-setup.proposed.html": "ac244d2142a4022b20b98803e48c218c5138f5398b72a6f7bca1bae1fbe52c0b",
   "page-edits/network-support.proposed.html": "52b58eefe6cd3ff50c65077ddc99f9ae66637a2fe4181bd16a6a9579adebf953"

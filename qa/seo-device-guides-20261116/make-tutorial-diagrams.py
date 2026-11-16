@@ -454,8 +454,56 @@ n6 = svg(960, 660,
     'مسیر هفت‌مرحله‌ای رخداد: ثبت با زمان و دامنه و اثر؛ تریاژ با معیار از پیش‌نوشته؛ اقدام اولیه با نردبان درس N1؛ تشدید در صورت معیار با handoff کامل شامل چه کاری انجام شده دیده شده و نشده؛ اقدام سطح دو؛ تأیید کاربر و بستن با ثبت قبل و بعد؛ و گزارش نهایی ریشه و استثنا. جعبه‌های کناری معیار تشدید و سه استثنا با رفتار ساعت‌شمار را نشان می‌دهند. زمان‌ها فرض آموزشی‌اند و هر سازمان مالک تعیین اعداد خودش است. این نمودار مفهومی و تألیفی TehNet است.',
     chr(10).join(b))
 
+
+# ---------------- M4 L3HW HW-vs-CPU flow ----------------
+b = []
+b.append(rect(60, 60, 180, 70, '#fafafa', '#37474f', 2))
+b.append(text(150, 90, 'بسته ورودی', 12, 'middle', '#1a1a1a', 'bold'))
+b.append(text(150, 112, 'پورت A — l3-hw-offloading=yes', 9, 'middle', '#546e7a'))
+# decision diamond (approximated by rect)
+b.append(rect(330, 55, 240, 80, '#ede7f6', '#6a1b9a', 2))
+b.append(text(450, 82, 'L3HW روشن در هر دو پورت؟', 11, 'middle', '#6a1b9a', 'bold'))
+b.append(text(450, 102, 'مقصد prefix سندشده؟', 11, 'middle', '#6a1b9a'))
+b.append(line(240, 95, 330, 95, '#37474f', 3))
+# HW path (green, top-right)
+b.append(line(570, 75, 700, 75, '#43a047', 4))
+b.append(text(635, 65, 'بله', 11, 'middle', '#2e7d32', 'bold'))
+b.append(rect(700, 45, 220, 64, '#e8f5e9', '#43a047', 3))
+b.append(text(810, 68, 'سوییچ‌چیپ — HW route', 11, 'middle', '#2e7d32', 'bold'))
+b.append(text(810, 88, 'unicast · ECMP · VLAN (بدون CPU)', 9, 'middle', '#2e7d32'))
+b.append(text(810, 102, 'wire speed', 9, 'middle', '#2e7d32'))
+# CPU path (orange, bottom-right)
+b.append(line(570, 115, 700, 115, '#ef6c00', 4))
+b.append(text(635, 135, 'خیر', 11, 'middle', '#e65100', 'bold'))
+b.append(rect(700, 125, 220, 90, '#fff3e0', '#ef6c00', 3))
+b.append(text(810, 148, 'CPU', 11, 'middle', '#e65100', 'bold'))
+b.append(text(810, 168, 'فایروال/NAT روی CPU', 9, 'middle', '#8d6e63'))
+b.append(text(810, 186, 'مالتی‌کست · interface-gateway اول', 9, 'middle', '#8d6e63'))
+b.append(text(810, 204, 'Fasttrack اتصال‌ها → HW آفلود', 9, 'middle', '#8d6e63'))
+# shared memory note
+b.append(rect(200, 210, 370, 100, '#fdecea', '#d32f2f', 2))
+b.append(text(385, 234, 'حافظهٔ مشترک HW (سند رسمی)', 11, 'middle', '#d32f2f', 'bold'))
+notes = ['Fasttrack: 2.25K تا 4.5K اتصال (بسته به مدل)', 'هر ACL = جای 3-6 اتصال Fasttrack', 'توصیه: اول ACL سوییچی، بعد آفلود انتخابی', 'آفلود جزئی: پیشوند بلندتر اول (/30، /29…)', '98DX3236: 13,312 prefix · 8 nexthop · 4K ECMP']
+for ni, n in enumerate(notes):
+    b.append(text(385, 258 + ni * 17, n, 10, 'middle', '#616161'))
+# must-choose box
+b.append(rect(200, 330, 720, 44, '#ede7f6', '#6a1b9a', 2))
+b.append(text(560, 356, 'انتخاب اجباری سند رسمی: یا مسیریابی سخت‌افزاری یا فایروال (فایروال روی CPU)', 11, 'middle', '#6a1b9a', 'bold'))
+# prerequisites box
+b.append(rect(60, 400, 860, 130, '#e3f2fd', '#1e88e5', 2))
+b.append(text(480, 424, 'الزام‌های سند رسمی قبل از روشن‌کردن', 12, 'middle', '#0d47a1', 'bold'))
+reqs = ['۱. فقط مدل‌های فهرست‌شده (98DX3xxx شامل 98DX3236=CRS326-24G-2S+RM؛ 98DX8xxx شامل CRS309/317/354)', '۲. l3-hw-offloading=yes سراسری + هر دو پورت ورودی/خروجی', '۳. پل hardware-offloaded با vlan-filtering — VLAN interface مستقیم روی switch port ممنوع',
+        '۴. فقط یک hardware bridge — چند پل = رفتار نامعین', '۵. حین تغییرات L2 (پل/VLAN/MTU/MAC/bonding): L3HW موقتاً خاموش', '۶. نگارش: منوی L3HW از v7.6 · مانیتور از v7.10 · آفلود per-VLAN از v7.21']
+for ri, rq in enumerate(reqs):
+    b.append(text(90, 448 + ri * 14, rq, 9.5, 'start', '#0d47a1'))
+b.append(text(480, 553, 'نمودار مفهومی تألیفی TehNet — نه عکس واقعی — بر پایهٔ سند رسمی L3HW (دسترسی 2026-11-16)؛ اجرا NOT_RUN', 10, 'middle', '#78909c'))
+m4 = svg(960, 580,
+    'نمودار مسیر ترافیک HW در برابر CPU درس M4 با الزام‌های L3HW',
+    'بسته ورودی اول بررسی می‌شود که آیا در هر دو پورت L3HW روشن است و مقصد پیشوند سندشده دارد؛ در این حالت سوییچ‌چیپ مسیریابی را در سخت‌افزار با سرعت سیم انجام می‌دهد. وگرنه بسته به CPU می‌رود که فایروال و NAT و مسیرهای باقی آنجا پردازش می‌شود. حافظه سخت‌افزار بین Fasttrack و ACL مشترک است و هر قانون ACL جای سه تا شش اتصال Fasttrack را می‌گیرد. شش الزام پیش از روشن‌کردن شامل فهرست مدل‌ها، روشن بودن هر دو پورت، پل vlan-filtering سخت‌افزاری، یک پل واحد، خاموش کردن موقت حین تغییرات لایه دو و نگارش حداقل ۷.۶ آمده است. این نمودار مفهومی و تألیفی TehNet است.',
+    chr(10).join(b))
+
 os.makedirs(OUT, exist_ok=True)
-for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6)):
+for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4)):
     p = os.path.join(OUT, name)
     with io.open(p, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)
