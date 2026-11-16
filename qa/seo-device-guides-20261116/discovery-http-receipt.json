@@ -1,0 +1,89 @@
+{
+ "packet": "TN-DISCOVERY-HTTP-CHECK-20261116",
+ "command": "python -I discovery-http-check.py",
+ "cwd": "qa/seo-device-guides-20261116/",
+ "started_utc": "2026-11-16T17:56:30Z",
+ "finished_utc": "2026-11-16T17:56:46Z",
+ "exit": 0,
+ "mode": "LOCAL_TEST — read-only public HTTP GETs; no production change; no login; no site write",
+ "errors": 0,
+ "results": [
+  {
+   "url": "https://tehnet.ir/",
+   "http_status": "200"
+  },
+  {
+   "url": "https://tehnet.ir/services/",
+   "http_status": "200"
+  },
+  {
+   "url": "https://tehnet.ir/services/voice-network-readiness/",
+   "http_status": "200"
+  },
+  {
+   "url": "https://tehnet.ir/services/remote-support/",
+   "http_status": "200"
+  },
+  {
+   "url": "https://tehnet.ir/services/mikrotik-tehran/",
+   "http_status": "200"
+  },
+  {
+   "url": "https://tehnet.ir/services/network-setup-tehran/",
+   "http_status": "200"
+  },
+  {
+   "url": "https://tehnet.ir/services/network-support-tehran/",
+   "http_status": "200"
+  },
+  {
+   "url": "https://tehnet.ir/services/network-tehran/",
+   "http_status": "200"
+  },
+  {
+   "url": "https://tehnet.ir/about/",
+   "http_status": "200"
+  },
+  {
+   "url": "https://tehnet.ir/contact/",
+   "http_status": "200"
+  },
+  {
+   "url": "https://tehnet.ir/technical-methodology/",
+   "http_status": "200"
+  },
+  {
+   "url": "https://tehnet.ir/network-support-contract-guide/",
+   "http_status": "404"
+  },
+  {
+   "url": "https://tehnet.ir/network-project-proposal-checklist/",
+   "http_status": "404"
+  },
+  {
+   "url": "https://tehnet.ir/business-server-planning-guide/",
+   "http_status": "404"
+  },
+  {
+   "url": "https://tehnet.ir/server-backup-restore-acceptance/",
+   "http_status": "404"
+  },
+  {
+   "url": "https://tehnet.ir/services/server-virtualization-tehran/",
+   "http_status": "404"
+  }
+ ],
+ "robots": {
+  "http_status": 200,
+  "sitemap_directives": [
+   "https://tehnet.ir/wp-sitemap.xml"
+  ],
+  "note": "fetched https://tehnet.ir/wp-sitemap.xml (index children=6); total_urls=70"
+ },
+ "not_run": [
+  "Search Console query data",
+  "page-render/browser check",
+  "any site write"
+ ],
+ "production_touched": false
+}

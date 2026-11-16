@@ -3,9 +3,9 @@
  "validator": "validate-seo-guides.cjs rev7 (shared validate(candidateInputs) + 9 injected negatives + c10-freshness builder rerun)",
  "command": "node validate-seo-guides.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-16T17:50:51Z",
- "finished_utc": "2026-11-16T17:50:51Z",
- "control_head": "f72cdd0e1d70b2bb042e4a2ccc4992ca195995a7",
+ "started_utc": "2026-11-16T17:57:37Z",
+ "finished_utc": "2026-11-16T17:57:37Z",
+ "control_head": "177583807e295838a453ea0091e8bd256bcdae5e",
  "exit": 0,
  "good_candidate": {
   "ok": true,
@@ -104,8 +104,8 @@
  "digests": {
   "articles/mikrotik-routers.gutenberg.html": "630166991425788f33b73d6cfd9fb8364b016858f3d67be5b390a01bdee6fa08",
   "articles/mikrotik-switches-crs.gutenberg.html": "c0d106c652b1702f4fc6c7ebd136e9cd31cbea3570e6b6a52d73de046466180c",
-  "tutorials/m2-vlan-small-office.fa.md": "17715ed8207603eef00f7e9cbc0e43cb7faaed3d412b30e3c99d3093daa2bd49",
-  "tutorials/m2-vlan-small-office.gutenberg.html": "6c2a3b0f9cc4c25aca4697a53413a4dc45d1739ccc44e5010a37b264c2198c67",
+  "tutorials/m2-vlan-small-office.fa.md": "6e2c7de312505c4754eaafe5dbea678e5494f9d2c1375f60060365a4855aa1ff",
+  "tutorials/m2-vlan-small-office.gutenberg.html": "a0bc1b4c21464c130806315bcb203e37f2c8661b604d22eda846a65809b8a696",
   "tutorials/m3-dhcp-dns.fa.md": "1875288d0efc305d807a43458b91a52022d40b31f5c8afb0acc1372c3869fa64",
   "tutorials/m3-dhcp-dns.gutenberg.html": "7e253edd5fcb6a872d3450319343006cdbb7d4447883e749fada098eca58ab88",
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",

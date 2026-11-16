@@ -311,4 +311,4 @@ add chain=forward action=drop comment="TN-M2 forward default drop"
 | درس بعدی | [DHCP و DNS در MikroTik (M3)](m3-dhcp-dns.fa.md) |
 | نقشهٔ کامل سری | [topic map](../topic-map.md) |
 | اجرا/کانفیگ VLAN برای سازمان شما | [خدمات میکروتیک TehNet](https://tehnet.ir/services/mikrotik-tehran/) |
-| نگهداری دوره‌ای و عیب‌یابی | [قرارداد پشتیبانی شبکه](https://tehnet.ir/network-support-contract-guide/) |
+| نگهداری دوره‌ای و عیب‌یابی | [خدمات پشتیبانی شبکهٔ تهران](https://tehnet.ir/services/network-support-tehran/) |
