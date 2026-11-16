@@ -601,8 +601,46 @@ m6 = svg(960, 560,
     'روتر hEX با دو خروجی اینترنت: WAN-A به عنوان primary با distance یک که میزبان تست هشت‌هشت‌هشت‌هشت از طریق آن مانیتور می‌شود و WAN-B به عنوان پشتیبان با distance دو و میزبان تست هشت‌هشت‌چهار‌چهار. مسیرهای میزبان با scope ده تعریف شده‌اند و مسیرهای default با target-scope یازده به‌طور recursive از طریق میزبان‌ها حل می‌شوند؛ بدون این مسیرها هر دو default غیرفعال می‌مانند. بعد از قطع WAN-A مسیر پشتیبان فعال می‌شود و اتصال‌های برقرار می‌شکنند که در چک‌لیست پذیرش ثبت شده است. این نمودار مفهومی و تألیفی TehNet است.',
     chr(10).join(b))
 
+
+# ---------------- S5 uplink/trunk ----------------
+b = []
+# floor switch (left)
+b.append(rect(60, 130, 300, 190, '#fafafa', '#fb8c00', 3))
+b.append(text(210, 156, 'سوئیچ طبقه — CRS112-8P-4S-IN', 12, 'middle', '#e65100', 'bold'))
+floors = [('۱۲ کاربر دفتر — VLAN10', 185), ('۴ دوربین — VLAN20', 215), ('۸ پورت آزاد (رشد)', 245), ('مدیریت — VLAN88', 275)]
+for t, y in floors:
+    b.append(text(210, y, t, 10, 'middle', '#37474f'))
+# core switch (right)
+b.append(rect(600, 130, 300, 190, '#fafafa', '#1e88e5', 3))
+b.append(text(750, 156, 'سوئیچ مرکز — CRS326-24G-2S+RM', 12, 'middle', '#0d47a1', 'bold'))
+cores = [('سرور/NAS — VLAN10', 185), ('روتر و اینترنت', 215), ('سایر سوئیچ‌های طبقات', 245), ('مدیریت — VLAN88', 275)]
+for t, y in cores:
+    b.append(text(750, y, t, 10, 'middle', '#37474f'))
+# trunk link
+b.append(line(360, 225, 600, 225, '#43a047', 6))
+b.append(text(480, 210, 'آپ‌لینک ترانک تگ‌دار', 12, 'middle', '#2e7d32', 'bold'))
+b.append(text(480, 245, 'VLAN 10 / 20 / 88 — تگ‌دار', 10, 'middle', '#2e7d32'))
+b.append(text(480, 263, 'medium: DAC 1m یا Cat6 — الگوی S3', 9, 'middle', '#78909c'))
+# capacity calc box
+b.append(rect(60, 350, 840, 120, '#e3f2fd', '#1e88e5', 2))
+b.append(text(480, 376, 'محاسبهٔ ظرفیت آپ‌لینک (فرض آموزشی — UNKNOWN per-سازمان)', 12, 'middle', '#0d47a1', 'bold'))
+calc = ['سقف تئوریک پایین‌دست: ۱۲ پورت × 1Gbps = 12Gbps',
+        'ضریب تجمعی رایج: 4:1 تا 8:1 (فرض — اندازه‌گیری واقعی ملاک، الگوی N2)',
+        'آپ‌لینک 1G برای جمع واقعی ≤ ~125-250MB/s · آپ‌لینک 10G برای سرور/NAS/دوربین سنگین',
+        'قاعده: آپ‌لینک ≥ بزرگ‌ترین ترافیک همزمان محتمل + رشد ۲۴ ماه']
+for ci, c in enumerate(calc):
+    b.append(text(90, 402 + ci * 16, c, 10, 'start', '#0d47a1'))
+# red warning
+b.append(rect(60, 490, 840, 44, '#fdecea', '#d32f2f', 2))
+b.append(text(480, 512, 'هشدار: ترانک untagged = از دست دادن جداسازی VLANها و مدیریت — ممنوع', 11, 'middle', '#d32f2f', 'bold'))
+b.append(text(480, 533, 'نمودار مفهومی تألیفی TehNet — نه عکس واقعی — الگوی سند Bridging and Switching (دسترسی 2026-11-16)؛ اجرا NOT_RUN', 10, 'middle', '#78909c'))
+s5 = svg(960, 560,
+    'نمودار آپ‌لینک و ترانک درس S5 بین دو سوئیچ با محاسبهٔ ظرفیت',
+    'دو سوئیچ با یک آپ‌لینک ترانک تگ‌دار وصل شده‌اند که VLANهای ده و بیست و هشتاد و هشت را حمل می‌کند. سوئیچ طبقه دوازده پورت کاربر و دوربین دارد و سقف تئوریک پایین‌دست دوازده گیگابیت است که با ضریب تجمعی مهندسی و اندازه‌گیری واقعی باید با ظرفیت آپ‌لینک سنجیده شود. هشدار قرمز نمودار می‌گوید ترانک بدون تگ ممنوع است چون جداسازی از بین می‌رود. این نمودار مفهومی و تألیفی TehNet است.',
+    chr(10).join(b))
+
 os.makedirs(OUT, exist_ok=True)
-for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4), ('tutorial-m5-vpn-architecture.svg', m5), ('tutorial-m6-dual-wan-failover.svg', m6)):
+for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4), ('tutorial-m5-vpn-architecture.svg', m5), ('tutorial-m6-dual-wan-failover.svg', m6), ('tutorial-s5-uplink-trunk.svg', s5)):
     p = os.path.join(OUT, name)
     with io.open(p, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)

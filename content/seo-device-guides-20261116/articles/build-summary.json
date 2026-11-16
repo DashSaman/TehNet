@@ -106,6 +106,13 @@
    "type": "tutorial",
    "bytes": 19264,
    "per_model_images": 0
+  },
+  {
+   "md": "../tutorials/s5-uplink-trunk.fa.md",
+   "html": "../tutorials/s5-uplink-trunk.gutenberg.html",
+   "type": "tutorial",
+   "bytes": 16265,
+   "per_model_images": 0
   }
  ]
 }
