@@ -39,7 +39,10 @@
    "assets/tutorial-n6-incident-path.svg": "c992c9b4e8cf28263803048f101466655d47b41fafe63ca6ec73b95316184ccc",
    "tutorials/m4-intervlan-l3hw.fa.md": "343ef9d76c3ce522a18b3eef651e0db5b82f6f9479d4e740892f34f4dac7f1bb",
    "tutorials/m4-intervlan-l3hw.gutenberg.html": "d666db323e850d08bc00c3670a2f27336d21a3999723b0056970a54fd5b496ca",
-   "assets/tutorial-m4-l3hw-flow.svg": "def4227b8f02e4dbf04bf54015199c3f03d2f3dff02cfcf04a20a6d03a85a3f5"
+   "assets/tutorial-m4-l3hw-flow.svg": "def4227b8f02e4dbf04bf54015199c3f03d2f3dff02cfcf04a20a6d03a85a3f5",
+   "tutorials/m5-vpn-selection.fa.md": "ae4ef5dd1466d3cf953a5919ce95a8c1fa45e72e8c4057d3eaa415a98cedb101",
+   "tutorials/m5-vpn-selection.gutenberg.html": "87af887c0d27c64db5315c126b71447bf7af334094932715d215ea6c483d29d2",
+   "assets/tutorial-m5-vpn-architecture.svg": "1141544193204bd01d187b0d14f5dc7536d1857169a132e47c3323c68b4c2e36"
   }
  },
  "preview_style_injected_at_render_time": "body{background:#fff;color:#111;font-family:Tahoma,Arial,sans-serif;margin:24px auto;max-width:960px;line-height:1.9} pre{background:#f6f8fa;border:1px solid #ddd;padding:12px;overflow:auto} code{font-family:Consolas,monospace;font-size:13px} table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto} th,td{border:1px solid #999;padding:5px 9px} img{max-width:100%;height:auto} blockquote{border-right:3px solid #1e88e5;padding-right:12px;color:#444}",
@@ -339,6 +342,22 @@
     "img_present": true,
     "links": 8,
     "overflow_styled": 359
+   },
+   "tutorials/m5-vpn-selection.gutenberg.html@desktop": {
+    "shot": "m5-desktop-vpn.png",
+    "h1": "انتخاب VPN برای شعبه — WireGuard یا IPsec؟ (M5)",
+    "img_complete": true,
+    "img_present": true,
+    "links": 7,
+    "overflow_styled": 0
+   },
+   "tutorials/m5-vpn-selection.gutenberg.html@mobile": {
+    "shot": "m5-mobile-vpn.png",
+    "h1": "انتخاب VPN برای شعبه — WireGuard یا IPsec؟ (M5)",
+    "img_complete": true,
+    "img_present": true,
+    "links": 7,
+    "overflow_styled": 120
    }
   },
   "styled_overflow_mobile_px": {
@@ -397,7 +416,8 @@
   "n3": "N3 SLA-timeline lesson renders desktop 0px overflow, mobile 166px (recorded); Response/Resolution timeline + exception band + six-questions box + empty A/B comparison table legible",
   "n5": "N5 two-track lesson renders desktop AND mobile both 0px overflow; backup/export tracks + restore-test gate + off-device and no-secrets boxes legible",
   "n6": "N6 incident-path lesson renders desktop 0px overflow, mobile 126px (recorded); seven-step path + escalation/exceptions side boxes legible",
-  "m4": "M4 HW-vs-CPU flow lesson renders desktop 0px overflow, mobile 359px (recorded); flow diagram (input->decision->HW/CPU paths) + shared-memory + must-choose + six-requirements boxes legible"
+  "m4": "M4 HW-vs-CPU flow lesson renders desktop 0px overflow, mobile 359px (recorded); flow diagram (input->decision->HW/CPU paths) + shared-memory + must-choose + six-requirements boxes legible",
+  "m5": "M5 VPN architecture lesson renders desktop 0px overflow, mobile 120px (recorded); branch/hq boxes + tunnel with two options + documented gotchas box legible"
  },
  "boundary_item5": {
   "captures_untracked": "git rm --cached of the 12 evidence PNGs + render-evidence/.gitignore (forward commit; no force-push, no history claims); captures remain on local disk only",
@@ -409,7 +429,7 @@
   "manager-side browser run"
  ],
  "production_touched": false,
- "utc_extended": "2026-11-16T20:47:14Z",
+ "utc_extended": "2026-11-16T20:58:08Z",
  "pages_extra": [
   "tutorials/s2-poe-budget.gutenberg.html",
   "tutorials/s3-sfp-dac-fiber.gutenberg.html",
@@ -419,6 +439,7 @@
   "tutorials/n3-support-contract-sla.gutenberg.html",
   "tutorials/n5-config-backup-export.gutenberg.html",
   "tutorials/n6-incident-path.gutenberg.html",
-  "tutorials/m4-intervlan-l3hw.gutenberg.html"
+  "tutorials/m4-intervlan-l3hw.gutenberg.html",
+  "tutorials/m5-vpn-selection.gutenberg.html"
  ]
 }

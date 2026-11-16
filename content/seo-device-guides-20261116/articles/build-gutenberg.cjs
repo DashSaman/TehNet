@@ -263,6 +263,7 @@ const jobs = [
   ['../tutorials/n5-config-backup-export.fa.md', '../tutorials/n5-config-backup-export.gutenberg.html', 'tutorial'],
   ['../tutorials/n6-incident-path.fa.md', '../tutorials/n6-incident-path.gutenberg.html', 'tutorial'],
   ['../tutorials/m4-intervlan-l3hw.fa.md', '../tutorials/m4-intervlan-l3hw.gutenberg.html', 'tutorial'],
+  ['../tutorials/m5-vpn-selection.fa.md', '../tutorials/m5-vpn-selection.gutenberg.html', 'tutorial'],
 ];
 const summary = [];
 for (const job of jobs) {

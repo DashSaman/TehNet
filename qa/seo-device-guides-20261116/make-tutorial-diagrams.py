@@ -502,8 +502,60 @@ m4 = svg(960, 580,
     'بسته ورودی اول بررسی می‌شود که آیا در هر دو پورت L3HW روشن است و مقصد پیشوند سندشده دارد؛ در این حالت سوییچ‌چیپ مسیریابی را در سخت‌افزار با سرعت سیم انجام می‌دهد. وگرنه بسته به CPU می‌رود که فایروال و NAT و مسیرهای باقی آنجا پردازش می‌شود. حافظه سخت‌افزار بین Fasttrack و ACL مشترک است و هر قانون ACL جای سه تا شش اتصال Fasttrack را می‌گیرد. شش الزام پیش از روشن‌کردن شامل فهرست مدل‌ها، روشن بودن هر دو پورت، پل vlan-filtering سخت‌افزاری، یک پل واحد، خاموش کردن موقت حین تغییرات لایه دو و نگارش حداقل ۷.۶ آمده است. این نمودار مفهومی و تألیفی TehNet است.',
     chr(10).join(b))
 
+
+# ---------------- M5 VPN architecture ----------------
+b = []
+# center tunnel
+b.append(rect(330, 220, 300, 110, '#e8eaf6', '#1e88e5', 3))
+b.append(text(480, 246, 'تونل site-to-site', 12, 'middle', '#0d47a1', 'bold'))
+b.append(rect(345, 258, 270, 30, '#ffffff', '#1e88e5', 1))
+b.append(text(480, 278, 'گزینهٔ ۱: WireGuard (کلید عمومی/خصوصی)', 10, 'middle', '#0d47a1'))
+b.append(rect(345, 292, 270, 30, '#ffffff', '#43a047', 1))
+b.append(text(480, 312, 'گزینهٔ ۲: IPsec/IKEv2 (peer/policy/proposal)', 10, 'middle', '#1b5e20'))
+# branch (right)
+b.append(rect(700, 150, 220, 130, '#fafafa', '#fb8c00', 3))
+b.append(text(810, 176, 'شعبه — hEX (فرضی)', 12, 'middle', '#e65100', 'bold'))
+b.append(text(810, 200, 'LAN: 192.168.20.0/24', 11, 'middle', '#37474f'))
+b.append(text(810, 222, 'wg/ipsec peer + allowed-address', 10, 'middle', '#546e7a'))
+b.append(text(810, 244, 'keepalive 25s (سند WireGuard)', 9, 'middle', '#78909c'))
+b.append(text(810, 264, 'endpoint = مرکز', 10, 'middle', '#546e7a'))
+# hq (left)
+b.append(rect(40, 150, 220, 130, '#fafafa', '#1e88e5', 3))
+b.append(text(150, 176, 'مرکز — RB5009 (فرضی)', 12, 'middle', '#0d47a1', 'bold'))
+b.append(text(150, 200, 'LAN: 192.168.10.0/24', 11, 'middle', '#37474f'))
+b.append(text(150, 222, 'peer + allowed-address متقابل', 10, 'middle', '#546e7a'))
+b.append(text(150, 244, 'route متقابل دو سو', 10, 'middle', '#546e7a'))
+b.append(text(150, 264, 'فایروال: accept قبل از drop', 10, 'middle', '#546e7a'))
+# links
+b.append(line(260, 215, 330, 250, '#1e88e5', 3))
+b.append(line(330, 300, 260, 265, '#43a047', 3))
+b.append(line(630, 250, 700, 215, '#1e88e5', 3))
+b.append(line(630, 300, 700, 265, '#43a047', 3))
+b.append(text(295, 240, 'wg/ipsec', 9, 'middle', '#455a64'))
+b.append(text(665, 240, 'wg/ipsec', 9, 'middle', '#455a64'))
+# cross routes
+b.append(line(150, 280, 150, 300, '#6a1b9a', 2, '5,4'))
+b.append(line(150, 300, 810, 300, '#6a1b9a', 2, '5,4'))
+b.append(line(810, 300, 810, 280, '#6a1b9a', 2, '5,4'))
+b.append(text(480, 292, 'مسیرهای متقابل: 192.168.20.0/24 ↔ 192.168.10.0/24', 10, 'middle', '#6a1b9a'))
+# gotchas box
+b.append(rect(60, 370, 840, 130, '#fdecea', '#d32f2f', 2))
+b.append(text(480, 394, 'تله‌های سندشده (هر دو گزینه)', 12, 'middle', '#d32f2f', 'bold'))
+gotchas = ['WireGuard: فایروال پیش‌فرض جلوی برقراری تونل → accept قبل از drop (سند رسمی)',
+           'IPsec: masquerade تونل را می‌شکند → accept/bypass بالای همهٔ NAT (سند رسمی)',
+           'IPsec: Fasttrack از روی policy می‌گذرد → accept قبل از Fasttrack یا raw notrack',
+           'هشدار رسمی: از PSK پرهیز؛ DH Group 19 پیشنهاد؛ IPsec حساس به تغییر زمان',
+           'wg-export شامل IP/route/firewall نیست — روی مقصد جدا تنظیم شود']
+for gi, g in enumerate(gotchas):
+    b.append(text(90, 418 + gi * 16, g, 10, 'start', '#616161'))
+b.append(text(480, 533, 'نمودار مفهومی تألیفی TehNet — نه عکس واقعی — دستورها از اسناد رسمی (دسترسی 2026-11-17)؛ اجرا NOT_RUN', 10, 'middle', '#78909c'))
+m5 = svg(960, 560,
+    'نمودار معماری تونل شعبه-مرکز درس M5 با دو گزینهٔ WireGuard و IPsec',
+    'شعبه با روتر hEX و شبکهٔ ۱۹۲.۱۶۸.۲۰ و مرکز با RB5009 و شبکهٔ ۱۹۲.۱۶۸.۱۰ با یک تونل بین خودشان وصل شده‌اند. دو گزینهٔ سندشده روی تونل نمایش داده شده: WireGuard با کلید عمومی و خصوصی و allowed-address و keepalive، یا IPsec با peer و policy و proposal. پنج تلهٔ سندشده پایین نمودار آمده: فایروال پیش‌فرض جلوی WireGuard، شکستن تونل با masquerade در IPsec، گذر Fasttrack از روی policy، هشدار PSK و حساسیت زمانی. مسیرهای متقابل دو شبکه با خط‌چین بنفش رسم شده است. این نمودار مفهومی و تألیفی TehNet است.',
+    chr(10).join(b))
+
 os.makedirs(OUT, exist_ok=True)
-for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4)):
+for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4), ('tutorial-m5-vpn-architecture.svg', m5)):
     p = os.path.join(OUT, name)
     with io.open(p, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)

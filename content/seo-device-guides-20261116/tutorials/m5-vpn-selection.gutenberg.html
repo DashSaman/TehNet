@@ -1,0 +1,333 @@
+<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from ../tutorials/m5-vpn-selection.fa.md -->
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">انتخاب VPN برای شعبه — WireGuard یا IPsec؟ (M5)</h1>
+<!-- /wp:heading -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><p>وضعیت درس: <strong>DRAFT / NOT_DEPLOYED — در انتظار مرور.</strong></p><p>آموزش تصویری از سری MikroTik؛ مخاطب: مدیر IT و کارشناس شبکه.</p><p>سناریوی کاملاً فرضی و آموزشی با دادهٔ ساختگی؛ هیچ شبکهٔ واقعی دستکاری نشده و هیچ اجرای واقعی NOT_RUN است.</p><p>نمودار مفهومی و تألیفی است (نه عکس واقعی).</p></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پاسخ کوتاه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>در RouterOS v7 دو گزینهٔ سندشدهٔ اصلی برای site-to-site شعبه: <strong>WireGuard</strong> (سند رسمی: «ساده، سریع و مدرن»؛ تنظیم با کلید عمومی/خصوصی و allowed-address؛ مناسب لینک اختصاصی دو سرِ RouterOS) و <strong>IPsec/IKEv2</strong> (استاندارد سازمانی؛ برای هم‌جوشی با تجهیزات multi-vendor و نیاز به policy-based). سه پرسش انتخاب: دستگاه‌های دو سر چی‌اند؟ آیا استاندارد/سیاست سازمانی فیلتر دارد؟ چه چیزی وسط مسیر است (NAT/آدرس دینامیک)؟ ‏L2TP/SSTP/OpenVPN فقط برای سازگاری کلاینت‌های خاص — خارج دامنهٔ این درس.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پیش‌نیازها</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>مسیر و VLAN: <a href="/guides/mikrotik-vlan/">M2</a> · مسیر رخداد برای قطع تونل: <a href="n6-incident-path.fa.md">N6</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مبنا آزمایشگاه (Lab Baseline) — دقیق و کامل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>بند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقدار فرضی</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>دفتر مرکزی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>RB5009 فرضی، ‏RouterOS v7.16+، ‏LAN ‏192.168.10.0/24</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>شعبه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>hEX فرضی، ‏RouterOS v7.16+، ‏LAN ‏192.168.20.0/24</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>هدف</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دسترسی متقابل شبکه‌ها از طریق تونل (site-to-site)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اجرای واقعی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>NOT_RUN</strong> — دستورها روال سندشده‌اند</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">جدول مقایسه — فقط از اسناد رسمی (fetch ‏2026-11-17)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>بند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>WireGuard (سند رسمی)</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>IPsec (سند رسمی ‏v7.26)</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>توصیف رسمی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>«simple, fast, and modern»; «faster, simpler, and leaner than IPsec, and considerably more performant than OpenVPN»</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>چانه‌زنی دو‌فازی ‏IKE؛ ‏IKEv2 با تغییر `exchange-mode=ike2`</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>کلید/احراز</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>جفت کلید خودکار هنگام ساخت interface؛ ‏peer با کلید عمومی طرف مقابل</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏Peer + Policy + Proposal؛ هشدار رسمی: «از ‏PSK پرهیز کنید» (حملهٔ آفلاین)؛ پیشنهاد: ‏DH ‏Group ‏19؛ ‏Group ‏2 با احتیاط</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>مسیر ترافیک به تونل</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>IP روی interface ‏wireguard + route به `gateway=wireguard1` با ‏allowed-address</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏policy با `tunnel=yes action=encrypt` و src/dst subnet؛ ترتیب policy مهم است</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>تله‌های سندشده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>«فایروال پیش‌فرض RouterOS جلوی برقراری تونل را می‌گیرد» → accept قبل از drop؛ ‏wg-export شامل IP/route/firewall نیست؛ در ‏multi-WAN handshake دو اتصال جدا دیده می‌شود (گزینهٔ responder)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏Masquerade تونل را می‌شکند → rule accept قبل از همهٔ NAT؛ «اگر ‏Fasttrack فعال باشد بسته از policyهای IPsec می‌گذرد» → accept قبل از Fasttrack یا raw notrack (~30٪ کاهش CPU)؛ حساسیت شدید به تغییر زمان</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>شتاب سخت‌افزاری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>— (روی CPU)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>«شتاب‌دهی سخت‌افزاری رمزنگاری با موتور داخل CPU» — پشتیبانی وابسته به CPU (جدول per-CPU سند رسمی)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>حالت مبتنی بر مسیر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ذاتاً route-based</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏XFRM interfaces ‏(MTU پیش‌فرض ‏1400؛ flag بعد از برقراری ‏SA) — امکان OSPF روی تونل</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مثال کارشده — اسکلت WireGuard site-to-site (روال سندشده؛ اجرا NOT_RUN)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros"># دفتر مرکزی (192.168.10.0/24)
+/interface wireguard
+add name=wg-branch listen-port=13231 comment="TN-M5 مرکز"
+/ip address
+add address=10.255.255.1/30 interface=wg-branch
+:put [/interface/wireguard/get [find name=wg-branch] public-key]
+# کلید عمومی بالا را در تنظیم peerِ شعبه بگذارید
+
+/interface wireguard peers
+add interface=wg-branch public-key="&lt;public-key شعبه&gt;" \
+    allowed-address=192.168.20.0/24,10.255.255.2/32 \
+    endpoint-address="&lt;آدرس عمومی شعبه&gt;" endpoint-port=13231 \
+    persistent-keepalive=25s comment="TN-M5 شعبه"
+/ip route
+add dst-address=192.168.20.0/24 gateway=wg-branch comment="TN-M5"
+# فایروال: accept برایwg-branch قبل از هر drop (سند رسمی)</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros"># شعبه (192.168.20.0/24) — آینهٔ همین تنظیم با کلیدهای خودش
+/ip route
+add dst-address=192.168.10.0/24 gateway=wg-branch comment="TN-M5"</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>allowed-address هم‌زمان «چه ترافیکی مجاز است» و «چه چیزی از این peer می‌آید» را تعیین می‌کند (سند رسمی) — بازتر از نیاز ننویسید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">جدول تصمیم — سناریو → انتخاب سندشده‌وار</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>سناریو</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>انتخاب</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>دلیل</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>دو سر هر دو RouterOS v7، لینک اختصاصی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏WireGuard</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سادگی تنظیم + کارایی (سند رسمی)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>هم‌جوشی با فایروال/سوئیچ vendor دیگر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏IPsec/IKEv2</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>استاندارد صنعتی ‏(MSA‌گونه برای تونل)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>هر دو سر آدرس دینامیک</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏WireGuard با ‏persistent-keepalive ‏(25s سند مثال) یا ‏IPsec با تنظیم مناسب؛ سناریوی دقیق per-محیط</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏UNKNOWN جزئیات</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نیاز به OSPF روی تونل</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏IPsec با ‏XFRM ‏(route-based، ‏MTU ‏1400)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سند رسمی</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">نمودار معماری</h2>
+<!-- /wp:heading -->
+
+<!-- wp:image -->
+<figure class="wp-block-image size-large"><img src="../assets/tutorial-m5-vpn-architecture.svg" alt="نمودار معماری تونل شعبه-مرکز M5 (تصویر مفهومی تألیفی)" width="900" loading="lazy"/><figcaption>نمودار معماری تونل شعبه-مرکز M5 (تصویر مفهومی تألیفی)</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> دو ساختمان: شعبه ‏(hEX، ‏LAN ‏192.168.20.0/24) و مرکز ‏(RB5009، ‏LAN ‏192.168.10.0/24). بین دو روتر یک تونل رسم‌شده با دو گزینهٔ روی نمودار: ‏WireGuard ‏(کلید عمومی/خصوصی، ‏allowed-address، ‏keepalive ‏25s) یا ‏IPsec/IKEv2 ‏(peer/policy/proposal + ruleهای accept قبل از NAT و Fasttrack). زیر تونل: مسیرهای متقابل ‏192.168.20.0/24 ↔ ‏192.168.10.0/24. برچسب «تألیفی/مفهومی» و یادداشت NOT_RUN.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">خطاهای رایج (همه سندشده)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>نشانه</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>علت محتمل</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>بررسی</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>راه‌حل</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>‏WireGuard اصلاً handshake نمی‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فایروال پیش‌فرض جلوی تونل</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سند رسمی صراحت دارد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>accept ورودی ‏wg-branch قبل از dropها</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>تونل بالا ولی ترافیک نمی‌رود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>allowed-address تنگ/اشتباه یا route جا افتاده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/interface wireguard peers print` + `/ip route print`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>allowed-address دقیق + route هر طرف</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏IPsec با ‏masquerade بالا نمی‌آید</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏NAT آدرس مبدأ را قبل از رمزنگاری می‌شکند (سند رسمی)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ترتیب NAT</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>accept/bypass قبل از masquerade</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏IPsec بعد از گذشت زمان قطع شد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>حساسیت شدید به تغییر زمان (سند رسمی)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ساعت/NTP</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هم‌زمان‌سازی NTP</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏PSK استفاده شده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هشدار رسمی حملهٔ آفلاین</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سند رسمی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کلید دیجیتال/گروه ‏DH ‏19</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>روی ‏multi-WAN لنگ می‌زند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>handshake دو اتصال جدا دیده می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سند رسمی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>گزینهٔ responder</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">تمرین کوتاه (با پاسخ موردانتظار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>برای دو روتر RouterOS v7 با لینک اختصاصی، کدام را شروع می‌کنید و چرا؟ — <strong>پاسخ موردانتظار:</strong> ‏WireGuard؛ سادگی/کارایی سندشده؛ تنظیم با کلید عمومی و ‏allowed-address.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>چرا ‏PSK هشدار رسمی دارد؟ — <strong>پاسخ موردانتظار:</strong> حملهٔ آفلاین حتی در main/ike2 ممکن است؛ کلید دیجیتال + ‏DH ‏19.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>با ‏Fasttrack فعال، ترافیک IPsec چه می‌شود؟ — <strong>پاسخ موردانتظار:</strong> از policyها می‌گذرد (سند رسمی)؛ accept قبل از Fasttrack یا raw notrack.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>‏wg-export چه چیزهایی را شامل نمی‌شود؟ — <strong>پاسخ موردانتظار:</strong> ‏IPها، ‏routeها و ‏فایروال — روی مقصد جدا تنظیم می‌شوند (سند رسمی).</li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">چک‌لیست تحویل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[ ] انتخاب بر پایهٔ جدول تصمیم مستند شده (نه سلیقه)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] کلیدها: خصوصی فقط روی صاحبش؛ عمومی در peer طرف مقابل (سند رسمی)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] ‏allowed-address دقیق = فقط subnetهای همان شعبه</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] ‏WireGuard: accept فایروال قبل از dropها / ‏IPsec: bypass قبل از NAT و Fasttrack</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] مسیرهای متقابل هر دو سر ثبت شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] بازیابی‌آزمون فصلی شامل تونل هم باشد (الگوی N5/N2)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] اجرای واقعی این درس NOT_RUN (مبنا فرضی)</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">منابع رسمی (fetch شده با تاریخ)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>‏WireGuard ‏| ‏RouterOS Manual: https://manual.mikrotik.com/docs/virtual-private-networks/wireguard/ (دسترسی 2026-11-17)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>‏IPsec ‏| ‏RouterOS Manual ‏(v7.26): https://manual.mikrotik.com/docs/virtual-private-networks/ipsec/ (دسترسی 2026-11-17)</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">آموزش‌های مرتبط و مسیر خدمت</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>پیوند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقصد</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>درس‌های مرتبط</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/mikrotik-vlan/">M2 VLAN</a> · <a href="m4-intervlan-l3hw.fa.md">M4 L3HW</a> · <a href="n1-network-troubleshooting.fa.md">N1 عیب‌یابی</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نقشهٔ کامل سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/topic-map/">topic map</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اتصال امن شعب برای سازمان شما</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="https://tehnet.ir/services/mikrotik-tehran/">خدمات میکروتیک تهران</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>درس بعدی سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>M6 — dual-WAN و failover (تولید در نوبت بعدی؛ فعلاً فقط در topic map)</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->

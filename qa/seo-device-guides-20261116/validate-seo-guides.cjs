@@ -236,6 +236,9 @@ function validate(candidateInputs) {
     { md: 'tutorials/m4-intervlan-l3hw.fa.md', html: 'tutorials/m4-intervlan-l3hw.gutenberg.html', svg: 'assets/tutorial-m4-l3hw-flow.svg', label: 'M4',
       sectionsOverride: ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'HW در برابر CPU', 'شش الزام/هشدار سندشده', 'تلهٔ Fasttrack و حافظهٔ ACL', 'دستورهای مبنا', 'تصمیم‌گیری', 'خطاهای رایج', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'],
       service: 'https://tehnet.ir/services/mikrotik-tehran/' },
+    { md: 'tutorials/m5-vpn-selection.fa.md', html: 'tutorials/m5-vpn-selection.gutenberg.html', svg: 'assets/tutorial-m5-vpn-architecture.svg', label: 'M5',
+      sectionsOverride: ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'جدول مقایسه', 'مثال کارشده', 'جدول تصمیم', 'نمودار معماری', 'خطاهای رایج', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'],
+      service: 'https://tehnet.ir/services/mikrotik-tehran/' },
   ];
   const TUT_SECTIONS_COMMON = ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'تست پذیرش', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'];
   for (let ti = 0; ti < TUTORIALS.length; ti++) {
@@ -304,6 +307,8 @@ if (require.main === module) {
     'tutorials/n6-incident-path.gutenberg.html',
     'tutorials/m4-intervlan-l3hw.fa.md',
     'tutorials/m4-intervlan-l3hw.gutenberg.html',
+    'tutorials/m5-vpn-selection.fa.md',
+    'tutorials/m5-vpn-selection.gutenberg.html',
     'router-catalog.csv',
     'switch-catalog.csv',
     'image-provenance.csv',

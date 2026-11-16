@@ -92,6 +92,13 @@
    "type": "tutorial",
    "bytes": 21000,
    "per_model_images": 0
+  },
+  {
+   "md": "../tutorials/m5-vpn-selection.fa.md",
+   "html": "../tutorials/m5-vpn-selection.gutenberg.html",
+   "type": "tutorial",
+   "bytes": 18834,
+   "per_model_images": 0
   }
  ]
 }
