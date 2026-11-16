@@ -127,6 +127,13 @@
    "type": "tutorial",
    "bytes": 16587,
    "per_model_images": 0
+  },
+  {
+   "md": "../tutorials/s6-nas-server-upgrade.fa.md",
+   "html": "../tutorials/s6-nas-server-upgrade.gutenberg.html",
+   "type": "tutorial",
+   "bytes": 18454,
+   "per_model_images": 0
   }
  ]
 }

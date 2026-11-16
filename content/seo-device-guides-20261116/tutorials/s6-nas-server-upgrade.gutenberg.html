@@ -1,0 +1,313 @@
+<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from ../tutorials/s6-nas-server-upgrade.fa.md -->
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">ارتقای NAS/سرور به 2.5G/10G — مسیر، قطعات و آزمون (S6)</h1>
+<!-- /wp:heading -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><p>وضعیت درس: <strong>DRAFT / NOT_DEPLOYED — در انتظار مرور.</strong> (درس مصوب سرفصل ‏S6: ارتقای NAS/سرور ‏2.5G/10G)</p><p>آموزش تصویری از سری switching؛ مخاطب: مدیر IT/کارشناس شبکه.</p><p>سناریوی کاملاً فرضی و آموزشی با دادهٔ ساختگی؛ هیچ شبکهٔ واقعی دستکاری نشده و هیچ اجرای واقعی NOT_RUN است.</p><p>نمودار مفهومی و تألیفی است (نه عکس واقعی).</p></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پاسخ کوتاه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>ارتقا سه بخش دارد: <strong>سوئیچ با پورت ‏10G</strong> (مثل ‏CRS309 با ‏۸×SFP+)، <strong>NIC سرور</strong> (کارت شبکهٔ ‏SFP+ در سرور/NAS) و <strong>کابل/ماژول بین آن دو</strong> (DAC برای رک، فیبر برای فاصله). کارت شبکهٔ سمت سرور خارج از تولید MikroTik است — مدل/درایور را از سازندهٔ کارت تأیید کنید. ‏2.5G مسی ‏(2.5GBASE-T) مسیر میانی برای Cat5e+ است؛ ‏10G مسی روی Cat6a/7 سندشده تا ‏30m ولی روی Cat5e تضمینی ندارد. قبل از خرید: NIC و سوئیچ و ماژول باید هم‌استاندارد باشند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پیش‌نیازها</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>انتخاب ماژول و کابل: <a href="s3-sfp-dac-fiber.fa.md">S3</a> · سوئیچ 10G: <a href="/guides/mikrotik-switches-crs/">CRS309 در S1</a> · بودجه: <a href="s2-poe-budget.fa.md">S2</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مبنا آزمایشگاه (Lab Baseline) — دقیق و کامل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>بند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقدار فرضی</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>سوئیچ 10G</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>CRS309-1G-8S+IN — ‏۸×SFP+ (تا ‏10G هر پورت) + ‏۱×GbE مدیریت ‏(PoE-in)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ظرفیت سند رسمی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏switching capacity ‏162 Gbps · ‏non-blocking ‏81 Gbps ‏(L2 ‏64B: ‏61,714 Mbps)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>CPU/چیپ</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏98DX8208 ‏ARM ‏32bit ‏800MHz ‏دو‌هسته — ‏512MB ‏RAM</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>NAS</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>NAS فرضی با پورت ‏1G موجود؛ ارتقا به ‏10G ‏SFP+</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سرور</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سرور فرضی با کارت ‏10G ‏SFP+ ‏(NIC third-party — سازنده/مدل را از برگهٔ سازنده کارت تأیید کنید؛ UNKNOWN تا برگه)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>کابل اولیه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏DAC ‏1m ‏(S+DA0001) — رک‌به‌رک؛ ‏Discontinued → جایگزین ‏DAC ‏3m از جدول سازگاری</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سناریوی demand</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏backup شبانه + دسترسی فایل همزمان چند کاربر → نیاز به ‏>1G توجیه‌پذیر</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اجرای واقعی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>NOT_RUN</strong> — دستورها الگوی سند RouterOS؛ سخت‌افزار فرضی</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">محاسبهٔ قبل از ارتقا — چه چیزی واقعاً >1G می‌خواهد؟</h2>
+<!-- /wp:heading -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-text">backup شبانه:          2TB × ۸ ساعت = ~70 MB/s متوسط — 1G (125 MB/s خام) مرزی
+فایل‌سرور همزمان:       ۵ کاربر × 20-40 MB/s پیک = 100-200 MB/s — با backup جمع می‌شود
+دوربین‌های سنگین:       ۲ دوربین × 25 Mbps = 50 Mbps — جزئی
+نتیجه:                 backup + فایل‌سروری همزمان &gt; ‏1G خام → ارتقا به 10G توجیه‌پذیر</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>اعداد بالا <strong>فرض سناریو</strong>‌اند؛ اندازه‌گیری واقعی از مانیتورینگ (الگوی N2) ملاک نهایی است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">سه بخش ارتقا</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>بخش</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>انتخاب</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>نکتهٔ سندشده</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>سوئیچ 10G</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏CRS309 ‏(۸×SFP+، ‏162 Gbps switching، ‏81 Gbps non-blocking)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تنها یک پورت ‏GbE مدیریتی دارد — مدیریت از آن یا از LAN موجود</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏NIC سرور</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کارت ‏10G ‏SFP+ ‏third-party (مثل ‏Intel ‏X710، ‏Mellanox ‏ConnectX-4)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خارج از تولید ‏MikroTik — سازگاری از برگهٔ سازنده کارت؛ ‏UNKNOWN تا برگه</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>کابل/ماژول</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏DAC رک‌به‌رک ‏(الگوی S3) یا فیبر مالتی‌مود برای فاصله‌های بیشتر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏S+DA0001 ‏Discontinued → جایگزین ‏DAC ‏3m از جدول سازگاری</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:image -->
+<figure class="wp-block-image size-large"><img src="../assets/tutorial-s6-nas-upgrade.svg" alt="نمودار ارتقای NAS/سرور به 10G درس S6 با CRS309 (تصویر مفهومی تألیفی)" width="900" loading="lazy"/><figcaption>نمودار ارتقای NAS/سرور به 10G درس S6 با CRS309 (تصویر مفهومی تألیفی)</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> ‏NAS و سرور با کابل ‏DAC مستقیم به سوئیچ ‏CRS309 وصل شده‌اند که هشت پورت ‏SFP+ ده گیگابیت دارد. سوئیچ ظرفیت سوئیچینگ ‏۱۶۲ گیگابیت و ‏throughput ‏۸۱ گیگابیت دارد. سرعت قبل ارتقا ‏۱۲۵ مگابایت بر ثانیه و بعد ارتقا ‏۱۲۵۰ مگابایت بر ثانیه. تلهٔ بعدی دیسک است نه شبکه. برچسب «تألیفی/مفهومی».</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مهاجرت — توالی پنج‌گامی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>گام</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>عمل</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>انتظار</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>‏۱</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سوئیچ CRS309 را رک کنید؛ مدیریت از پورت ‏GbE موجود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سوئیچ بالا آمده و از LAN مدیریت‌پذیر است</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۲</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏NIC ‏10G را در سرور نصب و درایور سازندهٔ کارت را نصب کنید</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>لینک با ‏DAC به CRS309 برقرار</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۳</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏NAS: پورت ‏10G را وصل کنید ‏(DAC دوم از CRS309)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>لینک ‏10G در هر دو</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۴</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تست پهنای‌باند: ‏iperf3 بین سرور و ‏NAS</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>نزدیک ‏10Gbps ‏(محدودیت دیسک/FS جدا)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۵</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>آزمون failover: یک کابل DAC را قطع کنید</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تونل/لینک دوم یا ‏bonding رک — خارج دامنه این درس، به N4 ارجاع</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">نمودار</h2>
+<!-- /wp:heading -->
+
+<!-- wp:image -->
+<figure class="wp-block-image size-large"><img src="../assets/tutorial-s6-nas-upgrade.svg" alt="نمودار ارتقای NAS/سرور به 10G درس S6 (تصویر مفهومی تألیفی)" width="900" loading="lazy"/><figcaption>نمودار ارتقای NAS/سرور به 10G درس S6 (تصویر مفهومی تألیفی)</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> سمت چپ: ‏NAS و سرور با کارت‌های ‏10G ‏SFP+؛ سمت راست: سوئیچ ‏CRS309 با ‏۸×SFP+؛ بین آن‌ها دو کابل ‏DAC ‏(سبز = مسیر اصلی). یک فلش «قبل: ‏1G = ‏125 MB/s» به یک جعبهٔ خاکستری ‏(مدل قبلی) و یک فلش «بعد: ‏10G = ‏1250 MB/s» به جعبهٔ سبز؛ برچسب «تألیفی/مفهومی».</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">خطاهای رایج</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>نشانه</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>علت محتمل</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>بررسی</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>راه‌حل</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>لینک 10G بالا نمی‌آید</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏DAC یا ماژول با پورت ناهمخوان</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مدل پورت ‏(SFP+ ‏10G) و مدل کابل/ماژول را چک کنید</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کابل/ماژول سازگار ‏(S3)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سرعت فقط ‏1G</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ماژول ‏1G در پورت ‏10G نصب شده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/interface ethernet monitor sfp-sfpplus1`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ماژول ‏10G (S+DA0001/S+85DLC03D)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سرعت بالا ولی دیسک bottleneck</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دیسک NAS/سرور از ‏10G کندتر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏iperf3 جدا از دیسک</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دیسک جداگانه ارتقا یابد</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>درایور NIC نصب نشده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏third-party بدون درایور</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`lspci` / Device Manager</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>درایور از سازندهٔ کارت</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">تمرین کوتاه (با پاسخ موردانتظار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>چرا ‏CRS309 برای این ارتقا مناسب است؟ — <strong>پاسخ موردانتظار:</strong> ‏۸×SFP+ ‏10G + ‏non-blocking ‏81 Gbps — کافی برای چند سرور/NAS همزمان.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>اگر فقط ‏backup شبانه دارید و هیچ دسترسی همزمان سنگین؟ — <strong>پاسخ موردانتظار:</strong> ‏1G مرزی اما قابل‌تحمل در پنجرهٔ شب؛ ارتقا توجیه فوری ندارد — اندازه‌گیری واقعی (N2) ملاک.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>‏DAC 1m برای سرور در رک و NAS در رک مجاور — کافی؟ — <strong>پاسخ موردانتظار:</strong> بله؛ رک‌به‌رک مجاور = فاصلهٔ <3m → ‏DAC ‏3m از جدول سازگاری.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>کارت شبکهٔ سرور چه محدودیتی دارد؟ — <strong>پاسخ موردانتظار:</strong> خارج از تولید MikroTik — سازگاری از برگهٔ سازندهٔ کارت؛ UNKNOWN تا برگه.</li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">چک‌لیست تحویل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[ ] سوئیچ 10G انتخاب و رک شده ‏(CRS309 یا مشابه فهرست‌شده در S1)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] ‏NIC سرور: برگهٔ سازنده بررسی و درایور نصب شده — UNKNOWN تا برگه</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] کابل/ماژول مطابق فاصله و سرعت انتخاب شده (الگوی S3)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] تست پهنای‌باند ‏iperf3 قبل/بعد ثبت شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] bottleneck بعدی شناسایی شده (دیسک؟ شبکه؟)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] قبل/بعد در گزارش تحویل ثبت شده (الگوی N4)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] اجرای واقعی این درس NOT_RUN (مبنا فرضی)</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">منابع رسمی (fetch شده با تاریخ)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>صفحهٔ رسمی CRS309-1G-8S+IN — ‏۸×SFP+، ‏162 Gbps switching، ‏81 Gbps non-blocking، ‏98DX8208: https://mikrotik.com/product/crs309_1g_8s_in (دسترسی 2026-11-17)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>انتخاب کابل/ماژول ‏10G: <a href="s3-sfp-dac-fiber.fa.md">S3</a> + صفحات رسمی ‏S+DA0001 / ‏S+85DLC03D با تاریخ دسترسی همان درس</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>سند سازگاری Wired Interfaces: https://help.mikrotik.com/docs/spaces/ROS/pages/220233794/MikroTik+wired+interface+compatibility (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">آموزش‌های مرتبط و مسیر خدمت</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>پیوند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقصد</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>درس‌های مرتبط</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/mikrotik-switches-crs/">S1 سوئیچ‌ها</a> · <a href="s3-sfp-dac-fiber.fa.md">S3 ماژول‌ها</a> · <a href="n4-delivery-acceptance.fa.md">N4 پذیرش</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نقشهٔ کامل سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/topic-map/">topic map</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ارتقای سرور/NAS برای سازمان شما</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="https://tehnet.ir/services/network-setup-tehran/">خدمات راه‌اندازی شبکهٔ تهران</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>پایان خوشهٔ S و M درس‌های فرضی؛ درس‌های بعدی سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>در topic map ثبت است</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->

@@ -1,0 +1,23 @@
+{
+ "STYLE": "body{background:#fff;color:#111;font-family:Tahoma,Arial,sans-serif;margin:24px auto;max-width:960px;line-height:1.9} pre{background:#f6f8fa;border:1px solid #ddd;padding:12px;overflow:auto} pre>code{display:block;max-width:100%} body{overflow-wrap:anywhere} table{border-collapse:collapse;display:block;overflow-x:auto;max-width:100%} th,td{border:1px solid #999;padding:5px 9px} img{max-width:100%;height:auto} blockquote{border-right:3px solid #1e88e5;padding-right:12px;color:#444} figure{max-width:100%;overflow-x:auto}",
+ "results": {
+  "desktop": {
+   "code_blocks": 1,
+   "h1": "ارتقای NAS/سرور به 2.5G/10G — مسیر، قطعات و آزمون (S6)",
+   "images_loaded": "2/2",
+   "overflow_styled_px": 0,
+   "separator_cells": 0,
+   "tables": 5,
+   "tab_after": "A"
+  },
+  "mobile": {
+   "code_blocks": 1,
+   "h1": "ارتقای NAS/سرور به 2.5G/10G — مسیر، قطعات و آزمون (S6)",
+   "images_loaded": "2/2",
+   "overflow_styled_px": 0,
+   "separator_cells": 0,
+   "tables": 5,
+   "tab_after": "A"
+  }
+ }
+}

@@ -717,8 +717,51 @@ s5c = svg(960, 560,
     'دو سوئیچ با دو لینک موازی در حالت باند هشت‌ده‌سه‌اید یا LACP وصل شده‌اند که تنظیمات lacp-rate سی ثانیه و مانیتورینگ MII دارد. یک وصله حلقوی تصادفی بین دو پورت آزاد رسم شده که بدون RSTP طوفان برودکست می‌سازد و با RSTP پورت زائد بلوکه می‌شود. جعبه آبی قواعد سند رسمی باندینگ را فهرست می‌کند: هم‌سراعی اعضا، حذف IP از اسلیوها، مانیتورینگ MII، سازگاری هش لایه دو و دو، و چک HW آفلود بر اساس چیپ. این نمودار مفهومی و تألیفی TehNet است.',
     chr(10).join(b))
 
+
+# ---------------- S6c NAS/server upgrade ----------------
+b = []
+# NAS box (top-left)
+b.append(rect(60, 80, 200, 100, '#fafafa', '#6a1b9a', 3))
+b.append(text(160, 106, 'NAS (فرضی)', 12, 'middle', '#6a1b9a', 'bold'))
+b.append(text(160, 130, 'پورت فعلی: 1G RJ45', 10, 'middle', '#546e7a'))
+b.append(text(160, 150, 'ارتقا: 10G SFP+ یا 2.5G RJ45', 10, 'middle', '#37474f'))
+b.append(text(160, 170, '(UNKNOWN تا برگهٔ NAS)', 9, 'middle', '#78909c'))
+# server (bottom-left)
+b.append(rect(60, 260, 200, 100, '#fafafa', '#1e88e5', 3))
+b.append(text(160, 286, 'سرور (فرضی)', 12, 'middle', '#1e88e5', 'bold'))
+b.append(text(160, 310, 'NIC third-party 10G SFP+', 10, 'middle', '#546e7a'))
+b.append(text(160, 330, '(UNKNOWN تا برگهٔ سازنده)', 9, 'middle', '#78909c'))
+b.append(text(160, 350, 'درایور نصب شود', 10, 'middle', '#546e7a'))
+# CRS309 (center-right)
+b.append(rect(430, 130, 260, 230, '#fafafa', '#0d47a1', 3))
+b.append(text(560, 158, 'CRS309-1G-8S+IN', 13, 'middle', '#0d47a1', 'bold'))
+b.append(text(560, 180, '۸× SFP+ 10G', 11, 'middle', '#0d47a1'))
+b.append(text(560, 200, '۱× GbE مدیریت (PoE-in)', 10, 'middle', '#546e7a'))
+b.append(text(560, 226, 'switching: 162 Gbps', 10, 'middle', '#37474f'))
+b.append(text(560, 246, 'non-blocking: 81 Gbps', 10, 'middle', '#37474f'))
+b.append(text(560, 266, 'CPU: 98DX8208 ARM 800MHz', 10, 'middle', '#546e7a'))
+b.append(text(560, 286, 'RAM: 512 MB', 10, 'middle', '#546e7a'))
+b.append(text(560, 306, 'dual boot: RouterOS / SwitchOS', 10, 'middle', '#546e7a'))
+b.append(text(560, 330, '(fetch 2026-11-17 از صفحهٔ رسمی)', 9, 'middle', '#90a4ae'))
+# DAC links
+b.append(line(260, 130, 430, 170, '#43a047', 4))
+b.append(text(345, 142, 'DAC 1m/3m', 10, 'middle', '#2e7d32', 'bold'))
+b.append(line(260, 310, 430, 290, '#1e88e5', 4))
+b.append(text(345, 302, 'DAC 3m', 10, 'middle', '#0d47a1', 'bold'))
+# before/after comparison
+b.append(rect(60, 400, 840, 44, '#e8f5e9', '#43a047', 2))
+b.append(text(480, 426, 'قبل: 1G = 125 MB/s خام هر جهت → بعد: 10G = 1250 MB/s خام هر جهت (۱۰ برابر)', 12, 'middle', '#2e7d32', 'bold'))
+# bottleneck note
+b.append(rect(60, 460, 840, 44, '#fff3e0', '#ef6c00', 2))
+b.append(text(480, 486, 'bottleneck بعدی معمولاً دیسک NAS/سرور است نه شبکه — iperf3 جدا از دیسک سنجیده شود', 10, 'middle', '#e65100'))
+b.append(text(480, 533, 'نمودار مفهومی تألیفی TehNet — نه عکس واقعی — CRS309 از صفحهٔ رسمی mikrotik.com (دسترسی 2026-11-17)؛ اجرا NOT_RUN', 10, 'middle', '#78909c'))
+s6c = svg(960, 560,
+    'نمودار ارتقای NAS/سرور به 10G درس S6 با CRS309',
+    'NAS و سرور با کابل DAC مستقیم به سوئیچ CRS309 که هشت پورت SFP+ ده گیگابیت دارد وصل شده‌اند. سوئیچ ظرفیت سوئیچینگ صد و شصت و دو گیگابیت و throughput هشتاد و یک گیگابیت دارد. سرعت قبل ارتقا صد و بیست و پنج مگابایت بر ثانیه و بعد ارتقا هزار و دویست و پنجاه مگابایت بر ثانیه است. تلهٔ بعدی دیسک است نه شبکه. این نمودار مفهومی و تألیفی TehNet است.',
+    chr(10).join(b))
+
 os.makedirs(OUT, exist_ok=True)
-for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4), ('tutorial-m5-vpn-architecture.svg', m5), ('tutorial-m6-dual-wan-failover.svg', m6), ('tutorial-s5-uplink-trunk.svg', s5), ('tutorial-s6-psu-power.svg', s6), ('tutorial-s5-loop-rstp-lacp.svg', s5c)):
+for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4), ('tutorial-m5-vpn-architecture.svg', m5), ('tutorial-m6-dual-wan-failover.svg', m6), ('tutorial-s5-uplink-trunk.svg', s5), ('tutorial-s6-psu-power.svg', s6), ('tutorial-s5-loop-rstp-lacp.svg', s5c), ('tutorial-s6-nas-upgrade.svg', s6c)):
     p = os.path.join(OUT, name)
     with io.open(p, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)

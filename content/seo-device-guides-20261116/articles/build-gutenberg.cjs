@@ -268,6 +268,7 @@ const jobs = [
   ['../tutorials/s5-uplink-trunk.fa.md', '../tutorials/s5-uplink-trunk.gutenberg.html', 'tutorial'],
   ['../tutorials/s6-psu-power.fa.md', '../tutorials/s6-psu-power.gutenberg.html', 'tutorial'],
   ['../tutorials/s5-loop-rstp-lacp.fa.md', '../tutorials/s5-loop-rstp-lacp.gutenberg.html', 'tutorial'],
+  ['../tutorials/s6-nas-server-upgrade.fa.md', '../tutorials/s6-nas-server-upgrade.gutenberg.html', 'tutorial'],
 ];
 const summary = [];
 for (const job of jobs) {
