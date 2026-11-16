@@ -246,8 +246,58 @@ n1 = svg(960, 690,
     'پیش‌شرط تعیین دامنه است؛ سپس نردبان شش‌پله‌ای: لینک، هم‌شبکه‌ای با ARP، گیت‌وی و مسیر، DNS، اینترنت و در آخر سرویس و پورت. هر پله دستور تست ویندوز یا RouterOS دارد و دو خروجی سبز و قرمز: سبز یعنی به پله بعدی برو، قرمز یعنی علت در همین لایه است. زیر نمودار هشدار همسانی آمده که در شبکه با سیاست ICMP محدود، timeout روی پینگ خود روتر رفتار عمدی است. این نمودار مفهومی و تألیفی TehNet است.',
     chr(10).join(b))
 
+
+# ---------------- N4 acceptance phases ----------------
+b = []
+phases = [
+    ('۱. معیارها از SOW', 'هر سرویس: تست مثبت + منفی + شاهد — قبل از شروع', '#1e88e5'),
+    ('۲. اجرای ماتریس', 'تست‌به‌تست با ثبت خروجی واقعی', '#43a047'),
+    ('۳. شواهد', 'خروجی دستورها + اندازه‌گیری‌ها + قبل/بعد', '#f9a825'),
+    ('۴. امضای دو طرف', 'فقط ردیف‌های ✓ با تاریخ', '#6a1b9a'),
+]
+for idx, (title, sub, color) in enumerate(phases):
+    x = 60 + idx * 230
+    b.append(rect(x, 80, 210, 96, '#fafafa', color, 2))
+    b.append(text(x + 105, 106, title, 12, 'middle', color, 'bold'))
+    words, lines, cur = sub.split(' '), [], ''
+    for w in words:
+        if len(cur + ' ' + w) <= 26 or not cur:
+            cur = (cur + ' ' + w).strip()
+        else:
+            lines.append(cur); cur = w
+    lines.append(cur)
+    for li, ln in enumerate(lines[:2]):
+        b.append(text(x + 105, 130 + li * 16, ln, 10, 'middle', '#37474f'))
+    if idx < 3:
+        b.append(line(x + 210, 128, x + 230, 128, color, 3))
+# fail -> back loop
+b.append(rect(200, 210, 560, 60, '#fdecea', '#d32f2f', 2))
+b.append(text(480, 234, 'ردیف ✗ → اصلاح → اجرای مجدد همان ردیف (+ ردیف‌های وابسته)', 11, 'middle', '#d32f2f', 'bold'))
+b.append(text(480, 256, 'پرش از اصلاح = ردیف skip می‌شود و پذیرفته حساب نمی‌آید', 10, 'middle', '#616161'))
+b.append(line(300, 210, 300, 190, '#d32f2f', 2, '5,4'))
+b.append(line(700, 210, 700, 190, '#d32f2f', 2, '5,4'))
+# matrix sample mini-table (left concept)
+b.append(rect(60, 300, 840, 180, '#fafafa', '#b0bec5', 2))
+b.append(text(480, 326, 'نمونهٔ ماتریس پذیرش (سه ردیف از جدول کامل درس)', 12, 'middle', '#37474f', 'bold'))
+rows_n4 = [
+    ('۱-۱ اینترنت', 'ping 8.8.8.8 از دفتر', 'reply', '✓'),
+    ('۲-۱ جداسازی مهمان', 'ping 192.168.10.1 از مهمان', 'timeout + شمارندهٔ drop', '✓'),
+    ('۲-۲ اینترنت مهمان', 'بازکردن سایت از مهمان', 'موفق', '✗ → فاز اصلاح'),
+]
+for ri, (sv, t, e, res) in enumerate(rows_n4):
+    yy = 356 + ri * 34
+    b.append(text(110, yy, sv, 11, 'start', '#1a1a1a'))
+    b.append(text(320, yy, t, 11, 'start', '#1a1a1a'))
+    b.append(text(560, yy, e, 11, 'start', '#1a1a1a'))
+    b.append(text(830, yy, res, 12, 'middle', '#43a047' if res == '✓' else '#d32f2f', 'bold'))
+b.append(text(480, 533, 'نمودار مفهومی تألیفی TehNet — نه عکس واقعی — سناریو فرضی؛ اجرا NOT_RUN', 10, 'middle', '#78909c'))
+n4 = svg(960, 560,
+    'نمودار فازهای پذیرش تحویل درس N4 با نمونهٔ ماتریس',
+    'چهار فاز پذیرش تحویل شبکه: اول معیارها از سود خود نوشته می‌شود و هر سرویس یک تست مثبت و یک تست منفی و یک شاهد دارد؛ دوم ماتریس تست به تست با ثبت خروجی اجرا می‌شود؛ سوم بستهٔ شواهد شامل خروجی دستورها و اندازه‌گیری‌ها و گزارش قبل و بعد ساخته می‌شود؛ چهارم امضای دو طرف فقط برای ردیف‌های تاییدشده. ردیف‌های قرمز به فاز اصلاح برمی‌گردند و اجرای مجدد همان ردیف لازم است. جدول پایین سه ردیف نمونه را نشان می‌دهد. این نمودار مفهومی و تألیفی TehNet است.',
+    chr(10).join(b))
+
 os.makedirs(OUT, exist_ok=True)
-for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1)):
+for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4)):
     p = os.path.join(OUT, name)
     with io.open(p, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)

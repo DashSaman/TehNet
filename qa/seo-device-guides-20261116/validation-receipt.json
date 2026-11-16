@@ -3,13 +3,13 @@
  "validator": "validate-seo-guides.cjs rev8 (rev7 + S2 tutorial candidate)",
  "command": "node validate-seo-guides.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-16T19:59:23Z",
- "finished_utc": "2026-11-16T19:59:24Z",
- "control_head": "06e8fd9df38ca880174ccbf757a77660fa29b13c",
+ "started_utc": "2026-11-16T20:04:39Z",
+ "finished_utc": "2026-11-16T20:04:39Z",
+ "control_head": "8190ff7077d6359af128fefbcfb0dac3f1946e66",
  "exit": 0,
  "good_candidate": {
   "ok": true,
-  "checks": 82,
+  "checks": 87,
   "failed": 0
  },
  "injected_negatives": [
@@ -114,9 +114,11 @@
   "tutorials/s3-sfp-dac-fiber.gutenberg.html": "93caa2c5c6e91c364e3836c5867bb9ec1ea41dcd675f4198418ee5299a0a174e",
   "tutorials/n1-network-troubleshooting.fa.md": "dc98b222f67885575fa5406e5c9cddba51df20d12dbf15803ee8d315cc20d7ed",
   "tutorials/n1-network-troubleshooting.gutenberg.html": "c69b67293461c1e369de94f33e024aa4c4a66b147e24037e6ae9bd5f2f70a49b",
+  "tutorials/n4-delivery-acceptance.fa.md": "9c9dd56ff9216b5bdef6ee43e6e7edc311a2ef2917df3a7a46da2215f9de98ac",
+  "tutorials/n4-delivery-acceptance.gutenberg.html": "8b9e2554f5ab5caa030e53208212bb3af6ce8b34c247b6f8d17f003cb7ab02a7",
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",
   "switch-catalog.csv": "aaa5aed94204ad93b312449d9b0c934164c59d2d6375eb3b5727fe94ae164718",
-  "image-provenance.csv": "3a0ab268aeac38e869f6ef25b4ef507376a471e0a5563a4ab5f70cc4b522feaa",
+  "image-provenance.csv": "f55f986f98799dc90d70818f259f85bf5fa8df430851d0703451e9aab0240220",
   "page-edits/mikrotik-service.proposed.html": "c8c22f3e453bdbc5934d9e3b4e9b84e81e11b0fbfedb9e901fdce300dceabdfb",
   "page-edits/network-setup.proposed.html": "ac244d2142a4022b20b98803e48c218c5138f5398b72a6f7bca1bae1fbe52c0b",
   "page-edits/network-support.proposed.html": "52b58eefe6cd3ff50c65077ddc99f9ae66637a2fe4181bd16a6a9579adebf953"

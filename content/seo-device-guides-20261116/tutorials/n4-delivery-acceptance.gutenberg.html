@@ -1,0 +1,399 @@
+<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from ../tutorials/n4-delivery-acceptance.fa.md -->
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">چک‌لیست پذیرش تحویل شبکه — تست مثبت/منفی و ثبت شواهد (N4)</h1>
+<!-- /wp:heading -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><p>وضعیت درس: <strong>DRAFT / NOT_DEPLOYED — در انتظار مرور.</strong></p><p>آموزش تصویری از سری پشتیبانی و پذیرش؛ مخاطب: مدیر کسب‌وکار + کارشناس شبکه.</p><p>سناریوی کاملاً فرضی و آموزشی با دادهٔ ساختگی؛ هیچ شبکهٔ واقعی دستکاری نشده و هیچ اجرای واقعی NOT_RUN است.</p><p>نمودار مفهومی و تألیفی است (نه عکس واقعی).</p></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پاسخ کوتاه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>پذیرش تحویل یعنی: هر سرویسِ اعلام‌شده در قرارداد/پیشنهاد، با یک <strong>تست مثبت</strong> (باید کار کند) و یک <strong>تست منفی</strong> (باید بسته بماند) روی همان محیط اجرا و <strong>شاهدش ثبت</strong> شود — خروجی دستور یا اندازه‌گیری، نه «چشم‌بسته امضا». چیزی که تست نشده یا معیارش از قبل نوشته نشده، پذیرفته‌شده حساب نمی‌شود؛ و تست منفی هم‌وزن تست مثبت است: جداسازی مهمان که فقط «اجازه» تست شده باشد، ثابت نکرده مهمان به شبکهٔ داخلی هم نمی‌رسد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پیش‌نیازها</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>الگوهای تست مثبت/منفی همین سری: <a href="/guides/mikrotik-vlan/">VLAN (M2)</a> · <a href="/guides/mikrotik-dhcp-dns/">DHCP و DNS (M3)</a> · <a href="s2-poe-budget.fa.md">بودجهٔ PoE (S2)</a> · <a href="s3-sfp-dac-fiber.fa.md">ماژول‌ها (S3)</a> · <a href="n1-network-troubleshooting.fa.md">عیب‌یابی (N1)</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>خواندن جدول مسیر کلاینت: <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/route_ws2008">route command — سند رسمی مایکروسافت</a> (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مبنا آزمایشگاه (Lab Baseline) — پروژهٔ فرضی تحویل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>بند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>محتوای اعلام‌شده (SOW فرضی)</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>الگوی تست از سری</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>سرویس ۱</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>اینترنت برای همهٔ کاربران</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>M2 تست‌های ۱/۹</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سرویس ۲</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>چهار VLAN با جداسازی (دفتر/دوربین/تلفن/مهمان)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>M2 جدول سیاست + تست‌های ۲-۴/۸-۱۰</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سرویس ۳</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>DHCP و نام‌های داخلی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>M3 تست‌های ۱-۴</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سرویس ۴</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏PoE برای دوربین/تلفن با بودجهٔ محاسبه‌شده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>S2 روش پنج‌مرحله‌ای</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سرویس ۵</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>لینک 10G رک-سرور</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>S3 انتخاب/اجرای ماژول</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>خارج از دامنه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سرور فیزیکی، بکاپ سرور، Wi-Fi</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خارج از چک‌لیست پذیرش — فقط ثبت می‌شود</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>قاعدهٔ کلیدی: چک‌لیست پذیرش از <strong>SOW</strong> ساخته می‌شود نه از «چیزهایی که نصب شد». هر سرویس اعلام‌شده = حداقل یک تست مثبت + یک تست منفی + شاهد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">ماتریس نمونهٔ پذیرش (برای مبناى بالا — بخشی از جدول کامل)</h3>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>#</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>سرویس</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>تست</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>انتظار</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>شاهد ثبت‌شونده</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>نتیجه</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>‏۱-۱</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>اینترنت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>از کلاینت دفتر `ping 8.8.8.8`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>reply</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خروجی دستور با تاریخ</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>☐</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۲-۱</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>جداسازی مهمان</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>از پورت مهمان `ping 192.168.10.1`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>timeout</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خروجی + شمارندهٔ drop input</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>☐</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۲-۲</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>جداسازی مهمان</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>از پورت مهمان بازکردن سایت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>موفق</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>☐</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۳-۱</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>DHCP/Naming</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`nslookup nas.lan` از کلاینت دفتر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>192.168.88.10</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خروجی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>☐</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۴-۱</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏PoE</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>جمع demand ≤ بودجه؛ ‏monitor هر پورت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>زیر سقف</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خروجی monitor</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>☐</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۵-۱</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏10G</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>لینک ‏SFP+ سرور/NAS با ماژول انتخابی S3</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏10G link</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/interface ethernet monitor`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>☐</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۶-۱</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مدیریت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏WinBox از مهمان</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>رد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خروجی/شمارنده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>☐</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>ردیف‌های ۱-۱ و ۲-۱/۲-۲ جفت «مثبت+منفی» را نشان می‌دهند؛ برای هر سرویس مشابه تکمیل می‌شود.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image -->
+<figure class="wp-block-image size-large"><img src="../assets/tutorial-n4-acceptance-phases.svg" alt="نمودار فازهای پذیرش تحویل N4 (تصویر مفهومی تألیفی)" width="900" loading="lazy"/><figcaption>نمودار فازهای پذیرش تحویل N4 (تصویر مفهومی تألیفی)</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> چهار فاز از چپ به راست: ‏«۱. معیارها از SOW» (قبل از شروع، هر سرویس = تست مثبت + منفی + شاهد) → ‏«۲. اجرای ماتریس» (تست‌به‌تست با ثبت خروجی) → ‏«۳. شواهد» (خروجی دستورها، اندازه‌گیری‌ها، قبل/بعد) → ‏«۴. امضای دو طرف» (فقط برای ردیف‌های ✓). زیر نمودار: ردیف‌های ✗ به فاز ۲ برمی‌گردند (اصلاح و اجرای مجدد همان ردیف). برچسب «تألیفی/مفهومی».</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">ثبت قبل/بعد — شرط بازگشت‌پذیری</h2>
+<!-- /wp:heading -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros"># قبل از شروع تغییرات پذیرش:
+/system backup save name=pre-acceptance
+/export file=pre-acceptance</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>گزارش تغییر = diff دو export (قبل/بعد) که نشان می‌دهد دقیقاً چه چیزهایی عوض شد.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>هر اصلاح حین پذیرش (مثلاً رفع یک rule جاافتاده) خودش قبل/بعد دارد و ردیف ماتریس مربوطه از نو اجرا می‌شود.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>اجرای این دستورها در این درس NOT_RUN (مبنا فرضی) — در پروژهٔ واقعی خروجی‌ها به‌عنوان شواهد ضمیمه می‌شوند.</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">بستهٔ مستندات تحویل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>سند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>محتوا</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>‏config export نهایی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خروجی متنی پیکربندی نهایی (بدون پسوردها — رمزها خارج این سند در مدیر رمز)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نقشهٔ توپولوژی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>پورت‌به‌پورت با VLAN/آدرس‌ها</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>جدول آدرس‌دهی و رزروها</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مشابه جدول درس M3</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ماتریس پذیرش تکمیل‌شده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>همهٔ ردیف‌ها ✓ با تاریخ/شاهد</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>گزارش تغییرات</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>قبل/بعد هر اصلاح حین پذیرش</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>راهنمای عملیات پایه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>روش backup/restore و مسیر عیب‌یابی اولیه (ارجاع N1)</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p><strong>قید داده:</strong> هیچ رمز، دادهٔ مشتری یا توپولوژی واقعی محرمانه در این اسناد آموزشی نمی‌آید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">خطاهای رایج پذیرش</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>خطا</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>چرا گران است</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>درست</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>امضای کور («کارش می‌کنه دیگه»)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بعداً هر ایراد = اختلاف‌برانگیز</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>معیار قبل از اجرا نوشته و ماتریس اجرا شود</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>فقط تست مثبت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>جداسازی/بستن‌ها اثبات نمی‌شوند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هر policy جفت مثبت+منفی</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>تست فقط از یک VLAN/یک دستگاه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خرابی بخش‌های دیگر پذیرفته می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>نمونه‌گیری از همهٔ بخش‌های اعلام‌شده</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>پذیرش بدون معیار در قرارداد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>«درست بودن» برداشت سلیقه‌ای می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>معیارها ضمیمهٔ قرارداد؛ چک‌لیست از آن ساخته شود</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>حذف حاشیهٔ امن برای قبول‌شدن (مثل بودجهٔ PoE)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فردا با رشد، سقف می‌زند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>حاشیهٔ سندشده دست‌نخورده؛ کسری = ردیف اصلاح</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اشتباه‌گرفتن timeout سیاستی با خرابی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>policy عمدی را خراب گزارش می‌کند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سیاست را بخوانید (الگوی N1 و M2/M3)</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">تمرین کوتاه (با پاسخ موردانتظار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>پیمانکار می‌گوید «جداسازی انجام شد، فقط دوربین‌ها را تست نکردیم»؛ وضعیت ردیف جداسازی دوربین چیست؟ — <strong>پاسخ موردانتظار:</strong> پذیرفته‌شده نیست؛ تست مثبت (دوربین→DVR) و منفی (دوربین→بیرون VLAN) هر دو باید اجرا و شاهد ثبت شود.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>چرا تست منفی مهمان‌→داخلی هم‌وزن تست مثبت مهمان‌→اینترنت است؟ — <strong>پاسخ موردانتظار:</strong> چون «اینترنت فقط» یعنی هم اجازهٔ بیرون و هم ردِ داخلی؛ بدون منفی، سیاست نیمه‌اجرا پذیرفته می‌شود.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>حین پذیرش یک rule جاافتاده اصلاح می‌شود؛ ثبت لازم؟ — <strong>پاسخ موردانتظار:</strong> قبل/بعد همان اصلاح + اجرای مجدد ردیف ماتریس مربوطه (و ردیف‌های وابسته) + افزودن به گزارش تغییرات.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>دو سرویس «کار می‌کند» ولی معیار پذیرش‌شان در قرارداد نیامده؟ — <strong>پاسخ موردانتظار:</strong> قبل از امضا معیار نوشته و توافق می‌شود؛ یا ردیف به‌صورت مشروط/غیرپذیرفته ثبت می‌گردد — امضای کور نه.</li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">چک‌لیست تحویل (خودِ فرایند پذیرش)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[ ] ماتریس از SOW ساخته شده (نه از لیست نصب‌شده‌ها)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] هر سرویس: تست مثبت + منفی + شاهد قابل‌ثبت دارد</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] backup/export قبل از شروع و گزارش diff تغییرات موجود است</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] ردیف‌های ✗ اصلاح و مجدداً اجرا شده‌اند (نه skip)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] بستهٔ مستندات تحویل (۶ سند بالا) کامل و بدون دادهٔ حساس است</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] امضا فقط برای ردیف‌های ✓ با تاریخ و شاهد</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] اجرای واقعی این درس NOT_RUN (مبنا فرضی)</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">منابع (تأیید/تاریخ‌دار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>الگوهای تست مثبت/منفی و جداول انتظار: مستقیماً از درس‌های همین سری — ‏M2 (۱۴ ردیف)، ‏M3 (۹ ردیف)، ‏S2 (روش ۵مرحله‌ای)، ‏S3 (قواعد سازگاری)، ‏N1 (نردبان لایه‌ای)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>Packet Flow در RouterOS (تشخیص اینکه هر تست کدام زنجیره را می‌سنجد): https://manual.mikrotik.com/docs/firewall-and-quality-of-service/packet-flow-in-routeros/ (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>route command ویندوز: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/route_ws2008 (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>تجربهٔ فرایندی عمومی پذیرش — به‌عنوان روش، بدون ادعای آمار/پروژهٔ واقعی</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">آموزش‌های مرتبط و مسیر خدمت</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>پیوند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقصد</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>الگوهای تست</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/mikrotik-vlan/">M2</a> · <a href="/guides/mikrotik-dhcp-dns/">M3</a> · <a href="s2-poe-budget.fa.md">S2</a> · <a href="s3-sfp-dac-fiber.fa.md">S3</a> · <a href="n1-network-troubleshooting.fa.md">N1</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نقشهٔ کامل سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/topic-map/">topic map</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اجرا و پذیرش پروژهٔ شبکهٔ شما</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="https://tehnet.ir/services/network-setup-tehran/">خدمات راه‌اندازی شبکهٔ تهران</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>پشتیبانی پس از تحویل</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="https://tehnet.ir/services/network-support-tehran/">خدمات پشتیبانی شبکهٔ تهران</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>درس بعدی سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>N2 — مانیتورینگ و نگهداری دوره‌ای (تولید در نوبت بعدی؛ فعلاً فقط در topic map)</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->

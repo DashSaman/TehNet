@@ -218,6 +218,9 @@ function validate(candidateInputs) {
     { md: 'tutorials/n1-network-troubleshooting.fa.md', html: 'tutorials/n1-network-troubleshooting.gutenberg.html', svg: 'assets/tutorial-n1-layer-ladder.svg', label: 'N1',
       sectionsOverride: ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'جدول عیب‌یابی لایه‌ای', 'مثال کارشده', 'خطاهای رایج در فرایند عیب‌یابی', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع', 'آموزش‌های مرتبط'],
       service: 'https://tehnet.ir/services/network-support-tehran/' },
+    { md: 'tutorials/n4-delivery-acceptance.fa.md', html: 'tutorials/n4-delivery-acceptance.gutenberg.html', svg: 'assets/tutorial-n4-acceptance-phases.svg', label: 'N4',
+      sectionsOverride: ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'ثبت قبل/بعد', 'بستهٔ مستندات تحویل', 'خطاهای رایج پذیرش', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع', 'آموزش‌های مرتبط'],
+      service: 'https://tehnet.ir/services/network-setup-tehran/' },
   ];
   const TUT_SECTIONS_COMMON = ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'تست پذیرش', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'];
   for (let ti = 0; ti < TUTORIALS.length; ti++) {
@@ -274,6 +277,8 @@ if (require.main === module) {
     'tutorials/s3-sfp-dac-fiber.gutenberg.html',
     'tutorials/n1-network-troubleshooting.fa.md',
     'tutorials/n1-network-troubleshooting.gutenberg.html',
+    'tutorials/n4-delivery-acceptance.fa.md',
+    'tutorials/n4-delivery-acceptance.gutenberg.html',
     'router-catalog.csv',
     'switch-catalog.csv',
     'image-provenance.csv',

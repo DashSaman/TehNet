@@ -50,6 +50,13 @@
    "type": "tutorial",
    "bytes": 19711,
    "per_model_images": 0
+  },
+  {
+   "md": "../tutorials/n4-delivery-acceptance.fa.md",
+   "html": "../tutorials/n4-delivery-acceptance.gutenberg.html",
+   "type": "tutorial",
+   "bytes": 22168,
+   "per_model_images": 0
   }
  ]
 }
