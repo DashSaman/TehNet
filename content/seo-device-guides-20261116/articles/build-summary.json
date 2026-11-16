@@ -57,6 +57,13 @@
    "type": "tutorial",
    "bytes": 22168,
    "per_model_images": 0
+  },
+  {
+   "md": "../tutorials/n2-monitoring-maintenance.fa.md",
+   "html": "../tutorials/n2-monitoring-maintenance.gutenberg.html",
+   "type": "tutorial",
+   "bytes": 20424,
+   "per_model_images": 0
   }
  ]
 }

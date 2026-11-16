@@ -296,8 +296,40 @@ n4 = svg(960, 560,
     'چهار فاز پذیرش تحویل شبکه: اول معیارها از سود خود نوشته می‌شود و هر سرویس یک تست مثبت و یک تست منفی و یک شاهد دارد؛ دوم ماتریس تست به تست با ثبت خروجی اجرا می‌شود؛ سوم بستهٔ شواهد شامل خروجی دستورها و اندازه‌گیری‌ها و گزارش قبل و بعد ساخته می‌شود؛ چهارم امضای دو طرف فقط برای ردیف‌های تاییدشده. ردیف‌های قرمز به فاز اصلاح برمی‌گردند و اجرای مجدد همان ردیف لازم است. جدول پایین سه ردیف نمونه را نشان می‌دهد. این نمودار مفهومی و تألیفی TehNet است.',
     chr(10).join(b))
 
+
+# ---------------- N2 monitoring loop ----------------
+b = []
+phases = [
+    ('متریک‌ها', 'دسترسی · منابع · دما · خطای پورت · pool', 130, '#1e88e5'),
+    ('آستانه‌ها', 'پیشنهاد شروع — کالیبره با دادهٔ واقعی', 250, '#6a1b9a'),
+    ('هشدار', 'Netwatch probe + لاگ TN-N2', 370, '#d32f2f'),
+    ('اقدام و نگهداری', 'چک‌لیست هفتگی/ماهانه/فصلی + تست بازیابی', 490, '#43a047'),
+]
+for idx, (title, sub, y, color) in enumerate(phases):
+    yy = 90 + idx * 118
+    b.append(rect(200, yy, 560, 76, '#fafafa', color, 2))
+    b.append(text(480, yy + 26, title, 13, 'middle', color, 'bold'))
+    b.append(text(480, yy + 52, sub, 11, 'middle', '#37474f'))
+    if idx < 3:
+        b.append(line(480, yy + 76, 480, yy + 118, '#37474f', 3))
+# loop-back arrow (maintenance -> metrics)
+b.append(line(760, 490, 830, 490, '#43a047', 3))
+b.append(line(830, 490, 830, 128, '#43a047', 3))
+b.append(line(830, 128, 760, 128, '#43a047', 3))
+b.append(text(845, 310, 'بازبینی دوره‌ای', 11, 'middle', '#2e7d32', 'bold'))
+# dead-end branch
+b.append(rect(40, 300, 120, 90, '#fdecea', '#d32f2f', 2))
+b.append(text(100, 330, 'هشدار بدون اقدام', 10, 'middle', '#d32f2f', 'bold'))
+b.append(text(100, 352, '= بی‌اثر', 10, 'middle', '#d32f2f'))
+b.append(line(200, 428, 160, 390, '#d32f2f', 2, '5,4'))
+b.append(text(480, 633, 'نمودار مفهومی تألیفی TehNet — نه عکس واقعی — آستانه‌ها «پیشنهاد شروع»؛ اجرا NOT_RUN', 10, 'middle', '#78909c'))
+n2 = svg(960, 660,
+    'نمودار حلقهٔ مانیتورینگ و نگهداری درس N2',
+    'حلقهٔ چهارمرحله‌ای مانیتورینگ: متریک‌های پایه شامل دسترسی، منابع، دما، خطای پورت و فضای pool؛ آستانه‌های هشدار که پیشنهاد شروع هستند و با داده واقعی کالیبره می‌شوند؛ هشدار با Netwatch probe و ثبت در لاگ؛ و اقدام با چک‌لیست هفتگی ماهانه و فصلی همراه تست بازیابی. انتهای حلقه به متریک‌ها برمی‌گردد. شاخهٔ جدا نشان می‌دهد هشدار بدون اقدام بی‌اثر است. این نمودار مفهومی و تألیفی TehNet است.',
+    chr(10).join(b))
+
 os.makedirs(OUT, exist_ok=True)
-for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4)):
+for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2)):
     p = os.path.join(OUT, name)
     with io.open(p, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)

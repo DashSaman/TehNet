@@ -3,13 +3,13 @@
  "validator": "validate-seo-guides.cjs rev8 (rev7 + S2 tutorial candidate)",
  "command": "node validate-seo-guides.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-16T20:04:39Z",
- "finished_utc": "2026-11-16T20:04:39Z",
- "control_head": "8190ff7077d6359af128fefbcfb0dac3f1946e66",
+ "started_utc": "2026-11-16T20:08:40Z",
+ "finished_utc": "2026-11-16T20:08:40Z",
+ "control_head": "a653c8e77f1f75e7b481b934007e255ed0803082",
  "exit": 0,
  "good_candidate": {
   "ok": true,
-  "checks": 87,
+  "checks": 92,
   "failed": 0
  },
  "injected_negatives": [
@@ -116,9 +116,11 @@
   "tutorials/n1-network-troubleshooting.gutenberg.html": "c69b67293461c1e369de94f33e024aa4c4a66b147e24037e6ae9bd5f2f70a49b",
   "tutorials/n4-delivery-acceptance.fa.md": "9c9dd56ff9216b5bdef6ee43e6e7edc311a2ef2917df3a7a46da2215f9de98ac",
   "tutorials/n4-delivery-acceptance.gutenberg.html": "8b9e2554f5ab5caa030e53208212bb3af6ce8b34c247b6f8d17f003cb7ab02a7",
+  "tutorials/n2-monitoring-maintenance.fa.md": "cf28774b7f3c525ce900e8bd95ec7090e75fdae33e2f34458b2f2646ca53167a",
+  "tutorials/n2-monitoring-maintenance.gutenberg.html": "681dc965c246a27ef23956792de4eafb450a8847e5a5636b67179b260e4671d2",
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",
   "switch-catalog.csv": "aaa5aed94204ad93b312449d9b0c934164c59d2d6375eb3b5727fe94ae164718",
-  "image-provenance.csv": "f55f986f98799dc90d70818f259f85bf5fa8df430851d0703451e9aab0240220",
+  "image-provenance.csv": "bf575d27bdfc0a6d46fade9e2739270752e65b3bac7a7a7f7d6dee7b5b1991e6",
   "page-edits/mikrotik-service.proposed.html": "c8c22f3e453bdbc5934d9e3b4e9b84e81e11b0fbfedb9e901fdce300dceabdfb",
   "page-edits/network-setup.proposed.html": "ac244d2142a4022b20b98803e48c218c5138f5398b72a6f7bca1bae1fbe52c0b",
   "page-edits/network-support.proposed.html": "52b58eefe6cd3ff50c65077ddc99f9ae66637a2fe4181bd16a6a9579adebf953"
