@@ -254,6 +254,7 @@ const jobs = [
   /* rev3: tutorial jobs — no SKU/decision-diagram injection (type gate above) */
   ['../tutorials/m2-vlan-small-office.fa.md', '../tutorials/m2-vlan-small-office.gutenberg.html', 'tutorial'],
   ['../tutorials/m3-dhcp-dns.fa.md', '../tutorials/m3-dhcp-dns.gutenberg.html', 'tutorial'],
+  ['../tutorials/s2-poe-budget.fa.md', '../tutorials/s2-poe-budget.gutenberg.html', 'tutorial'],
 ];
 const summary = [];
 for (const job of jobs) {

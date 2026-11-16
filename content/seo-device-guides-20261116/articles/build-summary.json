@@ -29,6 +29,13 @@
    "type": "tutorial",
    "bytes": 39570,
    "per_model_images": 0
+  },
+  {
+   "md": "../tutorials/s2-poe-budget.fa.md",
+   "html": "../tutorials/s2-poe-budget.gutenberg.html",
+   "type": "tutorial",
+   "bytes": 23440,
+   "per_model_images": 0
   }
  ]
 }

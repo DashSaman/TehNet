@@ -12,7 +12,10 @@
    "assets/tutorial-m2-topology.svg": "d4fe6335c11873dea21587858a38d9180446b06d8ce2122e3579941921bf70d6",
    "assets/tutorial-m3-dhcp-dns-flow.svg": "ded90672128454bf759a5669685d34415937369bd4003449195f2e6d0138ee5a",
    "articles/mikrotik-routers.gutenberg.html": "e8365d01aac407d5b40acd277e2b43a0d3751c048b8bfc51fed1af7a76a0cb75",
-   "articles/mikrotik-switches-crs.gutenberg.html": "8ced5d505eb352f21b5596706b65c804993f13881326aa89eb41f4e9e2e4a066"
+   "articles/mikrotik-switches-crs.gutenberg.html": "8ced5d505eb352f21b5596706b65c804993f13881326aa89eb41f4e9e2e4a066",
+   "tutorials/s2-poe-budget.fa.md": "74cbeec432f6a9fdebbb16c6ee62038a462d37c01740d5417ce5cb8f28768878",
+   "tutorials/s2-poe-budget.gutenberg.html": "a425e485327181e651874e70076c229dd2cb41b2b4d2191b8ad72ad48767230a",
+   "assets/tutorial-s2-poe-budget.svg": "590dcf20d5949f7061547e8c81e7a1c3fc5d506bfc1c3a205d45902235d96b7a"
   }
  },
  "preview_style_injected_at_render_time": "body{background:#fff;color:#111;font-family:Tahoma,Arial,sans-serif;margin:24px auto;max-width:960px;line-height:1.9} pre{background:#f6f8fa;border:1px solid #ddd;padding:12px;overflow:auto} code{font-family:Consolas,monospace;font-size:13px} table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto} th,td{border:1px solid #999;padding:5px 9px} img{max-width:100%;height:auto} blockquote{border-right:3px solid #1e88e5;padding-right:12px;color:#444}",
@@ -172,7 +175,19 @@
      }
     }
    },
-   "_style_injected": "body{background:#fff;color:#111;font-family:Tahoma,Arial,sans-serif;margin:24px auto;max-width:960px;line-height:1.9} pre{background:#f6f8fa;border:1px solid #ddd;padding:12px;overflow:auto} code{font-family:Consolas,monospace;font-size:13px} table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto} th,td{border:1px solid #999;padding:5px 9px} img{max-width:100%;height:auto} blockquote{border-right:3px solid #1e88e5;padding-right:12px;color:#444}"
+   "_style_injected": "body{background:#fff;color:#111;font-family:Tahoma,Arial,sans-serif;margin:24px auto;max-width:960px;line-height:1.9} pre{background:#f6f8fa;border:1px solid #ddd;padding:12px;overflow:auto} code{font-family:Consolas,monospace;font-size:13px} table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto} th,td{border:1px solid #999;padding:5px 9px} img{max-width:100%;height:auto} blockquote{border-right:3px solid #1e88e5;padding-right:12px;color:#444}",
+   "tutorials/s2-poe-budget.gutenberg.html@desktop": {
+    "shot": "s2-desktop-svg.png",
+    "h1": "بودجهٔ PoE — محاسبهٔ توان، استاندارد و PSU (S2)",
+    "img_complete": true,
+    "overflow": 0
+   },
+   "tutorials/s2-poe-budget.gutenberg.html@mobile": {
+    "shot": "s2-mobile-svg.png",
+    "h1": "بودجهٔ PoE — محاسبهٔ توان، استاندارد و PSU (S2)",
+    "img_complete": true,
+    "overflow": 136
+   }
   },
   "styled_overflow_mobile_px": {
    "tutorials/m2-vlan-small-office.gutenberg.html@mobile": 234,
@@ -221,7 +236,8 @@
   "mobile_overflow": "raw unstyled fragment preview overflows at 390px (839/718/313/352px) from fixed-width img (900px) and wide has-fixed-layout tables; full theme-like preview style reduces articles to 0px and tutorials to 234/133px (residual = preview-harness limitation; WP theme supplies responsive wrappers at publish). Measured values recorded as-is; NOT claimed as zero.",
   "separator_cells": "0 in all four outputs (builder rev4)",
   "code_tables": "M2 9 code blocks / 7 tables; M3 12 / 5; tables render with borders in preview style",
-  "charset": "raw fragments carry no <meta charset>; preview server sends charset=utf-8 (WP theme supplies it at publish)"
+  "charset": "raw fragments carry no <meta charset>; preview server sends charset=utf-8 (WP theme supplies it at publish)",
+  "s2": "S2 budget lesson renders desktop 0px overflow, mobile 136px (preview-harness limitation, recorded); diagram legible; worked example renders (mixed bidi acceptable)"
  },
  "boundary_item5": {
   "captures_untracked": "git rm --cached of the 12 evidence PNGs + render-evidence/.gitignore (forward commit; no force-push, no history claims); captures remain on local disk only",
@@ -232,5 +248,9 @@
   "RouterOS execution (no fixture)",
   "manager-side browser run"
  ],
- "production_touched": false
+ "production_touched": false,
+ "utc_extended": "2026-11-16T19:47:52Z",
+ "pages_extra": [
+  "tutorials/s2-poe-budget.gutenberg.html"
+ ]
 }

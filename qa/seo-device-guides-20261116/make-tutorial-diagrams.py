@@ -138,8 +138,50 @@ m3 = svg(960, 540,
     'کلاینت با Discover از سرور DHCP که به پل بسته شده آدرس می‌گیرد و در Offer شمارهٔ gateway و DNS یعنی 192.168.88.1 را دریافت می‌کند. سپس کلاینت نام nas.lan را روی پورت 53 از روتر می‌پرسد و روتر از cache یا بالادستی پاسخ می‌دهد. مرز خط‌چین قرمز نشان می‌دهد پورت 53 فقط از زیرشبکهٔ 192.168.88.0/24 پذیرفته می‌شود تا روتر open resolver نشود؛ کلاینت خاکستری با آدرس 10.9.9.9 بیرون مرز است و پرس‌وجویش timeout می‌گیرد. این نمودار مفهومی و تألیفی TehNet است.',
     '\n'.join(b))
 
+
+# ---------------- S2 PoE budget ----------------
+b = []
+# PSU (right) -> DC input -> switch (middle) -> devices (left)
+b.append(rect(760, 200, 180, 120, '#fff8e1', '#f9a825', 3))
+b.append(text(850, 232, 'PSU جداگانه (پیوست نیست)', 12, 'middle', '#e65100', 'bold'))
+b.append(text(850, 254, '24V یا 48V', 11, 'middle', '#546e7a'))
+b.append(text(850, 274, '24V → PoE پسیو/ناسازگار af', 10, 'middle', '#78909c'))
+b.append(text(850, 292, '48V → af/at سندشده', 10, 'middle', '#78909c'))
+b.append(rect(430, 180, 260, 160, '#ffffff', '#0d47a1', 3))
+b.append(text(560, 208, 'netPower 16P (CRS318-16P-2S+OUT)', 12, 'middle', '#0d47a1', 'bold'))
+b.append(rect(445, 222, 230, 42, '#e3f2fd', '#1e88e5', 1))
+b.append(text(560, 240, 'مصرف خود سوئیچ ≈ 16W', 11, 'middle', '#0d47a1'))
+b.append(text(560, 258, 'سقف هر ورودی DC: 24V→2.8A (≈67W)', 10, 'middle', '#0d47a1'))
+b.append(text(560, 274, '                48V→1.4A (≈67W)', 10, 'middle', '#0d47a1'))
+b.append(text(560, 322, '16× GbE PoE-out (af/at) + 2× SFP+ uplink', 11, 'middle', '#37474f'))
+# arrow PSU -> switch
+b.append(line(760, 260, 690, 260, '#f9a825', 4))
+b.append(text(725, 250, 'DC', 11, 'middle', '#e65100', 'bold'))
+# device stacks (left)
+devs = [
+    ('۸ دوربین × 10W = 80W', 240, C20 if False else '#fb8c00'),
+    ('۴ تلفن × 5W = 20W', 360, C30),
+    ('پورت آزاد رشد (ether13-16)', 470, '#9e9e9e'),
+]
+for label, y, color in devs:
+    b.append(rect(60, y - 24, 260, 44, '#fafafa', color, 2))
+    b.append(text(190, y + 4, label, 11, 'middle', '#1a1a1a'))
+b.append(line(430, 250, 320, 240, '#fb8c00', 3))
+b.append(line(430, 265, 320, 360, '#43a047', 3))
+b.append(line(430, 290, 320, 470, '#9e9e9e', 3, '6,4'))
+b.append(text(375, 232, 'PoE-out', 10, 'middle', '#e65100', 'bold'))
+# margin box
+b.append(rect(60, 30, 300, 70, '#e8f5e9', '#43a047', 2))
+b.append(text(210, 56, 'demand = 80W + 20W = 100W', 12, 'middle', '#2e7d32', 'bold'))
+b.append(text(210, 78, 'با حاشیهٔ امن ×1.2 → 120W', 11, 'middle', '#2e7d32'))
+b.append(text(480, 533, 'نمودار مفهومی تألیفی TehNet — نه عکس واقعی — اعداد از صفحهٔ رسمی netPower 16P (دسترسی %s)' % ACCESS_DATE, 11, 'middle', '#78909c'))
+s2 = svg(960, 560,
+    'نمودار بودجهٔ PoE درس S2: از PSU جداگانه تا هر دستگاه',
+    'PSU جداگانه با ولتاژ ۲۴ یا ۴۸ ولت به ورودی DC سوئیچ netPower 16P می‌رسد. سوئیچ حدود ۱۶ وات مصرف خودی دارد و سقف هر ورودی DC سندشده حدود ۶۷ وات است. خروجی PoE به هشت دوربین با جمع هشتاد وات، چهار تلفن با جمع بیست وات و پورت‌های آزاد رشد تقسیم می‌شود. جمع تقاضا صد وات و با حاشیهٔ امن دوازده صد وات است که باید از توان قابل تامین PSU منهای مصرف خود سوئیچ کمتر باشد. این نمودار مفهومی و تألیفی TehNet است.',
+    chr(10).join(b))
+
 os.makedirs(OUT, exist_ok=True)
-for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3)):
+for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2)):
     p = os.path.join(OUT, name)
     with io.open(p, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)

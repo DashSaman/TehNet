@@ -206,20 +206,23 @@ function validate(candidateInputs) {
   /* C12-C14 (rev7): tutorial lessons M2/M3 — sections, diagram, origin (6923833096) */
   const TUTORIALS = [
     { md: 'tutorials/m2-vlan-small-office.fa.md', html: 'tutorials/m2-vlan-small-office.gutenberg.html', svg: 'assets/tutorial-m2-topology.svg', label: 'M2',
-      extra: ['سیاست جریان'] },
+      extra: ['سیاست جریان'], service: 'https://tehnet.ir/services/mikrotik-tehran/' },
     { md: 'tutorials/m3-dhcp-dns.fa.md', html: 'tutorials/m3-dhcp-dns.gutenberg.html', svg: 'assets/tutorial-m3-dhcp-dns-flow.svg', label: 'M3',
-      extra: ['مرز DNS مورداعتماد'] },
+      extra: ['مرز DNS مورداعتماد'], service: 'https://tehnet.ir/services/mikrotik-tehran/' },
+    { md: 'tutorials/s2-poe-budget.fa.md', html: 'tutorials/s2-poe-budget.gutenberg.html', svg: 'assets/tutorial-s2-poe-budget.svg', label: 'S2',
+      sectionsOverride: ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'محاسبهٔ بودجه', 'مثال کارشده', 'خطاهای رایج', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'],
+      service: 'https://tehnet.ir/services/network-setup-tehran/' },
   ];
   const TUT_SECTIONS_COMMON = ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'تست پذیرش', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'];
   for (let ti = 0; ti < TUTORIALS.length; ti++) {
     const t = TUTORIALS[ti];
-    const TUT_SECTIONS = TUT_SECTIONS_COMMON.concat(t.extra);
+    const TUT_SECTIONS = t.sectionsOverride || TUT_SECTIONS_COMMON.concat(t.extra);
     const mdC = get(t.md);
     const htmlC = get(t.html);
     if (mdC === null || htmlC === null) { fail('c12_tutorial_present:' + t.label, 'tutorial MD/HTML missing from candidate'); continue; }
     /* C12: required sections + service CTA link in MD */
     const missingSec = TUT_SECTIONS.filter(function(s){ return mdC.indexOf(s) < 0; });
-    const hasService = mdC.indexOf('https://tehnet.ir/services/mikrotik-tehran/') >= 0;
+    const hasService = mdC.indexOf(t.service || 'https://tehnet.ir/services/mikrotik-tehran/') >= 0;
     const hasMdImage = /^!\[[^\]]*\]\(\.\.\/assets\/tutorial-/m.test(mdC);
     if (missingSec.length || !hasService || !hasMdImage) {
       fail('c12_tutorial_sections:' + t.label, 'tutorial required section missing', { missing: missingSec, serviceCta: hasService, diagramLine: hasMdImage });
@@ -259,6 +262,8 @@ if (require.main === module) {
     'tutorials/m2-vlan-small-office.gutenberg.html',
     'tutorials/m3-dhcp-dns.fa.md',
     'tutorials/m3-dhcp-dns.gutenberg.html',
+    'tutorials/s2-poe-budget.fa.md',
+    'tutorials/s2-poe-budget.gutenberg.html',
     'router-catalog.csv',
     'switch-catalog.csv',
     'image-provenance.csv',
@@ -359,7 +364,7 @@ if (require.main === module) {
     }
   } catch (e) { freshOk = false; freshDetail.push('BUILDER_RUN_FAILED: ' + String(e.message).slice(0, 120)); }
   if (!freshOk) console.log('FAIL c10_output_freshness -> ' + JSON.stringify(freshDetail));
-  else console.log('PASS c10_output_freshness (builder rerun byte-identical for all 4 gutenberg outputs)');
+  else console.log('PASS c10_output_freshness (builder rerun byte-identical for ' + Object.keys(snap).length + ' gutenberg outputs)');
   const ok = good.ok && good.failedChecks.length === 0 && negFail === 0 && freshOk;
   const finishedUtc = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
   let controlSha = 'GIT_UNAVAILABLE_NO_EXEC';
@@ -369,7 +374,7 @@ if (require.main === module) {
 
   const receipt = {
     packet: 'TN-M2-M3-CORRECTIONS-20261116',
-    validator: 'validate-seo-guides.cjs rev7 (shared validate(candidateInputs) + 9 injected negatives + c10-freshness builder rerun)',
+    validator: 'validate-seo-guides.cjs rev8 (rev7 + S2 tutorial candidate)',
     command: 'node validate-seo-guides.cjs',
     cwd: 'qa/seo-device-guides-20261116/',
     started_utc: startedUtc, finished_utc: finishedUtc,

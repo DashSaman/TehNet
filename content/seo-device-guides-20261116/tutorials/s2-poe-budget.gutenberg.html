@@ -1,0 +1,389 @@
+<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from ../tutorials/s2-poe-budget.fa.md -->
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">بودجهٔ PoE — محاسبهٔ توان، استاندارد و PSU (S2)</h1>
+<!-- /wp:heading -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><p>وضعیت درس: <strong>DRAFT / NOT_DEPLOYED — در انتظار مرور.</strong></p><p>آموزش تصویری از سری switching و PoE؛ مخاطب: کارشناس شبکهٔ مبتدی تا متوسط.</p><p>سناریوی کاملاً فرضی و آموزشی با دادهٔ ساختگی؛ هیچ شبکهٔ واقعی دستکاری نشده است.</p><p>نمودار مفهومی و تألیفی است (نه عکس واقعی)؛ اجرای RouterOS این درس NOT_RUN است (بدون fixture مجاز).</p></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پاسخ کوتاه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>بودجهٔ PoE = جمع مصرف ماکسیمم همهٔ دستگاه‌های PoE + حاشیهٔ امن (~۲۰٪) و باید از «توان قابل‌تامین PSU منهای مصرف خود سوئیچ» کوچکتر باشد. سه چیز را همزمان چک کنید: <strong>استاندارد</strong> (دستگاه af است یا at؟)، <strong>ولتاژ/جریان</strong> (PSU چه ولتاژی می‌دهد و سوئیچ هر پورت/مجموع چند آمپر اجازه می‌دهد؟) و <strong>PSU</strong> (بعضی سوئیچ‌ها مثل netPower 16P اصلاً PSU ندارند). اگر جمع از بودجه گذشت، راه‌حل دوتاست: مصرف واقعی را دقیق بگیرید یا به سوئیچ/PSU بزرگ‌تر مهاجرت کنید — نه کاهش حاشیهٔ امن.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پیش‌نیازها</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>مبانی سوئیچ: <a href="/guides/mikrotik-switches-crs/">مقایسهٔ سوئیچ‌های CRS میکروتیک (S1)</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>توپولوژی VLAN: <a href="/guides/mikrotik-vlan/">VLAN برای دفتر کوچک (M2)</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>برگهٔ مشخصات (datasheet) هر دستگاه PoEگیرنده</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مبنا آزمایشگاه (Lab Baseline) — دقیق و کامل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">سوئیچ مبنا — مشخصات سندشدهٔ رسمی (fetch شده با تاریخ)</h3>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>مشخصه</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقدار رسمی (صفحهٔ محصول netPower 16P)</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>SKU رسمی</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>SKU</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>netPower 16P (CRS318-16P-2S+OUT)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>پورت PoE-out</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>16× Gigabit (همهٔ ۱۶ پورت مسی PoE-out دارند)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ether1-16</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>آپ‌لینک</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>2× SFP+ (فیبر 10G) — PoE ندارند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>sfp-sfpplus1/2</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>استاندارد PoE-out</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>802.3af/at</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ولتاژ PoE-out</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>بدون مبدل داخلی</strong>: با PSU ‏24V خروجی 24V می‌شود؛ با PSU ‏48V خروجی ‏48V (برای af/at)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ورودی DC: ‏18-30V یا ‏48-57V</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سقف جریان هر پورت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>24V: ‏1.1A ‏(≈26W) · ‏48V: ‏0.6A ‏(≈29W)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>derived از حد جریان</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سقف جریان کل هر ورودی DC</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>24V: ‏2.8A ‏(≈67W) · ‏48V: ‏1.4A ‏(≈67W)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>derived؛ دو ورودی DC مستقل</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>PSU پیوست</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>ندارد</strong> — «Power supply is NOT included with the product»</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>PSU جداگانه الزامی</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>Max power consumption</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏316W (با متعلقات) · ‏16W بدون متعلقات</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مصرف خود سوئیچ ≈16W مبنا</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p><strong>نکتهٔ صادقانه دربارهٔ بودجهٔ نهایی:</strong> رابطهٔ بین «سقف جریان هر ورودی DC» و رقم «Max consumption ‏316W» در صفحهٔ رسمی تفصیل داده نشده (وابسته به جفت-PSU و ولتاژ). این درس هر دو عدد را <strong>عیناً</strong> گزارش می‌کند و محاسبه را با «حد جریان ورودی» انجام می‌دهد — محافظه‌کارانه‌ترین تفسیر سندشده. رقم 316W به‌عنوان سقف سیستم با PSU جفت مناسب ثبت می‌شود؛ <strong>UNKNOWN</strong>: بودجهٔ دقیق PoE-out تضمین‌شده برای هر ترکیب PSU — نیازمند تأیید رسمی ( marked UNKNOWN، نه حدس).</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">جدول دستگاه‌های سناریو (مصرف = فرض صریح از datasheet-نوع)</h3>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>دستگاه</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>تعداد</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مصرف ماکسیمم فرضی هر واحد</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>استاندارد موردنیاز</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>جمع</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>دوربین IP (بدون ایرلایت/هیزر)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>8</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>10W</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>af کافی (≤15.4W)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>80W</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>تلفن IP</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>4</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>5W</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>af</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>20W</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td><strong>جمع PoE demanded</strong></td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>100W</strong></td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>فرض صریح: ارقام 10W/5W «مصرف ماکسیمم تیپیکال»‌اند نه مقدار تضمینی سازنده؛ قبل از خرید، datasheet همان مدل دوربین/تلفن ملاک است. دوربین با هیزر/IR بلند، تا 25-30W می‌رود (at لازم) — در این مبنا نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">جدول پورت‌ها</h3>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>سوئیچ</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>پورت</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>اتصال</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>PoE</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>netPower 16P</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ether1-8</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>8 دوربین</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>af/at خروجی</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>netPower 16P</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ether9-12</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>4 تلفن</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>af خروجی</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>netPower 16P</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ether13-16</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>آزاد (رشد)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>netPower 16P</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>sfp-sfpplus1</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>آپ‌لینک 10G به روتر/سوئیچ بالادست</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بدون PoE</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:image -->
+<figure class="wp-block-image size-large"><img src="../assets/tutorial-s2-poe-budget.svg" alt="نمودار بودجهٔ PoE درس S2 — از PSU تا هر دستگاه (تصویر مفهومی تألیفی)" width="900" loading="lazy"/><figcaption>نمودار بودجهٔ PoE درس S2 — از PSU تا هر دستگاه (تصویر مفهومی تألیفی)</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> از راست: PSU جداگانه (۲۴ یا ۴۸ ولت، پیوست نیست) → ورودی DC سوئیچ netPower 16P → داخل سوئیچ دو مسیر: مصرف خود سوئیچ (≈16W) و خروجی PoE با سقف جریان هر ورودی (24V: ‏2.8A ≈ ‏67W · ‏48V: ‏1.4A ≈ ‏67W) → از پورت‌ها به ۸ دوربین (۸۰W) و ۴ تلفن (۲۰W) و پورت‌های آزاد رشد. حاشیهٔ امن ۲۰٪ روی جمع demand نمایش داده شده و برچسب «تألیفی/مفهومی» پایین تصویر هست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">محاسبهٔ بودجه — روش پنج‌مرحله‌ای</h2>
+<!-- /wp:heading -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-text">۱) جمع demand:        Σ(مصرف ماکسیمم هر دستگاه)             = 80 + 20        = 100W
+۲) حاشیهٔ امن ۲۰٪:    demand × 1.2                           = 100 × 1.2      = 120W
+۳) توان قابل‌تامین:    PSU − مصرف خود سوئیچ                    = PSU_W − 16W
+۴) سقف ورودی DC:      24V → 2.8A (≈67W) · 48V → 1.4A (≈67W) per input
+۵) قبول/رد:           (۳) ≥ (۲) و سقف پورت هر دستگاه تأمین باشد</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">مثال کارشده — انتخاب PSU برای همین مبنا</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>demand+margin = 120W؛ مصرف خود سوئیچ ≈16W → PSU باید ≥ ‏136W تحویل دهد.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>سقف ورودی DC سندشده ≈67W به‌ازای هر ورودی است؛ با <strong>یک</strong> PSU/یک ورودی، سقف ≈67W از 120W کمتر است → در این تفسیر محافظه‌کارانه، کافی نیست.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>با <strong>دو ورودی DC</strong> (قابلیت سندشدهٔ این SKU: دو جک مستقل): 2×67W ≈ ‏134W ≥ ‏120W → <strong>قبول مشروط</strong> به PSU جفت مناسب از فهرست سازگار رسمی (مثلاً دو عدد از PSUهای 24V فهرست‌شده در صفحهٔ محصول)؛ توازن بار بین دو ورودی و رفتار سهم‌گیری صفحهٔ رسمی تفصیل نداده → <strong>UNKNOWN</strong>، اجرا با اندازه‌گیری واقعی (اندازه‌گیری PoE-out واقعی: `/interface ethernet poe monitor` سندشدهٔ RouterOS — اجرای آن در این درس NOT_RUN).</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>اگر demand بالاتر رود (مثلاً ۱۲ دوربین ×12W + ‏۴ تلفن ×6W = ‏168W → ‏202W با حاشیه): از سقف دو ورودی (≈134W در تفسیر محافظه‌کارانه) گذر می‌کند → مهاجرت به کلاس سوئیچ PoE بزرگ‌تر (خانوادهٔ CRS354-48P یا بررسی رسمی ترکیب PSU قوی‌تر) — نه حذف حاشیهٔ امن.</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><p><strong>پرچم ناسازگاری برای مرور:</strong> سناریوی مقالهٔ S1 همین مخزن (۱۲ دوربین + ‏۴ تلفن = ‏168W روی netPower 16P) با تفسیر محافظه‌کارانهٔ «حد جریان ورودی» که بالا آمد سازگار نیست؛ این درس عمداً تفسیر سندشده را مبنا گرفت و ناسازگاری را به‌جای پنهان‌کردن، پرچم می‌زند — تصمیم اصلاح مقالهٔ S1 با مرور مدیر.</p></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">خطاهای رایج</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>نشانه</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>علت محتمل</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>بررسی</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>راه‌حل</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>دستگاه بالا می‌آید و ری‌استارت چرخه‌ای می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>demand لحظه‌ای (surge) از بودجه گذشت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>جمع ماکسیمم‌ها + حاشیه را بازمحاسبه کنید؛ `/interface ethernet poe monitor`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>PSU بزرگ‌تر/دوم؛ توزیع پورت‌ها بین دو سوئیچ</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>دستگاه af اصلاً روشن نمی‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>PSU ‏24V نصب شده (خروجی 24V پسیو/ناسازگار با af)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ولتاژ خروجی پورت را چک کنید</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>PSU ‏48V برای af/at (سند رسمی: 48V برای IEEE af/at)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>دوربین at با 24V بالا نمی‌آید</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>at به 48V نیاز دارد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>استاندارد دستگاه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>همان ردیف بالا</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>جمع حساب می‌شود ولی وسط روز افت دارید</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مصرف واقعی > فرض تیپیکال (هیزر/IR شبانه)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>اندازه‌گیری واقعی پورت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>گرفتن ماکسیمم واقعی از datasheet/اندازه‌گیری</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>PSU گرم/خاموشی محافظتی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>PSU زیر بار دائم نزدیک سقف خودش</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>توان اسمی PSU در برابر (۳)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>PSU با توان اسمی ≥ ‏(۲)+مصرف سوئیچ</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">تمرین کوتاه (با پاسخ موردانتظار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>برای مبناى این درس، بدون حاشیهٔ امن، demand چقدر است و با کدام سقف مقایسه می‌شود؟ — <strong>پاسخ موردانتظار:</strong> ‏100W؛ با «توان قابل‌تامین PSU − ‏16W» و سقف جریان ورودی DC (≈67W به‌ازای هر ورودی سندشده).</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>چرا در این SKU «PSU 24V یعنی خروجی 24V»؟ — <strong>پاسخ موردانتظار:</strong> چون مبدل ولتاژ داخلی ندارد؛ ولتاژ خروجی PoE همان ولتاژ PSU ورودی است (سند رسمی) و af/at به ‏48V نیاز دارد.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>دوربین هیزردار 28W روی این سوئیچ جا می‌شود؟ — <strong>پاسخ موردانتظار:</strong> به سقف پورت نزدیک/فراتر (48V: ‏0.6A ≈ ‏29W) و به بودجهٔ کل فشار می‌آورد؛ فقط بعد از بازمحاسبهٔ کامل بودجه و ترجیحاً با تأیید رسمی؛ در این مبنا خیر.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>سه چیز که باید قبل از خرید همزمان چک شود؟ — <strong>پاسخ موردانتظار:</strong> استاندارد دستگاه (af/at)، ولتاژ/جریان (PSU و سقف‌های سوئیچ)، و PSU (پیوست/جدا و توان اسمی).</li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">چک‌لیست تحویل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[ ] SKU رسمی و برگهٔ مشخصات سوئیچ + datasheet تک‌تک دستگاه‌ها جمع شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] جدول demand با مصرف ماکسیمم و فرض‌های صریح نوشته شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] ‏(۱) تا (۵) محاسبهٔ پنج‌مرحله‌ای مستند و سقف‌های ولتاژ/جریان ورودی چک شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] PSU با توان اسمی ≥ ‏demand×1.2 + مصرف سوئیچ انتخاب و PSU پیوست‌نبودن چک شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] UNKNOWNها (بودجهٔ تضمینی هر ترکیب PSU، سهم‌گیری دو ورودی) به‌عنوان UNKNOWN ثبت شده‌اند، نه حدس</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] اجرای RouterOS (`/interface ethernet poe monitor`) در صورت وجود fixture مجاز؛ در غیر این صورت NOT_RUN ثبت شده</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">منابع رسمی (fetch شده با تاریخ)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>صفحهٔ رسمی netPower 16P (CRS318-16P-2S+OUT) — ‏PoE-out ‏af/at، ‏۱۶×GbE + ‏۲×SFP+، بدون PSU، سقف‌های جریان ورودی/پورت، ‏PSUهای سازگار: https://mikrotik.com/product/netpower_16p (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>دستور مانیتور PoE-out (`/interface ethernet poe monitor`) قابلیت سندشدهٔ RouterOS است؛ در این درس فقط نام برده شده و URL بخش مستندات آن جداگانه تأیید نشده — به‌جای URL تأییدنشده، عیناً URL ساخته نشده است</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>مقایسهٔ سوئیچ‌ها (S1) و جدول catalog: <a href="/guides/mikrotik-switches-crs/">مقایسهٔ سوئیچ‌های CRS</a> + switch-catalog.csv</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">آموزش‌های مرتبط و مسیر خدمت</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>پیوند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقصد</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>درس قبلی (مبانی سوئیچ)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/mikrotik-switches-crs/">مقایسهٔ سوئیچ‌های CRS میکروتیک (S1)</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>درس مرتبط</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/mikrotik-vlan/">VLAN برای دفتر کوچک (M2)</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نقشهٔ کامل سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/topic-map/">topic map</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>طراحی/اجرای PoE برای سازمان شما</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="https://tehnet.ir/services/network-setup-tehran/">خدمات راه‌اندازی شبکهٔ تهران</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>درس بعدی سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>S3 — راهنمای SFP/DAC/فیبر (تولید در نوبت بعدی؛ فعلاً فقط در topic map)</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
