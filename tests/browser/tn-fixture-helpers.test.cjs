@@ -536,6 +536,7 @@ t('REG journey identity gate: marker mismatch => BLOCKED_IDENTITY with ZERO subm
 });
 t('REG journey identity gate: matching readback proceeds to a PASSED run', async () => {
   const calls = [];
+  let finds = 0;
   const res = await H.runJourney({
     marker: GOOD, expectedFixture: {
       home_url: FIXTURE_HOME, db_name: 'tehnetux',
@@ -547,8 +548,9 @@ t('REG journey identity gate: matching readback proceeds to a PASSED run', async
       readBrowserMarker: async () => ({ home_url: FIXTURE_HOME, fixture_marker_name: 'tn_fixture_run_owner', fixture_marker_value: 'TN-FIXTURE-OWNED-001' }),
       closeBrowser: async () => { calls.push('closeBrowser'); },
       findOwnedRecords: async marker => {
-        calls.push('findOwnedRecords');
-        return calls.length === 1
+        finds++;
+        calls.push('findOwnedRecords#' + finds);
+        return finds === 1
           ? [{ id: 42, type: 'tn_ticket', email: 'x+' + marker + '@example.invalid' }, { id: 51, type: 'tn_quote', email: 'y@example.invalid' }]
           : [{ id: 51, type: 'tn_quote', email: 'y@example.invalid' }]; // owned gone on post-read
       },
