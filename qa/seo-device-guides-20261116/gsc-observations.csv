@@ -1,0 +1,6 @@
+observation_id,observation_date,source,finding
+"GSC Performance 20Sep–14Nov2026","2026-11-16","manager GSC read","clicks=0, impressions=0, Queries=No data, Average position enabled but no actual position data"
+"GSC Page indexing (last update 13Nov)","2026-11-13","manager GSC read","indexed=0, noindex=48, crawled-not-indexed=9, other-4xx=1"
+"GSC Live Test homepage 16Nov","2026-11-16","manager GSC read","fetch=successful, crawl=allowed, indexing=allowed, user-declared canonical=https://tehnet.ir/"
+"GSC Submitted sitemaps","2026-11-16","manager GSC read","table empty — does NOT prove absence of public sitemap file"
+"GSC Request indexing / Validate fix / Submit","—","manager confirmed","NOT performed by manager"
