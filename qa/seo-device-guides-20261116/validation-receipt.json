@@ -1,6 +1,6 @@
 {
  "packet": "TN-SEO-DEVICE-GUIDES-20261116",
- "validated_utc": "2026-11-16T11:26:29Z",
+ "validated_utc": "2026-11-16T11:31:03Z",
  "mode": "source-level assertions; browser NOT_RUN (no pre-authorized cloud env); WordPress/KSES NOT_RUN",
  "checks": [
   {
@@ -105,8 +105,14 @@
  "not_run": [
   "browser rendering desktop/mobile/keyboard",
   "WordPress editor/KSES acceptance",
-  "Search Console baseline (UNKNOWN)"
+  "Search Console baseline (UNKNOWN)",
+  "image visual rendering check (browser NOT_RUN)"
  ],
  "gates": "production read-only; PR100-103 guarded; no deploy/D2/D3/index/blog_public change",
- "production_touched": false
+ "production_touched": false,
+ "images_embedded": {
+  "routers": 20,
+  "switches": 6,
+  "note": "wp:image blocks with alt/width/height/loading=lazy; src=relative assets/ (deploy path TBD at publication)"
+ }
 }
