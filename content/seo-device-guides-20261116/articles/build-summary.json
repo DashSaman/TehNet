@@ -134,6 +134,13 @@
    "type": "tutorial",
    "bytes": 18454,
    "per_model_images": 0
+  },
+  {
+   "md": "../tutorials/n1-office-design.fa.md",
+   "html": "../tutorials/n1-office-design.gutenberg.html",
+   "type": "tutorial",
+   "bytes": 25067,
+   "per_model_images": 0
   }
  ]
 }

@@ -1,0 +1,551 @@
+<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from ../tutorials/n1-office-design.fa.md -->
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">طراحی شبکهٔ دفتر — از نیازسنجی تا نقشهٔ نهایی (N1)</h1>
+<!-- /wp:heading -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><p>وضعیت درس: <strong>DRAFT / NOT_DEPLOYED — در انتظار مرور.</strong> (درس مصوب سرفصل ‏N1: طراحی دفتر)</p><p>آموزش تصویری از سری پشتیبانی؛ مخاطب: مدیر IT و کارشناس شبکه.</p><p>سناریوی کاملاً فرضی و آموزشی با دادهٔ ساختگی؛ هیچ شبکهٔ واقعی دستکاری نشده و هیچ اجرای واقعی NOT_RUN است.</p><p>نمودار مفهومی و تألیفی است (نه عکس واقعی).</p></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پاسخ کوتاه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>طراحی شبکهٔ دفتر شش گام دارد: <strong>نیازسنجی</strong> (تعداد کاربر/سرویس/رشد) → <strong>انتخاب توپولوژی</strong> (ستاره‌ای — سوئیچ مرکز) → <strong>نقشهٔ پورت</strong> (هر پورت چه دستگاهی؟) → <strong>آدرس‌دهی</strong> (subnet + VLAN) → <strong>انتخاب تجهیز</strong> (سوئیچ/روتر/AP/آپ‌لینک) → <strong>مستندسازی و آزمون پذیرش</strong> (الگوی N4). طراحی خوب از برگهٔ نیازسنجی شروع می‌شود؛ طراحی بد از «اول سوئیچ بخریم بعد ببینیم چی لازمه».</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پیش‌نیازها</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>VLAN و ترانک: <a href="/guides/mikrotik-vlan/">M2</a> · بودجهٔ PoE: <a href="s2-poe-budget.fa.md">S2</a> · آپ‌لینک: <a href="s5-uplink-trunk.fa.md">S5</a> · پذیرش: <a href="n4-delivery-acceptance.fa.md">N4</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مبنا آزمایشگاه (Lab Baseline) — پروژهٔ فرضی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>بند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقدار فرضی</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>سازمان</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دفتر کوچک — ‏۱۲ نفر + ‏۴ دوربین + ‏۴ تلفن IP + ‏۱ NAS + ‏۱ سرور</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>رشد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏+۵۰٪ در ۲۴ ماه</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اینترنت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏فیبر ‏100 Mbps (ISP)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>فضا</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>یک طبقه — یک رک شبکه</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>بودجه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>متوسط — بدون ‏redundancy سخت‌افزاری در این فاز</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اجرای واقعی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>NOT_RUN</strong> — طراحی آموزشی</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">گام ۱: نیازسنجی — جدول demand</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>سرویس</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>تعداد</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مشخصه</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>VLAN</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>PoE</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>کاربران دفتر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۱۲</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏PC + تلفن IP (هر دو روی یک پورت با VLAN voice)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>10 + 30</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بله (تلفن)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>دوربین IP</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۴</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏PoE + ‏VLAN جدول</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>20</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بله</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>تلفن IP</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۴</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏PoE + ‏VLAN voice</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>30</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بله</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏NAS</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۱</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏1G (فعلاً) — ارتقای ‏10G فاز بعد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>40</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خیر</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سرور</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۱</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏1G (فعلاً)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>40</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خیر</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>چاپگر شبکه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۱</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏1G</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>10</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خیر</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>AP مهمان</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۱</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏VLAN جدا</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>50</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بله (اختیاری)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td><strong>جمع پورت‌های سوئیچ</strong></td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۱۲ کاربر+تلفن + ‏۴ دوربین + ‏۱ AP + ‏آپ‌لینک = <strong>≥ ۱۸ پورت</strong></td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">گام ۲: توپولوژی — ستاره‌ای با سوئیچ مرکز</h2>
+<!-- /wp:heading -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-text">              اینترنت (فیبر 100 Mbps)
+                   │
+              ┌────┴────┐
+              │  hEX    │  روتر — فایروال/NAT/DHCP/DNS
+              └────┬────┘
+                   │ (uplink 1G)
+              ┌────┴────────┐
+              │ CRS326      │  سوئیچ ۲۴ پورت — VLAN trunk
+              └──┬──┬──┬──┬─┘
+        ┌────────┘  │  │  └────────┐
+   ┌────┴───┐  ┌────┴─┐ ┌┴──────┐ ┌──┴─────┐
+   │ کاربران│  │دوربین│ │ تلفن  │ │ NAS/سرور│
+   │ VLAN10 │  │VLAN20│ │VLAN30 │ │ VLAN40 │
+   └────────┘  └──────┘ └───────┘ └────────┘</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">انتخاب سوئیچ</h3>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>معیار</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>محاسبه</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>نتیجه</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>پورت لازم</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۱۲ کاربر+تلفن + ‏۴ دوربین + ‏۱ AP + ‏۱ NAS/سرور + ‏۱ آپ‌لینک + رشد ‏۳ = <strong>≥ ۲۲ پورت</strong></td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>CRS326-24G-2S+RM ‏(۲۴ پورت + ‏۲×SFP+)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>PoE budget</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۴ تلفن × ‏5W + ‏۴ دوربین × ‏12W = ‏68W</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>CRS326 ‏PoE budget کافی ‏(سند رسمی)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>آپ‌لینک</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏SFP+ ‏1G (فعلاً؛ رشد → ‏10G)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">گام ۳: نقشهٔ پورت</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>پورت سوئیچ</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>دستگاه</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>VLAN</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>PoE</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>ether1-4</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کاربران ‏۱-۴ ‏(VLAN10 access)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>10</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خیر</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ether5-8</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کاربران ‏۵-۸ + تلفن‌ها ‏(VLAN10+30)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>10 + 30</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بله (تلفن)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ether9-12</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کاربران ‏۹-۱۲ + تلفن‌ها ‏(VLAN10+30)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>10 + 30</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بله (تلفن)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ether13-16</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دوربین‌ها ‏(VLAN20 access)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>20</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بله</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ether17</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏NAS ‏(VLAN40 access)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>40</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خیر</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ether18</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سرور ‏(VLAN40 access)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>40</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خیر</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ether19</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>چاپگر ‏(VLAN10 access)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>10</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خیر</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ether20</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏AP مهمان ‏(VLAN50 access)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>50</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بله</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ether21-24</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>آزاد ‏(رشد)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>sfp-sfpplus1</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>آپ‌لینک به hEX ‏(ترانک)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>trunk</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">گام ۴: آدرس‌دهی و VLAN</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>VLAN</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>نام</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>subnet</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>gateway</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>10</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کاربران</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏192.168.10.0/24</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏192.168.10.1</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>20</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دوربین</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏192.168.20.0/24</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏192.168.20.1</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>30</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تلفن</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏192.168.30.0/24</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏192.168.30.1</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>40</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سرور/NAS</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏192.168.40.0/24</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏192.168.40.1</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>50</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مهمان</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏192.168.50.0/24</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏192.168.50.1</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>88</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مدیریت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏192.168.88.0/24</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏192.168.88.1</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">گام ۵: انتخاب تجهیز</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>نقش</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مدل</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>دلیل</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>روتر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏hEX ‏(RB750Gr3) — ‏۱۲ کاربر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کافی؛ ارتقا به ‏RB5009 با رشد</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سوئیچ</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏CRS326-24G-2S+RM</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۲۴ پورت + ‏۲×SFP+ آپ‌لینک</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏AP مهمان</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هر ‏AP با ‏VLAN tagging</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏VLAN50</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">گام ۶: مستندسازی و آزمون پذیرش</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>مستندات تحویل: نقشهٔ پورت، جدول VLAN/آدرس، ‏export پیکربندی نهایی، ماتریس پذیرش تکمیل‌شده ‏(الگوی N4). آزمون پذیرش: از هر VLAN یک تست مثبت + یک منفی (الگوی M2 جدول ۱۴ ردیفی).</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image -->
+<figure class="wp-block-image size-large"><img src="../assets/tutorial-n1-office-design.svg" alt="نمودار طراحی دفتر N1 — از نیازسنجی تا مستندسازی (تصویر مفهومی تألیفی)" width="900" loading="lazy"/><figcaption>نمودار طراحی دفتر N1 — از نیازسنجی تا مستندسازی (تصویر مفهومی تألیفی)</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> شش گام از چپ به راست: ‏«۱ نیازسنجی» ‏(جدول demand) → ‏«۲ توپولوژی ستاره‌ای» → ‏«۳ نقشهٔ پورت» ‏(جدول پورت/دستگاه/VLAN) → ‏«۴ آدرس‌دهی» ‏(جدول VLAN/subnet) → ‏«۵ انتخاب تجهیز» ‏(روتر/سوئیچ/AP) → ‏«۶ مستندسازی و پذیرش» ‏(الگوی N4). زیر نمودار: جعبهٔ «رشد ۲۴ ماه» با فلش به گام ۱. برچسب «تألیفی/مفهومی».</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">خطاهای رایج</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>خطا</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>چرا گران است</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>درست</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>بدون نیازسنجی سوئیچ خریدن</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>پورت/ظرفیت کم یا بیش از حد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>جدول demand اول؛ بعد سوئیچ</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>آپ‌لینک فراموش‌شده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سوئیچ دوم بدون مسیر به روتر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>آپ‌لینک در نقشهٔ پورت</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>بدون VLAN از روز اول</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بعداً افزودن VLAN = دستکاری همهٔ پورت‌ها</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>از روز اول VLAN طراحی شود حتی اگر فعلاً فقط VLAN10 استفاده می‌شود</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>رشد نادیده گرفته شده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۶ ماه بعد سوئیچ دوم لازم می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏+۲۰-۵۰٪ رشد در تعداد پورت</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>بدون مستندات تحویل</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هر تغییر بعدی بدون مرجع</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>الگوی N4: ‏۶ سند تحویل</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">تمرین کوتاه (با پاسخ موردانتظار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>‏۱۲ کاربر + ‏۴ دوربین + ‏۱ NAS — حداقل چند پورت سوئیچ؟ — <strong>پاسخ موردانتظار:</strong> ‏۱۲+۴+۱ NAS/سرور + ‏۱ آپ‌لینک = ‏۱۸؛ اما با رشد حداقل ‏۲۲ (CRS326-24G-2S+RM).</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>چرا VLAN از روز اول؟ — <strong>پاسخ موردانتظار:</strong> افزودن VLAN بعداً = دستکاری همهٔ پورت‌ها و جدول VLAN؛ طراحی اولیه ارزان‌تر.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>چرا PoE در انتخاب سوئیچ مهم است؟ — <strong>پاسخ موردانتظار:</strong> تلفن و دوربین و ‏AP به ‏PoE نیاز دارند؛ سوئیچ بدون ‏PoE = آداپتور جدا برای هر دستگاه.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>چرا آپ‌لینک 1G فعلاً کافی؟ — <strong>پاسخ موردانتظار:</strong> اینترنت ‏100 Mbps است؛ آپ‌لینک 1G > اینترنت؛ رشد فایل‌سروری سنگین → ارتقا به ‏SFP+ ‏10G (الگوی S3).</li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">چک‌لیست تحویل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[ ] جدول demand تکمیل شده با تعداد/مشخصه/VLAN/PoE</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] نقشهٔ پورت پورت‌به‌پورت نوشته شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] جدول VLAN/آدرس‌دهی تکمیل شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] سوئیچ با پورت کافی + PoE budget کافی انتخاب شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] روتر با ظرفیت کافی انتخاب شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] رشد ۲۴ ماه در انتخاب لحاظ شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] مستندات تحویل آماده (الگوی N4)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] اجرای واقعی این درس NOT_RUN (طراحی آموزشی)</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">منابع (fetch/تأیید شده با تاریخ)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Bridging and Switching (الگوی پل/VLAN): https://manual.mikrotik.com/docs/bridging-and-switching/ (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>الگوهای تست پذیرش: <a href="n4-delivery-acceptance.fa.md">N4 چک‌لیست پذیرش</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>تجربهٔ فرایندی عمومی طراحی شبکه — بدون ادعای آمار/پروژهٔ واقعی</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">آموزش‌های مرتبط و مسیر خدمت</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>پیوند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقصد</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>درس‌های مرتبط</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/mikrotik-vlan/">M2</a> · <a href="s2-poe-budget.fa.md">S2</a> · <a href="s5-uplink-trunk.fa.md">S5</a> · <a href="n4-delivery-acceptance.fa.md">N4</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نقشهٔ کامل سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/topic-map/">topic map</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>طراحی شبکهٔ دفتر شما</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="https://tehnet.ir/services/network-setup-tehran/">خدمات راه‌اندازی شبکهٔ تهران</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>درس بعدی سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>N2 — رک و کابل‌کشی (تولید در نوبت بعدی؛ فعلاً فقط در topic map)</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
