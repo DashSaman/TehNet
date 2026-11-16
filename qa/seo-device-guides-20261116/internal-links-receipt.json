@@ -1,0 +1,114 @@
+{
+ "packet": "TN-DISCOVERY-INTERNAL-LINKS-20261116",
+ "command": "python -I discovery-internal-links.py",
+ "cwd": "qa/seo-device-guides-20261116/",
+ "started_utc": "2026-11-16T18:05:45Z",
+ "finished_utc": "2026-11-16T18:05:54Z",
+ "exit": 0,
+ "mode": "LOCAL_TEST — read-only public GETs of the 11 live allowlist pages; no site write",
+ "link_map_target_to_sources": {
+  "https://tehnet.ir": [
+   "/about",
+   "/contact",
+   "/services",
+   "/services/mikrotik-tehran",
+   "/services/network-setup-tehran",
+   "/services/network-support-tehran",
+   "/services/network-tehran",
+   "/services/remote-support",
+   "/services/voice-network-readiness",
+   "/technical-methodology"
+  ],
+  "https://tehnet.ir/about": [
+   "/",
+   "/contact",
+   "/services",
+   "/services/mikrotik-tehran",
+   "/services/network-setup-tehran",
+   "/services/network-support-tehran",
+   "/services/network-tehran",
+   "/services/remote-support",
+   "/services/voice-network-readiness",
+   "/technical-methodology"
+  ],
+  "https://tehnet.ir/contact": [
+   "/",
+   "/about",
+   "/services",
+   "/services/mikrotik-tehran",
+   "/services/network-setup-tehran",
+   "/services/network-support-tehran",
+   "/services/network-tehran",
+   "/services/remote-support",
+   "/services/voice-network-readiness",
+   "/technical-methodology"
+  ],
+  "https://tehnet.ir/services": [
+   "/",
+   "/about",
+   "/contact",
+   "/services/mikrotik-tehran",
+   "/services/network-setup-tehran",
+   "/services/network-support-tehran",
+   "/services/network-tehran",
+   "/services/remote-support",
+   "/services/voice-network-readiness",
+   "/technical-methodology"
+  ],
+  "https://tehnet.ir/services/mikrotik-tehran": [
+   "/",
+   "/services",
+   "/services/network-setup-tehran",
+   "/services/network-support-tehran",
+   "/services/remote-support",
+   "/services/voice-network-readiness"
+  ],
+  "https://tehnet.ir/services/network-setup-tehran": [
+   "/",
+   "/services",
+   "/services/mikrotik-tehran",
+   "/services/network-support-tehran",
+   "/services/remote-support"
+  ],
+  "https://tehnet.ir/services/network-support-tehran": [
+   "/",
+   "/services",
+   "/services/mikrotik-tehran",
+   "/services/network-setup-tehran",
+   "/services/remote-support"
+  ],
+  "https://tehnet.ir/services/network-tehran": [
+   "/services"
+  ],
+  "https://tehnet.ir/services/remote-support": [
+   "/",
+   "/services",
+   "/services/mikrotik-tehran",
+   "/services/network-support-tehran"
+  ],
+  "https://tehnet.ir/services/voice-network-readiness": [
+   "/services",
+   "/services/mikrotik-tehran",
+   "/services/network-setup-tehran",
+   "/services/network-support-tehran",
+   "/services/remote-support"
+  ],
+  "https://tehnet.ir/technical-methodology": [
+   "/about",
+   "/contact",
+   "/services/mikrotik-tehran",
+   "/services/network-setup-tehran",
+   "/services/network-support-tehran",
+   "/services/network-tehran",
+   "/services/remote-support",
+   "/services/voice-network-readiness"
+  ]
+ },
+ "live_pages_still_linking_to_dead_slugs": {},
+ "not_run": [
+  "full site crawl beyond allowlist pages",
+  "Search Console",
+  "any site write"
+ ],
+ "production_touched": false
+}
