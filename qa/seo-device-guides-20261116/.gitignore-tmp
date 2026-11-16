@@ -1,0 +1,3 @@
+tmp/capture outputs stay local-only (MANAGER_FLOW_V2 boundary)
+*.tmp
+*.done

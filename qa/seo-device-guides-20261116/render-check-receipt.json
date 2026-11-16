@@ -5,10 +5,10 @@
  "server": "preview-server.py 127.0.0.1:8138 (stdlib, charset=utf-8; mimics WP theme header)",
  "bound_inputs": {
   "sha256": {
-   "tutorials/m2-vlan-small-office.fa.md": "5099bd097ffbd245890dc00149f56a0df3477eec946d2d0631e30a864fbcac85",
-   "tutorials/m2-vlan-small-office.gutenberg.html": "39407f987f4d7e4c98fbb714724be680afa54cbfc392a7573f81ff9382811a6a",
-   "tutorials/m3-dhcp-dns.fa.md": "ad0cc4e0c71a7247963fca019f617f712fced60308cbb6872b2d45a86ade4bc7",
-   "tutorials/m3-dhcp-dns.gutenberg.html": "72fc02395bfc0d040379a36018f2fe75e71e631cf9fba1f2087240417cfaf121",
+   "tutorials/m2-vlan-small-office.fa.md": "5817f96ec12b92480f649a32974caeeee4a291ef9272250660e99891d0dd0dfa",
+   "tutorials/m2-vlan-small-office.gutenberg.html": "2c47ab2840b7d255355252919099c2952e63d43aea2ff9880bb76230d5c304e8",
+   "tutorials/m3-dhcp-dns.fa.md": "7934f023be615df169f2e3a979f9f6e5a593c96355d2191bb2055333fcfd17f3",
+   "tutorials/m3-dhcp-dns.gutenberg.html": "4b8aef0557fe7212cf0e0e9d3d94480e0d18338ea6c430aaebe002eaf7666e02",
    "assets/tutorial-m2-topology.svg": "d4fe6335c11873dea21587858a38d9180446b06d8ce2122e3579941921bf70d6",
    "assets/tutorial-m3-dhcp-dns-flow.svg": "ded90672128454bf759a5669685d34415937369bd4003449195f2e6d0138ee5a",
    "articles/mikrotik-routers.gutenberg.html": "e8365d01aac407d5b40acd277e2b43a0d3751c048b8bfc51fed1af7a76a0cb75",
@@ -46,9 +46,9 @@
    "tutorials/m6-dual-wan-failover.fa.md": "6a591c4138888a6f95f8e432e52f4df403711f00f651670a8db464fa8b0e0448",
    "tutorials/m6-dual-wan-failover.gutenberg.html": "91d9dd2c4a6c8e313bbf0eb73970bac15117400ff2da571fe9406d8f35a55b59",
    "assets/tutorial-m6-dual-wan-failover.svg": "5abffc5e8ff5aa26637b7acfec05442d5fe257a726233b0acb40df7b5fe25c87",
-   "tutorials/s5-uplink-trunk.fa.md": "b687e693361bf6e75b6afeffbf6def6136d45698b9e1cd396164846a5915418d",
-   "tutorials/s5-uplink-trunk.gutenberg.html": "9398935f2c3b1107a58099f4fde8e4f2e7e6d77e56d0d766d93435f29235aa7e",
-   "assets/tutorial-s5-uplink-trunk.svg": "4d480df19795948ade31a928cc6b04ea93bc21342337eb2f690644a5529d233c",
+   "tutorials/s5-uplink-trunk.fa.md": "04476d10ec005595477d873b6f2f433e4eabd6c432ca335a83e257673a5de882",
+   "tutorials/s5-uplink-trunk.gutenberg.html": "0a74747675d7374db14e456da9d79ed9068eb663b5f365d0585b72baae150a53",
+   "assets/tutorial-s5-uplink-trunk.svg": "34e3840fa30d6f700c0d20d880e2813a0e537cf848da63fd006c295941136280",
    "tutorials/s6-psu-power.fa.md": "84bef00eea77ffa20ad945af086d28a32b54a071fc9acd13a9e479c4c015cd2e",
    "tutorials/s6-psu-power.gutenberg.html": "976a0c5214a20cfb8898f271a978c7ebc52991ce04d1b41134ed0ce57f44163c",
    "assets/tutorial-s6-psu-power.svg": "94191ee5ddf26cc673ec47fbef8b93018b96505e5c6abbb661af299f1ae22278"
@@ -489,7 +489,7 @@
   "manager-side browser run"
  ],
  "production_touched": false,
- "utc_extended": "2026-11-16T21:26:57Z",
+ "utc_extended": "2026-11-16T21:57:29Z",
  "pages_extra": [
   "tutorials/s2-poe-budget.gutenberg.html",
   "tutorials/s3-sfp-dac-fiber.gutenberg.html",
@@ -504,5 +504,17 @@
   "tutorials/m6-dual-wan-failover.gutenberg.html",
   "tutorials/s5-uplink-trunk.gutenberg.html",
   "tutorials/s6-psu-power.gutenberg.html"
- ]
+ ],
+ "overflow_resolution_v3": {
+  "root_cause_measured": "M2@390 raw 844px: pre blocks without overflow:auto (CODE children to 1046px), tables without block-scroll, unbreakable strings without overflow-wrap. M3@390 raw 723px same. Ladder: pre{overflow:auto}->331; +code{display:block;max-width:100%}->same; +body{overflow-wrap:anywhere}->2; +table{display:block;overflow-x:auto;max-width:100%}->0. M3: raw 723->0 with same combined.",
+  "candidate_style_recorded": "body{...;overflow-wrap:anywhere} pre{overflow:auto} pre>code{display:block;max-width:100%} table{display:block;overflow-x:auto;max-width:100%} figure{max-width:100%;overflow-x:auto} img{max-width:100%} — render-time only; generated files unchanged",
+  "final_measured": {
+   "m2_desktop": 0,
+   "m2_mobile_390": 0,
+   "m3_desktop": 0,
+   "m3_mobile_390": 0,
+   "keyboard": "focus-first-link-then-Tab -> next <A>, both lessons both viewports"
+  },
+  "not_done": "WP/theme/KSES separate; document-level overflow:hidden NOT used; no content removed"
+ }
 }
