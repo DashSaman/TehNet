@@ -21,6 +21,8 @@
 | S2 | آموزشی | کارشناس شبکه | /guides/switch-poe-budget/ | /services/network-setup-tehran/ | PoE af/at/پسیو، بودجهٔ توان، PSU | «چقدر PoE مصرف می‌کند؟» | سند MikroTik | طراحی PoE |
 | S3 | آموزشی | کارشناس شبکه | /guides/sfp-sfp-plus-guide/ | /services/network-setup-tehran/ | ماژول نوری، تک/دو-موج، سرعت، سازگاری | «کدام ماژول SFP بخرم؟» | سند سازنده | اجرای فیبر |
 | S4 | آموزشی | کارشناس شبکه | /guides/switch-vlan-design/ | /services/network-setup-tehran/ | access/trunk، جدول پورت/VLAN، امنیت | «چطور VLAN طراحی کنم؟» | سند RouterOS | کانفیگ VLAN |
+| S5 | آموزشی | کارشناس شبکه | /guides/switch-uplink-trunk/ | /services/network-setup-tehran/ | انتخاب uplink (GbE/2.5G/SFP+)، ترانک تگ‌دار، محدودیت پهنای‌باند | «بین سوئیچ‌ها چه uplink‌ای بگذارم؟» | سند MikroTik + صفحات محصول | طراحی توپولوژی |
+| S6 | آموزشی | مدیر IT/خریدار | /guides/switch-psu-power/ | /services/network-setup-tehran/ | PSU پیوست/جدا (نمونهٔ سندشده: netPower 16P بدون PSU)، ظرفیت PSU نسبت به بودجهٔ PoE | «آداپتور/PSU سوئیچ کافی است؟» | صفحات رسمی محصول | طراحی برق و اجرا |
 
 ## خوشهٔ ج: پشتیبانی، مانیتورینگ و قرارداد خدمات
 
@@ -28,7 +30,10 @@
 |---|---|---|---|---|---|---|---|---|
 | N1 | عیب‌یابی | کاربر/مدیر شبکه | /guides/network-troubleshooting/ | /services/network-support-tehran/ | مسیر تشخیص، ابزارها، جدول عیب‌یابی | «شبکه قطع است، از کجا شروع کنم؟» | تجربهٔ فنی | پشتیبانی شبکه |
 | N2 | آموزشی | مدیر IT | /guides/network-monitoring/ | /services/network-support-tehran/ | معیارها، ابزارها، هشدارها | «شبکه را چطور مانیتور کنم؟» | تجربهٔ فنی | پشتیبانی دوره‌ای |
-| N3 | تصمیم/قرارداد | مدیر کسب‌وکار | /network-support-contract-guide/ | /services/network-support-tehran/ | محدوده، مسئول تأیید، SLA | «قرارداد پشتیبانی چه چیزهایی را روشن کند؟» | تجربهٔ فنی | قرارداد پشتیبانی |
+| N3 | تصمیم/قرارداد | مدیر کسب‌وکار | /guides/support-contract-questions/ (پیشنهادی — جایگزین slug مردهٔ 404) | /services/network-support-tehran/ | محدوده، مسئول تأیید، SLA | «قرارداد پشتیبانی چه چیزهایی را روشن کند؟» | تجربهٔ فنی | قرارداد پشتیبانی |
+| N4 | آموزشی/چک‌لیست | کارشناس/مدیر شبکه | /guides/network-delivery-acceptance/ | /services/network-setup-tehran/ | تست‌های مثبت/منفی پذیرش، ثبت قبل/بعد، مستندسازی تحویل | «چطور تحویل شبکه را بپذیرم؟» | تجربهٔ فنی + الگوی درس‌های M2/M3 | راه‌اندازی شبکه |
+| N5 | آموزشی | کارشناس شبکه | /guides/mikrotik-config-backup/ | /services/network-support-tehran/ | تفاوت backup و export، آزمون بازیابی، زمان‌بندی نگهداری | «از کانفیگ میکروتیک بکاپ بگیرم؟» | سند RouterOS | پشتیبانی دوره‌ای |
+| N6 | آموزشی/فرایند | مدیر کسب‌وکار | /guides/network-incident-path/ | /services/network-support-tehran/ | تشدید، ثبت رخداد، اثر اختلال و استثناهای اینترنت/تأمین قطعه | «وقت قطعی چه مسیری طی می‌شود؟» | تجربهٔ فنی | پشتیبانی شبکه |
 
 ## لینک‌های داخلی
 
@@ -36,15 +41,17 @@
 |---|---|---|---|---|
 | /services/mikrotik-tehran/ | /guides/mikrotik-routers/ | راهنمای انتخاب روتر میکروتیک | انتهای بخش خدمات | کاربر برای انتخاب مدل به راهنما نیاز دارد |
 | /services/network-setup-tehran/ | /guides/mikrotik-switches-crs/ | راهنمای انتخاب سوئیچ CRS | انتهای بخش تجهیزات | کاربر برای انتخاب سوئیچ به راهنما نیاز دارد |
-| /services/network-support-tehran/ | /network-support-contract-guide/ | راهنمای قرارداد پشتیبانی | بخش قرارداد | کاربر برای تصمیم قرارداد به راهنما نیاز دارد |
+| /services/network-support-tehran/ | /network-support-contract-guide/ | راهنمای قرارداد پشتیبانی | بخش قرارداد | **BLOCKED 2026-11-16: مقصد 404 شده (دیسکاوری) — تا تصمیم مالک دربارهٔ بازتولید/ریدایرکت، این ردیف اعمال نشود** |
 | /services/remote-support/ | /services/mikrotik-tehran/ | خدمات میکروتیک | بخش خدمات مرتبط | کاربر ریموت برای MikroTik نیاز به پشتیبانی دارد |
 
-## وضعیت اجرا
+## وضعیت اجرا (به‌روزرسانی 2026-11-16 — صادقانه)
 
-- M1: مقالهٔ موجود (articles/mikrotik-routers.fa.md) — READY_FOR_REVIEW
-- S1: مقالهٔ موجود (articles/mikrotik-switches-crs.fa.md) — READY_FOR_REVIEW
-- M2–M6, S2–S6, N1–N6: آموزش‌های READY — تولید در نوبت بعدی
-- لینک‌های داخلی: لینک‌های موجود در مقاله‌ها + patches سه صفحهٔ خدمات (page-edits/*.proposed.html) — آماده اعمال
+- M1: مقالهٔ موجود (articles/mikrotik-routers.fa.md) — READY_FOR_REVIEW (در انتظار مرور مدیر)
+- S1: مقالهٔ موجود (articles/mikrotik-switches-crs.fa.md) — READY_FOR_REVIEW (خروجی HTML همگام شد)
+- M2/M3: بازنگری کامل طبق MANAGER_REVIEW 6923833096 — REVIEW_REQUEST (RR 6924503059)
+- S2–S4, S5, S6, M4–M6, N1, N2, N4–N6: **PLANNED — تولید نشده**؛ توسعهٔ درس‌ها تا پذیرش M2/M3 متوقف است (اصلاحیهٔ 1 در 6923833096)
+- N3: مبحث قرارداد — راهنمای واقعی آن (/network-support-contract-guide/) در 2026-11-16 با 404 مشاهده شد؛ این ردیف به slug پیشنهادی آینده اشاره می‌کند تا تصمیم مالک
+- لینک‌های داخلی: سه ردیف اول با مقصدهای زنده معتبر؛ ردیف قرارداد BLOCKED (مقصد 404) — بدون تصمیم مالک اعمال نشود
 
 ## ملاحظات
 

@@ -1,0 +1,49 @@
+{
+ "packet": "TN-AFTERD1-GUARD-VERIFY-20261116",
+ "command": "node verify-afterd1-guard.cjs",
+ "cwd": "qa/seo-device-guides-20261116/",
+ "started_utc": "2026-11-16T18:02:30Z",
+ "finished_utc": "2026-11-16T18:02:30Z",
+ "exit": 0,
+ "manifest_base_ref": "778ee3f4a5bdb852a1c491b3af12e263a9eee3ad",
+ "failures": 0,
+ "results": [
+  {
+   "name": "mikrotik-service",
+   "checks": {
+    "g1_base_digest": "PASS",
+    "g2_header_prefix": "PASS",
+    "g3_context_verified": "PASS (1 hunk[s], all context lines match base)",
+    "g4_proposed_matches": "PASS"
+   },
+   "base_commit": "a54198ce7ed3535d6783432d8401660e2e023f9d"
+  },
+  {
+   "name": "network-setup",
+   "checks": {
+    "g1_base_digest": "PASS",
+    "g2_header_prefix": "PASS",
+    "g3_context_verified": "PASS (1 hunk[s], all context lines match base)",
+    "g4_proposed_matches": "PASS"
+   },
+   "base_commit": "a54198ce7ed3535d6783432d8401660e2e023f9d"
+  },
+  {
+   "name": "network-support",
+   "checks": {
+    "g1_base_digest": "PASS",
+    "g2_header_prefix": "PASS",
+    "g3_context_verified": "PASS (1 hunk[s], all context lines match base)",
+    "g4_proposed_matches": "PASS"
+   },
+   "base_commit": "a54198ce7ed3535d6783432d8401660e2e023f9d"
+  }
+ ],
+ "mode": "LOCAL_TEST — read-only against git history; temp dir under OS tmp; no repo file modified",
+ "not_run": [
+  "WordPress/KSES apply of patches",
+  "production deployment",
+  "browser rendering"
+ ],
+ "production_touched": false
+}

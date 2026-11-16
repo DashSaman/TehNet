@@ -3,9 +3,9 @@
  "validator": "validate-seo-guides.cjs rev7 (shared validate(candidateInputs) + 9 injected negatives + c10-freshness builder rerun)",
  "command": "node validate-seo-guides.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-16T17:57:37Z",
- "finished_utc": "2026-11-16T17:57:37Z",
- "control_head": "177583807e295838a453ea0091e8bd256bcdae5e",
+ "started_utc": "2026-11-16T18:03:43Z",
+ "finished_utc": "2026-11-16T18:03:43Z",
+ "control_head": "831401f3dfb88055c9b817e09911fe2aeb1f401f",
  "exit": 0,
  "good_candidate": {
   "ok": true,
