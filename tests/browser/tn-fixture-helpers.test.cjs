@@ -430,6 +430,55 @@ t('REG db-identity: wrong or missing disposable DB binding fails preflight (fail
   assert.ok(probePhp.includes('global $wpdb;'));
 });
 
+/* MANAGER_REVIEW 6904041928 regressions: fixture contract, pre-effect gate, exact POST binding */
+const FINGERPRINTS = { index_runtime_class: 'f'.repeat(64), payload_a: 'a'.repeat(64) };
+const CONTRACT = {
+  fixture_marker_name: 'tn_fixture_run_owner',
+  fixture_marker_value: 'TN-FIXTURE-OWNED-001',
+  app_endpoint: 'http://localhost:18085/',
+  db_identity: 'tehnetux',
+  source_fingerprints: FINGERPRINTS,
+};
+t('REG contract: browser+cleanup evidence bound to the SAME disposable instance', () => {
+  const browser = { home_url: CONTRACT.app_endpoint, fixture_marker_name: CONTRACT.fixture_marker_name, fixture_marker_value: CONTRACT.fixture_marker_value };
+  const cleanup = { db_name: CONTRACT.db_identity, fixture_marker_name: CONTRACT.fixture_marker_name, fixture_marker_value: CONTRACT.fixture_marker_value, source_fingerprints: FINGERPRINTS };
+  const v = H.evaluateFixtureContract(browser, cleanup, CONTRACT);
+  assert.equal(v.ok, true);
+  assert.notEqual(v.repoExpectation, v.installedReadback, 'expectation and readback stay distinct objects');
+  /* dbname alone is NOT proof: no marker anywhere => contract fails */
+  const dbOnly = H.evaluateFixtureContract({ home_url: CONTRACT.app_endpoint }, { db_name: CONTRACT.db_identity }, CONTRACT);
+  assert.equal(dbOnly.ok, false);
+  assert.ok(dbOnly.failed.includes('browser_marker_bound') && dbOnly.failed.includes('cleanup_marker_bound'));
+  /* marker equality ties browser endpoint to cleanup target: value mismatch rejects */
+  const divergent = H.evaluateFixtureContract(browser, Object.assign({}, cleanup, { fixture_marker_value: 'OTHER-INSTANCE' }), CONTRACT);
+  assert.equal(divergent.ok, false);
+  assert.ok(divergent.failed.includes('cleanup_marker_bound'));
+  /* missing contract entirely => not supplied */
+  assert.equal(H.evaluateFixtureContract({}, {}, null).ok, false);
+});
+t('REG pre-effect gate: missing digests or unproven contract block BEFORE any effect', () => {
+  const okContract = { ok: true, failed: [] };
+  const digests = { a: 'a'.repeat(64), b: 'b'.repeat(64) };
+  assert.equal(H.preEffectGate({ artifactDigests: digests, fixtureContract: okContract }).status, 'PRE_EFFECT_EVIDENCE_OK');
+  const g1 = H.preEffectGate({ artifactDigests: Object.assign({}, digests, { b: null }), fixtureContract: okContract });
+  assert.equal(g1.status, 'BLOCKED_MISSING_EVIDENCE');
+  assert.deepEqual(g1.missingDigests, ['b']);
+  const g2 = H.preEffectGate({ artifactDigests: digests, fixtureContract: null });
+  assert.equal(g2.status, 'BLOCKED_FIXTURE_OWNERSHIP');
+  const g3 = H.preEffectGate({ artifactDigests: digests, fixtureContract: { ok: false, failed: ['cleanup_marker_bound'] } });
+  assert.equal(g3.status, 'BLOCKED_FIXTURE_OWNERSHIP');
+});
+t('REG exact POST binding: only POST+302+equal token passes; 200/mismatch/GET rejected', () => {
+  const token = 'abc123def456'; // hex like the real receipt token
+  const ok = { method: 'POST', status: 302, location: 'http://x/?tn_service_receipt=' + token };
+  assert.equal(H.postBindingOk(ok, { status: 302, token }), true);
+  assert.equal(H.postBindingOk(Object.assign({}, ok, { status: 200 }), { status: 302, token }), false, '200 must not pass');
+  assert.equal(H.postBindingOk(Object.assign({}, ok, { location: 'http://x/?tn_service_receipt=fff000111222' }), { status: 302, token }), false, 'token mismatch must fail');
+  assert.equal(H.postBindingOk({ method: 'GET', status: 302, location: 'http://x/?tn_service_receipt=' + token }, { status: 302, token }), false, 'GET must not pass');
+  assert.equal(H.postBindingOk(null, { status: 302, token }), false);
+  assert.equal(H.postBindingOk({ method: 'POST', status: 302, location: 'http://x/' }, { status: 302, token }), false, 'missing token must fail');
+});
+
 /* --- runner --- */
 (async () => {
   let fail = 0;

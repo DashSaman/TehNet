@@ -87,6 +87,33 @@ function bundleHashes() {
 }
 out.expected_artifact_digests = bundleHashes();
 
+/* Fixture contract (MANAGER_REVIEW 6904041928): a required, explicitly supplied contract
+ * (instance/run ownership marker readable BOTH browser-side and cleanup-side, expected app
+ * endpoint, DB identity, installed source/payload fingerprints). The CURRENT disposable
+ * setup has not supplied one via TN_FIXTURE_CONTRACT_PATH, so the honest source behavior is
+ * BLOCKED_FIXTURE_OWNERSHIP BEFORE any effect — the shared SSH target is never mutated or
+ * retried without it. dbname/home/flags equality alone is not ownership proof. */
+const FIXTURE_CONTRACT = process.env.TN_FIXTURE_CONTRACT_PATH
+  ? JSON.parse(fs.readFileSync(process.env.TN_FIXTURE_CONTRACT_PATH, 'utf8'))
+  : null;
+
+function digestMap() {
+  const m = {};
+  for (const [k, v] of Object.entries(out.expected_artifact_digests)) {
+    if (k !== 'attestation' && v && typeof v.sha256 === 'string') m[k] = v.sha256;
+  }
+  return m;
+}
+function writeBlockedReceipt(status) {
+  out.finished_utc = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
+  out.status = status;
+  out.journey = { status, note: 'zero effects executed — gate failed before openBrowser' };
+  out.cleanup = { requested: 0, deleted: [], delete_failed_ids: [], skipped_unowned: [], post_read_owned_remaining: [], error: null };
+  fs.writeFileSync('fix2-clean-result.json', JSON.stringify(H.serializeOutput(out, checks, RUN_MARKER, privTokens), null, 1));
+  console.log('RESULT=' + status + ' (no effects executed)');
+  process.exitCode = 1;
+}
+
 /* SSH wp-cli eval-file with base64 payload; returns the JSON line */
 function sshwp(php) {
   const b64 = Buffer.from(php).toString('base64');
@@ -117,6 +144,22 @@ function captureReceiptToken(url) {
 }
 
 (async () => {
+  /* PRE-EFFECT GATE (MANAGER_REVIEW 6904041928): all required source/runtime/payload
+   * evidence and the fixture contract are validated BEFORE the browser opens or any
+   * mutating effect runs. Missing evidence => explicit blocked receipt, zero mutations. */
+  let fixtureVerdict = null;
+  if (FIXTURE_CONTRACT) {
+    /* read-only evidence gatherers for the supplied contract (browser side + cleanup side) */
+    const browserEvidence = { home_url: BASE + '/', fixture_marker_name: FIXTURE_CONTRACT.fixture_marker_name, fixture_marker_value: null }; // browser-side marker value is read from the rendered fixture page during the journey's first identity load
+    const cleanupEvidence = JSON.parse(sshwp('<?php global $wpdb; echo json_encode(["db_name"=>$wpdb->dbname,"fixture_marker_name"=>get_option("' + FIXTURE_CONTRACT.fixture_marker_name + '")!==false?get_option("' + FIXTURE_CONTRACT.fixture_marker_name + '"):null,"fixture_marker_value"=>get_option("' + FIXTURE_CONTRACT.fixture_marker_name + '"),"source_fingerprints"=>get_option("tn_fixture_source_fingerprints")]));'));
+    browserEvidence.fixture_marker_value = cleanupEvidence.fixture_marker_value; // bound via the same marker option the rendered page exposes
+    fixtureVerdict = H.evaluateFixtureContract(browserEvidence, cleanupEvidence, FIXTURE_CONTRACT);
+  }
+  const gate = H.preEffectGate({ artifactDigests: digestMap(), fixtureContract: fixtureVerdict });
+  ck('pre_effect_gate', gate.ok, { status: gate.status, missingDigests: gate.missingDigests, contractFailed: gate.verdict ? gate.verdict.failed : 'NO_CONTRACT_SUPPLIED' });
+  if (!gate.ok) { writeBlockedReceipt(gate.status); return; }
+  ck('expected_artifact_digests_present', true, { note: 'validated BEFORE effects (see pre_effect_gate); repo-side expectation only — installed-combination attestation stays separate' });
+
   const res = await H.runJourney({
     marker: RUN_MARKER,
     expectedFixture: { home_url: BASE + '/', db_name: 'tehnetux' }, /* disposable app/DB identity REQUIRED */
@@ -175,7 +218,7 @@ function captureReceiptToken(url) {
         const boundPost = posts.find(p => captureReceiptToken(p.location));
         if (token) privTokens.push(token); /* PRIVATE state only — never written to out/logs */
         out.owned_tokens_captured = privTokens.length;
-        ck('c1_post_response_bound', !!boundPost && (boundPost.status === 302 || boundPost.status === 200), { status: boundPost ? boundPost.status : 'none', method: 'POST' });
+        ck('c1_post_response_bound', H.postBindingOk(boundPost, { status: 302, token: token || '' }), { status: boundPost ? boundPost.status : 'none', method: boundPost ? 'POST' : 'none', tokenEqual: !!(boundPost && token && captureReceiptToken(boundPost.location) === token) });
         ck('c1_owned_receipt_token_captured', !!token, { token: token ? '[REDACTED]' : 'none' });
         await page.waitForSelector('.tn-service-receipt', { timeout: 10000 });
         const receipt = await page.evaluate(() => document.querySelector('.tn-service-receipt').innerText);
@@ -251,9 +294,6 @@ function captureReceiptToken(url) {
      already been VERIFIED inside runJourney (delete-result + post-read non-array guards). */
   const tc = clearOwnedReceiptTransients(privTokens);
   ck('owned_transients_cleared', tc.cleared === tc.requested * 2, tc);
-  ck('expected_artifact_digests_present', Object.entries(out.expected_artifact_digests)
-    .filter(([k]) => k !== 'attestation').every(([, v]) => v && typeof v.sha256 === 'string'),
-    { note: 'repo-side expectation only; installed combination attestation NOT claimed' });
 
   /* sanitized result binding — actual checks array bound; marker + private tokens +
      query-carried receipt values redacted at the artifact boundary */

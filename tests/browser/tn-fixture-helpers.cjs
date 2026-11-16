@@ -306,6 +306,61 @@ async function runJourney(spec) {
   };
 }
 
+/* --- fixture contract gate (pure) — MANAGER_REVIEW 6904041928 ---
+ * A matching database name/home/flags is NOT an owned disposable fixture receipt.
+ * The disposable setup must supply a contract: instance/run ownership marker (readable
+ * BOTH browser-side and cleanup-side), expected app endpoint, DB identity and installed
+ * source/payload fingerprints. Repository expectation and installed readback are kept
+ * as DISTINCT objects; ok requires their equality. No private connection details. */
+function evaluateFixtureContract(browserEvidence, cleanupEvidence, expected) {
+  const b = (browserEvidence && typeof browserEvidence === 'object') ? browserEvidence : {};
+  const c = (cleanupEvidence && typeof cleanupEvidence === 'object') ? cleanupEvidence : {};
+  const e = (expected && typeof expected === 'object') ? expected : {};
+  const supplied = !!(e.fixture_marker_name && typeof e.fixture_marker_value === 'string' && e.fixture_marker_value
+    && typeof e.app_endpoint === 'string' && e.app_endpoint
+    && typeof e.db_identity === 'string' && e.db_identity
+    && e.source_fingerprints && typeof e.source_fingerprints === 'object' && Object.keys(e.source_fingerprints).length > 0);
+  const checks = [
+    ['contract_supplied', supplied],
+    ['browser_endpoint_bound', supplied && b.home_url === e.app_endpoint],
+    ['browser_marker_bound', supplied && b.fixture_marker_name === e.fixture_marker_name && b.fixture_marker_value === e.fixture_marker_value],
+    ['cleanup_db_bound', supplied && c.db_name === e.db_identity],
+    ['cleanup_marker_bound', supplied && c.fixture_marker_name === e.fixture_marker_name && c.fixture_marker_value === e.fixture_marker_value],
+    ['installed_fingerprints_match_expectation', supplied && JSON.stringify(c.source_fingerprints || null) === JSON.stringify(e.source_fingerprints)],
+  ];
+  const failed = checks.filter(x => !x[1]).map(x => x[0]);
+  return {
+    ok: failed.length === 0,
+    failed,
+    checks: checks.map(([name, pass]) => ({ name, pass })),
+    repoExpectation: supplied ? e : null,          // distinct object: repository expectation
+    installedReadback: { browser: b, cleanup: c }, // distinct object: actual installed readback
+  };
+}
+/* Pre-effect evidence gate (pure): MUST run before openBrowser or any mutating effect.
+ * Missing digests or an unproven fixture contract yield an explicit blocked status. */
+function preEffectGate({ artifactDigests, fixtureContract }) {
+  const missing = Object.entries(artifactDigests || {})
+    .filter(([, v]) => !v || !/^[a-f0-9]{64}$/.test(v))
+    .map(([k]) => k);
+  if (!fixtureContract || fixtureContract.ok !== true) {
+    return { ok: false, status: 'BLOCKED_FIXTURE_OWNERSHIP', missingDigests: missing, verdict: fixtureContract || null };
+  }
+  if (missing.length) {
+    return { ok: false, status: 'BLOCKED_MISSING_EVIDENCE', missingDigests: missing, verdict: fixtureContract };
+  }
+  return { ok: true, status: 'PRE_EFFECT_EVIDENCE_OK', missingDigests: [], verdict: fixtureContract };
+}
+/* Exact POST binding predicate (pure): method POST, EXACT status, and the Location
+ * token must EQUAL the case's receipt token held in private memory. */
+function postBindingOk(post, expected) {
+  if (!post || typeof post !== 'object') return false;
+  if ((post.method || '').toUpperCase() !== 'POST') return false;
+  if (post.status !== expected.status) return false;
+  const m = /([?&]tn_service_receipt=)([0-9a-f]+)/i.exec(post.location || '');
+  return !!m && typeof expected.token === 'string' && expected.token.length > 0 && m[2] === expected.token;
+}
+
 module.exports = {
   newRunMarker, isRunMarker, assertRunMarker, formEmail,
   isOwnedRecord, ownershipRejectionReason,
@@ -313,4 +368,5 @@ module.exports = {
   phpSingleQuoted, phpIntList,
   buildPreflightProbePhp, buildFindOwnedPhp, buildDeleteOwnedPhp,
   redactText, redactTokens, safeDetail, serializeOutput, runJourney, ALLOWED_TYPES,
+  evaluateFixtureContract, preEffectGate, postBindingOk,
 };
