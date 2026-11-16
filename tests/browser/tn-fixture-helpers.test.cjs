@@ -574,6 +574,86 @@ t('REG collector-shape POST: predicate consumes the REAL collector object (metho
   assert.equal(H.postBindingOk({ method: 'GET', status: 302, location: 'http://x/?tn_service_receipt=abc123def456' }, { status: 302, token: 'abc123def456' }), false);
 });
 
+/* MANAGER_REVIEW 6913701634: preliminary/final split + thrown identity-read zero-mutation */
+t('REG stages: preliminary passes WITHOUT browser side; final still requires it', () => {
+  const cleanup = { db_name: 'tehnetux', fixture_marker_name: 'tn_fixture_run_owner', fixture_marker_value: 'TN-FIXTURE-OWNED-001', source_fingerprints: FINGERPRINTS };
+  const pre = H.evaluateFixtureContract(null, cleanup, CONTRACT, 'preliminary');
+  assert.equal(pre.stage, 'preliminary');
+  assert.equal(pre.ok, true, 'preliminary must not deadlock on the unread browser marker');
+  const fin = H.evaluateFixtureContract(null, cleanup, CONTRACT, 'final');
+  assert.equal(fin.ok, false, 'final two-channel binding still requires the browser side');
+  assert.ok(fin.failed.includes('browser_marker_bound'));
+});
+t('REG adapter path: preliminary gate -> identity read -> operation (positive, driver-shaped)', async () => {
+  const calls = [];
+  /* mirrors the driver: preliminary contract+digests from cleanup readback, then journey */
+  const cleanupEvidence = { db_name: 'tehnetux', fixture_marker_name: 'tn_fixture_run_owner', fixture_marker_value: 'TN-FIXTURE-OWNED-001', source_fingerprints: FINGERPRINTS };
+  const pre = H.evaluateFixtureContract(null, cleanupEvidence, CONTRACT, 'preliminary');
+  const dm = H.validateDigestMap(REQ_KEYS, Object.fromEntries(REQ_KEYS.map(k => [k, 'a'.repeat(64)])));
+  const gate = H.preEffectGate({ requiredDigestKeys: REQ_KEYS, artifactDigests: dm.received_keys.reduce((o, k) => (o[k] = 'a'.repeat(64), o), {}), fixtureContract: pre });
+  assert.equal(gate.ok, true, 'preliminary gate passes before any browser effect');
+  const res = await H.runJourney({
+    marker: GOOD, expectedFixture: {
+      home_url: FIXTURE_HOME, db_name: 'tehnetux',
+      cleanup_binding: { fixture_marker_name: 'tn_fixture_run_owner', fixture_marker_value: 'TN-FIXTURE-OWNED-001' },
+    },
+    effects: {
+      preflightProbes: async () => Object.assign({}, PERFECT),
+      openBrowser: async () => { calls.push('openBrowser'); return { b: 1 }; },
+      readBrowserMarker: async ({ browser }) => {
+        calls.push('readBrowserMarker');
+        // simulates the real adapter: navigate the endpoint, read the rendered marker
+        assert.ok(browser && browser.b === 1);
+        return { home_url: FIXTURE_HOME, fixture_marker_name: 'tn_fixture_run_owner', fixture_marker_value: 'TN-FIXTURE-OWNED-001' };
+      },
+      closeBrowser: async () => { calls.push('closeBrowser'); },
+      findOwnedRecords: async () => { calls.push('findOwnedRecords'); return []; },
+      deleteOwnedRecords: async () => { calls.push('deleteOwnedRecords'); return { deleted: [], skipped: [], failed: [] }; },
+      submitForm: async () => { calls.push('submitForm'); },
+    },
+    operation: async () => { calls.push('operation'); return 'done'; },
+  });
+  assert.equal(res.status, 'PASSED');
+  assert.deepEqual(calls, ['openBrowser', 'readBrowserMarker', 'operation', 'closeBrowser', 'findOwnedRecords'], 'identity read happens BEFORE operation; browser closes before cleanup discovery');
+});
+t('REG adapter negatives: thrown read / navigation throw / mismatch => BLOCKED with ZERO mutations', async () => {
+  const mk = async readFn => {
+    const calls = [];
+    const res = await H.runJourney({
+      marker: GOOD, expectedFixture: {
+        home_url: FIXTURE_HOME, db_name: 'tehnetux',
+        cleanup_binding: { fixture_marker_name: 'tn_fixture_run_owner', fixture_marker_value: 'TN-FIXTURE-OWNED-001' },
+      },
+      effects: {
+        preflightProbes: async () => Object.assign({}, PERFECT),
+        openBrowser: async () => { calls.push('openBrowser'); return { b: 1 }; },
+        readBrowserMarker: readFn(() => calls.push('readBrowserMarker')),
+        closeBrowser: async () => { calls.push('closeBrowser'); },
+        findOwnedRecords: async () => { calls.push('findOwnedRecords'); return []; },
+        deleteOwnedRecords: async () => { calls.push('deleteOwnedRecords'); return { deleted: [], skipped: [], failed: [] }; },
+        submitForm: async () => { calls.push('submitForm'); },
+      },
+      operation: async ctx => { await ctx.submitForm({}); },
+    });
+    return { res, calls };
+  };
+  const throwRead = wrap => async () => { wrap(); throw new Error('net::ERR_CONNECTION_REFUSED at endpoint'); };
+  for (const [name, readFn] of [
+    ['thrown-read', throwRead],
+    ['navigation-throw', throwRead],
+    ['missing-marker', wrap => async () => { wrap(); return { home_url: FIXTURE_HOME, fixture_marker_name: 'tn_fixture_run_owner', fixture_marker_value: null }; }],
+    ['mismatch', wrap => async () => { wrap(); return { home_url: FIXTURE_HOME, fixture_marker_name: 'tn_fixture_run_owner', fixture_marker_value: 'OTHER-INSTANCE' }; }],
+  ]) {
+    const { res, calls } = await mk(readFn);
+    assert.equal(res.status, 'BLOCKED_IDENTITY', name + ' must be BLOCKED_IDENTITY');
+    assert.ok(!calls.includes('submitForm'), name + ': zero submit');
+    assert.ok(!calls.includes('findOwnedRecords'), name + ': zero discovery');
+    assert.ok(!calls.includes('deleteOwnedRecords'), name + ': zero delete');
+    assert.ok(calls.includes('closeBrowser'), name + ': browser closed');
+    assert.equal(res.cleanup.requested, 0, name + ': zero cleanup requests');
+  }
+});
+
 /* --- runner --- */
 (async () => {
   let fail = 0;

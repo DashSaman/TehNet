@@ -159,11 +159,10 @@ function captureReceiptToken(url) {
     /* correct key/value fields: marker NAME = the contract's option name (literal string),
        marker VALUE = the installed option value; fingerprints from the named source */
     cleanupEvidence = JSON.parse(sshwp('<?php global $wpdb; echo json_encode(["db_name"=>$wpdb->dbname,"fixture_marker_name"=>' + optName + ',"fixture_marker_value"=>(string)get_option(' + optName + ',""),"source_fingerprints"=>get_option(' + fpName + ',null)]));'));
-    /* browser side starts with marker_value=null — filled ONLY by readBrowserMarker
-       from the rendered endpoint inside the journey (separate channel, no copying) */
-    fixtureVerdict = H.evaluateFixtureContract(
-      { home_url: BASE + '/', fixture_marker_name: FIXTURE_CONTRACT.fixture_marker_name, fixture_marker_value: null },
-      cleanupEvidence, FIXTURE_CONTRACT);
+    /* PRELIMINARY stage (6913701634): cleanup-side + contract completeness ONLY.
+       The browser side is not available yet; it is read by readBrowserMarker inside
+       the journey and FINAL two-channel identity is enforced there before mutation. */
+    fixtureVerdict = H.evaluateFixtureContract(null, cleanupEvidence, FIXTURE_CONTRACT, 'preliminary');
   }
   const dm = digestMap();
   const gate = H.preEffectGate({ requiredDigestKeys: dm.REQUIRED_DIGEST_KEYS, artifactDigests: dm.map, fixtureContract: fixtureVerdict });

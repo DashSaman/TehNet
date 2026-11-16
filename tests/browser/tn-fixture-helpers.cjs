@@ -223,30 +223,49 @@ async function runJourney(spec) {
   const probes = await traced('preflightProbes', effects.preflightProbes)();
   const verdict = evaluatePreflight(probes, expected);
   if (!verdict.ok) return { status: 'ABORTED_PREFLIGHT', verdict, effectLog: log };
-  /* 2. OPTIONAL two-channel identity gate (MANAGER_REVIEW 6905236591): the browser-side
+  /* 2. REQUIRED two-channel identity gate (MANAGER_REVIEW 6913701634): the browser-side
    * fixture marker must be READ from the actual rendered endpoint (separate channel,
    * never copied from cleanup evidence) and equal the cleanup-side marker, BEFORE any
-   * submit/delete. Failure => BLOCKED_IDENTITY with ZERO mutating effects. */
+   * submit/delete. Read THROW, navigation failure, missing marker, mismatch or close
+   * failure BEFORE successful identity => explicit BLOCKED_IDENTITY with ZERO
+   * submit/discovery/delete effects. The read runs OUTSIDE the operation try so a
+   * thrown read can never flow into operation/cleanup handling. */
   let browser = null, opened = false, operationError = null, operationResult = null, closeError = null, identityVerdict = null;
   try {
     browser = await traced('openBrowser', effects.openBrowser)();
     opened = true;
-    if (typeof effects.readBrowserMarker === 'function') {
-      const browserMarker = await traced('readBrowserMarker', effects.readBrowserMarker)({ browser });
-      identityVerdict = identityBindingOk(browserMarker, expected);
-      if (!identityVerdict.ok) {
-        try { await traced('closeBrowser', effects.closeBrowser)(browser); }
-        catch (e) { closeError = e; }
-        opened = false;
-        return {
-          status: 'BLOCKED_IDENTITY',
-          identity: identityVerdict,
-          cleanup: { requested: 0, deleted: [], delete_failed_ids: [], skipped_unowned: [], post_read_owned_remaining: [], error: null, note: 'identity gate failed — zero submit/delete effects executed' },
-          operationError: null, closeError, operationResult: null,
-          effectLog: log,
-        };
-      }
+  } catch (e) {
+    return {
+      status: 'BLOCKED_IDENTITY',
+      identity: { ok: false, failed: ['browser_open_failed'], detail: String(e.message).split('\n')[0] },
+      cleanup: { requested: 0, deleted: [], delete_failed_ids: [], skipped_unowned: [], post_read_owned_remaining: [], error: null, note: 'identity never established — zero effects' },
+      operationError: null, closeError: null, operationResult: null,
+      effectLog: log,
+    };
+  }
+  opened = true;
+  if (typeof effects.readBrowserMarker === 'function') {
+    let browserMarker = null, readErr = null;
+    try {
+      browserMarker = await traced('readBrowserMarker', effects.readBrowserMarker)({ browser });
+    } catch (e) { readErr = e; }
+    identityVerdict = readErr
+      ? { ok: false, failed: ['browser_marker_read_threw'], detail: String(readErr.message).split('\n')[0] }
+      : identityBindingOk(browserMarker, expected);
+    if (!identityVerdict.ok) {
+      try { await traced('closeBrowser', effects.closeBrowser)(browser); }
+      catch (e) { closeError = e; }
+      opened = false;
+      return {
+        status: 'BLOCKED_IDENTITY',
+        identity: identityVerdict,
+        cleanup: { requested: 0, deleted: [], delete_failed_ids: [], skipped_unowned: [], post_read_owned_remaining: [], error: null, note: 'identity gate failed — zero submit/discovery/delete effects executed' },
+        operationError: null, closeError, operationResult: null,
+        effectLog: log,
+      };
     }
+  }
+  try {
     if (typeof operation === 'function') {
       operationResult = await operation({
         browser,
@@ -325,13 +344,14 @@ async function runJourney(spec) {
   };
 }
 
-/* --- fixture contract gate (pure) — MANAGER_REVIEW 6904041928 ---
- * A matching database name/home/flags is NOT an owned disposable fixture receipt.
- * The disposable setup must supply a contract: instance/run ownership marker (readable
- * BOTH browser-side and cleanup-side), expected app endpoint, DB identity and installed
- * source/payload fingerprints. Repository expectation and installed readback are kept
- * as DISTINCT objects; ok requires their equality. No private connection details. */
-function evaluateFixtureContract(browserEvidence, cleanupEvidence, expected) {
+/* --- fixture contract gate (pure) — MANAGER_REVIEW 6913701634: TWO STAGES ---
+ * stage='preliminary': contract completeness + cleanup-side evidence + fingerprints
+ *   ONLY (the browser side is not available yet). Passing it permits ONLY the
+ *   non-mutating browser identity read — never operation or cleanup mutation.
+ * stage='final' (default): full two-channel binding incl. the browser marker value.
+ * A typed db name or boolean is never sufficient; expectation and readback stay
+ * distinct; no private connection details. */
+function evaluateFixtureContract(browserEvidence, cleanupEvidence, expected, stage) {
   const b = (browserEvidence && typeof browserEvidence === 'object') ? browserEvidence : {};
   const c = (cleanupEvidence && typeof cleanupEvidence === 'object') ? cleanupEvidence : {};
   const e = (expected && typeof expected === 'object') ? expected : {};
@@ -339,16 +359,20 @@ function evaluateFixtureContract(browserEvidence, cleanupEvidence, expected) {
     && typeof e.app_endpoint === 'string' && e.app_endpoint
     && typeof e.db_identity === 'string' && e.db_identity
     && e.source_fingerprints && typeof e.source_fingerprints === 'object' && Object.keys(e.source_fingerprints).length > 0);
-  const checks = [
+  const preliminary = [
     ['contract_supplied', supplied],
-    ['browser_endpoint_bound', supplied && b.home_url === e.app_endpoint],
-    ['browser_marker_bound', supplied && b.fixture_marker_name === e.fixture_marker_name && b.fixture_marker_value === e.fixture_marker_value],
     ['cleanup_db_bound', supplied && c.db_name === e.db_identity],
     ['cleanup_marker_bound', supplied && c.fixture_marker_name === e.fixture_marker_name && c.fixture_marker_value === e.fixture_marker_value],
     ['installed_fingerprints_match_expectation', supplied && JSON.stringify(c.source_fingerprints || null) === JSON.stringify(e.source_fingerprints)],
   ];
+  const finalChecks = preliminary.concat([
+    ['browser_endpoint_bound', supplied && b.home_url === e.app_endpoint],
+    ['browser_marker_bound', supplied && b.fixture_marker_name === e.fixture_marker_name && b.fixture_marker_value === e.fixture_marker_value],
+  ]);
+  const checks = stage === 'preliminary' ? preliminary : finalChecks;
   const failed = checks.filter(x => !x[1]).map(x => x[0]);
   return {
+    stage: stage === 'preliminary' ? 'preliminary' : 'final',
     ok: failed.length === 0,
     failed,
     checks: checks.map(([name, pass]) => ({ name, pass })),
