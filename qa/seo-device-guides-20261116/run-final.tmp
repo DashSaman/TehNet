@@ -1,0 +1,110 @@
+PASS v1_wrong_specs_absent  "corrected official facts present"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="hEX lite (RB750r2)"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="hEX (RB750Gr3)"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="hEX refresh (E50UG)"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="hEX S (RB760iGS)"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="RB951Ui-2HnD"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="RB2011UiAS-2HnD-IN"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="RB3011UiAS-RM"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="RB4011iGS+RM"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="L009UiGS-RM"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="RB5009UG+S+IN"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="CCR1009/CCR1036 (خانواده)"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="CCR2004-1G-12S+2XS"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="CCR2116-12G-4S+"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="CCR2216-1G-12XS-2XQ"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="hAPهای Wi-Fi دار (hAP ax^3 و مشابه)"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="RB260GS"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="RB260GSP"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="CSS106 (خانواده RB260)"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="CSS610-8G-2S+IN"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="CRS112-8P-4S-IN"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="CRS309-1G-8S+IN"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="CRS310-8G+2S+IN"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="CRS317-1G-16S+RM"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="CRS318-16P-2S+IN / netPower 16P"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="CRS326-24G-2S+RM"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="CRS326-24S+2Q+RM"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="CRS328-4C-20S-4S+RM"
+DBG provSkuLen=34 first="hEX lite (RB750r2)" sku="CRS354-48G-4S+2Q+RM"
+PASS v2_canonical_sku_coverage  "all catalog SKUs mapped + file + provenance"
+PASS v3_all_relative_refs_resolve  {"refs":40,"broken":0}
+PASS v4_no_bare_assets_paths  "images must use ../assets/ from articles/"
+PASS v5_full_model_image_coverage  {"routers_missing":[],"switches_missing":[],"routers_imgs":17,"switches_imgs":20}
+PASS v6_no_dup_ids:mikrotik-routers.gutenberg.html  []
+PASS v7_no_dangling_anchors:mikrotik-routers.gutenberg.html  []
+PASS v6_no_dup_ids:mikrotik-switches-crs.gutenberg.html  []
+PASS v7_no_dangling_anchors:mikrotik-switches-crs.gutenberg.html  []
+PASS v8_csv_clean:hEX refresh (E50UG)  "clean"
+PASS v8_csv_clean:CRS112  "clean"
+PASS v8_csv_clean:CCR2216  "clean"
+PASS v8_csv_clean:CRS310-8G+2S+IN  "clean"
+node:child_process:981
+    throw err;
+    ^
+
+Error: Command failed: node articles/build-gutenberg.cjs
+node:internal/modules/cjs/loader:1520
+  throw err;
+  ^
+
+Error: Cannot find module 'D:\Codex-Projects\Codex\2026-10-15\referenced-chatgpt-conversation-this-is-an\work\TehNet-growth-20261031\content\articles\build-gutenberg.cjs'
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1517:15)
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1071:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1095:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1122:12)
+    at Module._load (node:internal/modules/cjs/loader:1294:5)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+
+Node.js v24.19.0
+
+    at genericNodeError (node:internal/errors:985:15)
+    at wrappedFn (node:internal/errors:539:14)
+    at checkExecSyncError (node:child_process:942:11)
+    at execFileSync (node:child_process:978:15)
+    at freshBuild (D:\Codex-Projects\Codex\2026-10-15\referenced-chatgpt-conversation-this-is-an\work\TehNet-growth-20261031\qa\seo-device-guides-20261116\validate-seo-guides.cjs:151:3)
+    at Object.<anonymous> (D:\Codex-Projects\Codex\2026-10-15\referenced-chatgpt-conversation-this-is-an\work\TehNet-growth-20261031\qa\seo-device-guides-20261116\validate-seo-guides.cjs:154:12)
+    at Module._compile (node:internal/modules/cjs/loader:1872:14)
+    at Object..js (node:internal/modules/cjs/loader:2003:10)
+    at Module.load (node:internal/modules/cjs/loader:1594:32)
+    at Module._load (node:internal/modules/cjs/loader:1396:12) {
+  status: 1,
+  signal: null,
+  output: [
+    null,
+    Buffer(0) [Uint8Array] [],
+    Buffer(875) [Uint8Array] [
+      110, 111, 100, 101,  58, 105, 110, 116, 101, 114, 110,  97,
+      108,  47, 109, 111, 100, 117, 108, 101, 115,  47,  99, 106,
+      115,  47, 108, 111,  97, 100, 101, 114,  58,  49,  53,  50,
+       48,  13,  10,  32,  32, 116, 104, 114, 111, 119,  32, 101,
+      114, 114,  59,  13,  10,  32,  32,  94,  13,  10,  13,  10,
+       69, 114, 114, 111, 114,  58,  32,  67,  97, 110, 110, 111,
+      116,  32, 102, 105, 110, 100,  32, 109, 111, 100, 117, 108,
+      101,  32,  39,  68,  58,  92,  67, 111, 100, 101, 120,  45,
+       80, 114, 111, 106,
+      ... 775 more items
+    ]
+  ],
+  pid: 8496,
+  stdout: Buffer(0) [Uint8Array] [],
+  stderr: Buffer(875) [Uint8Array] [
+    110, 111, 100, 101,  58, 105, 110, 116, 101, 114, 110,  97,
+    108,  47, 109, 111, 100, 117, 108, 101, 115,  47,  99, 106,
+    115,  47, 108, 111,  97, 100, 101, 114,  58,  49,  53,  50,
+     48,  13,  10,  32,  32, 116, 104, 114, 111, 119,  32, 101,
+    114, 114,  59,  13,  10,  32,  32,  94,  13,  10,  13,  10,
+     69, 114, 114, 111, 114,  58,  32,  67,  97, 110, 110, 111,
+    116,  32, 102, 105, 110, 100,  32, 109, 111, 100, 117, 108,
+    101,  32,  39,  68,  58,  92,  67, 111, 100, 101, 120,  45,
+     80, 114, 111, 106,
+    ... 775 more items
+  ]
+}
+
+Node.js v24.19.0

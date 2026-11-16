@@ -33,6 +33,9 @@ const SKU_SCHEMATIC = {
   'CRS309-1G-8S+IN': 'schematic-crs309-1g-8s-in.svg',
   'CRS310-8G+2S+IN': 'schematic-crs310-8g-2s-in.svg',
   'CRS318-16P-2S+IN / netPower 16P': 'schematic-crs318-16p-2s-in-netpower-16p.svg',
+    'CSS610-1G-4P-1S+IN': 'schematic-css610-1g-4p-1s-in.svg',
+    'CRS310-1G-5S-4S+IN': 'schematic-crs310-1g-5s-4s-in.svg',
+    'CRS317-1G-16S+RM': 'schematic-crs317-1g-16s-rm.svg',
   'CRS326-24G-2S+RM': 'schematic-crs326-24g-2s-rm.svg',
   'CRS326-24S+2Q+RM': 'schematic-crs326-24s-2q-rm.svg',
   'CRS328-4C-20S-4S+RM': 'schematic-crs328-4c-20s-4s-rm.svg',
@@ -89,19 +92,74 @@ function mdToGutenberg(md, perModel) {
   html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
   /* heading anchors {#id} -> id attribute */
   html = html.replace(/<h([123]) class="wp-block-heading">([^<]+?) \{#([a-z0-9-]+)\}<\/h\1>/g, '<h$1 class="wp-block-heading" id="$3">$2</h$1>');
-  /* per-model schematics BEFORE the model's <p><strong> paragraph */
+  /* per-model schematics BEFORE the model's full <p><strong>SKU…</strong> paragraph
+   * (6916713513: keep parenthesized SKU in anchor so hEX variants don't cross-match;
+   *  image block sits OUTSIDE the wp:paragraph block) */
   let imgCount = 0;
-  for (const [sku, file] of Object.entries(SKU_SCHEMATIC)) {
-    const anchor = '<p><strong>' + sku.split(' (')[0] + '</strong>';
+  const NLX = String.fromCharCode(10); // real newline, escape-proof
+  const imgBlock = (file, alt) => ['<!-- wp:image -->', '<figure class="wp-block-image size-large"><img src="../assets/' + file + '" alt="' + alt + '" width="420" height="120" loading="lazy"/><figcaption>' + alt + ' (عکس رسمی: mikrotik.com — تصویر واقعی embed نشده)</figcaption></figure>', '<!-- /wp:image -->'].join(NLX);
+  const embedded = f => html.includes('assets/' + f);
+  /* 1) per-model paragraphs with EXACT <strong>SKU text */
+  const strongPairs = [
+    ['hEX lite (RB750r2)', 'schematic-hex-lite-rb750r2.svg'],
+    ['hEX (RB750Gr3)', 'schematic-hex-rb750gr3.svg'],
+    ['hEX refresh (E50UG)', 'schematic-hex-refresh-e50ug.svg'],
+    ['hEX S (RB760iGS)', 'schematic-hex-s-rb760igs.svg'],
+    ['RB951Ui-2HnD', 'schematic-rb951ui-2hnd.svg'],
+    ['hAP (RB951Ui-2nD)', 'schematic-hap-rb951ui-2nd.svg'],
+    ['RB2011UiAS-2HnD', 'schematic-rb2011uias-2hnd-in.svg'],
+    ['RB3011UiAS-RM', 'schematic-rb3011uias-rm.svg'],
+    ['RB4011iGS+RM', 'schematic-rb4011igs-rm.svg'],
+    ['L009UiGS-RM', 'schematic-l009uigs-rm.svg'],
+    ['RB5009UG+S+IN', 'schematic-rb5009ug-s-in.svg'],
+    ['CCR1009/CCR1036', 'schematic-ccr1009-ccr1036.svg'],
+    ['CCR2004-1G-12S+2XS', 'schematic-ccr2004-1g-12s-2xs.svg'],
+    ['CCR2116-12G-4S+', 'schematic-ccr2116-12g-4s.svg'],
+    ['CCR2216-1G-12XS-2XQ', 'schematic-ccr2216-1g-12xs-2xq.svg'],
+  ];
+  for (const [sku, file] of strongPairs) {
+    const anchor = '<!-- wp:paragraph -->' + NLX + '<p><strong>' + sku + '</strong>';
     const i = html.indexOf(anchor);
-    if (i >= 0 && !html.includes('assets/' + file)) {
-      const alt = sku + ' — شماتیک تألیفی';
-      const block = '<!-- wp:image -->\n<figure class="wp-block-image size-large"><img src="../assets/' + file + '" alt="' + alt + '" width="420" height="120" loading="lazy"/><figcaption>' + alt + ' (عکس رسمی: mikrotik.com — تصویر واقعی embed نشده)</figcaption></figure>\n<!-- /wp:image -->';
-      html = html.slice(0, i) + block + '\n\n' + html.slice(i);
+    if (i >= 0 && !embedded(file)) {
+      html = html.slice(0, i) + imgBlock(file, sku + ' — شماتیک تألیفی') + NLX + NLX + html.slice(i);
       imgCount++;
     }
   }
-  /* decision diagram after first H2 (both guides) */
+  /* 2) table-only models (RB951/hAP/CCR1009-family): embed right after the quick-compare table */
+  const tableEnd = html.indexOf('<!-- /wp:table -->');
+  if (tableEnd >= 0) {
+    const tableOnly = [
+      ['schematic-rb951ui-2hnd.svg', 'RB951Ui-2HnD — شماتیک تألیفی'],
+      ['schematic-hap-rb951ui-2nd.svg', 'hAP (RB951Ui-2nD) — شماتیک تألیفی'],
+      ['schematic-ccr1009-ccr1036.svg', 'CCR1009/CCR1036 (خانواده) — شماتیک تألیفی'],
+      ['schematic-hap-wi-fi-hap-ax-3.svg', 'hAPهای Wi-Fi دار — شماتیک تألیفی'],
+    ].filter(([f]) => !embedded(f));
+    if (tableOnly.length) {
+      const ins = tableEnd + '<!-- /wp:table -->'.length;
+      const blocks = tableOnly.map(([f, alt]) => imgBlock(f, alt)).join(NLX + NLX);
+      html = html.slice(0, ins) + NLX + NLX + blocks + html.slice(ins);
+      imgCount += tableOnly.length;
+    }
+  }
+  /* 2b) hAP Wi-Fi family paragraph (short name in MD, no suffix) — same outside-block rule */
+  const hapShort = '<p><strong>hAPهای Wi-Fi دار</strong>';
+  const hapI = html.indexOf(hapShort);
+  if (hapI >= 0 && !embedded('schematic-hap-wi-fi-hap-ax-3.svg')) {
+    const blockStart = html.lastIndexOf('<!-- wp:paragraph -->', hapI);
+    html = html.slice(0, blockStart) + imgBlock('schematic-hap-wi-fi-hap-ax-3.svg', 'hAPهای Wi-Fi دار — شماتیک تألیفی') + NLX + NLX + html.slice(blockStart);
+    imgCount++;
+  }
+  /* 3) switch guides: embed ALL switch schematics after first table (full coverage) */
+  const isSwitch = String(perModel).includes('switches');
+  if (isSwitch) {
+    const firstTableEnd = html.indexOf('<!-- /wp:table -->');
+    if (firstTableEnd >= 0) {
+      const ins = firstTableEnd + '<!-- /wp:table -->'.length;
+      const allSwitch = Object.entries(SKU_SCHEMATIC).filter(([sku]) => sku.includes('CRS') || sku.includes('CSS') || sku.includes('RB260'));
+      const blocks = allSwitch.filter(([sku]) => !embedded(SKU_SCHEMATIC[sku])).map(([sku, file]) => imgBlock(file, sku + ' — شماتیک تألیفی'));
+      if (blocks.length) { html = html.slice(0, ins) + NLX + NLX + blocks.join(NLX + NLX) + html.slice(ins); imgCount += blocks.length; }
+    }
+  }
   const diagram = perModel.includes('switches') ? 'switch-decision.svg' : 'router-decision.svg';
   const decAlt = perModel.includes('switches') ? 'نمودار تصمیم سوئیچ/روترسوئیچ میکروتیک — شماتیک تألیفی' : 'نمودار تصمیم انتخاب روتر میکروتیک بر اساس نیاز — شماتیک تألیفی';
   const H2_END = '</h2>\n<!-- /wp:heading -->';
@@ -110,22 +168,6 @@ function mdToGutenberg(md, perModel) {
     const ins = firstH2 + H2_END.length;
     const decBlock = '<!-- wp:image -->\n<figure class="wp-block-image size-large"><img src="../assets/' + diagram + '" alt="' + decAlt + '" width="640" height="420" loading="lazy"/><figcaption>' + decAlt + ' (تصویر شماتیک تألیفی TehNet)</figcaption></figure>\n<!-- /wp:image -->';
     html = html.slice(0, ins) + '\n\n' + decBlock + html.slice(ins);
-  }
-  /* switch guides: no per-model paragraphs — embed key-model schematics after FIRST table */
-  const isSwitch = String(perModel).includes('switches');
-  if (isSwitch) {
-    const firstTableEnd = html.indexOf('<!-- /wp:table -->');
-    if (firstTableEnd >= 0) {
-      const key = ['CSS610-8G-2S+IN', 'CRS112-8P-4S-IN', 'CRS309-1G-8S+IN', 'CRS326-24G-2S+RM'];
-      const i = firstTableEnd + '<!-- /wp:table -->'.length;
-      const blocks = key.map(sku => {
-        const file = SKU_SCHEMATIC[sku];
-        const alt = sku + ' — شماتیک تألیفی';
-        return '<!-- wp:image -->\n<figure class="wp-block-image size-large"><img src="../assets/' + file + '" alt="' + alt + '" width="420" height="120" loading="lazy"/><figcaption>' + alt + ' (عکس رسمی: mikrotik.com — تصویر واقعی embed نشده)</figcaption></figure>\n<!-- /wp:image -->';
-      }).join('\n\n');
-      html = html.slice(0, i) + '\n\n' + blocks + html.slice(i);
-      imgCount += key.length;
-    }
   }
   /* repo-relative catalog links: from articles/ the CSVs are one level up */
   html = html.replace(/href="router-catalog\.csv"/g, 'href="../router-catalog.csv"').replace(/href="switch-catalog\.csv"/g, 'href="../switch-catalog.csv"');

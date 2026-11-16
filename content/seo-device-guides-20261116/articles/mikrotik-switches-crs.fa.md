@@ -36,7 +36,7 @@
 | CRS310-1G-5S-4S+IN | 1x Gb | 5x SFP+4x SFP+10G | خیر | RouterOS/SwOS | خانوادهٔ 98DX | تجمیع فایبر |
 | CRS317-1G-16S+RM | 1x Gb | 16x SFP+ | خیر | RouterOS/SwOS | 98DX8216 | دیتاسنتر کوچک |
 | CRS318-16P-2S+ (netPower 16P) | 16x Gb PoE | 2x SFP+ | af/at | RouterOS | 800MHz/256MB | access دوربین/AP |
-| CRS326-24G-2S+RM | 24x Gb | 2x SFP+ | خیر | RouterOS/SwOS | 98DX3357/512MB | access/distribution |
+| CRS326-24G-2S+RM | 24x Gb | 2x SFP+ | خیر | RouterOS/SwOS | 98DX3236/512MB | access/distribution |
 | CRS326-24S+2Q+RM | — | 24x SFP++2x QSFP+ 40G | خیر | RouterOS/SwOS | core | core/distribution |
 | CRS328-4C-20S-4S+RM | 4x Combo | 20x SFP+4x SFP+ | خیر | RouterOS/SwOS | UNKNOWN | تجمیع فایبر |
 | CRS354-48G-4S+2Q+RM | 48x Gb | 4x SFP++2x QSFP+ | خیر | RouterOS/SwOS | UNKNOWN | access متراکم |

@@ -33,16 +33,19 @@ const CANON = {
     'CCR2116-12G-4S+': 'schematic-ccr2116-12g-4s.svg',
     'CCR2216-1G-12XS-2XQ': 'schematic-ccr2216-1g-12xs-2xq.svg',
     'hAPهای Wi-Fi دار (hAP ax^3 و مشابه)': 'schematic-hap-wi-fi-hap-ax-3.svg',
+    'hAP (RB951Ui-2nD)': 'schematic-hap-rb951ui-2nd.svg',
   },
   switches: {
     'RB260GS': 'schematic-rb260gs.svg',
     'RB260GSP': 'schematic-rb260gsp.svg',
     'CSS106 (خانواده RB260)': 'schematic-css106-rb260.svg',
     'CSS610-8G-2S+IN': 'schematic-css610-8g-2s-in.svg',
+    'CSS610-1G-4P-1S+IN': 'schematic-css610-1g-4p-1s-in.svg',
     'CRS112-8P-4S-IN': 'schematic-crs112-8p-4s-in.svg',
     'CRS309-1G-8S+IN': 'schematic-crs309-1g-8s-in.svg',
     'CRS310-8G+2S+IN': 'schematic-crs310-8g-2s-in.svg',
     'CRS317-1G-16S+RM': 'schematic-crs317-1g-16s-rm.svg',
+    'CRS310-1G-5S-4S+IN': 'schematic-crs310-1g-5s-4s-in.svg',
     'CRS318-16P-2S+IN / netPower 16P': 'schematic-crs318-16p-2s-in-netpower-16p.svg',
     'CRS326-24G-2S+RM': 'schematic-crs326-24g-2s-rm.svg',
     'CRS326-24S+2Q+RM': 'schematic-crs326-24s-2q-rm.svg',
@@ -116,9 +119,11 @@ for (const r of refs) {
 ck('v3_all_relative_refs_resolve', refs.length > 0 && broken.length === 0, { refs: refs.length, broken: broken.length });
 ck('v4_no_bare_assets_paths', artifacts.every(a => !/src="assets\//.test(a.content)), 'images must use ../assets/ from articles/');
 
-const imgR = (read('articles/mikrotik-routers.gutenberg.html').match(/<img /g) || []).length;
-const imgS = (read('articles/mikrotik-switches-crs.gutenberg.html').match(/<img /g) || []).length;
-ck('v5_embedded_image_counts_recorded', imgR === 10 && imgS === 5, { routers: imgR, switches: imgS, note: 'decision diagram + per-model/key schematics from FINAL tree' });
+const htmlR = read('articles/mikrotik-routers.gutenberg.html');
+const htmlS = read('articles/mikrotik-switches-crs.gutenberg.html');
+const missingEmbedR = Object.entries(CANON.routers).filter(([, f]) => !htmlR.includes('assets/' + f)).map(([k]) => k);
+const missingEmbedS = Object.entries(CANON.switches).filter(([, f]) => !htmlS.includes('assets/' + f)).map(([k]) => k);
+ck('v5_full_model_image_coverage', missingEmbedR.length === 0 && missingEmbedS.length === 0, { routers_missing: missingEmbedR, switches_missing: missingEmbedS, routers_imgs: (htmlR.match(/<img /g) || []).length, switches_imgs: (htmlS.match(/<img /g) || []).length });
 
 for (const h of ['articles/mikrotik-routers.gutenberg.html', 'articles/mikrotik-switches-crs.gutenberg.html']) {
   const c = read(h);
@@ -140,11 +145,44 @@ for (const w of WRONG_SPECS) {
   ck('v8_csv_clean:' + w.marker, bad.length === 0, bad.length ? bad : 'clean');
 }
 
-/* determinism: builder twice, byte-compare */
-const before = ['articles/mikrotik-routers.gutenberg.html', 'articles/mikrotik-switches-crs.gutenberg.html'].map(f => crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT, f))).digest('hex'));
-execFileSync('node', [path.join(ART, 'build-gutenberg.cjs')], { cwd: ART, stdio: 'pipe' });
-const after = ['articles/mikrotik-routers.gutenberg.html', 'articles/mikrotik-switches-crs.gutenberg.html'].map(f => crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT, f))).digest('hex'));
-ck('v9_double_build_identical', before.every((b, i) => b === after[i]), { before: before.map(x => x.slice(0, 12)), after: after.map(x => x.slice(0, 12)) });
+/* determinism: TWO FRESH BUILDS from canonical inputs (articles/*.fa.md), byte-compare.
+ * command/cwd recorded so the run is reproducible. */
+const buildCmd = 'node articles/build-gutenberg.cjs';
+const buildCwdRel = 'content/seo-device-guides-20261116/';
+const buildCwd = ROOT; // content/seo-device-guides-20261116/
+function freshBuild() {
+  execFileSync('node', ['articles/build-gutenberg.cjs'], { cwd: buildCwd, stdio: 'pipe' });
+  return ['articles/mikrotik-routers.gutenberg.html', 'articles/mikrotik-switches-crs.gutenberg.html'].map(f => crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT, f))).digest('hex'));
+}
+const b1 = freshBuild(), b2 = freshBuild();
+ck('v9_two_fresh_builds_identical', JSON.stringify(b1) === JSON.stringify(b2), { build1: b1.map(x => x.slice(0, 12)), build2: b2.map(x => x.slice(0, 12)), command: buildCmd, cwd: buildCwdRel });
+
+/* candidate-consuming negatives — injected through the SAME production checks */
+// neg-A: wrong E50UG spec in MULTILINE HTML (spans table cells) — full-content audit must catch
+const badHtml = '<table><tr><td>hEX refresh (E50UG)</td><td>CPU: MMIPS 880MHz</td><td>256MB</td></tr></table>';
+const negA = WRONG_SPECS.find(w => w.marker === 'hEX refresh (E50UG)').bad.some(rx => rx.test(badHtml));
+ck('negA_multiline_wrong_spec_caught', negA === true, { expected: 'MMIPS/256MB flagged for hEX refresh' });
+// neg-B: SVG inner label must match its SKU (reads the real shipped SVGs)
+const svg2216 = fs.readFileSync(path.join(ROOT, 'assets/schematic-ccr2216-1g-12xs-2xq.svg'), 'utf8');
+ck('negB_svg_label_matches_sku', svg2216.includes('CCR2216-1G-12XS-2XQ') && !svg2216.includes('CCR2216-1G-12XS-2S+'), { file: 'schematic-ccr2216-1g-12xs-2xq.svg' });
+const svg112 = fs.readFileSync(path.join(ROOT, 'assets/schematic-crs112-8p-4s-in.svg'), 'utf8');
+ck('negB2_svg_label_crs112', svg112.includes('CRS112-8P-4S-IN') && !svg112.includes('CRS112-8P-4G-IN'), { file: 'schematic-crs112-8p-4s-in.svg' });
+// neg-C: omitted model — every catalog row must exist in CANON coverage map
+const catRowsR = read('router-catalog.csv').split(NL).filter(l => l.trim() && !l.startsWith('model_sku')).map(l => l.split(',')[0]);
+const catRowsS = read('switch-catalog.csv').split(NL).filter(l => l.trim() && !l.startsWith('model_sku')).map(l => l.split(',')[0]);
+const mapSkus = new Set([...Object.keys(CANON.routers), ...Object.keys(CANON.switches)]);
+const omitted = [...catRowsR, ...catRowsS].filter(s => !mapSkus.has(s));
+ck('negC_omitted_model_flagged', omitted.length === 0, omitted.length ? omitted : 'every catalog row covered by CANON');
+// neg-D: every CANON schematic file must exist on disk
+const missingSchematic = Object.values(CANON.routers).concat(Object.values(CANON.switches)).filter(f => !fs.existsSync(path.join(ROOT, 'assets', f)));
+ck('negD_missing_schematic_flagged', missingSchematic.length === 0, missingSchematic.length ? missingSchematic : 'none missing');
+// neg-E: single-dot ./ relative links must not appear (broken from articles/)
+let dotSlash = 0;
+for (const a of artifacts.filter(a => a.name.endsWith('.html'))) {
+  const re = /(?:src|href)="(\.\/[^"]+)"/g; let m;
+  while ((m = re.exec(a.content))) dotSlash++;
+}
+ck('negE_no_dot_slash_links', dotSlash === 0, { count: dotSlash });
 
 /* validator self-negatives */
 ck('n1_unknown_sku_rejected', !Object.values(CANON).some(m => Object.keys(m).some(k => k.includes('FAKE-1234'))), 'FAKE-1234 rejected');

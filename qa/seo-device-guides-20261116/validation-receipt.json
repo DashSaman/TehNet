@@ -2,9 +2,9 @@
  "packet": "TN-FIVE-HOUR-CONTINUE-CONTENT-QUALITY-20261116",
  "validator": "validate-seo-guides.cjs rev3 (line-scoped SKU audit + CSV-parsed coverage + determinism + self-negatives)",
  "command": "node qa/seo-device-guides-20261116/validate-seo-guides.cjs (cwd qa/seo-device-guides-20261116)",
- "started_utc": "2026-11-16T12:28:53Z",
- "finished_utc": "2026-11-16T12:28:54Z",
- "control_head": "906d0ac08cae6fa818a740d98ad2af034ef754de",
+ "started_utc": "2026-11-16T13:07:05Z",
+ "finished_utc": "2026-11-16T13:07:06Z",
+ "control_head": "b2ad905f782d953fcfab4dcccd9037f955563bde",
  "exit": 0,
  "checks": [
   {
@@ -21,7 +21,7 @@
    "id": "v3_all_relative_refs_resolve",
    "pass": true,
    "detail": {
-    "refs": 18,
+    "refs": 40,
     "broken": 0
    }
   },
@@ -31,12 +31,13 @@
    "detail": "images must use ../assets/ from articles/"
   },
   {
-   "id": "v5_embedded_image_counts_recorded",
+   "id": "v5_full_model_image_coverage",
    "pass": true,
    "detail": {
-    "routers": 10,
-    "switches": 5,
-    "note": "decision diagram + per-model/key schematics from FINAL tree"
+    "routers_missing": [],
+    "switches_missing": [],
+    "routers_imgs": 17,
+    "switches_imgs": 20
    }
   },
   {
@@ -80,17 +81,57 @@
    "detail": "clean"
   },
   {
-   "id": "v9_double_build_identical",
+   "id": "v9_two_fresh_builds_identical",
    "pass": true,
    "detail": {
-    "before": [
-     "6359d0aa1200",
-     "21369855aae3"
+    "build1": [
+     "630166991425",
+     "3e785217c76b"
     ],
-    "after": [
-     "6359d0aa1200",
-     "21369855aae3"
-    ]
+    "build2": [
+     "630166991425",
+     "3e785217c76b"
+    ],
+    "command": "node articles/build-gutenberg.cjs",
+    "cwd": "content/seo-device-guides-20261116/"
+   }
+  },
+  {
+   "id": "negA_multiline_wrong_spec_caught",
+   "pass": true,
+   "detail": {
+    "expected": "MMIPS/256MB flagged for hEX refresh"
+   }
+  },
+  {
+   "id": "negB_svg_label_matches_sku",
+   "pass": true,
+   "detail": {
+    "file": "schematic-ccr2216-1g-12xs-2xq.svg"
+   }
+  },
+  {
+   "id": "negB2_svg_label_crs112",
+   "pass": true,
+   "detail": {
+    "file": "schematic-crs112-8p-4s-in.svg"
+   }
+  },
+  {
+   "id": "negC_omitted_model_flagged",
+   "pass": true,
+   "detail": "every catalog row covered by CANON"
+  },
+  {
+   "id": "negD_missing_schematic_flagged",
+   "pass": true,
+   "detail": "none missing"
+  },
+  {
+   "id": "negE_no_dot_slash_links",
+   "pass": true,
+   "detail": {
+    "count": 0
    }
   },
   {
@@ -115,18 +156,18 @@
   }
  ],
  "digests": {
-  "articles/mikrotik-routers.gutenberg.html": "6359d0aa1200e4ece216e2bad86e57c124557447a56799f0c8539cc59831ef01",
-  "articles/mikrotik-switches-crs.gutenberg.html": "21369855aae3e172096180fa1d1d72537828a366b8d55d6cbc43f7efe1de2637",
+  "articles/mikrotik-routers.gutenberg.html": "630166991425788f33b73d6cfd9fb8364b016858f3d67be5b390a01bdee6fa08",
+  "articles/mikrotik-switches-crs.gutenberg.html": "3e785217c76b777a5582ce3274c956f48be692e772cb48e591bc537f6446d986",
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",
-  "switch-catalog.csv": "4940dfa66ca85b082701149ce77e79d9d5cc43231883f5d7216c74d1b6cd98df",
-  "image-provenance.csv": "2fdd9b32a06caa1e91ec2179a907ce457ff9f192d78f46d462f9000ce5962d03",
+  "switch-catalog.csv": "5867196841927d20047e785b20653a5081faec160ea5df3f66bb357470cd77dc",
+  "image-provenance.csv": "22ecdada31bf56a259f8ade274ba4af817ad144a49b7f8e0d8f8cdcb5db8a454",
   "page-edits/mikrotik-service.patch": "641666f27bc4e7485f8a5cbf24261331258b944c4987018a83fd855e6ef909ac",
   "page-edits/network-setup.patch": "f034b42b90890105568a04861d754ac8e3e85bea7f7779ddf8d448cd702d67d5",
   "page-edits/network-support.patch": "4020611ac471a0d9339f85bb3bc8131870ed3362554aa37626f06b5e39312dff"
  },
  "summary": {
-  "total": 18,
-  "passed": 18,
+  "total": 24,
+  "passed": 24,
   "failed": 0
  },
  "not_run": [

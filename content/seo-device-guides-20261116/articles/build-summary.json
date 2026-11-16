@@ -4,14 +4,14 @@
   {
    "md": "mikrotik-routers.fa.md",
    "html": "mikrotik-routers.gutenberg.html",
-   "bytes": 33978,
-   "per_model_images": 9
+   "bytes": 36544,
+   "per_model_images": 16
   },
   {
    "md": "mikrotik-switches-crs.fa.md",
    "html": "mikrotik-switches-crs.gutenberg.html",
-   "bytes": 22452,
-   "per_model_images": 4
+   "bytes": 28227,
+   "per_model_images": 19
   }
  ]
 }
