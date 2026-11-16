@@ -51,7 +51,10 @@
    "assets/tutorial-s5-uplink-trunk.svg": "34e3840fa30d6f700c0d20d880e2813a0e537cf848da63fd006c295941136280",
    "tutorials/s6-psu-power.fa.md": "84bef00eea77ffa20ad945af086d28a32b54a071fc9acd13a9e479c4c015cd2e",
    "tutorials/s6-psu-power.gutenberg.html": "976a0c5214a20cfb8898f271a978c7ebc52991ce04d1b41134ed0ce57f44163c",
-   "assets/tutorial-s6-psu-power.svg": "94191ee5ddf26cc673ec47fbef8b93018b96505e5c6abbb661af299f1ae22278"
+   "assets/tutorial-s6-psu-power.svg": "94191ee5ddf26cc673ec47fbef8b93018b96505e5c6abbb661af299f1ae22278",
+   "tutorials/s5-loop-rstp-lacp.fa.md": "2667bdb9449dac0d1c3afb096eabe867b602d47a695e5d7de7400ca6009aa12a",
+   "tutorials/s5-loop-rstp-lacp.gutenberg.html": "55e05da6276515441a8d0c8e192c8767008dc044005294cc96a1f5b1c95a8568",
+   "assets/tutorial-s5-loop-rstp-lacp.svg": "a378f1cba042379f0e20e5efe948fc104e1ff19720690d731d2ac392d1fce7f0"
   }
  },
  "preview_style_injected_at_render_time": "body{background:#fff;color:#111;font-family:Tahoma,Arial,sans-serif;margin:24px auto;max-width:960px;line-height:1.9} pre{background:#f6f8fa;border:1px solid #ddd;padding:12px;overflow:auto} code{font-family:Consolas,monospace;font-size:13px} table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto} th,td{border:1px solid #999;padding:5px 9px} img{max-width:100%;height:auto} blockquote{border-right:3px solid #1e88e5;padding-right:12px;color:#444}",
@@ -489,7 +492,7 @@
   "manager-side browser run"
  ],
  "production_touched": false,
- "utc_extended": "2026-11-16T21:57:29Z",
+ "utc_extended": "2026-11-16T22:05:30Z",
  "pages_extra": [
   "tutorials/s2-poe-budget.gutenberg.html",
   "tutorials/s3-sfp-dac-fiber.gutenberg.html",
@@ -516,5 +519,8 @@
    "keyboard": "focus-first-link-then-Tab -> next <A>, both lessons both viewports"
   },
   "not_done": "WP/theme/KSES separate; document-level overflow:hidden NOT used; no content removed"
+ },
+ "bound_inputs_digest_verification": {
+  "all_existing_files_hashed_ok": true
  }
 }

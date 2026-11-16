@@ -30,6 +30,27 @@
 | M5-vpn-selection | P4 | — | REVIEW_REQUEST | درس مستقل انتخاب VPN: دو گزینهٔ سندشده (WireGuard از manual جدید + IPsec از سند ‏v7.26) با جدول مقایسهٔ grounding-شده + اسکلت site-to-site با دستورهای سندشده‌الگو + جدول تصمیم سناریو→انتخاب + پنج تلهٔ سندشده ‏(فایروال پیش‌فرض، masquerade، Fasttrack، PSK، حساسیت زمان) + نمودار معماری؛ ‏MD+HTML + validator rev8 + رندر واقعی | tutorials/m5-vpn-selection.fa.md + .gutenberg.html | (این تیک) | validation-receipt + render-check-receipt (بخش M5) | مرور مدیر | در RR این تیک |
 | M6-dual-wan-failover | P4 | — | REVIEW_REQUEST | درس مستقل dual-WAN: الگوی recursive سند رسمی ‏(scope=10 میزبان‌های تست 8.8.8.8/8.8.4.4 + default با target-scope=11 و check-gateway=ping) + NAT هر دو WAN + جدول مقایسهٔ چهار روش + سناریوی آزمون سه‌گامی با ثبت قبل/بعد + رفتار شکستن اتصال‌ها صادقانه + نمودار قبل/بعد؛ ‏MD+HTML + validator rev8 + رندر واقعی؛ **خوشهٔ M درس‌ها کامل شد** | tutorials/m6-dual-wan-failover.fa.md + .gutenberg.html | (این تیک) | validation-receipt + render-check-receipt (بخش M6) | مرور مدیر | در RR این تیک |
 | S5-uplink-trunk | P4 | — | REVIEW_REQUEST | درس مستقل آپ‌لینک/ترانک: محاسبهٔ ظرفیت با ضریب تجمعی فرضی و برچسب UNKNOWN + ترانک تگ‌دار سه‌VLAN با جدول هر دو طرف + جدول بررسی چهارگانه + هشدار untagged + ارجاع S3 برای مدیوم؛ ‏MD+HTML + validator rev8 + رندر واقعی | tutorials/s5-uplink-trunk.fa.md + .gutenberg.html | (این تیک) | validation-receipt + render-check-receipt (بخش S5) | مرور مدیر | در RR این تیک |
+| S5c-loop-rstp-lacp | P4 | — | REVIEW_REQUEST | **درس مصوب S5 authored شد (aaa0524)**: سناریوی حلقهٔ تصادفی با/بدون RSTP + باند ‏LACP با قواعد سند رسمی ‏(lacp-rate، ‏MII/ARP، hash سازگار، حذف IP از slave، ‏HW-per-model) + نمودار تألیفی؛ مکمل uplink/trunk حفظ شد | tutorials/s5-loop-rstp-lacp.fa.md + .gutenberg.html | aaa0524 | validation-receipt + render-check-receipt (بخش S5c) | مرور مدیر | در RR بعدی |
+
+## ledger پوشش سرفصل مصوب (MANAGER_FLOW_V2_20261116 — تطبیق صادقانه)
+
+| واحد مصوب | وضعیت artifact | یادداشت |
+|---|---|---|
+| ‏M1-M6 | authored/مرور | کامل |
+| ‏S1-S3 | authored/مرور | کامل |
+| ‏S4 طراحی VLAN سوئیچ | ‏READY-unauthored | هم‌پوشانی با M2 — تصمیم ادغام با مدیر |
+| ‏S5 مصوب: loop/RSTP/LACP | ‏**authored شد (aaa0524)** | ‏s5-uplink-trunk موجود = مکمل |
+| ‏S6 مصوب: ارتقای NAS/سرور 2.5G/10G | ‏READY-unauthored | ‏s6-psu-power موجود = مکمل |
+| ‏N1 مصوب: طراحی دفتر | ‏READY-unauthored | ‏n1-troubleshooting موجود = مکمل/متفاوت |
+| ‏N2 مصوب: رک/کابل | ‏READY-unauthored | — |
+| ‏N3 مصوب: گزارش تست کابل | ‏READY-unauthored | — |
+| ‏N4 مصوب: عیب‌یابی | ‏پوشش‌داده‌شده: n1-network-troubleshooting.fa.md | نام فایل ≠ شناسه مصوب |
+| ‏N5 مصوب: مانیتورینگ | ‏پوشش‌داده‌شده: n2-monitoring-maintenance.fa.md | نام فایل ≠ شناسه مصوب |
+| ‏N6 مصوب: انتخاب پشتیبانی | ‏پوشش جزئی: n3-support-contract-sla.fa.md | ‏READY برای درس اختصاصی |
+| مکمل‌های اضافه | uplink/trunk، ‏PSU، ‏backup، ‏incident، ‏acceptance | به‌عنوان مکمل می‌مانند |
+
+**ادعای «۱۸ درس کامل» پس گرفته شد:** ‏۱۹ فایل authored؛ پوشش مصوب ≈ ‏۱۳ واحد؛ ‏۶ واحد مصوب ‏READY-unauthored ‏(S4، ‏S5مصوب، ‏S6مصوب، ‏N1مصوب، ‏N2مصوب، ‏N3مصوب). ترتیب: اصلاح M2/M3+S5 → سپس واحدهای مصوب READY.
+
 | S6-psu-power | P4 | — | REVIEW_REQUEST | درس مستقل برق/PSU: سه‌چک ‏(ولتاژ مطابق af/at → ‏48V؛ توان اسمی ≥ ‏136W از برگهٔ رسمی؛ دو ورودی DC مستقل) + حکم مبنا ‏120W ‏(تک‌ورودی رد، دو ورودی مرزی، PSU بزرگ‌تر مشروط) + فهرست PSUهای سازگار سندشده + جدول خطاها ‏(ولتاژ ناهمسان، حدس توان از کد، تک‌PSU، بی‌حاشیه)؛ ‏MD+HTML + validator rev8 + رندر واقعی؛ **همهٔ ۱۸ واحد Masterplan اکنون authored** | tutorials/s6-psu-power.fa.md + .gutenberg.html | (این تیک) | validation-receipt + render-check-receipt (بخش S6) | مرور مدیر | در RR این تیک |
 | P1-discovery-matrix | P1 | P0 | REVIEW_REQUEST | 16 URLs با GET واقعی 2026-11-16 سند شد: 11 زنده + 5 مرده (404). ستون internal_backlink با نقشهٔ لینک مشاهده‌شده بازنویسی شد: هیچ صفحهٔ زندهٔ allowlist به slugهای مرده لینک نمی‌دهد (ادعاهای قبلی کهنه بودند)؛ صفحات خدمات به‌خوبی به هم لینک دارند | qa/seo-device-guides-20261116/discovery-matrix.csv | 5b41fc8 | discovery-http-receipt.json + internal-links-receipt.json (LOCAL_TEST read-only) | مرور مدیر؛ تصمیم مالک دربارهٔ 5 URL مرده | بازنگری 5 slug مرده قبل از هر لینک داخلی |
 | P1-topic-map | P1 | P0 | REVIEW_REQUEST | Masterplan 18/18 واحد (S5/S6+N1-N6 اضافه شد) + topic-map با ردیف‌های S5/S6/N4-N6، هدف N3 اصلاح شد (slug مردهٔ 404 → پیشنهادی)، ردیف لینک قرارداد BLOCKED، وضعیت اجرا صادقانه (PLANNED نه READY) | MASTERPLAN.md + content/.../topic-map.md | (این تیک) | — | مرور مدیر؛ تصمیم مالک روی 5 slug مرده | در RR این تیک |
