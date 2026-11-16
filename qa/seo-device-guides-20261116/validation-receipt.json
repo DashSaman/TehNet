@@ -1,118 +1,138 @@
 {
- "packet": "TN-SEO-DEVICE-GUIDES-20261116",
- "validated_utc": "2026-11-16T11:31:03Z",
- "mode": "source-level assertions; browser NOT_RUN (no pre-authorized cloud env); WordPress/KSES NOT_RUN",
+ "packet": "TN-FIVE-HOUR-CONTINUE-CONTENT-QUALITY-20261116",
+ "validator": "validate-seo-guides.cjs rev3 (line-scoped SKU audit + CSV-parsed coverage + determinism + self-negatives)",
+ "command": "node qa/seo-device-guides-20261116/validate-seo-guides.cjs (cwd qa/seo-device-guides-20261116)",
+ "started_utc": "2026-11-16T12:26:17Z",
+ "finished_utc": "2026-11-16T12:26:17Z",
+ "control_head": "f08d79b9aa8f906bc67cd50fc6f9b5191f2a5719",
+ "exit": 0,
  "checks": [
   {
-   "id": "keywordmap_rows_ge30",
+   "id": "v1_wrong_specs_absent",
    "pass": true,
-   "detail": 30
+   "detail": "corrected official facts present"
   },
   {
-   "id": "competitor_rows_ge12",
+   "id": "v2_canonical_sku_coverage",
    "pass": true,
-   "detail": 15
+   "detail": "all catalog SKUs mapped + file + provenance"
   },
   {
-   "id": "router_models_ge12",
-   "pass": true,
-   "detail": 16
-  },
-  {
-   "id": "switch_models_ge12",
-   "pass": true,
-   "detail": 15
-  },
-  {
-   "id": "unknown_flags_present",
-   "pass": true,
-   "detail": null
-  },
-  {
-   "id": "article_full_mikrotik-routers.fa.md",
+   "id": "v3_all_relative_refs_resolve",
    "pass": true,
    "detail": {
-    "words": 1800
+    "refs": 18,
+    "broken": 0
    }
   },
   {
-   "id": "gutenberg_blocks_mikrotik-routers.fa.md",
+   "id": "v4_no_bare_assets_paths",
    "pass": true,
-   "detail": null
+   "detail": "images must use ../assets/ from articles/"
   },
   {
-   "id": "article_full_mikrotik-switches-crs.fa.md",
+   "id": "v5_embedded_image_counts_recorded",
    "pass": true,
    "detail": {
-    "words": 1080
+    "routers": 10,
+    "switches": 5,
+    "note": "decision diagram + per-model/key schematics from FINAL tree"
    }
   },
   {
-   "id": "gutenberg_blocks_mikrotik-switches-crs.fa.md",
+   "id": "v6_no_dup_ids:mikrotik-routers.gutenberg.html",
+   "pass": true,
+   "detail": []
+  },
+  {
+   "id": "v7_no_dangling_anchors:mikrotik-routers.gutenberg.html",
+   "pass": true,
+   "detail": []
+  },
+  {
+   "id": "v6_no_dup_ids:mikrotik-switches-crs.gutenberg.html",
+   "pass": true,
+   "detail": []
+  },
+  {
+   "id": "v7_no_dangling_anchors:mikrotik-switches-crs.gutenberg.html",
+   "pass": true,
+   "detail": []
+  },
+  {
+   "id": "v8_csv_clean:hEX refresh (E50UG)",
+   "pass": true,
+   "detail": "clean"
+  },
+  {
+   "id": "v8_csv_clean:CRS112",
+   "pass": true,
+   "detail": "clean"
+  },
+  {
+   "id": "v8_csv_clean:CCR2216",
+   "pass": true,
+   "detail": "clean"
+  },
+  {
+   "id": "v8_csv_clean:CRS310-8G+2S+IN",
+   "pass": true,
+   "detail": "clean"
+  },
+  {
+   "id": "v9_double_build_identical",
+   "pass": true,
+   "detail": {
+    "before": [
+     "6359d0aa1200",
+     "4cc87b52799e"
+    ],
+    "after": [
+     "6359d0aa1200",
+     "4cc87b52799e"
+    ]
+   }
+  },
+  {
+   "id": "n1_unknown_sku_rejected",
+   "pass": true,
+   "detail": "FAKE-1234 rejected"
+  },
+  {
+   "id": "n2_missing_asset_rejected",
+   "pass": true,
+   "detail": "missing asset path detected"
+  },
+  {
+   "id": "n3_dup_id_detected",
    "pass": true,
    "detail": null
   },
   {
-   "id": "pageedit_mikrotik-service",
+   "id": "n4_wrong_spec_probe",
    "pass": true,
    "detail": null
-  },
-  {
-   "id": "pageedit_network-setup",
-   "pass": true,
-   "detail": null
-  },
-  {
-   "id": "pageedit_network-support",
-   "pass": true,
-   "detail": null
-  },
-  {
-   "id": "toc_anchors_defined",
-   "pass": true,
-   "detail": 16
-  },
-  {
-   "id": "no_placeholder_text",
-   "pass": true,
-   "detail": null
-  },
-  {
-   "id": "no_guarantee_words",
-   "pass": true,
-   "detail": null
-  },
-  {
-   "id": "provenance_rows_ge20",
-   "pass": true,
-   "detail": null
-  },
-  {
-   "id": "no_external_image_links",
-   "pass": true,
-   "detail": null
-  },
-  {
-   "id": "schematics_exist",
-   "pass": true,
-   "detail": 33
   }
  ],
+ "digests": {
+  "articles/mikrotik-routers.gutenberg.html": "6359d0aa1200e4ece216e2bad86e57c124557447a56799f0c8539cc59831ef01",
+  "articles/mikrotik-switches-crs.gutenberg.html": "4cc87b52799e4e7cc94996318e052159c99128f6249128078bd12789f67bf020",
+  "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",
+  "switch-catalog.csv": "09b4c79025c03c581c610d73750fa893c5cf74f6c96130f581115112cbdd287b",
+  "image-provenance.csv": "2fdd9b32a06caa1e91ec2179a907ce457ff9f192d78f46d462f9000ce5962d03",
+  "page-edits/mikrotik-service.patch": "641666f27bc4e7485f8a5cbf24261331258b944c4987018a83fd855e6ef909ac",
+  "page-edits/network-setup.patch": "f034b42b90890105568a04861d754ac8e3e85bea7f7779ddf8d448cd702d67d5",
+  "page-edits/network-support.patch": "4020611ac471a0d9339f85bb3bc8131870ed3362554aa37626f06b5e39312dff"
+ },
  "summary": {
   "total": 18,
-  "passed": 18
+  "passed": 18,
+  "failed": 0
  },
  "not_run": [
-  "browser rendering desktop/mobile/keyboard",
-  "WordPress editor/KSES acceptance",
-  "Search Console baseline (UNKNOWN)",
-  "image visual rendering check (browser NOT_RUN)"
+  "browser desktop/mobile/keyboard rendering",
+  "WordPress/KSES acceptance",
+  "Search Console baseline (access UNKNOWN)"
  ],
- "gates": "production read-only; PR100-103 guarded; no deploy/D2/D3/index/blog_public change",
- "production_touched": false,
- "images_embedded": {
-  "routers": 20,
-  "switches": 6,
-  "note": "wp:image blocks with alt/width/height/loading=lazy; src=relative assets/ (deploy path TBD at publication)"
- }
+ "production_touched": false
 }

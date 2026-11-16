@@ -1,34 +1,37 @@
 {
  "packet": "TN-SEO-PAGES-20261116",
  "base_ref": "778ee3f4a5bdb852a1c491b3af12e263a9eee3ad",
- "generated_utc": "2026-11-16T11:57:42Z",
+ "generated_utc": "2026-11-16T12:11:12Z",
  "pages": [
   {
    "name": "mikrotik-service",
-   "base_path": "content/mikrotik-service-2026-11-01/mikrotik-service.html",
+   "after_d1_file": "content/commercial-decision-2026-11-08-v2/mikrotik-service.html",
+   "after_d1_sha256": "118f34b1ec9eb08531d18e52bbedf8e25f4d7745928214b4388e6d39ede41f15",
+   "lf_matches_expected_decision": "LF_MATCHES_EXPECTED_DECISION",
+   "baseline_sha256_prefix": "ab9d96e52fb5",
    "patch": "page-edits/mikrotik-service.patch",
-   "proposed": "page-edits/mikrotik-service.proposed.html",
-   "base_bytes": 20496,
-   "proposed_bytes": 21993,
-   "inserted_block_only": true
+   "proposed": "page-edits/mikrotik-service.proposed.html"
   },
   {
    "name": "network-setup",
-   "base_path": "content/network-setup-2026-11-01/network-setup.html",
+   "after_d1_file": "content/commercial-decision-2026-11-08-v2/network-setup.html",
+   "after_d1_sha256": "ab56940e609f5afa17aad6917dc2834490e0437aa7ecadc2c66adae6a22e2460",
+   "lf_matches_expected_decision": "LF_MATCHES_EXPECTED_DECISION",
+   "baseline_sha256_prefix": "709c49b6d2e0",
    "patch": "page-edits/network-setup.patch",
-   "proposed": "page-edits/network-setup.proposed.html",
-   "base_bytes": 29003,
-   "proposed_bytes": 29966,
-   "inserted_block_only": true
+   "proposed": "page-edits/network-setup.proposed.html"
   },
   {
    "name": "network-support",
-   "base_path": "content/network-support-2026-11-01/network-support.html",
+   "after_d1_file": "content/commercial-decision-2026-11-08-v2/network-support.html",
+   "after_d1_sha256": "f0ecdcfe014371ac22df9647512a6ccd73b18d52a357c4fc681e442ff3ec37de",
+   "lf_matches_expected_decision": "LF_MATCHES_EXPECTED_DECISION",
+   "baseline_sha256_prefix": "73d1b477170f",
    "patch": "page-edits/network-support.patch",
-   "proposed": "page-edits/network-support.proposed.html",
-   "base_bytes": 18164,
-   "proposed_bytes": 18874,
-   "inserted_block_only": true
+   "proposed": "page-edits/network-support.proposed.html"
   }
- ]
+ ],
+ "rev": 3,
+ "payload_chain_note": "778ee3f page files are the PRE-D1 baseline (== staging-sync consts); AFTER-D1 intended bodies live in the PR100 decision payload files. Patches generated against after-D1 bodies.",
+ "gates": "insertion-only block before editorial-note shortcode; existing content/anchors/service limits/shortcodes preserved; NOT_DEPLOYED"
 }

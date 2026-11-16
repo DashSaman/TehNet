@@ -1,0 +1,20 @@
+{
+ "mikrotik-service": {
+  "sha_778ee3f": "ab9d96e52fb50fc3",
+  "sha_pr100": "ab9d96e52fb50fc3",
+  "identical": true,
+  "bytes": 20496
+ },
+ "network-setup": {
+  "sha_778ee3f": "709c49b6d2e0cffa",
+  "sha_pr100": "709c49b6d2e0cffa",
+  "identical": true,
+  "bytes": 41786
+ },
+ "network-support": {
+  "sha_778ee3f": "73d1b477170f3e9c",
+  "sha_pr100": "73d1b477170f3e9c",
+  "identical": true,
+  "bytes": 18164
+ }
+}

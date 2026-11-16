@@ -101,6 +101,16 @@ function mdToGutenberg(md, perModel) {
       imgCount++;
     }
   }
+  /* decision diagram after first H2 (both guides) */
+  const diagram = perModel.includes('switches') ? 'switch-decision.svg' : 'router-decision.svg';
+  const decAlt = perModel.includes('switches') ? 'نمودار تصمیم سوئیچ/روترسوئیچ میکروتیک — شماتیک تألیفی' : 'نمودار تصمیم انتخاب روتر میکروتیک بر اساس نیاز — شماتیک تألیفی';
+  const H2_END = '</h2>\n<!-- /wp:heading -->';
+  const firstH2 = html.indexOf(H2_END);
+  if (firstH2 >= 0 && !html.includes('assets/' + diagram)) {
+    const ins = firstH2 + H2_END.length;
+    const decBlock = '<!-- wp:image -->\n<figure class="wp-block-image size-large"><img src="../assets/' + diagram + '" alt="' + decAlt + '" width="640" height="420" loading="lazy"/><figcaption>' + decAlt + ' (تصویر شماتیک تألیفی TehNet)</figcaption></figure>\n<!-- /wp:image -->';
+    html = html.slice(0, ins) + '\n\n' + decBlock + html.slice(ins);
+  }
   /* switch guides: no per-model paragraphs — embed key-model schematics after FIRST table */
   const isSwitch = String(perModel).includes('switches');
   if (isSwitch) {

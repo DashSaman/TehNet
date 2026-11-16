@@ -1,17 +1,23 @@
---- a/content/network-setup-2026-11-01/network-setup.html @778ee3f4a5bdb852a1c491b3af12e263a9eee3ad
+--- a/content/commercial-decision-2026-11-08-v2/network-setup.html@a54198ce7ed3535d6783432d8401660e2e023f9d (after-D1 ab56940e609f…)
 
-+++ b/content/network-setup-2026-11-01/network-setup.html (proposed, NOT_DEPLOYED)
++++ b/content/commercial-decision-2026-11-08-v2/network-setup.html (proposed, NOT_DEPLOYED)
 
-@@ -174,6 +174,25 @@
+@@ -266,6 +266,42 @@
 
+ <p><strong>حد بازبینی این دو بخش:</strong> منابع رسمی Microsoft و MikroTik در۴نوامبر۲۰۲۶ برای نکته‌های مشخص بالا خوانده شدند. این صفحه خدمت‌نامه و قالب بررسی است؛ در تهیهٔ آن، Hyper-V، سرور مشتری، تونل، backup/restore یا تست شبکه اجرا نشده است. معیار و نتیجهٔ هر پروژه باید با همان محیط و مسئول مجاز تعیین و ثبت شوند.</p>
+ <!-- /wp:paragraph -->
  
- <!-- wp:paragraph -->
- <p><strong>منابع و حد این متن:</strong> بخش‌های مشخص طراحی Cisco، baseline و کنترل تغییر در NIST SP800-128 با به‌روزرسانی ۲۰۱۹، و Backup در manual MikroTik در ۱ نوامبر ۲۰۲۶ بازبینی شدند. انتخابگر manual نسخهٔ 7.26 را نشان می‌داد؛ این نسخهٔ دستگاه شما یا توصیهٔ ارتقا نیست. قالب پروژه و مثال دفتر، پیشنهاد توضیحی این صفحه‌اند؛ آزمون شبکه، بازدید محل، تأیید پوشش یا تحویل پروژهٔ مشتری در این متن گزارش نشده است.</p>
++<!-- READY_FOR_REVIEW proposed add-on (TN-SEO-PAGES-20261116; base=PR100 decision after-D1 body ab56940e609f…) -->
++<!-- wp:paragraph -->
++<p>(insert/merge; replace weak sections, keep existing service-scope rules)</p>
 +<!-- /wp:paragraph -->
 +
-+<!-- READY_FOR_REVIEW proposed add-on block (TN-SEO-PAGES-20261116) -->
++<!-- wp:paragraph -->
++<p><strong>پاسخ کوتاه:</strong> راه‌اندازی شبکه در چهار گام انجام می‌شود: نیازسنجی و نقشه، اجرا (کابل/تجهیز)، پیکربندی و تست پذیرش، تحویل مستندات. تجهیزات پیشنهادی بسته به سناریو متفاوت است.</p>
++<!-- /wp:paragraph -->
++
 +<!-- wp:heading -->
-+<h2 class="wp-block-heading">ورودی موردنیاز از شما</h2>
++<h2 class="wp-block-heading">ورودی موردنیاز از شما {#inputs}</h2>
 +<!-- /wp:heading -->
 +
 +<!-- wp:list -->
@@ -21,11 +27,22 @@
 +<li>وضعیت اینترنت و امکان حضور در محل در بازه‌های مشخص</li>
 +<!-- /wp:list-item --><!-- wp:list-item -->
 +<li>الزامات خاص (دوربین، تلفن IP، سرور/NAS)</li>
-+<!-- /wp:list-item --></ul>
++<!-- /wp:list-item -->
++</ul>
 +<!-- /wp:list -->
 +
++<!-- wp:heading -->
++<h2 class="wp-block-heading">انتخاب تجهیز بر اساس سناریو {#equipment}</h2>
++<!-- /wp:heading -->
++
 +<!-- wp:paragraph -->
-+<p>برای مرور گزینه‌های تجهیز، راهنمای <a href="/guides/mikrotik-routers/">روترهای میکروتیک</a> و <a href="/guides/mikrotik-switches-crs/">سوئیچ‌های CRS</a> را ببینید.</p>
- <!-- /wp:paragraph -->
- 
++<p>(جدول راهنمای انتخاب است؛ مدل دقیق پس از نیازسنجی. جزئیات: [راهنمای روترهای میکروتیک](/guides/mikrotik-routers/) و [سوئیچ‌های CRS](/guides/mikrotik-switches-crs/).)</p>
++<!-- /wp:paragraph -->
++
++<!-- wp:paragraph -->
++<p><strong>CTA:</strong> برای نیازسنجی و برآورد، [درخواست سازمانی](/b2b/) را با همان ورودی‌های بالا ثبت کنید.</p>
++<!-- /wp:paragraph -->
++
  <!-- wp:shortcode -->
+ [tn_editorial_note]
+ <!-- /wp:shortcode -->
