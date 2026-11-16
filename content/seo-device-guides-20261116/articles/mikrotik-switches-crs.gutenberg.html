@@ -1,4 +1,4 @@
-<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated from articles/mikrotik-switches-crs.fa.md -->
+<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated from mikrotik-switches-crs.fa.md -->
 <!-- wp:heading {"level":1} -->
 <h1 class="wp-block-heading">سوئیچ میکروتیک برای شرکت؛ مقایسهٔ CSS، CRS و تصمیم سوئیچ/روتر/روترسوئیچ</h1>
 <!-- /wp:heading -->
@@ -62,10 +62,6 @@
 <!-- wp:paragraph -->
 <p><strong>چرا یک CRS جای روتر فایروال/VPN را نمی‌گیرد؟</strong> CPU CRSها کوچک است (مثلاً CRS309: دو-هستهٔ 800MHz) و برای قوانین فایروال، NAT و VPN طراحی نشده است. ترکیب درست در اکثر شبکه‌های شرکتی: روتر (RB5009/RB4011/CCR) در لبه + CRS برای سوئیچینگ.</p>
 <!-- /wp:paragraph -->
-
-<!-- wp:image -->
-<figure class="wp-block-image size-large"><img src="assets/switch-decision.svg" alt="نمودار تصمیم سوئیچ/روترسوئیچ میکروتیک — شماتیک تألیفی" width="640" height="420" loading="lazy"/><figcaption>نمودار تصمیم سوئیچ/روترسوئیچ میکروتیک — شماتیک تألیفی — تصویر شماتیک تألیفی (عکس رسمی: mikrotik.com)</figcaption></figure>
-<!-- /wp:image -->
 
 <!-- wp:heading -->
 <h2 class="wp-block-heading" id="table">جدول مقایسهٔ مدل‌ها</h2>
@@ -300,19 +296,19 @@
 <!-- /wp:table -->
 
 <!-- wp:image -->
-<figure class="wp-block-image size-large"><img src="assets/schematic-css610-8g-2s-in.svg" alt="CSS610-8G-2S+IN" width="420" height="120" loading="lazy"/><figcaption>CSS610-8G-2S+IN — تصویر شماتیک تألیفی (عکس رسمی: mikrotik.com)</figcaption></figure>
+<figure class="wp-block-image size-large"><img src="assets/schematic-css610-8g-2s-in.svg" alt="CSS610-8G-2S+IN — شماتیک تألیفی" width="420" height="120" loading="lazy"/><figcaption>CSS610-8G-2S+IN — تصویر شماتیک تألیفی (عکس رسمی: mikrotik.com)</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:image -->
-<figure class="wp-block-image size-large"><img src="assets/schematic-crs112-8p-4g-in.svg" alt="CRS112-8P-4G-IN" width="420" height="120" loading="lazy"/><figcaption>CRS112-8P-4G-IN — تصویر شماتیک تألیفی (عکس رسمی: mikrotik.com)</figcaption></figure>
+<figure class="wp-block-image size-large"><img src="assets/schematic-crs112-8p-4g-in.svg" alt="CRS112-8P-4G-IN — شماتیک تألیفی" width="420" height="120" loading="lazy"/><figcaption>CRS112-8P-4G-IN — تصویر شماتیک تألیفی (عکس رسمی: mikrotik.com)</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:image -->
-<figure class="wp-block-image size-large"><img src="assets/schematic-crs309-1g-8s-in.svg" alt="CRS309-1G-8S+IN" width="420" height="120" loading="lazy"/><figcaption>CRS309-1G-8S+IN — تصویر شماتیک تألیفی (عکس رسمی: mikrotik.com)</figcaption></figure>
+<figure class="wp-block-image size-large"><img src="assets/schematic-crs309-1g-8s-in.svg" alt="CRS309-1G-8S+IN — شماتیک تألیفی" width="420" height="120" loading="lazy"/><figcaption>CRS309-1G-8S+IN — تصویر شماتیک تألیفی (عکس رسمی: mikrotik.com)</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:image -->
-<figure class="wp-block-image size-large"><img src="assets/schematic-crs326-24g-2s-rm.svg" alt="CRS326-24G-2S+RM" width="420" height="120" loading="lazy"/><figcaption>CRS326-24G-2S+RM — تصویر شماتیک تألیفی (عکس رسمی: mikrotik.com)</figcaption></figure>
+<figure class="wp-block-image size-large"><img src="assets/schematic-crs326-24g-2s-rm.svg" alt="CRS326-24G-2S+RM — شماتیک تألیفی" width="420" height="120" loading="lazy"/><figcaption>CRS326-24G-2S+RM — تصویر شماتیک تألیفی (عکس رسمی: mikrotik.com)</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -372,6 +368,38 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
+<h2 class="wp-block-heading" id="buy-checklist">چک‌لیست قبل از خرید سوئیچ</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>1. SKU دقیق و revision را بنویسید (CRS112 با 88E6095/6390 دو رفتار متفاوت دارد).</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>2. OS را از سند مدل تأیید کنید: SwOS فقط، SwOS Lite فقط، یا RouterOS (+dual-boot)؟</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>3. اگر routing بین VLAN لازم دارید، L3HW آن مدل را در سند رسمی ببینید — برچسب CRS کافی نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>4. PoE: استاندارد (af/at/پسیو)، بودجهٔ کل وath consumption هر دستگاه را جمع بزنید؛ PSU پیوست را با max مصرف مقایسه کنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>5. ماژول نوری: استاندارد و تک/دو-موج بودن SFP/SFP+ را با سند چک کنید؛ شکل قفسه ملاک نیست.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>6. صدای فن و محل نصب (rack/desktop/outdoor) را از مشخصات ببینید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>7. برای routing واقعی بین VLANها با فایروال دقیق، بودجهٔ روتر جدا (RB5009/CCR) را در نظر بگیرید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
 <h2 class="wp-block-heading" id="faq">پرسش‌های پرتکرار</h2>
 <!-- /wp:heading -->
 
@@ -380,10 +408,6 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<!-- wp:image -->
-<figure class="wp-block-image size-large"><img src="assets/schematic-crs326-24g-2s-rm.svg" alt="CRS326-24G-2S+RM" width="420" height="120" loading="lazy"/><figcaption>CRS326-24G-2S+RM — تصویر شماتیک تألیفی (عکس رسمی: mikrotik.com)</figcaption></figure>
-<!-- /wp:image -->
-
 <p><strong>CRS326-24G-2S+RM برای core کافی است؟</strong> برای distribution/access بله؛ برای core با ترافیک 40G، CRS326-24S+2Q+RM منطقی‌تر است.</p>
 <!-- /wp:paragraph -->
 
