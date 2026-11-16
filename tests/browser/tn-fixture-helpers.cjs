@@ -219,6 +219,19 @@ async function runJourney(spec) {
     /* Disposable app/DB identity binding is REQUIRED, not optional. */
     return { status: 'ABORTED_BAD_SPEC', effectLog: log };
   }
+  /* FIXTURE-BOUND CONTRACT (MANAGER_REVIEW 6913955570): when cleanup_binding is present
+   * the two-channel identity gate is REQUIRED — an omitted/nonfunction readBrowserMarker
+   * must ABORT here, BEFORE openBrowser, instead of silently bypassing identity. */
+  const fixtureBound = !!expected.cleanup_binding;
+  if (fixtureBound && typeof effects.readBrowserMarker !== 'function') {
+    return {
+      status: 'ABORTED_BAD_SPEC',
+      identity: { ok: false, failed: ['readBrowserMarker_required_for_fixture_bound_journey'] },
+      cleanup: { requested: 0, deleted: [], delete_failed_ids: [], skipped_unowned: [], post_read_owned_remaining: [], error: null, note: 'fixture-bound journey without a marker reader — zero effects' },
+      operationError: null, closeError: null, operationResult: null,
+      effectLog: log,
+    };
+  }
   /* 1. read-only preflight — before ANY mutation; identity must match the expected fixture */
   const probes = await traced('preflightProbes', effects.preflightProbes)();
   const verdict = evaluatePreflight(probes, expected);

@@ -654,6 +654,47 @@ t('REG adapter negatives: thrown read / navigation throw / mismatch => BLOCKED w
   }
 });
 
+/* MANAGER_REVIEW 6913955570: missing callback with cleanup_binding must NOT bypass identity */
+t('REG missing-callback: fixture-bound journey without readBrowserMarker => ABORTED_BAD_SPEC before ANY effect', async () => {
+  const calls = [];
+  const res = await H.runJourney({
+    marker: GOOD, expectedFixture: {
+      home_url: FIXTURE_HOME, db_name: 'tehnetux',
+      cleanup_binding: { fixture_marker_name: 'tn_fixture_run_owner', fixture_marker_value: 'TN-FIXTURE-OWNED-001' },
+    },
+    effects: { // NOTE: readBrowserMarker deliberately ABSENT
+      preflightProbes: async () => Object.assign({}, PERFECT),
+      openBrowser: async () => { calls.push('openBrowser'); return { b: 1 }; },
+      closeBrowser: async () => { calls.push('closeBrowser'); },
+      findOwnedRecords: async () => { calls.push('findOwnedRecords'); return []; },
+      deleteOwnedRecords: async () => { calls.push('deleteOwnedRecords'); return { deleted: [], skipped: [], failed: [] }; },
+      submitForm: async () => { calls.push('submitForm'); },
+    },
+    operation: async ctx => { await ctx.submitForm({}); },
+  });
+  assert.equal(res.status, 'ABORTED_BAD_SPEC');
+  assert.ok(res.identity.failed.includes('readBrowserMarker_required_for_fixture_bound_journey'));
+  assert.deepEqual(calls, [], 'zero effects — not even openBrowser');
+  assert.equal(res.cleanup.requested, 0);
+});
+t('REG legacy preserved: journey WITHOUT cleanup_binding still runs (non-fixture mode unchanged)', async () => {
+  const calls = [];
+  const res = await H.runJourney({
+    marker: GOOD, expectedFixture: { home_url: FIXTURE_HOME, db_name: 'tehnetux' }, // no cleanup_binding
+    effects: {
+      preflightProbes: async () => Object.assign({}, PERFECT),
+      openBrowser: async () => { calls.push('openBrowser'); return { b: 1 }; },
+      closeBrowser: async () => { calls.push('closeBrowser'); },
+      findOwnedRecords: async () => { calls.push('findOwnedRecords'); return []; },
+      deleteOwnedRecords: async () => { calls.push('deleteOwnedRecords'); return { deleted: [], skipped: [], failed: [] }; },
+      submitForm: async () => { calls.push('submitForm'); },
+    },
+    operation: async ctx => { await ctx.submitForm({}); },
+  });
+  assert.equal(res.status, 'PASSED');
+  assert.ok(calls.includes('submitForm'), 'legacy non-fixture behavior unchanged');
+});
+
 /* --- runner --- */
 (async () => {
   let fail = 0;
