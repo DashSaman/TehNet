@@ -1,29 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="660" viewBox="0 0 960 660">
-<title>نمودار حلقهٔ مانیتورینگ و نگهداری درس N2</title>
-<desc>حلقهٔ چهارمرحله‌ای مانیتورینگ: متریک‌های پایه شامل دسترسی، منابع، دما، خطای پورت و فضای pool؛ آستانه‌های هشدار که پیشنهاد شروع هستند و با داده واقعی کالیبره می‌شوند؛ هشدار با Netwatch probe و ثبت در لاگ؛ و اقدام با چک‌لیست هفتگی ماهانه و فصلی همراه تست بازیابی. انتهای حلقه به متریک‌ها برمی‌گردد. شاخهٔ جدا نشان می‌دهد هشدار بدون اقدام بی‌اثر است. این نمودار مفهومی و تألیفی TehNet است.</desc>
-<rect x="200" y="90" width="560" height="76" rx="8" fill="#fafafa" stroke="#1e88e5" stroke-width="2"/>
-<text x="480" y="116" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#1e88e5" font-weight="bold">متریک‌ها</text>
-<text x="480" y="142" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#37474f" font-weight="normal">دسترسی · منابع · دما · خطای پورت · pool</text>
-<line x1="480" y1="166" x2="480" y2="208" stroke="#37474f" stroke-width="3"/>
-<rect x="200" y="208" width="560" height="76" rx="8" fill="#fafafa" stroke="#6a1b9a" stroke-width="2"/>
-<text x="480" y="234" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#6a1b9a" font-weight="bold">آستانه‌ها</text>
-<text x="480" y="260" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#37474f" font-weight="normal">پیشنهاد شروع — کالیبره با دادهٔ واقعی</text>
-<line x1="480" y1="284" x2="480" y2="326" stroke="#37474f" stroke-width="3"/>
-<rect x="200" y="326" width="560" height="76" rx="8" fill="#fafafa" stroke="#d32f2f" stroke-width="2"/>
-<text x="480" y="352" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#d32f2f" font-weight="bold">هشدار</text>
-<text x="480" y="378" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#37474f" font-weight="normal">Netwatch probe + لاگ TN-N2</text>
-<line x1="480" y1="402" x2="480" y2="444" stroke="#37474f" stroke-width="3"/>
-<rect x="200" y="444" width="560" height="76" rx="8" fill="#fafafa" stroke="#43a047" stroke-width="2"/>
-<text x="480" y="470" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#43a047" font-weight="bold">اقدام و نگهداری</text>
-<text x="480" y="496" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#37474f" font-weight="normal">چک‌لیست هفتگی/ماهانه/فصلی + تست بازیابی</text>
-<line x1="760" y1="490" x2="830" y2="490" stroke="#43a047" stroke-width="3"/>
-<line x1="830" y1="490" x2="830" y2="128" stroke="#43a047" stroke-width="3"/>
-<line x1="830" y1="128" x2="760" y2="128" stroke="#43a047" stroke-width="3"/>
-<text x="845" y="310" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#2e7d32" font-weight="bold">بازبینی دوره‌ای</text>
-<rect x="40" y="300" width="120" height="90" rx="8" fill="#fdecea" stroke="#d32f2f" stroke-width="2"/>
-<text x="100" y="330" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#d32f2f" font-weight="bold">هشدار بدون اقدام</text>
-<text x="100" y="352" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#d32f2f" font-weight="normal">= بی‌اثر</text>
-<line x1="200" y1="428" x2="160" y2="390" stroke="#d32f2f" stroke-width="2" stroke-dasharray="5,4"/>
-<text x="480" y="633" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#78909c" font-weight="normal">نمودار مفهومی تألیفی TehNet — نه عکس واقعی — آستانه‌ها «پیشنهاد شروع»؛ اجرا NOT_RUN</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560">
+<title>نمودار رک و کابل‌کشی درس N2 با چیدمان و برچسب‌گذاری</title>
+<desc>رک دوازده یونیت با چیدمان از بالا به پایین: patch panel، فضای خالی، سوئیچ CRS326، فضای تهویه، روتر hEX، و فضای رشد. کابل‌های دیواری از سقف یا دیوار به patch panel می‌رسند و با patch cable کوتاه به سوئیچ وصل می‌شوند. الگوی برچسب‌گذاری شامل طبقه اتاق و شماره پورت است. کابل شبکه باید حداقل سی سانتی‌متر از کابل برق فاصله داشته باشد. این نمودار مفهومی و تألیفی TehNet است.</desc>
+<rect x="200" y="60" width="300" height="420" rx="8" fill="#fafafa" stroke="#37474f" stroke-width="3"/>
+<text x="350" y="88" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#37474f" font-weight="bold">رک ۱۲U (wall-mount)</text>
+<rect x="100" y="62" width="300" height="38" rx="8" fill="#e3f2fd" stroke="#1e88e5" stroke-width="2"/>
+<text x="250" y="85" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#37474f" font-weight="normal">U1: Patch Panel 24P Cat6</text>
+<rect x="100" y="104" width="300" height="38" rx="8" fill="#f5f5f5" stroke="#90a4ae" stroke-width="2"/>
+<text x="250" y="127" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#37474f" font-weight="normal">U2: فضای خالی</text>
+<rect x="100" y="146" width="300" height="38" rx="8" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
+<text x="250" y="169" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#37474f" font-weight="normal">U3: CRS326-24G-2S+RM</text>
+<rect x="100" y="188" width="300" height="38" rx="8" fill="#f5f5f5" stroke="#90a4ae" stroke-width="2"/>
+<text x="250" y="211" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#37474f" font-weight="normal">U4: فضای خالی (تهویه)</text>
+<rect x="100" y="230" width="300" height="38" rx="8" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
+<text x="250" y="253" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#37474f" font-weight="normal">U5: hEX (RB750Gr3)</text>
+<line x1="250" y1="100" x2="250" y2="146" stroke="#43a047" stroke-width="3"/>
+<text x="262" y="126" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="8" text-anchor="middle" fill="#2e7d32" font-weight="normal">patch cable 0.5m</text>
+<line x1="480" y1="165" x2="560" y2="165" stroke="#fb8c00" stroke-width="3"/>
+<text x="575" y="158" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#e65100" font-weight="normal">کابل دیواری Cat6</text>
+<text x="575" y="172" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#78909c" font-weight="normal">از سقف/دیوار</text>
+<rect x="520" y="350" width="380" height="130" rx="8" fill="#e3f2fd" stroke="#1e88e5" stroke-width="2"/>
+<text x="710" y="374" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0d47a1" font-weight="bold">الگوی برچسب‌گذاری</text>
+<text x="710" y="398" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="start" fill="#37474f" font-weight="normal">کابل دیواری: طبقه-اتاق-پورت (A-101-P01)</text>
+<text x="710" y="414" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="start" fill="#37474f" font-weight="normal">پورت سوئیچ: SW1:ether1</text>
+<text x="710" y="430" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="start" fill="#37474f" font-weight="normal">پورت patch panel: PP1:P01</text>
+<text x="710" y="446" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="start" fill="#37474f" font-weight="normal">رزرو/سایر: R-CCTV-01</text>
+<rect x="60" y="380" width="380" height="60" rx="8" fill="#fdecea" stroke="#d32f2f" stroke-width="2"/>
+<text x="250" y="404" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#d32f2f" font-weight="bold">حداقل 30cm فاصله از کابل برق</text>
+<text x="250" y="424" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#8d6e63" font-weight="normal">(تداخل الکترومغناطیسی)</text>
+<rect x="60" y="450" width="840" height="44" rx="8" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
+<text x="480" y="476" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#2e7d32" font-weight="bold">Cat6: حداکثر ۱۰۰ متر کل مسیر (patch panel تا کاربر شامل patch cable)</text>
+<text x="480" y="533" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#78909c" font-weight="normal">نمودار مفهومی تألیفی TehNet — نه عکس واقعی — سناریو فرضی؛ اجرا NOT_RUN</text>
 </svg>

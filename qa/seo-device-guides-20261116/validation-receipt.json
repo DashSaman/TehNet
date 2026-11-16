@@ -3,13 +3,13 @@
  "validator": "validate-seo-guides.cjs rev8 (rev7 + S2 tutorial candidate)",
  "command": "node validate-seo-guides.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-16T22:23:05Z",
- "finished_utc": "2026-11-16T22:23:06Z",
- "control_head": "2da2cc7e5c265b5edcb3a35ace88a10019142ca2",
+ "started_utc": "2026-11-16T22:28:23Z",
+ "finished_utc": "2026-11-16T22:28:23Z",
+ "control_head": "5ee120a9618d4a52e36aad75ce94fe09883e8f63",
  "exit": 0,
  "good_candidate": {
   "ok": true,
-  "checks": 142,
+  "checks": 146,
   "failed": 0
  },
  "injected_negatives": [
@@ -136,6 +136,10 @@
   "tutorials/s6-psu-power.gutenberg.html": "976a0c5214a20cfb8898f271a978c7ebc52991ce04d1b41134ed0ce57f44163c",
   "tutorials/s5-loop-rstp-lacp.fa.md": "2667bdb9449dac0d1c3afb096eabe867b602d47a695e5d7de7400ca6009aa12a",
   "tutorials/s5-loop-rstp-lacp.gutenberg.html": "55e05da6276515441a8d0c8e192c8767008dc044005294cc96a1f5b1c95a8568",
+  "tutorials/s6-nas-server-upgrade.fa.md": "43ff752dde29a54a8353afd7989dc494ae517b76a8f93a147819953ab05f0c84",
+  "tutorials/s6-nas-server-upgrade.gutenberg.html": "bb439d914e68280a0c572c207274d0697c4b0332a72a6c9b29c77b1cc0eac369",
+  "tutorials/n2-rack-cable.fa.md": "901b575c1df4ced51a53435a5b14d85c983e3cbbd15a891dfaf5e0b00a3a5728",
+  "tutorials/n2-rack-cable.gutenberg.html": "dbbb77627bde73f6ea5cc3d4288264aa7f1f00696a4e107c8d23838e002d06df",
   "tutorials/n1-office-design.fa.md": "10035f348e16082bf5d2c10b6b423ebd2b9c9fc9f050fb5cd999022ee807f635",
   "tutorials/n1-office-design.gutenberg.html": "41c820dd57e0f639fd3618124e35512c3d580d1ca22403a62be55bcd0b74e519",
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",

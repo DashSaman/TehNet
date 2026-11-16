@@ -786,8 +786,51 @@ n1c = svg(960, 690,
     'شش گام طراحی: نیازسنجی با جدول تقاضا، توپولوژی ستاره‌ای با سوئیچ مرکز، نقشه پورت به پورت، آدرس‌دهی و VLAN، انتخاب تجهیز با PoE، و مستندسازی با آزمون پذیرش. هشدار رشد بیست‌وچهار ماهه در بالای نمودار آمده است. این نمودار مفهومی و تألیفی TehNet است.',
     chr(10).join(b))
 
+
+# ---------------- N2 rack/cable ----------------
+b = []
+# rack outline
+b.append(rect(200, 60, 300, 420, '#fafafa', '#37474f', 3))
+b.append(text(350, 88, 'رک ۱۲U (wall-mount)', 12, 'middle', '#37474f', 'bold'))
+# rack units from top
+rack_units = [
+    ('U1', 'Patch Panel 24P Cat6', 100, 62, 300, 38, '#e3f2fd', '#1e88e5'),
+    ('U2', 'فضای خالی', 100, 104, 300, 38, '#f5f5f5', '#90a4ae'),
+    ('U3', 'CRS326-24G-2S+RM', 100, 146, 300, 38, '#e8f5e9', '#43a047'),
+    ('U4', 'فضای خالی (تهویه)', 100, 188, 300, 38, '#f5f5f5', '#90a4ae'),
+    ('U5', 'hEX (RB750Gr3)', 100, 230, 300, 38, '#e8f5e9', '#43a047'),
+]
+for u, t, x, y, w, h, fill, stroke in rack_units:
+    b.append(rect(x, y, w, h, fill, stroke, 2))
+    b.append(text(x + w // 2, y + h // 2 + 4, u + ': ' + t, 9, 'middle', '#37474f'))
+# cable routing arrows
+b.append(line(250, 100, 250, 146, '#43a047', 3))
+b.append(text(262, 126, 'patch cable 0.5m', 8, 'middle', '#2e7d32'))
+b.append(line(480, 165, 560, 165, '#fb8c00', 3))
+b.append(text(575, 158, 'کابل دیواری Cat6', 9, 'middle', '#e65100'))
+b.append(text(575, 172, 'از سقف/دیوار', 9, 'middle', '#78909c'))
+# labeling example
+b.append(rect(520, 350, 380, 130, '#e3f2fd', '#1e88e5', 2))
+b.append(text(710, 374, 'الگوی برچسب‌گذاری', 11, 'middle', '#0d47a1', 'bold'))
+labels = ['کابل دیواری: طبقه-اتاق-پورت (A-101-P01)', 'پورت سوئیچ: SW1:ether1', 'پورت patch panel: PP1:P01',
+          'رزرو/سایر: R-CCTV-01']
+for li, l in enumerate(labels):
+    b.append(text(710, 398 + li * 16, l, 9, 'start', '#37474f'))
+# cable separation warning
+b.append(rect(60, 380, 380, 60, '#fdecea', '#d32f2f', 2))
+b.append(text(250, 404, 'حداقل 30cm فاصله از کابل برق', 10, 'middle', '#d32f2f', 'bold'))
+b.append(text(250, 424, '(تداخل الکترومغناطیسی)', 9, 'middle', '#8d6e63'))
+# length rule
+b.append(rect(60, 450, 840, 44, '#e8f5e9', '#43a047', 2))
+b.append(text(480, 476, 'Cat6: حداکثر ۱۰۰ متر کل مسیر (patch panel تا کاربر شامل patch cable)', 11, 'middle', '#2e7d32', 'bold'))
+b.append(text(480, 533, 'نمودار مفهومی تألیفی TehNet — نه عکس واقعی — سناریو فرضی؛ اجرا NOT_RUN', 10, 'middle', '#78909c'))
+n2 = svg(960, 560,
+    'نمودار رک و کابل‌کشی درس N2 با چیدمان و برچسب‌گذاری',
+    'رک دوازده یونیت با چیدمان از بالا به پایین: patch panel، فضای خالی، سوئیچ CRS326، فضای تهویه، روتر hEX، و فضای رشد. کابل‌های دیواری از سقف یا دیوار به patch panel می‌رسند و با patch cable کوتاه به سوئیچ وصل می‌شوند. الگوی برچسب‌گذاری شامل طبقه اتاق و شماره پورت است. کابل شبکه باید حداقل سی سانتی‌متر از کابل برق فاصله داشته باشد. این نمودار مفهومی و تألیفی TehNet است.',
+    chr(10).join(b))
+
 os.makedirs(OUT, exist_ok=True)
-for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4), ('tutorial-m5-vpn-architecture.svg', m5), ('tutorial-m6-dual-wan-failover.svg', m6), ('tutorial-s5-uplink-trunk.svg', s5), ('tutorial-s6-psu-power.svg', s6), ('tutorial-s5-loop-rstp-lacp.svg', s5c), ('tutorial-s6-nas-upgrade.svg', s6c), ('tutorial-n1-office-design.svg', n1c)):
+for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4), ('tutorial-m5-vpn-architecture.svg', m5), ('tutorial-m6-dual-wan-failover.svg', m6), ('tutorial-s5-uplink-trunk.svg', s5), ('tutorial-s6-psu-power.svg', s6), ('tutorial-s5-loop-rstp-lacp.svg', s5c), ('tutorial-s6-nas-upgrade.svg', s6c), ('tutorial-n1-office-design.svg', n1c), ('tutorial-n2-rack-cable.svg', n2)):
     p = os.path.join(OUT, name)
     with io.open(p, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)

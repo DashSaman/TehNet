@@ -136,6 +136,13 @@
    "per_model_images": 0
   },
   {
+   "md": "../tutorials/n2-rack-cable.fa.md",
+   "html": "../tutorials/n2-rack-cable.gutenberg.html",
+   "type": "tutorial",
+   "bytes": 17222,
+   "per_model_images": 0
+  },
+  {
    "md": "../tutorials/n1-office-design.fa.md",
    "html": "../tutorials/n1-office-design.gutenberg.html",
    "type": "tutorial",
