@@ -9,6 +9,10 @@ $tn_logo = file_exists(get_theme_file_path('assets/img/tehnet-logo.jpg'));
     <meta name="theme-color" content="#f6f8fc">
     <meta name="color-scheme" content="dark light">
     <script>(function(){document.documentElement.classList.add('tn-js');try{var t=localStorage.getItem('tn-theme');document.documentElement.dataset.theme=t==='dark'?'dark':'light';}catch(e){document.documentElement.dataset.theme='light';}})();</script>
+    <!-- favicon: own logo (TN-FAVICON-20261116, READY_FOR_REVIEW / NOT_DEPLOYED) -->
+    <link rel="icon" href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/favicon.jpg" type="image/jpeg" sizes="900x900">
+    <!-- fallback for UAs without SVG/jpeg icon support: WordPress Site Icon (Settings > General) — read-only for this session -->
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
