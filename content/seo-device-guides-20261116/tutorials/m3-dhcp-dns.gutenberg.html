@@ -46,12 +46,6 @@
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <th>توضیح</th>
 <!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>روتر</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>hEX (RB750Gr3)، RouterOS v7.16+</td>
@@ -62,7 +56,13 @@
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>`bridge` با 192.168.88.1/24</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>gateway کلاینت‌ها؛ همان interface که DHCP server به آن گره می‌خورد</td>
+<td>gateway کلاینت‌ها؛ همان interface که DHCP server کارخانه به آن گره خورده</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>DHCP موجود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>server کارخانه (`defconf`) + pool پیش‌فرض (`default-dhcp`، رنج کارخانه 10-254)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>این درس آبجکت‌های <strong>موجود</strong> را بازرسی و به‌روز می‌کند — سرور دوم روی همان bridge ساخته نمی‌شود (سند رسمی: یک سرور مستقیم برای کلاینت‌های هر interface)</td>
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>WAN</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
@@ -78,9 +78,9 @@
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>کلاینت «غیرمورداعتماد»</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>همان لپ‌تاپ با IP دستی 10.9.9.9/24</td>
+<td>همان لپ‌تاپ با IP دستی 10.9.9.9/24 و gateway=192.168.88.1</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>فقط برای تست منفی DNS</td>
+<td>فقط برای تست منفی DNS — فیکسچر کامل در گام ۴</td>
 <!-- /wp:table-cell --></tr></tbody></table>
 <!-- /wp:table -->
 
@@ -96,12 +96,6 @@
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <th>نحوهٔ تخصیص</th>
 <!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>روتر (gateway/DNS)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>192.168.88.1</td>
@@ -112,7 +106,7 @@
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>192.168.88.10</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td><strong>lease رزروی</strong> مدیریت‌شدهٔ DHCP (داخل pool نیست؛ سرور آن را به دیگری نمی‌دهد)</td>
+<td><strong>lease رزروی</strong> مدیریت‌شدهٔ DHCP (خارج از pool جدید؛ سرور آن را به دیگری نمی‌دهد)</td>
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>Printer</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
@@ -126,26 +120,26 @@
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>خارج از pool؛ تخصیص دستی روی دستگاه</td>
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
-<td>pool دینامیک</td>
+<td>pool دینامیک (پس از به‌روزرسانی)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>192.168.88.20-250</td>
+<td>192.168.88.20-254</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>DHCP</td>
+<td>همان pool کارخانه با رنج بازنگری‌شده</td>
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
-<td>خودکار انتهای LAN</td>
+<td>subnet تست منفی (موقت)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>192.168.88.254</td>
+<td>10.9.9.9/24، gateway=192.168.88.1</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>آخرین آدرس pool</td>
+<td>کلاینت دستی + مسیر برگشت موقت روی روتر (بعد از تست حذف می‌شود)</td>
 <!-- /wp:table-cell --></tr></tbody></table>
 <!-- /wp:table -->
 
 <!-- wp:image -->
-<figure class="wp-block-image size-large"><img src="../assets/tutorial-m3-dhcp-dns-flow.svg" alt="نمودار جریان DHCP و DNS درس M3 — کلاینت، روتر و مرز مورداعتماد (تصویر مفهومی تألیفی)" width="640" height="360" loading="lazy"/><figcaption>نمودار جریان DHCP و DNS درس M3 — کلاینت، روتر و مرز مورداعتماد (تصویر مفهومی تألیفی)</figcaption></figure>
+<figure class="wp-block-image size-large"><img src="../assets/tutorial-m3-dhcp-dns-flow.svg" alt="نمودار جریان DHCP و DNS درس M3 — کلاینت، روتر و مرز مورداعتماد (تصویر مفهومی تألیفی)" width="900" loading="lazy"/><figcaption>نمودار جریان DHCP و DNS درس M3 — کلاینت، روتر و مرز مورداعتماد (تصویر مفهومی تألیفی)</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
-<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> سمت راست، لپ‌تاپ کلاینت (DHCP گیرنده). وسط، روتر hEX با دو بلوک داخلی: «DHCP Server (گره‌خورده به bridge، pool 20-250، network با gateway/DNS)» و «DNS Cache + static entries (nas.lan → 192.168.88.10)». سمت چپ، اینترنت/forwardکنندهٔ بالادستی. چهار فلش توالی: (1) Discover از کلاینت، (2) Offer با آدرس+gateway 192.168.88.1+DNS 192.168.88.1، (3) پرس‌وجوی نام کلاینت به 192.168.88.1 روی پورت 53، (4) پاسخ از cache یا بالادستی. یک مرز خط‌چین قرمز «مرز مورداعتماد: فقط 192.168.88.0/24 روی پورت 53» دور بلوک روتر کشیده شده و یک کلاینت خاکستری بیرون مرز با پرس‌وجوی رد‌شده (×) نشان داده شده است.</p>
+<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> سمت راست، لپ‌تاپ کلاینت (DHCP گیرنده). وسط، روتر hEX با دو بلوک داخلی: «DHCP Server (گره‌خورده به bridge، pool 20-254، network با gateway/DNS)» و «DNS Cache + static entries (nas.lan → 192.168.88.10)». سمت چپ، اینترنت/forwardکنندهٔ بالادستی. چهار فلش توالی: (1) Discover از کلاینت، (2) Offer با آدرس+gateway 192.168.88.1+DNS 192.168.88.1، (3) پرس‌وجوی نام کلاینت به 192.168.88.1 روی پورت 53، (4) پاسخ از cache یا بالادستی. یک مرز خط‌چین قرمز «مرز مورداعتماد: 53 فقط از 192.168.88.0/24، با rule شمارنده‌دار» دور بلوک روتر کشیده شده و یک کلاینت خاکستری بیرون مرز نشان داده شده که پرس‌وجویش با rule شمارنده‌دار بسته می‌شود — و کنترل مثبت مسیر (disable موقت ruleها) سالم بودن رفت‌وبرگشت را جدا از فیلترینگ اثبات می‌کند.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
@@ -162,35 +156,41 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">گام ۱: DHCP — هر چهار جزء، گره‌خورده به bridge</h2>
+<h2 class="wp-block-heading">گام ۱: DHCP — بازرسی آبجکت‌های کارخانه و به‌روزرسانی همان‌ها</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>سند رسمی DHCP Server چهار شرط را فهرست می‌کند؛ در همین ترتیب:</p>
+<p>تنظیمات کارخانهٔ hEX روی همین `bridge` یک DHCP server آماده دارد (نام `defconf`، pool پیش‌فرض `default-dhcp` با رنج کارخانه 10-254، و network با gateway/DNS خود روتر). سند رسمی برای کلاینت‌های هر interface یک سرور مستقیم کافی می‌داند؛ پس <strong>server دوم ساخته نمی‌شود</strong> — اول بازرسی، بعد به‌روزرسانی همان آبجکت‌ها:</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code class="language-routeros"># (۱) IP روی interface سرویس‌دهنده — از قبل روی bridge هست؛ اگر ندارید:
-/ip address
-add address=192.168.88.1/24 interface=bridge comment="gateway+DNS lan"
+<pre class="wp-block-code"><code class="language-routeros"># (۰) بازرسی — خروجی واقعی محیط خودتان را ثبت کنید
+/ip dhcp-server print
+/ip pool print
+/ip dhcp-server network print
+/ip dns print
 
-# (۲) pool — آدرس خود روتر داخل pool نباشد (سند رسمی)
+# (۱) IP روی interface سرویس‌دهنده — از قبل روی bridge هست (سرور کارخانه به آن گره خورده)
+
+# (۲) pool — همان default-dhcp با رنج بازنگری‌شده؛ آدرس خود روتر داخل pool نیست
 /ip pool
-add name=lan-pool ranges=192.168.88.20-192.168.88.254
+set [find name="default-dhcp"] ranges=192.168.88.20-192.168.88.254 comment="TN-M3"
 
-# (۳) network — همان چیزی که به کلاینت می‌رسد؛ gateway/DNS همان bridge IP
+# (۳) network — همان ردیف؛ gateway/DNS همان آدرس پل که به کلاینت می‌رسد
 /ip dhcp-server network
-add address=192.168.88.0/24 gateway=192.168.88.1 dns-server=192.168.88.1
+set [find address="192.168.88.0/24"] gateway=192.168.88.1 dns-server=192.168.88.1 comment="TN-M3"
 
-# (۴) server — گره interface به pool؛ روی پلِ خالیِ بی‌IP کار نمی‌کند
-/ip dhcp-server
-add name=lan-dhcp interface=bridge address-pool=lan-pool lease-time=8h disabled=no
+# (۴) server — همان defconf گره‌خورده به bridge (اگر در بازرسی disabled بود، disabled=no کنید)
 
-# رزروهای مدیریت‌شده (تفاوت با IP دستی: جدول بعد از عیب‌یابی)
+# رزروهای مدیریت‌شده روی همان server کارخانه (تفاوت با IP دستی: جدول عیب‌یابی)
 /ip dhcp-server lease
-add address=192.168.88.10 mac-address=AA:BB:CC:DD:EE:10 server=lan-dhcp comment="NAS"
-add address=192.168.88.11 mac-address=AA:BB:CC:DD:EE:11 server=lan-dhcp comment="Printer"</code></pre>
+add address=192.168.88.10 mac-address=AA:BB:CC:DD:EE:10 server=defconf comment="NAS"
+add address=192.168.88.11 mac-address=AA:BB:CC:DD:EE:11 server=defconf comment="Printer"</code></pre>
 <!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>اگر نام آبجکت‌ها در بازرسی محیط شما متفاوت بود، `set` را با نام همان آبجکت‌های موجود بزنید — هیچ `add` جدیدی برای pool/server/network در این درس وجود ندارد.</p>
+<!-- /wp:paragraph -->
 
 <!-- wp:heading -->
 <h2 class="wp-block-heading">گام ۲: DNS — cache، forwarder و نام‌های داخلی</h2>
@@ -232,7 +232,7 @@ add name=router.lan address=192.168.88.1</code></pre>
 remove [find chain=input]
 add chain=input action=accept connection-state=established,related,untracked comment="TN-M3 est/rel"
 add chain=input action=drop connection-state=invalid comment="TN-M3 invalid"
-add chain=input action=accept protocol=icmp comment="TN-M3 ping/diag"
+add chain=input action=accept protocol=icmp src-address=192.168.88.0/24 comment="TN-M3 ping/diag فقط از subnet مورداعتماد"
 add chain=input action=accept protocol=udp dst-port=67 in-interface-list=LAN comment="TN-M3 DHCP"
 add chain=input action=accept protocol=udp dst-port=53 src-address=192.168.88.0/24 comment="TN-M3 DNS udp فقط مورداعتماد"
 add chain=input action=accept protocol=tcp dst-port=53 src-address=192.168.88.0/24 comment="TN-M3 DNS tcp فقط مورداعتماد"
@@ -240,6 +240,10 @@ add chain=input action=accept protocol=tcp dst-port=8291,22 src-address=192.168.
 add chain=input action=accept protocol=tcp dst-port=80,443 src-address=192.168.88.0/24 comment="TN-M3 webfig محلی"
 add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و هر منبع غیرمورداعتماد)"</code></pre>
 <!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>دقت همسان‌سازی: ICMP ورودی فقط از `192.168.88.0/24` پذیرفته می‌شود؛ پس ping کلاینت غیرمورداعتماد به خود روتر (تست ۸) به‌جا timeout می‌گیرد — به‌واسطهٔ rule محدود و default drop، نه نبود مسیر. و این آزمون منفی فقط در <strong>حالت ب</strong> معتبر است؛ در حالت الف، فایروال کارخانه منابع LAN را عبور می‌دهد و rule شمارنده‌دار وجود ندارد.</p>
+<!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
 <p>بعد از اعمال، شمارندهٔ rule آخر را ببینید:</p>
@@ -258,7 +262,44 @@ add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و �
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>تست سمت روتر (`:resolve`) فقط cache خود روتر را می‌سنجد و <strong>پذیرش سمت کلاینت نیست</strong> — پذیرش با کلاینت واقعی انجام می‌شود:</p>
+<p>تست سمت روتر (`:resolve`) فقط cache خود روتر را می‌سنجد و <strong>پذیرش سمت کلاینت نیست</strong> — پذیرش با کلاینت واقعی انجام می‌شود.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">فیکسچر تست منفی — مسیر رفت/برگشت واقعی + شاهد شمارنده</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>کلاینت منفی فقط با «تعویض subnet» لزوماً به روتر نمی‌رسد: بدون gateway، بسته اصلاً از دستگاه خارج نمی‌شود و timeout صرفاً یعنی بی‌مسیری — نه اثبات فایروال. فیکسچر کامل این درس:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>کلاینت منفی: لپ‌تاپ با IP دستی <strong>10.9.9.9/24 و gateway=192.168.88.1</strong> (روی همان لینک L2؛ ARP مستقیم جواب می‌دهد → مسیر رفت برقرار است).</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>مسیر برگشت (موقت، فقط این تست — تا حتی پاسخ فرضی هم بتواند برگردد):</li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros">/ip route
+add dst-address=10.9.9.0/24 gateway=bridge comment="TN-M3 مسیر برگشتِ فقط-تست — بعد از تست حذف شود"</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li><strong>کنترل مثبت مسیر</strong> (ردیف 6): دو rule «53 غیرمورداعتماد» را موقتاً disable کنید → `nslookup nas.lan 192.168.88.1` باید <strong>موفق</strong> شود (اثبات رفت‌وبرگشت سالم)؛ سپس enable کنید.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><strong>شاهد اصلی فیلترینگ</strong> (ردیف 7): با ruleها فعال، همان nslookup باید timeout بگیرد <strong>و</strong> شمارندهٔ دو rule «53 غیرمورداعتماد» در `/ip firewall filter print stats` افزایش یابد — یعنی بسته رسیده و rule بسته‌اش کرده؛ اگر timeout بود و شمارنده صفر ماند، مشکل مسیر است نه فایروال.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>مشاهدهٔ تکمیلی: `/tool sniffer quick port=53 interface=bridge` هنگام nslookup باید Query رسیده را نشان دهد (و پاسخی خارج نشود).</li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>جدول تست:</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:table -->
@@ -273,16 +314,6 @@ add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و �
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <th>نوع</th>
 <!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>1</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>لپ‌تاپ DHCP</td>
@@ -335,35 +366,54 @@ add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و �
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>6</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>لپ‌تاپ با IP دستی 10.9.9.9/24</td>
+<td>کلاینت منفی 10.9.9.9 (gw=192.168.88.1) + دو rule 53-drop موقتاً disable</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>`nslookup nas.lan 192.168.88.1`</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>هیچ پاسخی (timeout) + شمارندهٔ drop input بالا می‌رود</td>
+<td><strong>پاسخ موفق</strong> — اثبات مسیر رفت‌وبرگشت</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>منفی</td>
+<td>کنترل</td>
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>7</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>لپ‌تاپ با IP دستی 10.9.9.9/24</td>
+<td>همان کلاینت، ruleها enable</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>`ping 192.168.88.1`</td>
+<td>`nslookup nas.lan 192.168.88.1`</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>timeout (فقط در حالت ب)</td>
+<td>timeout <strong>و</strong> شمارندهٔ دو rule drop افزایش می‌یابد (بسته رسیده، rule بسته)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>منفی</td>
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>8</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>همان کلاینت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`ping 192.168.88.1`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>timeout — به‌واسطهٔ محدودیت ICMP به مورداعتماد (شاهد: رشد شمارندهٔ input default drop، نه صفر ماندن)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>منفی</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>9</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>سمت روتر</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>`:put [:resolve nas.lan]`</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>192.168.88.10 — فقط بررسی cache روتر؛ <strong>به‌جای تست 1-3 نیست</strong></td>
+<td>192.168.88.10 — فقط بررسی cache روتر؛ <strong>به‌جای تست 1-4 نیست</strong></td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>ابزار</td>
 <!-- /wp:table-cell --></tr></tbody></table>
 <!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>بعد از پایان تست‌ها، مسیر آزمایشی را حذف کنید:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros">/ip route
+remove [find comment="TN-M3 مسیر برگشتِ فقط-تست — بعد از تست حذف شود"]</code></pre>
+<!-- /wp:code -->
 
 <!-- wp:paragraph -->
 <p>بررسی‌های روتری برای عیب‌یابی:</p>
@@ -394,14 +444,6 @@ add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و �
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <th>راه‌حل</th>
 <!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>کلاینت IP نمی‌گیرد</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>server disabled یا invalid</td>
@@ -468,7 +510,7 @@ add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و �
 <ol class="wp-block-list"><!-- wp:list-item -->
 <li>کدام جزء از چهار جزء DHCP همان چیزی است که کلاینت به‌عنوان gateway/DNS می‌گیرد؟ — <strong>پاسخ موردانتظار:</strong> جزء (۳) `/ip dhcp-server network`؛ pool فقط مخزن آدرس است.</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
-<li>چرا `:put [:resolve nas.lan]` روی روتر «پذیرش» حساب نمی‌شود؟ — <strong>پاسخ موردانتظار:</strong> چون فقط مسیر cache خود روتر را می‌سنجد؛ پذیرش یعنی کلاینت واقعی با تنظیمات دریافتی DHCP به همان نتیجه برسد (تست 1-3).</li>
+<li>چرا `:put [:resolve nas.lan]` روی روتر «پذیرش» حساب نمی‌شود؟ — <strong>پاسخ موردانتظار:</strong> چون فقط مسیر cache خود روتر را می‌سنجد؛ پذیرش یعنی کلاینت واقعی با تنظیمات دریافتی DHCP به همان نتیجه برسد (تست‌های 1-4).</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
 <li>NAS آدرس 192.168.88.30 داخل pool به‌صورت دستی روی NIC گرفته؛ به‌جایش چه کنید؟ — <strong>پاسخ موردانتظار:</strong> یا lease رزروی همان MAC (سرور مالکیت را می‌شناسد) یا انتقال IP دستی به رنج رزرو 192.168.88.2-9؛ رهاکردن IP دستی داخل pool ریسک conflict دارد.</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
@@ -493,7 +535,9 @@ add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و �
 <!-- /wp:list-item --><!-- wp:list-item -->
 <li>[ ] مرز 53: حالت الف (پیش‌فرض) یا ب (src-restricted + default drop) — و تست منفی ثبت‌شده</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
-<li>[ ] تست‌های 1-5 مثبت و 6-7 منفی روی کلاینت واقعی اجرا و ثبت شده‌اند (اجرای این درس در نویسنده NOT_RUN است)</li>
+<li>[ ] تست‌های 1-5 مثبت، 6 کنترل مسیر و 7-8 منفی روی کلاینت واقعی اجرا و ثبت شده‌اند (شمارندهٔ ruleهای 53-drop ثبت شد؛ اجرای این درس در نویسنده NOT_RUN است)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] مسیر آزمایشی 10.9.9.0/24 بعد از تست حذف شده</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
 <li>[ ] پشتیبان قبل/بعد و Safe Mode تأیید شده</li>
 <!-- /wp:list-item -->
@@ -527,10 +571,6 @@ add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و �
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <th>مقصد</th>
 <!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>درس قبلی (پیش‌نیاز)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td><a href="/guides/mikrotik-vlan/">VLAN برای دفتر کوچک (M2)</a></td>

@@ -72,6 +72,8 @@ DVR یک دستگاه داخل **VLAN 20** با آدرس رزروی **192.168.20
 | مهمان (V40) → اینترنت | مجاز | forward accept به WAN |
 | مهمان (V40) → هر مقصد داخلی RFC1918 | غیرمجاز | forward drop |
 | مدیریت (WinBox/SSH/Web) از دفتر (V10) | مجاز | input accept از 192.168.10.0/24 |
+| تشخیص (ping به خود روتر) از دفتر (V10) | مجاز | input accept ICMP از 192.168.10.0/24 فقط |
+| تشخیص (ping به خود روتر) از VLANهای 20/30/40 | غیرمجاز | ICMP accept محدود است → input default drop (تست‌های 8 و 10 همین را انتظار دارند) |
 | مدیریت از VLANهای 20/30/40 یا WAN | غیرمجاز | input default drop |
 
 فرض‌های مبنا: تنظیمات کارخانهٔ hEX (کشف‌شده با reset)، بدون هیچ rule سفارشی قبلی؛ در ادامه هر دو زنجیرهٔ filter **کاملاً** با مجموعهٔ بستهٔ این درس جایگزین می‌شوند و NAT بازنویسی می‌شود. سوئیچ CRS112 با تنظیمات کارخانه شروع می‌شود. اگر روتر/سوئیچ شما ruleهای موجود دارد، این درس را روی آن اعمال نکنید — اول ادغام طراحی کنید.
@@ -114,27 +116,37 @@ add bridge=bridge1 vlan-ids=40 tagged=ether1            untagged=ether5
 
 `bridge1` در ردیف VLAN10 به‌عنوان تگ‌دار آمده تا interface مدیریتیِ روی پل به CPU سوئیچ دسترسی داشته باشد (رفتار سندشده). از RouterOS v7.16 به بعد این عضویت هنگام ساخت VLAN interface روی پلِ فیلترشونده خودکار می‌شود؛ برای نگارش‌های قدیمی‌تر، `bridge1` را دستی در ستون tagged نگه دارید — همین که در بالا آمده است.
 
-مدیریت سوئیچ داخل VLAN10:
+مدیریت سوئیچ — مسیر واقعی، در دو مرحله (قبل و بعد از فیلترینگ):
+
+قبل از فعال‌سازی `vlan-filtering`، پل هنوز PVID و جدول VLAN را اعمال نمی‌کند؛ فریم بی‌تگ لپ‌تاپ روی ACC-10 به interface تگ‌دار `sw-mgmt10` **نمی‌رسد** و تست WinBox به آن در این مرحله دروغین است. مسیر واقعی مدیریتِ این مرحله، یک IP بی‌تگ روی خود پل است:
 
 ```routeros
-/interface vlan
-add name=sw-mgmt10 vlan-id=10 interface=bridge1
+# مرحلهٔ الف — مدیریت موقتِ untagged روی خود پل (فقط تا قبل از فیلترینگ)
 /ip address
-add address=192.168.10.2/24 interface=sw-mgmt10
+add address=192.168.10.2/24 interface=bridge1 comment="mgmt موقت untagged — پس از فیلترینگ حذف شود"
 /ip route
 add dst-address=0.0.0.0/0 gateway=192.168.10.1
 ```
 
-تست واسط (قبل از فیلترینگ): از پورت ACC-10 (ether2) با لپ‌تاپ، WinBox به 192.168.10.2 باز کنید — باید جواب بدهد (ترافیک هنوز unfiltered است؛ این فقط مسیر مدیریتی را زودتر می‌سازد).
+کلاینت این مرحله: لپ‌تاپ روی ACC-10 با IP دستی **192.168.10.12/24** (DHCP هنوز تعریف نشده و آدرس .12 خارج از pool آیندهٔ 20-250 است). تست: WinBox به **192.168.10.2** باید باز شود.
 
-فقط در صورت موفقیت تست بالا:
+مسیرهای بازیابی اگر این تست شکست خورد یا دسترسی بعداً قطع شد: WinBox با **MAC address** از طریق Neighbor Discovery (لایهٔ ۲ — مستقل از مسیر IP)، ‏Safe Mode گام ۰، و فایل‌های backup/export همان گام.
+
+فقط در صورت موفقیت مرحلهٔ الف:
 
 ```routeros
+# مرحلهٔ ب — انتقال مدیریت به مسیر تگ‌دار VLAN10 و سپس فعال‌سازی فیلترینگ
+/ip address
+remove [find comment="mgmt موقت untagged — پس از فیلترینگ حذف شود"]
+/interface vlan
+add name=sw-mgmt10 vlan-id=10 interface=bridge1
+/ip address
+add address=192.168.10.2/24 interface=sw-mgmt10
 /interface bridge
 set bridge1 vlan-filtering=yes
 ```
 
-این گام عمداً آخرین گام سمت سوئیچ است — دقیقاً به همان ترتیبی که سند رسمی توصیه می‌کند.
+این گام عمداً آخرین گام سمت سوئیچ است — دقیقاً به همان ترتیبی که سند رسمی توصیه می‌کند. از این نقطه مسیر مدیریتی تگ‌دار است: فریم بی‌تگ لپ‌تاپ روی ACC-10 با `pvid=10` تگ می‌شود، تا `bridge1` (عضو تگ‌دار VLAN10 در جدول) می‌رسد و `sw-mgmt10` آن را می‌بیند؛ تست ۱۴ جدول پذیرش همین مسیر را می‌سنجد.
 
 ## گام ۲: سمت روتر — VLAN interfaceها و آدرس‌ها
 
@@ -202,6 +214,12 @@ add address=192.168.20.10 mac-address=AA:BB:CC:DD:EE:10 server=dhcp20 comment="D
 remove [find chain=srcnat]
 add chain=srcnat action=masquerade out-interface-list=WAN src-address=192.168.0.0/16 comment="TN-M2 NAT"
 
+# فهرست مقصدهای خصوصی RFC1918 — برای قواعد drop تلفن/مهمان (سیاست «هر مقصد داخلی»)
+/ip firewall address-list
+add list=TN-M2-private address=10.0.0.0/8 comment="TN-M2 RFC1918"
+add list=TN-M2-private address=172.16.0.0/12 comment="TN-M2 RFC1918"
+add list=TN-M2-private address=192.168.0.0/16 comment="TN-M2 RFC1918"
+
 # فایروال — جایگزینی کامل (پشتیبان در گام ۰ گرفته شده)
 /ip firewall filter
 remove [find]
@@ -209,7 +227,7 @@ remove [find]
 # ---- زنجیرهٔ input ----
 add chain=input action=accept connection-state=established,related,untracked comment="TN-M2 est/rel"
 add chain=input action=drop connection-state=invalid comment="TN-M2 invalid"
-add chain=input action=accept protocol=icmp comment="TN-M2 ping/diag"
+add chain=input action=accept protocol=icmp src-address=192.168.10.0/24 comment="TN-M2 ping/diag فقط از دفتر"
 add chain=input action=accept protocol=udp dst-port=67 in-interface-list=LAN comment="TN-M2 DHCP"
 add chain=input action=accept protocol=udp dst-port=53 in-interface-list=LAN comment="TN-M2 DNS udp (در M3 مشروط‌تر می‌شود)"
 add chain=input action=accept protocol=tcp dst-port=53 in-interface-list=LAN comment="TN-M2 DNS tcp (در M3 مشروط‌تر می‌شود)"
@@ -226,8 +244,8 @@ add chain=forward action=drop src-address=192.168.10.0/24 dst-address=192.168.20
 add chain=forward action=drop src-address=192.168.10.0/24 dst-address=192.168.30.0/24 comment="TN-M2 دفتر→تلفن ممنوع"
 add chain=forward action=drop src-address=192.168.10.0/24 dst-address=192.168.40.0/24 comment="TN-M2 دفتر→مهمان ممنوع"
 add chain=forward action=drop src-address=192.168.20.0/24 comment="TN-M2 دوربین→بیرون VLAN20 ممنوع (دسترسی DVR داخل همان VLAN و L2 است)"
-add chain=forward action=drop src-address=192.168.30.0/24 dst-address=192.168.0.0/16 comment="TN-M2 تلفن→داخلی ممنوع، اینترنت آزاد"
-add chain=forward action=drop src-address=192.168.40.0/24 dst-address=192.168.0.0/16 comment="TN-M2 مهمان→داخلی ممنوع، اینترنت آزاد"
+add chain=forward action=drop src-address=192.168.30.0/24 dst-address-list=TN-M2-private comment="TN-M2 تلفن→هر مقصد خصوصی (RFC1918) ممنوع، اینترنت آزاد"
+add chain=forward action=drop src-address=192.168.40.0/24 dst-address-list=TN-M2-private comment="TN-M2 مهمان→هر مقصد خصوصی (RFC1918) ممنوع، اینترنت آزاد"
 add chain=forward action=accept in-interface-list=LAN out-interface-list=WAN comment="TN-M2 LAN→اینترنت"
 add chain=forward action=drop comment="TN-M2 forward default drop"
 ```
@@ -235,6 +253,8 @@ add chain=forward action=drop comment="TN-M2 forward default drop"
 چند نکتهٔ صریح دربارهٔ همین مجموعه:
 
 - «دوربین فقط DVR» با یک rule واحد به‌شکل قدیمی (`dst-address=!192.168.10.0/24`) نوشته نشده — آن نگارش، کل subnet دفتر را مستثنا می‌کرد و هیچ host مشخصی برای DVR تعریف نمی‌کرد. اینجا DVR یک host رزروشدهٔ 192.168.20.10 است و دو rule جدا «اجازهٔ همان host» و «ممنوعیت بقیهٔ VLAN20» را دقیق جدا می‌کنند.
+- قواعد تلفن/مهمان با `dst-address-list=TN-M2-private` به **هر سه رنج RFC1918** (10/8، ‏172.16/12، ‏192.168/16) اعمال می‌شوند، نه فقط 192.168 — ادعای «هر مقصد خصوصی ممنوع» واقعاً اجرا می‌شود.
+- ICMP ورودی فقط از subnet دفتر مجاز است؛ بنابراین ping به خود روتر از تلفن/مهمان/دوربین در **INPUT** بسته می‌شود — همین چیزی است که تست‌های 8 و 10 انتظار timeout دارند (این بسته‌ها از زنجیرهٔ input می‌گذرند نه forward).
 - ترافیک مهمان هم به‌علاوهٔ RFC1918، با default drop انتهایی بسته می‌شود؛ یعنی «فقط اینترنت» به یک rule تکی وابسته نیست.
 - ruleها به ایندکس تکیه نمی‌کنند: ترتیب کامل از پیش اعلام شده و آخرین rule صریحاً بسته‌کننده است.
 

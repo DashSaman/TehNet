@@ -1,5 +1,5 @@
 'use strict';
-/* TN-SEO-DEVICE-GUIDES-20261116 — deterministic Gutenberg builder (rev3).
+/* TN-SEO-DEVICE-GUIDES-20261116 — deterministic Gutenberg builder (rev4).
  * Rebuilds both article HTML files AND the M2/M3 tutorial HTML files from their
  * .fa.md sources. No timestamps in output.
  * rev3 (TN-M2-M3-CORRECTIONS-20261116, manager 6923833096): fenced code blocks,
@@ -107,16 +107,22 @@ function mdToGutenberg(md, perModel) {
       continue;
     }
     flushQuote();
-    /* Markdown image line (rev3): ![alt](src) -> wp:image, src kept as written */
+    /* Markdown image line (rev3): ![alt](src) -> wp:image, src kept as written.
+     * rev4: width 900, no fixed height — preserves the 960-wide SVG aspect ratio
+     * and keeps small Persian labels readable at preview scale */
     const imgM = l.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
     if (imgM) {
       flushList(); flushTable();
-      out.push('<!-- wp:image -->\n<figure class="wp-block-image size-large"><img src="' + imgM[2] + '" alt="' + imgM[1] + '" width="640" height="360" loading="lazy"/><figcaption>' + imgM[1] + '</figcaption></figure>\n<!-- /wp:image -->');
+      out.push('<!-- wp:image -->\n<figure class="wp-block-image size-large"><img src="' + imgM[2] + '" alt="' + imgM[1] + '" width="900" loading="lazy"/><figcaption>' + imgM[1] + '</figcaption></figure>\n<!-- /wp:image -->');
       continue;
     }
     if (l.startsWith('|')) {
       if (!inTable) { flushList(); inTable = true; }
-      rows.push(l.replace(/^\|/, '').replace(/\|$/, '').split('|'));
+      const cells = l.replace(/^\|/, '').replace(/\|$/, '').split('|');
+      /* rev4 (render check): skip the Markdown table separator row (|---|---|) —
+       * previously it rendered as a visible junk data row in every table */
+      if (cells.length > 0 && cells.every(c => /^\s*:?-{2,}:?\s*$/.test(c))) continue;
+      rows.push(cells);
       continue;
     }
     flushTable();

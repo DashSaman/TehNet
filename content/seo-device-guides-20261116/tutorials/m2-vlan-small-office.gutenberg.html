@@ -52,14 +52,6 @@
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <th>توضیح</th>
 <!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>روتر (مسیریابی بین VLAN + فایروال + NAT)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>hEX (RB750Gr3)</td>
@@ -106,16 +98,6 @@
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <th>برچسب پورت</th>
 <!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>hEX</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>ether1</td>
@@ -226,18 +208,6 @@
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <th>رزرو ثابت</th>
 <!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>10</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>vlan10-office</td>
@@ -308,12 +278,6 @@
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <th>سازوکار اجرا</th>
 <!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>دفتر (V10) → اینترنت</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>مجاز</td>
@@ -386,6 +350,18 @@
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>input accept از 192.168.10.0/24</td>
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>تشخیص (ping به خود روتر) از دفتر (V10)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مجاز</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>input accept ICMP از 192.168.10.0/24 فقط</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>تشخیص (ping به خود روتر) از VLANهای 20/30/40</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>غیرمجاز</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ICMP accept محدود است → input default drop (تست‌های 8 و 10 همین را انتظار دارند)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>مدیریت از VLANهای 20/30/40 یا WAN</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>غیرمجاز</td>
@@ -399,7 +375,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:image -->
-<figure class="wp-block-image size-large"><img src="../assets/tutorial-m2-topology.svg" alt="نمودار توپولوژی درس M2 — روتر hEX و سوئیچ CRS112 با چهار VLAN (تصویر مفهومی تألیفی)" width="640" height="360" loading="lazy"/><figcaption>نمودار توپولوژی درس M2 — روتر hEX و سوئیچ CRS112 با چهار VLAN (تصویر مفهومی تألیفی)</figcaption></figure>
+<figure class="wp-block-image size-large"><img src="../assets/tutorial-m2-topology.svg" alt="نمودار توپولوژی درس M2 — روتر hEX و سوئیچ CRS112 با چهار VLAN (تصویر مفهومی تألیفی)" width="900" loading="lazy"/><figcaption>نمودار توپولوژی درس M2 — روتر hEX و سوئیچ CRS112 با چهار VLAN (تصویر مفهومی تألیفی)</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
@@ -449,33 +425,47 @@ add bridge=bridge1 vlan-ids=40 tagged=ether1            untagged=ether5</code></
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>مدیریت سوئیچ داخل VLAN10:</p>
+<p>مدیریت سوئیچ — مسیر واقعی، در دو مرحله (قبل و بعد از فیلترینگ):</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>قبل از فعال‌سازی `vlan-filtering`، پل هنوز PVID و جدول VLAN را اعمال نمی‌کند؛ فریم بی‌تگ لپ‌تاپ روی ACC-10 به interface تگ‌دار `sw-mgmt10` <strong>نمی‌رسد</strong> و تست WinBox به آن در این مرحله دروغین است. مسیر واقعی مدیریتِ این مرحله، یک IP بی‌تگ روی خود پل است:</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code class="language-routeros">/interface vlan
-add name=sw-mgmt10 vlan-id=10 interface=bridge1
+<pre class="wp-block-code"><code class="language-routeros"># مرحلهٔ الف — مدیریت موقتِ untagged روی خود پل (فقط تا قبل از فیلترینگ)
 /ip address
-add address=192.168.10.2/24 interface=sw-mgmt10
+add address=192.168.10.2/24 interface=bridge1 comment="mgmt موقت untagged — پس از فیلترینگ حذف شود"
 /ip route
 add dst-address=0.0.0.0/0 gateway=192.168.10.1</code></pre>
 <!-- /wp:code -->
 
 <!-- wp:paragraph -->
-<p>تست واسط (قبل از فیلترینگ): از پورت ACC-10 (ether2) با لپ‌تاپ، WinBox به 192.168.10.2 باز کنید — باید جواب بدهد (ترافیک هنوز unfiltered است؛ این فقط مسیر مدیریتی را زودتر می‌سازد).</p>
+<p>کلاینت این مرحله: لپ‌تاپ روی ACC-10 با IP دستی <strong>192.168.10.12/24</strong> (DHCP هنوز تعریف نشده و آدرس .12 خارج از pool آیندهٔ 20-250 است). تست: WinBox به <strong>192.168.10.2</strong> باید باز شود.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>فقط در صورت موفقیت تست بالا:</p>
+<p>مسیرهای بازیابی اگر این تست شکست خورد یا دسترسی بعداً قطع شد: WinBox با <strong>MAC address</strong> از طریق Neighbor Discovery (لایهٔ ۲ — مستقل از مسیر IP)، ‏Safe Mode گام ۰، و فایل‌های backup/export همان گام.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>فقط در صورت موفقیت مرحلهٔ الف:</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code class="language-routeros">/interface bridge
+<pre class="wp-block-code"><code class="language-routeros"># مرحلهٔ ب — انتقال مدیریت به مسیر تگ‌دار VLAN10 و سپس فعال‌سازی فیلترینگ
+/ip address
+remove [find comment="mgmt موقت untagged — پس از فیلترینگ حذف شود"]
+/interface vlan
+add name=sw-mgmt10 vlan-id=10 interface=bridge1
+/ip address
+add address=192.168.10.2/24 interface=sw-mgmt10
+/interface bridge
 set bridge1 vlan-filtering=yes</code></pre>
 <!-- /wp:code -->
 
 <!-- wp:paragraph -->
-<p>این گام عمداً آخرین گام سمت سوئیچ است — دقیقاً به همان ترتیبی که سند رسمی توصیه می‌کند.</p>
+<p>این گام عمداً آخرین گام سمت سوئیچ است — دقیقاً به همان ترتیبی که سند رسمی توصیه می‌کند. از این نقطه مسیر مدیریتی تگ‌دار است: فریم بی‌تگ لپ‌تاپ روی ACC-10 با `pvid=10` تگ می‌شود، تا `bridge1` (عضو تگ‌دار VLAN10 در جدول) می‌رسد و `sw-mgmt10` آن را می‌بیند؛ تست ۱۴ جدول پذیرش همین مسیر را می‌سنجد.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
@@ -556,6 +546,12 @@ add address=192.168.20.10 mac-address=AA:BB:CC:DD:EE:10 server=dhcp20 comment="D
 remove [find chain=srcnat]
 add chain=srcnat action=masquerade out-interface-list=WAN src-address=192.168.0.0/16 comment="TN-M2 NAT"
 
+# فهرست مقصدهای خصوصی RFC1918 — برای قواعد drop تلفن/مهمان (سیاست «هر مقصد داخلی»)
+/ip firewall address-list
+add list=TN-M2-private address=10.0.0.0/8 comment="TN-M2 RFC1918"
+add list=TN-M2-private address=172.16.0.0/12 comment="TN-M2 RFC1918"
+add list=TN-M2-private address=192.168.0.0/16 comment="TN-M2 RFC1918"
+
 # فایروال — جایگزینی کامل (پشتیبان در گام ۰ گرفته شده)
 /ip firewall filter
 remove [find]
@@ -563,7 +559,7 @@ remove [find]
 # ---- زنجیرهٔ input ----
 add chain=input action=accept connection-state=established,related,untracked comment="TN-M2 est/rel"
 add chain=input action=drop connection-state=invalid comment="TN-M2 invalid"
-add chain=input action=accept protocol=icmp comment="TN-M2 ping/diag"
+add chain=input action=accept protocol=icmp src-address=192.168.10.0/24 comment="TN-M2 ping/diag فقط از دفتر"
 add chain=input action=accept protocol=udp dst-port=67 in-interface-list=LAN comment="TN-M2 DHCP"
 add chain=input action=accept protocol=udp dst-port=53 in-interface-list=LAN comment="TN-M2 DNS udp (در M3 مشروط‌تر می‌شود)"
 add chain=input action=accept protocol=tcp dst-port=53 in-interface-list=LAN comment="TN-M2 DNS tcp (در M3 مشروط‌تر می‌شود)"
@@ -580,8 +576,8 @@ add chain=forward action=drop src-address=192.168.10.0/24 dst-address=192.168.20
 add chain=forward action=drop src-address=192.168.10.0/24 dst-address=192.168.30.0/24 comment="TN-M2 دفتر→تلفن ممنوع"
 add chain=forward action=drop src-address=192.168.10.0/24 dst-address=192.168.40.0/24 comment="TN-M2 دفتر→مهمان ممنوع"
 add chain=forward action=drop src-address=192.168.20.0/24 comment="TN-M2 دوربین→بیرون VLAN20 ممنوع (دسترسی DVR داخل همان VLAN و L2 است)"
-add chain=forward action=drop src-address=192.168.30.0/24 dst-address=192.168.0.0/16 comment="TN-M2 تلفن→داخلی ممنوع، اینترنت آزاد"
-add chain=forward action=drop src-address=192.168.40.0/24 dst-address=192.168.0.0/16 comment="TN-M2 مهمان→داخلی ممنوع، اینترنت آزاد"
+add chain=forward action=drop src-address=192.168.30.0/24 dst-address-list=TN-M2-private comment="TN-M2 تلفن→هر مقصد خصوصی (RFC1918) ممنوع، اینترنت آزاد"
+add chain=forward action=drop src-address=192.168.40.0/24 dst-address-list=TN-M2-private comment="TN-M2 مهمان→هر مقصد خصوصی (RFC1918) ممنوع، اینترنت آزاد"
 add chain=forward action=accept in-interface-list=LAN out-interface-list=WAN comment="TN-M2 LAN→اینترنت"
 add chain=forward action=drop comment="TN-M2 forward default drop"</code></pre>
 <!-- /wp:code -->
@@ -593,6 +589,10 @@ add chain=forward action=drop comment="TN-M2 forward default drop"</code></pre>
 <!-- wp:list -->
 <ul class="wp-block-list"><!-- wp:list-item -->
 <li>«دوربین فقط DVR» با یک rule واحد به‌شکل قدیمی (`dst-address=!192.168.10.0/24`) نوشته نشده — آن نگارش، کل subnet دفتر را مستثنا می‌کرد و هیچ host مشخصی برای DVR تعریف نمی‌کرد. اینجا DVR یک host رزروشدهٔ 192.168.20.10 است و دو rule جدا «اجازهٔ همان host» و «ممنوعیت بقیهٔ VLAN20» را دقیق جدا می‌کنند.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>قواعد تلفن/مهمان با `dst-address-list=TN-M2-private` به <strong>هر سه رنج RFC1918</strong> (10/8، ‏172.16/12، ‏192.168/16) اعمال می‌شوند، نه فقط 192.168 — ادعای «هر مقصد خصوصی ممنوع» واقعاً اجرا می‌شود.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>ICMP ورودی فقط از subnet دفتر مجاز است؛ بنابراین ping به خود روتر از تلفن/مهمان/دوربین در <strong>INPUT</strong> بسته می‌شود — همین چیزی است که تست‌های 8 و 10 انتظار timeout دارند (این بسته‌ها از زنجیرهٔ input می‌گذرند نه forward).</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
 <li>ترافیک مهمان هم به‌علاوهٔ RFC1918، با default drop انتهایی بسته می‌شود؛ یعنی «فقط اینترنت» به یک rule تکی وابسته نیست.</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
@@ -621,16 +621,6 @@ add chain=forward action=drop comment="TN-M2 forward default drop"</code></pre>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <th>نوع تست</th>
 <!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>1</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>دفتر ACC-10</td>
@@ -797,14 +787,6 @@ add chain=forward action=drop comment="TN-M2 forward default drop"</code></pre>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <th>راه‌حل</th>
 <!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>کلاینت اصلاً IP نمی‌گیرد</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>missing `dhcp-server network` یا server روی interface غلط</td>
@@ -918,10 +900,6 @@ add chain=forward action=drop comment="TN-M2 forward default drop"</code></pre>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <th>مقصد</th>
 <!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>---</td>
-<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>درس قبلی (پیش‌نیاز مفهومی)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td><a href="/guides/mikrotik-routers/">مقایسهٔ روترهای میکروتیک (M1)</a></td>

@@ -1,0 +1,47 @@
+{
+ "packet": "TN-M2-M3-RENDER-CHECK-20261116",
+ "tool": "ZCode in-app browser (IAB, Chromium) via control-browser skill — real browser execution, NOT a static check",
+ "server": "preview-server.py on 127.0.0.1 (stdlib http.server with explicit charset=utf-8, mimicking the WordPress theme header)",
+ "command": "node_repl browser cells; python -I preview-server.py 8138",
+ "utc": "2026-11-16T18:48:18Z",
+ "mode": "LOCAL_TEST — localhost only; preview style (white bg/code bg/table borders) injected at render time for readability; generated HTML files NOT modified; no production touch",
+ "viewports": {
+  "desktop": "1280x900",
+  "mobile": "390x844"
+ },
+ "pages": [
+  "tutorials/m2-vlan-small-office.gutenberg.html",
+  "tutorials/m3-dhcp-dns.gutenberg.html"
+ ],
+ "evidence_files": [
+  "m2-desktop-code.png",
+  "m2-desktop-svg.png",
+  "m2-desktop-top.png",
+  "m2-mobile-top.png",
+  "m3-desktop-code.png",
+  "m3-desktop-svg.png",
+  "m3-desktop-top.png",
+  "m3-mobile-top.png"
+ ],
+ "checks": {
+  "svg_render": "both diagrams render; labels/port/legend readable at 900px display width; M2 port labels restacked (no overlap); M3 flow labels shortened into the gap (no client-box collision)",
+  "code_display": "pre.wp-block-code shows escaped RouterOS commands (verified textContent: class language-routeros, /system backup visible) with preview styling",
+  "links": "M2 page: 6 links with hrefs; M1/M2/M3 cross-links present as /guides/... proposed slugs",
+  "keyboard": "Tab keypress moved focus to an <A> element (document.activeElement verified)",
+  "rtl": "Persian RTL text renders correctly with charset=utf-8 (characterSet UTF-8 observed)",
+  "mobile": "390x844 renders readable, no horizontal cutoff of text content"
+ },
+ "findings_fixed_this_packet": [
+  "builder rev4: Markdown table separator rows previously rendered as visible junk <td>--- cells in ALL outputs (11+7+29+17 cells) — now skipped; regenerated outputs have 0",
+  "tutorial figure images: fixed 640x360 distorted the 960-wide SVG aspect — now width=900 without fixed height",
+  "M2 SVG: port labels restacked to avoid overlap; device text re-wrapped",
+  "M3 SVG: flow labels shortened/two-line; untrusted-client box enlarged with counter + positive-control text (aligned to new blocker-3 fixture)",
+  "preview-only finding (NOT an artifact defect): raw fragment HTML has no <meta charset>; standalone preview without charset header shows mojibake. WordPress supplies charset at render time; preview harness now sends charset=utf-8 explicitly"
+ ],
+ "not_run": [
+  "WordPress/KSES render",
+  "production site",
+  "RouterOS execution"
+ ],
+ "production_touched": false
+}

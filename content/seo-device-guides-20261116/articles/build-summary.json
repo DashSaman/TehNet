@@ -6,28 +6,28 @@
    "md": "mikrotik-routers.fa.md",
    "html": "mikrotik-routers.gutenberg.html",
    "type": "article",
-   "bytes": 36544,
+   "bytes": 35877,
    "per_model_images": 16
   },
   {
    "md": "mikrotik-switches-crs.fa.md",
    "html": "mikrotik-switches-crs.gutenberg.html",
    "type": "article",
-   "bytes": 32901,
+   "bytes": 32479,
    "per_model_images": 15
   },
   {
    "md": "../tutorials/m2-vlan-small-office.fa.md",
    "html": "../tutorials/m2-vlan-small-office.gutenberg.html",
    "type": "tutorial",
-   "bytes": 48053,
+   "bytes": 49907,
    "per_model_images": 0
   },
   {
    "md": "../tutorials/m3-dhcp-dns.fa.md",
    "html": "../tutorials/m3-dhcp-dns.gutenberg.html",
    "type": "tutorial",
-   "bytes": 30082,
+   "bytes": 35450,
    "per_model_images": 0
   }
  ]

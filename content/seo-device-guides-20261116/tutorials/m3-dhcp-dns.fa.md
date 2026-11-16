@@ -22,25 +22,26 @@ DHCP Server روی MikroTik چهار جزء لازم دارد (IP روی interfa
 | نقش | مدل/مقدار | توضیح |
 |---|---|---|
 | روتر | hEX (RB750Gr3)، RouterOS v7.16+ | تنظیمات کارخانه (reset شده)؛ ether1 در لیست WAN، ether2-5 عضو `bridge` |
-| LAN | `bridge` با 192.168.88.1/24 | gateway کلاینت‌ها؛ همان interface که DHCP server به آن گره می‌خورد |
+| LAN | `bridge` با 192.168.88.1/24 | gateway کلاینت‌ها؛ همان interface که DHCP server کارخانه به آن گره خورده |
+| DHCP موجود | server کارخانه (`defconf`) + pool پیش‌فرض (`default-dhcp`، رنج کارخانه 10-254) | این درس آبجکت‌های **موجود** را بازرسی و به‌روز می‌کند — سرور دوم روی همان bridge ساخته نمی‌شود (سند رسمی: یک سرور مستقیم برای کلاینت‌های هر interface) |
 | WAN | ether1 به مودم | NAT کارخانه (masquerade 192.168.88.0/24) دست‌نخورده |
 | کلاینت آزمایشی | یک لپ‌تاپ DHCP-گیرنده | برای تست‌های مثبت |
-| کلاینت «غیرمورداعتماد» | همان لپ‌تاپ با IP دستی 10.9.9.9/24 | فقط برای تست منفی DNS |
+| کلاینت «غیرمورداعتماد» | همان لپ‌تاپ با IP دستی 10.9.9.9/24 و gateway=192.168.88.1 | فقط برای تست منفی DNS — فیکسچر کامل در گام ۴ |
 
 ### جدول آدرس‌دهی
 
 | مقصد | آدرس | نحوهٔ تخصیص |
 |---|---|---|
 | روتر (gateway/DNS) | 192.168.88.1 | روی `bridge` — خارج از pool |
-| NAS | 192.168.88.10 | **lease رزروی** مدیریت‌شدهٔ DHCP (داخل pool نیست؛ سرور آن را به دیگری نمی‌دهد) |
+| NAS | 192.168.88.10 | **lease رزروی** مدیریت‌شدهٔ DHCP (خارج از pool جدید؛ سرور آن را به دیگری نمی‌دهد) |
 | Printer | 192.168.88.11 | lease رزروی مدیریت‌شدهٔ DHCP |
 | رنج IP دستی مجاز (فقط در صورت ضرورت) | 192.168.88.2-9 | خارج از pool؛ تخصیص دستی روی دستگاه |
-| pool دینامیک | 192.168.88.20-250 | DHCP |
-| خودکار انتهای LAN | 192.168.88.254 | آخرین آدرس pool |
+| pool دینامیک (پس از به‌روزرسانی) | 192.168.88.20-254 | همان pool کارخانه با رنج بازنگری‌شده |
+| subnet تست منفی (موقت) | 10.9.9.9/24، gateway=192.168.88.1 | کلاینت دستی + مسیر برگشت موقت روی روتر (بعد از تست حذف می‌شود) |
 
 ![نمودار جریان DHCP و DNS درس M3 — کلاینت، روتر و مرز مورداعتماد (تصویر مفهومی تألیفی)](../assets/tutorial-m3-dhcp-dns-flow.svg)
 
-**شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):** سمت راست، لپ‌تاپ کلاینت (DHCP گیرنده). وسط، روتر hEX با دو بلوک داخلی: «DHCP Server (گره‌خورده به bridge، pool 20-250، network با gateway/DNS)» و «DNS Cache + static entries (nas.lan → 192.168.88.10)». سمت چپ، اینترنت/forwardکنندهٔ بالادستی. چهار فلش توالی: (1) Discover از کلاینت، (2) Offer با آدرس+gateway 192.168.88.1+DNS 192.168.88.1، (3) پرس‌وجوی نام کلاینت به 192.168.88.1 روی پورت 53، (4) پاسخ از cache یا بالادستی. یک مرز خط‌چین قرمز «مرز مورداعتماد: فقط 192.168.88.0/24 روی پورت 53» دور بلوک روتر کشیده شده و یک کلاینت خاکستری بیرون مرز با پرس‌وجوی رد‌شده (×) نشان داده شده است.
+**شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):** سمت راست، لپ‌تاپ کلاینت (DHCP گیرنده). وسط، روتر hEX با دو بلوک داخلی: «DHCP Server (گره‌خورده به bridge، pool 20-254، network با gateway/DNS)» و «DNS Cache + static entries (nas.lan → 192.168.88.10)». سمت چپ، اینترنت/forwardکنندهٔ بالادستی. چهار فلش توالی: (1) Discover از کلاینت، (2) Offer با آدرس+gateway 192.168.88.1+DNS 192.168.88.1، (3) پرس‌وجوی نام کلاینت به 192.168.88.1 روی پورت 53، (4) پاسخ از cache یا بالادستی. یک مرز خط‌چین قرمز «مرز مورداعتماد: 53 فقط از 192.168.88.0/24، با rule شمارنده‌دار» دور بلوک روتر کشیده شده و یک کلاینت خاکستری بیرون مرز نشان داده شده که پرس‌وجویش با rule شمارنده‌دار بسته می‌شود — و کنترل مثبت مسیر (disable موقت ruleها) سالم بودن رفت‌وبرگشت را جدا از فیلترینگ اثبات می‌کند.
 
 ## گام ۰: پشتیبان و بازیابی
 
@@ -51,32 +52,36 @@ DHCP Server روی MikroTik چهار جزء لازم دارد (IP روی interfa
 
 پیکربندی را در Safe Mode وین‌باکس اعمال کنید؛ تا زمان تأیید تست‌ها، قطع اتصال یعنی بازگشت خودکار تغییرات. (Safe Mode قابلیت خود RouterOS است؛ URL جداگانه‌ای برایش ادعا نمی‌شود.)
 
-## گام ۱: DHCP — هر چهار جزء، گره‌خورده به bridge
+## گام ۱: DHCP — بازرسی آبجکت‌های کارخانه و به‌روزرسانی همان‌ها
 
-سند رسمی DHCP Server چهار شرط را فهرست می‌کند؛ در همین ترتیب:
+تنظیمات کارخانهٔ hEX روی همین `bridge` یک DHCP server آماده دارد (نام `defconf`، pool پیش‌فرض `default-dhcp` با رنج کارخانه 10-254، و network با gateway/DNS خود روتر). سند رسمی برای کلاینت‌های هر interface یک سرور مستقیم کافی می‌داند؛ پس **server دوم ساخته نمی‌شود** — اول بازرسی، بعد به‌روزرسانی همان آبجکت‌ها:
 
 ```routeros
-# (۱) IP روی interface سرویس‌دهنده — از قبل روی bridge هست؛ اگر ندارید:
-/ip address
-add address=192.168.88.1/24 interface=bridge comment="gateway+DNS lan"
+# (۰) بازرسی — خروجی واقعی محیط خودتان را ثبت کنید
+/ip dhcp-server print
+/ip pool print
+/ip dhcp-server network print
+/ip dns print
 
-# (۲) pool — آدرس خود روتر داخل pool نباشد (سند رسمی)
+# (۱) IP روی interface سرویس‌دهنده — از قبل روی bridge هست (سرور کارخانه به آن گره خورده)
+
+# (۲) pool — همان default-dhcp با رنج بازنگری‌شده؛ آدرس خود روتر داخل pool نیست
 /ip pool
-add name=lan-pool ranges=192.168.88.20-192.168.88.254
+set [find name="default-dhcp"] ranges=192.168.88.20-192.168.88.254 comment="TN-M3"
 
-# (۳) network — همان چیزی که به کلاینت می‌رسد؛ gateway/DNS همان bridge IP
+# (۳) network — همان ردیف؛ gateway/DNS همان آدرس پل که به کلاینت می‌رسد
 /ip dhcp-server network
-add address=192.168.88.0/24 gateway=192.168.88.1 dns-server=192.168.88.1
+set [find address="192.168.88.0/24"] gateway=192.168.88.1 dns-server=192.168.88.1 comment="TN-M3"
 
-# (۴) server — گره interface به pool؛ روی پلِ خالیِ بی‌IP کار نمی‌کند
-/ip dhcp-server
-add name=lan-dhcp interface=bridge address-pool=lan-pool lease-time=8h disabled=no
+# (۴) server — همان defconf گره‌خورده به bridge (اگر در بازرسی disabled بود، disabled=no کنید)
 
-# رزروهای مدیریت‌شده (تفاوت با IP دستی: جدول بعد از عیب‌یابی)
+# رزروهای مدیریت‌شده روی همان server کارخانه (تفاوت با IP دستی: جدول عیب‌یابی)
 /ip dhcp-server lease
-add address=192.168.88.10 mac-address=AA:BB:CC:DD:EE:10 server=lan-dhcp comment="NAS"
-add address=192.168.88.11 mac-address=AA:BB:CC:DD:EE:11 server=lan-dhcp comment="Printer"
+add address=192.168.88.10 mac-address=AA:BB:CC:DD:EE:10 server=defconf comment="NAS"
+add address=192.168.88.11 mac-address=AA:BB:CC:DD:EE:11 server=defconf comment="Printer"
 ```
+
+اگر نام آبجکت‌ها در بازرسی محیط شما متفاوت بود، `set` را با نام همان آبجکت‌های موجود بزنید — هیچ `add` جدیدی برای pool/server/network در این درس وجود ندارد.
 
 ## گام ۲: DNS — cache، forwarder و نام‌های داخلی
 
@@ -106,7 +111,7 @@ add name=router.lan address=192.168.88.1
 remove [find chain=input]
 add chain=input action=accept connection-state=established,related,untracked comment="TN-M3 est/rel"
 add chain=input action=drop connection-state=invalid comment="TN-M3 invalid"
-add chain=input action=accept protocol=icmp comment="TN-M3 ping/diag"
+add chain=input action=accept protocol=icmp src-address=192.168.88.0/24 comment="TN-M3 ping/diag فقط از subnet مورداعتماد"
 add chain=input action=accept protocol=udp dst-port=67 in-interface-list=LAN comment="TN-M3 DHCP"
 add chain=input action=accept protocol=udp dst-port=53 src-address=192.168.88.0/24 comment="TN-M3 DNS udp فقط مورداعتماد"
 add chain=input action=accept protocol=tcp dst-port=53 src-address=192.168.88.0/24 comment="TN-M3 DNS tcp فقط مورداعتماد"
@@ -114,6 +119,8 @@ add chain=input action=accept protocol=tcp dst-port=8291,22 src-address=192.168.
 add chain=input action=accept protocol=tcp dst-port=80,443 src-address=192.168.88.0/24 comment="TN-M3 webfig محلی"
 add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و هر منبع غیرمورداعتماد)"
 ```
+
+دقت همسان‌سازی: ICMP ورودی فقط از `192.168.88.0/24` پذیرفته می‌شود؛ پس ping کلاینت غیرمورداعتماد به خود روتر (تست ۸) به‌جا timeout می‌گیرد — به‌واسطهٔ rule محدود و default drop، نه نبود مسیر. و این آزمون منفی فقط در **حالت ب** معتبر است؛ در حالت الف، فایروال کارخانه منابع LAN را عبور می‌دهد و rule شمارنده‌دار وجود ندارد.
 
 بعد از اعمال، شمارندهٔ rule آخر را ببینید:
 
@@ -125,7 +132,25 @@ add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و �
 
 ## گام ۴: تست پذیرش — هم مثبت، هم منفی (سمت کلاینت، نه فقط روتر)
 
-تست سمت روتر (`:resolve`) فقط cache خود روتر را می‌سنجد و **پذیرش سمت کلاینت نیست** — پذیرش با کلاینت واقعی انجام می‌شود:
+تست سمت روتر (`:resolve`) فقط cache خود روتر را می‌سنجد و **پذیرش سمت کلاینت نیست** — پذیرش با کلاینت واقعی انجام می‌شود.
+
+### فیکسچر تست منفی — مسیر رفت/برگشت واقعی + شاهد شمارنده
+
+کلاینت منفی فقط با «تعویض subnet» لزوماً به روتر نمی‌رسد: بدون gateway، بسته اصلاً از دستگاه خارج نمی‌شود و timeout صرفاً یعنی بی‌مسیری — نه اثبات فایروال. فیکسچر کامل این درس:
+
+1. کلاینت منفی: لپ‌تاپ با IP دستی **10.9.9.9/24 و gateway=192.168.88.1** (روی همان لینک L2؛ ARP مستقیم جواب می‌دهد → مسیر رفت برقرار است).
+2. مسیر برگشت (موقت، فقط این تست — تا حتی پاسخ فرضی هم بتواند برگردد):
+
+```routeros
+/ip route
+add dst-address=10.9.9.0/24 gateway=bridge comment="TN-M3 مسیر برگشتِ فقط-تست — بعد از تست حذف شود"
+```
+
+3. **کنترل مثبت مسیر** (ردیف 6): دو rule «53 غیرمورداعتماد» را موقتاً disable کنید → `nslookup nas.lan 192.168.88.1` باید **موفق** شود (اثبات رفت‌وبرگشت سالم)؛ سپس enable کنید.
+4. **شاهد اصلی فیلترینگ** (ردیف 7): با ruleها فعال، همان nslookup باید timeout بگیرد **و** شمارندهٔ دو rule «53 غیرمورداعتماد» در `/ip firewall filter print stats` افزایش یابد — یعنی بسته رسیده و rule بسته‌اش کرده؛ اگر timeout بود و شمارنده صفر ماند، مشکل مسیر است نه فایروال.
+5. مشاهدهٔ تکمیلی: `/tool sniffer quick port=53 interface=bridge` هنگام nslookup باید Query رسیده را نشان دهد (و پاسخی خارج نشود).
+
+جدول تست:
 
 | # | کلاینت | عمل | نتیجهٔ موردانتظار | نوع |
 |---|---|---|---|---|
@@ -134,9 +159,17 @@ add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و �
 | 3 | همان کلاینت | `nslookup printer.lan` | 192.168.88.11 | مثبت |
 | 4 | همان کلاینت | `nslookup www.google.com` | پاسخ (از cache/بالادستی) | مثبت |
 | 5 | همان کلاینت | `ping 192.168.88.1` | reply | مثبت |
-| 6 | لپ‌تاپ با IP دستی 10.9.9.9/24 | `nslookup nas.lan 192.168.88.1` | هیچ پاسخی (timeout) + شمارندهٔ drop input بالا می‌رود | منفی |
-| 7 | لپ‌تاپ با IP دستی 10.9.9.9/24 | `ping 192.168.88.1` | timeout (فقط در حالت ب) | منفی |
-| 8 | سمت روتر | `:put [:resolve nas.lan]` | 192.168.88.10 — فقط بررسی cache روتر؛ **به‌جای تست 1-3 نیست** | ابزار |
+| 6 | کلاینت منفی 10.9.9.9 (gw=192.168.88.1) + دو rule 53-drop موقتاً disable | `nslookup nas.lan 192.168.88.1` | **پاسخ موفق** — اثبات مسیر رفت‌وبرگشت | کنترل |
+| 7 | همان کلاینت، ruleها enable | `nslookup nas.lan 192.168.88.1` | timeout **و** شمارندهٔ دو rule drop افزایش می‌یابد (بسته رسیده، rule بسته) | منفی |
+| 8 | همان کلاینت | `ping 192.168.88.1` | timeout — به‌واسطهٔ محدودیت ICMP به مورداعتماد (شاهد: رشد شمارندهٔ input default drop، نه صفر ماندن) | منفی |
+| 9 | سمت روتر | `:put [:resolve nas.lan]` | 192.168.88.10 — فقط بررسی cache روتر؛ **به‌جای تست 1-4 نیست** | ابزار |
+
+بعد از پایان تست‌ها، مسیر آزمایشی را حذف کنید:
+
+```routeros
+/ip route
+remove [find comment="TN-M3 مسیر برگشتِ فقط-تست — بعد از تست حذف شود"]
+```
 
 بررسی‌های روتری برای عیب‌یابی:
 
@@ -164,7 +197,7 @@ add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و �
 ## تمرین کوتاه (با پاسخ موردانتظار)
 
 1. کدام جزء از چهار جزء DHCP همان چیزی است که کلاینت به‌عنوان gateway/DNS می‌گیرد؟ — **پاسخ موردانتظار:** جزء (۳) `/ip dhcp-server network`؛ pool فقط مخزن آدرس است.
-2. چرا `:put [:resolve nas.lan]` روی روتر «پذیرش» حساب نمی‌شود؟ — **پاسخ موردانتظار:** چون فقط مسیر cache خود روتر را می‌سنجد؛ پذیرش یعنی کلاینت واقعی با تنظیمات دریافتی DHCP به همان نتیجه برسد (تست 1-3).
+2. چرا `:put [:resolve nas.lan]` روی روتر «پذیرش» حساب نمی‌شود؟ — **پاسخ موردانتظار:** چون فقط مسیر cache خود روتر را می‌سنجد؛ پذیرش یعنی کلاینت واقعی با تنظیمات دریافتی DHCP به همان نتیجه برسد (تست‌های 1-4).
 3. NAS آدرس 192.168.88.30 داخل pool به‌صورت دستی روی NIC گرفته؛ به‌جایش چه کنید؟ — **پاسخ موردانتظار:** یا lease رزروی همان MAC (سرور مالکیت را می‌شناسد) یا انتقال IP دستی به رنج رزرو 192.168.88.2-9؛ رهاکردن IP دستی داخل pool ریسک conflict دارد.
 4. چه چیزی روتر را open resolver می‌کند و چه چیزی جلویش را می‌گیرد در حالت ب؟ — **پاسخ موردانتظار:** `allow-remote-requests=yes` روی همهٔ آدرس‌ها روی 53 گوش می‌دهد؛ قید `src-address=192.168.88.0/24` روی acceptهای 53 و default drop انتهایی مانع پاسخ به غیرمورداعتماد (شامل WAN) می‌شود.
 
@@ -175,7 +208,8 @@ add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و �
 - [ ] رزروها به‌صورت lease مدیریت‌شده (نه IP دستی داخل pool)
 - [ ] DNS: forwarder + static entries هم‌تراز با جدول آدرس‌دهی
 - [ ] مرز 53: حالت الف (پیش‌فرض) یا ب (src-restricted + default drop) — و تست منفی ثبت‌شده
-- [ ] تست‌های 1-5 مثبت و 6-7 منفی روی کلاینت واقعی اجرا و ثبت شده‌اند (اجرای این درس در نویسنده NOT_RUN است)
+- [ ] تست‌های 1-5 مثبت، 6 کنترل مسیر و 7-8 منفی روی کلاینت واقعی اجرا و ثبت شده‌اند (شمارندهٔ ruleهای 53-drop ثبت شد؛ اجرای این درس در نویسنده NOT_RUN است)
+- [ ] مسیر آزمایشی 10.9.9.0/24 بعد از تست حذف شده
 - [ ] پشتیبان قبل/بعد و Safe Mode تأیید شده
 
 ## منابع رسمی (fetch شده با تاریخ)
