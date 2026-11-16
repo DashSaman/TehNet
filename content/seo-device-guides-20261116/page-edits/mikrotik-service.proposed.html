@@ -15,18 +15,24 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"service-fit"} -->
-<h2 class="wp-block-heading" id="service-fit">چه درخواست‌هایی در این صفحه بررسی می‌شوند؟</h2>
+<h2 class="wp-block-heading" id="service-fit">آموزش می‌خواهید یا تغییر شبکهٔ مورد استفاده؟</h2>
 <!-- /wp:heading -->
 
-<!-- wp:list -->
-<ul class="wp-block-list"><!-- wp:list-item -->
-<li>خطای دسترسی، Routing، DHCP، DNS، NAT یا VPN روی تجهیزات RouterOS؛ ابتدا نشانه و بخش درگیر مشخص می‌شود، سپس روش بررسی تعیین خواهد شد.</li>
-<!-- /wp:list-item --><!-- wp:list-item -->
-<li>بررسی Rule، Route، Interface و گزارش مرتبط با مسئله، یا تنظیم دسترسی‌های توافق‌شده؛ تغییر Firewall، VLAN یا VPN باید هدف و معیار آزمون همان محیط را داشته باشد.</li>
-<!-- /wp:list-item --><!-- wp:list-item -->
-<li>برای سؤال آموزشی از <a href="/learn/mikrotik/">هاب آموزش میکروتیک</a> شروع کنید. طراحی و اجرای شبکهٔ جدید در <a href="/services/network-setup-tehran/">راه‌اندازی شبکه</a> و نگهداری مجموعه در <a href="/services/network-support-tehran/">پشتیبانی شبکه</a> دامنهٔ جدا دارند.</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
+<!-- wp:paragraph -->
+<p>برای یادگیری از مسیر درس و لاب استفاده کنید؛ برای تغییر شبکهٔ فعال، هدف و اختیار اجرا باید جدا مشخص باشد. دیدن راهنمای WinBox یا موفقیت نمونهٔ آموزشی، سازگاری مدل و نسخهٔ شما یا ایمنی انتقال تنظیمات را ثابت نمی‌کند. جدول زیر هم مقصد آموزشی دارد و هم مسیر درخواست خدمت؛ هیچ کانفیگ آماده‌ای را برای همهٔ محیط‌ها پیشنهاد نمی‌کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table {"className":"tn-decision-table"} -->
+<figure class="wp-block-table tn-decision-table"><table class="has-fixed-layout"><thead><tr><th>نیاز</th><th>مسیر مطالعهٔ موجود</th><th>اگر شبکهٔ فعال درگیر است</th><th>پذیرش مورد انتظار</th></tr></thead><tbody><tr><td>شروع کار و پشتیبان</td><td><a href="/learn/mikrotik/mtcna/routeros-winbox/">RouterOS و WinBox</a></td><td>نقش دستگاه، نسخه و دسترسی جایگزین</td><td>حفظ مسیر مدیریت و برگشت مصوب</td></tr><tr><td>IP، DHCP و DNS</td><td><a href="/learn/mikrotik/mtcna/ip-dhcp-dns/">درس IP/DHCP/DNS</a></td><td>نشانهٔ دریافت تنظیمات و اثر بر کار</td><td>ارتباط و سرویس مجاز در دامنه</td></tr><tr><td>مسیریابی و NAT</td><td><a href="/learn/mikrotik/mtcna/static-routing/">Routing</a> و <a href="/learn/mikrotik/mtcna/nat-masquerade/">NAT</a></td><td>مبدأ، مقصد و وابستگی بدون شناسهٔ حساس</td><td>رفت و برگشت و آزمون سرویس</td></tr><tr><td>فایروال و تفکیک</td><td><a href="/learn/mikrotik/mtcna/firewall-basics/">مبانی فایروال</a></td><td>سرویس مجاز/غیرمجاز و مسیر مدیریت</td><td>آزمون مثبت و منفی؛ <a href="#firewall-acceptance">معیار خدمت</a></td></tr><tr><td>Queue یا کندی</td><td><a href="/learn/mikrotik/mtcna/queues-troubleshooting/">درس Queue</a></td><td>الگوی مشکل و شواهد همان محیط</td><td>اندازه‌گیری مصوب، نه سرعت تضمینی</td></tr><tr><td>ارتباط شعب</td><td><a href="/learn/mikrotik/">هاب آموزش</a></td><td>هدف برنامه و وابستگی دو طرف</td><td><a href="/services/network-setup-tehran/#branch-connectivity-brief">دامنهٔ طراحی شعب</a></td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>درس‌ها راهنمای نوشتاری مستقل‌اند؛ وضعیت تصویر، ویدیو یا آزمون هر درس فقط با شاهد همان صفحه مشخص می‌شود. این جدول ضبط ویدیو یا انتشار بسته‌های آزمایشگاهیِ منتظر تأیید را ادعا نمی‌کند. برای <a href="/services/?tn_service_context=security-scoping#service-request">تنظیم یا بررسی میکروتیک</a> نام کلی مسئله کافی است؛ برای قطعی موجود از <a href="/support/">تیکت پشتیبانی</a> استفاده کنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>در <a href="https://help.mikrotik.com/docs/spaces/ROS/pages/328155/Configuration+Management">مستند رسمی مدیریت تنظیمات RouterOS</a>، Safe Mode به کاهش ریسک قطع دسترسی کمک می‌کند، اما محدودیت دارد و جای پشتیبان و مسیر بازیابی متناسب را نمی‌گیرد. برای فایروال، <a href="https://help.mikrotik.com/docs/spaces/ROS/pages/48660574/Filter">مستند Filter سازنده</a> ترافیک مقصد خود روتر و عبوری را جدا می‌کند؛ این تفاوت باید با هدف همان سرویس تطبیق داده شود. نسخهٔ نصب‌شده و سیاست‌های موجود پیش از هر تغییر بررسی می‌شوند؛ در این صفحه فرمان تغییردهنده منتشر نشده است.</p>
+<!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"device-context"} -->
 <h2 class="wp-block-heading" id="device-context">اطلاعات دستگاه و نسخه</h2>

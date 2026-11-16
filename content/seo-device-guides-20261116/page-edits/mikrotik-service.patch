@@ -1,8 +1,8 @@
---- a/content/mikrotik-service-2026-11-01/mikrotik-service.html@a54198ce7ed3535d6783432d8401660e2e023f9d
+--- a/content/commercial-decision-2026-11-08-v2/mikrotik-service.html@a54198ce7ed3535d6783432d8401660e2e023f9d (after-D1 118f34b1ec9e…)
 
-+++ b/content/mikrotik-service-2026-11-01/mikrotik-service.html (proposed, NOT_DEPLOYED)
++++ b/content/commercial-decision-2026-11-08-v2/mikrotik-service.html (proposed, NOT_DEPLOYED)
 
-@@ -124,6 +124,40 @@
+@@ -130,6 +130,40 @@
 
  <p><strong>منابع و حد بررسی:</strong> دو صفحهٔ جاری MikroTik، بخش‌های Export/Import و محدودیت‌های Safe Mode، و بخش پردازش سخت‌افزاری Bridge در ۱ نوامبر ۲۰۲۶ بازبینی شدند. انتخابگر مستند نسخهٔ7.26 را نشان می‌داد؛ این نسخهٔ دستگاه یا توصیهٔ ارتقای آن نیست. سایت قدیمی مستندات پیام توقف ویرایش دارد و پشتوانهٔ جاری این متن نیست. قالب درخواست و مثال، پیشنهاد توضیحی‌اند؛ هیچ کانفیگ، آزمون شبکه، بازیابی یا پروژهٔ مشتری در این متن گزارش نشده است.</p>
  <!-- /wp:paragraph -->

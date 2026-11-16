@@ -1,14 +1,12 @@
---- a/content/server-branch-2026-11-04/network-setup.html@a54198ce7ed3535d6783432d8401660e2e023f9d
+--- a/content/commercial-decision-2026-11-08-v2/network-setup.html@a54198ce7ed3535d6783432d8401660e2e023f9d (after-D1 ab56940e609f…)
 
-+++ b/content/server-branch-2026-11-04/network-setup.html (proposed, NOT_DEPLOYED)
++++ b/content/commercial-decision-2026-11-08-v2/network-setup.html (proposed, NOT_DEPLOYED)
 
-@@ -270,6 +270,55 @@
+@@ -266,6 +266,55 @@
 
- 
- <!-- wp:paragraph -->
  <p><strong>حد بازبینی این دو بخش:</strong> منابع رسمی Microsoft و MikroTik در۴نوامبر۲۰۲۶ برای نکته‌های مشخص بالا خوانده شدند. این صفحه خدمت‌نامه و قالب بررسی است؛ در تهیهٔ آن، Hyper-V، سرور مشتری، تونل، backup/restore یا تست شبکه اجرا نشده است. معیار و نتیجهٔ هر پروژه باید با همان محیط و مسئول مجاز تعیین و ثبت شوند.</p>
-+<!-- /wp:paragraph -->
-+
+ <!-- /wp:paragraph -->
+ 
 +<!-- wp:paragraph -->
 +<p><strong>پاسخ کوتاه:</strong> راه‌اندازی شبکه در چهار گام انجام می‌شود: نیازسنجی و نقشه، اجرا (کابل/تجهیز)، پیکربندی و تست پذیرش، تحویل مستندات. تجهیزات پیشنهادی بسته به سناریو متفاوت است.</p>
 +<!-- /wp:paragraph -->
@@ -56,6 +54,8 @@
 +<!-- /wp:paragraph -->
 +<!-- wp:paragraph -->
 +<p><strong>CTA:</strong> برای نیازسنجی و برآورد، <a href="/b2b/">درخواست سازمانی</a> را با همان ورودی‌های بالا ثبت کنید.</p>
- <!-- /wp:paragraph -->
- 
++<!-- /wp:paragraph -->
++
  <!-- wp:shortcode -->
+ [tn_editorial_note]
+ <!-- /wp:shortcode -->
