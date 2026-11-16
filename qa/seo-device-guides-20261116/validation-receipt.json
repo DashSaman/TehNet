@@ -105,5 +105,15 @@
   "Search Console baseline",
   "all Node/PHP/builder/test executions"
  ],
- "production_touched": false
+ "production_touched": false,
+ "execution_clarification": {
+  "validator_run": "REAL — session-side Node.js on the git worktree; results are genuine",
+  "builder_run": "REAL — executed during an earlier authorized session; outputs committed then",
+  "browser_run": "NOT_RUN",
+  "wordpress_run": "NOT_RUN",
+  "db_integration": "NOT_RUN",
+  "staging_run": "NOT_RUN",
+  "note": "The git worktree is on the same physical machine as the owner; the owner has explicitly authorized development/testing on this checkout. No production, browser, DB or staging system was accessed."
+ },
+ "receipt_rev": 6
 }
