@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560">
 <title>نمودار آپ‌لینک و ترانک درس S5 بین دو سوئیچ با محاسبهٔ ظرفیت</title>
-<desc>دو سوئیچ با یک آپ‌لینک ترانک تگ‌دار وصل شده‌اند که VLANهای ده و بیست و هشتاد و هشت را حمل می‌کند. سوئیچ طبقه دوازده پورت کاربر و دوربین دارد و سقف تئوریک پایین‌دست دوازده گیگابیت است که با ضریب تجمعی مهندسی و اندازه‌گیری واقعی باید با ظرفیت آپ‌لینک سنجیده شود. هشدار قرمز نمودار می‌گوید ترانک بدون تگ ممنوع است چون جداسازی از بین می‌رود. این نمودار مفهومی و تألیفی TehNet است.</desc>
+<desc>دو سوئیچ با یک آپ‌لینک ترانک تگ‌دار وصل شده‌اند که VLANهای ده و بیست و هشتاد و هشت را حمل می‌کند. سوئیچ طبقه هشت پورت RJ45 و چهار پورت SFP یک گیگابیت دارد و هفت پورت استفاده‌شده سقف تئوریک هفت گیگابیت می‌سازد که با ضریب تجمعی فرض به نیازمندی یک‌ونیم تا سه گیگابیت آپ‌لینک می‌رسد؛ یعنی یک گیگابیت تنها با فرض ترافیک کم و اندازه‌گیری واقعی قابل‌تحمل است. پورت‌های SFP این مدل یک گیگابیت هستند نه ده گیگابیت. هشدار قرمز نمودار می‌گوید ترانک بدون تگ ممنوع است چون جداسازی از بین می‌رود. این نمودار مفهومی و تألیفی TehNet است.</desc>
 <rect x="60" y="130" width="300" height="190" rx="8" fill="#fafafa" stroke="#fb8c00" stroke-width="3"/>
 <text x="210" y="156" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#e65100" font-weight="bold">سوئیچ طبقه — CRS112-8P-4S-IN</text>
-<text x="210" y="185" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">۱۲ کاربر دفتر — VLAN10</text>
-<text x="210" y="215" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">۴ دوربین — VLAN20</text>
-<text x="210" y="245" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">۸ پورت آزاد (رشد)</text>
+<text x="210" y="185" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">۵ کاربر — VLAN10 (ether1-5)</text>
+<text x="210" y="215" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">۲ دوربین — VLAN20 (ether6-7)</text>
+<text x="210" y="245" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">آپ‌لینک ترانک — ether8</text>
 <text x="210" y="275" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">مدیریت — VLAN88</text>
 <rect x="600" y="130" width="300" height="190" rx="8" fill="#fafafa" stroke="#1e88e5" stroke-width="3"/>
 <text x="750" y="156" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0d47a1" font-weight="bold">سوئیچ مرکز — CRS326-24G-2S+RM</text>
@@ -16,15 +16,15 @@
 <text x="750" y="275" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">مدیریت — VLAN88</text>
 <line x1="360" y1="225" x2="600" y2="225" stroke="#43a047" stroke-width="6"/>
 <text x="480" y="210" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#2e7d32" font-weight="bold">آپ‌لینک ترانک تگ‌دار</text>
-<text x="480" y="245" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#2e7d32" font-weight="normal">VLAN 10 / 20 / 88 — تگ‌دار</text>
-<text x="480" y="263" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#78909c" font-weight="normal">medium: DAC 1m یا Cat6 — الگوی S3</text>
+<text x="480" y="245" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#2e7d32" font-weight="normal">ترانک تگ‌دار: VLAN 10 / 20 / 88 — Cat6 1G (ether8)</text>
+<text x="480" y="263" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#78909c" font-weight="normal">SFPهای 1G = رشد (10G نیستند) — الگوی S3 برای مدیوم</text>
 <rect x="60" y="350" width="840" height="120" rx="8" fill="#e3f2fd" stroke="#1e88e5" stroke-width="2"/>
-<text x="480" y="376" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0d47a1" font-weight="bold">محاسبهٔ ظرفیت آپ‌لینک (فرض آموزشی — UNKNOWN per-سازمان)</text>
-<text x="90" y="402" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#0d47a1" font-weight="normal">سقف تئوریک پایین‌دست: ۱۲ پورت × 1Gbps = 12Gbps</text>
-<text x="90" y="418" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#0d47a1" font-weight="normal">ضریب تجمعی رایج: 4:1 تا 8:1 (فرض — اندازه‌گیری واقعی ملاک، الگوی N2)</text>
-<text x="90" y="434" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#0d47a1" font-weight="normal">آپ‌لینک 1G برای جمع واقعی ≤ ~125-250MB/s · آپ‌لینک 10G برای سرور/NAS/دوربین سنگین</text>
-<text x="90" y="450" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#0d47a1" font-weight="normal">قاعده: آپ‌لینک ≥ بزرگ‌ترین ترافیک همزمان محتمل + رشد ۲۴ ماه</text>
+<text x="480" y="376" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#0d47a1" font-weight="bold">محاسبهٔ ظرفیت آپ‌لینک — واحد و جهت درست (فرض سناریو — UNKNOWN per-سازمان)</text>
+<text x="90" y="402" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#0d47a1" font-weight="normal">سقف تئوریک پایین‌دست استفاده‌شده: ۷ پورت × 1Gbps = 7Gbps</text>
+<text x="90" y="418" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#0d47a1" font-weight="normal">÷ ضریب تجمعی فرض 4:1-8:1 → نیازمندی آپ‌لینک = 1.5 تا 3Gbps</text>
+<text x="90" y="434" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#0d47a1" font-weight="normal">یعنی 1G تئوریک این نسبت را برآورده نمی‌کند — فقط با فرض ترافیک کم + اندازه‌گیری (N2)</text>
+<text x="90" y="450" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#0d47a1" font-weight="normal">واحد: 1Gbps = 125MB/s خام هر جهت — «250MB/s» یعنی 2Gbps یک‌جهته؛ full-duplex بودجه یک‌جهته را دوبرابر نمی‌کند</text>
 <rect x="60" y="490" width="840" height="44" rx="8" fill="#fdecea" stroke="#d32f2f" stroke-width="2"/>
-<text x="480" y="512" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#d32f2f" font-weight="bold">هشدار: ترانک untagged = از دست دادن جداسازی VLANها و مدیریت — ممنوع</text>
+<text x="480" y="512" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#d32f2f" font-weight="bold">هشدار: ترانک untagged = از دست دادن جداسازی VLANها و مدیریت — ممنوع | CRS112: SFPها 1G هستند نه 10G</text>
 <text x="480" y="533" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#78909c" font-weight="normal">نمودار مفهومی تألیفی TehNet — نه عکس واقعی — الگوی سند Bridging and Switching (دسترسی 2026-11-16)؛ اجرا NOT_RUN</text>
 </svg>

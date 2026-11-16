@@ -1,0 +1,40 @@
+{
+ "m2-vlan-small-office.gutenberg.html": {},
+ "m2-vlan-small-office.gutenberg.html@desktop": {
+  "code_blocks": 9,
+  "h1": "VLAN برای دفتر کوچک — راهنمای تصویری MikroTik (M2)",
+  "images_loaded": "1/1",
+  "overflow_styled_px": 0,
+  "separator_cells": 0,
+  "tables": 7,
+  "tab_after": "A"
+ },
+ "m2-vlan-small-office.gutenberg.html@mobile": {
+  "code_blocks": 9,
+  "h1": "VLAN برای دفتر کوچک — راهنمای تصویری MikroTik (M2)",
+  "images_loaded": "1/1",
+  "overflow_styled_px": 0,
+  "separator_cells": 0,
+  "tables": 7,
+  "tab_after": "A"
+ },
+ "m3-dhcp-dns.gutenberg.html": {},
+ "m3-dhcp-dns.gutenberg.html@desktop": {
+  "code_blocks": 12,
+  "h1": "DHCP و DNS در MikroTik — راهنمای تصویری پیکربندی و عیب‌یابی (M3)",
+  "images_loaded": "1/1",
+  "overflow_styled_px": 0,
+  "separator_cells": 0,
+  "tables": 5,
+  "tab_after": "A"
+ },
+ "m3-dhcp-dns.gutenberg.html@mobile": {
+  "code_blocks": 12,
+  "h1": "DHCP و DNS در MikroTik — راهنمای تصویری پیکربندی و عیب‌یابی (M3)",
+  "images_loaded": "1/1",
+  "overflow_styled_px": 0,
+  "separator_cells": 0,
+  "tables": 5,
+  "tab_after": "A"
+ }
+}

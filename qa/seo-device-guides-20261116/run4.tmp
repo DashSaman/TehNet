@@ -1,0 +1,12 @@
+== GOOD CANDIDATE ==
+good candidate: ok=true checks=57 failed=0
+PASS NEG wrong-spec-E50UG-multiline-HTML -> ["E50UG row still carries MMIPS/256MB"]
+PASS NEG wrong-SVG-label-CRS112 -> ["SVG label does not show canonical SKU CRS112-8P-4S-IN"]
+PASS NEG omitted-model-CRS326 -> ["catalog row removed (omitted model)"]
+PASS NEG missing-schematic-asset -> ["schematic asset missing from candidate","broken relative refs in candidate (incl. CSVs)"]
+FAIL NEG broken-relative-link -> ["models with no embedded schematic","broken relative refs in candidate (incl. CSVs)"]
+PASS NEG duplicate-id -> ["duplicate ids"]
+PASS NEG dangling-anchor -> ["dangling anchor targets"]
+
+GOOD=PASS | NEGATIVES=7/7 rejected-with-reason
+RECEIPT validation-receipt.json | exit=1
