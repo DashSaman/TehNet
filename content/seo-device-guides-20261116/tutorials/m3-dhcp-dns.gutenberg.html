@@ -1,0 +1,554 @@
+<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from ../tutorials/m3-dhcp-dns.fa.md -->
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">DHCP و DNS در MikroTik — راهنمای تصویری پیکربندی و عیب‌یابی (M3)</h1>
+<!-- /wp:heading -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><p>وضعیت درس: <strong>DRAFT / NEEDS_CHANGES → بازنگری‌شده طبق MANAGER_REVIEW 6923833096 — در انتظار مرور.</strong></p><p>آموزش تصویری از سری MikroTik و routing؛ مخاطب: کارشناس شبکهٔ مبتدی.</p><p>سناریوی کاملاً فرضی و آموزشی با دادهٔ ساختگی؛ هیچ شبکهٔ واقعی دستکاری نشده است.</p><p>نمودار مفهومی و تألیفی است (نه عکس واقعی)؛ اجرای RouterOS این درس NOT_RUN است (بدون fixture مجاز — جدا از بررسی‌های استاتیک).</p></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پاسخ کوتاه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>DHCP Server روی MikroTik چهار جزء لازم دارد (IP روی interface، pool، تنظیم network، خود server) و DNS Cache سرعت حل نام را بالا می‌برد. با `allow-remote-requests=yes` روتر روی UDP/TCP 53 همهٔ آدرس‌هایش گوش می‌دهد — پس مرزِ «کلاینت مورداعتماد» باید با فایروال تعریف شود وگرنه روتر open resolver می‌شود. اگر دستگاهی IP نمی‌گیرد، ترتیب بررسی: lease فعال است؟ pool هست؟ <strong>network</strong> تعریف شده؟ interface درست گره خورده؟</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پیش‌نیازها — گره‌خورده به همین سناریو</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>قید صریح پیش‌نیاز (بخشی از مبنا):</strong> DHCP server این درس روی interface <strong>`bridge`</strong> بسته می‌شود و gateway کلاینت‌ها <strong>192.168.88.1</strong> است — همان آدرسی که روی `bridge` تنظیم می‌کنیم. اگر IP شما روی interface دیگری است، همهٔ `interface=` و `gateway=` همین درس را با نام همان interface جایگزین کنید؛ بدون این گره‌زدن، هیچ گام این درس معنا ندارد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>درس قبل: <a href="/guides/mikrotik-vlan/">VLAN برای دفتر کوچک (M2)</a> — مفهوم interface و pool از آنجا می‌آید</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>مبانی انتخاب روتر: <a href="/guides/mikrotik-routers/">مقایسهٔ روترهای میکروتیک (M1)</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>WinBox یا SSH</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مبنا آزمایشگاه (Lab Baseline) — دقیق و کامل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>نقش</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مدل/مقدار</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>توضیح</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>روتر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>hEX (RB750Gr3)، RouterOS v7.16+</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تنظیمات کارخانه (reset شده)؛ ether1 در لیست WAN، ether2-5 عضو `bridge`</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>LAN</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`bridge` با 192.168.88.1/24</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>gateway کلاینت‌ها؛ همان interface که DHCP server به آن گره می‌خورد</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>WAN</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ether1 به مودم</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>NAT کارخانه (masquerade 192.168.88.0/24) دست‌نخورده</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>کلاینت آزمایشی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>یک لپ‌تاپ DHCP-گیرنده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>برای تست‌های مثبت</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>کلاینت «غیرمورداعتماد»</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>همان لپ‌تاپ با IP دستی 10.9.9.9/24</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فقط برای تست منفی DNS</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">جدول آدرس‌دهی</h3>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>مقصد</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>آدرس</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>نحوهٔ تخصیص</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>روتر (gateway/DNS)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>192.168.88.1</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>روی `bridge` — خارج از pool</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>NAS</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>192.168.88.10</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>lease رزروی</strong> مدیریت‌شدهٔ DHCP (داخل pool نیست؛ سرور آن را به دیگری نمی‌دهد)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>Printer</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>192.168.88.11</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>lease رزروی مدیریت‌شدهٔ DHCP</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>رنج IP دستی مجاز (فقط در صورت ضرورت)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>192.168.88.2-9</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خارج از pool؛ تخصیص دستی روی دستگاه</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>pool دینامیک</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>192.168.88.20-250</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>DHCP</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>خودکار انتهای LAN</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>192.168.88.254</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>آخرین آدرس pool</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:image -->
+<figure class="wp-block-image size-large"><img src="../assets/tutorial-m3-dhcp-dns-flow.svg" alt="نمودار جریان DHCP و DNS درس M3 — کلاینت، روتر و مرز مورداعتماد (تصویر مفهومی تألیفی)" width="640" height="360" loading="lazy"/><figcaption>نمودار جریان DHCP و DNS درس M3 — کلاینت، روتر و مرز مورداعتماد (تصویر مفهومی تألیفی)</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> سمت راست، لپ‌تاپ کلاینت (DHCP گیرنده). وسط، روتر hEX با دو بلوک داخلی: «DHCP Server (گره‌خورده به bridge، pool 20-250، network با gateway/DNS)» و «DNS Cache + static entries (nas.lan → 192.168.88.10)». سمت چپ، اینترنت/forwardکنندهٔ بالادستی. چهار فلش توالی: (1) Discover از کلاینت، (2) Offer با آدرس+gateway 192.168.88.1+DNS 192.168.88.1، (3) پرس‌وجوی نام کلاینت به 192.168.88.1 روی پورت 53، (4) پاسخ از cache یا بالادستی. یک مرز خط‌چین قرمز «مرز مورداعتماد: فقط 192.168.88.0/24 روی پورت 53» دور بلوک روتر کشیده شده و یک کلاینت خاکستری بیرون مرز با پرس‌وجوی رد‌شده (×) نشان داده شده است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">گام ۰: پشتیبان و بازیابی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros">/system backup save name=pre-dhcp-dns
+/export file=pre-dhcp-dns</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>پیکربندی را در Safe Mode وین‌باکس اعمال کنید؛ تا زمان تأیید تست‌ها، قطع اتصال یعنی بازگشت خودکار تغییرات. (Safe Mode قابلیت خود RouterOS است؛ URL جداگانه‌ای برایش ادعا نمی‌شود.)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">گام ۱: DHCP — هر چهار جزء، گره‌خورده به bridge</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>سند رسمی DHCP Server چهار شرط را فهرست می‌کند؛ در همین ترتیب:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros"># (۱) IP روی interface سرویس‌دهنده — از قبل روی bridge هست؛ اگر ندارید:
+/ip address
+add address=192.168.88.1/24 interface=bridge comment="gateway+DNS lan"
+
+# (۲) pool — آدرس خود روتر داخل pool نباشد (سند رسمی)
+/ip pool
+add name=lan-pool ranges=192.168.88.20-192.168.88.254
+
+# (۳) network — همان چیزی که به کلاینت می‌رسد؛ gateway/DNS همان bridge IP
+/ip dhcp-server network
+add address=192.168.88.0/24 gateway=192.168.88.1 dns-server=192.168.88.1
+
+# (۴) server — گره interface به pool؛ روی پلِ خالیِ بی‌IP کار نمی‌کند
+/ip dhcp-server
+add name=lan-dhcp interface=bridge address-pool=lan-pool lease-time=8h disabled=no
+
+# رزروهای مدیریت‌شده (تفاوت با IP دستی: جدول بعد از عیب‌یابی)
+/ip dhcp-server lease
+add address=192.168.88.10 mac-address=AA:BB:CC:DD:EE:10 server=lan-dhcp comment="NAS"
+add address=192.168.88.11 mac-address=AA:BB:CC:DD:EE:11 server=lan-dhcp comment="Printer"</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">گام ۲: DNS — cache، forwarder و نام‌های داخلی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros">/ip dns
+set servers=8.8.8.8,1.1.1.1 allow-remote-requests=yes cache-size=4096KiB
+
+/ip dns static
+add name=nas.lan address=192.168.88.10
+add name=printer.lan address=192.168.88.11
+add name=router.lan address=192.168.88.1</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>از این لحظه روتر روی <strong>UDP و TCP پورت 53 روی همهٔ آدرس‌هایش</strong> پاسخ می‌دهد — دقیقاً همان رفتاری که سند رسمی DNS هشدارش را می‌دهد: دیوارآتش پیش‌فرض پرس‌وجوهای از اینترنت را می‌اندازد، اما «اگر فایروال خودتان را دارید، خودتان هم drop کنید تا روتر open resolver نشود». گام ۳ همین مرز را می‌سازد.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">گام ۳: مرز DNS مورداعتماد (ضد open resolver)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>دو حالت صریح:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>حالت الف — فایروال کارخانه (این مبنا):</strong> زنجیرهٔ input پیش‌فرضِ hEX ترافیک ناشناس از WAN را می‌اندازد؛ پرس‌وجوی 53 از اینترنت پاسخ نمی‌گیرد. هنوز باید پذیرشش را با تست منفیِ گام ۴ (شمارندهٔ drop) ثبت کنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>حالت ب — اگر زنجیرهٔ input را جایگزین می‌کنید (مثل رویکرد M2):</strong> مجموعهٔ کامل با قید source:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros"># جایگزینی کامل input (پشتیبان گام ۰ گرفته شده) — فقط بخش مرتبط با 53 و بستن پایانی:
+/ip firewall filter
+remove [find chain=input]
+add chain=input action=accept connection-state=established,related,untracked comment="TN-M3 est/rel"
+add chain=input action=drop connection-state=invalid comment="TN-M3 invalid"
+add chain=input action=accept protocol=icmp comment="TN-M3 ping/diag"
+add chain=input action=accept protocol=udp dst-port=67 in-interface-list=LAN comment="TN-M3 DHCP"
+add chain=input action=accept protocol=udp dst-port=53 src-address=192.168.88.0/24 comment="TN-M3 DNS udp فقط مورداعتماد"
+add chain=input action=accept protocol=tcp dst-port=53 src-address=192.168.88.0/24 comment="TN-M3 DNS tcp فقط مورداعتماد"
+add chain=input action=accept protocol=tcp dst-port=8291,22 src-address=192.168.88.0/24 comment="TN-M3 winbox/ssh محلی"
+add chain=input action=accept protocol=tcp dst-port=80,443 src-address=192.168.88.0/24 comment="TN-M3 webfig محلی"
+add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و هر منبع غیرمورداعتماد)"</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>بعد از اعمال، شمارندهٔ rule آخر را ببینید:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros">/ip firewall filter print stats where chain=input</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p>هر افزایش شمارنده روی ruleهای drop هنگام پرس‌وجوی 53 از منبع غیرمورداعتماد = مرز کار می‌کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">گام ۴: تست پذیرش — هم مثبت، هم منفی (سمت کلاینت، نه فقط روتر)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>تست سمت روتر (`:resolve`) فقط cache خود روتر را می‌سنجد و <strong>پذیرش سمت کلاینت نیست</strong> — پذیرش با کلاینت واقعی انجام می‌شود:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>#</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>کلاینت</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>عمل</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>نتیجهٔ موردانتظار</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>نوع</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>1</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>لپ‌تاپ DHCP</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`ipconfig /all` (ویندوز)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>IPv4 از 192.168.88.20-254؛ Gateway=192.168.88.1؛ DHCP Server=192.168.88.1؛ DNS=192.168.88.1</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مثبت</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>2</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>همان کلاینت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`nslookup nas.lan` (بدون تعیین سرور)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>192.168.88.10 از DNS روتر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مثبت</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>3</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>همان کلاینت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`nslookup printer.lan`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>192.168.88.11</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مثبت</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>4</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>همان کلاینت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`nslookup www.google.com`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>پاسخ (از cache/بالادستی)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مثبت</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>5</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>همان کلاینت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`ping 192.168.88.1`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>reply</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مثبت</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>6</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>لپ‌تاپ با IP دستی 10.9.9.9/24</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`nslookup nas.lan 192.168.88.1`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هیچ پاسخی (timeout) + شمارندهٔ drop input بالا می‌رود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>منفی</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>7</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>لپ‌تاپ با IP دستی 10.9.9.9/24</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`ping 192.168.88.1`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>timeout (فقط در حالت ب)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>منفی</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>8</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سمت روتر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`:put [:resolve nas.lan]`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>192.168.88.10 — فقط بررسی cache روتر؛ <strong>به‌جای تست 1-3 نیست</strong></td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ابزار</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>بررسی‌های روتری برای عیب‌یابی:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros">/ip dhcp-server lease print
+/ip dhcp-server print stats
+/ip dns cache print
+/log print where message~"dhcp"</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">عیب‌یابی — با تفکیک «رزرو مدیریت‌شده» از «IP دستی»</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>این تفکیک مهم است: <strong>lease رزروی</strong> یعنی سرور خودش آدرس را برای یک MAC رزرو کرده — تعارض ندارد و خطا نیست، هر جا هم که باشد (داخل یا خارج pool) سرور مالکیتش را می‌شناسد. خطری که وجود دارد <strong>IP دستیِ روی NIC دستگاهِ داخل رنج pool</strong> است: سرور ممکن است همان آدرس را به دستگاه دیگری بدهد و پیام conflict بیاید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>نشانه</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>علت محتمل</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>بررسی</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>راه‌حل</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>کلاینت IP نمی‌گیرد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>server disabled یا invalid</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/ip dhcp-server print`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>اگر invalid: IP روی interface نیست → گام ۱ جزء (۱)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>کلاینت IP می‌گیرد ولی gateway ندارد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>جزء (۳) network تعریف نشده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/ip dhcp-server network print`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>network با gateway/DNS همان subnet</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>«conflicting» روی دستگاه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>IP دستی روی NIC داخل رنج pool</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/ip dhcp-server lease print` + آدرس‌های دستی دستگاه‌ها</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>رزروی کنید (lease) یا IP دستی را به 192.168.88.2-9 ببرید؛ lease رزروی خودش خطا نیست</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>`nas.lan` حل نمی‌شود از کلاینت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>DNS کلاینت روی روتر نیست</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`ipconfig /all`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>در network، `dns-server=192.168.88.1`</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>`nas.lan` حل نمی‌شود حتی از روتر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>static entry جا افتاد یا آدرسش با رزرو نمی‌خواند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/ip dns static print`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>نام/آدرس را با جدول آدرس‌دهی هم‌تراز کنید</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>پرس‌وجوی 53 از اینترنت جواب می‌گیرد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فایروال سفارشی بدون drop، یا allow-remote-requests با مرز تعریف‌نشده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>شمارنده‌های `/ip firewall filter print stats`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>گام ۳ حالت ب را کامل اعمال کنید</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>lease زودخالی می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>lease-time خیلی کوتاه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/ip dhcp-server print`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>8h یا بیشتر برای LAN پایدار</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">تمرین کوتاه (با پاسخ موردانتظار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>کدام جزء از چهار جزء DHCP همان چیزی است که کلاینت به‌عنوان gateway/DNS می‌گیرد؟ — <strong>پاسخ موردانتظار:</strong> جزء (۳) `/ip dhcp-server network`؛ pool فقط مخزن آدرس است.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>چرا `:put [:resolve nas.lan]` روی روتر «پذیرش» حساب نمی‌شود؟ — <strong>پاسخ موردانتظار:</strong> چون فقط مسیر cache خود روتر را می‌سنجد؛ پذیرش یعنی کلاینت واقعی با تنظیمات دریافتی DHCP به همان نتیجه برسد (تست 1-3).</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>NAS آدرس 192.168.88.30 داخل pool به‌صورت دستی روی NIC گرفته؛ به‌جایش چه کنید؟ — <strong>پاسخ موردانتظار:</strong> یا lease رزروی همان MAC (سرور مالکیت را می‌شناسد) یا انتقال IP دستی به رنج رزرو 192.168.88.2-9؛ رهاکردن IP دستی داخل pool ریسک conflict دارد.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>چه چیزی روتر را open resolver می‌کند و چه چیزی جلویش را می‌گیرد در حالت ب؟ — <strong>پاسخ موردانتظار:</strong> `allow-remote-requests=yes` روی همهٔ آدرس‌ها روی 53 گوش می‌دهد؛ قید `src-address=192.168.88.0/24` روی acceptهای 53 و default drop انتهایی مانع پاسخ به غیرمورداعتماد (شامل WAN) می‌شود.</li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">چک‌لیست تحویل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[ ] پیش‌نیاز گره‌خورده: IP روی `bridge` = 192.168.88.1/24 و همان gateway در network</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] هر چهار جزء DHCP موجود: IP روی interface، pool بدون آدرس خود روتر، network، server</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] رزروها به‌صورت lease مدیریت‌شده (نه IP دستی داخل pool)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] DNS: forwarder + static entries هم‌تراز با جدول آدرس‌دهی</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] مرز 53: حالت الف (پیش‌فرض) یا ب (src-restricted + default drop) — و تست منفی ثبت‌شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] تست‌های 1-5 مثبت و 6-7 منفی روی کلاینت واقعی اجرا و ثبت شده‌اند (اجرای این درس در نویسنده NOT_RUN است)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] پشتیبان قبل/بعد و Safe Mode تأیید شده</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">منابع رسمی (fetch شده با تاریخ)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>DHCP Server — چهار شرط اجزا، pool بدون آدرس خود روتر، پلِ خالی: https://manual.mikrotik.com/docs/network-management/dhcp/server/ (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>DNS — allow-remote-requests و هشدار open resolver، static entries و cache: https://manual.mikrotik.com/docs/network-management/dns/ (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>Bridging and Switching — VLAN interface روی پل و ترتیب فیلترینگ: https://manual.mikrotik.com/docs/bridging-and-switching/ (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>صفحهٔ رسمی hEX (RB750Gr3): https://mikrotik.com/product/hex_r (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">آموزش‌های مرتبط و مسیر خدمت</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>پیوند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقصد</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>---</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>درس قبلی (پیش‌نیاز)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/mikrotik-vlan/">VLAN برای دفتر کوچک (M2)</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>مفهوم انتخاب روتر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/mikrotik-routers/">مقایسهٔ روترهای میکروتیک (M1)</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نقشهٔ کامل سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/topic-map/">topic map</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>عیب‌یابی/کانفیگ DHCP-DNS سازمان شما</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="https://tehnet.ir/services/mikrotik-tehran/">خدمات میکروتیک TehNet</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>درس‌های بعدی سری (M4 inter-VLAN، M5 VPN، M6 dual-WAN)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>در نوبت‌های بعد تولید می‌شوند — فعلاً فقط در <a href="/guides/topic-map/">topic map</a></td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->

@@ -1,17 +1,34 @@
 {
  "deterministic": true,
+ "builder": "rev3",
  "jobs": [
   {
    "md": "mikrotik-routers.fa.md",
    "html": "mikrotik-routers.gutenberg.html",
+   "type": "article",
    "bytes": 36544,
    "per_model_images": 16
   },
   {
    "md": "mikrotik-switches-crs.fa.md",
    "html": "mikrotik-switches-crs.gutenberg.html",
-   "bytes": 26675,
+   "type": "article",
+   "bytes": 32901,
    "per_model_images": 15
+  },
+  {
+   "md": "../tutorials/m2-vlan-small-office.fa.md",
+   "html": "../tutorials/m2-vlan-small-office.gutenberg.html",
+   "type": "tutorial",
+   "bytes": 48043,
+   "per_model_images": 0
+  },
+  {
+   "md": "../tutorials/m3-dhcp-dns.fa.md",
+   "html": "../tutorials/m3-dhcp-dns.gutenberg.html",
+   "type": "tutorial",
+   "bytes": 30082,
+   "per_model_images": 0
   }
  ]
 }

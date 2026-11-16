@@ -1,8 +1,12 @@
 'use strict';
-/* TN-SEO-DEVICE-GUIDES-20261116 — deterministic Gutenberg builder (rev2).
- * Rebuilds both article HTML files from their .fa.md sources. No timestamps in output.
- * Asset paths use ../assets/ (resolvable from articles/ in the repo preview tree);
- * the proposed-public-URL map lives in publication-notes.json.
+/* TN-SEO-DEVICE-GUIDES-20261116 — deterministic Gutenberg builder (rev3).
+ * Rebuilds both article HTML files AND the M2/M3 tutorial HTML files from their
+ * .fa.md sources. No timestamps in output.
+ * rev3 (TN-M2-M3-CORRECTIONS-20261116, manager 6923833096): fenced code blocks,
+ * blockquotes, ordered lists, Markdown image lines, tutorial jobs; tutorial
+ * outputs receive NO per-model schematic injection and NO decision diagram.
+ * Asset paths use ../assets/ (resolvable from articles/ AND tutorials/ in the
+ * repo preview tree); the proposed-public-URL map lives in publication-notes.json.
  * Determinism: running twice must produce byte-identical files (checked by validate-seo-guides.cjs). */
 const fs = require('node:fs');
 const path = require('node:path');
@@ -47,48 +51,107 @@ const SKU_SCHEMATIC = {
 
 function mdToGutenberg(md, perModel) {
   const out = [];
-  let inList = false, inTable = false, rows = [], cur = [];
+  const NLX = String.fromCharCode(10); // real newline, escape-proof
+  /* rev3: inline-bold in fallback/list text ONLY for the switch guide (regenerated
+   * this tick — its HTML was stale vs its MD) and tutorials. The router guide keeps
+   * its accepted rendering byte-for-byte. Table cells unchanged everywhere. */
+  const allowInlineBold = String(perModel).indexOf('tutorials/') >= 0 || String(perModel).indexOf('switches') >= 0;
+  const bold = s => allowInlineBold ? s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>') : s;
+  let inList = false, listTag = 'ul', inTable = false, rows = [], cur = [];
+  let inFence = false, fenceLang = '', fenceBuf = [];
+  let inQuote = false, quoteBuf = [];
   const flushList = () => {
     if (inList) {
-      out.push('<!-- wp:list -->\n<ul class="wp-block-list">' + cur.map(l => '<!-- wp:list-item -->\n<li>' + l + '</li>\n<!-- /wp:list-item -->').join('') + '\n</ul>\n<!-- /wp:list -->');
+      const ordered = listTag === 'ol';
+      out.push('<!-- wp:list' + (ordered ? ' {"ordered":true}' : '') + ' -->\n<' + listTag + ' class="wp-block-list">' + cur.map(l => '<!-- wp:list-item -->\n<li>' + l + '</li>\n<!-- /wp:list-item -->').join('') + '\n</' + listTag + '>\n<!-- /wp:list -->');
       inList = false;
+    }
+  };
+  const flushFence = () => {
+    if (inFence) {
+      const esc = fenceBuf.join(NLX).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      const cls = fenceLang ? ' class="language-' + fenceLang + '"' : '';
+      out.push('<!-- wp:code -->\n<pre class="wp-block-code"><code' + cls + '>' + esc + '</code></pre>\n<!-- /wp:code -->');
+      inFence = false; fenceLang = ''; fenceBuf = [];
+    }
+  };
+  const flushQuote = () => {
+    if (inQuote) {
+      const paras = quoteBuf.map(q => '<p>' + bold(q) + '</p>').join('');
+      out.push('<!-- wp:quote -->\n<blockquote class="wp-block-quote">' + paras + '</blockquote>\n<!-- /wp:quote -->');
+      inQuote = false; quoteBuf = [];
     }
   };
   const flushTable = () => {
     if (inTable && rows.length) {
       const head = rows[0], body = rows.slice(1);
-      const cells = (r, tag) => r.map(c => '<!-- wp:table-cell -->\n<' + tag + '>' + c.trim() + '</' + tag + '>\n<!-- /wp:table-cell -->').join('');
+      const cells = (r, tag) => r.map(c => '<!-- wp:table-cell -->\n<' + tag + '>' + bold(c.trim()) + '</' + tag + '>\n<!-- /wp:table-cell -->').join('');
       out.push('<!-- wp:table -->\n<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr>' + cells(head, 'th') + '</tr></thead><tbody>' + body.map(r => '<tr>' + cells(r, 'td') + '</tr>').join('') + '</tbody></table>\n<!-- /wp:table -->');
       inTable = false; rows = [];
     }
   };
   for (const line of md.split('\n')) {
     const l = line.trim();
+    /* fenced code block (rev3): opening fence starts capture, closing fence flushes */
+    if (l.startsWith('```')) {
+      if (!inFence) { flushList(); flushQuote(); flushTable(); inFence = true; fenceLang = l.slice(3).trim(); fenceBuf = []; }
+      else { flushFence(); }
+      continue;
+    }
+    if (inFence) { fenceBuf.push(line); continue; }
+    /* blockquote lines (rev3): consecutive '> ' lines merge into one quote block */
+    if (l === '>' || l.startsWith('> ')) {
+      flushList(); flushTable();
+      if (!inQuote) { inQuote = true; quoteBuf = []; }
+      quoteBuf.push(l.replace(/^>\s?/, ''));
+      continue;
+    }
+    flushQuote();
+    /* Markdown image line (rev3): ![alt](src) -> wp:image, src kept as written */
+    const imgM = l.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+    if (imgM) {
+      flushList(); flushTable();
+      out.push('<!-- wp:image -->\n<figure class="wp-block-image size-large"><img src="' + imgM[2] + '" alt="' + imgM[1] + '" width="640" height="360" loading="lazy"/><figcaption>' + imgM[1] + '</figcaption></figure>\n<!-- /wp:image -->');
+      continue;
+    }
     if (l.startsWith('|')) {
       if (!inTable) { flushList(); inTable = true; }
       rows.push(l.replace(/^\|/, '').replace(/\|$/, '').split('|'));
       continue;
     }
     flushTable();
-    if (l.startsWith('### ')) { flushList(); out.push('<!-- wp:heading {"level":3} -->\n<h3 class="wp-block-heading">' + l.slice(4) + '</h3>\n<!-- /wp:heading -->'); }
-    else if (l.startsWith('## ')) { flushList(); out.push('<!-- wp:heading -->\n<h2 class="wp-block-heading">' + l.slice(3) + '</h2>\n<!-- /wp:heading -->'); }
-    else if (l.startsWith('# ')) { flushList(); out.push('<!-- wp:heading {"level":1} -->\n<h1 class="wp-block-heading">' + l.slice(2) + '</h1>\n<!-- /wp:heading -->'); }
+    if (l.startsWith('### ')) { flushList(); out.push('<!-- wp:heading {"level":3} -->\n<h3 class="wp-block-heading">' + bold(l.slice(4)) + '</h3>\n<!-- /wp:heading -->'); }
+    else if (l.startsWith('## ')) { flushList(); out.push('<!-- wp:heading -->\n<h2 class="wp-block-heading">' + bold(l.slice(3)) + '</h2>\n<!-- /wp:heading -->'); }
+    else if (l.startsWith('# ')) { flushList(); out.push('<!-- wp:heading {"level":1} -->\n<h1 class="wp-block-heading">' + bold(l.slice(2)) + '</h1>\n<!-- /wp:heading -->'); }
     else if (l.startsWith('- ')) {
-      if (!inList) { flushTable(); inList = true; cur = []; }
-      cur.push(l.slice(2));
+      if (!inList || listTag !== 'ul') { flushTable(); flushList(); inList = true; listTag = 'ul'; cur = []; }
+      cur.push(bold(l.slice(2)));
+    }
+    else if (/^\d+\. /.test(l) && String(perModel).indexOf('tutorials/') >= 0) {
+      /* rev3 ordered lists are TUTORIAL-ONLY: article numbered lines keep their
+       * accepted bold-paragraph rendering so committed article output stays byte-identical */
+      if (!inList || listTag !== 'ol') { flushTable(); flushList(); inList = true; listTag = 'ol'; cur = []; }
+      cur.push(bold(l.replace(/^\d+\. /, '')));
     }
     else if (/^\*[^*].*\*$/.test(l)) out.push('<!-- wp:paragraph -->\n<p><em>' + l.slice(1, -1) + '</em></p>\n<!-- /wp:paragraph -->');
     else if (l.startsWith('**')) {
-      const m = l.match(/^\*\*(.+?)\*\*(.*)$/);
-      out.push('<!-- wp:paragraph -->\n<p><strong>' + m[1] + '</strong>' + m[2] + '</p>\n<!-- /wp:paragraph -->');
+      /* rev3: convert ALL **pair** occurrences (nested bold, e.g. switch scenarios);
+       * single-pair lines render identical to rev2 */
+      out.push('<!-- wp:paragraph -->\n<p>' + l.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>') + '</p>\n<!-- /wp:paragraph -->');
     }
-    else if (l) { flushList(); out.push('<!-- wp:paragraph -->\n<p>' + l + '</p>\n<!-- /wp:paragraph -->'); }
+    else if (l) { flushList(); out.push('<!-- wp:paragraph -->\n<p>' + bold(l) + '</p>\n<!-- /wp:paragraph -->'); }
   }
-  flushList(); flushTable();
+  flushList(); flushTable(); flushFence(); flushQuote();
   let html = out.join('\n\n');
   /* links: local repo-file cross-links become proposed public slugs */
   html = html.replace(/\[([^\]]+)\]\(mikrotik-routers\.gutenberg\.html\)/g, '[$1](/guides/mikrotik-routers/)');
   html = html.replace(/\[([^\]]+)\]\(mikrotik-switches-crs\.gutenberg\.html\)/g, '[$1](/guides/mikrotik-switches-crs/)');
+  /* tutorial cross-links (rev3) — proposed public slugs per topic-map.md */
+  html = html.replace(/\[([^\]]+)\]\(\.\.\/articles\/mikrotik-routers\.fa\.md\)/g, '[$1](/guides/mikrotik-routers/)');
+  html = html.replace(/\[([^\]]+)\]\(\.\.\/articles\/mikrotik-switches-crs\.fa\.md\)/g, '[$1](/guides/mikrotik-switches-crs/)');
+  html = html.replace(/\[([^\]]+)\]\(m2-vlan-small-office\.fa\.md\)/g, '[$1](/guides/mikrotik-vlan/)');
+  html = html.replace(/\[([^\]]+)\]\(m3-dhcp-dns\.fa\.md\)/g, '[$1](/guides/mikrotik-dhcp-dns/)');
+  html = html.replace(/\[([^\]]+)\]\(\.\.\/topic-map\.md\)/g, '[$1](/guides/topic-map/)');
   html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
   /* heading anchors {#id} -> id attribute */
   html = html.replace(/<h([123]) class="wp-block-heading">([^<]+?) \{#([a-z0-9-]+)\}<\/h\1>/g, '<h$1 class="wp-block-heading" id="$3">$2</h$1>');
@@ -96,7 +159,6 @@ function mdToGutenberg(md, perModel) {
    * (6916713513: keep parenthesized SKU in anchor so hEX variants don't cross-match;
    *  image block sits OUTSIDE the wp:paragraph block) */
   let imgCount = 0;
-  const NLX = String.fromCharCode(10); // real newline, escape-proof
   const imgBlock = (file, alt) => ['<!-- wp:image -->', '<figure class="wp-block-image size-large"><img src="../assets/' + file + '" alt="' + alt + '" width="420" height="120" loading="lazy"/><figcaption>' + alt + ' (عکس رسمی: mikrotik.com — تصویر واقعی embed نشده)</figcaption></figure>', '<!-- /wp:image -->'].join(NLX);
   const embedded = f => html.includes('assets/' + f);
   /* 1) per-model paragraphs with EXACT <strong>SKU text */
@@ -165,11 +227,12 @@ function mdToGutenberg(md, perModel) {
       if (blocks.length) { html = html.slice(0, ins) + NLX + NLX + blocks.join(NLX + NLX) + html.slice(ins); imgCount += blocks.length; }
     }
   }
-  const diagram = perModel.includes('switches') ? 'switch-decision.svg' : 'router-decision.svg';
-  const decAlt = perModel.includes('switches') ? 'نمودار تصمیم سوئیچ/روترسوئیچ میکروتیک — شماتیک تألیفی' : 'نمودار تصمیم انتخاب روتر میکروتیک بر اساس نیاز — شماتیک تألیفی';
+  const isArticle = isRouterGuide || isSwitchGuide; /* rev3: tutorials get no decision-diagram injection */
+  const diagram = isSwitchGuide ? 'switch-decision.svg' : 'router-decision.svg';
+  const decAlt = isSwitchGuide ? 'نمودار تصمیم سوئیچ/روترسوئیچ میکروتیک — شماتیک تألیفی' : 'نمودار تصمیم انتخاب روتر میکروتیک بر اساس نیاز — شماتیک تألیفی';
   const H2_END = '</h2>\n<!-- /wp:heading -->';
   const firstH2 = html.indexOf(H2_END);
-  if (firstH2 >= 0 && !html.includes('assets/' + diagram)) {
+  if (isArticle && firstH2 >= 0 && !html.includes('assets/' + diagram)) {
     const ins = firstH2 + H2_END.length;
     const decBlock = '<!-- wp:image -->\n<figure class="wp-block-image size-large"><img src="../assets/' + diagram + '" alt="' + decAlt + '" width="640" height="420" loading="lazy"/><figcaption>' + decAlt + ' (تصویر شماتیک تألیفی TehNet)</figcaption></figure>\n<!-- /wp:image -->';
     html = html.slice(0, ins) + '\n\n' + decBlock + html.slice(ins);
@@ -180,16 +243,20 @@ function mdToGutenberg(md, perModel) {
 }
 
 const jobs = [
-  ['mikrotik-routers.fa.md', 'mikrotik-routers.gutenberg.html'],
-  ['mikrotik-switches-crs.fa.md', 'mikrotik-switches-crs.gutenberg.html'],
+  ['mikrotik-routers.fa.md', 'mikrotik-routers.gutenberg.html', 'article'],
+  ['mikrotik-switches-crs.fa.md', 'mikrotik-switches-crs.gutenberg.html', 'article'],
+  /* rev3: tutorial jobs — no SKU/decision-diagram injection (type gate above) */
+  ['../tutorials/m2-vlan-small-office.fa.md', '../tutorials/m2-vlan-small-office.gutenberg.html', 'tutorial'],
+  ['../tutorials/m3-dhcp-dns.fa.md', '../tutorials/m3-dhcp-dns.gutenberg.html', 'tutorial'],
 ];
 const summary = [];
-for (const [mdF, htmlF] of jobs) {
+for (const job of jobs) {
+  const mdF = job[0], htmlF = job[1], jobType = job[2];
   const md = fs.readFileSync(path.join(DIR, mdF), 'utf8');
   const { html, imgCount } = mdToGutenberg(md, mdF);
   const full = '<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from ' + mdF + ' -->\n' + html;
   fs.writeFileSync(path.join(DIR, htmlF), full, 'utf8');
-  summary.push({ md: mdF, html: htmlF, bytes: Buffer.byteLength(full, 'utf8'), per_model_images: imgCount });
-  console.log('BUILT ' + htmlF + ' bytes=' + summary[summary.length - 1].bytes + ' perModelImgs=' + imgCount);
+  summary.push({ md: mdF, html: htmlF, type: jobType, bytes: Buffer.byteLength(full, 'utf8'), per_model_images: imgCount });
+  console.log('BUILT ' + htmlF + ' type=' + jobType + ' bytes=' + summary[summary.length - 1].bytes + ' perModelImgs=' + imgCount);
 }
-fs.writeFileSync(path.join(DIR, 'build-summary.json'), JSON.stringify({ deterministic: true, jobs: summary }, null, 1), 'utf8');
+fs.writeFileSync(path.join(DIR, 'build-summary.json'), JSON.stringify({ deterministic: true, builder: 'rev3', jobs: summary }, null, 1), 'utf8');

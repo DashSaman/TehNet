@@ -384,7 +384,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>سه خانواده را جدا کنید: **پسیو MikroTik** (ولتاژ خاص؛ فقط دستگاه‌های MikroTik سازگار)، **802.3af** (تا ~15.4W) و **802.3at** (تا ~30W). بودجهٔ کل PoE-out را از جمع مصرف دستگاه‌ها حساب کنید نه تعداد پورت؛ مثال سندشده: netPower 16P با max ~316W در برابر آداپتورهای 48V~96W پیوست — برای بار کامل باید PSU بزرگ‌تر بخرید. سازگاری ماژول نوری را از شکل قفسه (SFP/SFP+) نتیجه نگیرید؛ استاندارد ماژول مهم است.</p>
+<p>سه خانواده را جدا کنید: <strong>پسیو MikroTik</strong> (ولتاژ خاص؛ فقط دستگاه‌های MikroTik سازگار)، <strong>802.3af</strong> (تا ~15.4W) و <strong>802.3at</strong> (تا ~30W). بودجهٔ کل PoE-out را از جمع مصرف دستگاه‌ها حساب کنید نه تعداد پورت؛ مثال سندشده: netPower 16P با max ~316W در برابر آداپتورهای 48V~96W پیوست — برای بار کامل باید PSU بزرگ‌تر بخرید. سازگاری ماژول نوری را از شکل قفسه (SFP/SFP+) نتیجه نگیرید؛ استاندارد ماژول مهم است.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
@@ -392,27 +392,27 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>1. **دفتر با تلفن و دوربین PoE (۱۰–۲۰ دستگاه):** CRS112-8P-4S-IN یا netPower 16P؛ بودجهٔ PoE را جمع بزنید.</p>
+<p>1. <strong>دفتر با تلفن و دوربین PoE (۱۰–۲۰ دستگاه):</strong> CRS112-8P-4S-IN یا netPower 16P؛ بودجهٔ PoE را جمع بزنید.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>2. **access layer متراکم (۴۸ پورت):** CRS354-48G-4S+2Q+RM با uplink به core.</p>
+<p>2. <strong>access layer متراکم (۴۸ پورت):</strong> CRS354-48G-4S+2Q+RM با uplink به core.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>3. **uplink فیبر 10G برای دفتر:** CRS310-8G+2S+IN در access؛ CRS326-24S+2Q+RM در distribution.</p>
+<p>3. <strong>uplink فیبر 10G برای دفتر:</strong> CRS310-8G+2S+IN در access؛ CRS326-24S+2Q+RM در distribution.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>4. **شبکهٔ 10G سرور/NAS:** CRS309-1G-8S+IN یا CRS310-8G+2S+IN (پورت‌های 2.5G برای endpointهای مدرن)؛ routing بین VLANها را به روتر بسپارید.</p>
+<p>4. <strong>شبکهٔ 10G سرور/NAS:</strong> CRS309-1G-8S+IN یا CRS310-8G+2S+IN (پورت‌های 2.5G برای endpointهای مدرن)؛ routing بین VLANها را به روتر بسپارید.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>5. **تجمیع شعب روی فایبر:** CRS328-4C-20S-4S+RM یا CRS326-24S+2Q+RM.</p>
+<p>5. <strong>تجمیع شعب روی فایبر:</strong> CRS328-4C-20S-4S+RM یا CRS326-24S+2Q+RM.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>6. **محیطی که روتر جدا لازم دارد:** هر CRS بالا + RB5009/CCR2116؛ CRS قرار نیست VPN/فایروال بدهد.</p>
+<p>6. <strong>محیطی که روتر جدا لازم دارد:</strong> هر CRS بالا + RB5009/CCR2116؛ CRS قرار نیست VPN/فایروال بدهد.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
@@ -446,6 +446,110 @@
 <!-- wp:paragraph -->
 <p>7. برای routing واقعی بین VLANها با فایروال دقیق، بودجهٔ روتر جدا (RB5009/CCR) را در نظر بگیرید.</p>
 <!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="scenarios-poe">سناریوهای انتخاب واقعی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><em>سناریوهای زیر طراحی‌های فرضی آموزشی‌اند؛ تجربهٔ اجرای واقعی TehNet را نشان نمی‌دهند.</em></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">سناریوی ۱: access/PoE برای شرکت کوچک — طرح سازگار</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>فرضیات:</strong> دفتر یک‌طبقه؛ <strong>۸ دوربین</strong> IP با PoE+ (حداکثر ۱۲W هرکدام)، <strong>۴ تلفن</strong> IP با PoE/af (حداکثر ۶W)، <strong>۸ کاربر</strong> مسی Gigabit (بدون PoE)، uplink فیبر به روتر مرکزی.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>محاسبهٔ PoE:</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>تخصیص پورت‌ها:</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>BOM:</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>routing بین VLAN:</strong> CPU ‏CRS318 برای فایروال سنگین مناسب نیست — ‏inter-VLAN را به روتر اصلی بسپارید. ‏L3HW روی این چیپ فقط برای routeهای ساده بدون firewall ruleهای حجیم سندشده است؛ مرز دقیق را با سند جاری MikroTik بررسی کنید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>چه زمانی نخریم:</strong> اگر دوربین‌ها ‏PoE ‏bt (بیش از ‏۶۰W هرکدام) باشند؛ یا اگر ‏routing کامل ‏L3 سخت‌افزاری الزامی است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>ورودی نیازسنجی:</strong> فهرست دقیق دستگاه‌ها با مصرف ‏PoE، نقشهٔ شبکه، ‏VLAN plan، بودجهٔ ترافیک بین ‏VLANها.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>۸ دوربین × ~۱۲W = ‏~۹۶W</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>۴ تلفن × ~۶W = ‏~۲۴W</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><strong>جمع PoE ≈ ‏۱۲۰W</strong> → PSU حداقل ‏۱۵۰W (با رزرو ۲۰٪)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>netPower 16P (CRS318-16P-2S+OUT): ‏۱۶ پورت GbE PoE-out → پوشش ‏۱۲ دوربین + ‏۴ تلفن</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>‏۸ کاربر مسی → از یک سوئیچ access مسی جدا (بدون PoE لازم) یا از پورت‌های باقی‌ماندهٔ PoE-out</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>uplink: SFP+ به روتر مرکزی</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>netPower 16P (CRS318-16P-2S+OUT) × ۱ — PSU جدا (سازنده PSU پیوست نمی‌دهد)؛ ظرفیت PoE ~۳۱۶W</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>سوئیچ access مسی × ۱ (اگر کاربران بیش از ظرفیت باقی‌ماندهٔ PoE سوئیچ باشند)</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">سناریوی ۲: سرور/NAS با 10G و نیاز routing بین VLAN</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>فرضیات:</strong> ۴–۸ سرور/NAS با NICهای ‏SFP+ ‏10G، چند VLAN (management، storage، production)، نیاز به ‏inter-VLAN routing و فایروال بین VLANها.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>گزینه‌ها:</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>انتخاب پیشنهادی:</strong> ‏CRS309-1G-8S+IN برای ۴–۸ سرور/NAS با NICهای ‏SFP+؛ ‏CRS310-8G+2S+IN اگر endpointهای مسی 2.5G هم دارید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>routing بین VLAN:</strong> ‏routing نرم‌افزاری روی CPU ‏۸۰۰MHz برای ترافیک سنگین محدود است. اگر فقط ‏L2 segmentation و ‏ACL پایه کافی است، ‏CRS خودش با ‏RouterOS VLAN قابل‌قبول انجام می‌دهد؛ برای ‏routing/فایروال جدی، روتر جدا (RB5009 یا CCR) لازم است. مرز دقیق ‏L3HW را با سند جاری MikroTik بررسی کنید — این قابلیت به مدل، چیپ و نسخهٔ RouterOS وابسته است و به‌طور کلی برای همهٔ CRSها تضمین نمی‌شود.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>محدودیت:</strong> ‏CRS309/310 دارای ‏routing CPU ضعیف برای قوانین سنگین؛ ‏dual-boot ‏SwOS/RouterOS — قبل از انتخاب ‏OS، نیازهای VLAN و ‏ACL را دقیق بنویسید.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>زمان نیاز به بررسی تخصصی:</strong> اگر ترافیک بین VLANها بیش از ~۱Gbps باشد، طراحی با CCR یا روتر متفاوت و L3HW سندشده لازم است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>ورودی لازم برای نیازسنجی:</strong> فهرست سرورها/NAS با NICها، VLAN plan، قوانین فایروال بین VLANها، بودجهٔ ترافیک بین VLANها.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>‏CRS309-1G-8S+IN: ‏۸× SFP+ ‏10G، بدون PoE، dual-boot ‏RouterOS/SwOS — مناسب برای اتصال مستقیم سرور/NAS</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>‏CRS310-8G+2S+IN: ‏۸× 2.5G مسی + ‏۲× SFP+ — برای endpointهای مسی 2.5G</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>‏CRS317-1G-16S+RM: ‏۱۶× SFP+ — دیتاسنتر کوچک</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
 
 <!-- wp:heading -->
 <h2 class="wp-block-heading" id="faq">پرسش‌های پرتکرار</h2>

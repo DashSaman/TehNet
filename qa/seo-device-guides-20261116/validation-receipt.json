@@ -1,15 +1,15 @@
 {
- "packet": "TN-TOPICAL-AUTHORITY-GROWTH-20261116",
- "validator": "validate-seo-guides.cjs rev6 (shared validate(candidateInputs) + 7 injected negatives through same path)",
+ "packet": "TN-M2-M3-CORRECTIONS-20261116",
+ "validator": "validate-seo-guides.cjs rev7 (shared validate(candidateInputs) + 9 injected negatives + c10-freshness builder rerun)",
  "command": "node validate-seo-guides.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-16T16:45:34Z",
- "finished_utc": "2026-11-16T16:45:34Z",
- "control_head": "NOT_COMPUTED_NO_EXEC",
+ "started_utc": "2026-11-16T17:50:51Z",
+ "finished_utc": "2026-11-16T17:50:51Z",
+ "control_head": "f72cdd0e1d70b2bb042e4a2ccc4992ca195995a7",
  "exit": 0,
  "good_candidate": {
   "ok": true,
-  "checks": 57,
+  "checks": 67,
   "failed": 0
  },
  "injected_negatives": [
@@ -77,33 +77,64 @@
    "reasons": [
     "dangling anchor targets"
    ]
+  },
+  {
+   "name": "tutorial-diagram-removed",
+   "injected": "wp:image + SVG ref stripped from M2 tutorial HTML",
+   "failed": true,
+   "reasonMatched": true,
+   "reasons": [
+    "tutorial diagram missing or SVG lacks accessible text"
+   ]
+  },
+  {
+   "name": "tutorial-exercise-removed",
+   "injected": "exercise section removed from M3 MD",
+   "failed": true,
+   "reasonMatched": true,
+   "reasons": [
+    "tutorial required section missing"
+   ]
   }
  ],
+ "output_freshness": {
+  "ok": true,
+  "stale": []
+ },
  "digests": {
   "articles/mikrotik-routers.gutenberg.html": "630166991425788f33b73d6cfd9fb8364b016858f3d67be5b390a01bdee6fa08",
-  "articles/mikrotik-switches-crs.gutenberg.html": "034cbae535ed073879684d85a1151c6db1c37f99c90b99bfd36611e2e5b8c202",
+  "articles/mikrotik-switches-crs.gutenberg.html": "c0d106c652b1702f4fc6c7ebd136e9cd31cbea3570e6b6a52d73de046466180c",
+  "tutorials/m2-vlan-small-office.fa.md": "17715ed8207603eef00f7e9cbc0e43cb7faaed3d412b30e3c99d3093daa2bd49",
+  "tutorials/m2-vlan-small-office.gutenberg.html": "6c2a3b0f9cc4c25aca4697a53413a4dc45d1739ccc44e5010a37b264c2198c67",
+  "tutorials/m3-dhcp-dns.fa.md": "1875288d0efc305d807a43458b91a52022d40b31f5c8afb0acc1372c3869fa64",
+  "tutorials/m3-dhcp-dns.gutenberg.html": "7e253edd5fcb6a872d3450319343006cdbb7d4447883e749fada098eca58ab88",
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",
   "switch-catalog.csv": "aaa5aed94204ad93b312449d9b0c934164c59d2d6375eb3b5727fe94ae164718",
-  "image-provenance.csv": "22ecdada31bf56a259f8ade274ba4af817ad144a49b7f8e0d8f8cdcb5db8a454",
+  "image-provenance.csv": "4472c21ea78ac36e9a9f3d75f40cb9d6b37a57abaca455d701ef8e3f9098a1eb",
   "page-edits/mikrotik-service.proposed.html": "c8c22f3e453bdbc5934d9e3b4e9b84e81e11b0fbfedb9e901fdce300dceabdfb",
   "page-edits/network-setup.proposed.html": "ac244d2142a4022b20b98803e48c218c5138f5398b72a6f7bca1bae1fbe52c0b",
   "page-edits/network-support.proposed.html": "52b58eefe6cd3ff50c65077ddc99f9ae66637a2fe4181bd16a6a9579adebf953"
  },
  "summary": {
-  "negatives": 7,
-  "negatives_passed": 7,
+  "negatives": 9,
+  "negatives_passed": 9,
   "negatives_failed": 0
  },
  "execution_origin": {
-  "note": "validator/builder execution NOT_RUN this turn — owner-local Node execution prohibited per mission; no authorized non-local runtime available",
-  "prohibition_source": "TN-BASE-LOCK-AND-TOPICAL-EXECUTION-20261116 §0 + MANAGER_REVIEW 6916713513 (Node/Python execution on owner system not permitted)",
-  "provenance": "source corrections committed; test receipts from previous authorized runs preserved as historical evidence only"
+  "mode": "LOCAL_TEST — owner-authorized local TehNet execution (owner grant, 2026-11-16); builder AND validator actually executed this turn",
+  "builder_executed": true,
+  "validator_executed": true,
+  "node_version": "v24.19.0",
+  "routeros_semantics": "NOT_RUN — no authorized isolated RouterOS fixture available; lesson commands are documented procedures with expected results, NOT executed outputs; no emulator installed",
+  "browser_render": "NOT_RUN — static link/anchor/asset checks only; no browser rendering claimed",
+  "wordpress_kses": "NOT_RUN",
+  "supersession": "older blanket local-exec prohibition (TN-BASE-LOCK-AND-TOPICAL-EXECUTION-20261116 §0) superseded by owner grant; manager 6923833096 CORRECTION 6/7 confirms; previous NOT_RUN receipts remain historical, not revalidated"
  },
  "not_run": [
+  "RouterOS command execution (no fixture)",
   "browser desktop/mobile/keyboard rendering",
   "WordPress/KSES acceptance",
-  "Search Console baseline",
-  "all Node/PHP/builder/test executions"
+  "Search Console baseline"
  ],
  "production_touched": false
 }

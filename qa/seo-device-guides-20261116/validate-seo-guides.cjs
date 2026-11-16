@@ -1,9 +1,13 @@
 'use strict';
-/* TN-TOPICAL-AUTHORITY-GROWTH-20261116 — shared validator (rev6).
+/* TN-TOPICAL-AUTHORITY-GROWTH-20261116 — shared validator (rev7).
  * Run: node validate-seo-guides.cjs   (from qa/seo-device-guides-20261116/)
  * Shared validate(candidateInputs): GOOD candidate must pass, injected negatives must
  * fail through the SAME path with intended reasons. Node-24 for-of destructuring
- * workaround: index-based loops throughout (no array destructuring in for-of). */
+ * workaround: index-based loops throughout (no array destructuring in for-of).
+ * rev7 (TN-M2-M3-CORRECTIONS-20261116, manager 6923833096): tutorial candidates
+ * M2/M3 (MD+HTML) join the shared path; C12 required tutorial sections, C13
+ * tutorial diagram embedding + SVG accessible text, C14 generated-header origin;
+ * c10-freshness in runner (builder re-run + byte-compare); 2 tutorial negatives. */
 const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
@@ -199,6 +203,39 @@ function validate(candidateInputs) {
     else pass('c9_real_links_and_anchors:' + pf.name);
   }
 
+  /* C12-C14 (rev7): tutorial lessons M2/M3 — sections, diagram, origin (6923833096) */
+  const TUTORIALS = [
+    { md: 'tutorials/m2-vlan-small-office.fa.md', html: 'tutorials/m2-vlan-small-office.gutenberg.html', svg: 'assets/tutorial-m2-topology.svg', label: 'M2',
+      extra: ['سیاست جریان'] },
+    { md: 'tutorials/m3-dhcp-dns.fa.md', html: 'tutorials/m3-dhcp-dns.gutenberg.html', svg: 'assets/tutorial-m3-dhcp-dns-flow.svg', label: 'M3',
+      extra: ['مرز DNS مورداعتماد'] },
+  ];
+  const TUT_SECTIONS_COMMON = ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'تست پذیرش', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'];
+  for (let ti = 0; ti < TUTORIALS.length; ti++) {
+    const t = TUTORIALS[ti];
+    const TUT_SECTIONS = TUT_SECTIONS_COMMON.concat(t.extra);
+    const mdC = get(t.md);
+    const htmlC = get(t.html);
+    if (mdC === null || htmlC === null) { fail('c12_tutorial_present:' + t.label, 'tutorial MD/HTML missing from candidate'); continue; }
+    /* C12: required sections + service CTA link in MD */
+    const missingSec = TUT_SECTIONS.filter(function(s){ return mdC.indexOf(s) < 0; });
+    const hasService = mdC.indexOf('https://tehnet.ir/services/mikrotik-tehran/') >= 0;
+    const hasMdImage = /^!\[[^\]]*\]\(\.\.\/assets\/tutorial-/m.test(mdC);
+    if (missingSec.length || !hasService || !hasMdImage) {
+      fail('c12_tutorial_sections:' + t.label, 'tutorial required section missing', { missing: missingSec, serviceCta: hasService, diagramLine: hasMdImage });
+    } else pass('c12_tutorial_sections:' + t.label, { sections: TUT_SECTIONS.length });
+    /* C13: HTML embeds the conceptual SVG + the SVG has accessible title/desc */
+    const svgC = get(t.svg);
+    const svgOk = svgC !== null && svgC.indexOf('<title>') >= 0 && svgC.indexOf('<desc>') >= 0;
+    const embOk = htmlC.indexOf('../assets/tutorial-') >= 0 && htmlC.indexOf('<!-- wp:image -->') >= 0;
+    if (!svgOk || !embOk) fail('c13_tutorial_diagram:' + t.label, 'tutorial diagram missing or SVG lacks accessible text', { svgText: svgOk, embedded: embOk });
+    else pass('c13_tutorial_diagram:' + t.label);
+    /* C14: honest generated-by origin header in HTML */
+    const originOk = htmlC.indexOf('generated deterministically by build-gutenberg.cjs') >= 0 && htmlC.indexOf('NOT_DEPLOYED') >= 0;
+    if (!originOk) fail('c14_tutorial_origin:' + t.label, 'tutorial HTML lacks generated-by/NOT_DEPLOYED origin header');
+    else pass('c14_tutorial_origin:' + t.label);
+  }
+
   const failed = checks.filter(function(c){ return !c.pass; });
   return {
     ok: failed.length === 0,
@@ -218,6 +255,10 @@ if (require.main === module) {
   const fileNames = [
     'articles/mikrotik-routers.gutenberg.html',
     'articles/mikrotik-switches-crs.gutenberg.html',
+    'tutorials/m2-vlan-small-office.fa.md',
+    'tutorials/m2-vlan-small-office.gutenberg.html',
+    'tutorials/m3-dhcp-dns.fa.md',
+    'tutorials/m3-dhcp-dns.gutenberg.html',
     'router-catalog.csv',
     'switch-catalog.csv',
     'image-provenance.csv',
@@ -284,37 +325,76 @@ if (require.main === module) {
       if (clone[i].name === 'articles/mikrotik-routers.gutenberg.html') clone[i].content = clone[i].content.replace('id="faq"', 'id="faq-removed"');
     }
   }, 'dangling anchor targets');
+  injectNeg('tutorial-diagram-removed', 'wp:image + SVG ref stripped from M2 tutorial HTML', function(clone){
+    for (let i = 0; i < clone.length; i++) {
+      if (clone[i].name === 'tutorials/m2-vlan-small-office.gutenberg.html') {
+        clone[i].content = clone[i].content.replace(/<!-- wp:image -->[\s\S]*?<!-- \/wp:image -->/, '');
+      }
+    }
+  }, 'tutorial diagram missing');
+  injectNeg('tutorial-exercise-removed', 'exercise section removed from M3 MD', function(clone){
+    for (let i = 0; i < clone.length; i++) {
+      if (clone[i].name === 'tutorials/m3-dhcp-dns.fa.md') {
+        clone[i].content = clone[i].content.split('\n').filter(function(l){ return l.indexOf('تمرین کوتاه') < 0; }).join('\n');
+      }
+    }
+  }, 'tutorial required section missing');
 
   let negFail = 0;
   for (let ni = 0; ni < negatives.length; ni++) { if (!(negatives[ni].failed && negatives[ni].reasonMatched)) negFail++; }
-  const ok = good.ok && good.failedChecks.length === 0 && negFail === 0;
+  /* c10-freshness (rev7): deterministic builder re-run; every gutenberg output on disk
+   * after the run must byte-match the CANDIDATE SNAPSHOT read at start (detects stale
+   * HTML vs MD — comparing disk to disk would always pass, so snapshot comes from
+   * goodInputs, captured before the builder executes) */
+  let freshOk = true; const freshDetail = [];
+  const snap = {};
+  for (let si = 0; si < goodInputs.length; si++) {
+    if (goodInputs[si].name.endsWith('.gutenberg.html')) snap[goodInputs[si].name] = Buffer.from(goodInputs[si].content, 'utf8');
+  }
+  try {
+    execFileSync('node', [path.join(ROOT, 'articles', 'build-gutenberg.cjs')], { cwd: path.join(ROOT, 'articles'), stdio: 'pipe' });
+    for (const nm in snap) {
+      const disk = fs.readFileSync(path.join(ROOT, nm));
+      if (!disk.equals(snap[nm])) { freshOk = false; freshDetail.push(nm); }
+    }
+  } catch (e) { freshOk = false; freshDetail.push('BUILDER_RUN_FAILED: ' + String(e.message).slice(0, 120)); }
+  if (!freshOk) console.log('FAIL c10_output_freshness -> ' + JSON.stringify(freshDetail));
+  else console.log('PASS c10_output_freshness (builder rerun byte-identical for all 4 gutenberg outputs)');
+  const ok = good.ok && good.failedChecks.length === 0 && negFail === 0 && freshOk;
   const finishedUtc = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
-  const controlSha = 'GIT_UNAVAILABLE_NO_EXEC';
+  let controlSha = 'GIT_UNAVAILABLE_NO_EXEC';
+  try { controlSha = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: path.resolve(__dirname, '../..') }).toString().trim(); } catch (eGit) { controlSha = 'GIT_ERROR: ' + String(eGit.message).slice(0, 60); }
   const digests = {};
   for (let di = 0; di < fileNames.length; di++) digests[fileNames[di]] = crypto.createHash('sha256').update(fs.readFileSync(path.join(ROOT, fileNames[di]))).digest('hex');
 
   const receipt = {
-    packet: 'TN-TOPICAL-AUTHORITY-GROWTH-20261116',
-    validator: 'validate-seo-guides.cjs rev6 (shared validate(candidateInputs) + 7 injected negatives through same path)',
+    packet: 'TN-M2-M3-CORRECTIONS-20261116',
+    validator: 'validate-seo-guides.cjs rev7 (shared validate(candidateInputs) + 9 injected negatives + c10-freshness builder rerun)',
     command: 'node validate-seo-guides.cjs',
     cwd: 'qa/seo-device-guides-20261116/',
     started_utc: startedUtc, finished_utc: finishedUtc,
-    control_head: 'NOT_COMPUTED_NO_EXEC',
+    control_head: controlSha,
     exit: ok ? 0 : 1,
     good_candidate: { ok: good.ok, checks: good.checks.length, failed: good.failedChecks.length },
     injected_negatives: negatives,
+    output_freshness: { ok: freshOk, stale: freshDetail },
     digests: digests,
     summary: { negatives: negatives.length, negatives_passed: negatives.length - negFail, negatives_failed: negFail },
     execution_origin: {
-      'note': 'validator/builder execution NOT_RUN this turn — owner-local Node execution prohibited per mission; no authorized non-local runtime available',
-      'prohibition_source': 'TN-BASE-LOCK-AND-TOPICAL-EXECUTION-20261116 §0 + MANAGER_REVIEW 6916713513 (Node/Python execution on owner system not permitted)',
-      'provenance': 'source corrections committed; test receipts from previous authorized runs preserved as historical evidence only',
+      'mode': 'LOCAL_TEST — owner-authorized local TehNet execution (owner grant, 2026-11-16); builder AND validator actually executed this turn',
+      'builder_executed': true,
+      'validator_executed': true,
+      'node_version': process.version,
+      'routeros_semantics': 'NOT_RUN — no authorized isolated RouterOS fixture available; lesson commands are documented procedures with expected results, NOT executed outputs; no emulator installed',
+      'browser_render': 'NOT_RUN — static link/anchor/asset checks only; no browser rendering claimed',
+      'wordpress_kses': 'NOT_RUN',
+      'supersession': 'older blanket local-exec prohibition (TN-BASE-LOCK-AND-TOPICAL-EXECUTION-20261116 §0) superseded by owner grant; manager 6923833096 CORRECTION 6/7 confirms; previous NOT_RUN receipts remain historical, not revalidated',
     },
-    not_run: ['browser desktop/mobile/keyboard rendering', 'WordPress/KSES acceptance', 'Search Console baseline', 'all Node/PHP/builder/test executions'],
+    not_run: ['RouterOS command execution (no fixture)', 'browser desktop/mobile/keyboard rendering', 'WordPress/KSES acceptance', 'Search Console baseline'],
     production_touched: false,
   };
   fs.writeFileSync(__dirname + '/validation-receipt.json', JSON.stringify(receipt, null, 1));
-  console.log('\nGOOD=' + (good.ok ? 'PASS' : 'FAIL') + ' | NEGATIVES=' + negatives.length + '/' + negatives.length + ' rejected-with-reason');
+  console.log('\nGOOD=' + (good.ok ? 'PASS' : 'FAIL') + ' | NEGATIVES=' + (negatives.length - negFail) + '/' + negatives.length + ' rejected-with-reason | FRESHNESS=' + (freshOk ? 'PASS' : 'FAIL'));
   console.log('RECEIPT validation-receipt.json | exit=' + receipt.exit);
   process.exitCode = ok ? 0 : 1;
 }
