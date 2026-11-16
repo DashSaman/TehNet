@@ -1,0 +1,90 @@
+{
+ "packet": "TN-REMOTE-INTAKE-COMPLETENESS-20261116",
+ "run_utc": "2026-11-16T10:34:33Z",
+ "mode": "SOURCE-ONLY bounded patch-regen on committed preview bytes + pure source/structure assertions; browser NOT_RUN (no pre-authorized cloud env)",
+ "inputs": {
+  "pr101_head": "cb391c2dc262a65e524962fa7fc44a0187f476fe",
+  "approved_old_preview_sha256": "c33df1e3a033760915122e4f7268bd040987489b9d10ce5bffc41e5e772a8f49",
+  "new_preview_sha256": "129da15422efc4f008b34f12b2a060c5cac7f06b5546839c2076dc5fef1cd1cc",
+  "fragment_sha256": "7da7ebddcdeedd3c13aec6199ec217cf8974be5c88fdaa83199945d7bbbb3c98"
+ },
+ "checks": [
+  {
+   "id": "h2_order_exact",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "id": "intake_h3_and_examples",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "id": "unknown_instruction",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "id": "contact_window_ex1",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "id": "contact_window_ex2",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "id": "no_secrets_warning",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "id": "shortcodes_literal",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "id": "no_forms",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "id": "links_unchanged_vs_approved_bytes",
+   "pass": true,
+   "detail": {
+    "total": 19
+   }
+  },
+  {
+   "id": "no_pr101_link_removed",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "id": "all_anchors_have_targets",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "id": "pr101_body_lines_all_preserved",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "id": "new_text_free_of_guarantee_claims",
+   "pass": true,
+   "detail": null
+  }
+ ],
+ "summary": {
+  "total": 13,
+  "passed": 13
+ },
+ "limitations": [
+  "browser checks NOT_RUN — no pre-authorized cloud environment; approval cd47fae covers only OLD bytes",
+  "regen was bounded patch on approved bytes (full original assembly rule incl. session-journey block undocumented; from-scratch rebuild avoided to prevent drift)",
+  "undiff assertion: only the three bounded substitutions changed"
+ ],
+ "production_touched": false
+}
