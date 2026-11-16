@@ -230,6 +230,9 @@ function validate(candidateInputs) {
     { md: 'tutorials/n5-config-backup-export.fa.md', html: 'tutorials/n5-config-backup-export.gutenberg.html', svg: 'assets/tutorial-n5-backup-export.svg', label: 'N5',
       sectionsOverride: ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'backup در برابر export', 'زمان‌بندی خودکار', 'بازیابی و آزمون بازیابی', 'خطاهای رایج', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع', 'آموزش‌های مرتبط'],
       service: 'https://tehnet.ir/services/network-support-tehran/' },
+    { md: 'tutorials/n6-incident-path.fa.md', html: 'tutorials/n6-incident-path.gutenberg.html', svg: 'assets/tutorial-n6-incident-path.svg', label: 'N6',
+      sectionsOverride: ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'جدول مراحل', 'تشدید', 'استثناهای وابسته به اینترنت/قطعه', 'ثبت اثر اختلال', 'خطاهای رایج', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع', 'آموزش‌های مرتبط'],
+      service: 'https://tehnet.ir/services/network-support-tehran/' },
   ];
   const TUT_SECTIONS_COMMON = ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'تست پذیرش', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'];
   for (let ti = 0; ti < TUTORIALS.length; ti++) {
@@ -294,6 +297,8 @@ if (require.main === module) {
     'tutorials/n3-support-contract-sla.gutenberg.html',
     'tutorials/n5-config-backup-export.fa.md',
     'tutorials/n5-config-backup-export.gutenberg.html',
+    'tutorials/n6-incident-path.fa.md',
+    'tutorials/n6-incident-path.gutenberg.html',
     'router-catalog.csv',
     'switch-catalog.csv',
     'image-provenance.csv',

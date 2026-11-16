@@ -78,6 +78,13 @@
    "type": "tutorial",
    "bytes": 19118,
    "per_model_images": 0
+  },
+  {
+   "md": "../tutorials/n6-incident-path.fa.md",
+   "html": "../tutorials/n6-incident-path.gutenberg.html",
+   "type": "tutorial",
+   "bytes": 20760,
+   "per_model_images": 0
   }
  ]
 }

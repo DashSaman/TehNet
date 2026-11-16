@@ -412,8 +412,50 @@ n5 = svg(960, 560,
     'دو مسیر مکمل: مسیر اول فایل backup باینری رمزدار با کاربرد بازگشت سریع روی همان دستگاه و بازیابی از طریق دستور load روی دستگاه آزمایشی در آزمون فصلی. مسیر دوم فایل export متنی بدون مقادیر حساس برای حسابرسی و مقایسه و مهاجرت با هشدار UNKNOWN بین‌مدل. گیت بازیابی‌آزمون می‌گوید تا آزمون نشده پشتیبان آزموده حساب نمی‌شود. یک نسخه خارج از دستگاه نگهداری می‌شود چون خرابی دستگاه هر دو نسخه روی دستگاه را از بین می‌برد. این نمودار مفهومی و تألیفی TehNet است.',
     chr(10).join(b))
 
+
+# ---------------- N6 incident path ----------------
+b = []
+steps = [
+    ('۱. ثبت رخداد', 'زمان · دامنه · اثر کسب‌وکاری', '#1e88e5'),
+    ('۲. تریاژ', 'جدی/عادی با معیار از پیش‌نوشته', '#6a1b9a'),
+    ('۳. اقدام اولیه', 'نردبان N1 — یافته‌ها ثبت', '#fb8c00'),
+    ('۴. تشدید (در صورت معیار)', 'handoff کامل: کردم/دیدم/نکردم + اثر + زمان‌ها', '#d32f2f'),
+    ('۵. اقدام سطح دو', 'ادامه با ثبت تغییرات', '#f9a825'),
+    ('۶. تأیید و بستن', 'کاربر تأیید + قبل/بعد (الگوی N4)', '#43a047'),
+    ('۷. گزارش رخداد', 'توالی زمان‌ها · ریشه · استثنا', '#78909c'),
+]
+for idx, (title, sub, color) in enumerate(steps):
+    yy = 60 + idx * 82
+    b.append(rect(140, yy, 680, 62, '#fafafa', color, 2))
+    b.append(text(190, yy + 24, title, 12, 'middle', color, 'bold'))
+    b.append(text(560, yy + 24, sub, 11, 'middle', '#37474f'))
+    b.append(text(160, yy + 44, 'فرض آموزشی', 8, 'start', '#90a4ae'))
+    if idx < 6:
+        b.append(line(480, yy + 62, 480, yy + 82, '#37474f', 2))
+# escalation side box
+b.append(rect(20, 200, 110, 150, '#fdecea', '#d32f2f', 2))
+b.append(text(75, 224, 'معیار تشدید', 10, 'middle', '#d32f2f', 'bold'))
+b.append(text(75, 246, 'جدی: 30 دقیقه', 9, 'middle', '#455a64'))
+b.append(text(75, 264, 'بدون پیشرفت', 9, 'middle', '#455a64'))
+b.append(text(75, 282, 'دو تلاش بی‌نتیجه', 9, 'middle', '#455a64'))
+b.append(text(75, 300, 'روی یک فرضیه', 9, 'middle', '#455a64'))
+b.append(line(140, 290, 130, 275, '#d32f2f', 2, '4,3'))
+# exceptions side box
+b.append(rect(830, 200, 110, 160, '#fff3e0', '#ef6c00', 2))
+b.append(text(885, 224, 'استثناها', 10, 'middle', '#e65100', 'bold'))
+b.append(text(885, 246, 'قطعی ISP', 9, 'middle', '#455a64'))
+b.append(text(885, 264, 'تأمین قطعه', 9, 'middle', '#455a64'))
+b.append(text(885, 282, 'سخت‌افزار مشتری', 9, 'middle', '#455a64'))
+b.append(text(885, 300, 'ساعت‌شمار', 9, 'middle', '#455a64'))
+b.append(text(885, 318, 'با توافق (N3)', 9, 'middle', '#455a64'))
+b.append(text(480, 633, 'نمودار مفهومی تألیفی TehNet — نه عکس واقعی — زمان‌ها فرض آموزشی؛ هر سازمان مالکِ تعیین اعداد خودش است؛ اجرا NOT_RUN', 10, 'middle', '#78909c'))
+n6 = svg(960, 660,
+    'نمودار مسیر رخداد درس N6: هفت مرحله از ثبت تا گزارش با تشدید و استثناها',
+    'مسیر هفت‌مرحله‌ای رخداد: ثبت با زمان و دامنه و اثر؛ تریاژ با معیار از پیش‌نوشته؛ اقدام اولیه با نردبان درس N1؛ تشدید در صورت معیار با handoff کامل شامل چه کاری انجام شده دیده شده و نشده؛ اقدام سطح دو؛ تأیید کاربر و بستن با ثبت قبل و بعد؛ و گزارش نهایی ریشه و استثنا. جعبه‌های کناری معیار تشدید و سه استثنا با رفتار ساعت‌شمار را نشان می‌دهند. زمان‌ها فرض آموزشی‌اند و هر سازمان مالک تعیین اعداد خودش است. این نمودار مفهومی و تألیفی TehNet است.',
+    chr(10).join(b))
+
 os.makedirs(OUT, exist_ok=True)
-for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5)):
+for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6)):
     p = os.path.join(OUT, name)
     with io.open(p, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)

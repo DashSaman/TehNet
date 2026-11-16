@@ -261,6 +261,7 @@ const jobs = [
   ['../tutorials/n2-monitoring-maintenance.fa.md', '../tutorials/n2-monitoring-maintenance.gutenberg.html', 'tutorial'],
   ['../tutorials/n3-support-contract-sla.fa.md', '../tutorials/n3-support-contract-sla.gutenberg.html', 'tutorial'],
   ['../tutorials/n5-config-backup-export.fa.md', '../tutorials/n5-config-backup-export.gutenberg.html', 'tutorial'],
+  ['../tutorials/n6-incident-path.fa.md', '../tutorials/n6-incident-path.gutenberg.html', 'tutorial'],
 ];
 const summary = [];
 for (const job of jobs) {

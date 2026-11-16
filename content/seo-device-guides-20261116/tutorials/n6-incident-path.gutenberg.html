@@ -1,0 +1,349 @@
+<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from ../tutorials/n6-incident-path.fa.md -->
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">مسیر رخداد و تشدید — از ثبت تا بستن (N6)</h1>
+<!-- /wp:heading -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><p>وضعیت درس: <strong>DRAFT / NOT_DEPLOYED — در انتظار مرور.</strong></p><p>آموزش تصویری از سری پشتیبانی؛ مخاطب: مدیر کسب‌وکار + کارشناس شبکه.</p><p>سناریوی کاملاً فرضی و آموزشی با دادهٔ ساختگی؛ هیچ شبکهٔ واقعی دستکاری نشده و هیچ اجرای واقعی NOT_RUN است.</p><p>زمان‌های جدول‌ها «فرض آموزشی»‌اند نه SLA واقعی (SLA → درس N3).</p><p>نمودار مفهومی و تألیفی است (نه عکس واقعی).</p></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پاسخ کوتاه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>مسیر رخداد یعنی یک توالی ثبت‌شدهٔ از پیش‌موافق: <strong>ثبت</strong> (زمان/دامنه/اثر کسب‌وکاری) → <strong>تریاژ</strong> (جدی/عادی با معیار از پیش‌نوشته) → <strong>اقدام</strong> (الگوی نردبان N1) → در صورت نیاز <strong>تشدید</strong> (با معیارِ از پیش‌موافق و handoff کامل) → <strong>تأیید و بستن</strong> (با ثبت قبل/بعد — الگوی N4). بدون مسیرِ از پیش‌موافق، هر رخداد به تماس‌های پراکنده، «فردا درست می‌شه» و اختلاف بعدی تبدیل می‌شود. استثناها (قطعی ISP، تأمین قطعه، سخت‌افزار مشتری) از قبل تعریف می‌شوند تا ساعت‌شمار منصفانه باشد (الگوی N3).</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پیش‌نیازها</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>نردبان عیب‌یابی: <a href="n1-network-troubleshooting.fa.md">N1</a> · پذیرش/ثبت قبل-بعد: <a href="n4-delivery-acceptance.fa.md">N4</a> · استثناهای قراردادی: <a href="n3-support-contract-sla.fa.md">N3</a> · مانیتور: <a href="n2-monitoring-maintenance.fa.md">N2</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مبنا آزمایشگاه (Lab Baseline) — سناریوی فرضی رخداد</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>بند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقدار فرضی آموزشی</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>سازمان</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دفتر ۲۵ نفره (مبنای N3)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>رخداد فرضی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>اتاق سرور از ساعت ‏09:10 در دسترس نیست؛ ‏۱۲ نفر کارشان ایستاده</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اثر کسب‌وکاری (ثبت‌شونده)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تعداد کاربر متأثر + سرویس‌های قطع + مدت</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اعداد زمان‌سنج جدول‌ها</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>«فرض آموزشی» — هر سازمان خودش را تعیین می‌کند (UNKNOWN عمومی)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اجرای واقعی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>NOT_RUN — همهٔ ثبت‌ها نمونهٔ ساختگی</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">جدول مراحل — مسئول و ثبت هر گام (زمان‌ها = فرض آموزشی)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>مرحله</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>چه کسی</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>چه ثبت می‌شود</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>زمان فرض</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>‏۱ ثبت رخداد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هر کاربر/کارشناس</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>زمان، دامنه، اثر (چند نفر/چه سرویسی)، گزارشگر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>لحظهٔ گزارش</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۲ تریاژ</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کارشناس پذیرنده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>جدی/عادی (معیار از پیش‌نوشته: «کل دفتر یا سرور = جدی»)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>≤ ‏۱۵ دقیقه فرض</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۳ اقدام اولیه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کارشناس</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>نردبان N1 شروع شد؛ یافتهٔ اول</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>≤ ‏۳۰ دقیقه فرض</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۴ تشدید (در صورت معیار)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کارشناس → سطح دو/مدیر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>handoff کامل (پایین را ببینید)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>معیار: ‏۳۰ دقیقه بدون پیشرفت در جدی (فرض)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۵ اقدام سطح دو</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سطح دو</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ادامهٔ ثبت + تغییرات با قبل/بعد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۶ تأیید و بستن</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کاربر/مسئول تأیید (الگوی N4)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تأیید کاربر + قبل/بعد + دستورها</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۷ گزارش رخداد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کارشناس</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>توالی زمان‌ها، ریشه، اقدام، استثنا (در صورت بود)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>پس از بستن</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:image -->
+<figure class="wp-block-image size-large"><img src="../assets/tutorial-n6-incident-path.svg" alt="نمودار مسیر رخداد درس N6 — هفت مرحله با تشدید و استثناها (تصویر مفهومی تألیفی)" width="900" loading="lazy"/><figcaption>نمودار مسیر رخداد درس N6 — هفت مرحله با تشدید و استثناها (تصویر مفهومی تألیفی)</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> هفت جعبهٔ پشت‌سرهم از بالا به پایین: ‏۱ ثبت رخداد ‏(زمان/دامنه/اثر)، ‏۲ تریاژ با معیار از پیش‌نوشته، ‏۳ اقدام اولیه با نردبان N1، ‏۴ تشدید در صورت معیار با ‏handoff کامل، ‏۵ اقدام سطح دو، ‏۶ تأیید کاربر و بستن با ثبت قبل/بعد، ‏۷ گزارش نهایی ریشه و استثنا. جعبهٔ قرمز کناری معیار تشدید ‏(جدی: ‏۳۰ دقیقه بدون پیشرفت؛ دو تلاش بی‌نتیجه روی یک فرضیه) و جعبهٔ نارنجی سمت دیگر سه استثنا با رفتار ساعت‌شمار را نشان می‌دهد. زمان‌ها «فرض آموزشی»‌اند و هر سازمان مالک تعیین اعداد خودش است. برچسب «تألیفی/مفهومی».</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">تشدید — معیار از پیش‌موافق و handoff کامل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>معیار تشدید باید <strong>قبل از رخداد</strong> نوشته شود؛ پیشنهاد الگو (فرض آموزشی):</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>handoff کامل هنگام تشدید</strong> (چیزی که تشدید را از «پاس‌دادن مشکل» جدا می‌کند):</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>رخداد جدی: ‏۳۰ دقیقه اقدام بدون پیشرفت → تشدید به سطح دو + اطلاع مدیر.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>دو تلاش ناموفق روی یک فرضیه → فرضیه را رها کنید و به سطح دو با ثبت آن دو تلاش.</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-text">چه کردم:  گام‌های نردبان N1 که اجرا شد + نتیجهٔ هر گام
+چه دیدم:  مشاهدات (link-ok، gateway درست، لاگ مرتبط، شمارنده‌ها)
+چه نکرده‌ام: فرضیه‌های تست‌نشده + علت (دسترسی/ابزار)
+اثر:      تعداد کاربر/سرویس/مدت تا الان
+زمان‌ها:  ثبت، پاسخ، شروع، آخرین اقدام</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">استثناهای وابسته به اینترنت/قطعه (الگوی N3)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>استثنا</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>رفتار ساعت‌شمار (فرض توافق)</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>ثبت لازم</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>قطعی ISP</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تشخیص سمت ISP → ساعت‌شمار متوقف تا برگشت سرویس؛ اطلاع به کارفرما</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>زمان تشخیص + شمارهٔ پیگیری ISP</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>تأمین قطعه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>توقف ساعت‌شمار از سفارش تا رسید قطعه (با توافق کتبی)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سفارش/مدت اعلامی تأمین‌کننده</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سخت‌افزار مشتری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خارج از دامنهٔ پیمانکار؛ راهنمایی داده می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ثبت راهنمایی</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>همسانی با N3: این استثناها باید <strong>در قرارداد</strong> هم آمده باشند — درس N3 همان بندها را پرچم می‌کند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">ثبت اثر اختلال — چرا و چگونه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>ثبت اثر (تعداد کاربر متأثر × مدت × سرویس) سه کار می‌کند: اولویت‌گذاری تریاژ، سنجش واقعی SLA، و گزارش دوره‌ای برای جلوگیری از تکرار. قالب یک‌خطی:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-text">09:10 | ۱۲ کاربر | اتاق سرور از دسترس | گزارش: مدیر داخلی</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">خطاهای رایج</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>خطا</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>چرا گران است</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>درست</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>رخداد فقط تلفنی ثبت می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>زمان‌ها و اثر بعداً قابل‌اثبات نیست</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ثبت مکتوب لحظهٔ گزارش</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>تریاژ بدون معیار از پیش‌نوشته</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هر بار جدی/عادی سلیقه‌ای می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>معیار از قبل نوشته و امضا</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>تشدید بدون handoff</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سطح دو از اول شروع می‌کند = دوباره‌کاری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>handoff کامل چهار‌بندی بالا</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>بستن بدون تأیید کاربر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>«رفع شد» قابل‌چالش است</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تأیید کاربر + قبل/بعد (N4)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>حذف استثنا برای قبول‌شدن</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>منصفانه نیست و اعتماد می‌شکند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>استثناها از قبل (N3) و ثبت‌شده</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>علت «نامشخص» بستن می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>رویداد تکراری می‌ماند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>حتی «علت نامشخص» با شرح کامل ثبت و پیگیری دوره‌ای (N2)</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">تمرین کوتاه (با پاسخ موردانتظار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>رخداد جدی، ‏۴۵ دقیقه اقدام بی‌نتیجه توسط سطح یک؛ الان باید چه شود؟ — <strong>پاسخ موردانتظار:</strong> با معیار فرض ‏۳۰ دقیقه، تشدید قبلاً لازم بوده؛ handoff کامل چهار‌بندی + اطلاع مدیر + ادامه در سطح دو.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>تشدید یعنی مشکل را بدهیم به نفر بعدی و بریم؟ — <strong>پاسخ موردانتظار:</strong> خیر؛ تشدید یعنی handoff کامل (چه کردم/دیدم/نکرده‌ام + اثر + زمان‌ها) — وگرنه دوباره‌کاری.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>قطعه تا فردا می‌رسد؛ ساعت‌شمار چه می‌شود؟ — <strong>پاسخ موردانتظار:</strong> طبق بند استثنای تأمین قطعه (N3) با توافق کتبی متوقف و با ثبت سفارش/مدل اعلامی — بدون بند، قابل‌چالش.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>رخداد بسته شد ولی ریشه نامشخص بود؛ کافی است؟ — <strong>پاسخ موردانتظار:</strong> بستن مجاز است اگر تأیید کاربر و شرح کامل ثبت شده باشد؛ اما در بازبینی دوره‌ای (N2) به‌عنوان «علت نامشخص» پیگیری می‌شود.</li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">چک‌لیست تحویل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[ ] مسیر رخداد از پیش‌موافق و مکتوب (مراحل/مسئول/زمان‌های فرض هر سازمان خودش)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] معیار تریاژ و معیار تشدید از قبل نوشته و امضا شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] قالب ثبت رخداد (زمان/دامنه/اثر) در دسترس همه</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] قالب handoff چهار‌بندی آماده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] استثناهای ISP/قطعه/سخت‌افزار با رفتار ساعت‌شمار صریح (هم‌سو با N3)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] بستن = تأیید کاربر + قبل/بعد + گزارش رخداد</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] اجرای واقعی این درس NOT_RUN (مبنا فرضی)</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">منابع (تأیید/تاریخ‌دار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>الگوها از درس‌های همین سری: ‏<a href="n1-network-troubleshooting.fa.md">N1 نردبان</a> · ‏<a href="n3-support-contract-sla.fa.md">N3 استثناها</a> · ‏<a href="n4-delivery-acceptance.fa.md">N4 تأیید/ثبت</a> · ‏<a href="n2-monitoring-maintenance.fa.md">N2 بازبینی دوره‌ای</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>Packet Flow در RouterOS برای تشخیص لایهٔ درگیر حین رخداد: https://manual.mikrotik.com/docs/firewall-and-quality-of-service/packet-flow-in-routeros/ (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>تجربهٔ فرایندی عمومی مسیر رخداد — بدون ادعای آمار/پروژهٔ واقعی</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">آموزش‌های مرتبط و مسیر خدمت</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>پیوند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقصد</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>درس‌های مرتبط</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="n1-network-troubleshooting.fa.md">N1</a> · <a href="n2-monitoring-maintenance.fa.md">N2</a> · <a href="n3-support-contract-sla.fa.md">N3</a> · <a href="n4-delivery-acceptance.fa.md">N4</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نقشهٔ کامل سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/topic-map/">topic map</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>مسیر رخداد و پشتیبانی برای سازمان شما</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="https://tehnet.ir/services/network-support-tehran/">خدمات پشتیبانی شبکهٔ تهران</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>درس بعدی سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>M4 — inter-VLAN و L3HW (تولید در نوبت بعدی؛ فعلاً فقط در topic map)</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
