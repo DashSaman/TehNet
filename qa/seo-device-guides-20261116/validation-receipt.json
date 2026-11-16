@@ -3,8 +3,8 @@
  "validator": "validate-seo-guides.cjs rev6 (shared validate(candidateInputs) + 7 injected negatives through same path)",
  "command": "node validate-seo-guides.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-16T14:42:14Z",
- "finished_utc": "2026-11-16T14:42:14Z",
+ "started_utc": "2026-11-16T16:18:19Z",
+ "finished_utc": "2026-11-16T16:18:19Z",
  "control_head": "NOT_COMPUTED_NO_EXEC",
  "exit": 0,
  "good_candidate": {
@@ -81,13 +81,13 @@
  ],
  "digests": {
   "articles/mikrotik-routers.gutenberg.html": "630166991425788f33b73d6cfd9fb8364b016858f3d67be5b390a01bdee6fa08",
-  "articles/mikrotik-switches-crs.gutenberg.html": "fec567da9598c7a93888032ecd7d95f84d35db8430333f536ea5f1ef0713dd7a",
+  "articles/mikrotik-switches-crs.gutenberg.html": "034cbae535ed073879684d85a1151c6db1c37f99c90b99bfd36611e2e5b8c202",
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",
-  "switch-catalog.csv": "5afb5b54f8872f0fa9999e3b667484a86d7dedf5b602d230875095901b6f2e64",
+  "switch-catalog.csv": "aaa5aed94204ad93b312449d9b0c934164c59d2d6375eb3b5727fe94ae164718",
   "image-provenance.csv": "22ecdada31bf56a259f8ade274ba4af817ad144a49b7f8e0d8f8cdcb5db8a454",
-  "page-edits/mikrotik-service.proposed.html": "2959c42537478fb5e580579aa8164ef69a30527b6313c602458b1011da528902",
-  "page-edits/network-setup.proposed.html": "05c847a8b35410eb3108824f358cadf107b1ebaacdde50caf63916a28fe59cd6",
-  "page-edits/network-support.proposed.html": "8cd326412cffd8e5e8e683e1537be7cfa02efb365bcbf1945fb8a5d043c7a2df"
+  "page-edits/mikrotik-service.proposed.html": "c8c22f3e453bdbc5934d9e3b4e9b84e81e11b0fbfedb9e901fdce300dceabdfb",
+  "page-edits/network-setup.proposed.html": "ac244d2142a4022b20b98803e48c218c5138f5398b72a6f7bca1bae1fbe52c0b",
+  "page-edits/network-support.proposed.html": "52b58eefe6cd3ff50c65077ddc99f9ae66637a2fe4181bd16a6a9579adebf953"
  },
  "summary": {
   "negatives": 7,
