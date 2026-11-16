@@ -20,14 +20,14 @@
    "md": "../tutorials/m2-vlan-small-office.fa.md",
    "html": "../tutorials/m2-vlan-small-office.gutenberg.html",
    "type": "tutorial",
-   "bytes": 49907,
+   "bytes": 52262,
    "per_model_images": 0
   },
   {
    "md": "../tutorials/m3-dhcp-dns.fa.md",
    "html": "../tutorials/m3-dhcp-dns.gutenberg.html",
    "type": "tutorial",
-   "bytes": 35450,
+   "bytes": 39570,
    "per_model_images": 0
   }
  ]
