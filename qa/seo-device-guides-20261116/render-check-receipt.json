@@ -18,7 +18,10 @@
    "assets/tutorial-s2-poe-budget.svg": "590dcf20d5949f7061547e8c81e7a1c3fc5d506bfc1c3a205d45902235d96b7a",
    "tutorials/s3-sfp-dac-fiber.fa.md": "91bdede2fcd9a6ef89aa5475c7c102a664be4806da66e9f76750cfda663b2c31",
    "tutorials/s3-sfp-dac-fiber.gutenberg.html": "93caa2c5c6e91c364e3836c5867bb9ec1ea41dcd675f4198418ee5299a0a174e",
-   "assets/tutorial-s3-module-decision.svg": "766a92f3c810c7bdec63831edff49e35891621654f26905fe5927fba3345a559"
+   "assets/tutorial-s3-module-decision.svg": "766a92f3c810c7bdec63831edff49e35891621654f26905fe5927fba3345a559",
+   "tutorials/n1-network-troubleshooting.fa.md": "dc98b222f67885575fa5406e5c9cddba51df20d12dbf15803ee8d315cc20d7ed",
+   "tutorials/n1-network-troubleshooting.gutenberg.html": "c69b67293461c1e369de94f33e024aa4c4a66b147e24037e6ae9bd5f2f70a49b",
+   "assets/tutorial-n1-layer-ladder.svg": "e48dc60a67cbf10163f44c7a5b406e3018ecc158ffd9629fa2263cec9019f53e"
   }
  },
  "preview_style_injected_at_render_time": "body{background:#fff;color:#111;font-family:Tahoma,Arial,sans-serif;margin:24px auto;max-width:960px;line-height:1.9} pre{background:#f6f8fa;border:1px solid #ddd;padding:12px;overflow:auto} code{font-family:Consolas,monospace;font-size:13px} table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto} th,td{border:1px solid #999;padding:5px 9px} img{max-width:100%;height:auto} blockquote{border-right:3px solid #1e88e5;padding-right:12px;color:#444}",
@@ -206,6 +209,22 @@
     "img_present": true,
     "links": 6,
     "overflow_styled": 593
+   },
+   "tutorials/n1-network-troubleshooting.gutenberg.html@desktop": {
+    "shot": "n1-desktop-ladder.png",
+    "h1": "عیب‌یابی شبکه — از کجا شروع کنم؟ (N1)",
+    "img_complete": true,
+    "img_present": true,
+    "links": 8,
+    "overflow_styled": 0
+   },
+   "tutorials/n1-network-troubleshooting.gutenberg.html@mobile": {
+    "shot": "n1-mobile-ladder.png",
+    "h1": "عیب‌یابی شبکه — از کجا شروع کنم؟ (N1)",
+    "img_complete": true,
+    "img_present": true,
+    "links": 8,
+    "overflow_styled": 92
    }
   },
   "styled_overflow_mobile_px": {
@@ -257,7 +276,8 @@
   "code_tables": "M2 9 code blocks / 7 tables; M3 12 / 5; tables render with borders in preview style",
   "charset": "raw fragments carry no <meta charset>; preview server sends charset=utf-8 (WP theme supplies it at publish)",
   "s2": "S2 budget lesson renders desktop 0px overflow, mobile 136px (preview-harness limitation, recorded); diagram legible; worked example renders (mixed bidi acceptable)",
-  "s3": "S3 decision-flow lesson renders desktop styled 0px overflow, mobile 593px (harness limitation, recorded); flowchart boxes/branches and compatibility table legible; note: initial SVG canvas cropped the third branch — fixed (680px) before evidence capture"
+  "s3": "S3 decision-flow lesson renders desktop styled 0px overflow, mobile 593px (harness limitation, recorded); flowchart boxes/branches and compatibility table legible; note: initial SVG canvas cropped the third branch — fixed (680px) before evidence capture",
+  "n1": "N1 layer-ladder lesson renders desktop 0px overflow, mobile 92px (recorded); six-rung ladder + ICMP-policy warning legible; packet-flow source URL visible in rendered text"
  },
  "boundary_item5": {
   "captures_untracked": "git rm --cached of the 12 evidence PNGs + render-evidence/.gitignore (forward commit; no force-push, no history claims); captures remain on local disk only",
@@ -269,9 +289,10 @@
   "manager-side browser run"
  ],
  "production_touched": false,
- "utc_extended": "2026-11-16T19:55:10Z",
+ "utc_extended": "2026-11-16T20:00:09Z",
  "pages_extra": [
   "tutorials/s2-poe-budget.gutenberg.html",
-  "tutorials/s3-sfp-dac-fiber.gutenberg.html"
+  "tutorials/s3-sfp-dac-fiber.gutenberg.html",
+  "tutorials/n1-network-troubleshooting.gutenberg.html"
  ]
 }

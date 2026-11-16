@@ -256,6 +256,7 @@ const jobs = [
   ['../tutorials/m3-dhcp-dns.fa.md', '../tutorials/m3-dhcp-dns.gutenberg.html', 'tutorial'],
   ['../tutorials/s2-poe-budget.fa.md', '../tutorials/s2-poe-budget.gutenberg.html', 'tutorial'],
   ['../tutorials/s3-sfp-dac-fiber.fa.md', '../tutorials/s3-sfp-dac-fiber.gutenberg.html', 'tutorial'],
+  ['../tutorials/n1-network-troubleshooting.fa.md', '../tutorials/n1-network-troubleshooting.gutenberg.html', 'tutorial'],
 ];
 const summary = [];
 for (const job of jobs) {

@@ -1,0 +1,339 @@
+<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from ../tutorials/n1-network-troubleshooting.fa.md -->
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">عیب‌یابی شبکه — از کجا شروع کنم؟ (N1)</h1>
+<!-- /wp:heading -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><p>وضعیت درس: <strong>DRAFT / NOT_DEPLOYED — در انتظار مرور.</strong></p><p>آموزش تصویری از سری پشتیبانی و عیب‌یابی؛ مخاطب: کاربر/مدیر شبکه.</p><p>سناریوی کاملاً فرضی و آموزشی با faultهای تزریق‌شدهٔ ساختگی؛ هیچ شبکهٔ واقعی دستکاری نشده و هیچ اجرای واقعی NOT_RUN است.</p><p>نمودار مفهومی و تألیفی است (نه عکس واقعی).</p></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پاسخ کوتاه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>از <strong>تعیین دامنه</strong> شروع کنید (فقط یک دستگاه؟ یک بخش؟ کل شبکه؟) و سپس <strong>لایه‌به‌لایه از فیزیکی به بالا</strong> تست کنید: لینک (L1) → هم‌شبکه‌ای (L2) → gateway/ping (L3) → DNS → اینترنت → سرویس/پورت. نیمی از قطعی‌های رایج در L1/L3 است (کابل/پورت/تنظیم IP). دو دام مهم: «سایت باز نمی‌شود» لزوماً «اینترنت قطع» نیست (DNS جدا از اتصال است)؛ و timeout روی ping به خود روتر در شبکه‌هایی با سیاست ICMP-محدود (مثل درس‌های M2/M3) رفتار عمدی است نه خرابی.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پیش‌نیازها</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>تنظیمات لایهٔ 2/3 و سیاست فایروال: <a href="/guides/mikrotik-vlan/">VLAN برای دفتر کوچک (M2)</a> و <a href="/guides/mikrotik-dhcp-dns/">DHCP و DNS (M3)</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>خواندن جدول مسیر ویندوز (سند رسمی مایکروسافت): <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/route_ws2008">route command</a> (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مبنا آزمایشگاه (Lab Baseline) — دقیق و کامل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>نقش</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>دستگاه</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>توضیح</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>روتر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>hEX (RB750Gr3)، ‏RouterOS v7.16+</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>LAN=192.168.88.1/24 روی `bridge` (مبنا درس M3)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سوئیچ</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>یک سوئیچ فرضی unmanaged</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کلاینت به آن وصل است</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>کلاینت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ویندوز فرضی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>DHCP-گیرنده</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>faultهای تزریق‌شدهٔ آموزشی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سه حالت جدا: ‏<strong>F1</strong> کابل کلاینت جدا · ‏<strong>F2</strong> gateway دستیِ غلط (192.168.88.254 به‌جای .1) · ‏<strong>F3</strong> DNS دستیِ غلط (8.8.4.4 بجای روتر با فیلتر داخلی)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هر fault جدا تزریق و عیب‌یابی می‌شود</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>هر سه fault صرفاً آموزشی و روی مبناى فرضی است؛ اجرای واقعی هیچ‌کدام NOT_RUN است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">جدول عیب‌یابی لایه‌ای — ستون فقرات درس</h3>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>لایه</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>سؤال</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>دستور کلاینت (ویندوز)</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>دستور روتر (RouterOS)</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>سالم</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>خراب</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>‏L1 لینک</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کارت لینک دارد؟</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/interface ethernet monitor ether2` (status=link-ok؟ rate؟)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>link-ok</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>no-link → کابل/پورت/سوئیچ</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏L2 هم‌شبکه‌ای</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>gateway در ARP هست؟</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`arp -a` (ورودی gateway با MAC)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/ip neighbor print`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>MAC روتر دیده می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>incomplete → VLAN/پورت/IP اشتباه</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏L3 gateway</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مسیر به روتر سالم؟</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`ping 192.168.88.1` — ⚠️ در شبکه با سیاست ICMP-محدود timeout طبیعی است (درس M2/M3)؛ ملاک: سایر ترافیک</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>reply (یا ترافیک سرویس عبور می‌کند)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏L3 مسیر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>default gateway درست است؟</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`route print -4` (سطر ‏0.0.0.0)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/ip route print`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>gateway=روتر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>gateway غلط/حذف → اصلاح تنظیم کلاینت</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>DNS</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>نام حل می‌شود؟</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`nslookup nas.lan` و `nslookup www.google.com`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/ip dns cache print`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>پاسخ از روتر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>timeout/ServFail → DNS کلاینت یا سرویس DNS روتر</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اینترنت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مسیر به بیرون سالم؟</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`ping 8.8.8.8` و `tracert 8.8.8.8`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/tool traceroute 8.8.8.8`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>reply/hops</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>قطع در hop اول = سمت روتر/NAT</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سرویس/پورت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سرویس مقصد پاسخ می‌دهد؟</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`Test-NetConnection host -Port X` (PowerShell)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/ip firewall connection print`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>Established</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>رد → فایروال/سرویس down</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>منبع دستورهای RouterOS: سند رسمی Packet Flow در RouterOS (تعیین می‌کند هر بسته از کدام زنجیرهٔ input/forward می‌گذرد — کلید تشخیص «کدام rule»): https://manual.mikrotik.com/docs/firewall-and-quality-of-service/packet-flow-in-routeros/ (دسترسی 2026-11-16)</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image -->
+<figure class="wp-block-image size-large"><img src="../assets/tutorial-n1-layer-ladder.svg" alt="نمودار نردبان عیب‌یابی N1 — از L1 تا اینترنت (تصویر مفهومی تألیفی)" width="900" loading="lazy"/><figcaption>نمودار نردبان عیب‌یابی N1 — از L1 تا اینترنت (تصویر مفهومی تألیفی)</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> نردبان شش‌پله‌ای از پایین به بالا: ‏L1 لینک → ‏L2 هم‌شبکه‌ای (ARP) → ‏L3 gateway (route/ping با هشدار سیاست ICMP) → ‏DNS → اینترنت → سرویس/پورت. هر پله یک جعبه با «دستور تست» و دو خروجی سبز/قرمز: سبز = پلهٔ بعدی؛ قرمز = علت همان لایه و توقف. پایین نمودار جعبهٔ «تعیین دامنه» (یک دستگاه/بخش/کل شبکه) به‌عنوان پیش‌شرط، و برچسب «تألیفی/مفهومی».</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مثال کارشده — walkthrough کامل fault F2</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li><strong>تعیین دامنه:</strong> فقط یک کلاینت قطع است؛ همکار کناری سالم → مشکل محلیِ همان دستگاه.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>‏L1: چراغ کارت روشن و `/interface ethernet monitor` سمت روتر link-ok → L1 سالم.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>‏L2: `arp -a` → ورودی gateway وجود ندارد؛ ولی `arp -a` مال MAC سوئیچ…؛ سایر دستگاه‌ها gateway را می‌بینند → به L3 مسیر مشکوک شو.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>‏L3 مسیر: `ipconfig /all` → gateway=<strong>192.168.88.254</strong> (تایپ‌و غلط! به‌جای .1)؛ `route print -4` سطر default با gateway .254؛ `arp -a` برای .254 incomplete (هیچ دستگاهی آن IP را ندارد).</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><strong>ریشه پیدا شد:</strong> gateway غلط. اصلاح (به DHCP یا static درست .1) و تأیید: `nslookup nas.lan` و بازکردن سایت موفق.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><strong>ثبت قبل/بعد:</strong> خروجی‌های گام ۴ (قبل) و نتیجهٔ پس از اصلاح در گزارش عیب‌یابی ثبت می‌شود — تحویل بدون ثبت، نصف کار.</li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">خطاهای رایج در فرایند عیب‌یابی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>خطا</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>چرا غلط است</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>درست</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>«سایت باز نمی‌شود = اینترنت قطع»</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>DNS جدا از اتصال است</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>اول `ping 8.8.8.8` (اتصال) بعد `nslookup` (نام)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>timeout روی ping روتر = خرابی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>در شبکه با سیاست ICMP-محدود (M2/M3) عمدی است</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ملاک را ترافیک واقعی سرویس بگیرید؛ policy را بخوانید</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>عیب‌یابی کل شبکه برای مشکل یک دستگاه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دامنه تعیین نشده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>اول scope؛ سپس لایه‌ای</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>تعویض قطعات به‌ترتیب حدسی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بدون تست لایه‌ای، علت تغییر می‌کند نه مشکل</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هر گام یک فرضیه + یک تست</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>بدون ثبت قبل/بعد بستن تیکت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>پذیرش و عودت مبهم می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>گزارش قبل/بعد + دستورهای اجراشده</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">تمرین کوتاه (با پاسخ موردانتظار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>کل یک طبقه قطع است ولی طبقات دیگر سالم‌اند؛ از کجا شروع کنید؟ — <strong>پاسخ موردانتظار:</strong> دامنه=بخش → مشترکِ همان بخش: کابل uplink/پورت سوئیچ طبقه/VLAN آن بخش — نه کلاینت‌ها.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>`ping 8.8.8.8` موفق ولی هیچ سایتی باز نمی‌شود؛ لایهٔ مشکل؟ — <strong>پاسخ موردانتظار:</strong> DNS؛ تست `nslookup` و اصلاح DNS کلاینت/روتر.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>در شبکهٔ درس M2، از پورت مهمان `ping 192.168.10.1` timeout است؛ خرابی؟ — <strong>پاسخ موردانتظار:</strong> خیر؛ سیاست M2 ping به روتر از غیر-دفتر را می‌بندد (input) — رفتار عمدی؛ ملاک ترافیک مجاز است.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>`tracert` وسط مسیر ستاره می‌شود ولی مقصد جواب می‌دهد؛ قطع هست؟ — <strong>پاسخ موردانتظار:</strong> خیر؛ hopهای میانی ممکن است ICMP را فیلتر کنند؛ جواب مقصد = مسیر کار می‌کند.</li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">چک‌لیست تحویل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[ ] دامنه ثبت شده (دستگاه/بخش/کل)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] گام‌های لایه‌ای از L1 به بالا به‌ترتیب اجرا و خروجی‌ها ثبت شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] فرضیهٔ هر گام + نتیجه‌اش مستند (نه تعویض حدسی)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] اصلاح با ثبت قبل/بعد و تأیید با همان تست‌ها</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] سیاست ICMP/fایروال شبکه قبل از تفسیر timeout خوانده شده (ارجاع درس M2/M3)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] اجرای واقعی این درس NOT_RUN (مبنا فرضی)</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">منابع (fetch/تأیید شده با تاریخ)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Packet Flow در RouterOS — زنجیره‌های input/forward/output و ترتیب: https://manual.mikrotik.com/docs/firewall-and-quality-of-service/packet-flow-in-routeros/ (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>دستور route ویندوز (خواندن جدول مسیر کلاینت) — سند رسمی مایکروسافت: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/route_ws2008 (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>سند DNS RouterOS (مرز 53 و cache): https://manual.mikrotik.com/docs/network-management/dns/ (دسترسی 2026-11-16)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>تجربهٔ فنی عمومی لایه‌ای-عیب‌یابی — به‌عنوان روش، بدون ادعای آمار/مورد واقعی</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">آموزش‌های مرتبط و مسیر خدمت</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>پیوند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقصد</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>تنظیمات لایهٔ 2/3 مبنا</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/mikrotik-vlan/">VLAN (M2)</a> · <a href="/guides/mikrotik-dhcp-dns/">DHCP و DNS (M3)</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>بودجهٔ توان هنگام قطعی‌های PoE</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="s2-poe-budget.fa.md">بودجهٔ PoE (S2)</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نقشهٔ کامل سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/topic-map/">topic map</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>عیب‌یابی/پشتیبانی شبکهٔ شما</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="https://tehnet.ir/services/network-support-tehran/">خدمات پشتیبانی شبکهٔ تهران</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>درس بعدی سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>N4 — چک‌لیست پذیرش تحویل (تولید در نوبت بعدی؛ فعلاً فقط در topic map)</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->

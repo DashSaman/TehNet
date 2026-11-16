@@ -216,8 +216,38 @@ s3 = svg(960, 680,
     'فلوچارت تصمیم بر پایهٔ فاصلهٔ دو سر لینک: تا حدود سه متر همان رک کابل DAC بدون ماژول؛ تا حدود سیصد متر داخل ساختمان فیبر مالتی‌مود با ماژول S+85DLC03D با طول‌موج ۸۵۰ نانومتر؛ تا ده کیلومتر بین ساختمان‌ها فیبر تک‌مود با ماژول S+31DLC10D با طول‌موج ۱۳۱۰ نانومتر و استاندارد 10GBASE-LR. کنار نمودار قواعد سازگاری سندشده آمده: ماژول 1G در پورت SFP+ با تنظیم اجباری سرعت و استثناهای سخت‌افزاری، rate-select برای 25G، سقف ماژول S+RJ10 روی CRS309 و وضعیت UNKNOWN ماژول‌های غیرمیکروتیک. این نمودار مفهومی و تألیفی TehNet است.',
     chr(10).join(b))
 
+
+# ---------------- N1 troubleshooting ladder ----------------
+b = []
+b.append(rect(330, 20, 300, 56, '#ede7f6', '#6a1b9a', 2))
+b.append(text(480, 42, 'تعیین دامنه (پیش‌شرط):', 11, 'middle', '#6a1b9a', 'bold'))
+b.append(text(480, 62, 'یک دستگاه؟ یک بخش؟ کل شبکه؟', 11, 'middle', '#455a64'))
+rungs = [
+    ('L1 — لینک', '/interface ethernet monitor — link-ok؟', 130, '#fb8c00'),
+    ('L2 — هم‌شبکه‌ای', 'arp -a / /ip neighbor — MAC gateway دیده می‌شود؟', 220, '#8d6e63'),
+    ('L3 — gateway/مسیر', 'route print -4 — default gateway درست؟', 310, '#1e88e5'),
+    ('DNS', 'nslookup — نام حل می‌شود؟', 400, '#6a1b9a'),
+    ('اینترنت', 'ping 8.8.8.8 / tracert — مسیر تا بیرون؟', 490, '#43a047'),
+    ('سرویس/پورت', 'Test-NetConnection host -Port X — Established؟', 580, '#d32f2f'),
+]
+for title, cmd, y, color in rungs:
+    b.append(rect(120, y - 30, 720, 66, '#fafafa', color, 2))
+    b.append(text(160, y - 6, title, 13, 'middle', color, 'bold'))
+    b.append(text(480, y - 4, cmd, 11, 'middle', '#37474f'))
+    b.append(text(800, y + 18, 'سبز: پلهٔ بعدی', 9, 'middle', '#43a047'))
+    b.append(text(800, y + 32, 'قرمز: علت همین لایه', 9, 'middle', '#d32f2f'))
+    if y < 580:
+        b.append(line(480, y + 36, 480, y + 90, '#37474f', 2))
+        b.append(text(492, y + 60, 'OK', 10, 'start', '#43a047', 'bold'))
+b.append(text(120, 632, 'هشدار همسانی: timeout روی ping به خود روتر در شبکه با سیاست ICMP-محدود (M2/M3) رفتار عمدی است نه خرابی', 10, 'middle', '#e65100'))
+b.append(text(480, 662, 'نمودار مفهومی تألیفی TehNet — نه عکس واقعی — سناریو فرضی؛ اجرا NOT_RUN — دستورها از سندهای رسمی (دسترسی %s)' % ACCESS_DATE, 10, 'middle', '#78909c'))
+n1 = svg(960, 690,
+    'نمودار نردبان عیب‌یابی درس N1: شش لایه از لینک تا سرویس',
+    'پیش‌شرط تعیین دامنه است؛ سپس نردبان شش‌پله‌ای: لینک، هم‌شبکه‌ای با ARP، گیت‌وی و مسیر، DNS، اینترنت و در آخر سرویس و پورت. هر پله دستور تست ویندوز یا RouterOS دارد و دو خروجی سبز و قرمز: سبز یعنی به پله بعدی برو، قرمز یعنی علت در همین لایه است. زیر نمودار هشدار همسانی آمده که در شبکه با سیاست ICMP محدود، timeout روی پینگ خود روتر رفتار عمدی است. این نمودار مفهومی و تألیفی TehNet است.',
+    chr(10).join(b))
+
 os.makedirs(OUT, exist_ok=True)
-for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3)):
+for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1)):
     p = os.path.join(OUT, name)
     with io.open(p, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)

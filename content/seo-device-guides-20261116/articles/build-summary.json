@@ -43,6 +43,13 @@
    "type": "tutorial",
    "bytes": 21103,
    "per_model_images": 0
+  },
+  {
+   "md": "../tutorials/n1-network-troubleshooting.fa.md",
+   "html": "../tutorials/n1-network-troubleshooting.gutenberg.html",
+   "type": "tutorial",
+   "bytes": 19711,
+   "per_model_images": 0
   }
  ]
 }

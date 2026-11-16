@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="690" viewBox="0 0 960 690">
+<title>نمودار نردبان عیب‌یابی درس N1: شش لایه از لینک تا سرویس</title>
+<desc>پیش‌شرط تعیین دامنه است؛ سپس نردبان شش‌پله‌ای: لینک، هم‌شبکه‌ای با ARP، گیت‌وی و مسیر، DNS، اینترنت و در آخر سرویس و پورت. هر پله دستور تست ویندوز یا RouterOS دارد و دو خروجی سبز و قرمز: سبز یعنی به پله بعدی برو، قرمز یعنی علت در همین لایه است. زیر نمودار هشدار همسانی آمده که در شبکه با سیاست ICMP محدود، timeout روی پینگ خود روتر رفتار عمدی است. این نمودار مفهومی و تألیفی TehNet است.</desc>
+<rect x="330" y="20" width="300" height="56" rx="8" fill="#ede7f6" stroke="#6a1b9a" stroke-width="2"/>
+<text x="480" y="42" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#6a1b9a" font-weight="bold">تعیین دامنه (پیش‌شرط):</text>
+<text x="480" y="62" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#455a64" font-weight="normal">یک دستگاه؟ یک بخش؟ کل شبکه؟</text>
+<rect x="120" y="100" width="720" height="66" rx="8" fill="#fafafa" stroke="#fb8c00" stroke-width="2"/>
+<text x="160" y="124" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#fb8c00" font-weight="bold">L1 — لینک</text>
+<text x="480" y="126" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#37474f" font-weight="normal">/interface ethernet monitor — link-ok؟</text>
+<text x="800" y="148" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#43a047" font-weight="normal">سبز: پلهٔ بعدی</text>
+<text x="800" y="162" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#d32f2f" font-weight="normal">قرمز: علت همین لایه</text>
+<line x1="480" y1="166" x2="480" y2="220" stroke="#37474f" stroke-width="2"/>
+<text x="492" y="190" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#43a047" font-weight="bold">OK</text>
+<rect x="120" y="190" width="720" height="66" rx="8" fill="#fafafa" stroke="#8d6e63" stroke-width="2"/>
+<text x="160" y="214" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#8d6e63" font-weight="bold">L2 — هم‌شبکه‌ای</text>
+<text x="480" y="216" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#37474f" font-weight="normal">arp -a / /ip neighbor — MAC gateway دیده می‌شود؟</text>
+<text x="800" y="238" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#43a047" font-weight="normal">سبز: پلهٔ بعدی</text>
+<text x="800" y="252" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#d32f2f" font-weight="normal">قرمز: علت همین لایه</text>
+<line x1="480" y1="256" x2="480" y2="310" stroke="#37474f" stroke-width="2"/>
+<text x="492" y="280" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#43a047" font-weight="bold">OK</text>
+<rect x="120" y="280" width="720" height="66" rx="8" fill="#fafafa" stroke="#1e88e5" stroke-width="2"/>
+<text x="160" y="304" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#1e88e5" font-weight="bold">L3 — gateway/مسیر</text>
+<text x="480" y="306" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#37474f" font-weight="normal">route print -4 — default gateway درست؟</text>
+<text x="800" y="328" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#43a047" font-weight="normal">سبز: پلهٔ بعدی</text>
+<text x="800" y="342" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#d32f2f" font-weight="normal">قرمز: علت همین لایه</text>
+<line x1="480" y1="346" x2="480" y2="400" stroke="#37474f" stroke-width="2"/>
+<text x="492" y="370" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#43a047" font-weight="bold">OK</text>
+<rect x="120" y="370" width="720" height="66" rx="8" fill="#fafafa" stroke="#6a1b9a" stroke-width="2"/>
+<text x="160" y="394" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#6a1b9a" font-weight="bold">DNS</text>
+<text x="480" y="396" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#37474f" font-weight="normal">nslookup — نام حل می‌شود؟</text>
+<text x="800" y="418" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#43a047" font-weight="normal">سبز: پلهٔ بعدی</text>
+<text x="800" y="432" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#d32f2f" font-weight="normal">قرمز: علت همین لایه</text>
+<line x1="480" y1="436" x2="480" y2="490" stroke="#37474f" stroke-width="2"/>
+<text x="492" y="460" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#43a047" font-weight="bold">OK</text>
+<rect x="120" y="460" width="720" height="66" rx="8" fill="#fafafa" stroke="#43a047" stroke-width="2"/>
+<text x="160" y="484" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#43a047" font-weight="bold">اینترنت</text>
+<text x="480" y="486" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#37474f" font-weight="normal">ping 8.8.8.8 / tracert — مسیر تا بیرون؟</text>
+<text x="800" y="508" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#43a047" font-weight="normal">سبز: پلهٔ بعدی</text>
+<text x="800" y="522" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#d32f2f" font-weight="normal">قرمز: علت همین لایه</text>
+<line x1="480" y1="526" x2="480" y2="580" stroke="#37474f" stroke-width="2"/>
+<text x="492" y="550" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="start" fill="#43a047" font-weight="bold">OK</text>
+<rect x="120" y="550" width="720" height="66" rx="8" fill="#fafafa" stroke="#d32f2f" stroke-width="2"/>
+<text x="160" y="574" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#d32f2f" font-weight="bold">سرویس/پورت</text>
+<text x="480" y="576" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#37474f" font-weight="normal">Test-NetConnection host -Port X — Established؟</text>
+<text x="800" y="598" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#43a047" font-weight="normal">سبز: پلهٔ بعدی</text>
+<text x="800" y="612" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#d32f2f" font-weight="normal">قرمز: علت همین لایه</text>
+<text x="120" y="632" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#e65100" font-weight="normal">هشدار همسانی: timeout روی ping به خود روتر در شبکه با سیاست ICMP-محدود (M2/M3) رفتار عمدی است نه خرابی</text>
+<text x="480" y="662" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#78909c" font-weight="normal">نمودار مفهومی تألیفی TehNet — نه عکس واقعی — سناریو فرضی؛ اجرا NOT_RUN — دستورها از سندهای رسمی (دسترسی 2026-11-16)</text>
+</svg>
