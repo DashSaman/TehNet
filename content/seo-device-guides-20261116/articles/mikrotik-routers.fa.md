@@ -121,6 +121,10 @@
 **CCR برای دفتر معمولی لازم است؟** خیر؛ CCR برای ترافیک چند-گیگابیت و قوانین حجیم سازمانی است.
 **FastPath یعنی همیشه full speed؟** خیر؛ FastPath با firewall/queue/NAT و نوع ترافیک می‌تواند دور زده شود؛ عدد سازنده را با شرایط آزمونش بخوانید.
 
+## سوئیچ‌ها را جدا انتخاب کنید {#switch-xref}
+
+تصمیم سوئیچ/PoE و مقایسهٔ CSS/CRS در راهنمای [سوئیچ‌های میکروتیک و Cloud Router Switch](mikrotik-switches-crs.gutenberg.html) آمده است — با این راهنما رقابت موضوعی ندارند.
+
 ## منابع {#sources}
 
 - mikrotik.com صفحات محصول RB4011iGS+RM، L009UiGS-RM، RB2011UiAS-2HnD-IN، hEX S، CCR2004-1G-12S+2XS، CCR2116-12G-4S+، CCR2216 (دسترسی 2026-11-16)

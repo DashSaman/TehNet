@@ -80,6 +80,10 @@ L3HW مسیر بین VLANها را به چیپ می‌سپارد؛ سرعت خط
 **PoE پسیو برای دوربین IP معمولی؟** معمولاً نه؛ دوربین‌های استاندارد af/at می‌خواهند — استاندارد دوربین را چک کنید.
 **آیا CRS به‌جای روتر مودم هم می‌آید؟** خیر؛ PPPoE/NAT/fایروال کار CPU روتر است.
 
+## کور شبکه چه روتری می‌خواهد؟ {#router-xref}
+
+برای لبهٔ routing/VPN، مقایسهٔ [روترهای میکروتیک از hEX تا CCR](mikrotik-routers.gutenberg.html) را ببینید.
+
 ## منابع {#sources}
 
 - mikrotik.com: crs309_1g_8s_in، netpower_16p، ccr2116 (دسترسی 2026-11-16)؛ help.mikrotik.com CSS610 series Manual
