@@ -15,7 +15,10 @@ const BEFORE = process.env.TN_BEFORE || path.join(__dirname, 'rendered-source.sn
 const AFTER = process.env.TN_AFTER || path.join(REPO, 'content/passive-responsive-preview-20261115/passive-responsive-preview.candidate.html');
 const OUT = path.join(__dirname, 'responsive-preview-result.json');
 const CANONICAL_SHA = '180ddbf10d208abe6ffbc5f4f48e97a417908052c6053a9261235ba170c3d16b';
-const CANDIDATE_SHA = 'afee2771d9af317f2c98cc71530f3c4273b501d72f0cfb78ad37c20d9eb0b565';
+const CANDIDATE_SHA = '60258c868bbf82adeef0120200283c9f5331aa62d410ba5681ceb36673f6726d';
+/* provenance: the RESOLVABLE published canonical SHA (manager-corrected) */
+const PUBLISHED_CANONICAL_COMMIT = '778ee3f4a5bdb852a1c491b3af12e263a9eee3ad';
+const LOCAL_HEAD_UNPUBLISHED = '89ead8f58594635130ce35716c4d3ad82fa39e70'; // local-only execution reference, NOT the published branch head
 const FOCUS_STEPS = 6;
 
 const runId = 'TN-PASSIVE-RESPONSIVE-PREVIEW-' + Date.now().toString(36).toUpperCase();
@@ -105,20 +108,52 @@ function orderedFocusOk(actual, expected) {
     if (i < FOCUS_STEPS - 1) await pa.keyboard.press('Tab');
   }
   A('a7_after_exact_ordered_focus', orderedFocusOk(kbAfter, expectedAfter), { positions: kbAfter });
-  /* column reachability: focus first region, exercise scrollable range (keyboard scroll outcome) */
-  const scrolled = await pa.evaluate(async () => {
-    const w = document.querySelector('.tn-preview-table-scroll');
-    if (!w) return null;
-    w.focus();
-    const before = w.scrollLeft;
-    w.scrollLeft = w.scrollWidth; /* keyboard-scroll outcome: full range reachable */
-    await new Promise(r => setTimeout(r, 50));
-    const max = w.scrollWidth - w.clientWidth;
-    const lastCol = [...w.querySelectorAll('tr')].map(tr => tr.lastElementChild).pop();
-    const lastVisible = lastCol ? lastCol.getBoundingClientRect().right <= w.getBoundingClientRect().right + 1 : false;
-    return { before, after: w.scrollLeft, max, reachable: w.scrollLeft >= max - 2, lastVisible };
-  });
-  A('a8_keyboard_column_reachability', !!scrolled && scrolled.max > 0 && scrolled.reachable && scrolled.lastVisible, scrolled);
+  /* REAL keyboard scrolling (MANAGER_REVIEW 6904423380): Tab-reach EACH region with real
+   * keys, then send REAL ArrowRight keypresses — NO scrollLeft assignment, NO programmatic
+   * focus for this acceptance case. Record focus, keys, before/after offsets and
+   * last-column visibility for BOTH tables; fail if a key does not move the region. */
+  const keyResults = [];
+  const regionCount = mAfter.focusables.filter(f => String(f).startsWith('REGION:')).length;
+  for (let r = 0; r < regionCount; r++) {
+    /* walk focus from document start with real Tab presses until the (r+1)-th region is focused */
+    let focusedIdx = -1, tabs = 0;
+    let cur = null;
+    // reset focus to body by pressing Shift+Tab back to start is unreliable; reload deterministically
+    await pa.reload({ waitUntil: 'load', timeout: 20000 });
+    let regionSeen = 0;
+    for (tabs = 0; tabs < mAfter.focusables.length + 2; tabs++) {
+      await pa.keyboard.press('Tab');
+      cur = await pa.evaluate(() => {
+        const el = document.activeElement;
+        if (el.classList && el.classList.contains('tn-preview-table-scroll')) {
+          return { kind: 'REGION', idx: [...document.querySelectorAll('.tn-preview-table-scroll')].indexOf(el) };
+        }
+        return { kind: 'A' };
+      });
+      if (cur.kind === 'REGION') { regionSeen++; if (regionSeen === r + 1) { focusedIdx = tabs + 1; break; } }
+    }
+    const state = () => pa.evaluate(() => {
+      const w = document.activeElement;
+      const lastCells = [...w.querySelectorAll('tr')].map(tr => tr.lastElementChild).filter(Boolean);
+      const wr = w.getBoundingClientRect();
+      return { scrollLeft: w.scrollLeft, max: w.scrollWidth - w.clientWidth, lastRight: Math.max(...lastCells.map(c => c.getBoundingClientRect().right)), wrapRight: wr.right };
+    });
+    const before = await state();
+    const keys = [];
+    for (let k = 0; k < 12 && (before.max - (await state()).scrollLeft) > 2; k++) { await pa.keyboard.press('ArrowRight'); keys.push('ArrowRight'); }
+    const after = await state();
+    keyResults.push({
+      region: r + 1, tabsToFocus: focusedIdx, keysUsed: keys,
+      before: { scrollLeft: before.scrollLeft, max: before.max },
+      after: { scrollLeft: after.scrollLeft },
+      movedByKey: after.scrollLeft > before.scrollLeft + 2,
+      rangeFullyReached: after.scrollLeft >= after.max - 2,
+      lastColumnVisibleByKey: after.lastRight <= after.wrapRight + 1,
+    });
+  }
+  A('k1_both_regions_tab_reachable', keyResults.length === regionCount && keyResults.every(x => x.tabsToFocus > 0), { regions: keyResults.map(x => x.tabsToFocus) });
+  A('k2_real_keys_move_region', keyResults.every(x => x.movedByKey), { per: keyResults.map(x => ({ region: x.region, keys: x.keysUsed.length, before: x.before.scrollLeft, after: x.after.scrollLeft })) });
+  A('k3_real_keys_reach_last_column', keyResults.every(x => x.rangeFullyReached && x.lastColumnVisibleByKey), { per: keyResults.map(x => ({ region: x.region, atMax: x.rangeFullyReached, lastVisible: x.lastColumnVisibleByKey })), note: 'real ArrowRight input only; no scrollLeft assignment, no programmatic focus' });
   /* desktop AFTER */
   const cd = await browser.newContext({ viewport: { width: 1440, height: 900 }, locale: 'fa' });
   const pd = await cd.newPage();
@@ -143,7 +178,7 @@ function orderedFocusOk(actual, expected) {
     finished_utc: finishedUtc,
     label: 'LOCAL_STAGING existing tools (playwright ' + bv + ', headless, file:// standalone before/after)',
     inputs: {
-      before: { role: 'canonical standalone', sha256: beforeSha, pinned: CANONICAL_SHA },
+      before: { role: 'canonical standalone', sha256: beforeSha, pinned: CANONICAL_SHA, published_commit_resolvable: PUBLISHED_CANONICAL_COMMIT, local_head_unpublished_reference: LOCAL_HEAD_UNPUBLISHED, provenance_note: 'canonical snapshot bound to the RESOLVABLE published SHA 778ee3f4 (byte-identical, same digest 180ddbf1…); the earlier 89ead8f reference was a local-only head and is recorded as local/unpublished, not the published branch head' },
       after: { role: 'responsive preview candidate', sha256: afterSha, pinned: CANDIDATE_SHA, file: 'content/passive-responsive-preview-20261115/passive-responsive-preview.candidate.html' },
     },
     diagnosis: {

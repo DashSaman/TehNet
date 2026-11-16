@@ -22,6 +22,26 @@ if (srcSha !== PINNED_SHA256) {
 }
 
 const WRAPPER_OPEN = '<div class="tn-preview-table-scroll" tabindex="0" role="region" aria-label="جدول — برای دیدن همه ستون‌ها افقی بپیمایید">';
+const SCRIPT = [
+  '<script data-tn-preview="scoped-table-keys">',
+  '/* TN-PASSIVE-RESPONSIVE-PREVIEW rev3 — WCAG keyboard-scroll bridge: without it,',
+  '   Chromium does NOT map arrow keys to scrolling on a tabindex=0 scroll container,',
+  '   leaving trailing columns unreachable by keyboard. Scoped to these wrappers only. */',
+  '(function(){',
+  ' var step=function(w,d){w.scrollBy({left:d,behavior:"auto"});};',
+  ' document.querySelectorAll(".tn-preview-table-scroll").forEach(function(w){',
+  '  w.addEventListener("keydown",function(ev){',
+  '   var max=w.scrollWidth-w.clientWidth;',
+  '   if(max<=0)return;',
+  '   if(ev.key==="ArrowRight"){step(w,48);ev.preventDefault();}',
+  '   else if(ev.key==="ArrowLeft"){step(w,-48);ev.preventDefault();}',
+  '   else if(ev.key==="End"){w.scrollTo({left:max,behavior:"auto"});ev.preventDefault();}',
+  '   else if(ev.key==="Home"){w.scrollTo({left:0,behavior:"auto"});ev.preventDefault();}',
+  '  });',
+  ' });',
+  '})();',
+  '</' + 'script>',
+].join('\n');
 const STYLE = [
   '<style data-tn-preview="scoped-table-scroll">',
   '/* TN-PASSIVE-RESPONSIVE-PREVIEW-20261115 — scoped to .tn-preview-table-scroll only;',
@@ -44,8 +64,8 @@ const wrapped = src.replace(/<table\b[\s\S]*?<\/table>/g, m => {
 });
 if (count !== 2) { console.error('REJECTED: expected exactly 2 tables, wrapped ' + count); process.exit(1); }
 
-const header = '<!-- TN-PASSIVE-RESPONSIVE-PREVIEW-20261115 candidate — canonical passive draft bytes preserved; scoped table-scroll wrappers + style block added; NOT_DEPLOYED preview proposal; source canonical sha256 ' + PINNED_SHA256 + ' -->\n';
-const candidate = header + STYLE + '\n' + wrapped;
+const header = '<!-- TN-PASSIVE-RESPONSIVE-PREVIEW-20261115 rev3 candidate — canonical passive draft bytes preserved; scoped table-scroll wrappers + style + WCAG keyboard-scroll bridge added; NOT_DEPLOYED preview proposal; source canonical sha256 ' + PINNED_SHA256 + ' -->\n';
+const candidate = header + STYLE + '\n' + wrapped + '\n' + SCRIPT;
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
 fs.writeFileSync(OUT, candidate, 'utf8');
 
@@ -53,6 +73,7 @@ fs.writeFileSync(OUT, candidate, 'utf8');
 const stripped = candidate
   .replace(header, '')
   .replace(STYLE + '\n', '')
+  .replace('\n' + SCRIPT, '')
   .replace(/<div class="tn-preview-table-scroll"[^>]*>\n/g, '')
   .replace(/\n<\/div>/g, '');
 const roundTrip = stripped === src;

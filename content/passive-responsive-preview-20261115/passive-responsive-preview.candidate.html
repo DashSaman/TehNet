@@ -1,4 +1,4 @@
-<!-- TN-PASSIVE-RESPONSIVE-PREVIEW-20261115 candidate — canonical passive draft bytes preserved; scoped table-scroll wrappers + style block added; NOT_DEPLOYED preview proposal; source canonical sha256 180ddbf10d208abe6ffbc5f4f48e97a417908052c6053a9261235ba170c3d16b -->
+<!-- TN-PASSIVE-RESPONSIVE-PREVIEW-20261115 rev3 candidate — canonical passive draft bytes preserved; scoped table-scroll wrappers + style + WCAG keyboard-scroll bridge added; NOT_DEPLOYED preview proposal; source canonical sha256 180ddbf10d208abe6ffbc5f4f48e97a417908052c6053a9261235ba170c3d16b -->
 <style data-tn-preview="scoped-table-scroll">
 /* TN-PASSIVE-RESPONSIVE-PREVIEW-20261115 — scoped to .tn-preview-table-scroll only;
    mirrors the pinned theme pattern .tn-decision-table (visual-refresh.css:80-84):
@@ -79,3 +79,22 @@
 <!-- wp:paragraph --><p>خدمت حضوری تهران تنها در محدوده‌ای ارائه می‌شود که توان اجرایی آن پیش از قرارداد تأیید شده باشد. برای بررسی پروژه جدید، از <a href="/services/network-setup-tehran/">صفحه راه‌اندازی شبکه شرکت</a> و <a href="/services/#service-request">فرم درخواست خدمات</a> استفاده کنید. برای رفع اختلال شبکه موجود، <a href="/services/network-support-tehran/">راهنمای پشتیبانی شبکه</a> مناسب‌تر است. رمز، نقشه محرمانه و اطلاعات مشتریان را در فرم عمومی نفرستید.</p><!-- /wp:paragraph -->
 
 <!-- wp:paragraph --><p>منابع راهنمای مفهومی: <a href="https://www.flukenetworks.com/knowledge-base/dsx-cableanalyzer-series/permanent-link-definition-dsx-cableanalyzer">Fluke Networks: Permanent Link</a> و <a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content">Google People-First Content</a>؛ reviewed 2026-11-11. انتشار باید پس از تأیید فنی، لینک/تست، توافق دامنه خدمات و بازبینی تدوین شود.</p><!-- /wp:paragraph -->
+
+<script data-tn-preview="scoped-table-keys">
+/* TN-PASSIVE-RESPONSIVE-PREVIEW rev3 — WCAG keyboard-scroll bridge: without it,
+   Chromium does NOT map arrow keys to scrolling on a tabindex=0 scroll container,
+   leaving trailing columns unreachable by keyboard. Scoped to these wrappers only. */
+(function(){
+ var step=function(w,d){w.scrollBy({left:d,behavior:"auto"});};
+ document.querySelectorAll(".tn-preview-table-scroll").forEach(function(w){
+  w.addEventListener("keydown",function(ev){
+   var max=w.scrollWidth-w.clientWidth;
+   if(max<=0)return;
+   if(ev.key==="ArrowRight"){step(w,48);ev.preventDefault();}
+   else if(ev.key==="ArrowLeft"){step(w,-48);ev.preventDefault();}
+   else if(ev.key==="End"){w.scrollTo({left:max,behavior:"auto"});ev.preventDefault();}
+   else if(ev.key==="Home"){w.scrollTo({left:0,behavior:"auto"});ev.preventDefault();}
+  });
+ });
+})();
+</script>
