@@ -1,0 +1,34 @@
+{
+ "packet": "TN-SEO-PAGES-20261116",
+ "base_ref": "778ee3f4a5bdb852a1c491b3af12e263a9eee3ad",
+ "generated_utc": "2026-11-16T11:57:42Z",
+ "pages": [
+  {
+   "name": "mikrotik-service",
+   "base_path": "content/mikrotik-service-2026-11-01/mikrotik-service.html",
+   "patch": "page-edits/mikrotik-service.patch",
+   "proposed": "page-edits/mikrotik-service.proposed.html",
+   "base_bytes": 20496,
+   "proposed_bytes": 21993,
+   "inserted_block_only": true
+  },
+  {
+   "name": "network-setup",
+   "base_path": "content/network-setup-2026-11-01/network-setup.html",
+   "patch": "page-edits/network-setup.patch",
+   "proposed": "page-edits/network-setup.proposed.html",
+   "base_bytes": 29003,
+   "proposed_bytes": 29966,
+   "inserted_block_only": true
+  },
+  {
+   "name": "network-support",
+   "base_path": "content/network-support-2026-11-01/network-support.html",
+   "patch": "page-edits/network-support.patch",
+   "proposed": "page-edits/network-support.proposed.html",
+   "base_bytes": 18164,
+   "proposed_bytes": 18874,
+   "inserted_block_only": true
+  }
+ ]
+}

@@ -1,6 +1,6 @@
 # سوئیچ میکروتیک برای شرکت؛ مقایسهٔ CSS، CRS و تصمیم سوئیچ/روتر/روترسوئیچ
 
-**پاسخ کوتاه:** CSS = سوئیچ سادهٔ لایه۲ با SwOS (ارزان‌تر)؛ CRS = روترسوئیچ با RouterOS (مدیریتی‌تر، قابلیت L3 hardware offload در مدل‌های سندشده)؛ روتر (RB/CCR) برای مسیریابی/فایروال/VPN است و هیچ CRSای جان آن را نمی‌گیرد. برای access لایه۲ ارزان CSS610/RB260؛ برای access با PoE دفتری CRS112/netPower؛ برای uplink 10G و core، CRS309/310/326/354. جدول کامل و شرایط هر مدل ادامه مطلب.
+**پاسخ کوتاه:** CSS = سوئیچ سادهٔ لایه۲ با SwOS (ارزان‌تر)؛ CRS = روترسوئیچ با RouterOS (مدیریتی‌تر، با L3 hardware offload فقط در مدل‌هایی که سند رسمی اجازه داده)؛ روتر (RB/CCR) برای مسیریابی/فایروال/VPN طراحی شده و CRS به‌جای آن انتخاب خوبی نیست چون CPU کوچک آن برای فایروال/VPN ساخته نشده است. برای access لایه۲ ارزان CSS610/RB260؛ برای access با PoE دفتری CRS112/netPower؛ برای uplink 10G و core، CRS309/310/326/354. جدول کامل و شرایط هر مدل ادامه مطلب.
 
 *بازبینی منابع: 2026-11-16. قیمت‌های تومانی فقط به‌عنوان مشاهدهٔ فروشگاهی با تاریخ ثبت شده‌اند، نه قیمت پیشنهادی.*
 
@@ -30,9 +30,9 @@
 | RB260GSP | 5x Gb | 1x SFP | دارد (سطوح UNKNOWN) | SwOS | پایه | CCTV کوچک |
 | CSS610-8G-2S+IN | 8x Gb | 2x SFP+ 10G | خیر | SwOS Lite | 88E6193X | access ارزان با uplink 10G |
 | CSS610-1G-4P-1S+IN | 4x Gb | 1x SFP+ | af/at | SwOS Lite | UNKNOWN | دوربین/AP کوچک |
-| CRS112-8P-4G-IN | 8x Gb PoE | 4x Gb uplink | af/at+پسیو تا ~30W | RouterOS | 88E6095/6390 | access PoE دفتری |
+| CRS112-8P-4S-IN | 8x Gb PoE | 4x SFP 1G | af/at+پسیو | RouterOS L5 | QCA8511 400MHz | access PoE با uplink فیبر |
 | CRS309-1G-8S+IN | 1x Gb | 8x SFP+ 10G | خیر | RouterOS/SwOS | 98DX8208؛ تا 80Gbps | سرور/NAS 10G |
-| CRS310-8G+2S+IN | 8x Gb (2.5G) | 2x SFP+ | خیر | RouterOS/SwOS | خانوادهٔ 98DX | دفتر با uplink 10G |
+| CRS310-8G+2S+IN | 8x 2.5G | 2x SFP+ (1/2.5/10G) | خیر | RouterOS v7/SwOS | 98DX226S | upgrade 2.5G/10G دفتر کوچک |
 | CRS310-1G-5S-4S+IN | 1x Gb | 5x SFP+4x SFP+10G | خیر | RouterOS/SwOS | خانوادهٔ 98DX | تجمیع فایبر |
 | CRS317-1G-16S+RM | 1x Gb | 16x SFP+ | خیر | RouterOS/SwOS | 98DX8216 | دیتاسنتر کوچک |
 | CRS318-16P-2S+ (netPower 16P) | 16x Gb PoE | 2x SFP+ | af/at | RouterOS | 800MHz/256MB | access دوربین/AP |
@@ -60,7 +60,7 @@ L3HW مسیر بین VLANها را به چیپ می‌سپارد؛ سرعت خط
 1. **دفتر با تلفن و دوربین PoE (۱۰–۲۰ دستگاه):** CRS112-8P-4G-IN یا netPower 16P؛ بودجهٔ PoE را جمع بزنید.
 2. **access layer متراکم (۴۸ پورت):** CRS354-48G-4S+2Q+RM با uplink به core.
 3. **uplink فیبر 10G برای دفتر:** CRS310-8G+2S+IN در access؛ CRS326-24S+2Q+RM در distribution.
-4. **شبکهٔ 10G سرور/NAS:** CRS309-1G-8S+IN (کم‌صدا، ارزان)؛ routing بین VLANها را به روتر بسپارید.
+4. **شبکهٔ 10G سرور/NAS:** CRS309-1G-8S+IN یا CRS310-8G+2S+IN (پورت‌های 2.5G برای endpointهای مدرن)؛ routing بین VLANها را به روتر بسپارید.
 5. **تجمیع شعب روی فایبر:** CRS328-4C-20S-4S+RM یا CRS326-24S+2Q+RM.
 6. **محیطی که روتر جدا لازم دارد:** هر CRS بالا + RB5009/CCR2116؛ CRS قرار نیست VPN/فایروال بدهد.
 

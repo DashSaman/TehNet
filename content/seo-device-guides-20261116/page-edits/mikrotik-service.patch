@@ -1,0 +1,37 @@
+--- a/content/mikrotik-service-2026-11-01/mikrotik-service.html @778ee3f4a5bdb852a1c491b3af12e263a9eee3ad
+
++++ b/content/mikrotik-service-2026-11-01/mikrotik-service.html (proposed, NOT_DEPLOYED)
+
+@@ -124,6 +124,31 @@
+
+ <p><strong>منابع و حد بررسی:</strong> دو صفحهٔ جاری MikroTik، بخش‌های Export/Import و محدودیت‌های Safe Mode، و بخش پردازش سخت‌افزاری Bridge در ۱ نوامبر ۲۰۲۶ بازبینی شدند. انتخابگر مستند نسخهٔ7.26 را نشان می‌داد؛ این نسخهٔ دستگاه یا توصیهٔ ارتقای آن نیست. سایت قدیمی مستندات پیام توقف ویرایش دارد و پشتوانهٔ جاری این متن نیست. قالب درخواست و مثال، پیشنهاد توضیحی‌اند؛ هیچ کانفیگ، آزمون شبکه، بازیابی یا پروژهٔ مشتری در این متن گزارش نشده است.</p>
+ <!-- /wp:paragraph -->
+ 
++<!-- READY_FOR_REVIEW proposed add-on block (TN-SEO-PAGES-20261116) -->
++<!-- wp:heading -->
++<h2 class="wp-block-heading">کارها و خروجی تحویل</h2>
++<!-- /wp:heading -->
++
++<!-- wp:list -->
++<ul class="wp-block-list"><!-- wp:list-item -->
++<li>کانفیگ اولیهٔ RouterOS (interface، NAT، DHCP، فایروال پایه)</li>
++<!-- /wp:list-item --><!-- wp:list-item -->
++<li>VPN سایت‌به‌سایت (IPsec/WireGuard بسته به مدل و نسخه)</li>
++<!-- /wp:list-item --><!-- wp:list-item -->
++<li>VLAN و بخش‌بندی شبکه، مدیریت پهنای باند</li>
++<!-- /wp:list-item --><!-- wp:list-item -->
++<li>بررسی اختلال با ثبت نشانهٔ قبل/بعد و گزارش جلسه</li>
++<!-- /wp:list-item --></ul>
++<!-- /wp:list -->
++
++<!-- wp:paragraph -->
++<p><strong>خروجی قابل‌تحویل:</strong> پیکربندی مستندشده، فایل backup، گزارش تغییرات. <strong>محدودیت‌ها:</strong> تضمین سرعت اینترنت ISP، رفع خرابی سخت‌افزار فیزیکی و کاری خارج از محدودهٔ توافق‌شده انجام نمی‌شود.</p>
++<!-- /wp:paragraph -->
++
++<!-- wp:paragraph -->
++<p>برای انتخاب مدل مناسب، راهنمای <a href="/guides/mikrotik-routers/">مقایسهٔ روترهای میکروتیک</a> و <a href="/guides/mikrotik-switches-crs/">راهنمای سوئیچ‌های CRS</a> را ببینید.</p>
++<!-- /wp:paragraph -->
++
+ <!-- wp:shortcode -->
+ [tn_editorial_note]
+ <!-- /wp:shortcode -->

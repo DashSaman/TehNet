@@ -1,0 +1,23 @@
+--- a/content/network-support-2026-11-01/network-support.html @778ee3f4a5bdb852a1c491b3af12e263a9eee3ad
+
++++ b/content/network-support-2026-11-01/network-support.html (proposed, NOT_DEPLOYED)
+
+@@ -65,4 +65,17 @@
+
+ <!-- wp:heading {"level":3} --><h3 class="wp-block-heading">آیا دریافت هشدار یعنی مشکل رفع شده است؟</h3><!-- /wp:heading -->
+ 
+ <!-- wp:paragraph --><p>خیر؛ کشف، ارسال پیام، پذیرفتن مسئولیت و رفع مسئله مراحل جدا هستند. هنگام مقایسهٔ پیشنهادها، نتیجهٔ مورد انتظار هر مرحله و استثناهای وابسته به اینترنت، تأمین قطعه یا سرویس‌دهندهٔ دیگر را بخواهید. اگر هدفتان جلوگیری از غافلگیری در قطعی‌هاست، <a href="/services/?tn_service_context=monitoring-scoping#service-request">درخواست راه‌اندازی یا بهبود مانیتورینگ</a> را با نام کلی سرویس و اثر اختلال ثبت کنید؛ رمز یا نقشهٔ محرمانه لازم نیست.</p><!-- /wp:paragraph -->
++<!-- READY_FOR_REVIEW proposed add-on block (TN-SEO-PAGES-20261116) -->
++<!-- wp:heading -->
++<h2 class="wp-block-heading">گزارش و تحویل</h2>
++<!-- /wp:heading -->
+ 
++<!-- wp:paragraph -->
++<p>هر رخداد با این اقلام بسته می‌شود: شرح مسئله، تغییرات اعمال‌شده، نشانهٔ سالم‌شدن، و موارد باز. برای MikroTik فایل backup و نسخهٔ RouterOS ثبت می‌شود.</p>
++<!-- /wp:paragraph -->
++
++<!-- wp:paragraph -->
++<p>پرسش‌های کلیدی پیش از توافق در <a href="/network-support-contract-guide/">راهنمای قرارداد پشتیبانی شبکه</a> آمده است.</p>
++<!-- /wp:paragraph -->
++
++

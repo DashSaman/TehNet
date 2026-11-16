@@ -1,0 +1,17 @@
+{
+ "deterministic": true,
+ "jobs": [
+  {
+   "md": "mikrotik-routers.fa.md",
+   "html": "mikrotik-routers.gutenberg.html",
+   "bytes": 33498,
+   "per_model_images": 9
+  },
+  {
+   "md": "mikrotik-switches-crs.fa.md",
+   "html": "mikrotik-switches-crs.gutenberg.html",
+   "bytes": 21856,
+   "per_model_images": 4
+  }
+ ]
+}

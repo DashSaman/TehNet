@@ -1,10 +1,10 @@
-<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated from mikrotik-switches-crs.fa.md -->
+<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from mikrotik-switches-crs.fa.md -->
 <!-- wp:heading {"level":1} -->
 <h1 class="wp-block-heading">سوئیچ میکروتیک برای شرکت؛ مقایسهٔ CSS، CRS و تصمیم سوئیچ/روتر/روترسوئیچ</h1>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p><strong>پاسخ کوتاه:</strong> CSS = سوئیچ سادهٔ لایه۲ با SwOS (ارزان‌تر)؛ CRS = روترسوئیچ با RouterOS (مدیریتی‌تر، قابلیت L3 hardware offload در مدل‌های سندشده)؛ روتر (RB/CCR) برای مسیریابی/فایروال/VPN است و هیچ CRSای جان آن را نمی‌گیرد. برای access لایه۲ ارزان CSS610/RB260؛ برای access با PoE دفتری CRS112/netPower؛ برای uplink 10G و core، CRS309/310/326/354. جدول کامل و شرایط هر مدل ادامه مطلب.</p>
+<p><strong>پاسخ کوتاه:</strong> CSS = سوئیچ سادهٔ لایه۲ با SwOS (ارزان‌تر)؛ CRS = روترسوئیچ با RouterOS (مدیریتی‌تر، با L3 hardware offload فقط در مدل‌هایی که سند رسمی اجازه داده)؛ روتر (RB/CCR) برای مسیریابی/فایروال/VPN طراحی شده و CRS به‌جای آن انتخاب خوبی نیست چون CPU کوچک آن برای فایروال/VPN ساخته نشده است. برای access لایه۲ ارزان CSS610/RB260؛ برای access با PoE دفتری CRS112/netPower؛ برای uplink 10G و core، CRS309/310/326/354. جدول کامل و شرایط هر مدل ادامه مطلب.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
@@ -153,19 +153,19 @@
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>دوربین/AP کوچک</td>
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
-<td>CRS112-8P-4G-IN</td>
+<td>CRS112-8P-4S-IN</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>8x Gb PoE</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>4x Gb uplink</td>
+<td>4x SFP 1G</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>af/at+پسیو تا ~30W</td>
+<td>af/at+پسیو</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>RouterOS</td>
+<td>RouterOS L5</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>88E6095/6390</td>
+<td>QCA8511 400MHz</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>access PoE دفتری</td>
+<td>access PoE با uplink فیبر</td>
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>CRS309-1G-8S+IN</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
@@ -183,17 +183,17 @@
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>CRS310-8G+2S+IN</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>8x Gb (2.5G)</td>
+<td>8x 2.5G</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>2x SFP+</td>
+<td>2x SFP+ (1/2.5/10G)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>خیر</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>RouterOS/SwOS</td>
+<td>RouterOS v7/SwOS</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>خانوادهٔ 98DX</td>
+<td>98DX226S</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>دفتر با uplink 10G</td>
+<td>upgrade 2.5G/10G دفتر کوچک</td>
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>CRS310-1G-5S-4S+IN</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
@@ -296,23 +296,23 @@
 <!-- /wp:table -->
 
 <!-- wp:image -->
-<figure class="wp-block-image size-large"><img src="assets/schematic-css610-8g-2s-in.svg" alt="CSS610-8G-2S+IN — شماتیک تألیفی" width="420" height="120" loading="lazy"/><figcaption>CSS610-8G-2S+IN — تصویر شماتیک تألیفی (عکس رسمی: mikrotik.com)</figcaption></figure>
+<figure class="wp-block-image size-large"><img src="../assets/schematic-css610-8g-2s-in.svg" alt="CSS610-8G-2S+IN — شماتیک تألیفی" width="420" height="120" loading="lazy"/><figcaption>CSS610-8G-2S+IN — شماتیک تألیفی (عکس رسمی: mikrotik.com — تصویر واقعی embed نشده)</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:image -->
-<figure class="wp-block-image size-large"><img src="assets/schematic-crs112-8p-4g-in.svg" alt="CRS112-8P-4G-IN — شماتیک تألیفی" width="420" height="120" loading="lazy"/><figcaption>CRS112-8P-4G-IN — تصویر شماتیک تألیفی (عکس رسمی: mikrotik.com)</figcaption></figure>
+<figure class="wp-block-image size-large"><img src="../assets/schematic-crs112-8p-4s-in.svg" alt="CRS112-8P-4S-IN — شماتیک تألیفی" width="420" height="120" loading="lazy"/><figcaption>CRS112-8P-4S-IN — شماتیک تألیفی (عکس رسمی: mikrotik.com — تصویر واقعی embed نشده)</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:image -->
-<figure class="wp-block-image size-large"><img src="assets/schematic-crs309-1g-8s-in.svg" alt="CRS309-1G-8S+IN — شماتیک تألیفی" width="420" height="120" loading="lazy"/><figcaption>CRS309-1G-8S+IN — تصویر شماتیک تألیفی (عکس رسمی: mikrotik.com)</figcaption></figure>
+<figure class="wp-block-image size-large"><img src="../assets/schematic-crs309-1g-8s-in.svg" alt="CRS309-1G-8S+IN — شماتیک تألیفی" width="420" height="120" loading="lazy"/><figcaption>CRS309-1G-8S+IN — شماتیک تألیفی (عکس رسمی: mikrotik.com — تصویر واقعی embed نشده)</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:image -->
-<figure class="wp-block-image size-large"><img src="assets/schematic-crs326-24g-2s-rm.svg" alt="CRS326-24G-2S+RM — شماتیک تألیفی" width="420" height="120" loading="lazy"/><figcaption>CRS326-24G-2S+RM — تصویر شماتیک تألیفی (عکس رسمی: mikrotik.com)</figcaption></figure>
+<figure class="wp-block-image size-large"><img src="../assets/schematic-crs326-24g-2s-rm.svg" alt="CRS326-24G-2S+RM — شماتیک تألیفی" width="420" height="120" loading="lazy"/><figcaption>CRS326-24G-2S+RM — شماتیک تألیفی (عکس رسمی: mikrotik.com — تصویر واقعی embed نشده)</figcaption></figure>
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
-<p>منبع: صفحات رسمی MikroTik و مشاهدات فروشگاهی با تاریخ (جزئیات و UNKNOWNها در <a href="switch-catalog.csv">switch-catalog.csv</a>)؛ بازبینی 2026-11-16.</p>
+<p>منبع: صفحات رسمی MikroTik و مشاهدات فروشگاهی با تاریخ (جزئیات و UNKNOWNها در <a href="../switch-catalog.csv">switch-catalog.csv</a>)؛ بازبینی 2026-11-16.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
@@ -356,7 +356,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>4. **شبکهٔ 10G سرور/NAS:** CRS309-1G-8S+IN (کم‌صدا، ارزان)؛ routing بین VLANها را به روتر بسپارید.</p>
+<p>4. **شبکهٔ 10G سرور/NAS:** CRS309-1G-8S+IN یا CRS310-8G+2S+IN (پورت‌های 2.5G برای endpointهای مدرن)؛ routing بین VLANها را به روتر بسپارید.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
@@ -424,7 +424,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>برای لبهٔ routing/VPN، مقایسهٔ <a href="mikrotik-routers.gutenberg.html">روترهای میکروتیک از hEX تا CCR</a> را ببینید.</p>
+<p>برای لبهٔ routing/VPN، مقایسهٔ <a href="/guides/mikrotik-routers/">روترهای میکروتیک از hEX تا CCR</a> را ببینید.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
