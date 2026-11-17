@@ -492,7 +492,7 @@
   "manager-side browser run"
  ],
  "production_touched": false,
- "utc_extended": "2026-11-17T03:48:04Z",
+ "utc_extended": "2026-11-17T05:07:48Z",
  "pages_extra": [
   "tutorials/s2-poe-budget.gutenberg.html",
   "tutorials/s3-sfp-dac-fiber.gutenberg.html",
@@ -1061,6 +1061,119 @@
    "RouterOS execution",
    "WordPress/KSES",
    "throughput"
+  ],
+  "production_touched": false
+ },
+ "keyboard_completion_20261117": {
+  "packet": "TN-KB-COMPLETION-20261117 — the five previously-UNPROVEN per-TYPE states + N6 final input, captured after the keyboard input path recovered (bounded targeted probe, no blind retry)",
+  "utc": "2026-11-17T05:07:48Z",
+  "git_head_at_run": "2719ffc050c4dcb7889fc86b28a03aa4710d3bf1",
+  "executed_by": "GLM — real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138",
+  "style_artifact": {
+   "path": "qa/seo-device-guides-20261116/candidate-preview.css",
+   "sha256": "ae06330b789ed135d144131b1b6b08b8fd03aea8ca7b94cb959c6e2a5af67fc1"
+  },
+  "harness_artifact": {
+   "path": "qa/seo-device-guides-20261116/preview-inject-candidate.js",
+   "sha256": "3109a38c905593bddeb5016c9f3fead1b8fc335a650b49ed06761910cacccaac"
+  },
+  "bound_inputs_sha256": {
+   "tutorials/n6-support-selection.fa.md": "9bab59aff0f681b81c4f29e327e473a11ac1657e30777dfe2c2c08b87b2079e7",
+   "tutorials/n6-support-selection.gutenberg.html": "ab2c7797b766ba958c3d417a130884e5cf0a2700815da997e4e5850ca73a90d8",
+   "tutorials/m2-vlan-small-office.fa.md": "5817f96ec12b92480f649a32974caeeee4a291ef9272250660e99891d0dd0dfa",
+   "tutorials/m2-vlan-small-office.gutenberg.html": "2c47ab2840b7d255355252919099c2952e63d43aea2ff9880bb76230d5c304e8",
+   "tutorials/m3-dhcp-dns.fa.md": "ae0e2fdd39b1b0bc569192e259fae417d0f7b109109569de241cacd5da937269",
+   "tutorials/m3-dhcp-dns.gutenberg.html": "cbe8cc40b86333861d8ae6f817ad283016e34a38df1df574165b2ae835a25722",
+   "tutorials/s5-uplink-trunk.fa.md": "ca521f3dcd5f4db8e99574137668461fe6c6ab0d65bd3a8fc465c8f3fa00b916",
+   "tutorials/s5-uplink-trunk.gutenberg.html": "c6f10c501ef697f0acd8c722eab28bd403c3606568036e6b9ad1a195cc7061ad",
+   "tutorials/s4-vlan-switch-l2.fa.md": "380afa193ce0d658c0aa6ceb2cf7189a50d560e062f48997f92747c6c547fa76",
+   "tutorials/s4-vlan-switch-l2.gutenberg.html": "a0f58729e4ab45607516332800f59a85dfa49feea1cbd802bc6b933b2ab35523",
+   "topic-map.md": "276bce976563055522eff638298469de422027d570c19b878334dcf4103ff572",
+   "page-edits/network-support.proposed.html": "3ff92cf6315912e394ba52237814d0471b675cbc602144f0cdf6e2a36cb5f92b"
+  },
+  "keyboard_pipeline_recovery_note": "single live-check per session turn (bounded targeted recovery per 6937439006); the pipeline was still dead in earlier turns and came back in this turn — no provider/tool change, no new software",
+  "probes_captured": {
+   "n6_mobile_390x844_TABLE_0of7": {
+    "text_head": "گزینه/ساختار (options table)",
+    "scrollWidth": 199,
+    "clientWidth": 135,
+    "deltas_px": {
+     "ArrowRight": 0,
+     "ArrowLeft": 17.6,
+     "End": 21.6,
+     "Home": 24.8
+    },
+    "keyboard_scroll_confirmed": true
+   },
+   "m2_mobile_390x844_PRE_0of9": {
+    "text_head": "# روی hEX — قبل از هر تغییر:",
+    "scrollWidth": 248,
+    "clientWidth": 54,
+    "deltas_px": {
+     "ArrowRight": 22.4,
+     "ArrowLeft": 27.2,
+     "End": 27.2,
+     "Home": 34.4
+    },
+    "keyboard_scroll_confirmed": true
+   },
+   "m3_mobile_390x844_TABLE_0of4": {
+    "text_head": "حالت شروع (owned udp، owned tc…",
+    "scrollWidth": 156,
+    "clientWidth": 135,
+    "deltas_px": {
+     "ArrowRight": 5.6,
+     "ArrowLeft": 7.2,
+     "End": 9.6,
+     "Home": 9.6
+    },
+    "keyboard_scroll_confirmed": true
+   },
+   "s5_desktop_1280x900_PRE_0of2": {
+    "text_head": "# --- بلوک CRS112 (طبقه) — گارد…",
+    "scrollWidth": 1391,
+    "clientWidth": 798,
+    "deltas_px": {
+     "ArrowRight": 1.6,
+     "ArrowLeft": 4,
+     "End": 7.2,
+     "Home": 7.2
+    },
+    "keyboard_scroll_confirmed": true,
+    "note": "old desktop N/A voided — this candidate HAS inner-scroll PREs"
+   },
+   "s5_mobile_390x844_PRE_0of3": {
+    "text_head": "مبنای محاسبه — فقط ترافیک عبور…",
+    "scrollWidth": 706,
+    "clientWidth": 214,
+    "deltas_px": {
+     "ArrowRight": 13.6,
+     "ArrowLeft": 18.4,
+     "End": 18.4,
+     "Home": 18.4
+    },
+    "keyboard_scroll_confirmed": true
+   },
+   "s5_mobile_390x844_TABLE_0of5": {
+    "text_head": "شناسه/میزبان-مبدأ (endpoint table)",
+    "scrollWidth": 214,
+    "clientWidth": 135,
+    "deltas_px": {
+     "ArrowRight": 0,
+     "ArrowLeft": 19.2,
+     "End": 19.2,
+     "Home": 26.4
+    },
+    "keyboard_scroll_confirmed": true
+   }
+  },
+  "rtl_note": "pages are dir=rtl; ArrowRight may produce 0 and movement shows on ArrowLeft/End/Home — raw values recorded per key",
+  "method": "committed harness inject+wrap; first scrollable container of the requested TYPE focused via el.focus(); four real keypresses through the browser input path; scrollLeft/extents read after each key",
+  "still_not_proven": "none among the previously-listed per-TYPE states — all six now confirmed on current hashes; keyboard events must still be re-verified on any FUTURE content hash",
+  "not_run": [
+   "RouterOS execution",
+   "WordPress/KSES",
+   "production publish"
   ],
   "production_touched": false
  }

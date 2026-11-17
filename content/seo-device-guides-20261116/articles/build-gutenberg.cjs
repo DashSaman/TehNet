@@ -275,12 +275,29 @@ const jobs = [
   ['../tutorials/n6-support-selection.fa.md', '../tutorials/n6-support-selection.gutenberg.html', 'tutorial'],
   ['../tutorials/s4-vlan-switch-l2.fa.md', '../tutorials/s4-vlan-switch-l2.gutenberg.html', 'tutorial'],
 ];
+/* Explicit source->proposed-public-route mapping (manager routing decision 6938667416).
+ * Applied ONLY to jobs that declare it - currently the canonical N6 job.
+ * Other outputs are intentionally untouched (their packets await separate review). */
+const GUIDE_LINK_MAP = {
+  'n1-office-design.fa.md': '/guides/office-network-design/',
+  'n2-monitoring-maintenance.fa.md': '/guides/network-monitoring/',
+  'n3-support-contract-sla.fa.md': '/guides/support-contract-questions/',
+  'n1-network-troubleshooting.fa.md': '/guides/network-troubleshooting/',
+  'n5-config-backup-export.fa.md': '/guides/mikrotik-config-backup/',
+  'n6-incident-path.fa.md': '/guides/network-incident-path/',
+};
 const summary = [];
 for (const job of jobs) {
   const mdF = job[0], htmlF = job[1], jobType = job[2];
   const md = fs.readFileSync(path.join(DIR, mdF), 'utf8');
   const { html, imgCount } = mdToGutenberg(md, mdF);
-  const full = '<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from ' + mdF + ' -->\n' + html;
+  let body = html;
+  if (mdF.indexOf('n6-support-selection') >= 0) {
+    for (const src in GUIDE_LINK_MAP) {
+      body = body.split('href="' + src + '"').join('href="' + GUIDE_LINK_MAP[src] + '"');
+    }
+  }
+  const full = '<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from ' + mdF + ' -->\n' + body;
   fs.writeFileSync(path.join(DIR, htmlF), full, 'utf8');
   summary.push({ md: mdF, html: htmlF, type: jobType, bytes: Buffer.byteLength(full, 'utf8'), per_model_images: imgCount });
   console.log('BUILT ' + htmlF + ' type=' + jobType + ' bytes=' + summary[summary.length - 1].bytes + ' perModelImgs=' + imgCount);

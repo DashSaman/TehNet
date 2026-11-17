@@ -255,7 +255,7 @@ function validate(candidateInputs) {
       sectionsOverride: ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'تنظیم LACP', 'RSTP روی پل', 'سناریوی حلقهٔ تصادفی', 'خطاهای رایج', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'],
       service: 'https://tehnet.ir/services/network-setup-tehran/' },
     { md: 'tutorials/n6-support-selection.fa.md', html: 'tutorials/n6-support-selection.gutenberg.html', svg: 'assets/tutorial-n6-support-selection.svg', label: 'N6c',
-      sectionsOverride: ['پاسخ کوتاه', 'پیش‌نیازها', 'مبنا آزمایشگاه', 'گام ۱: نیازسنجی', 'گام ۲: فهرست گزینه‌ها', 'گام ۳: تطبیق نیاز با پوشش', 'گام ۴: ارزیابی ساختاریافته', 'گام ۵: دورهٔ آزمایشی', 'خطاهای رایج', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع', 'آموزش‌های مرتبط'],
+      sectionsOverride: ['پاسخ کوتاه', 'فهرست', 'پیش‌نیازها', 'مبنا آزمایشگاه', 'گام ۱: نیازسنجی', 'گام ۲: فهرست گزینه‌ها', 'گام ۳: تطبیق نیاز با پوشش', 'گام ۴: ارزیابی ساختاریافته', 'گام ۵: دورهٔ آزمایشی', 'گام ۶: بازنگری دوره‌ای', 'خطاهای رایج', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع', 'آموزش‌های مرتبط'],
       service: 'https://tehnet.ir/services/network-support-tehran/' },
     { md: 'tutorials/s4-vlan-switch-l2.fa.md', html: 'tutorials/s4-vlan-switch-l2.gutenberg.html', svg: 'assets/tutorial-s4-vlan-l2.svg', label: 'S4c',
       sectionsOverride: ['پاسخ کوتاه', 'فهرست', 'پیش‌نیازها', 'مبنا آزمایشگاه', 'نقشهٔ پورت و VLAN', 'گام ۱: بازرسی اولیه', 'گام ۲: پورت‌های access', 'گام ۳: جدول VLAN و ترانک', 'گام ۴: مسیر CPU مدیریت', 'گام ۵: فعال‌سازی فیلترینگ', 'مرز لایه۲ و لایه۳', 'آزمون پذیرش مثبت/منفی', 'بازگشت امن و بازیابی', 'عیب‌یابی', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع', 'آموزش‌های مرتبط'],
@@ -285,6 +285,31 @@ function validate(candidateInputs) {
     const originOk = htmlC.indexOf('generated deterministically by build-gutenberg.cjs') >= 0 && htmlC.indexOf('NOT_DEPLOYED') >= 0;
     if (!originOk) fail('c14_tutorial_origin:' + t.label, 'tutorial HTML lacks generated-by/NOT_DEPLOYED origin header');
     else pass('c14_tutorial_origin:' + t.label);
+  }
+
+  /* C15-C17 (rev9): canonical N6 consumer checks per 6938667416 */
+  const n6Html = get('tutorials/n6-support-selection.gutenberg.html');
+  const n6Md = get('tutorials/n6-support-selection.fa.md');
+  if (n6Html !== null) {
+    const faLinks = (n6Html.match(/href="[^"]*\.fa\.md"/g) || []).length;
+    const mapped = ['/guides/office-network-design/','/guides/network-monitoring/','/guides/support-contract-questions/','/guides/network-troubleshooting/','/guides/mikrotik-config-backup/','/guides/network-incident-path/'].filter(function(u){ return n6Html.indexOf('href="' + u + '"') >= 0; }).length;
+    const tocLinks = (n6Html.match(/href="#[^"]+"/g) || []);
+      const dangling = tocLinks.filter(function(hh){ const anchor = decodeURIComponent(hh.replace(/^href=/, '').replace(/"/g, '').replace(/^#/, '')); return n6Html.indexOf('id="' + anchor + '"') < 0; });
+    if (faLinks > 0 || mapped < 6) fail('c15_n6_mapped_hrefs', 'N6 HTML has repository .fa.md links or missing mapped routes', { faLinks: faLinks, mapped: mapped });
+    else pass('c15_n6_mapped_hrefs', { mapped_routes: mapped, fa_links: faLinks });
+    if (tocLinks.length < 14 || dangling.length > 0) fail('c16_n6_toc_anchors', 'N6 TOC missing or has unresolved anchors', { toc_links: tocLinks.length, dangling: dangling });
+    else pass('c16_n6_toc_anchors', { toc_links: tocLinks.length });
+    if (n6Md === null || n6Md.indexOf('گام ۶: بازنگری دوره‌ای') < 0 || n6Md.indexOf('مدیر IT') < 0 || n6Md.indexOf('UNKNOWN') < 0) fail('c17_n6_step6_review', 'N6 step-6 review procedure missing (owner/trigger/UNKNOWN handling)');
+    else pass('c17_n6_step6_review');
+  }
+
+  /* N6 routing consistency (6938667416): canonical N6 = network-support-selection; supplement = support-contract-questions */
+  const tm = get('topic-map.md');
+  if (tm !== null) {
+    const n6ok = tm.indexOf('/guides/network-support-selection/') >= 0 && tm.indexOf('انتخاب پشتیبانی') >= 0;
+    const supok = tm.indexOf('/guides/support-contract-questions/') >= 0;
+    if (!n6ok || !supok) fail('c18_n6_route_consistency', 'topic-map N6 routing mismatch (canonical vs supplement)', { n6ok: n6ok, supok: supok });
+    else pass('c18_n6_route_consistency');
   }
 
   const failed = checks.filter(function(c){ return !c.pass; });
@@ -423,6 +448,21 @@ if (require.main === module) {
       }
     }
   }, 'tutorial diagram missing');
+  injectNeg('n6-repo-link-restored', 'N6 HTML regenerated with a repository .fa.md link', function(clone){
+    for (let i = 0; i < clone.length; i++) {
+      if (clone[i].name === 'tutorials/n6-support-selection.gutenberg.html') clone[i].content = clone[i].content.replace('href="/guides/office-network-design/"', 'href="n1-office-design.fa.md"');
+    }
+  }, 'N6 HTML has repository .fa.md links or missing mapped routes');
+  injectNeg('n6-step6-removed', 'step-6 review section removed from N6 MD', function(clone){
+    for (let i = 0; i < clone.length; i++) {
+      if (clone[i].name === 'tutorials/n6-support-selection.fa.md') clone[i].content = clone[i].content.split('\n').filter(function(l){ return l.indexOf('گام ۶') < 0; }).join('\n');
+    }
+  }, 'N6 step-6 review procedure missing (owner/trigger/UNKNOWN handling)');
+  injectNeg('n6-toc-dangling', 'N6 TOC anchor renamed so a TOC link dangles', function(clone){
+    for (let i = 0; i < clone.length; i++) {
+      if (clone[i].name === 'tutorials/n6-support-selection.gutenberg.html') clone[i].content = clone[i].content.replace('id="step6-review"', 'id="step6-review-moved"');
+    }
+  }, 'N6 TOC missing or has unresolved anchors');
   injectNeg('tutorial-exercise-removed', 'exercise section removed from M3 MD', function(clone){
     for (let i = 0; i < clone.length; i++) {
       if (clone[i].name === 'tutorials/m3-dhcp-dns.fa.md') {
