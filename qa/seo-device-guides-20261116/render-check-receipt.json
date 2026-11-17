@@ -492,7 +492,7 @@
   "manager-side browser run"
  ],
  "production_touched": false,
- "utc_extended": "2026-11-17T05:07:48Z",
+ "utc_extended": "2026-11-17T05:58:24Z",
  "pages_extra": [
   "tutorials/s2-poe-budget.gutenberg.html",
   "tutorials/s3-sfp-dac-fiber.gutenberg.html",
@@ -1173,6 +1173,64 @@
   "not_run": [
    "RouterOS execution",
    "WordPress/KSES",
+   "production publish"
+  ],
+  "production_touched": false
+ },
+ "n6_final_input_20261117": {
+  "packet": "TN-N6-VALIDATION-FINISH-20261117 (per MANAGER_REVIEW 6939893685 — run section on the FINAL N6 input after conditional-cell edits)",
+  "utc": "2026-11-17T05:58:24Z",
+  "git_head_at_run": "a6a7cf49f7b5a3b44f59386c025dcfadab65d0c5",
+  "executed_by": "GLM — real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138",
+  "bound_inputs_sha256": {
+   "tutorials/n6-support-selection.fa.md": "e7057c8d8fd92284ed9c143d2cfb83feb66b3b70b1c987a792e6749fdf3d0bc9",
+   "tutorials/n6-support-selection.gutenberg.html": "61e2072bb0f046837fcfca0abcb9cf3bfcee666b65de0111d75e4dfbb1a611c1",
+   "candidate-preview.css": "ae06330b789ed135d144131b1b6b08b8fd03aea8ca7b94cb959c6e2a5af67fc1",
+   "preview-inject-candidate.js": "3109a38c905593bddeb5016c9f3fead1b8fc335a650b49ed06761910cacccaac"
+  },
+  "measured": {
+   "desktop_1280x900": {
+    "doc_overflow_px": 0,
+    "images_total": 1,
+    "images_loaded": 1,
+    "table_total": 9,
+    "table_with_inner_scroll": 0,
+    "containers_focusable": 9,
+    "toc_links": 14,
+    "toc_dangling": 0
+   },
+   "mobile_390x844": {
+    "doc_overflow_px": 0,
+    "images_total": 1,
+    "images_loaded": 1,
+    "table_total": 9,
+    "table_with_inner_scroll": 7,
+    "containers_focusable": 9,
+    "toc_links": 14,
+    "toc_dangling": 0
+   },
+   "keyboard_390x844": {
+    "selector": "table[data-tn-kb-probe=\"1\"] (index 0 among 7 scrollable tables)",
+    "before": {
+     "scrollLeft": 0,
+     "scrollWidth": 199,
+     "clientWidth": 135,
+     "focused": true
+    },
+    "deltas_px": {
+     "ArrowRight": 10.4,
+     "ArrowLeft": 15.2,
+     "End": 19.2,
+     "Home": 25.6
+    },
+    "keyboard_scroll_confirmed": true
+   },
+   "scope_note": "only N6 checks run on this final input; M2/M3/S5 hashes unchanged from keyboard_completion_20261117 — those probes are NOT repeated"
+  },
+  "historical_separation": "the old N6 metric section (n6_canonical_preview_20261117) bound to hash cead4ac0… remains historical; NOT copied onto this new hash",
+  "not_run": [
+   "WordPress/KSES",
+   "RouterOS",
    "production publish"
   ],
   "production_touched": false

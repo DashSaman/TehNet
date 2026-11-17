@@ -3,13 +3,13 @@
  "validator": "validate-seo-guides.cjs rev8 (rev7 + S2 tutorial candidate)",
  "command": "node validate-seo-guides.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-17T05:06:13Z",
- "finished_utc": "2026-11-17T05:06:13Z",
- "control_head": "2719ffc050c4dcb7889fc86b28a03aa4710d3bf1",
+ "started_utc": "2026-11-17T05:57:28Z",
+ "finished_utc": "2026-11-17T05:57:28Z",
+ "control_head": "a6a7cf49f7b5a3b44f59386c025dcfadab65d0c5",
  "exit": 0,
  "good_candidate": {
   "ok": true,
-  "checks": 161,
+  "checks": 162,
   "failed": 0
  },
  "injected_negatives": [
@@ -97,13 +97,21 @@
    ]
   },
   {
-   "name": "n6-step6-removed",
-   "injected": "step-6 review section removed from N6 MD",
+   "name": "n6-step6-body-stripped",
+   "injected": "step-6 heading+TOC kept but the section BODY stripped",
    "failed": true,
    "reasonMatched": true,
    "reasons": [
-    "tutorial required section missing",
-    "N6 step-6 review procedure missing (owner/trigger/UNKNOWN handling)"
+    "N6 step-6 review SECTION missing or body incomplete (owner/trigger/data/UNKNOWN/outcomes)"
+   ]
+  },
+  {
+   "name": "n6-topic-map-url-swap",
+   "injected": "topic-map URLs swapped between canonical N6 and the contract/SLA supplement",
+   "failed": true,
+   "reasonMatched": true,
+   "reasons": [
+    "topic-map N6 routing/row-shape mismatch (canonical vs supplement)"
    ]
   },
   {
@@ -173,10 +181,11 @@
   "tutorials/n1-office-design.gutenberg.html": "41c820dd57e0f639fd3618124e35512c3d580d1ca22403a62be55bcd0b74e519",
   "tutorials/n3-cable-test-report.fa.md": "60b41212eb33d3479dad462d067f583ef56912fbb4bfdf29ba9e06afde1749fd",
   "tutorials/n3-cable-test-report.gutenberg.html": "fcb772cf02d1c24738985b0f541abb4a154fce3d94ba27e73ca9d23fed76982e",
-  "tutorials/n6-support-selection.fa.md": "9bab59aff0f681b81c4f29e327e473a11ac1657e30777dfe2c2c08b87b2079e7",
-  "tutorials/n6-support-selection.gutenberg.html": "ab2c7797b766ba958c3d417a130884e5cf0a2700815da997e4e5850ca73a90d8",
+  "tutorials/n6-support-selection.fa.md": "e7057c8d8fd92284ed9c143d2cfb83feb66b3b70b1c987a792e6749fdf3d0bc9",
+  "tutorials/n6-support-selection.gutenberg.html": "61e2072bb0f046837fcfca0abcb9cf3bfcee666b65de0111d75e4dfbb1a611c1",
   "tutorials/s4-vlan-switch-l2.fa.md": "380afa193ce0d658c0aa6ceb2cf7189a50d560e062f48997f92747c6c547fa76",
   "tutorials/s4-vlan-switch-l2.gutenberg.html": "a0f58729e4ab45607516332800f59a85dfa49feea1cbd802bc6b933b2ab35523",
+  "topic-map.md": "de2f840280932e6eadc0c3b21a11777cb128f098bc7775e4fc147e010a63f30c",
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",
   "switch-catalog.csv": "aaa5aed94204ad93b312449d9b0c934164c59d2d6375eb3b5727fe94ae164718",
   "image-provenance.csv": "57df5b7e151f4d35deef50d356335a408f859ad0a794345a752e307192cb96b4",
@@ -185,8 +194,8 @@
   "page-edits/network-support.proposed.html": "3ff92cf6315912e394ba52237814d0471b675cbc602144f0cdf6e2a36cb5f92b"
  },
  "summary": {
-  "negatives": 12,
-  "negatives_passed": 12,
+  "negatives": 13,
+  "negatives_passed": 13,
   "negatives_failed": 0
  },
  "execution_origin": {

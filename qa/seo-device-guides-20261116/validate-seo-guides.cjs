@@ -299,17 +299,51 @@ function validate(candidateInputs) {
     else pass('c15_n6_mapped_hrefs', { mapped_routes: mapped, fa_links: faLinks });
     if (tocLinks.length < 14 || dangling.length > 0) fail('c16_n6_toc_anchors', 'N6 TOC missing or has unresolved anchors', { toc_links: tocLinks.length, dangling: dangling });
     else pass('c16_n6_toc_anchors', { toc_links: tocLinks.length });
-    if (n6Md === null || n6Md.indexOf('گام ۶: بازنگری دوره‌ای') < 0 || n6Md.indexOf('مدیر IT') < 0 || n6Md.indexOf('UNKNOWN') < 0) fail('c17_n6_step6_review', 'N6 step-6 review procedure missing (owner/trigger/UNKNOWN handling)');
-    else pass('c17_n6_step6_review');
+    // C17: extract the actual step-6 SECTION (heading line through the next heading) and verify its BODY
+    let sec17 = 'MISSING';
+    if (n6Md !== null) {
+      const hIdx = n6Md.indexOf('## گام ۶: بازنگری دوره‌ای');
+      if (hIdx >= 0) {
+        const lineStart = n6Md.lastIndexOf('\n', hIdx) + 1;
+        const nextH = n6Md.indexOf('\n## ', hIdx + 1);
+        const end = nextH >= 0 ? nextH : n6Md.length;
+        sec17 = n6Md.slice(lineStart, end);
+      }
+    }
+    const body17 = sec17.replace(/^## [^\n]*$/, '').trim();
+    const need17 = ['مسئول بازنگری', 'trigger', 'دادهٔ مقایسه', 'UNKNOWN', 'ادامه', 'اصلاح‌شرط', 'تعویض'];
+    const missing17 = need17.filter(function(w){ return body17.indexOf(w) < 0; });
+    if (sec17 === 'MISSING' || body17.length < 200 || missing17.length > 0) fail('c17_n6_step6_review', 'N6 step-6 review SECTION missing or body incomplete (owner/trigger/data/UNKNOWN/outcomes)', { section_found: sec17 !== 'MISSING', body_chars: body17.length, missing: missing17 });
+    else pass('c17_n6_step6_review', { body_chars: body17.length });
   }
 
-  /* N6 routing consistency (6938667416): canonical N6 = network-support-selection; supplement = support-contract-questions */
+  /* C18 (6937439006 follow-up): per-ID row-shape and URL-field check in topic-map */
   const tm = get('topic-map.md');
   if (tm !== null) {
-    const n6ok = tm.indexOf('/guides/network-support-selection/') >= 0 && tm.indexOf('انتخاب پشتیبانی') >= 0;
-    const supok = tm.indexOf('/guides/support-contract-questions/') >= 0;
-    if (!n6ok || !supok) fail('c18_n6_route_consistency', 'topic-map N6 routing mismatch (canonical vs supplement)', { n6ok: n6ok, supok: supok });
-    else pass('c18_n6_route_consistency');
+    function tmRow(idPrefix) {
+      const lines = tm.split('\n');
+      for (let li = 0; li < lines.length; li++) {
+        if (lines[li].indexOf('| ' + idPrefix) === 0 && lines[li].indexOf('/guides/') >= 0) return { line: li + 1, cells: lines[li].split('|').slice(1, -1).map(function(x){ return x.trim(); }) };
+      }
+      return null;
+    }
+    const n6row = tmRow('N6 ');
+    const suprow = tmRow('N-مکمل: قرارداد/SLA ');
+    const probs = [];
+    if (!n6row) probs.push('canonical N6 row missing');
+    else {
+      if (n6row.cells.length !== 9) probs.push('N6 row has ' + n6row.cells.length + ' columns (need 9)');
+      if (n6row.cells[3].indexOf('/guides/network-support-selection/') !== 0) probs.push('N6 URL field is ' + n6row.cells[3] + ' (need /guides/network-support-selection/)');
+      if (n6row.cells[6].indexOf('ساختار پشتیبانی') < 0) probs.push('N6 question field does not match selection intent');
+    }
+    if (!suprow) probs.push('supplement contract/SLA row missing');
+    else {
+      if (suprow.cells.length !== 9) probs.push('supplement row has ' + suprow.cells.length + ' columns (need 9)');
+      if (suprow.cells[3].indexOf('/guides/support-contract-questions/') !== 0) probs.push('supplement URL field is ' + suprow.cells[3] + ' (need /guides/support-contract-questions/)');
+      if (suprow.cells[6].indexOf('قرارداد پشتیبانی چه چیزهایی') < 0) probs.push('supplement question field mismatch');
+    }
+    if (probs.length > 0) fail('c18_n6_route_consistency', 'topic-map N6 routing/row-shape mismatch (canonical vs supplement)', { problems: probs });
+    else pass('c18_n6_route_consistency', { n6_route: n6row.cells[3], supplement_route: suprow.cells[3], columns: 9 });
   }
 
   const failed = checks.filter(function(c){ return !c.pass; });
@@ -375,6 +409,7 @@ if (require.main === module) {
     'tutorials/n6-support-selection.gutenberg.html',
     'tutorials/s4-vlan-switch-l2.fa.md',
     'tutorials/s4-vlan-switch-l2.gutenberg.html',
+    'topic-map.md',
     'router-catalog.csv',
     'switch-catalog.csv',
     'image-provenance.csv',
@@ -453,11 +488,27 @@ if (require.main === module) {
       if (clone[i].name === 'tutorials/n6-support-selection.gutenberg.html') clone[i].content = clone[i].content.replace('href="/guides/office-network-design/"', 'href="n1-office-design.fa.md"');
     }
   }, 'N6 HTML has repository .fa.md links or missing mapped routes');
-  injectNeg('n6-step6-removed', 'step-6 review section removed from N6 MD', function(clone){
+    injectNeg('n6-step6-body-stripped', 'step-6 heading+TOC kept but the section BODY stripped', function(clone){
     for (let i = 0; i < clone.length; i++) {
-      if (clone[i].name === 'tutorials/n6-support-selection.fa.md') clone[i].content = clone[i].content.split('\n').filter(function(l){ return l.indexOf('گام ۶') < 0; }).join('\n');
+      if (clone[i].name === 'tutorials/n6-support-selection.fa.md') {
+        const c = clone[i].content;
+        const hIdx = c.indexOf('## گام ۶: بازنگری دوره‌ای');
+        if (hIdx >= 0) {
+          const lineStart = c.lastIndexOf('\n', hIdx) + 1;
+          const nextH = c.indexOf('\n## ', hIdx + 1);
+          const end2 = nextH >= 0 ? nextH : c.length;
+          clone[i].content = c.slice(0, lineStart) + '## گام ۶: بازنگری دوره‌ای {#step6-review}' + c.slice(end2);
+        }
+      }
     }
-  }, 'N6 step-6 review procedure missing (owner/trigger/UNKNOWN handling)');
+  }, 'N6 step-6 review SECTION missing or body incomplete (owner/trigger/data/UNKNOWN/outcomes)');
+  injectNeg('n6-topic-map-url-swap', 'topic-map URLs swapped between canonical N6 and the contract/SLA supplement', function(clone){
+    for (let i = 0; i < clone.length; i++) {
+      if (clone[i].name === 'topic-map.md') {
+        clone[i].content = clone[i].content.replace('/guides/network-support-selection/', '@@N6TMP@@').replace('/guides/support-contract-questions/', '/guides/network-support-selection/').replace('@@N6TMP@@', '/guides/support-contract-questions/');
+      }
+    }
+  }, 'topic-map N6 routing/row-shape mismatch (canonical vs supplement)');
   injectNeg('n6-toc-dangling', 'N6 TOC anchor renamed so a TOC link dangles', function(clone){
     for (let i = 0; i < clone.length; i++) {
       if (clone[i].name === 'tutorials/n6-support-selection.gutenberg.html') clone[i].content = clone[i].content.replace('id="step6-review"', 'id="step6-review-moved"');
