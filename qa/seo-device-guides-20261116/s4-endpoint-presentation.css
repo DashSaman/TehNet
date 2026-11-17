@@ -1,0 +1,12 @@
+/* TN-S4C-ENDPOINT-TABLE-MOBILE-READABILITY-20261118 — S4-scoped presentation only.
+ * Applies to the single 9-column endpoint table of the S4 lesson (class added by the
+ * guarded harness hook s4EndpointPresentationJs; nothing else matches this class).
+ * Readable contained horizontal layout: columns size to their content (words and
+ * numeric tokens stay on one readable line); the wrapping figure is the horizontal
+ * scroll container (overflow-x:auto from the base candidate rules) and carries the
+ * keyboard focus (tabindex/aria set by the same hook). No font shrinking, no
+ * clipping/ellipsis, no document-wide overflow suppression. */
+table.tn-s4-endpoint { display: table; width: max-content; min-width: 100%; }
+table.tn-s4-endpoint th,
+table.tn-s4-endpoint td { white-space: nowrap; }
+figure.tn-s4-endpoint-wrap { overflow-x: auto; }

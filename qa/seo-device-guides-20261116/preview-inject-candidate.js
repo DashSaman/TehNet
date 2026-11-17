@@ -138,3 +138,36 @@ export function evaluateImageRender(obs) {
   else if (obs.doc_overflow_px !== 0) failures.push('document_overflow_px_' + obs.doc_overflow_px);
   return { ok: failures.length === 0, failures, rendered: { w: r.w, h: r.h }, viewport: v, loaded: { complete: obs.complete, naturalWidth: obs.naturalWidth } };
 }
+
+/* --- TN-S4C-ENDPOINT-TABLE-MOBILE-READABILITY-20261118: S4-scoped presentation hook ---
+ * Additive exports only; existing exports/behavior untouched. Guarded to fire ONLY on
+ * the S4 lesson's single 9-column endpoint table (identified by its unique synthetic
+ * address 192.168.10.99/24 AND a 9-cell header); on every other page the functions
+ * return {applied:false} without touching the DOM. */
+
+/** Loads the S4-scoped presentation stylesheet (separate artifact; shared candidate CSS untouched). */
+export function loadS4EndpointPresentationCss() {
+  return fs.readFileSync(path.join(DIR, 's4-endpoint-presentation.css'), 'utf8');
+}
+
+/** Builds the S4-scoped presentation injection script. cssText = content of
+ * s4-endpoint-presentation.css (single source of truth), embedded via JSON.stringify.
+ * The script injects the <style> and tags the endpoint table + its wrapping figure
+ * (tabindex/aria) so the ACTUAL horizontal overflow container (the figure wrapper) is
+ * keyboard-accessible. Guarded: applies only when the unique endpoint marker is present. */
+export function s4EndpointPresentationJs(cssText) {
+  return "(() => { const cssText=" + JSON.stringify(cssText) + "; " +
+  " const tables=[...document.querySelectorAll('table')]; " +
+  " const t=tables.find(function(x){ return x.textContent.indexOf('192.168.10.99/24') >= 0 && x.querySelectorAll('thead th').length === 9; }); " +
+  " if(!t) return { applied:false, reason:'S4 endpoint table not found on this page' }; " +
+  " if(document.getElementById('tn-s4-endpoint-presentation')) return { applied:false, reason:'presentation style already present' }; " +
+  ' const st=document.createElement(\'style\'); st.id=\'tn-s4-endpoint-presentation\'; ' +
+  ' st.textContent=cssText; ' +
+  ' document.head.appendChild(st); ' +
+  " t.classList.add('tn-s4-endpoint'); " +
+  " const fig=t.closest('figure'); let figTagged=false; " +
+  ' if(fig){ fig.classList.add(\'tn-s4-endpoint-wrap\'); if(!fig.hasAttribute(\'tabindex\')){ fig.setAttribute(\'tabindex\',\'0\'); figTagged=true; } ' +
+  " if(!fig.hasAttribute('aria-label')) fig.setAttribute('aria-label','جدول endpoint S4 — قابل پیمایش افقی با کلید'); } " +
+  ' const r=t.getBoundingClientRect(); ' +
+  ' return { applied:true, table_class_added:true, figure_wrapped:!!fig, figure_tabindex_set:figTagged, table_w:Math.round(r.width), header_cells:t.querySelectorAll(\'thead th\').length, body_rows:t.querySelectorAll(\'tbody tr\').length, style_id:\'tn-s4-endpoint-presentation\' }; })()';
+}

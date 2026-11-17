@@ -2680,7 +2680,7 @@
  "s4c_bracket_form_20261117": {
   "packet": "TN-S4C-CONTRACT-PREVIEW-FINISH-20261117 — bracketed nested-command spelling per MANAGER_REVIEW 6963761000 update (2026-11-17T23:32:34Z)",
   "utc": "2026-11-17T23:34:25Z (source edit) / preview 23:35:22.463Z - 23:35:54.048Z (per-pass times below)",
-  "git_head_at_run": "8a9ec4426682d255f4906d2650dd98b01ae8bf0b (pre-commit head; the finish commit delivers corrected S4 MD/HTML + validator anchor/fixture + this receipt)",
+  "git_head_at_run": "f58bb8e84bce3f7addc2a39016faac97c7815bc7 (corrected per MANAGER_REVIEW 6963761000 update 23:40:55Z: the previously recorded 8a9ec44... was a stale transcription error — the actual pre-commit head captured by git rev-parse at the start of that work turn was f58bb8e..., which is also the review source_request's parent; reconciled from this captured session metadata, not inferred from the parent relationship)",
   "executed_by": "GLM - authoring/rebuild with existing tools + real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138; real wheel scroll + real keypresses only",
   "bound_artifacts_sha256": {
    "tutorials/s4-vlan-switch-l2.fa.md (bracketed form)": "sha256:fd83b0f354729f0ba7513c0684b2697717ca95c27f7b4b92dbde54116475c093",
@@ -2795,6 +2795,136 @@
    "production publish"
   ],
   "boundaries": "NOT_DEPLOYED; prior accepted work untouched; no unrelated lesson rerun; no public screenshots/traces/raw logs",
+  "production_touched": false,
+  "head_correction_note": "head value corrected in place from actual session metadata (tick-start git rev-parse capture); raw measurements unchanged"
+ },
+ "s4c_endpoint_readability_20261118": {
+  "packet": "TN-S4C-ENDPOINT-TABLE-MOBILE-READABILITY-20261118 (MANAGER_REVIEW 6963761000 update 23:40:55Z — READY mobile readability of the 9-column endpoint table)",
+  "utc": "2026-11-17T23:44:57Z (pre-work capture) / AFTER passes 23:45:13Z - 23:48:55.699Z (per-pass times below)",
+  "git_head_at_run": "2c81c2684a72439c8024aa02dcf88b860c59b3e7 (real pre-work checkout head captured by git rev-parse BEFORE the fix; presentation-only unit — generated files unchanged)",
+  "executed_by": "GLM - real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138; real wheel scroll + real keypresses only",
+  "served_byte_match": "served HTML sha256 d0f82dbb85193e6f0d358a0713151367406f3d502a3cbe2be12c007eeaabaf13 == built file on disk, captured before the BEFORE pass (5 PRE / 7 TABLE text counts)",
+  "bound_artifacts_sha256": {
+   "s4-endpoint-presentation.css (NEW S4-scoped artifact)": "SEE_GIT",
+   "preview-inject-candidate.js (v4 — additive exports loadS4EndpointPresentationCss/s4EndpointPresentationJs; all prior exports untouched)": "SEE_GIT",
+   "candidate-preview.css (shared — UNCHANGED)": "ae06330b789ed135d144131b1b6b08b8fd03aea8ca7b94cb959c6e2a5af67fc1",
+   "tutorials/s4-vlan-switch-l2.gutenberg.html (unchanged this unit)": "d0f82dbb85193e6f0d358a0713151367406f3d502a3cbe2be12c007eeaabaf13",
+   "tutorials/s4-vlan-switch-l2.fa.md (unchanged this unit)": "60da551c32a2a7bae9ccd402f8c9553d233799478567c129a6d534eaaf2e8f07"
+  },
+  "fix_design": "S4-scoped presentation hook: additive harness exports loadS4EndpointPresentationCss() + s4EndpointPresentationJs(cssText); the injected script is GUARDED — it acts only when a table contains the unique synthetic marker 192.168.10.99/24 AND has a 9-cell header (on M2/M3/N6/S5 pages it returns {applied:false} and touches nothing); the new s4-endpoint-presentation.css is a separate S4-only artifact (shared candidate-preview.css untouched); the presentation gives the endpoint table a readable contained horizontal layout — table display:table with width:max-content and nowrap cells (words and numeric tokens stay on ONE readable line each), while the wrapping figure (overflow-x:auto from the base rules, class tn-s4-endpoint-wrap) is the contained horizontal scroll container and carries keyboard focus (tabindex=0 + Persian aria-label)",
+  "BEFORE_mobile_390x844": {
+   "captured_utc": "2026-11-17T23:45:13.478Z - 23:45:14.905Z",
+   "doc_overflow_px": 0,
+   "table_display": "block (base CSS)",
+   "table_size": "295 x 3204 px (3204px TALL)",
+   "columns_w": [
+    38,
+    42,
+    36,
+    34,
+    41,
+    41,
+    33,
+    33,
+    36
+   ],
+   "header_lines": 14,
+   "sample_row_cell_heights": [
+    280,
+    280
+   ],
+   "tallest_cell_h": 990,
+   "reading_evidence": "nine columns of 33-42px width; header cells wrap to ~14 lines and body cells to ~17 lines — words and numeric tokens visibly collapse into 1-2-character vertical columns"
+  },
+  "AFTER_mobile_390x844": {
+   "pass_start_utc": "2026-11-17T23:47:42.259Z",
+   "pass_end_utc": "2026-11-17T23:47:45.504Z",
+   "doc_overflow_px": 0,
+   "toc": "16 links / 0 dangling",
+   "fields_preserved": "9 header cells / 8 body rows — all identifiers and full values unchanged (presentation-only fix; generated HTML untouched)",
+   "table_display": "table (scoped override)",
+   "table_size": "3491 x 271 px",
+   "columns_w": [
+    143,
+    974,
+    280,
+    91,
+    420,
+    743,
+    215,
+    261,
+    364
+   ],
+   "cell_lines": "all body cells single-line (max cell height 30px)",
+   "wrapper": "figure.tn-s4-endpoint-wrap = the actual overflow container (295px viewport vs 3491px content, scrollable), tabindex=0, Persian aria-label set",
+   "wrapper_keyboard": {
+    "focus_verified": true,
+    "keys": {
+     "ArrowRight": {
+      "before_abs": 0,
+      "after_abs": 40,
+      "delta": 40
+     },
+     "ArrowLeft": {
+      "before_abs": 40,
+      "after_abs": 0,
+      "delta": -40
+     },
+     "ArrowRight_repeat": {
+      "before_abs": 0,
+      "after_abs": 40,
+      "delta": 40
+     }
+    },
+    "activeTag_before_after": "FIGURE"
+   }
+  },
+  "AFTER_desktop_1280x900": {
+   "pass_start_utc": "2026-11-17T23:48:53.038Z",
+   "pass_end_utc": "2026-11-17T23:48:55.699Z",
+   "doc_overflow_px": 0,
+   "toc": "16 links / 0 dangling",
+   "table_size": "3491 x 271 px",
+   "columns_w": [
+    143,
+    974,
+    280,
+    91,
+    420,
+    743,
+    215,
+    261,
+    364
+   ],
+   "cell_lines": "all body cells single-line (max cell height 30px)",
+   "wrapper": "figure 880px viewport, scrollWidth 3491 (scrollable), tabindex=0",
+   "wrapper_keyboard": {
+    "focus_verified": true,
+    "keys": {
+     "ArrowRight": {
+      "before_abs": 0,
+      "after_abs": 40,
+      "delta": 40
+     },
+     "ArrowLeft": {
+      "before_abs": 40,
+      "after_abs": 0,
+      "delta": -40
+     }
+    },
+    "activeTag_before_after": "FIGURE"
+   }
+  },
+  "visual_inspection": "mobile wrapper region visually inspected in the authorized ZCode window after the fix: identifiers and role values render as complete single-line words (H1/H3/C1/C2/M1/CPU/T-S; میزبان دفتر آزمون / دوربین آزمون / میزبان مدیریت / خود سوئیچ / میزبان آزمون ترانک) — the 17-line collapse is gone; remaining columns reachable via the wrapper's horizontal scroll (keyboard-verified). No screenshot/trace published.",
+  "scoping_proof": "the hook fires ONLY on a table containing 192.168.10.99/24 with a 9-cell header; on M2/M3/N6/S5 pages it returns {applied:false} without DOM changes; shared candidate-preview.css and all pre-existing harness exports unchanged (additive exports only)",
+  "not_run": [
+   "RouterOS execution",
+   "all probes",
+   "WordPress/KSES",
+   "DB integration",
+   "production publish"
+  ],
+  "boundaries": "NOT_DEPLOYED; no RouterOS-instruction changes (CSS-only presentation fix); closed M3/N6/S5/figure/helper work untouched; no public screenshots/traces/raw logs",
   "production_touched": false
  }
 }
