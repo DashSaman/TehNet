@@ -315,11 +315,14 @@ add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و �
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p><strong>نکتهٔ کنسولی الزامی:</strong> متغیر `:local` بین خط‌های تعاملی جدا زنده نمی‌ماند — کل توالی باید در یک بلاک `{ }` قرار گیرد تا متغیرها در scope باقی بمانند. همچنین شمارهٔ ردیف print هویت پایدار rule نیست — هدف باید با comment یکتا <strong>find</strong> شود و قبل از هر add، «دقیقاً یک» هدف وجود داشته باشد (در غیر این صورت fail closed):</p>
+<p><strong>نکتهٔ کنسولی الزامی:</strong> متغیر `:local` بین خط‌های تعاملی جدا زنده نمی‌ماند — کل توالی باید در یک بلاک `{ }` قرار گیرد تا متغیرها در scope باقی بمانند. همچنین شمارهٔ ردیف print هویت پایدار rule نیست — هدف باید با comment یکتا <strong>find</strong> شود و قبل از هر add، «دقیقاً یک» هدف وجود داشته باشد (در غیر این صورت fail closed). علاوه بر این، اگر از اجرای قبلی control موقتی owned باقی مانده باشد (apply ناقص یا تلاش تکراری)، پیش‌اجرا (preflight) add را <strong>رد می‌کند</strong> و خواننده را به بلاک cleanup هدایت می‌کند — به این ترتیب هرگز rule تکراری ساخته نمی‌شود و cleanup هم با flush کل زنجیره یا پاک‌کردن connection state بی‌ربط انجام نمی‌شود:</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
 <pre class="wp-block-code"><code class="language-routeros">{
+    :local staleUdp [:len [/ip firewall filter find where chain="input" and action="accept" and protocol="udp" and dst-port=53 and src-address=10.9.9.9 and comment="TN-M3 کنترل موقت udp — حذف پس از تست"]]
+    :local staleTcp [:len [/ip firewall filter find where chain="input" and action="accept" and protocol="tcp" and dst-port=53 and src-address=10.9.9.9 and comment="TN-M3 کنترل موقت tcp — حذف پس از تست"]]
+    :if ($staleUdp &gt; 0 or $staleTcp &gt; 0) do={ :error "TN-M3: stale owned temp controls present (udp=$staleUdp tcp=$staleTcp) — run the cleanup block first, then retry this insertion" }
     :local targets [/ip firewall filter find where chain="input" and action="drop" and comment~"TN-M3 input default drop"]
     :if ([:len $targets] != 1) do={ :error "TN-M3: exactly 1 default-drop expected, found [:len $targets] — aborting" }
     /ip firewall filter add chain=input action=accept protocol=udp dst-port=53 src-address=10.9.9.9 comment="TN-M3 کنترل موقت udp — حذف پس از تست" place-before=[:pick $targets 0]
@@ -328,24 +331,95 @@ add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و �
 <!-- /wp:code -->
 
 <!-- wp:paragraph -->
-<p>با هر دو rule کنترل، پرس‌وجوی کلاینت آزمایشی باید موفق شود (مسیر رفت+برگشت سالم). سپس مرز <strong>بازگردانده می‌شود</strong> (حذف با شمارش و تأیید):</p>
+<p>شناسهٔ انتخاب در هر دو find پیش‌اجرا <strong>باریک</strong> است: comment کاملِ دقیق (تساوی، نه regex) + همان chain/action/protocol/port/src-address که در add اعلام شده — پس rule بی‌ربطی با comment مشابه select نمی‌شود.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>با هر دو rule کنترل، پرس‌وجوی کلاینت آزمایشی باید موفق شود (مسیر رفت+برگشت سالم). سپس مرز <strong>بازگردانده می‌شود</strong>. بلاک cleanup باید حتی در حالت‌های apply ناقص هم کار کند — مثلاً اگر add اول (UDP) موفق و add دوم (TCP) شکست خورده باشد، نگه‌داشتنِ شرط «دقیقاً ۱ و ۱» یعنی accept موقت UDP برای همیشه باقی می‌ماند (یک allow باز روی پورت DNS). پس حذف هر مجموعهٔ owned <strong>مستقل و idempotent</strong> است: هر چه از آن مجموعه هست حذف می‌شود (۰ = هیچ، ≥۱ = همهٔ موارد owned)، انتخاب با همان هویت باریک بلاک درج:</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
 <pre class="wp-block-code"><code class="language-routeros">{
-    :local tmpUdp [:len [/ip firewall filter find where comment~"TN-M3 کنترل موقت udp"]]
-    :local tmpTcp [:len [/ip firewall filter find where comment~"TN-M3 کنترل موقت tcp"]]
-    :if ($tmpUdp != 1 or $tmpTcp != 1) do={ :error "TN-M3: expected exactly 1 udp + 1 tcp temp rule, found udp=$tmpUdp tcp=$tmpTcp — aborting" }
-    /ip firewall filter remove [/ip firewall filter find where comment~"TN-M3 کنترل موقت udp"]
-    /ip firewall filter remove [/ip firewall filter find where comment~"TN-M3 کنترل موقت tcp"]
-    :local afterUdp [:len [/ip firewall filter find where comment~"TN-M3 کنترل موقت udp"]]
-    :local afterTcp [:len [/ip firewall filter find where comment~"TN-M3 کنترل موقت tcp"]]
-    :if ($afterUdp = 0 and $afterTcp = 0) do={ :put "TN-M3: boundary restored" } else={ :error "TN-M3: cleanup incomplete — udp=$afterUdp tcp=$afterTcp" }
+    :local ownedUdp [/ip firewall filter find where chain="input" and action="accept" and protocol="udp" and dst-port=53 and src-address=10.9.9.9 and comment="TN-M3 کنترل موقت udp — حذف پس از تست"]
+    :local ownedTcp [/ip firewall filter find where chain="input" and action="accept" and protocol="tcp" and dst-port=53 and src-address=10.9.9.9 and comment="TN-M3 کنترل موقت tcp — حذف پس از تست"]
+    :if ([:len $ownedUdp] &gt; 0) do={ /ip firewall filter remove $ownedUdp }
+    :if ([:len $ownedTcp] &gt; 0) do={ /ip firewall filter remove $ownedTcp }
+    :local afterUdp [:len [/ip firewall filter find where chain="input" and action="accept" and protocol="udp" and dst-port=53 and src-address=10.9.9.9 and comment="TN-M3 کنترل موقت udp — حذف پس از تست"]]
+    :local afterTcp [:len [/ip firewall filter find where chain="input" and action="accept" and protocol="tcp" and dst-port=53 and src-address=10.9.9.9 and comment="TN-M3 کنترل موقت tcp — حذف پس از تست"]]
+    :if ($afterUdp = 0 and $afterTcp = 0) do={ :put "TN-M3: boundary restored (owned udp=0 tcp=0 confirmed)" } else={ :error "TN-M3: boundary NOT confirmed restored — owned udp=$afterUdp tcp=$afterTcp still present; stop the acceptance procedure and re-run cleanup" }
 }</code></pre>
 <!-- /wp:code -->
 
 <!-- wp:paragraph -->
-<p>اگر گام کنترل ≠ 1 بود یا هر remove چیزی حذف نکرد، <strong>fail closed</strong> — بدون شمارندهٔ قابل‌استناد، timeout قابل‌تفسیر نیست.</p>
+<p>جدول نتیجهٔ موردانتظر cleanup — برای هر حالت شروع (این جدول، تحلیل کنترل-جریان سطح سورس است؛ <strong>اجرا واقعی RouterOS NOT_RUN است</strong> و به‌عنوان اجرا ثبت نمی‌شود):</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>حالت شروع (owned udp، owned tcp)</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>علت رایج</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>رفتار بلاک cleanup</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>نتیجهٔ موردانتظر</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>‏(0,0) از قبل تمیز</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>cleanup دوبار اجرا شده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هیچ remove اجرا نمی‌شود؛ هر دو شمارش after=0</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`boundary restored`</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏(1,0) فقط UDP</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>add دوم شکست خورده (apply ناقص)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فقط مجموعهٔ UDP حذف می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>after (0,0) → `boundary restored`</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏(0,1) فقط TCP</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>add اول شکست خورده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فقط مجموعهٔ TCP حذف می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>after (0,0) → `boundary restored`</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏(1,1) جفت کامل</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مسیر عادی پس از تست</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هر دو مجموعه حذف می‌شوند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>after (0,0) → `boundary restored`</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏(2,1)+ تکراری‌owned</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>درج بدون preflight در نسخه‌های قدیمی‌تر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>همهٔ</strong> ruleهای owned هر مجموعه حذف می‌شوند (نه فقط یکی)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>after (0,0) → `boundary restored`</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>هر حالت پس از remove که after ≠ (0,0) شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خطای محیط (مثلاً session قطع شده وسط remove)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>پیام error با شمارش دقیق باقی‌مانده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مرز <strong>«تأییدشده بازگشته» نیست</strong> — پروندهٔ پذیرش همان‌جا متوقف می‌شود</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>قاعدهٔ معنایی (تعهد صریح): فقط وقتی هر دو شمارش after=0 شد پیام `restored` صادر می‌شود. اگر cleanup کامل نشد، <strong>rule allow باقی‌مانده را «fail closed» نمی‌نامیم</strong> — این وضعیت یک allow بازِ تأییدنشده است و روند آزمون پذیرش متوقف می‌شود تا cleanup دوباره اجرا شود. پیش‌اجرای بلاک درج هم همین حالت را از قبل می‌بندد: با وجود هر بقایای owned، درج جدید رد می‌شود و مسیر تکرار-injection بسته است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>اگر گام default-drop ≠ 1 بود، add اصلاً اجرا نمی‌شود (fail closed قبل از هر تغییر). اگر پیش‌اجرا بقایای owned دید، add رد و cleanup پیشنهاد می‌شود. اگر cleanup پس از remove به after=(0,0) نرسید، روند متوقف و مرز «بازگشته-تأییدشده» گزارش نمی‌شود — بدون یکی از این سه حالت، timeout قابل‌تفسیر نیست.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
@@ -449,7 +523,7 @@ add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و �
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>7</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>همان کلاینت، پس از remove دو rule کنترل</td>
+<td>همان کلاینت، پس از اجرای بلاک cleanup (حذف ruleهای کنترل owned — در مسیر عادی جفت کامل)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>پروب UDP سپس پروب TCP (با فاصله، هرکدام فراخوانی تازه)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
@@ -486,6 +560,10 @@ add chain=input action=drop comment="TN-M3 input default drop (شامل WAN و �
 <!-- wp:heading {"level":3} -->
 <h3 class="wp-block-heading">پاک‌سازی پس از تست (الزامی)</h3>
 <!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>قبل از بستن پرونده، بلاک <strong>cleanup فایروال</strong> بالا را یک‌بار دیگر اجرا کنید — چون idempotent است، اجرای تکراری بی‌ضرر است و اگر از apply ناقصی rule owned مانده باشد، همین‌جا بسته می‌شود؛ اگر پیام «NOT confirmed restored» دیدید، پروندهٔ پذیرش را نبندید.</p>
+<!-- /wp:paragraph -->
 
 <!-- wp:code -->
 <pre class="wp-block-code"><code class="language-routeros">/ip route

@@ -156,10 +156,13 @@ gateway بیرون از subnet به‌خودی‌خود با «عبارت ARP» 
 
 کد واقعی زنجیرهٔ input دو **accept** محدود دارد و بستنِ بقیه با default drop آخر است (rule drop جداگانه‌ای برای 53 وجود ندارد). کنترل مثبت یعنی افزودن دو accept موقتِ فقط برای کلاینت آزمایشی، **بلافاصله قبل از همان default drop**.
 
-**نکتهٔ کنسولی الزامی:** متغیر `:local` بین خط‌های تعاملی جدا زنده نمی‌ماند — کل توالی باید در یک بلاک `{ }` قرار گیرد تا متغیرها در scope باقی بمانند. همچنین شمارهٔ ردیف print هویت پایدار rule نیست — هدف باید با comment یکتا **find** شود و قبل از هر add، «دقیقاً یک» هدف وجود داشته باشد (در غیر این صورت fail closed):
+**نکتهٔ کنسولی الزامی:** متغیر `:local` بین خط‌های تعاملی جدا زنده نمی‌ماند — کل توالی باید در یک بلاک `{ }` قرار گیرد تا متغیرها در scope باقی بمانند. همچنین شمارهٔ ردیف print هویت پایدار rule نیست — هدف باید با comment یکتا **find** شود و قبل از هر add، «دقیقاً یک» هدف وجود داشته باشد (در غیر این صورت fail closed). علاوه بر این، اگر از اجرای قبلی control موقتی owned باقی مانده باشد (apply ناقص یا تلاش تکراری)، پیش‌اجرا (preflight) add را **رد می‌کند** و خواننده را به بلاک cleanup هدایت می‌کند — به این ترتیب هرگز rule تکراری ساخته نمی‌شود و cleanup هم با flush کل زنجیره یا پاک‌کردن connection state بی‌ربط انجام نمی‌شود:
 
 ```routeros
 {
+    :local staleUdp [:len [/ip firewall filter find where chain="input" and action="accept" and protocol="udp" and dst-port=53 and src-address=10.9.9.9 and comment="TN-M3 کنترل موقت udp — حذف پس از تست"]]
+    :local staleTcp [:len [/ip firewall filter find where chain="input" and action="accept" and protocol="tcp" and dst-port=53 and src-address=10.9.9.9 and comment="TN-M3 کنترل موقت tcp — حذف پس از تست"]]
+    :if ($staleUdp > 0 or $staleTcp > 0) do={ :error "TN-M3: stale owned temp controls present (udp=$staleUdp tcp=$staleTcp) — run the cleanup block first, then retry this insertion" }
     :local targets [/ip firewall filter find where chain="input" and action="drop" and comment~"TN-M3 input default drop"]
     :if ([:len $targets] != 1) do={ :error "TN-M3: exactly 1 default-drop expected, found [:len $targets] — aborting" }
     /ip firewall filter add chain=input action=accept protocol=udp dst-port=53 src-address=10.9.9.9 comment="TN-M3 کنترل موقت udp — حذف پس از تست" place-before=[:pick $targets 0]
@@ -167,22 +170,36 @@ gateway بیرون از subnet به‌خودی‌خود با «عبارت ARP» 
 }
 ```
 
-با هر دو rule کنترل، پرس‌وجوی کلاینت آزمایشی باید موفق شود (مسیر رفت+برگشت سالم). سپس مرز **بازگردانده می‌شود** (حذف با شمارش و تأیید):
+شناسهٔ انتخاب در هر دو find پیش‌اجرا **باریک** است: comment کاملِ دقیق (تساوی، نه regex) + همان chain/action/protocol/port/src-address که در add اعلام شده — پس rule بی‌ربطی با comment مشابه select نمی‌شود.
+
+با هر دو rule کنترل، پرس‌وجوی کلاینت آزمایشی باید موفق شود (مسیر رفت+برگشت سالم). سپس مرز **بازگردانده می‌شود**. بلاک cleanup باید حتی در حالت‌های apply ناقص هم کار کند — مثلاً اگر add اول (UDP) موفق و add دوم (TCP) شکست خورده باشد، نگه‌داشتنِ شرط «دقیقاً ۱ و ۱» یعنی accept موقت UDP برای همیشه باقی می‌ماند (یک allow باز روی پورت DNS). پس حذف هر مجموعهٔ owned **مستقل و idempotent** است: هر چه از آن مجموعه هست حذف می‌شود (۰ = هیچ، ≥۱ = همهٔ موارد owned)، انتخاب با همان هویت باریک بلاک درج:
 
 ```routeros
 {
-    :local tmpUdp [:len [/ip firewall filter find where comment~"TN-M3 کنترل موقت udp"]]
-    :local tmpTcp [:len [/ip firewall filter find where comment~"TN-M3 کنترل موقت tcp"]]
-    :if ($tmpUdp != 1 or $tmpTcp != 1) do={ :error "TN-M3: expected exactly 1 udp + 1 tcp temp rule, found udp=$tmpUdp tcp=$tmpTcp — aborting" }
-    /ip firewall filter remove [/ip firewall filter find where comment~"TN-M3 کنترل موقت udp"]
-    /ip firewall filter remove [/ip firewall filter find where comment~"TN-M3 کنترل موقت tcp"]
-    :local afterUdp [:len [/ip firewall filter find where comment~"TN-M3 کنترل موقت udp"]]
-    :local afterTcp [:len [/ip firewall filter find where comment~"TN-M3 کنترل موقت tcp"]]
-    :if ($afterUdp = 0 and $afterTcp = 0) do={ :put "TN-M3: boundary restored" } else={ :error "TN-M3: cleanup incomplete — udp=$afterUdp tcp=$afterTcp" }
+    :local ownedUdp [/ip firewall filter find where chain="input" and action="accept" and protocol="udp" and dst-port=53 and src-address=10.9.9.9 and comment="TN-M3 کنترل موقت udp — حذف پس از تست"]
+    :local ownedTcp [/ip firewall filter find where chain="input" and action="accept" and protocol="tcp" and dst-port=53 and src-address=10.9.9.9 and comment="TN-M3 کنترل موقت tcp — حذف پس از تست"]
+    :if ([:len $ownedUdp] > 0) do={ /ip firewall filter remove $ownedUdp }
+    :if ([:len $ownedTcp] > 0) do={ /ip firewall filter remove $ownedTcp }
+    :local afterUdp [:len [/ip firewall filter find where chain="input" and action="accept" and protocol="udp" and dst-port=53 and src-address=10.9.9.9 and comment="TN-M3 کنترل موقت udp — حذف پس از تست"]]
+    :local afterTcp [:len [/ip firewall filter find where chain="input" and action="accept" and protocol="tcp" and dst-port=53 and src-address=10.9.9.9 and comment="TN-M3 کنترل موقت tcp — حذف پس از تست"]]
+    :if ($afterUdp = 0 and $afterTcp = 0) do={ :put "TN-M3: boundary restored (owned udp=0 tcp=0 confirmed)" } else={ :error "TN-M3: boundary NOT confirmed restored — owned udp=$afterUdp tcp=$afterTcp still present; stop the acceptance procedure and re-run cleanup" }
 }
 ```
 
-اگر گام کنترل ≠ 1 بود یا هر remove چیزی حذف نکرد، **fail closed** — بدون شمارندهٔ قابل‌استناد، timeout قابل‌تفسیر نیست.
+جدول نتیجهٔ موردانتظر cleanup — برای هر حالت شروع (این جدول، تحلیل کنترل-جریان سطح سورس است؛ **اجرا واقعی RouterOS NOT_RUN است** و به‌عنوان اجرا ثبت نمی‌شود):
+
+| حالت شروع (owned udp، owned tcp) | علت رایج | رفتار بلاک cleanup | نتیجهٔ موردانتظر |
+|---|---|---|---|
+| ‏(0,0) از قبل تمیز | cleanup دوبار اجرا شده | هیچ remove اجرا نمی‌شود؛ هر دو شمارش after=0 | `boundary restored` |
+| ‏(1,0) فقط UDP | add دوم شکست خورده (apply ناقص) | فقط مجموعهٔ UDP حذف می‌شود | after (0,0) → `boundary restored` |
+| ‏(0,1) فقط TCP | add اول شکست خورده | فقط مجموعهٔ TCP حذف می‌شود | after (0,0) → `boundary restored` |
+| ‏(1,1) جفت کامل | مسیر عادی پس از تست | هر دو مجموعه حذف می‌شوند | after (0,0) → `boundary restored` |
+| ‏(2,1)+ تکراری‌owned | درج بدون preflight در نسخه‌های قدیمی‌تر | **همهٔ** ruleهای owned هر مجموعه حذف می‌شوند (نه فقط یکی) | after (0,0) → `boundary restored` |
+| هر حالت پس از remove که after ≠ (0,0) شود | خطای محیط (مثلاً session قطع شده وسط remove) | پیام error با شمارش دقیق باقی‌مانده | مرز **«تأییدشده بازگشته» نیست** — پروندهٔ پذیرش همان‌جا متوقف می‌شود |
+
+قاعدهٔ معنایی (تعهد صریح): فقط وقتی هر دو شمارش after=0 شد پیام `restored` صادر می‌شود. اگر cleanup کامل نشد، **rule allow باقی‌مانده را «fail closed» نمی‌نامیم** — این وضعیت یک allow بازِ تأییدنشده است و روند آزمون پذیرش متوقف می‌شود تا cleanup دوباره اجرا شود. پیش‌اجرای بلاک درج هم همین حالت را از قبل می‌بندد: با وجود هر بقایای owned، درج جدید رد می‌شود و مسیر تکرار-injection بسته است.
+
+اگر گام default-drop ≠ 1 بود، add اصلاً اجرا نمی‌شود (fail closed قبل از هر تغییر). اگر پیش‌اجرا بقایای owned دید، add رد و cleanup پیشنهاد می‌شود. اگر cleanup پس از remove به after=(0,0) نرسید، روند متوقف و مرز «بازگشته-تأییدشده» گزارش نمی‌شود — بدون یکی از این سه حالت، timeout قابل‌تفسیر نیست.
 
 **ترتیب تفسیر (الزامی):** تا کنترل مثبت موفق نشده، timeout را اثر فایروال ننامید — timeout بدون کنترل فقط می‌تواند بی‌مسیری باشد.
 
@@ -204,13 +221,15 @@ gateway بیرون از subnet به‌خودی‌خود با «عبارت ARP» 
 | 4 | همان کلاینت | `nslookup -vc nas.lan` (پروب TCP) | پاسخ TCP | مثبت |
 | 5 | همان کلاینت | `nslookup www.google.com` | پاسخ (از cache/بالادستی) | مثبت |
 | 6 | کلاینت غیرمورداعتماد (تنظیم فیکسچر بالا) + دو accept کنترل موقت در | پروب UDP و پروب TCP | **هر دو موفق** — اثبات مسیر رفت‌وبرگشت (پیش‌شرط تفسیر هر timeout) | کنترل |
-| 7 | همان کلاینت، پس از remove دو rule کنترل | پروب UDP سپس پروب TCP (با فاصله، هرکدام فراخوانی تازه) | هر دو timeout؛ شمارندهٔ default drop برای هر پروب **دلتای مثبت (≥1)** نشان می‌دهد — عددمیثاق «دقیقاً +1» ادعا نمی‌شود | منفی |
+| 7 | همان کلاینت، پس از اجرای بلاک cleanup (حذف ruleهای کنترل owned — در مسیر عادی جفت کامل) | پروب UDP سپس پروب TCP (با فاصله، هرکدام فراخوانی تازه) | هر دو timeout؛ شمارندهٔ default drop برای هر پروب **دلتای مثبت (≥1)** نشان می‌دهد — عددمیثاق «دقیقاً +1» ادعا نمی‌شود | منفی |
 | 8 | همان کلاینت | `ping 192.168.88.1` | timeout — ICMP فقط از مورداعتماد (شاهد: رشد شمارندهٔ default drop) | منفی |
 | 9 | سمت روتر | `:put [:resolve nas.lan]` | 192.168.88.10 — فقط بررسی cache روتر؛ **به‌جای تست 1-4 نیست** | ابزار |
 
 مشاهدهٔ تکمیلی اختیاری: `/tool sniffer quick port=53 interface=bridge` هنگام پروب‌ها Query رسیده را نشان می‌دهد و پس از بازگرداندن مرز پاسخی خارج نمی‌شود.
 
 ### پاک‌سازی پس از تست (الزامی)
+
+قبل از بستن پرونده، بلاک **cleanup فایروال** بالا را یک‌بار دیگر اجرا کنید — چون idempotent است، اجرای تکراری بی‌ضرر است و اگر از apply ناقصی rule owned مانده باشد، همین‌جا بسته می‌شود؛ اگر پیام «NOT confirmed restored» دیدید، پروندهٔ پذیرش را نبندید.
 
 ```routeros
 /ip route

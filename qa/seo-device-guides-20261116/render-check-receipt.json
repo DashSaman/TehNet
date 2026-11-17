@@ -492,7 +492,7 @@
   "manager-side browser run"
  ],
  "production_touched": false,
- "utc_extended": "2026-11-16T22:05:30Z",
+ "utc_extended": "2026-11-17T00:53:04Z",
  "pages_extra": [
   "tutorials/s2-poe-budget.gutenberg.html",
   "tutorials/s3-sfp-dac-fiber.gutenberg.html",
@@ -522,5 +522,70 @@
  },
  "bound_inputs_digest_verification": {
   "all_existing_files_hashed_ok": true
+ },
+ "m3_cleanupfix_refresh_20261117": {
+  "packet": "TN-M3-IDEMPOTENT-CLEANUP-20261117 (refresh of M3-only measurements after cleanup-correction rebuild; M2/S5/other entries unchanged from earlier sections)",
+  "utc": "2026-11-17T00:53:04Z",
+  "browser": "ZCode IAB (real Chromium browser execution), viewport via setViewportSize; viewports desktop=1280x900 mobile=390x844",
+  "server": "preview-server.py 127.0.0.1:8138 (stdlib, charset=utf-8; mimics WP theme header)",
+  "preview_style_injected": "body{background:#fff;color:#111;font-family:Tahoma,Arial,sans-serif;margin:24px auto;max-width:960px;line-height:1.9} pre{background:#f6f8fa;border:1px solid #ddd;padding:12px;overflow:auto} code{font-family:Consolas,monospace;font-size:13px} table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto} th,td{border:1px solid #999;padding:5px 9px} img{max-width:100%;height:auto} blockquote{border-right:3px solid #1e88e5;padding-right:12px;color:#444}",
+  "bound_inputs_sha256": {
+   "tutorials/m3-dhcp-dns.fa.md": "ae0e2fdd39b1b0bc569192e259fae417d0f7b109109569de241cacd5da937269",
+   "tutorials/m3-dhcp-dns.gutenberg.html": "cbe8cc40b86333861d8ae6f817ad283016e34a38df1df574165b2ae835a25722"
+  },
+  "methodology": "metrics JS identical to replayable_checks.measured_page_metrics_js; overflow_raw_px = fresh load WITHOUT injected style; styled_overflow_px = after injecting exact receipt PREVIEW_STYLE; keyboard = focus first a[href] then one Tab (same method as keyboard_method_note)",
+  "measured_m3": {
+   "desktop_1280x900": {
+    "h1": "DHCP و DNS در MikroTik — راهنمای تصویری پیکربندی و عیب‌یابی (M3)",
+    "code_blocks": 12,
+    "tables": 6,
+    "separator_cells": 0,
+    "images_total": 1,
+    "images_loaded_eager_forced": 1,
+    "overflow_raw_px": 731,
+    "styled_overflow_px": 0,
+    "keyboard": {
+     "first_href": "/guides/mikrotik-vlan/",
+     "focus_started_on_link": true,
+     "after_one_tab": {
+      "href": "/guides/mikrotik-routers/",
+      "tag": "A"
+     }
+    }
+   },
+   "mobile_390x844": {
+    "h1": "DHCP و DNS در MikroTik — راهنمای تصویری پیکربندی و عیب‌یابی (M3)",
+    "code_blocks": 12,
+    "tables": 6,
+    "separator_cells": 0,
+    "images_total": 1,
+    "images_loaded_eager_forced": 1,
+    "overflow_raw_px": 1621,
+    "styled_overflow_px": 173,
+    "keyboard": {
+     "links_total": 7,
+     "first_focus_started_on_link": true,
+     "after_one_tab": {
+      "href": "/guides/mikrotik-routers/",
+      "tag": "A"
+     }
+    }
+   }
+  },
+  "findings": [
+   "desktop styled overflow 0px — unchanged finding: 0px holds with injected preview style",
+   "mobile styled overflow 173px (previous receipt recorded 133px for 5 tables; the new six-state cleanup table increases table count to 6) — candidate scoped CSS still PENDING; this remains the documented open finding for the NEXT packet (exact scoped candidate CSS + six bound page/viewport states per review 6931470793)",
+   "RTL note: page is dir=rtl; overflow extends leftward; culprit measurement method updated to left-edge detection inside non-scroll containers"
+  ],
+  "evidence_pngs_local": [
+   "render-evidence/m3-cleanupfix-mobile-state-table.png",
+   "render-evidence/m3-cleanupfix-desktop-state-table.png"
+  ],
+  "not_run": [
+   "RouterOS command execution (no isolated fixture)",
+   "WordPress/KSES acceptance",
+   "Search Console"
+  ],
+  "production_touched": false
  }
 }
