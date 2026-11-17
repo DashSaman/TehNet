@@ -137,11 +137,6 @@ function setExpectedBinding(plan, resourceName, containerId) {
   if (typeof containerId !== 'string' || containerId.length < 12) throw new Error('container_id: missing or too short');
   plan.expected_bindings[resourceName] = { container_id: containerId, run_marker: plan.marker };
 }
-function setExpectedBinding(plan, resourceName, containerId) {
-  if (!plan.resources[resourceName]) throw new Error('resource not in plan: ' + resourceName);
-  if (typeof containerId !== 'string' || containerId.length < 12) throw new Error('container_id: missing or too short');
-  plan.expected_bindings[resourceName] = { container_id: containerId, run_marker: plan.marker };
-}
 function isRegistered(plan, name) {
   return plan && plan.resources && typeof plan.resources[name] === 'object';
 }
@@ -174,12 +169,16 @@ function evaluateCleanup(deleted, expected, plan) {
   return { ok: missing.length === 0 && foreign.length === 0 && notOwned.length === 0, missing, foreign, notOwned };
 }
 
-/* B: post-read — validate every entry before filtering; reject wrong-run/failed/malformed; never coerce to empty */
+/* B: post-read — must be explicitly run-bound; require run_marker === plan.marker before accepting any inventory (including empty) */
 function evaluatePostRead(remaining, plan) {
   if (!plan || !plan.marker || !isRunMarker(plan.marker)) throw new Error('post_read: invalid plan');
   if (!remaining || typeof remaining !== 'object' || Array.isArray(remaining))
-    throw new Error('post_read: malformed — must be {success:true, remaining:[...]}');
+    throw new Error('post_read: malformed — must be {success:true, run_marker, remaining:[...]}');
   if (remaining.success !== true) throw new Error('post_read: read failure — success flag not true');
+  if (typeof remaining.run_marker !== 'string' || remaining.run_marker.length === 0)
+    throw new Error('post_read: run_marker missing — observation must be bound to a run');
+  if (remaining.run_marker !== plan.marker)
+    throw new Error('post_read: run_marker "' + remaining.run_marker + '" does not match plan marker "' + plan.marker + '"');
   if (!Array.isArray(remaining.remaining)) throw new Error('post_read: remaining must be an array');
   for (const n of remaining.remaining) {
     if (typeof n !== 'string') throw new Error('post_read: non-string remaining entry');

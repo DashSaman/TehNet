@@ -3,9 +3,9 @@
  "validator": "validate-seo-guides.cjs rev8 (rev7 + S2 tutorial candidate)",
  "command": "node validate-seo-guides.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-17T13:01:23Z",
- "finished_utc": "2026-11-17T13:01:23Z",
- "control_head": "32126cd0f94d5a9606ccc7c75ab67f54e27b560c",
+ "started_utc": "2026-11-17T14:07:24Z",
+ "finished_utc": "2026-11-17T14:07:25Z",
+ "control_head": "32bb193aaddc280f5406df6efa660b4740d3865e",
  "exit": 0,
  "good_candidate": {
   "ok": true,

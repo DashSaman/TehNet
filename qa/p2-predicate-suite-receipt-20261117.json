@@ -1,0 +1,19 @@
+{
+ "packet": "TN-P2-PREDICATE-SUITE-20261117",
+ "command": "node tests/browser/tn-synthetic-bootstrap.test.cjs",
+ "utc_start": "2026-11-17T14:07:44Z",
+ "utc_end": "2026-11-17T14:07:44Z",
+ "exit_code": 0,
+ "run_base_sha": "32bb193aaddc280f5406df6efa660b4740d3865e",
+ "source_digest": "f24c85f2affb3928092e3137dc4911e61ad112f8e6d2546fe7869dd34d454f48",
+ "test_digest": "923f9fee17324b8679f996d7ab990c0cd56be475c474247a4501c15215ce9281",
+ "line_ending": "LF (checked-out working file uses LF; git may store CRLF per .gitattributes/config)",
+ "representation_note": "digests computed over the actual checked-out working file bytes as-is; manager verified CRLF-checkout digests match exactly — representation difference is NOT a digest mismatch",
+ "results": "TOTAL=40 PASS=40 FAIL=0",
+ "summary": "PURE predicates, all pass; zero Docker/browser/OS/resource effects; INTEGRATION_NOT_RUN",
+ "pure": true,
+ "integration_not_run": true,
+ "zero_real_effects": true,
+ "source_file": "tests/browser/tn-synthetic-bootstrap.cjs",
+ "test_file": "tests/browser/tn-synthetic-bootstrap.test.cjs"
+}

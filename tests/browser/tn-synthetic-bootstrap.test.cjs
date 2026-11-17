@@ -88,7 +88,7 @@ throws('cleanup: constructor key reject', () => {
   S.evaluateCleanup(['constructor'], ['constructor'], PLAN);
 }, 'inherited prototype key');
 throws('post-read: non-string entry reject', () => {
-  S.evaluatePostRead({ success: true, remaining: [{ name: 'web' }] }, PLAN);
+  S.evaluatePostRead({ success: true, run_marker: VM, remaining: [{ name: 'web' }] }, PLAN);
 }, 'non-string remaining entry');
 throws('post-read: string top-level reject', () => {
   S.evaluatePostRead('not-an-object', PLAN);
@@ -100,9 +100,15 @@ throws('post-read: null reject', () => {
   S.evaluatePostRead(null, PLAN);
 }, 'malformed');
 ok('post-read: valid empty inventory accept', () => {
-  const v = S.evaluatePostRead({ success: true, remaining: [] }, PLAN);
+  const v = S.evaluatePostRead({ success: true, run_marker: VM, remaining: [] }, PLAN);
   assert(v.verified === true);
 });
+throws('post-read: wrong run_marker reject', () => {
+  S.evaluatePostRead({ success: true, run_marker: 'WRONG-MARKER', remaining: [] }, PLAN);
+}, 'run_marker');
+throws('post-read: no run_marker reject', () => {
+  S.evaluatePostRead({ success: true, remaining: [] }, PLAN);
+}, 'run_marker');
 
 console.log('TOTAL=' + (pass + fail) + ' PASS=' + pass + ' FAIL=' + fail);
 if (fail > 0) process.exit(1);
