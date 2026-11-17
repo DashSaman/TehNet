@@ -1,123 +1,162 @@
 'use strict';
-/* TN-SYNTHETIC-BOOTSTRAP-20261117 rev1 — SOURCE_ONLY / INTEGRATION_NOT_RUN
- * Synthetic-only disposable WordPress+MySQL bootstrap (owner-local Docker).
- * Guarantees:
- * - ZERO production dump/copy/import/SSH;
- * - Fresh namespace: unique container names per run marker;
- * - Fail-closed BEFORE any effect: Docker daemon target must be local; required images
- *   must exist locally (--pull=never equivalent); no existing containers with the same
- *   run-scoped names; marker must be valid;
- * - Unique readable marker in DB (wp option) and served page;
- * - Ownership: only resources matching this run's marker are cleaned up;
- * - Cleanup: verified (delete actual containers/network/volumes, post-check zero).
- * All Docker/exec calls are injectable for PURE testing. */
+/* TN-SYNTHETIC-BOOTSTRAP-20261117 rev2 — PREDICATE_CONTRACT_DRAFT / BOOTSTRAP_LIFECYCLE_NOT_IMPLEMENTED
+ * Corrections per MANAGER_REVIEW 6944753704 (all six counterexamples addressed).
+ * SOURCE_ONLY / INTEGRATION_NOT_RUN — no bootstrap entry point, no lifecycle adapter,
+ * no executor injection claim. Pure predicates with strict input validation.
+ * All previous title-equality/base-attribution/P2-driver-row corrections preserved. */
 
-const { execSync } = require('node:child_process');
+const MARKER_RE = /^TN-SYN-[0-9a-z]{6,}-[0-9a-z]{6,}$/;
 
-const MARKER_RE = /^TN-SYN-[0-9a-z]{4,}-[0-9a-z]{4,}$/;
-
-function newRunMarker(nowMs) {
-  const t = Number.isFinite(nowMs) ? nowMs : Date.now();
-  const r = Math.floor(Math.random() * 1296 ** 3).toString(36).padStart(3, '0');
-  return 'TN-SYN-' + t.toString(36) + '-' + r;
+function newRunMarker(nowMs, rngValue) {
+  const t = Number.isFinite(nowMs) ? Math.floor(nowMs) : Date.now();
+  const rng = Number.isFinite(rngValue) ? Math.max(0, Math.min(1, rngValue)) : Math.random();
+  const suffix = Math.floor(rng * 1296 ** 3).toString(36).padStart(6, '0').slice(0, 6);
+  return 'TN-SYN-' + t.toString(36).padStart(6, '0') + '-' + suffix;
 }
 function isRunMarker(v) {
   return typeof v === 'string' && MARKER_RE.test(v);
 }
 function assertRunMarker(v) {
-  if (!isRunMarker(v)) throw new Error('invalid run marker: ' + String(v).slice(0, 40));
+  if (!isRunMarker(v)) throw new Error('invalid run marker: ' + String(v).slice(0, 60));
+  return v;
+}
+function requireString(v, label) {
+  if (typeof v !== 'string' || v.trim().length === 0) throw new Error(label + ': missing or empty');
+  return v.trim();
+}
+function requireArray(v, label) {
+  if (!Array.isArray(v)) throw new Error(label + ': must be an array');
+  if (v.length === 0) throw new Error(label + ': must be non-empty');
+  return v;
+}
+function requireObject(v, label) {
+  if (!v || typeof v !== 'object' || Array.isArray(v)) throw new Error(label + ': missing or not object');
   return v;
 }
 
-/* --- Docker daemon target check (fail closed; must be local) --- */
 function evaluateDaemonTarget(info) {
-  const o = info && typeof info === 'object' ? info : {};
-  const checks = [
-    ['daemon_local', o.operating_system !== 'remote' && String(o.name || '').length > 0],
-    ['not_remote_context', String(o.remote || '').length === 0],
-  ];
-  const failed = checks.filter(c => !c[1]).map(c => c[0]);
-  return { ok: failed.length === 0, failed, checks: checks.map(([name, pass]) => ({ name, pass })) };
+  requireObject(info, 'daemon_info');
+  const ep = info.Endpoints && info.Endpoints.docker && typeof info.Endpoints.docker.Host === 'string' && info.Endpoints.docker.Host.length > 0
+    ? info.Endpoints.docker.Host
+    : typeof info.Host === 'string' && info.Host.length > 0 ? info.Host : null;
+  if (!ep) throw new Error('DAEMON: no effective endpoint observed (name alone insufficient)');
+  if (/^ssh:\/\//.test(ep)) throw new Error('DAEMON: remote ssh endpoint rejected');
+  if (/^tcp:\/\//.test(ep) && ep.indexOf('localhost') < 0 && ep.indexOf('127.0.0.1') < 0)
+    throw new Error('DAEMON: remote tcp endpoint rejected');
+  const localPipe = ep.indexOf('npipe:////./pipe/docker') === 0 || ep.indexOf('unix:///var/run/docker.sock') === 0;
+  if (!localPipe && !ep.startsWith('unix://') && !ep.startsWith('npipe:////./pipe/docker') && ep.indexOf('localhost') < 0 && ep.indexOf('127.0.0.1') < 0)
+    throw new Error('DAEMON: unrecognized endpoint "' + ep + '"');
+  return { ok: true, endpoint: ep };
 }
 function assertDaemonTarget(info) {
   const v = evaluateDaemonTarget(info);
-  if (!v.ok) throw Object.assign(new Error('DAEMON BLOCKED: ' + v.failed.join(',')), { name: 'DaemonBlocked', failed: v.failed });
+  if (!v.ok) throw Object.assign(new Error('DAEMON BLOCKED'), { name: 'DaemonBlocked', failed: v });
   return v;
 }
 
-/* --- image availability (fail closed; --pull=never equivalent) --- */
-function evaluateImageAvailability(images) {
-  const list = Array.isArray(images) ? images : [];
-  const missing = list.filter(img => !img || typeof img !== 'string' || img.length === 0);
-  return { ok: missing.length === 0, missing, available: list.filter(img => !missing.includes(img)) };
-}
-function assertImages(avail) {
-  if (!avail || avail.ok !== true) {
-    const missing = avail && Array.isArray(avail.missing) ? avail.missing.join(',') : 'unknown';
-    throw Object.assign(new Error('IMAGE BLOCKED: missing ' + missing), { name: 'ImageBlocked', missing: avail && avail.missing });
+function evaluateImageAvailability(requiredImages, observedImages) {
+  requireArray(requiredImages, 'required_images');
+  for (const img of requiredImages) {
+    if (typeof img !== 'string' || img.trim().length === 0) throw new Error('required_images: empty entry');
   }
-  return avail;
+  if (!observedImages || typeof observedImages !== 'object' || Array.isArray(observedImages))
+    return { ok: false, missing: requiredImages.slice(), observed_ids: {} };
+  const missing = [];
+  const observed_ids = {};
+  for (const img of requiredImages) {
+    const obs = observedImages[img];
+    if (!obs || typeof obs !== 'object' || typeof obs.id !== 'string' || obs.id.length < 12)
+      missing.push(img);
+    else observed_ids[img] = obs.id;
+  }
+  return { ok: missing.length === 0, missing, observed_ids };
+}
+function assertImages(required, observed) {
+  const v = evaluateImageAvailability(required, observed);
+  if (!v.ok) throw Object.assign(new Error('IMAGE BLOCKED: missing ' + v.missing.join(',')), { name: 'ImageBlocked', missing: v.missing });
+  return v;
 }
 
-/* --- container name uniqueness (fail closed before create) --- */
 function evaluateContainerNameUniqueness(existingNames, requestedNames) {
-  const existing = Array.isArray(existingNames) ? existingNames : [];
-  const requested = Array.isArray(requestedNames) ? requestedNames : [];
-  const collisions = requested.filter(n => existing.includes(n));
+  if (!Array.isArray(existingNames)) throw new Error('existing_names: must be an array');
+  if (!Array.isArray(requestedNames)) throw new Error('requested_names: must be an array');
+  if (requestedNames.length === 0) throw new Error('requested_names: empty');
+  for (const n of requestedNames) {
+    if (typeof n !== 'string' || n.length === 0) throw new Error('requested_names: contains null/empty/invalid name');
+  }
+  const dupes = requestedNames.filter((n, idx) => requestedNames.indexOf(n) !== idx);
+  if (dupes.length > 0) throw new Error('requested_names: duplicates — ' + dupes.join(','));
+  const collisions = requestedNames.filter(n => existingNames.includes(n));
   return { ok: collisions.length === 0, collisions };
 }
 function assertContainerNames(existing, requested) {
   const v = evaluateContainerNameUniqueness(existing, requested);
-  if (!v.ok) throw Object.assign(new Error('CONTAINER NAME COLLISION: ' + v.collisions.join(',')), { name: 'ContainerNameCollision', collisions: v.collisions });
+  if (!v.ok) throw Object.assign(new Error('CONTAINER NAMES: ' + (v.collisions||[]).join(',') + ' dup:' + (v.dupes||[]).join(',')), { name: 'ContainerNameCollision' });
   return v;
 }
 
-/* --- ownership predicate for synthetic resources --- */
-function isOwnedContainer(name, marker) {
-  return typeof name === 'string' && name.indexOf('tn-syn-' + marker + '-') === 0;
+function makeRegistry(marker) {
+  assertRunMarker(marker);
+  return { marker, resources: new Set() };
 }
-function isOwnedNetwork(name, marker) {
-  return typeof name === 'string' && name === 'tn-syn-net-' + marker;
+function registerResource(reg, name) {
+  if (typeof name !== 'string' || name.length === 0) throw new Error('resource name: empty');
+  if (!name.includes(reg.marker)) throw new Error('resource name missing run marker: ' + name);
+  reg.resources.add(name);
 }
-function ownershipRejectionReason(name, marker) {
-  if (!isRunMarker(marker)) return 'bad_marker';
-  if (!isOwnedContainer(name, marker) && !isOwnedNetwork(name, marker)) return 'not_owned_by_this_run';
+function isRegistered(reg, name) { return reg.resources.has(name); }
+function ownershipRejectionReason(reg, name) {
+  if (!reg || !reg.marker || !isRunMarker(reg.marker)) return 'bad_registry';
+  if (typeof name !== 'string' || name.length === 0) return 'missing_name';
+  if (!reg.resources.has(name)) return 'not_in_registry';
   return null;
 }
 
-/* --- cleanup: verify only THIS run's resources are deleted --- */
-function evaluateCleanup(deleted, expectedNames, marker) {
-  const del = Array.isArray(deleted) ? deleted : [];
-  const exp = Array.isArray(expectedNames) ? expectedNames : [];
-  const missing = exp.filter(n => !del.includes(n));
-  const extra = del.filter(n => !exp.includes(n) && !isOwnedContainer(n, marker) && !isOwnedNetwork(n, marker));
-  return { ok: missing.length === 0 && extra.length === 0, missing, extra };
+function evaluateCleanup(deleted, expected, reg) {
+  if (!Array.isArray(deleted)) throw new Error('deleted: must be array');
+  if (!Array.isArray(expected)) throw new Error('expected: must be array');
+  if (expected.length === 0) throw new Error('expected: empty — no cleanup to verify');
+  const missing = expected.filter(n => !deleted.includes(n));
+  const foreign = deleted.filter(n => !expected.includes(n));
+  const notOwned = deleted.filter(n => reg && reg.resources && !reg.resources.has(n));
+  return { ok: missing.length === 0 && foreign.length === 0 && notOwned.length === 0, missing, foreign, notOwned };
 }
-function assertCleanup(deleted, expected, marker) {
-  const v = evaluateCleanup(deleted, expected, marker);
-  if (!v.ok) throw Object.assign(new Error('CLEANUP FAILED: missing=' + v.missing.join(',') + ' extra=' + v.extra.join(',')), { name: 'CleanupFailed', missing: v.missing, extra: v.extra });
-  return v;
+function evaluatePostRead(remaining, reg) {
+  if (!reg) throw new Error('post_read: no registry');
+  const rem = Array.isArray(remaining) ? remaining.filter(n => typeof n === 'string' && reg.resources.has(n)) : [];
+  return { verified: rem.length === 0, remaining: rem };
+}
+function assertCleanupVerified(deleted, expected, reg, postRead) {
+  const cl = evaluateCleanup(deleted, expected, reg);
+  if (!cl.ok) throw Object.assign(new Error('CLEANUP FAILED: missing=' + cl.missing.join(',') + ' foreign=' + cl.foreign.join(',') + ' notOwned=' + cl.notOwned.join(',')), { name: 'CleanupFailed', detail: cl });
+  if (postRead === undefined || postRead === null) throw Object.assign(new Error('CLEANUP UNVERIFIED: no post-read performed'), { name: 'CleanupUnverified' });
+  const pr = evaluatePostRead(postRead, reg);
+  if (!pr.verified) throw Object.assign(new Error('CLEANUP UNVERIFIED: post-read found remaining'), { name: 'CleanupUnverified', remaining: pr.remaining });
+  return { cleanup: cl, postRead: pr };
 }
 
-/* --- marker readability: DB option value and served page must both contain it --- */
-function evaluateMarkerReadability(dbOptionValue, servedPageContent, marker) {
-  const db_ok = typeof dbOptionValue === 'string' && dbOptionValue.indexOf(marker) !== -1;
-  const page_ok = typeof servedPageContent === 'string' && servedPageContent.indexOf(marker) !== -1;
-  return { ok: db_ok && page_ok, db_ok, page_ok };
+function evaluateMarkerReadability(dbMarker, servedMarker, expectedMarker) {
+  assertRunMarker(expectedMarker);
+  if (typeof dbMarker !== 'string' || dbMarker.length === 0) return { ok: false, reason: 'db_marker_missing_or_empty' };
+  if (typeof servedMarker !== 'string' || servedMarker.length === 0) return { ok: false, reason: 'served_marker_missing_or_empty' };
+  if (dbMarker !== expectedMarker) return { ok: false, reason: dbMarker.indexOf(expectedMarker) === 0 ? 'db_prefix_collision' : dbMarker.endsWith(expectedMarker) ? 'db_suffix_collision' : 'db_mismatch' };
+  if (servedMarker !== expectedMarker) return { ok: false, reason: servedMarker.indexOf(expectedMarker) === 0 ? 'served_prefix_collision' : servedMarker.endsWith(expectedMarker) ? 'served_suffix_collision' : 'served_mismatch' };
+  return { ok: true };
 }
-function assertMarkerReadable(db, page, marker) {
-  const v = evaluateMarkerReadability(db, page, marker);
-  if (!v.ok) throw Object.assign(new Error('MARKER NOT READABLE: db=' + v.db_ok + ' page=' + v.page_ok), { name: 'MarkerNotReadable' });
+function assertMarkerReadable(db, served, expected) {
+  const v = evaluateMarkerReadability(db, served, expected);
+  if (!v.ok) throw Object.assign(new Error('MARKER NOT READABLE: ' + v.reason), { name: 'MarkerNotReadable', reason: v.reason });
   return v;
 }
 
 module.exports = {
   newRunMarker, isRunMarker, assertRunMarker,
+  requireString, requireArray, requireObject,
   evaluateDaemonTarget, assertDaemonTarget,
   evaluateImageAvailability, assertImages,
   evaluateContainerNameUniqueness, assertContainerNames,
-  isOwnedContainer, isOwnedNetwork, ownershipRejectionReason,
-  evaluateCleanup, assertCleanup,
+  makeRegistry, registerResource, isRegistered, ownershipRejectionReason,
+  evaluateCleanup, evaluatePostRead, assertCleanupVerified,
   evaluateMarkerReadability, assertMarkerReadable,
   MARKER_RE,
 };

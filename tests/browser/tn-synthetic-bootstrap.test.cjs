@@ -1,82 +1,58 @@
 'use strict';
-/* PURE tests for tn-synthetic-bootstrap.cjs — all Docker/exec stubbed, zero effects. */
 const assert = require('node:assert');
 const S = require('./tn-synthetic-bootstrap.cjs');
 let pass = 0, fail = 0;
 function ok(name, fn) {
   try { fn(); pass++; console.log('PASS ' + name); }
-  catch (e) { fail++; console.log('FAIL ' + name + ' → ' + e.message); }
+  catch (e) { fail++; console.log('FAIL ' + name + ': ' + e.message); }
 }
 function throws(name, fn, expected) {
-  try { fn(); fail++; console.log('FAIL ' + name + ' → no throw'); }
+  try { fn(); fail++; console.log('FAIL ' + name + ': no throw'); }
   catch (e) {
-    if (!expected || e.message.indexOf(expected) !== -1) { pass++; console.log('PASS ' + name); }
-    else { fail++; console.log('FAIL ' + name + ' → wrong error: ' + e.message); }
+    if (!expected || String(e.message).indexOf(expected) !== -1) { pass++; console.log('PASS ' + name); }
+    else { fail++; console.log('FAIL ' + name + ': wrong error: ' + e.message); }
   }
 }
-
-/* marker */
-ok('marker: valid shape accepted', () => { assert(S.isRunMarker(S.newRunMarker())); });
-ok('marker: deterministic with explicit time', () => {
-  const m = S.newRunMarker(1700000000000);
-  assert(m.indexOf('TN-SYN-') === 0);
+const VM = S.newRunMarker(1700000000000, 0.5);
+ok('marker: VM valid', () => { assert(S.isRunMarker(VM), 'VM=' + VM); });
+ok('marker: rng=0 valid', () => { assert(S.isRunMarker(S.newRunMarker(1700000000000, 0))); });
+ok('marker: rng=1 valid', () => { assert(S.isRunMarker(S.newRunMarker(1700000000000, 1))); });
+throws('marker: junk reject', () => S.assertRunMarker('junk'), 'invalid run marker');
+throws('daemon: no endpoint reject', () => S.evaluateDaemonTarget({ name: 'desktop-linux' }), 'no effective endpoint');
+throws('daemon: ssh remote reject', () => S.evaluateDaemonTarget({ name: 'f', operating_system: 'linux', Endpoints: { docker: { Host: 'ssh://fixture.invalid' } } }), 'remote ssh');
+ok('daemon: npipe accept', () => { assert(S.evaluateDaemonTarget({ name: 'dl', operating_system: 'linux', Endpoints: { docker: { Host: 'npipe:////./pipe/dockerDesktopLinuxEngine' } } }).ok); });
+ok('daemon: unix accept', () => { assert(S.evaluateDaemonTarget({ name: 'd', operating_system: 'linux', Host: 'unix:///var/run/docker.sock' }).ok); });
+throws('img: empty req reject', () => S.evaluateImageAvailability([], {}), 'must be non-empty');
+ok('img: null obs not ok', () => { assert(!S.evaluateImageAvailability(['wp:6'], null).ok); });
+ok('img: observed IDs accept', () => { const v = S.evaluateImageAvailability(['wp:6', 'my:8'], { 'wp:6': { id: 'sha256:abc123def456' }, 'my:8': { id: 'sha256:def456abc123' } }); assert(v.ok); });
+throws('img: no observed ID reject', () => S.assertImages(['not-installed:never'], {}), 'IMAGE BLOCKED');
+throws('names: null existing reject', () => S.evaluateContainerNameUniqueness(null, ['a']), 'must be an array');
+throws('names: null requested reject', () => S.evaluateContainerNameUniqueness([], null), 'must be an array');
+throws('names: duplicate reject', () => S.evaluateContainerNameUniqueness([], ['dup', 'dup']), 'duplicates');
+throws('names: null in requested reject', () => S.evaluateContainerNameUniqueness([], [null]), 'contains null');
+ok('names: valid accept', () => { assert(S.evaluateContainerNameUniqueness(['other'], ['n1', 'n2']).ok); });
+const REG = S.makeRegistry(VM);
+S.registerResource(REG, 'tn-syn-web-' + VM);
+S.registerResource(REG, 'tn-syn-db-' + VM);
+ok('reg: registered null', () => { assert(S.ownershipRejectionReason(REG, 'tn-syn-web-' + VM) === null); });
+ok('reg: prefix-extra not_in_reg', () => { assert(S.ownershipRejectionReason(REG, 'tn-syn-web-' + VM + '-extra') === 'not_in_registry'); });
+ok('reg: foreign not_in_reg', () => { assert(S.ownershipRejectionReason(REG, 'other-container') === 'not_in_registry'); });
+ok('clean: foreign-in-expected notOwned', () => { const v = S.evaluateCleanup(['foreign-test'], ['foreign-test'], REG); assert(!v.ok && v.notOwned.length > 0); });
+ok('clean: full verified', () => {
+  S.assertCleanupVerified(['tn-syn-web-' + VM, 'tn-syn-db-' + VM], ['tn-syn-web-' + VM, 'tn-syn-db-' + VM], REG, []);
 });
-throws('marker: junk rejected', () => S.assertRunMarker('junk'), 'invalid run marker');
-
-/* daemon target */
-ok('daemon: local accepted', () => {
-  const v = S.evaluateDaemonTarget({ name: 'desktop-linux', operating_system: 'linux' });
-  assert(v.ok === true);
+throws('clean: no post-read unverified', () => {
+  S.assertCleanupVerified(['tn-syn-web-' + VM, 'tn-syn-db-' + VM], ['tn-syn-web-' + VM, 'tn-syn-db-' + VM], REG, undefined);
+}, 'CLEANUP UNVERIFIED');
+ok('clean: foreign deleted → ok=false with foreign listed', () => {
+  const v = S.evaluateCleanup(['foreign-test'], ['tn-syn-web-' + VM], REG);
+  assert(!v.ok && v.foreign.length > 0 && v.foreign[0] === 'foreign-test');
 });
-throws('daemon: remote rejected', () => S.assertDaemonTarget({ name: 'remote-prod', remote: 'tcp://prod:2375' }), 'DAEMON BLOCKED');
-
-/* image availability */
-ok('images: all present accepted', () => {
-  const v = S.evaluateImageAvailability(['wordpress:6.4', 'mysql:8.0']);
-  assert(v.ok === true);
-});
-throws('images: missing rejected', () => S.assertImages({ ok: false, missing: ['wordpress:6.4'] }), 'IMAGE BLOCKED');
-
-/* container name uniqueness */
-ok('names: no collision accepted', () => {
-  const v = S.evaluateContainerNameUniqueness(['other'], ['tn-syn-TN-SYN-x-abc-web']);
-  assert(v.ok === true);
-});
-throws('names: collision rejected', () => S.assertContainerNames(['tn-syn-TN-SYN-x-abc-web'], ['tn-syn-TN-SYN-x-abc-web']), 'CONTAINER NAME COLLISION');
-
-/* ownership */
-ok('ownership: owned container accepted', () => {
-  assert(S.isOwnedContainer('tn-syn-TN-SYN-x-abc-web', 'TN-SYN-x-abc'));
-});
-ok('ownership: foreign container rejected', () => {
-  assert(!S.isOwnedContainer('tehnet-wordpress', 'TN-SYN-x-abc'));
-});
-ok('ownership: bad marker returns bad_marker reason', () => {
-  const reason = S.ownershipRejectionReason('tn-syn-web', 'junk');
-  assert(reason === 'bad_marker');
-});
-
-/* cleanup */
-ok('cleanup: complete + no extras accepted', () => {
-  const v = S.evaluateCleanup(['tn-syn-TN-SYN-x-abc-web', 'tn-syn-TN-SYN-x-abc-db', 'tn-syn-net-TN-SYN-x-abc'],
-    ['tn-syn-TN-SYN-x-abc-web', 'tn-syn-TN-SYN-x-abc-db', 'tn-syn-net-TN-SYN-x-abc'], 'TN-SYN-x-abc');
-  assert(v.ok === true);
-});
-ok('cleanup: incomplete deletion fails', () => {
-  const v = S.evaluateCleanup(['tn-syn-TN-SYN-x-abc-web'], ['tn-syn-TN-SYN-x-abc-web', 'tn-syn-TN-SYN-x-abc-db', 'tn-syn-net-TN-SYN-x-abc'], 'TN-SYN-x-abc');
-  assert(v.ok === false && v.missing.length === 2);
-});
-ok('cleanup: extra foreign resource deletion fails', () => {
-  const v = S.evaluateCleanup(['tn-syn-TN-SYN-x-abc-web', 'tehnet-wordpress'], ['tn-syn-TN-SYN-x-abc-web'], 'TN-SYN-x-abc');
-  assert(v.ok === false && v.extra.length > 0);
-});
-
-/* marker readability */
-ok('marker readability: DB + page both contain it', () => {
-  const v = S.evaluateMarkerReadability('Marker: TN-SYN-x-abc', '<body>TN-SYN-x-abc</body>', 'TN-SYN-x-abc');
-  assert(v.ok === true);
-});
-throws('marker readability: missing in DB throws', () => S.assertMarkerReadable(null, '<body>TN-SYN-x-abc</body>', 'TN-SYN-x-abc'), 'MARKER NOT READABLE');
-
-console.log('\nTOTAL=' + (pass + fail) + ' PASS=' + pass + ' FAIL=' + fail);
+ok('read: exact both accept', () => { assert(S.evaluateMarkerReadability(VM, VM, VM).ok); });
+throws('read: empty marker reject', () => S.evaluateMarkerReadability('', '', ''), 'invalid run marker');
+ok('read: empty field reject', () => { assert(!S.evaluateMarkerReadability('', '', VM).ok); });
+ok('read: prefix collision reject', () => { assert(!S.evaluateMarkerReadability(VM + '-extra', VM + '-extra', VM).ok); });
+ok('read: suffix collision reject', () => { assert(!S.evaluateMarkerReadability('pre-' + VM, 'pre-' + VM, VM).ok); });
+ok('read: wrong marker reject', () => { const v = S.evaluateMarkerReadability('TN-SYN-diff-123456', 'TN-SYN-diff-123456', VM); assert(!v.ok); });
+console.log('TOTAL=' + (pass + fail) + ' PASS=' + pass + ' FAIL=' + fail);
 if (fail > 0) process.exit(1);
