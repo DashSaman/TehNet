@@ -396,32 +396,33 @@ function validate(candidateInputs) {
       portsMissing = required.filter(function(p){ return nums.indexOf(p) < 0; });
       portsOk = portsMissing.length === 0;
     }
-    const enumOk = s4Md.indexOf('admit-only-untagged-and-priority-tagged') >= 0 && s4Md.indexOf('admit-all-vlan') >= 0 && s4Md.indexOf('admit-nothing') >= 0 && s4Md.indexOf('frame-types=admit-only-untagged ') < 0 && s4Md.indexOf('frame-types=admit-only-untagged' + String.fromCharCode(10)) < 0;
+    const enumOk = s4Md.indexOf('admit-only-untagged-and-priority-tagged') >= 0 && s4Md.indexOf('admit-only-vlan-tagged') >= 0 && s4Md.indexOf('admit-all') >= 0;
+    const inventedEnum = ['admit-all-vlan', 'admit-nothing'].filter(function(t){ return s4Md.indexOf(t) >= 0; });
     const nonTx = s4Md.indexOf('transaction نیست') >= 0;
     const recoveryOk = s4Md.indexOf('وارسی\u200cشده') >= 0 && s4Md.indexOf('از هر پورت access دیگری در حالت بی\u200cفیلتر در دسترس است') < 0;
     const missingGuard = guardAnchors.filter(function(a){ return s4Md.indexOf(a) < 0; });
-    if (afterEffect.length > 0 || !portsOk || !enumOk || !nonTx || !recoveryOk || missingGuard.length > 0)
-      fail('c19_s4_baseline_guard_contract', 'S4 baseline guard contract missing (all guards BEFORE first creation effect, complete 16-port guard list, created-name guard, full documented admission enum, non-transaction wording, honest recovery wording)', { guards_after_first_effect: afterEffect, ports_missing_from_guard_list: portsMissing, enum_ok: enumOk, non_transactional_wording: nonTx, recoveryOk: recoveryOk, missing: missingGuard });
+    if (inventedEnum.length > 0) fail('c19_s4_baseline_guard_contract', 'S4 enum uses undocumented values (admit-all-vlan/admit-nothing are not in the documented Bridge Port Settings list)', { invented: inventedEnum });
+    else if (afterEffect.length > 0 || !portsOk || !enumOk || !nonTx || !recoveryOk || missingGuard.length > 0)
+      fail('c19_s4_baseline_guard_contract', 'S4 baseline guard contract missing (all guards BEFORE first creation effect, complete 16-port guard list, created-name guard, documented enum values, non-transaction wording, honest recovery wording)', { guards_after_first_effect: afterEffect, ports_missing_from_guard_list: portsMissing, enum_ok: enumOk, non_transactional_wording: nonTx, recoveryOk: recoveryOk, missing: missingGuard });
     else pass('c19_s4_baseline_guard_contract', { guards_before_first_effect: true, ports_guarded: 16, enum_documented: true });
 
     const epIdx = s4Md.indexOf('### جدول endpoint سنتز');
     const epEnd = epIdx >= 0 ? s4Md.indexOf('\n![', epIdx) : -1;
     const section = (epIdx >= 0 && epEnd > epIdx) ? s4Md.slice(epIdx, epEnd) : '';
-    const endpointRows = [
-      ['H1', '192.168.10.11'], ['H3', '192.168.10.13'], ['C1', '192.168.20.11'],
-      ['C1', '192.168.10.21'], ['C2', '192.168.20.12'], ['M1', '192.168.88.11'],
-      ['T-S', '192.168.10.2/24'], ['T-S', '192.168.10.99/24'],
-    ];
-    const epRowsMissing = endpointRows.filter(function(pair){
-      if (!section) return true;
-      const row = section.split('\n').find(function(l){ return l.indexOf('|') === 0 && l.indexOf(pair[0]) >= 0 && l.indexOf(pair[1]) >= 0; });
-      return !row;
+    const sectionLines = section ? section.split('\n') : [];
+    const headerLine = sectionLines.find(function(l){ return l.indexOf('| شناسه') === 0; });
+    const headerCells = headerLine ? headerLine.split('|').length - 2 : 0;
+    const dataRows = sectionLines.filter(function(l){ return l.trim().indexOf('|') === 0 && l.indexOf('---') < 0 && l.indexOf('شناسه') < 0; }).map(function(l){ return l.split('|').slice(1, -1).map(function(c){ return c.trim().replace(/^\u200f/, ''); }); });
+    const rowShapeOk = dataRows.length > 0 && dataRows.every(function(cells){ return cells.length === headerCells && headerCells === 9; });
+    const rowPairOk = [['H1','192.168.10.11'],['H3','192.168.10.13'],['C1','192.168.20.11'],['C1','192.168.10.21'],['C2','192.168.20.12'],['M1','192.168.88.11'],['T-S','192.168.10.2/24'],['T-S','192.168.10.99/24']].every(function(pair){
+      return dataRows.some(function(cells){ return cells.some(function(c){ return c.indexOf(pair[0]) >= 0; }) && cells.some(function(c){ return c.indexOf(pair[1]) >= 0; }); });
     });
     const phaseMarker = s4Md.indexOf('untagged→تگ\u200cدار') >= 0;
     const notProvenGuard = s4Md.indexOf('NOT_PROVEN') >= 0;
-    if (!section || epRowsMissing.length > 0 || !phaseMarker || !notProvenGuard)
-      fail('c20_s4_endpoint_testmode_contract', 'S4 endpoint/test-mode contract missing (per-endpoint rows with exact addresses, tagged->untagged->tagged sender phases, NOT_PROVEN guard for unobserved frame mode)', { section_present: !!section, rows_missing: epRowsMissing.map(function(p){ return p[0] + ':' + p[1]; }), phase_marker: phaseMarker, not_proven_guard: notProvenGuard });
-    else pass('c20_s4_endpoint_testmode_contract', { endpoint_rows: endpointRows.length, phase_sequence: 'tagged->untagged->tagged' });
+    if (!section) fail('c20_s4_endpoint_testmode_contract', 'S4 endpoint/test-mode contract missing (endpoint-table section absent)');
+    else if (!rowShapeOk) fail('c20_s4_endpoint_testmode_contract', 'S4 endpoint row cell count/header alignment mismatch (every endpoint row must carry exactly the 9 documented header fields)', { data_rows: dataRows.length, bad_rows: dataRows.filter(function(cells){ return cells.length !== 9; }).length });
+    else if (!rowPairOk || !phaseMarker || !notProvenGuard) fail('c20_s4_endpoint_testmode_contract', 'S4 endpoint/test-mode contract missing (per-endpoint rows with exact addresses, tagged->untagged->tagged sender phases, NOT_PROVEN guard for unobserved frame mode)', { row_pairs_ok: rowPairOk, phase_marker: phaseMarker, not_proven_guard: notProvenGuard });
+    else pass('c20_s4_endpoint_testmode_contract', { data_rows: dataRows.length, cells_per_row: headerCells, phase_sequence: 'tagged->untagged->tagged' });
   }
 
   const failed = checks.filter(function(c){ return !c.pass; });
@@ -642,18 +643,36 @@ if (require.main === module) {
       }
     }
   }, 'S4 baseline guard contract missing');
-  injectNeg('s4-endpoint-rows-deleted', 'five endpoint-table rows H1/H3/C1/C2/M1 deleted while headings and surrounding prose kept', function(clone){
+  injectNeg('s4-endpoint-rows-deleted', 'five endpoint-table rows H1/H3/C1/C2/M1 deleted by their FIRST table-cell identity while headings and surrounding prose kept', function(clone){
     for (let i = 0; i < clone.length; i++) {
       if (clone[i].name === 'tutorials/s4-vlan-switch-l2.fa.md') {
         const ids = ['H1', 'H3', 'C1', 'C2', 'M1'];
+        let removed = 0;
         clone[i].content = clone[i].content.split('\n').filter(function(l){
-          if (l.trim().indexOf('|') !== 0) return true;
-          for (const id of ids) { if (l.indexOf(id) >= 0 && l.indexOf('میزبان') >= 0) return false; }
+          if (l.trim().indexOf('|') !== 0 || l.indexOf('---') >= 0 || l.indexOf('شناسه') >= 0) return true;
+          const firstCell = l.split('|')[1].trim().replace(/^\u200f/, '');
+          if (ids.indexOf(firstCell) >= 0) { removed++; return false; }
           return true;
         }).join('\n');
+        if (removed !== 5) throw new Error('s4-endpoint-rows-deleted setup: expected exactly 5 endpoint rows removed, got ' + removed);
       }
     }
   }, 'S4 endpoint/test-mode contract missing');
+  injectNeg('s4-tS-row-cell-dropped', 'T-S endpoint row loses its L2-alias cell (8 cells under the 9-column header)', function(clone){
+    for (let i = 0; i < clone.length; i++) {
+      if (clone[i].name === 'tutorials/s4-vlan-switch-l2.fa.md') {
+        const linesArr = clone[i].content.split('\n');
+        const rIdx = linesArr.findIndex(function(l){ return l.indexOf('| ‏T-S |') === 0 || l.indexOf('| T-S |') === 0; });
+        if (rIdx < 0) throw new Error('s4-tS-row-cell-dropped setup: T-S row not found');
+        const cells = linesArr[rIdx].split('|');
+        const aliasIdx = cells.findIndex(function(c){ return c.indexOf('192.168.10.99/24') >= 0; });
+        if (aliasIdx < 0) throw new Error('s4-tS-row-cell-dropped setup: alias cell not found');
+        cells.splice(aliasIdx, 1);
+        linesArr[rIdx] = cells.join('|');
+        clone[i].content = linesArr.join('\n');
+      }
+    }
+  }, 'S4 endpoint row cell count/header alignment');
   injectNeg('s4-used-port-guard-missing', 'ether23 removed from the S4 required-port foreach guard list', function(clone){
     for (let i = 0; i < clone.length; i++) {
       if (clone[i].name === 'tutorials/s4-vlan-switch-l2.fa.md') {

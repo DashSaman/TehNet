@@ -2435,5 +2435,120 @@
   ],
   "boundaries": "NOT_DEPLOYED; prior approvals untouched; no unrelated lesson rerun; no public screenshots/traces/raw logs",
   "production_touched": false
+ },
+ "s4c_f1f2_finish_20261117": {
+  "packet": "TN-S4C-CONTRACT-PREVIEW-FINISH-20261117 (MANAGER_REVIEW 6963761000 F1/F2 on top of the accepted R1/R2/R3 work in be158257)",
+  "utc": "2026-11-17T23:16:02Z (source edits) / preview 23:20:13.171Z - 23:20:46.324Z (per-pass times below)",
+  "git_head_at_run": "be15825785591067f71e0d0fbb49198f570de914 (pre-commit head; the finish commit delivers corrected S4 MD/HTML + hardened validator + receipts)",
+  "executed_by": "GLM - authoring/rebuild with existing tools + real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138; real wheel scroll + real keypresses only",
+  "bound_artifacts_sha256": {
+   "tutorials/s4-vlan-switch-l2.fa.md (corrected F1/F2)": "60da551c32a2a7bae9ccd402f8c9553d233799478567c129a6d534eaaf2e8f07",
+   "tutorials/s4-vlan-switch-l2.gutenberg.html (rebuilt)": "16e0723dad319ff048a4ac2145cc26cabcb9423087b074f04c4b6a6320c256be",
+   "assets/tutorial-s4-vlan-l2.svg (unchanged)": "c7c8fb139c4b74fce43d57f39a800c43e65c83498d19231054bc466c75393003",
+   "validate-seo-guides.cjs (hardened c19/c20 + 5 S4 negatives total)": "97330ada57a9a3d944b413b26b7d0e08dc37690c23c85504cef9ebdbb192fd4b",
+   "candidate-preview.css": "ae06330b789ed135d144131b1b6b08b8fd03aea8ca7b94cb959c6e2a5af67fc1",
+   "preview-inject-candidate.js (v3)": "e5a4e170e9fecf1946faf41b944017d008817ce208539156e44b108ef08a21d7"
+  },
+  "F1_enum_documented_list": {
+   "fix": "the enum paragraph now lists EXACTLY the documented Bridge Port Settings values: admit-all (پذیرش همه — پیش‌فرض) / admit-only-untagged-and-priority-tagged (access این درس) / admit-only-vlan-tagged (ترانک)؛ the invented values admit-all-vlan and admit-nothing are removed from the source; the short-form «admit-only-untagged» remains ONLY as the explicitly-labeled historical quotation of a prior mistake (not a teaching instruction); the two short-form teaching statements were replaced with the full documented value admit-only-untagged-and-priority-tagged",
+   "c19_fix": "reversed gate fixed — c19 now REQUIRES the documented values (admit-only-untagged-and-priority-tagged, admit-only-vlan-tagged, admit-all) and REJECTS a candidate containing either invented token (admit-all-vlan/admit-nothing) with its own reason 'S4 enum uses undocumented values (admit-all-vlan/admit-nothing are not in the documented Bridge Port Settings list)'"
+  },
+  "F2_tS_row_and_mutation": {
+   "fix": "T-S endpoint row repaired to 9 cells matching the 9-column header (the missing L2-alias cell restored: فاز untagged 192.168.10.99/24 روی NIC فیزیکی); all 8 endpoint-table rows now 9 cells aligned under the header (browser-verified in both viewports)",
+   "c20_hardening": "per-endpoint checks now parse ROW CELLS (not mere token co-occurrence): header must have 9 cells, every data row must have exactly 9 cells, and each required endpoint pair must be met inside its own row (H1 192.168.10.11 / H3 192.168.10.13 / C1 192.168.20.11 + alias 192.168.10.21 / C2 192.168.20.12 / M1 192.168.88.11 / T-S 192.168.10.2/24 + 192.168.10.99/24)",
+   "mutation_fixes": "s4-endpoint-rows-deleted now deletes by FIRST TABLE-CELL identity (H1/H3/C1/C2/M1, RLM-stripped) and asserts exactly 5 rows removed (setup throws otherwise) — the C1/C2 دوربین rows are now actually deleted; new negative s4-tS-row-cell-dropped drops the T-S alias cell (8 cells) and fails with its own reason 'S4 endpoint row cell count/header alignment mismatch'",
+   "validator_suite": "node qa/seo-device-guides-20261116/validate-seo-guides.cjs — exit 0; good candidate 164 checks/0 failed; negatives 20/20 rejected-with-reason (incl. all five S4 negatives: baseline-guard-omitted, endpoint-testmode-stripped, identity-guard-after-bridge, endpoint-rows-deleted, tS-row-cell-dropped, used-port-guard-missing); freshness PASS (builder rerun byte-identical for 24 outputs)"
+  },
+  "rebuild": {
+   "buildA_exit": 0,
+   "buildB_exit": 0,
+   "A_B_byte_identical": true,
+   "s4_html_sha256": "16e0723dad319ff048a4ac2145cc26cabcb9423087b074f04c4b6a6320c256be",
+   "s4_md_sha256": "60da551c32a2a7bae9ccd402f8c9553d233799478567c129a6d534eaaf2e8f07"
+  },
+  "final_bounded_preview": {
+   "method": "served HTML hashed equal to built file BEFORE the pass; DOM PRE/TABLE counts asserted 5/7 against served text counts before recording; real wheel scroll + real keypresses; no forcing",
+   "desktop_1280x900": {
+    "pass_start_utc": "2026-11-17T23:20:13.171Z",
+    "pass_end_utc": "2026-11-17T23:20:17.368Z",
+    "doc_overflow_px": 0,
+    "toc": "16 links / 0 dangling",
+    "dom_counts": "PRE 5 / TABLE 7 (match served)",
+    "endpoint_table_alignment": "9 header cells, all 8 data rows 9 cells — aligned",
+    "natural_diagram": "complete=true naturalWidth=960 rendered 880x513 positive area in viewport, evaluateImageRender ok=true",
+    "extents": {
+     "pre": "5 containers, 1 scrollable (#0 1463/958)",
+     "table": "7 containers, 0 scrollable"
+    },
+    "keyboard": {
+     "PRE_0of1": {
+      "focus": "PRE index 0, activeElement verified",
+      "keys": {
+       "ArrowRight": {
+        "before_abs": 0,
+        "after_abs": 40,
+        "delta": 40
+       },
+       "ArrowLeft": {
+        "before_abs": 40,
+        "after_abs": 0,
+        "delta": -40
+       }
+      }
+     },
+     "TABLE": {
+      "N_A": true,
+      "reason": "measured extents: no contained overflow"
+     }
+    }
+   },
+   "mobile_390x844": {
+    "pass_start_utc": "2026-11-17T23:20:40.470Z",
+    "pass_end_utc": "2026-11-17T23:20:46.324Z",
+    "doc_overflow_px": 0,
+    "toc": "16 links / 0 dangling",
+    "dom_counts": "PRE 5 / TABLE 7 (match served)",
+    "endpoint_table_alignment": "9 header cells, all 8 data rows 9 cells — aligned",
+    "natural_diagram": "natural fetch fired during real wheel scroll step 1; visible at step 2; rendered 295x172 positive area, evaluateImageRender ok=true (mobile natural geometry MEASURED this pass per 6962581521 R3)",
+    "extents": {
+     "pre": "5 containers, 3 scrollable (#0 1463/374, #1 893/374, #2 921/374)",
+     "table": "7 containers, 1 scrollable (#2 endpoint table 337/295)"
+    },
+    "keyboard": {
+     "PRE_0of3": {
+      "focus": "PRE index 0 (1463/374), activeElement verified",
+      "keys": {
+       "ArrowRight": {
+        "before_abs": 0,
+        "after_abs": 40,
+        "delta": 40
+       },
+       "ArrowLeft": {
+        "before_abs": 40,
+        "after_abs": 0,
+        "delta": -40
+       }
+      }
+     },
+     "TABLE_0of1": {
+      "focus": "TABLE index 2 (337/295), activeElement verified",
+      "keys": {
+       "ArrowRight": {
+        "before_abs": 0,
+        "after_abs": 40,
+        "delta": 40
+       },
+       "ArrowLeft": {
+        "before_abs": 40,
+        "after_abs": 0,
+        "delta": -40
+       }
+      }
+     }
+    }
+   }
+  },
+  "boundaries": "NOT_DEPLOYED; RouterOS/probes/WordPress/KSES/DB integration remain unqualified/NOT_RUN; prior accepted work (M3/N6/S5/keyboard/figure/helper) untouched; no unrelated lesson rerun; no public screenshots/traces/raw logs",
+  "production_touched": false
  }
 }

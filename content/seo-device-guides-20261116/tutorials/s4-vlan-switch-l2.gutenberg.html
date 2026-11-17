@@ -200,7 +200,7 @@
 <!-- /wp:table -->
 
 <!-- wp:paragraph -->
-<p><strong>تفکیک سه کنترل جدا:</strong> ‏(۱) <strong>pvid</strong> فقط طبقه‌بندی فریم <strong>untagged ورودی</strong> است؛ ‏(۲) <strong>frame-types</strong> پذیرش ورودی ‏(tagged/untagged) را جدا کنترل می‌کند — pvid به‌تنهایی فریم تگ‌دار ورودی روی پورت access را رد نمی‌کند، به همین دلیل پذیرش access صریحاً `admit-only-untagged` تنظیم می‌شود؛ ‏(۳) <strong>عضویت جدول VLAN</strong> تعیین می‌کند هر VLAN روی کدام پورت و با چه حالت خروجی ‏(tagged/untagged) وجود دارد.</p>
+<p><strong>تفکیک سه کنترل جدا:</strong> ‏(۱) <strong>pvid</strong> فقط طبقه‌بندی فریم <strong>untagged ورودی</strong> است؛ ‏(۲) <strong>frame-types</strong> پذیرش ورودی ‏(tagged/untagged) را جدا کنترل می‌کند — pvid به‌تنهایی فریم تگ‌دار ورودی روی پورت access را رد نمی‌کند، به همین دلیل پذیرش access صریحاً `admit-only-untagged-and-priority-tagged` تنظیم می‌شود؛ ‏(۳) <strong>عضویت جدول VLAN</strong> تعیین می‌کند هر VLAN روی کدام پورت و با چه حالت خروجی ‏(tagged/untagged) وجود دارد.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
@@ -347,7 +347,9 @@
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>‏10 ‏(تگ‌دار)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>فاز تگ‌دار: ‏192.168.10.2/24 روی زیراینترفیس ‏VLAN10؛ فاز ‏untagged: ‏192.168.10.99/24 روی NIC فیزیکی — آدرس‌ها هرگز هم‌زمان فعال نیستند ‏(بدون route مبهم)</td>
+<td>فاز تگ‌دار: ‏192.168.10.2/24 روی زیراینترفیس تگ‌دار ‏VLAN10</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فاز untagged: ‏192.168.10.99/24 روی NIC فیزیکی — آدرس‌ها هرگز هم‌زمان فعال نیستند ‏(بدون route مبهم)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>‏192.168.10.0/24</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
@@ -442,7 +444,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p><strong>enum پذیرش ورودی — کامل و مستند ‏(سند ‏Bridging and Switching):</strong> ‏admit-all-vlan ‏(پذیرش همه — پیش‌فرض) · ‏admit-only-untagged-and-priority-tagged ‏(فقط ‏untagged و ‏priority-tagged — انتخاب access این درس) · ‏admit-only-vlan-tagged ‏(فقط تگ‌دار — ترانک) · ‏admit-nothing. عبارت کوتاه‌شدهٔ «admit-only-untagged» مقدار سندشده نیست و به‌کار نمی‌رود.</p>
+<p><strong>enum پذیرش ورودی — فهرست مستند جدول Bridge Port Settings سند Bridging and Switching:</strong> ‏admit-all ‏(پذیرش همه — مقدار پیش‌فرض) · ‏admit-only-untagged-and-priority-tagged ‏(فقط untagged و priority-tagged — انتخاب access این درس) · ‏admit-only-vlan-tagged ‏(فقط تگ‌دار — ترانک این درس). مقادیر دیگر در جدول مستند نیستند و به‌کار نمی‌روند؛ عبارت کوتاه‌شدهٔ «admit-only-untagged» فقط به‌عنوان نقلِ تاریخیِ یک اشتباه پیش‌تر در همین رسید ذکر شده و دستور آموزشی نیست.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
@@ -763,7 +765,7 @@
 
 <!-- wp:list {"ordered":true} -->
 <ol class="wp-block-list"><!-- wp:list-item -->
-<li>تفاوت `pvid` با `frame-types` روی پورت access چیست؟ — <strong>پاسخ موردانتظار:</strong> ‏pvid فقط طبقه‌بندی فریم <strong>untagged ورودی</strong> و untagged‌کردن خروجی همان پورت است؛ `frame-types` پذیرش ورودی را جدا کنترل می‌کند — با pvid تنها، فریم تگ‌دار ورودی رد نمی‌شد؛ پذیرش access صریحاً `admit-only-untagged` تنظیم می‌شود.</li>
+<li>تفاوت `pvid` با `frame-types` روی پورت access چیست؟ — <strong>پاسخ موردانتظار:</strong> ‏pvid فقط طبقه‌بندی فریم <strong>untagged ورودی</strong> و untagged‌کردن خروجی همان پورت است؛ `frame-types` پذیرش ورودی را جدا کنترل می‌کند — با pvid تنها، فریم تگ‌دار ورودی رد نمی‌شد؛ پذیرش access صریحاً `admit-only-untagged-and-priority-tagged` تنظیم می‌شود.</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
 <li>چرا فیلترینگ VLAN آخر فعال می‌شود؟ — <strong>پاسخ موردانتظار:</strong> چون تا کامل‌شدن اعضا و جدول، فیلترینگ فعال میزبان‌ها و مسیر CPU را قطع می‌کند؛ روشن‌کردن آخرین گام است و تست ‏۳ ‏(CPU) بعد از آن قبل از بستن جلسه اجرا می‌شود.</li>
 <!-- /wp:list-item --><!-- wp:list-item -->
