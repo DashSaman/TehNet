@@ -21,7 +21,7 @@
 | S1 | مقایسه/انتخاب | مدیر IT/خریدار | /guides/mikrotik-switches-crs/ | /services/network-setup-tehran/ | CSS/CRS/RouterOS/SwOS، PoE، L2/L3HW | «کدام سوئیچ میکروتیک برای شرکت؟» | switch-catalog.csv | طراحی و اجرای شبکه |
 | S2 | آموزشی | کارشناس شبکه | /guides/switch-poe-budget/ | /services/network-setup-tehran/ | PoE af/at/پسیو، بودجهٔ توان، PSU | «چقدر PoE مصرف می‌کند؟» | سند MikroTik | طراحی PoE |
 | S3 | آموزشی | کارشناس شبکه | /guides/sfp-sfp-plus-guide/ | /services/network-setup-tehran/ | ماژول نوری، تک/دو-موج، سرعت، سازگاری | «کدام ماژول SFP بخرم؟» | سند سازنده | اجرای فیبر |
-| S4 | آموزشی | کارشناس شبکه | /guides/switch-vlan-design/ ‏(پیشنهادی) | /services/network-setup-tehran/ | access/trunk، جدول پورت/VLAN، امنیت — **هم‌پوشان با M2؛ تصمیم ادغام/جداسازی با مدیر** | «چطور VLAN طراحی کنم؟» | سند RouterOS | کانفیگ VLAN |
+| S4 | آموزشی | کارشناس شبکه | /guides/switch-vlan-l2/ ‏(پیشنهادی — سرفصل مصوب، تصمیم تفکیک مدیر 6935206213) | /services/network-setup-tehran/ | **مصوب: VLAN روی سوئیچ، لایه۲ ‏(CRS326): access/pvid، جدول VLAN، ترانک تگ‌دار، مسیر CPU، احراز آفلود، مرز لایه۲/۳** | «VLAN روی سوئیچ چطور اجرا می‌شود؟» | سند RouterOS + صفحهٔ رسمی محصول | کانفیگ VLAN |
 | S5 | آموزشی | کارشناس شبکه | /guides/switch-loop-rstp-lacp/ ‏(پیشنهادی — سرفصل مصوب) | /services/network-setup-tehran/ | **مصوب: حلقهٔ تصادفی، RSTP، باند LACP** | «حلقهٔ شبکه چطور شکل می‌گیرد و چطور بسته می‌شود؟» | سند MikroTik + صفحات محصول | طراحی توپولوژی |
 | S6 | آموزشی | مدیر IT/خریدار | /guides/switch-nas-server-upgrade/ ‏(پیشنهادی — سرفصل مصوب) | /services/network-setup-tehran/ | **مصوب: ارتقای NAS/سرور به ‏2.5G/10G ‏(CRS309، DAC، NIC سرور)** | «اتصال NAS/سرور را چطور ارتقا بدهم؟» | صفحات رسمی محصول | طراحی برق و اجرا |
 | S5-مکمل | آموزشی | کارشناس شبکه | /guides/switch-uplink-trunk/ ‏(پیشنهادی) | /services/network-setup-tehran/ | مکمل: انتخاب uplink ‏(GbE/SFP)، ترانک تگ‌دار، محدودیت پهنای‌باند ‏(CRS112/CRS326) | «بین سوئیچ‌ها چه uplink‌ای بگذارم؟» | سند MikroTik + صفحات محصول | طراحی توپولوژی |
@@ -58,7 +58,7 @@
 |---|---|---|
 | M1-M6 | authored ‏(DRAFT — در صف مرور) | مقالهٔ روتر + درس‌های M2-M6 |
 | S1-S3 | authored ‏(DRAFT — در صف مرور) | مقالهٔ سوئیچ + درس‌های S2/S3 |
-| S4 ‏(طراحی VLAN سوئیچ) | unauthored — هم‌پوشان با M2؛ تصمیم ادغام/جداسازی با مدیر | — |
+| S4 ‏(VLAN روی سوئیچ، لایه۲) | authored ‏(DRAFT): tutorials/s4-vlan-switch-l2.fa.md — طبق تصمیم تفکیک مدیر | مقایسه: M2 مسیر روتر، M4 inter-VLAN |
 | S5 ‏(loop/RSTP/LACP) | authored ‏(DRAFT) | tutorials/s5-loop-rstp-lacp.fa.md |
 | S6 ‏(ارتقای NAS/سرور) | authored ‏(DRAFT) | tutorials/s6-nas-server-upgrade.fa.md |
 | N1 ‏(طراحی دفتر) | authored ‏(DRAFT) | tutorials/n1-office-design.fa.md |
@@ -72,7 +72,7 @@
 - **حالت‌ها جدا هستند:** authored ‏≠ ‏test-qualified ‏≠ ‏accepted ‏≠ ‏published. هیچ درسی منتشر نشده؛ publish مستلزم گیت است.
 - ledger اجرایی با وضعیت لحظه‌ای: `WORKQUEUE.md` در ریپو — هر بسته با SHA و رسید خودش.
 - نگاشت RRهای درس‌های canonical ‏(از ledger مدیریت): combined fourth revision = ‏6930620309؛ canonical loop/RSTP/LACP = ‏6930807455؛ canonical NAS upgrade = ‏6931021926؛ canonical office design = ‏6931198087 — این RRها «تحویل» را تأیید می‌کنند، نه پذیرش محتوایی.
-- S4/ادغام: تصمیم با مدیر — تنها واحد مصوب unauthored باقی‌مانده. بقیهٔ بسته‌ها ‏(دیسکاوری، گارد، کاندیدها، رندر، درس‌های authored): در صف مرور مدیر.
+- سرفصل مصوب ۱۸/۱۸ authored/پوشش‌شده شد ‏(S4 با تصمیم تفکیک مدیر). بقیهٔ بسته‌ها ‏(دیسکاوری، گارد، کاندیدها، رندر، درس‌های authored): در صف مرور مدیر.
 
 ## ملاحظات
 

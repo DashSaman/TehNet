@@ -896,8 +896,56 @@ n6c = svg(960, 560,
     'فرایند انتخاب پشتیبانی شبکه شش گام دارد: نیازسنجی با ساعات بحرانی و حداکثر قطعی قابل‌تحمل و مهارت داخلی؛ فهرست چهار گزینه یعنی قرارداد پیمانکار و فریلنسر ساعتی و ترکیبی و بدون قرارداد؛ ماتریس تطبیق نیاز با پوشش؛ ارزیابی ساختاریافته با جدول معیار و وزن و شواهد که وزن‌ها باید قبل از دیدن پیشنهادها نوشته شوند؛ دورهٔ آزمایشی کوتاه با معیار از پیش نوشته؛ و بازنگری دوره‌ای. دو قاعده ثابت: قیمت بعد از جدول معیار و نبود داده مانیتور یعنی نامعلوم. حکم مبنا فرضی: گزینه ترکیبی. این نمودار مفهومی و تألیفی TehNet است.',
     chr(10).join(b))
 
+# ---------------- S4c VLAN on switch (L2) ----------------
+b = []
+b.append(text(480, 30, 'VLAN لایه۲ روی CRS326-24G-2S+RM — نقشهٔ پورت، ترانک و مرز لایه۲/۳', 12, 'middle', '#1a1a1a', 'bold'))
+# router (top)
+b.append(rect(330, 52, 300, 44, '#fafafa', '#6a1b9a', 2))
+b.append(text(480, 70, 'روتر بالادستی — سمت روتر خارج از این درس', 10, 'middle', '#6a1b9a', 'bold'))
+b.append(text(480, 86, 'پیکربندی مسیر روترِ دفتر: الگوی M2 · مسیریابی بین-VLAN: الگوی M4', 9, 'middle', '#78909c'))
+# trunk link + boundary label
+b.append(line(480, 96, 480, 128, '#43a047', 5))
+b.append(text(560, 112, 'ether23 — ترانک فقط-تگ‌دار: VLAN 10/20/88', 10, 'middle', '#2e7d32', 'bold'))
+b.append(text(355, 112, 'مرز لایه۲/لایه۳', 10, 'middle', '#6a1b9a'))
+# switch body
+b.append(rect(180, 128, 600, 210, '#fafafa', '#1e88e5', 3))
+b.append(text(480, 152, 'CRS326-24G-2S+RM — bridge1 · vlan-filtering=yes · چیپ 98DX3236 (آفلود VLAN: سندشده)', 11, 'middle', '#0d47a1', 'bold'))
+groups = [
+    ('دفتر — ether1-10', 'access · pvid=10 · خروجی untagged', 'H1 H2 H3', '#1e88e5', 700),
+    ('دوربین — ether11-14', 'access · pvid=20 · خروجی untagged', 'C1 C2', '#fb8c00', 480),
+    ('مدیریت — ether24', 'access · pvid=88', 'M1', '#43a047', 260),
+]
+for title, sub, hosts, color, x in groups:
+    b.append(rect(x - 95, 168, 190, 64, '#fafafa', color, 2))
+    b.append(text(x, 188, title, 10, 'middle', color, 'bold'))
+    b.append(text(x, 206, sub, 9, 'middle', '#37474f'))
+    b.append(text(x, 224, hosts, 9, 'middle', '#546e7a'))
+# cpu path inside switch
+b.append(rect(180, 244, 600, 40, '#e8f5e9', '#43a047', 2))
+b.append(text(480, 262, 'مسیر CPU مدیریت: bridge1 عضو تگ‌دار VLAN88 → mgmt88 → 192.168.88.2', 10, 'middle', '#2e7d32', 'bold'))
+b.append(text(480, 278, 'جدول VLAN: سه ردیف (10/20/88) — vlan-ids با untagged اعضای access و tagged ترانک', 9, 'middle', '#546e7a'))
+# free ports note
+b.append(text(480, 296, 'ether15-22 آزاد (رشد) · sfp-sfpplus1/2 بدون پیکربندی در این درس', 9, 'middle', '#90a4ae'))
+# hosts under groups
+b.append(text(700, 362, 'H1/H2/H3 ← ether1-3', 9, 'middle', '#546e7a'))
+b.append(text(480, 362, 'C1/C2 ← ether11-12', 9, 'middle', '#546e7a'))
+b.append(text(260, 362, 'M1 ← ether24', 9, 'middle', '#546e7a'))
+# L2/L3 warning box
+b.append(rect(95, 390, 770, 74, '#fdecea', '#d32f2f', 2))
+b.append(text(480, 414, 'مرز لایه۲/لایه۳ — تعهد صریح درس:', 11, 'middle', '#d32f2f', 'bold'))
+b.append(text(480, 434, 'جداسازی لایه۲ = دو دامنهٔ پخش جدا ≠ فایروال · عبور بین-VLAN فقط از مسیریاب لایه۳ (tracert: گام اول = روتر)', 10, 'middle', '#616161'))
+b.append(text(480, 452, 'سیاست بین-VLAN: الگوی M2/M4 — این سوئیچ فقط مرز لایه۲ را می‌سازد', 10, 'middle', '#616161'))
+# recovery box
+b.append(rect(95, 484, 770, 44, '#fff8e1', '#f9a825', 2))
+b.append(text(480, 502, 'بازگشت امن: از جلسهٔ MAC-Winbox/Console → /interface bridge set bridge1 vlan-filtering=no — فیلترینگ آخرِ کار روشن می‌شود', 10, 'middle', '#5d4037'))
+b.append(text(480, 533, 'نمودار مفهومی تألیفی TehNet — نه عکس واقعی — الگوی سند Bridging and Switching (دسترسی 2026-11-17)؛ اجرا NOT_RUN', 10, 'middle', '#78909c'))
+s4c = svg(960, 560,
+    'نمودار VLAN لایه۲ روی سوئیچ CRS326 درس S4 با نقشهٔ پورت و ترانک',
+    'یک سوئیچ سی آر اس ۳۲۶ با فیلترینگ VLAN فعال روی پل، سه گروه پورت access دارد: ده پورت دفتر با پی‌وید ده، چهار پورت دوربین با پی‌وید بیست، و یک پورت مدیریت با پی‌وید هشتادوهشت. میزبان‌های اچ وان تا اچ سه و سی وان و سی دو و ام یک روی همین پورت‌ها هستند. پورت بیست‌وسه ترانک فقط تگ‌دار است که هر سه VLAN را به روتر بالادستی می‌برد و سمت روتر خارج از این درس است؛ همان‌جا مرز لایه۲ و لایه۳ است. مسیر مدیریت CPU با عضویت تگ‌دار خود پل در VLAN هشتادوهشت ساخته می‌شود و به آدرس صدونوددو وشش هشتادوهشت می‌رسد. نمودار تأکید می‌کند جداسازی لایه۲ دو دامنهٔ پخش جدا می‌سازد و فایروال نیست و عبور بین VLANها فقط از مسیریاب لایه۳ ممکن است. بازگشت امن از جلسهٔ مک‌وین‌باکس با خاموش‌کردن فیلترینگ ممکن است. این نمودار مفهومی و تألیفی TehNet است.',
+    chr(10).join(b))
+
 os.makedirs(OUT, exist_ok=True)
-for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4), ('tutorial-m5-vpn-architecture.svg', m5), ('tutorial-m6-dual-wan-failover.svg', m6), ('tutorial-s5-uplink-trunk.svg', s5), ('tutorial-s6-psu-power.svg', s6), ('tutorial-s5-loop-rstp-lacp.svg', s5c), ('tutorial-s6-nas-upgrade.svg', s6c), ('tutorial-n1-office-design.svg', n1c), ('tutorial-n2-rack-cable.svg', n2), ('tutorial-n3-cable-test.svg', n3c), ('tutorial-n6-support-selection.svg', n6c)):
+for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4), ('tutorial-m5-vpn-architecture.svg', m5), ('tutorial-m6-dual-wan-failover.svg', m6), ('tutorial-s5-uplink-trunk.svg', s5), ('tutorial-s6-psu-power.svg', s6), ('tutorial-s5-loop-rstp-lacp.svg', s5c), ('tutorial-s6-nas-upgrade.svg', s6c), ('tutorial-n1-office-design.svg', n1c), ('tutorial-n2-rack-cable.svg', n2), ('tutorial-n3-cable-test.svg', n3c), ('tutorial-n6-support-selection.svg', n6c), ('tutorial-s4-vlan-l2.svg', s4c)):
     p = os.path.join(OUT, name)
     with io.open(p, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)

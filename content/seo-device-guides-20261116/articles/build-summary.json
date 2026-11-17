@@ -162,6 +162,13 @@
    "type": "tutorial",
    "bytes": 30363,
    "per_model_images": 0
+  },
+  {
+   "md": "../tutorials/s4-vlan-switch-l2.fa.md",
+   "html": "../tutorials/s4-vlan-switch-l2.gutenberg.html",
+   "type": "tutorial",
+   "bytes": 36656,
+   "per_model_images": 0
   }
  ]
 }

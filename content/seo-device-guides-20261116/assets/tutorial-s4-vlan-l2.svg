@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560">
+<title>نمودار VLAN لایه۲ روی سوئیچ CRS326 درس S4 با نقشهٔ پورت و ترانک</title>
+<desc>یک سوئیچ سی آر اس ۳۲۶ با فیلترینگ VLAN فعال روی پل، سه گروه پورت access دارد: ده پورت دفتر با پی‌وید ده، چهار پورت دوربین با پی‌وید بیست، و یک پورت مدیریت با پی‌وید هشتادوهشت. میزبان‌های اچ وان تا اچ سه و سی وان و سی دو و ام یک روی همین پورت‌ها هستند. پورت بیست‌وسه ترانک فقط تگ‌دار است که هر سه VLAN را به روتر بالادستی می‌برد و سمت روتر خارج از این درس است؛ همان‌جا مرز لایه۲ و لایه۳ است. مسیر مدیریت CPU با عضویت تگ‌دار خود پل در VLAN هشتادوهشت ساخته می‌شود و به آدرس صدونوددو وشش هشتادوهشت می‌رسد. نمودار تأکید می‌کند جداسازی لایه۲ دو دامنهٔ پخش جدا می‌سازد و فایروال نیست و عبور بین VLANها فقط از مسیریاب لایه۳ ممکن است. بازگشت امن از جلسهٔ مک‌وین‌باکس با خاموش‌کردن فیلترینگ ممکن است. این نمودار مفهومی و تألیفی TehNet است.</desc>
+<text x="480" y="30" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1a1a1a" font-weight="bold">VLAN لایه۲ روی CRS326-24G-2S+RM — نقشهٔ پورت، ترانک و مرز لایه۲/۳</text>
+<rect x="330" y="52" width="300" height="44" rx="8" fill="#fafafa" stroke="#6a1b9a" stroke-width="2"/>
+<text x="480" y="70" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#6a1b9a" font-weight="bold">روتر بالادستی — سمت روتر خارج از این درس</text>
+<text x="480" y="86" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#78909c" font-weight="normal">پیکربندی مسیر روترِ دفتر: الگوی M2 · مسیریابی بین-VLAN: الگوی M4</text>
+<line x1="480" y1="96" x2="480" y2="128" stroke="#43a047" stroke-width="5"/>
+<text x="560" y="112" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#2e7d32" font-weight="bold">ether23 — ترانک فقط-تگ‌دار: VLAN 10/20/88</text>
+<text x="355" y="112" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#6a1b9a" font-weight="normal">مرز لایه۲/لایه۳</text>
+<rect x="180" y="128" width="600" height="210" rx="8" fill="#fafafa" stroke="#1e88e5" stroke-width="3"/>
+<text x="480" y="152" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#0d47a1" font-weight="bold">CRS326-24G-2S+RM — bridge1 · vlan-filtering=yes · چیپ 98DX3236 (آفلود VLAN: سندشده)</text>
+<rect x="605" y="168" width="190" height="64" rx="8" fill="#fafafa" stroke="#1e88e5" stroke-width="2"/>
+<text x="700" y="188" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#1e88e5" font-weight="bold">دفتر — ether1-10</text>
+<text x="700" y="206" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#37474f" font-weight="normal">access · pvid=10 · خروجی untagged</text>
+<text x="700" y="224" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#546e7a" font-weight="normal">H1 H2 H3</text>
+<rect x="385" y="168" width="190" height="64" rx="8" fill="#fafafa" stroke="#fb8c00" stroke-width="2"/>
+<text x="480" y="188" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#fb8c00" font-weight="bold">دوربین — ether11-14</text>
+<text x="480" y="206" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#37474f" font-weight="normal">access · pvid=20 · خروجی untagged</text>
+<text x="480" y="224" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#546e7a" font-weight="normal">C1 C2</text>
+<rect x="165" y="168" width="190" height="64" rx="8" fill="#fafafa" stroke="#43a047" stroke-width="2"/>
+<text x="260" y="188" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#43a047" font-weight="bold">مدیریت — ether24</text>
+<text x="260" y="206" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#37474f" font-weight="normal">access · pvid=88</text>
+<text x="260" y="224" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#546e7a" font-weight="normal">M1</text>
+<rect x="180" y="244" width="600" height="40" rx="8" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
+<text x="480" y="262" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#2e7d32" font-weight="bold">مسیر CPU مدیریت: bridge1 عضو تگ‌دار VLAN88 → mgmt88 → 192.168.88.2</text>
+<text x="480" y="278" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#546e7a" font-weight="normal">جدول VLAN: سه ردیف (10/20/88) — vlan-ids با untagged اعضای access و tagged ترانک</text>
+<text x="480" y="296" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#90a4ae" font-weight="normal">ether15-22 آزاد (رشد) · sfp-sfpplus1/2 بدون پیکربندی در این درس</text>
+<text x="700" y="362" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#546e7a" font-weight="normal">H1/H2/H3 ← ether1-3</text>
+<text x="480" y="362" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#546e7a" font-weight="normal">C1/C2 ← ether11-12</text>
+<text x="260" y="362" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#546e7a" font-weight="normal">M1 ← ether24</text>
+<rect x="95" y="390" width="770" height="74" rx="8" fill="#fdecea" stroke="#d32f2f" stroke-width="2"/>
+<text x="480" y="414" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#d32f2f" font-weight="bold">مرز لایه۲/لایه۳ — تعهد صریح درس:</text>
+<text x="480" y="434" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#616161" font-weight="normal">جداسازی لایه۲ = دو دامنهٔ پخش جدا ≠ فایروال · عبور بین-VLAN فقط از مسیریاب لایه۳ (tracert: گام اول = روتر)</text>
+<text x="480" y="452" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#616161" font-weight="normal">سیاست بین-VLAN: الگوی M2/M4 — این سوئیچ فقط مرز لایه۲ را می‌سازد</text>
+<rect x="95" y="484" width="770" height="44" rx="8" fill="#fff8e1" stroke="#f9a825" stroke-width="2"/>
+<text x="480" y="502" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#5d4037" font-weight="normal">بازگشت امن: از جلسهٔ MAC-Winbox/Console → /interface bridge set bridge1 vlan-filtering=no — فیلترینگ آخرِ کار روشن می‌شود</text>
+<text x="480" y="533" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#78909c" font-weight="normal">نمودار مفهومی تألیفی TehNet — نه عکس واقعی — الگوی سند Bridging and Switching (دسترسی 2026-11-17)؛ اجرا NOT_RUN</text>
+</svg>

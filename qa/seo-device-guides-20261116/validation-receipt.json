@@ -3,13 +3,13 @@
  "validator": "validate-seo-guides.cjs rev8 (rev7 + S2 tutorial candidate)",
  "command": "node validate-seo-guides.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-17T01:25:30Z",
- "finished_utc": "2026-11-17T01:25:31Z",
- "control_head": "0241e40efdc3546e7d3276341951293e29504e6a",
+ "started_utc": "2026-11-17T01:50:13Z",
+ "finished_utc": "2026-11-17T01:50:13Z",
+ "control_head": "41fd27dd79c5a19ff7b2f047b4c4f48d67352674",
  "exit": 0,
  "good_candidate": {
   "ok": true,
-  "checks": 153,
+  "checks": 158,
   "failed": 0
  },
  "injected_negatives": [
@@ -146,6 +146,8 @@
   "tutorials/n3-cable-test-report.gutenberg.html": "fcb772cf02d1c24738985b0f541abb4a154fce3d94ba27e73ca9d23fed76982e",
   "tutorials/n6-support-selection.fa.md": "896afbc9ce904247d0ce19eee3f3b8ba517ce80315d2f58875a6dcacf73c5171",
   "tutorials/n6-support-selection.gutenberg.html": "cead4ac0a4d94c536d14f0f8d8d531cc694bc4745833f7d1d6d17b49f0de8cb1",
+  "tutorials/s4-vlan-switch-l2.fa.md": "380afa193ce0d658c0aa6ceb2cf7189a50d560e062f48997f92747c6c547fa76",
+  "tutorials/s4-vlan-switch-l2.gutenberg.html": "a0f58729e4ab45607516332800f59a85dfa49feea1cbd802bc6b933b2ab35523",
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",
   "switch-catalog.csv": "aaa5aed94204ad93b312449d9b0c934164c59d2d6375eb3b5727fe94ae164718",
   "image-provenance.csv": "57df5b7e151f4d35deef50d356335a408f859ad0a794345a752e307192cb96b4",

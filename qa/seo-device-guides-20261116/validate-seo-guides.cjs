@@ -257,6 +257,9 @@ function validate(candidateInputs) {
     { md: 'tutorials/n6-support-selection.fa.md', html: 'tutorials/n6-support-selection.gutenberg.html', svg: 'assets/tutorial-n6-support-selection.svg', label: 'N6c',
       sectionsOverride: ['پاسخ کوتاه', 'پیش‌نیازها', 'مبنا آزمایشگاه', 'گام ۱: نیازسنجی', 'گام ۲: فهرست گزینه‌ها', 'گام ۳: تطبیق نیاز با پوشش', 'گام ۴: ارزیابی ساختاریافته', 'گام ۵: دورهٔ آزمایشی', 'خطاهای رایج', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع', 'آموزش‌های مرتبط'],
       service: 'https://tehnet.ir/services/network-support-tehran/' },
+    { md: 'tutorials/s4-vlan-switch-l2.fa.md', html: 'tutorials/s4-vlan-switch-l2.gutenberg.html', svg: 'assets/tutorial-s4-vlan-l2.svg', label: 'S4c',
+      sectionsOverride: ['پاسخ کوتاه', 'فهرست', 'پیش‌نیازها', 'مبنا آزمایشگاه', 'نقشهٔ پورت و VLAN', 'گام ۱: بازرسی اولیه', 'گام ۲: پورت‌های access', 'گام ۳: جدول VLAN و ترانک', 'گام ۴: مسیر CPU مدیریت', 'گام ۵: فعال‌سازی فیلترینگ', 'مرز لایه۲ و لایه۳', 'آزمون پذیرش مثبت/منفی', 'بازگشت امن و بازیابی', 'عیب‌یابی', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع', 'آموزش‌های مرتبط'],
+      service: 'https://tehnet.ir/services/network-setup-tehran/' },
   ];
   const TUT_SECTIONS_COMMON = ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'تست پذیرش', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'];
   for (let ti = 0; ti < TUTORIALS.length; ti++) {
@@ -345,6 +348,8 @@ if (require.main === module) {
     'tutorials/n3-cable-test-report.gutenberg.html',
     'tutorials/n6-support-selection.fa.md',
     'tutorials/n6-support-selection.gutenberg.html',
+    'tutorials/s4-vlan-switch-l2.fa.md',
+    'tutorials/s4-vlan-switch-l2.gutenberg.html',
     'router-catalog.csv',
     'switch-catalog.csv',
     'image-provenance.csv',

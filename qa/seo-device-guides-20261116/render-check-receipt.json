@@ -492,7 +492,7 @@
   "manager-side browser run"
  ],
  "production_touched": false,
- "utc_extended": "2026-11-17T01:27:06Z",
+ "utc_extended": "2026-11-17T01:51:13Z",
  "pages_extra": [
   "tutorials/s2-poe-budget.gutenberg.html",
   "tutorials/s3-sfp-dac-fiber.gutenberg.html",
@@ -836,6 +836,88 @@
    "WordPress/theme/KSES",
    "RouterOS",
    "production publish"
+  ],
+  "production_touched": false
+ },
+ "s4c_vlan_l2_preview_20261117": {
+  "packet": "TN-S4C-VLAN-L2-20261117 (canonical S4 dedicated lesson per manager split decision 6935206213 — first real-browser preview)",
+  "utc": "2026-11-17T01:51:13Z",
+  "git_head_at_run": "41fd27dd79c5a19ff7b2f047b4c4f48d67352674",
+  "executed_by": "GLM — real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138",
+  "style_artifact": {
+   "path": "qa/seo-device-guides-20261116/candidate-preview.css",
+   "sha256": "ae06330b789ed135d144131b1b6b08b8fd03aea8ca7b94cb959c6e2a5af67fc1"
+  },
+  "harness_artifact": {
+   "path": "qa/seo-device-guides-20261116/preview-inject-candidate.js",
+   "sha256": "3109a38c905593bddeb5016c9f3fead1b8fc335a650b49ed06761910cacccaac"
+  },
+  "bound_inputs_sha256": {
+   "tutorials/s4-vlan-switch-l2.fa.md": "380afa193ce0d658c0aa6ceb2cf7189a50d560e062f48997f92747c6c547fa76",
+   "tutorials/s4-vlan-switch-l2.gutenberg.html": "a0f58729e4ab45607516332800f59a85dfa49feea1cbd802bc6b933b2ab35523",
+   "assets/tutorial-s4-vlan-l2.svg": "c7c8fb139c4b74fce43d57f39a800c43e65c83498d19231054bc466c75393003"
+  },
+  "results": {
+   "desktop_1280x900": {
+    "h1": "VLAN روی سوئیچ، لایه۲ — طراحی و اجرا روی CRS326 ‏(S4)",
+    "doc_overflow_px": 0,
+    "images_total": 1,
+    "images_loaded": 1,
+    "pre_total": 7,
+    "pre_with_inner_scroll": 1,
+    "table_total": 6,
+    "table_with_inner_scroll": 0,
+    "containers_focusable": 13,
+    "toc_anchors": {
+     "links": 16,
+     "dangling": 0
+    },
+    "keyboard": {
+     "focused_tag": "PRE",
+     "scrollWidth": 905,
+     "clientWidth": 798,
+     "deltas_px": {
+      "ArrowRight": 2.4,
+      "ArrowLeft": 7.2,
+      "End": 7.2,
+      "Home": 12.8
+     },
+     "keyboard_scroll_confirmed": true
+    }
+   },
+   "mobile_390x844": {
+    "h1": "VLAN روی سوئیچ، لایه۲ — طراحی و اجرا روی CRS326 ‏(S4)",
+    "doc_overflow_px": 0,
+    "images_total": 1,
+    "images_loaded": 1,
+    "pre_total": 7,
+    "pre_with_inner_scroll": 5,
+    "table_total": 6,
+    "table_with_inner_scroll": 3,
+    "containers_focusable": 13,
+    "toc_anchors": {
+     "links": 16,
+     "dangling": 0
+    },
+    "keyboard": {
+     "focused_tag": "PRE",
+     "scrollWidth": 391,
+     "clientWidth": 214,
+     "deltas_px": {
+      "ArrowRight": 0,
+      "ArrowLeft": 16,
+      "End": 20,
+      "Home": 20
+     },
+     "keyboard_scroll_confirmed": true
+    }
+   }
+  },
+  "method": "committed harness (inject complete candidate CSS verbatim + tabindex/aria wrap + metrics + real keypress probe) plus new TOC-anchor-integrity check (every in-page #anchor must resolve to an id — 16/16 both viewports, 0 dangling)",
+  "not_run": [
+   "WordPress/theme/KSES integration (preview only)",
+   "RouterOS execution",
+   "throughput measurement"
   ],
   "production_touched": false
  }

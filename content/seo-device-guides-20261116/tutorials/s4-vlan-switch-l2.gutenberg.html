@@ -1,0 +1,619 @@
+<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from ../tutorials/s4-vlan-switch-l2.fa.md -->
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">VLAN روی سوئیچ، لایه۲ — طراحی و اجرا روی CRS326 ‏(S4)</h1>
+<!-- /wp:heading -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><p>وضعیت درس: <strong>DRAFT / NOT_DEPLOYED — در انتظار مرور.</strong> (درس مصوب سرفصل ‏S4: VLAN روی سوئیچ)</p><p>آموزش از سری switching؛ مخاطب: کارشناس شبکه.</p><p>سناریوی کاملاً فرضی و آموزشی با دادهٔ ساختگی؛ هیچ شبکهٔ واقعی دستکاری نشده و هیچ اجرای واقعی NOT_RUN است.</p><p>نمودار مفهومی و تألیفی است (نه عکس واقعی).</p></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="short-answer">پاسخ کوتاه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>VLAN روی سوئیچ یعنی یک سوییچ لایه۲ را به چند <strong>دامنهٔ پخش جدا</strong> تقسیم کنیم: هر پورت access با `pvid` به یک VLAN می‌رسد، فقط ترانکِ تگ‌دار VLANها را بین سوئیچ و روتر عبور می‌دهد، و مسیر CPU برای مدیریت با عضویت تگ‌دار خودِ پل در VLAN مدیریت ساخته می‌شود. سه نکتهٔ تعیین‌کننده: ‏(۱) فیلترینگ VLAN <strong>آخرِ کار</strong> فعال شود وگرنه دسترسی مدیریت قطع می‌شود؛ ‏(۲) روی CRS326 ‏(چیپ ‏98DX3236) فیلترینگ VLAN پل با آفلود سخت‌افزاری سازگار است — پرچم `H` اعضا را بعد از فعال‌سازی احراز کنید؛ ‏(۳) <strong>جداسازی لایه۲ فایروال نیست</strong> — اگر روتر بالادستی بین VLANها مسیریابی کند، ترافیک از راه لایه۳ عبور می‌کند؛ سیاست بین-VLAN کار روتر/فایروال است ‏(الگوی M2/M4)، نه این درس.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">فهرست</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li><a href="#short-answer">پاسخ کوتاه</a> — سه نکتهٔ کلیدی</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><a href="#prereqs">پیش‌نیازها</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><a href="#lab-baseline">مبنا آزمایشگاه و نقشهٔ پورت/VLAN</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><a href="#step1-inspect-bridge">گام ۱: بازرسی اولیه و ساخت پل</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><a href="#step2-access-pvid">گام ۲: پورت‌های access با pvid</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><a href="#step3-vlan-table-trunk">گام ۳: جدول VLAN و ترانک تگ‌دار</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><a href="#step4-cpu-mgmt">گام ۴: مسیر CPU مدیریت</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><a href="#step5-filtering-hw">گام ۵: فعال‌سازی فیلترینگ و احراز آفلود</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><a href="#l2-l3-boundary">مرز لایه۲ و لایه۳ — جداسازی ≠ فایروال</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><a href="#acceptance-tests">آزمون پذیرش مثبت/منفی</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><a href="#rollback-recovery">بازگشت امن و بازیابی</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><a href="#troubleshooting">عیب‌یابی</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><a href="#exercises">تمرین کوتاه</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><a href="#checklist">چک‌لیست تحویل</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><a href="#sources">منابع</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><a href="#related-lessons">آموزش‌های مرتبط و مسیر خدمت</a></li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="prereqs">پیش‌نیازها</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>مفهوم VLAN و مسیر روترِ دفتر: <a href="/guides/mikrotik-vlan/">M2</a> · انتخاب ماژول/کابل: <a href="s3-sfp-dac-fiber.fa.md">S3</a> · طراحی دفتر: <a href="n1-office-design.fa.md">N1</a> · گام بعدی طبیعی ‏(مسیریابی بین-VLAN): <a href="m4-intervlan-l3hw.fa.md">M4</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="lab-baseline">مبنا آزمایشگاه (Lab Baseline)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>بند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقدار فرضی</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>سوئیچ</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>CRS326-24G-2S+RM</strong> — ‏۲۴×GbE ‏(RJ45) + ‏۲×SFP+؛ چیپ ‏98DX3236 ‏(صفحهٔ رسمی محصول)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نگارش RouterOS</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏v7.16+ ‏(dual boot ‏RouterOS/SwOS — این درس روی ‏RouterOS)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>VLANها</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏10 دفتر ‏· ‏20 دوربین ‏· ‏88 مدیریت</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>روتر بالادستی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>یک روتر مجهز به پورت تگ‌دار ‏(مدل/پیکربندی سمت روتر <strong>خارج از این درس</strong> — الگوی M2)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>میزبان‌ها</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۳ میزبان دفتر ‏(ether1-3)، ‏۲ دوربین ‏(ether11-12)، ‏۱ میزبان مدیریت ‏(ether24)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اجرای واقعی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>NOT_RUN</strong> — دستورها الگوی سند رسمی با شروع صریح از کارخانه</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">نقشهٔ پورت و VLAN — مرجع مشترک متن/جدول/نمودار/فرمان</h3>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>پورت</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>نقش</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>pvid</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>عضویت VLAN</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>تگ</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>ether1 تا ether10</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۱۰ پورت دفتر — access</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏10</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>vlan10 untagged</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خروجی untagged</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ether11 تا ether14</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۴ پورت دوربین — access</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏20</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>vlan20 untagged</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خروجی untagged</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ether15 تا ether22</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>آزاد ‏(رشد)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ether23</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>ترانک به روتر</strong> — فقط تگ‌دار</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏1 ‏(پیش‌فرض)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>vlan10+20+88 tagged</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ورودی/خروجی تگ‌دار</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ether24</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>میزبان مدیریت — access</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏88</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>vlan88 untagged</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خروجی untagged</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏bridge1 ‏(خودِ پل)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مسیر CPU</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>vlan88 tagged</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مسیر مدیریت سوئیچ</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>sfp-sfpplus1/2</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بدون پیکربندی در این درس ‏(رشد — الگوی S3)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>هویت هر endpoint در کل درس یکسان است: <strong>H1/H2/H3</strong> روی ‏ether1-3 ‏(VLAN10)، <strong>C1/C2</strong> روی ‏ether11-12 ‏(VLAN20)، <strong>M1</strong> روی ‏ether24 ‏(VLAN88)، روتر پشت ‏ether23.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image -->
+<figure class="wp-block-image size-large"><img src="../assets/tutorial-s4-vlan-l2.svg" alt="نمودار VLAN لایه۲ روی CRS326 درس S4 — نقشهٔ پورت‌ها، ترانک و مرز لایه۲/لایه۳ (تصویر مفهومی تألیفی)" width="900" loading="lazy"/><figcaption>نمودار VLAN لایه۲ روی CRS326 درس S4 — نقشهٔ پورت‌ها، ترانک و مرز لایه۲/لایه۳ (تصویر مفهومی تألیفی)</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> یک سوئیچ CRS326 در مرکز؛ سمت راست ‏(RTL) گروه پورت‌های دفتر ‏(ether1-10، ‏VLAN10، pvid=10، خروجی untagged) با میزبان‌های ‏H1-H3؛ زیر آن دوربین‌ها ‏(ether11-14، ‏VLAN20) با ‏C1/C2؛ سمت چپ پورت مدیریت ‏(ether24، ‏VLAN88) با میزبان ‏M1 و فلش تگ‌دار از پل ‏(bridge1) به داخل سوئیچ یعنی مسیر CPU؛ در بالا پورت ‏ether23 به‌صورت ترانک «فقط-تگ‌دار» به جعبهٔ «روتر — سمت روتر خارج از این درس» وصل است و روی همان لینک برچسب «مرز لایه۲/لایه۳» خورده؛ زیر نمودار جعبهٔ یادآوری: «جداسازی لایه۲ ≠ فایروال؛ مسیریابی بین-VLAN کار روتر است». برچسب «تألیفی/مفهومی».</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="step1-inspect-bridge">گام ۱: بازرسی اولیه و ساخت پل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>فرمان ‏(بازرسی — انتظار: فهرست پل‌ها و اعضای فعلی؛ کارخانه معمولاً یک پل پیش‌فرض با همهٔ پورت‌ها دارد):</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros">/interface bridge print
+/interface bridge port print</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p><strong>انتظار:</strong> اگر فقط پل پیش‌فرض کارخانه است، همان را به‌کار می‌گیریم یا پل جدا می‌سازیم — <strong>دو پل روی پورت‌های مشترک ممنوع</strong>. اگر پل سفارشی دیگری هست، قبل از هر تغییری مالکیتش مشخص شود.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>فرمان ‏(ساخت پل — فیلترینگ خاموش):</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros">/interface bridge
+add name=bridge1 vlan-filtering=no protocol-mode=rstp</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p><strong>انتظار:</strong> پل ساخته می‌شود؛ تا وقتی `vlan-filtering=no` است هیچ ترافیکی فیلتر نمی‌شود — این عمدی است تا کل ساخت قبل از قطع‌شدن دسترسی کامل شود.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="step2-access-pvid">گام ۲: پورت‌های access با pvid</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>فرمان ‏(اعضا با pvid هر گروه — انتظار: هر پورت عضو پل می‌شود؛ هنوز در جدول VLAN نیستند):</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros">/interface bridge port
+add bridge=bridge1 interface=ether1 pvid=10
+add bridge=bridge1 interface=ether2 pvid=10
+add bridge=bridge1 interface=ether3 pvid=10
+add bridge=bridge1 interface=ether4 pvid=10
+add bridge=bridge1 interface=ether5 pvid=10
+add bridge=bridge1 interface=ether6 pvid=10
+add bridge=bridge1 interface=ether7 pvid=10
+add bridge=bridge1 interface=ether8 pvid=10
+add bridge=bridge1 interface=ether9 pvid=10
+add bridge=bridge1 interface=ether10 pvid=10
+add bridge=bridge1 interface=ether11 pvid=20
+add bridge=bridge1 interface=ether12 pvid=20
+add bridge=bridge1 interface=ether13 pvid=20
+add bridge=bridge1 interface=ether14 pvid=20
+add bridge=bridge1 interface=ether24 pvid=88 comment="میزبان مدیریت M1"</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p><strong>انتظار:</strong> ‏۱۵ عضو اضافه شده؛ `pvid` یعنی هر فریم <strong>untagged ورودی</strong> روی این پورت به همان VLAN برچسب‌خورده و در خروجی access دوباره untagged می‌شود — میزبان هیچ‌وقت تگ نمی‌بیند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="step3-vlan-table-trunk">گام ۳: جدول VLAN و ترانک تگ‌دار</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>فرمان ‏(ترانک + جدول VLAN — انتظار: سه ردیف VLAN با اعضای access و ترانک):</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros">/interface bridge port
+add bridge=bridge1 interface=ether23 frame-types=admit-only-vlan-tagged ingress-filtering=yes comment="trunk فقط-تگ‌دار به روتر"
+/interface bridge vlan
+add bridge=bridge1 vlan-ids=10 untagged=ether1,ether2,ether3,ether4,ether5,ether6,ether7,ether8,ether9,ether10 tagged=ether23
+add bridge=bridge1 vlan-ids=20 untagged=ether11,ether12,ether13,ether14 tagged=ether23
+add bridge=bridge1 vlan-ids=88 untagged=ether24 tagged=ether23,bridge1</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p><strong>انتظار و معنا:</strong> `frame-types=admit-only-vlan-tagged` روی ترانک یعنی فریم untagged ورودی از سمت روتر drop می‌شود ‏(فقط تگ‌دار قبول)؛ `ingress-filtering=yes` یعنی تگِ VLAN ناموجود در جدول هم drop می‌شود. `bridge1` در ردیف ‏88 به‌صورت <strong>tagged</strong> یعنی پل خودش عضو VLAN مدیریت است — همین عضویت، مسیر CPU گام ۴ را می‌سازد. اگر یک VLAN از جدول ترانک جا بماند، همان VLAN از سمت روتر قطع می‌شود — رایج‌ترین خطای این درس.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="step4-cpu-mgmt">گام ۴: مسیر CPU مدیریت</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>فرمان ‏(اینترفیس VLAN روی پل + آدرس — انتظار: سوئیچ از VLAN88 پاسخ می‌دهد):</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros">/interface vlan
+add name=mgmt88 vlan-id=88 interface=bridge1
+/ip address
+add address=192.168.88.2/24 interface=mgmt88</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p><strong>انتظار:</strong> میزبان ‏M1 ‏(ether24، ‏pvid88) باید بتواند به ‏192.168.88.2 پینگ بدهد — این تست، مسیر CPU را اثبات می‌کند: فریم untagged از ‏ether24 با ‏pvid=88 وارد پل، به‌عنوان عضو تگ‌دار جدول ‏88 به CPU می‌رسد و پاسخ با مسیر معکوس برمی‌گردد. بدون عضویت `bridge1` در ردیف ‏88، این پینگ بعد از فعال‌سازی فیلترینگ قطع می‌شود.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="step5-filtering-hw">گام ۵: فعال‌سازی فیلترینگ و احراز آفلود</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>فرمان ‏(فیلترینگ آخرِ کار — انتظار: سوئیچینگ VLAN از این لحظه با جدول بررسی می‌شود):</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros">/interface bridge
+set bridge1 vlan-filtering=yes</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p><strong>احراز آفلود برای همین مدل ‏(CRS326 / ‏98DX3236):</strong> طبق جدول ‏«Bridge hardware offloading» سند رسمی ‏Bridging and Switching، سری ‏CRS3xx ‏(چیپ‌های ‏98DX3xxx) فیلترینگ VLAN پل را <strong>با آفلود سخت‌افزاری</strong> پشتیبانی می‌کند. بررسی عملی:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:code -->
+<pre class="wp-block-code"><code class="language-routeros">/interface bridge port print
+/interface bridge vlan print</code></pre>
+<!-- /wp:code -->
+
+<!-- wp:paragraph -->
+<p><strong>انتظار:</strong> اعضای پل پرچم `H` داشته باشند ‏(hw فعال با فیلترینگ روشن). اگر پرچم `H` از دست رفت، پیکربندی باعث خروج از آفلود شده — علت را پیدا کنید، ظرفیت را حدس نزنید. <strong>اندازه‌گیری throughput واقعی در این درس NOT_RUN است؛ این درس فقط پشتیبانی سندشده و پرچم را احراز می‌کند.</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="l2-l3-boundary">مرز لایه۲ و لایه۳ — جداسازی ≠ فایروال نیست</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>این تفکیک تعهد صریح این درس است:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>ادعا</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>معتبر؟</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>توضیح</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>میزبان VLAN10 به‌صورت <strong>لایه۲</strong> میزبان VLAN20 را نمی‌بیند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>✓</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دامنهٔ پخش جدا: ARP یک میزبان به VLAN دیگر نمی‌رسد؛ `arp -a` روی ‏H1 هیچ ورودی از ‏C1/C2 ندارد</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>سوئیچ ترافیک بین-VLAN را <strong>مسدود</strong> می‌کند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>✗</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سوئیچ لایه۲ مسیریابی ندارد؛ هیچ بسته‌ای بین-VLAN از سوئیچ عبور نمی‌کند <strong>مگر از راه یک مسیریاب لایه۳</strong></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اگر روتر بین VLANها مسیریابی کند، ‏H1→C1 وصل می‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>✓</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>عبور از مسیر لایه۳ است: `tracert` اولین گام را روتر نشان می‌دهد — این خودِ اثبات مرز است</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>جداسازی VLAN جایگزین فایروال است</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>✗</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سیاست بین-VLAN ‏(اجازه/منع) کار روتر/فایروال است — الگوی M2/M4؛ این سوئیچ فقط مرز لایه۲ را می‌سازد</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="acceptance-tests">آزمون پذیرش مثبت/منفی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>#</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>از</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>به</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>انتظار</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>دامنه</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>‏۱</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏H1 ‏(ether1، ‏VLAN10)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏H3 ‏(ether3، ‏VLAN10)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ping موفق — همان VLAN از دو پورت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>لایه۲</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۲</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏C1 ‏(ether11، ‏VLAN20)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏C2 ‏(ether12، ‏VLAN20)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ping موفق</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>لایه۲</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۳</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏M1 ‏(ether24، ‏VLAN88)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏192.168.88.2 ‏(خود سوئیچ)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ping موفق — اثبات مسیر CPU</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>CPU</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۴</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏H1</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏C1 — بدون دخالت روتر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>شکست</strong> — دامنهٔ پخش جدا؛ `arp -a` ‏H1 ورودی ‏C1 ندارد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>لایه۲</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۵</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏H1</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏C1 — با روتر مسیریاب بین-VLAN</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>اگر سیاست روتر اجازه دهد موفق — اما مسیر از <strong>روتر</strong> است ‏(tracert: گام اول = روتر)؛ یعنی کنترل، لایه۳ است نه این سوئیچ</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مرز لایه۲/۳</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏۶</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فریم untagged سمت روتر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏ether23</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>drop ‏(frame-types فقط-تگ‌دار) — مشاهده با شمارش drop یا sniffer اختیاری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ترانک</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>تست‌های ‏۱-۴ و ‏۶ در دسترس بودن میزبان‌ها اجرا می‌شوند؛ اجرای واقعی این درس <strong>NOT_RUN</strong> است.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="rollback-recovery">بازگشت امن و بازیابی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li><strong>بازگشت از هر نقطه:</strong> از جلسهٔ ‏MAC-Winbox یا Console ‏(نه از جلسهٔ تگ‌دار ‏VLAN88): `/interface bridge set bridge1 vlan-filtering=no` — همهٔ پورت‌ها دوباره بدون فیلتر پل می‌شوند؛ پیکربندی‌های پل/اعضا/جدول حذف نمی‌شوند و قابل اصلاح‌اند.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><strong>قاعدهٔ ترتیب:</strong> هر تغییر ساختاری ‏(اعضا/جدول) با فیلترینگ خاموش؛ روشن‌کردن <strong>آخرین</strong> دستور است؛ بعد از هر روشن‌کردن، تست ‏۳ ‏(مسیر CPU) قبل از بستن جلسه اجرا شود.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li><strong>از دست رفتن دسترسی:</strong> با ‏MAC-Winbox از پورت‌های access به سوئیچ وصل شوید؛ سوئیچ در ‏VLAN88 با ‏M1 و از هر پورت access دیگری در حالت بی‌فیلتر در دسترس است.</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="troubleshooting">عیب‌یابی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>نشانه</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>علت محتمل</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>بررسی</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>راه‌حل</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>بعد از روشن‌کردن فیلترینگ، یک گروه کامل قطع شد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ردیف آن VLAN از جدول جا افتاده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/interface bridge vlan print`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>افزودن ردیف با untagged همان پورت‌ها</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>دسترسی مدیریت سوئیچ قطع شد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>عضویت تگ‌دار `bridge1` در ردیف ‏88 فراموش شده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ردیف ‏vlan-ids=88</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>افزودن bridge1 به tagged</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>میزبان‌های یک VLAN همدیگر را نمی‌بینند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>pvid پورت‌ها اشتباه یا عضویت جدول ناقص</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مقایسهٔ `pvid` اعضا با نقشهٔ پورت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>اصلاح pvid / جدول</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>پرچم `H` اعضا از دست رفت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خطای پیکربندی باعث خروج از آفلود شده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`/interface bridge port print`</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>یافتن علت از سند؛ بدون حدس ظرفیت</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ترانک از سمت روتر کار نمی‌کند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ناهمگونی VLANهای ترانک دو سر ‏(این درس فقط سمت سوئیچ)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مقایسهٔ VLANهای مجاز دو سر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هم‌سان‌سازی؛ سمت روتر = الگوی M2</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="exercises">تمرین کوتاه (با پاسخ موردانتظر)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>تفاوت `pvid` روی پورت access با عضویت `tagged` در جدول VLAN چیست؟ — <strong>پاسخ موردانتظار:</strong> ‏pvid برچسب فریم <strong>untagged ورودی</strong> و untagged‌کردن خروجی همان پورت است؛ عضویت tagged یعنی آن VLAN روی آن پورت <strong>با تگ</strong> عبور می‌کند ‏(ترانک/CPU).</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>چرا فیلترینگ VLAN آخر فعال می‌شود؟ — <strong>پاسخ موردانتظار:</strong> چون تا کامل‌شدن اعضا و جدول، فیلترینگ فعال میزبان‌ها و مسیر CPU را قطع می‌کند؛ روشن‌کردن آخرین گام است و تست ‏۳ ‏(CPU) بعد از آن قبل از بستن جلسه اجرا می‌شود.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>‏H1 نمی‌تواند ‏C1 را ping کند — آیا این سوئیچ «مسدود» کرده؟ — <strong>پاسخ موردانتظار:</strong> خیر؛ سوئیچ لایه۲ مسیریابی ندارد، فقط دو دامنهٔ پخش جدا ساخته است؛ اگر با روتر مسیریاب وصل شد یعنی عبور از لایه۳ بوده ‏(tracert گام اول = روتر) و سیاستش کار فایروال/روتر است.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>چرا `bridge1` در ردیف VLAN88 تگ‌دار است؟ — <strong>پاسخ موردانتظار:</strong> چون CPU سوئیچ باید فریم‌های VLAN88 را با تگ از پل دریافت کند — همین عضویت، مسیر مدیریت ‏(mgmt88) را می‌سازد.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>پرچم `H` بعد از فعال‌سازی فیلترینگ روی CRS326 چه چیزی را نشان می‌دهد؟ — <strong>پاسخ موردانتظار:</strong> اینکه پورت با آفلود سخت‌افزاری فعلاً کار می‌کند ‏(سندشده برای ‏98DX3236)؛ از دست رفتنش یعنی خروج از آفلود — علت را از سند پیدا کنید، ظرفیت را حدس نزنید.</li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="checklist">چک‌لیست تحویل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[ ] نقشهٔ پورت/VLAN ‏(جدول مبنا) با هویت endpointها قبل از اجرا مکتوب شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] پل با `vlan-filtering=no` ساخته؛ اعضا با pvid درست وارد شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] جدول VLAN سه‌ردیفه کامل؛ ترانک فقط-تگ‌دار با ‏ingress-filtering</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] مسیر CPU ‏(bridge1 tagged در ‏88 + mgmt88 + آدرس) تنظیم و با تست ‏۳ آزموده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] فیلترینگ آخر فعال؛ پرچم `H` اعضا احراز شده ‏(ظرفیت اندازه‌گیری نشده — NOT_RUN)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] تست‌های مثبت ‏۱-۳ و منفی ‏۴، ‏۶ اجرا/برنامه‌ریزی شده؛ تفسیر تست ‏۵ بر اساس مرز لایه۲/۳ مستند شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] مسیر بازگشت ‏(vlan-filtering=no از ‏MAC-Winbox/Console) قبل از روشن‌کردن فیلترینگ آماده بوده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] اجرای واقعی این درس NOT_RUN ‏(قالب آموزشی) — خروجی/عکس جعلی وجود ندارد</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="sources">منابع (تأیید/نسخه/تاریخ‌دار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Bridging and Switching — پل، جدول VLAN، ‏PVID، جدول آفلود ‏(ردیف CRS3xx/98DX3xxx: VLAN filtering با HW): https://manual.mikrotik.com/docs/bridging-and-switching/ ‏(دسترسی ‏2026-11-17)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>صفحهٔ رسمی محصول CRS326-24G-2S+RM ‏(۲۴×GbE + ‏۲×SFP+، چیپ ‏98DX3236، ‏RouterOS/SwOS): https://mikrotik.com/product/CRS326-24G-2SplusRM ‏(دسترسی ‏2026-11-17)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>راهنمای ‏CRS326 ‏(سند سخت‌افزار): https://manual.mikrotik.com/hardware/crs326-24g-2s-plus-rm ‏(دسترسی ‏2026-11-17)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>تجربهٔ فرایندی عمومی استقرار VLAN سوئیچ — بدون ادعای آمار/پروژهٔ واقعی</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading" id="related-lessons">آموزش‌های مرتبط و مسیر خدمت</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>پیوند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقصد</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>پیش‌نیاز ‏(مسیر روتر و VLAN دفتر)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/mikrotik-vlan/">M2</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>گام بعدی طبیعی ‏(مسیریابی بین-VLAN/‏L3HW)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="m4-intervlan-l3hw.fa.md">M4</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>درس‌های مرتبط</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="s3-sfp-dac-fiber.fa.md">S3</a> · <a href="n1-office-design.fa.md">N1 طراحی دفتر</a> · <a href="s5-uplink-trunk.fa.md">S5</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نقشهٔ کامل سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/topic-map/">topic map</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>پیاده‌سازی VLAN روی سوئیچ سازمان شما</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="https://tehnet.ir/services/network-setup-tehran/">خدمات راه‌اندازی شبکهٔ تهران</a></td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
