@@ -1234,5 +1234,118 @@
    "production publish"
   ],
   "production_touched": false
+ },
+ "s5_l2l3_refresh_20261117": {
+  "packet": "TN-S5-L2L3-FIX-6951620181-20261117 (MANAGER_REVIEW 6951620181 corrections 1-2: on-link L2/L3 prose at MD L156 + three-phase N1 with owned-neighbor ARP reset at MD L152)",
+  "utc": "2026-11-17T15:11:01Z",
+  "browser_pass_window": "2026-11-17T15:05Z-15:11Z, one atomic pass per viewport",
+  "git_head_at_run": "3ead7c4ff4b883b26d33e4c5e0b9c24885d91676 (pre-commit head; the packet commit delivers this receipt together with the corrected content)",
+  "executed_by": "GLM - real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138",
+  "style_artifact": {
+   "path": "qa/seo-device-guides-20261116/candidate-preview.css",
+   "sha256": "ae06330b789ed135d144131b1b6b08b8fd03aea8ca7b94cb959c6e2a5af67fc1"
+  },
+  "harness_artifact": {
+   "path": "qa/seo-device-guides-20261116/preview-inject-candidate.js",
+   "sha256": "3109a38c905593bddeb5016c9f3fead1b8fc335a650b49ed06761910cacccaac"
+  },
+  "bound_inputs_sha256": {
+   "tutorials/s5-uplink-trunk.fa.md": "e1301a42039a8860196738f9980e5317930958716144247b6a52827015366074",
+   "tutorials/s5-uplink-trunk.gutenberg.html": "8316e196231160f707cdff6bfec25e650e99a0af3695c9453fb04ca5decbbbcc",
+   "assets/tutorial-s5-uplink-trunk.svg": "783a734f9f41b7394d5b049d64b95542c29f5a761aef0f52fa203c6c6f78ccda (unchanged)"
+  },
+  "rebuild": {
+   "command": "node content/seo-device-guides-20261116/articles/build-gutenberg.cjs",
+   "build1_exit": 0,
+   "build2_exit": 0,
+   "double_build_byte_identical": true,
+   "html_sha256_after_each_build": "8316e196231160f707cdff6bfec25e650e99a0af3695c9453fb04ca5decbbbcc",
+   "pre_build_html_sha256": "c6f10c501ef697f0acd8c722eab28bd403c3606568036e6b9ad1a195cc7061ad (matched MANAGER_REVIEW 6951620181 bound hash exactly)",
+   "diff_scope": "only s5 MD (2 lines) + s5 HTML + build-summary.json (s5 bytes 41945->44091); all other regenerated outputs byte-identical"
+  },
+  "validator": {
+   "command": "node qa/seo-device-guides-20261116/validate-seo-guides.cjs",
+   "started_utc": "2026-11-17T15:04:58Z",
+   "exit": 0,
+   "good_candidate": {
+    "ok": true,
+    "checks": 162,
+    "failed": 0
+   },
+   "injected_negatives": "14/14 rejected-with-reason",
+   "output_freshness": "PASS - builder rerun byte-identical for 24 gutenberg outputs"
+  },
+  "s5_metrics_desktop_1280x900": {
+   "doc_overflow_px": 0,
+   "images_total": 1,
+   "images_loaded_at_metrics": 0,
+   "pre_total": 3,
+   "pre_with_inner_scroll": 2,
+   "table_total": 7,
+   "table_with_inner_scroll": 0,
+   "containers_focusable": 10
+  },
+  "s5_metrics_mobile_390x844": {
+   "doc_overflow_px": 0,
+   "images_total": 1,
+   "images_loaded_final": 1,
+   "pre_total": 3,
+   "pre_with_inner_scroll": 3,
+   "table_total": 7,
+   "table_with_inner_scroll": 5,
+   "containers_focusable": 10
+  },
+  "image_method_note": "loading=lazy image below fold; IAB lazy machinery did not fire this turn (in-viewport after scrollIntoView, currentSrc empty, no resource entry); preview server serves the asset HTTP 200 image/svg+xml 6615 bytes (curl-verified); loaded after documented eager-forcing in the mobile pass - mobile final images_loaded=1/1 naturalWidth=960; desktop pass image remained incomplete (recorded honestly as 0/1 at desktop metrics time)",
+  "keyboard_probes": {
+   "status": "NOT_REFRESHED - real-keypress input delivery path dead this turn; bounded instrumented attempt only, no blind retry loops",
+   "probes": {
+    "desktop_PRE_0of2": {
+     "extents": "scrollWidth 1391 / clientWidth 798 (exactly matched keyboard_completion_20261117)",
+     "keys": [
+      "ArrowRight",
+      "ArrowLeft",
+      "End",
+      "Home"
+     ],
+     "deltas_px": {
+      "ArrowRight": 0,
+      "ArrowLeft": 0,
+      "End": 0,
+      "Home": 0
+     },
+     "focus_verified": true
+    },
+    "mobile_PRE_0of3": {
+     "extents": "706 / 214 (exactly matched)",
+     "keys_deltas_px": {
+      "ArrowRight": 0,
+      "ArrowLeft": 0,
+      "End": 0,
+      "Home": 0
+     },
+     "focus_verified": true
+    },
+    "mobile_TABLE_0of5": {
+     "extents": "214 / 135 (exactly matched)",
+     "keys_deltas_px": {
+      "ArrowRight": 0,
+      "ArrowLeft": 0,
+      "End": 0,
+      "Home": 0
+     },
+     "focus_verified": true
+    }
+   },
+   "instrumented_attempt": "keydown/keypress/keyup counter installed on window; focus verified activeTag=PRE; one real cua.keypress ArrowLeft dispatched; eventCount=0 - no key events delivered to the page",
+   "cause": "UNKNOWN (not diagnosed) - same transient signature as the bounded retry recorded in s5_n1_guard_refresh_20261117 (keys_observed=0, focus_verified=true); pipeline previously revived in a later turn without any tool/provider change",
+   "history_preserved": "keyboard_completion_20261117 (05:07:48Z) per-TYPE S5 deltas retained as history, NOT relabeled as new; they remain bound to previous hashes",
+   "impact": "layout+image evidence refreshed on the new hashes; keyboard deltas remain those of keyboard_completion_20261117 bound to previous hashes"
+  },
+  "not_run": [
+   "RouterOS execution",
+   "WordPress/KSES",
+   "production publish"
+  ],
+  "production_touched": false
  }
 }
