@@ -1,0 +1,152 @@
+{
+ "packet": "TN-P2-LOCAL-FIXTURE-QUALIFICATION-20261117",
+ "execution_origin": "LOCAL_TEST/LOCAL_STAGING — owner-authorized local TehNet execution; read-only observations, zero bootstrap mutations performed (fixture already exists from 2026-10-16 committed bootstrap ops/prepare-shop-preview.py --pull=never)",
+ "head_at_run": "7d96f59995f1c8b5fd7f2dd292c67aabc177e4c6",
+ "utc": "2026-11-17T07:19:17Z",
+ "scope": "fixture qualification ONLY per manager directive: ownership/isolation/identity/payload hashes/pure suite. Journey/form POST/discovery/delete-cleanup NOT_RUN behind the driver source gate (MANAGER_REVIEW 6913955570; rev5 receipt 99adf594 = checkpoint, no separate acceptance yet).",
+ "probes": [
+  {
+   "name": "ssh_connectivity",
+   "command": "ssh -o BatchMode=yes -o ConnectTimeout=10 netauto-main 'echo CONN_OK; hostname; docker inspect …'",
+   "utc": "2026-11-17T~05:25Z",
+   "exit": 0,
+   "observed": {
+    "conn": "CONN_OK",
+    "container_id": "20615696cdc4853f9203eb6e2544806d1bac4b8918db31451638c87e89230420",
+    "name": "/tehnet-ux-preview-wordpress",
+    "status": "running",
+    "created": "2026-10-16T18:24:15Z"
+   }
+  },
+  {
+   "name": "ownership_state_json",
+   "observed": {
+    "state_web_id": "20615696cdc4853f9203eb6e2544806d1bac4b8918db31451638c87e89230420",
+    "state_web_container": "tehnet-ux-preview-20261016: web_container=tehnet-ux-preview-wordpress"
+   },
+   "expected": {
+    "web_id": "== docker inspect Id",
+    "web_container": "tehnet-ux-preview-wordpress"
+   },
+   "match": true
+  },
+  {
+   "name": "preflight_probe_wpcli",
+   "command": "helpers buildPreflightProbePhp() → base64 → docker exec wp-cli eval-file (READ-ONLY)",
+   "exit": 0,
+   "observed": {
+    "env": "staging",
+    "home": "http://localhost:18085/",
+    "db_name": "tehnetux",
+    "blog_public": "0",
+    "mail_blocked": true,
+    "http_blocked": true,
+    "cron_disabled": true,
+    "http_probe_blocked": true,
+    "payments_disabled": true
+   },
+   "expected": "identical 9-field set from tn-fixture-helpers.cjs evaluatePreflight",
+   "match": true
+  },
+  {
+   "name": "isolation_network",
+   "observed": {
+    "fixture_network": "tehnet-ux-preview-20261016",
+    "members": {
+     "tehnet-ux-preview-wordpress": "172.18.0.3",
+     "tehnet-ux-preview-db": "172.18.0.2"
+    },
+    "production_stacks_on_other_networks": {
+     "tehnet-db": "tehnet-internal 172.24.0.4",
+     "tehnet-wordpress": "tehnet-internal 172.24.0.2",
+     "mytel-wp-db": "mytel-wp_default 172.23.0.2",
+     "tehnet-software": "tehnet-software_software 172.19.0.2",
+     "tunnelpannel-tehnet-web": "host network"
+    }
+   },
+   "match": true,
+   "note": "app+db are ALONE on the dedicated bridge; production stacks are on different networks — docker-DNS reachability from the fixture to shared DBs does not exist by network membership"
+  },
+  {
+   "name": "db_binding",
+   "observed": {
+    "wp_config_DB_NAME": "tehnetux",
+    "wp_config_DB_HOST": "tehnet-ux-preview-db"
+   },
+   "expected": {
+    "db_name": "tehnetux",
+    "db_host": "fixture's own db container on the dedicated network"
+   },
+   "match": true
+  },
+  {
+   "name": "port_binding",
+   "observed": {
+    "docker_port": "NO published ports (80/tcp: null)",
+    "listener_18085": "ABSENT on host",
+    "http_via_host_localhost_18085": "HTTP 000"
+   },
+   "expected": "dead binding is a KNOWN state — HANDOFF.md documents the workaround (tunnel directly to container IP 172.18.0.3:80 via SSH)",
+   "match": true,
+   "note": "observed, not routed around: for the qualification the HTTP marker was read server-side via the container IP with Host header"
+  },
+  {
+   "name": "http_db_marker_match",
+   "command": "curl -H 'Host: localhost:18085' http://172.18.0.3/ (server-side READ-ONLY GET)",
+   "observed": {
+    "http": "200",
+    "page_title": "تهران نتورک | TehNet – آموزش، خدمات و تجهیزات شبکه",
+    "wp_option_blogname": "تهران نتورک | TehNet",
+    "wp_option_siteurl": "http://localhost:18085"
+   },
+   "match": true,
+   "note": "served-page marker matches DB option values — server-side observation; the FULL real-browser marker match belongs to the gated journey"
+  },
+  {
+   "name": "installed_payload_hashes",
+   "observed": {
+    "tmp_tn_ux_fixture_php": "171275330803a985ebeac32c6b5e213862e5aebd9c7449788ab19a76fc1d1d53",
+    "tmp_tn_ux_parts_json": "2ce6c8d9e3edce36132f499a47cb16a12826628bdd724602202cdaba0dae7ef6",
+    "tmp_tn_ux_model_glb": "045d23d98142452394dae57fb71692d4d9cf07555e9c84e16dda46500d4b2738"
+   },
+   "note": "installer-bound fixture payload still present in the container"
+  },
+  {
+   "name": "plugins_themes_versions",
+   "observed": {
+    "plugins": {
+     "akismet": "5.7",
+     "hello": "1.7.2",
+     "tehnet-core": "0.3.1",
+     "tehnet-store": "0.7.0",
+     "woocommerce": "11.1.1",
+     "tehnet-ux-isolation": "(no version header)",
+     "tehnet-search-metadata": "0.2.2"
+    }
+   }
+  },
+  {
+   "name": "pure_suite_existing_runtime",
+   "command": "node tests/browser/tn-fixture-helpers.test.cjs",
+   "exit": 0,
+   "utc": "2026-11-17 (this turn)",
+   "observed": {
+    "total": 46,
+    "pass": 46,
+    "fail": 0
+   },
+   "label": "PURE unit-test suite against existing runtime — explicitly NOT an integration run"
+  }
+ ],
+ "verdict": "FIXTURE QUALIFIED — ownership, isolation, identity, blocks, payload hashes and pure suite all observed green with zero mutations. The INTEGRATION stage (journey/form POST/discovery/cleanup via tn-local-staging-fix2-driver.cjs) remains HELD behind the driver source gate.",
+ "next_stage_command_held_behind_gate": "1) establish the documented access path per HANDOFF.md (SSH tunnel to 172.18.0.3:80 as localhost:18085, or renew the dead 127.0.0.1:18085 docker-proxy binding via ops/prepare-shop-preview.py conventions); 2) TN_BROWSER_BASE=http://localhost:18085 node tests/browser/tn-local-staging-fix2-driver.cjs — executable only AFTER the manager accepts the driver source gate (6913955570 / rev5 / 99adf594).",
+ "not_run": [
+  "journey",
+  "form POST",
+  "discovery",
+  "delete/cleanup",
+  "WordPress/KSES acceptance",
+  "publication"
+ ],
+ "production_touched": false
+}
