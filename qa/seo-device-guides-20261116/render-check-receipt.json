@@ -492,7 +492,7 @@
   "manager-side browser run"
  ],
  "production_touched": false,
- "utc_extended": "2026-11-17T02:57:28Z",
+ "utc_extended": "2026-11-17T03:48:04Z",
  "pages_extra": [
   "tutorials/s2-poe-budget.gutenberg.html",
   "tutorials/s3-sfp-dac-fiber.gutenberg.html",
@@ -984,7 +984,78 @@
     "counter_result": 0,
     "contrast": "the SAME instrumented-style probes DID produce real scroll deltas earlier the same day (01:13-01:30Z runs bound in three_page_candidate_run_20261117), so this is a transient host keyboard-focus loss of the browser pane, not a page property"
    },
-   "not_fabricated": "no scrollLeft assignment, no synthetic dispatch, no padded evidence — the three states remain UNPROVEN for keyboard scrolling on the new hashes until real key events reach the page again"
+   "not_fabricated": "no scrollLeft assignment, no synthetic dispatch, no padded evidence — the three states remain UNPROVEN for keyboard scrolling on the new hashes until real key events reach the page again",
+   "corrections_6937439006": {
+    "chronology": "the earlier attempt window (~02:05-02:20Z as first written) was APPROXIMATE and bound to the PRE-bb5bd1b inputs; attempts on that state cannot establish attempts on later candidates. Receipt-anchored real events: last successful real-keypress deltas bound in three_page_candidate_run_20261117 (utc 2026-11-17T01:13:01Z, old S5 hash); instrumented failed attempts occurred in this session before this receipt section write (02:57:28Z). Exact per-attempt wall times were not captured and are NOT invented.",
+    "root_cause": "UNKNOWN — removed the asserted \"transient host keyboard-focus loss\". A zero document keydown count proves only that the monitored document did not observe those events in those attempts; it does not diagnose host focus, page/tool context, or quota.",
+    "coverage_on_current_hashes": "see s5_n1_guard_refresh_20261117 (below) for the authoritative unproven set on the newest S5 hash; the old S5-desktop N/A applied only to the old S5 input, which had no inner-scroll PRE"
+   }
+  },
+  "not_run": [
+   "RouterOS execution",
+   "WordPress/KSES",
+   "throughput"
+  ],
+  "production_touched": false
+ },
+ "s5_n1_guard_refresh_20261117": {
+  "packet": "TN-S5-N1-GUARD-FIX-20261117 (per MANAGER_REVIEW 6937439006: N1 same-prefix redesign + per-device braced guards)",
+  "utc": "2026-11-17T03:48:04Z",
+  "git_head_at_run": "699bcf66c268303762e2100e8ac30daa265032fa",
+  "executed_by": "GLM — real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138",
+  "style_artifact": {
+   "path": "qa/seo-device-guides-20261116/candidate-preview.css",
+   "sha256": "ae06330b789ed135d144131b1b6b08b8fd03aea8ca7b94cb959c6e2a5af67fc1"
+  },
+  "harness_artifact": {
+   "path": "qa/seo-device-guides-20261116/preview-inject-candidate.js",
+   "sha256": "3109a38c905593bddeb5016c9f3fead1b8fc335a650b49ed06761910cacccaac"
+  },
+  "bound_inputs_sha256": {
+   "tutorials/s5-uplink-trunk.fa.md": "ca521f3dcd5f4db8e99574137668461fe6c6ab0d65bd3a8fc465c8f3fa00b916",
+   "tutorials/s5-uplink-trunk.gutenberg.html": "c6f10c501ef697f0acd8c722eab28bd403c3606568036e6b9ad1a195cc7061ad",
+   "assets/tutorial-s5-uplink-trunk.svg": "783a734f9f41b7394d5b049d64b95542c29f5a761aef0f52fa203c6c6f78ccda"
+  },
+  "s5_metrics_current_hash": {
+   "desktop_1280x900": {
+    "doc_overflow_px": 0,
+    "images_total": 1,
+    "images_loaded": 1,
+    "pre_total": 3,
+    "pre_with_inner_scroll": 2,
+    "table_total": 7,
+    "table_with_inner_scroll": 0,
+    "containers_focusable": 10
+   },
+   "mobile_390x844": {
+    "doc_overflow_px": 0,
+    "images_total": 1,
+    "images_loaded": 1,
+    "pre_total": 3,
+    "pre_with_inner_scroll": 3,
+    "table_total": 7,
+    "table_with_inner_scroll": 5,
+    "containers_focusable": 10
+   }
+  },
+  "keyboard_unproven_set_on_current_hashes": {
+   "status": "NOT_PROVEN for real-keypress scrolling — kept open, no fabricated evidence",
+   "m2_mobile_PRE": "unproven (never captured on any hash; TABLE was captured in three_page_candidate_run on still-current M2 hash)",
+   "m3_mobile_TABLE": "unproven (never captured; PRE was captured on still-current M3 hash)",
+   "s5_desktop_PRE": "unproven on this candidate — new S5 hash HAS 1-2 inner-scroll PREs on desktop, so the old N/A (old hash, zero inner-scroll) no longer applies",
+   "s5_mobile_PRE": "unproven on this candidate (old capture bound to previous S5 hash 4a7ec54e…)",
+   "s5_mobile_TABLE": "unproven on this candidate",
+   "still_valid_confirmations": "M2-mobile TABLE and M3-mobile PRE real-keypress confirmations from three_page_candidate_run_20261117 remain bound to M2/M3 hashes that have NOT changed since (2c47ab28… / cbe8cc40…)"
+  },
+  "bounded_targeted_retry_this_session": {
+   "method": "single instrumented attempt on the current candidate: document keydown counter + focus + one cua.keypress ArrowLeft on the first scrollable PRE, mobile 390x844",
+   "result": {
+    "keys_observed": 0,
+    "focus_verified": true,
+    "scrollLeft": 0
+   },
+   "policy": "bounded targeted recovery only through existing channels; no blind retry loops, no synthetic events, no scrollLeft assignment, no new software/providers",
+   "cause": "UNKNOWN (not diagnosed)"
   },
   "not_run": [
    "RouterOS execution",

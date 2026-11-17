@@ -58,62 +58,72 @@
 
 **توجه سازوکار — صادقانه از ماتریس رسمی:** طبق جدول ‏«Bridge hardware offloading» سند ‏Bridging and Switching، سری ‏CRS1xx/CRS2xx ‏(شامل CRS112) برای ‏«Bridge VLAN Filtering» آفلود سخت‌افزاری **ندارد** — یعنی با `vlan-filtering=yes` روی پل، سوئیچینگ VLAN مسیر CPU ‏(نرم‌افزاری) را طی می‌کند و هیچ ظرفیت ‏wire-speed‌ای برای این پیکربندی ادعا **نمی‌شود**؛ این درس فقط درستی پیکربندی و جداسازی را آزمون می‌کند و throughput را اندازه نمی‌گیرد ‏(اندازه‌گیری ظرفیت واقعی = الگوی N2، در این محیط NOT_RUN). اگر VLAN-filtering سخت‌افزاری لازم است: مدل سری ‏CRS3xx با ردیف ✓ ماتریس ‏(مثل پل مرکزی همین درس، CRS326-24G-2S+RM) یا روش switch-chip مخصوص ‏CRS1xx/2xx ‏(راهنمای Basic VLAN switching سند رسمی) انتخاب شود. پس از هر تغییر، پرچم `H` پورت‌ها در `/interface bridge port print` بازبینی شود — پرچم، صادقانه وضعیت آفلود فعلی را نشان می‌دهد، آن را نمی‌سازد.
 
+**بلوک ۱ از ۲ — سمت CRS112 ‏(طبقه):** گارد و تمام تغییرات همین دستگاه در **یک `{ }` واحد** — خطای گارد، کل اسکریپت همان دستگاه را متوقف می‌کند و به فرمان‌های بعدی fall-through نمی‌کند. هر بلوک مستقلاً قابل‌کپی و مستقلاً قابل‌اجرا است ‏(معنای scope تعاملی و `:error` طبق سند scripting):
+
 ```routeros
-# --- گارد مبنا (روی هر دو سوئیچ، پیش از هر اثر) ---
+# --- بلوک CRS112 (طبقه) — گارد + همهٔ تغییرات همین دستگاه در یک scope ---
 {
-    :if ([:len [/interface bridge find]] > 0) do={ :error "TN-S5: bridge(s) exist — not the assumed no-defaults baseline; dispose the lab state explicitly first, do not guess or merge" }
-    :if ([:len [/interface bridge port find]] > 0) do={ :error "TN-S5: bridge-port memberships exist — not the assumed baseline" }
-    :put "TN-S5: baseline OK (no bridge, no memberships)"
+    :if ([:len [/interface bridge find]] > 0) do={ :error "TN-S5/CRS112: bridge(s) exist — not the assumed no-defaults baseline; dispose the lab state explicitly first, do not guess or merge" }
+    :if ([:len [/interface bridge port find]] > 0) do={ :error "TN-S5/CRS112: bridge-port memberships exist — not the assumed baseline" }
+    /interface bridge
+    add name=bridge1 vlan-filtering=no protocol-mode=rstp
+    /interface bridge port
+    add bridge=bridge1 interface=ether1 pvid=10
+    add bridge=bridge1 interface=ether2 pvid=10
+    add bridge=bridge1 interface=ether3 pvid=10
+    add bridge=bridge1 interface=ether4 pvid=10
+    add bridge=bridge1 interface=ether5 pvid=10
+    add bridge=bridge1 interface=ether6 pvid=20
+    add bridge=bridge1 interface=ether7 pvid=20
+    add bridge=bridge1 interface=ether8 frame-types=admit-only-vlan-tagged comment="uplink trunk 1G Cat6"
+    # جدول VLAN: ترانک تگ‌دار برای هر سه VLAN + اعضای access
+    /interface bridge vlan
+    add bridge=bridge1 vlan-ids=10 tagged=ether8 untagged=ether1,ether2,ether3,ether4,ether5
+    add bridge=bridge1 vlan-ids=20 tagged=ether8 untagged=ether6,ether7
+    add bridge=bridge1 vlan-ids=88 tagged=ether8,bridge1
+    # مسیر مدیریت روی VLAN88 (الگوی tagged CPU path)
+    /interface vlan
+    add name=mgmt88 vlan-id=88 interface=bridge1
+    /ip address
+    add address=192.168.88.2/24 interface=mgmt88
+    # فیلترینگ آخرِ همین بلوک — بازگشت: از جلسهٔ MAC/Console: /interface bridge set bridge1 vlan-filtering=no
+    /interface bridge
+    set bridge1 vlan-filtering=yes
+    :put "TN-S5/CRS112: complete (filtering enabled last)"
 }
-
-# --- سمت CRS112 (طبقه) — ساخت از صفر ---
-/interface bridge
-add name=bridge1 vlan-filtering=no protocol-mode=rstp
-/interface bridge port
-add bridge=bridge1 interface=ether1 pvid=10
-add bridge=bridge1 interface=ether2 pvid=10
-add bridge=bridge1 interface=ether3 pvid=10
-add bridge=bridge1 interface=ether4 pvid=10
-add bridge=bridge1 interface=ether5 pvid=10
-add bridge=bridge1 interface=ether6 pvid=20
-add bridge=bridge1 interface=ether7 pvid=20
-add bridge=bridge1 interface=ether8 frame-types=admit-only-vlan-tagged comment="uplink trunk 1G Cat6"
-# جدول VLAN: ترانک تگ‌دار برای هر سه VLAN + اعضای access
-/interface bridge vlan
-add bridge=bridge1 vlan-ids=10 tagged=ether8 untagged=ether1,ether2,ether3,ether4,ether5
-add bridge=bridge1 vlan-ids=20 tagged=ether8 untagged=ether6,ether7
-add bridge=bridge1 vlan-ids=88 tagged=ether8,bridge1
-# مسیر مدیریت روی VLAN88 (الگوی tagged CPU path)
-/interface vlan
-add name=mgmt88 vlan-id=88 interface=bridge1
-/ip address
-add address=192.168.88.2/24 interface=mgmt88
-# فیلترینگ آخر — با مسیر بازگشت: set bridge1 vlan-filtering=no از جلسهٔ MAC/Console
-/interface bridge
-set bridge1 vlan-filtering=yes
-
-# --- سمت CRS326 (مرکز) — ساخت از صفر، همان گارد مبنا اعمال شده ---
-/interface bridge
-add name=bridge1 vlan-filtering=no protocol-mode=rstp
-# عضویت ترانک و نقاط آزمون: add صریح (مبنا بدون عضویت است — set روی رکورد ناموجود کار نمی‌کند)
-/interface bridge port
-add bridge=bridge1 interface=ether24 frame-types=admit-only-vlan-tagged ingress-filtering=yes comment="uplink trunk از CRS112"
-add bridge=bridge1 interface=ether1 pvid=10 comment="کاربر آزمون VLAN10 (U-C1)"
-add bridge=bridge1 interface=ether2 pvid=20 comment="دوربین آزمون VLAN20 (C-C1)"
-# جدول VLAN: ترانک تگ‌دار + اعضای آزمون + مسیر CPU مدیریت (خودِ پل عضو تگ‌دار 88)
-/interface bridge vlan
-add bridge=bridge1 vlan-ids=10 tagged=ether24 untagged=ether1
-add bridge=bridge1 vlan-ids=20 tagged=ether24 untagged=ether2
-add bridge=bridge1 vlan-ids=88 tagged=ether24,bridge1
-# مسیر مدیریت سمت مرکز
-/interface vlan
-add name=mgmt88 vlan-id=88 interface=bridge1
-/ip address
-add address=192.168.88.3/24 interface=mgmt88
-# فیلترینگ آخر — با مسیر بازگشت: set bridge1 vlan-filtering=no از جلسهٔ MAC/Console
-/interface bridge
-set bridge1 vlan-filtering=yes
 ```
+
+**بلوک ۲ از ۲ — سمت CRS326 ‏(مرکز):** همان ساختار، گارد مستقل خودش:
+
+```routeros
+# --- بلوک CRS326 (مرکز) — گارد + همهٔ تغییرات همین دستگاه در یک scope ---
+{
+    :if ([:len [/interface bridge find]] > 0) do={ :error "TN-S5/CRS326: bridge(s) exist — not the assumed no-defaults baseline; dispose the lab state explicitly first, do not guess or merge" }
+    :if ([:len [/interface bridge port find]] > 0) do={ :error "TN-S5/CRS326: bridge-port memberships exist — not the assumed baseline" }
+    /interface bridge
+    add name=bridge1 vlan-filtering=no protocol-mode=rstp
+    /interface bridge port
+    add bridge=bridge1 interface=ether24 frame-types=admit-only-vlan-tagged ingress-filtering=yes comment="uplink trunk از CRS112"
+    add bridge=bridge1 interface=ether1 pvid=10 comment="کاربر آزمون VLAN10 (U-C1)"
+    add bridge=bridge1 interface=ether2 pvid=20 comment="دوربین آزمون VLAN20 (C-C1)"
+    # جدول VLAN: ترانک تگ‌دار + اعضای آزمون + مسیر CPU مدیریت (خودِ پل عضو تگ‌دار 88)
+    /interface bridge vlan
+    add bridge=bridge1 vlan-ids=10 tagged=ether24 untagged=ether1
+    add bridge=bridge1 vlan-ids=20 tagged=ether24 untagged=ether2
+    add bridge=bridge1 vlan-ids=88 tagged=ether24,bridge1
+    # مسیر مدیریت سمت مرکز
+    /interface vlan
+    add name=mgmt88 vlan-id=88 interface=bridge1
+    /ip address
+    add address=192.168.88.3/24 interface=mgmt88
+    # فیلترینگ آخرِ همین بلوک — بازگشت: از جلسهٔ MAC/Console: /interface bridge set bridge1 vlan-filtering=no
+    /interface bridge
+    set bridge1 vlan-filtering=yes
+    :put "TN-S5/CRS326: complete (filtering enabled last)"
+}
+```
+
+هر بلوک روی دستگاه خودش جداگانه اجرا می‌شود؛ شکست گارد هر بلوک فقط همان دستگاه را متوقف می‌کند و هیچ تغییری از آن دستگاه اعمال نمی‌شود ‏(checkها و همهٔ تغییرات در یک scope؛ بدون fall-through به تغییرات). فیلترینگ همچنان آخرین دستورِ هر بلوک است و مسیر بازگشت MAC-Winbox/Console حفظ شده است.
 
 ### جدول نقاط پایانی آزمون — فرضی، با IP/پیش‌فرض صریح
 
@@ -125,8 +135,12 @@ set bridge1 vlan-filtering=yes
 | ‏C-C1 | دوربین آزمون مرکز | ‏CRS326 ether2 ‏(access ‏pvid20) | ‏20 | ‏192.168.20.11/24 | بدون gateway |
 | ‏M-F | CPU خودِ CRS112 | مسیر ‏mgmt88 | ‏88 | ‏192.168.88.2/24 | — |
 | ‏M-C | CPU خودِ CRS326 | مسیر ‏mgmt88 | ‏88 | ‏192.168.88.3/24 | — |
+| ‏N-T1 | میزبان آزمون منفی ‏(سنتز) | ‏CRS112 ether4 ‏(access ‏pvid10) | ‏10 | ‏192.168.99.10/24 | بدون gateway — فقط fixture |
+| ‏N-T2 | میزبان آزمون منفی ‏(سنتز) | ‏CRS112 ether7 ‏(access ‏pvid20) | ‏20 | ‏192.168.99.11/24 | بدون gateway — فقط fixture |
 
 نکتهٔ صادقانه: در این مبنا هیچ پورت access-88 برای میزبان مدیریتی فیزیکی پیکربندی نشده — پروب مدیریت، **دستور سمت سوئیچ با مبدأ مسیر mgmt88** است ‏(ردیف ‏P3). اگر میزبان مدیریتی فیزیکی لازم شد، یک پورت access با pvid=88 باید به هر دو جدول VLAN اضافه و در همین جدول اعلام شود.
+
+**چرا ‏N-T1/N-T2 با پیشوند یکسان ‏(192.168.99.0/24):** تصمیم local/remote هر میزبان طبق ‏RFC1122 §3.3.1.1 از مقایسهٔ پیشوند گرفته می‌شود؛ دو میزبان هم‌پیشوند همدیگر را on-link می‌دانند و ARP مستقیم می‌فرستند — پس اگر VLAN جداسازی کند، ARP بی‌پاسخ می‌ماند و timeout دقیقاً معنای لایه۲ دارد، بدون عامل مخدوش‌کنندهٔ «نبود مسیر off-link». آزمون منفی قدیمی ‏(دو /24 متفاوت بدون gateway) همین confound را داشت و حذف شد. این دو میزبان و آدرس‌هایشان فقط متعلق به fixture سنتز همین درس‌اند و plan پاکسازی‌شان در ردیف ‏N1 آمده است.
 
 ### پروب‌ها — مبدأ/مقصد/فرمان/شاهد دقیق
 
@@ -135,7 +149,8 @@ set bridge1 vlan-filtering=yes
 | ‏P1 ‏مثبت جفت کاربر | ‏U-F1 | `ping 192.168.88.11` | ‏U-C1 ‏(همان ‏VLAN10، از ترانک) | پاسخ | replies + ورودی ‏192.168.88.11 در `arp -a` ‏U-F1 |
 | ‏P2 ‏مثبت جفت دوربین | ‏C-F1 | `ping 192.168.20.11` | ‏C-C1 ‏(همان ‏VLAN20، از ترانک) | پاسخ | replies + ورودی ARP |
 | ‏P3 ‏مدیریت CPU هر دو سوئیچ | روی خودِ CRS112: `/ping 192.168.88.3` ‏(مبدأ: مسیر ‏mgmt88) | و معکوس روی ‏CRS326: `/ping 192.168.88.2` | ‏M-C ‏/ ‏M-F | پاسخ دوطرفه | اثبات مسیر CPU تگ‌دار هر دو سوئیچ |
-| ‏N1 ‏منفی لایه۲ + کنترل مثبت | ‏U-F1 | `ping 192.168.20.10` | ‏C-F1 ‏(cross-VLAN) | بدون مسیریاب: timeout؛ `arp -a` ‏U-F1 ورودی ‏192.168.20.x ندارد | **کنترل مثبت همان روش:** بلافاصله `ping 192.168.88.11` ‏(P1) موفق — پس روش تست سالم است و شکست مختص مرز VLAN است |
+| ‏N1 ‏منفی لایه۲ ‏(هم‌پیشوند، دو VLAN) + کنترل مثبت disposable | ‏N-T1 ‏(192.168.99.10، ‏VLAN10) | `ping 192.168.99.11` | ‏N-T2 ‏(192.168.99.11، ‏VLAN20) — هم‌پیشوند، پس ARP on-link تلاش می‌شود | بدون مسیریاب و بدون gateway: timeout؛ `arp -a` ‏N-T1 ورودی ‏192.168.99.11 را incomplete/ناموجود نشان می‌دهد | **کنترل مثبت disposable با cleanup خودش:** موقتاً ether7 به ‏pvid=10 و ردیف‌های جدول ‏(خارج از untagged-20، داخل untagged-10) → همین ping باید موفق شود → اثبات سالم‌بودن میزبان‌ها و روش؛ سپس بازگرداندن ether7 به ‏pvid=20 و ردیف‌های قبلی ‏(cleanup) و تکرار N1 برای تأیید بازگشت جداسازی |
+| ‏امضای شکست مرز VLAN | — | — | — | اگر جداسازی بشکند ‏(مثلاً ردیف جدول اشتباه)، همین N1 در حالت دو-VLAN **موفق** می‌شود ‏(پل بین دو میزبان هم‌پیشوند عبور می‌دهد) و ARP پر می‌شود — این الگو، شکست مرز را از «نبود مسیر» جدا می‌کند | نبود مسیریابی به‌تنهایی دلیلی برای timeout این آزمون نیست ‏(چون on-link است)؛ پذیرش سیاست/فایروال بین-VLAN همچنان کار M2/M4 |
 | ‏N2 ‏فریم untagged سمت روتر | روتر ‏(خارج از درس) | ارسال untagged به ‏ether8/ether24 | پورت‌های ترانک | drop ‏(frame-types فقط-تگ‌دار) | شمارش drop یا sniffer اختیاری |
 
 **تفکیک صریح لایه۲ از لایه۳:** اگر روتر بالادستی بین VLANها مسیریابی کند، همین ping‏ِ N1 موفق می‌شود — اما مسیرش لایه۳ است ‏(`tracert` گام اول = روتر)؛ پذیرش سیاست/فایروال بین-VLAN کار درس‌های M2/M4 است و در این درس ادعا یا آزمون نمی‌شود. «هر دو طرف مسیر مدیریت دارند» فقط وقتی معنا دارد که ‏P3 با مبدأ/مقصد نام‌برده اجرا و ثبت شده باشد — ردیف جدول چاپی به‌تنهایی اثبات forward/isolation نیست (الگوی N4).
@@ -151,7 +166,7 @@ set bridge1 vlan-filtering=yes
 | ‏۱ | هر VLAN از هر دو طرف روی پورت آپ‌لینک تگ‌دار ثبت شده؟ | `/interface bridge vlan print` هر دو سوئیچ معادل — ‏ether8/ether24 تگ‌دار برای ‏10/20/88 |
 | ‏۲ | ترافیک هر VLAN از ترانک عبور می‌کند؟ | پروب‌های ‏P1 ‏(U-F1→U-C1، ‏VLAN10) و ‏P2 ‏(C-F1→C-C1، ‏VLAN20) طبق جدول پروب |
 | ‏۳ | مسیر CPU مدیریت هر دو سوئیچ زنده است؟ | پروب ‏P3: `/ping 192.168.88.3` از CRS112 و `/ping 192.168.88.2` از CRS326 ‏(مبدأ مسیر ‏mgmt88) |
-| ‏۴ | جداسازی‌ها حفظ شده؟ | پروب ‏N1 با کنترل مثبت ‏(P1) + ‏N2: untagged روی پورت‌های ترانک drop ‏(تگ‌دار-فقط) |
+| ‏۴ | جداسازی‌ها حفظ شده؟ | پروب ‏N1 ‏(هم‌پیشوند دو-VLAN + کنترل مثبت disposable داخلی خودش) + ‏N2: untagged روی پورت‌های ترانک drop ‏(تگ‌دار-فقط) |
 | ‏۵ | ظرفیت آپ‌لینک ≥ جمع محتمل؟ | محاسبهٔ بالا ‏(مبنا ‏۷ پورت) + مانیتور ‏(الگوی N2) — throughput در این درس NOT_RUN |
 
 ## خطاهای رایج
@@ -170,6 +185,7 @@ set bridge1 vlan-filtering=yes
 3. ‏(تمرین فرضی — غیر از مبنا) ‏۱۲ پورت 1G پشت آپ‌لینک 1G یعنی چه؟ — **پاسخ موردانتظار:** این سناریو مبنای درس نیست ‏(مبنا ‏۷ پورت است)؛ به‌عنوان فرض جدا: ‏12÷4 = ‏3G و ‏12÷8 = ‏1.5G یعنی ‏1G هیچ انتهایی از آن بازه را برآورده نمی‌کند — oversubscription تئوریک سنگین؛ ارتقای آپ‌لینک/مدل لازم.
 4. VLAN مدیریتی 88 را به ترانک اضافه نکنیم؟ — **پاسخ موردانتظار:** مدیریت سوئیچ طبقه از مرکز ناممکن می‌شود ‏(تست ‏۳ ماتریس: ‏88.2↔88.3 رد می‌شود)؛ یا باید مسیر مدیریتی جدا باشد.
 5. کابل آپ‌لینک رک‌به‌رک ۱ متری روی CRS112؟ — **پاسخ موردانتظار:** پورت‌های SFP این مدل ‏1G هستند؛ ‏S+DA0001 ‏(DAC ‏10G) برای این مدل گزینهٔ درستی نیست — Cat6 ‏RJ45 ‏1G یا ماژول ‏1G SFP مناسب فاصله (الگوی S3؛ مدل دقیق ماژول per-لینک UNKNOWN تا انتخاب).
+6. در آزمون ‏N1 چرا دو میزبان باید ‏هم‌پیشوند باشند؟ — **پاسخ موردانتظار:** تا ARP on-link تلاش شود و timeout معنای جداسازی لایه۲ بدهد؛ با دو پیشوند متفاوت و بدون gateway، ping حتی بدون جداسازی هم fail می‌شد ‏(تصمیم local/remote طبق ‏RFC1122 §3.3.1.1) و نتیجه مبهم می‌ماند.
 
 ## چک‌لیست تحویل
 
@@ -177,12 +193,15 @@ set bridge1 vlan-filtering=yes
 - [ ] مدیوم آپ‌لینک بر پایهٔ فاصله/سرعت انتخاب شده (الگوی S3)
 - [ ] جدول VLAN هر دو طرف یکسان و کامل (همهٔ VLANهای عبوری)
 - [ ] پورت آپ‌لینک هر دو طرف frame-types تگ‌دار
-- [ ] تست‌های چهارگانهٔ جدول بررسی ترانک اجرا و ثبت شده (اجرای واقعی NOT_RUN)
+- [ ] ماتریس پنج‌پروبی ‏(P1-P3 مثبت، ‏N1 منفی هم‌پیشوند با کنترل disposable + cleanup، ‏N2 untagged) برنامه‌ریزی/ثبت شده ‏(اجرای واقعی NOT_RUN)
+- [ ] آدرس‌های سنتز ‏N-T1/N-T2 فقط در fixture و plan پاکسازی‌شان نوشته شده
 - [ ] مانیتور ظرفیت آپ‌لینک در چک‌لیست دوره‌ای (الگوی N2)
 
-## منابع (تأیید/تاریخ‌دار)
+## منابع (تأیید/نسخه/تاریخ‌دار)
 
-- Bridging and Switching — ترانک تگ‌دار و جدول VLAN: https://manual.mikrotik.com/docs/bridging-and-switching/ (دسترسی 2026-11-16)
+- Bridging and Switching — ترانک تگ‌دار، جدول VLAN و جدول ‏HW-offloading ‏(ردیف CRS1xx/2xx بدون آفلود VLAN-filtering): https://manual.mikrotik.com/docs/bridging-and-switching/ ‏(دسترسی ‏2026-11-17)
+- صفحهٔ رسمی محصول ‏CRS112-8P-4S-IN ‏(هشت‌GbE ‏PoE-out + چهار ‏SFP ‏1G): https://mikrotik.com/product/crs112_8p_4s_in ‏(دسترسی ‏2026-11-17)
+- ‏RFC1122 §3.3.1.1 — تصمیم ‏local/remote میزبان ‏(مبنای طراحی هم‌پیشوند آزمون ‏N1): https://www.rfc-editor.org/rfc/rfc1122#section-3.3.1.1 ‏(دسترسی ‏2026-11-17)
 - انتخاب ماژول/کابل آپ‌لینک: [S3](s3-sfp-dac-fiber.fa.md) + صفحات رسمی ماژول‌ها با تاریخ دسترسی همان درس
 - تجربهٔ مهندسی ضریب تجمعی — فرض آموزشی با برچسب UNKNOWN، نه قاعدهٔ قطعی
 
