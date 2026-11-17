@@ -104,11 +104,34 @@ ok('post-read: valid empty inventory accept', () => {
   assert(v.verified === true);
 });
 throws('post-read: wrong run_marker reject', () => {
-  S.evaluatePostRead({ success: true, run_marker: 'WRONG-MARKER', remaining: [] }, PLAN);
-}, 'run_marker');
+  const OTHER_VM = S.newRunMarker(1700000000001, 0.5);
+  assert(S.isRunMarker(OTHER_VM), 'other marker must be valid');
+  assert(OTHER_VM !== VM, 'other marker must be distinct');
+  S.evaluatePostRead({ success: true, run_marker: OTHER_VM, remaining: [] }, PLAN);
+}, 'does not match plan marker');
 throws('post-read: no run_marker reject', () => {
   S.evaluatePostRead({ success: true, remaining: [] }, PLAN);
-}, 'run_marker');
+}, 'run_marker missing');
+
+/* readability regressions (previously removed) */
+ok('readability: exact marker-value positive', () => {
+  assert(S.evaluateMarkerReadability(VM, VM, VM).ok);
+});
+ok('readability: empty expected marker reject', () => {
+  assert(!S.evaluateMarkerReadability('', VM, VM).ok);
+});
+ok('readability: empty observed field reject', () => {
+  assert(!S.evaluateMarkerReadability(VM, '', VM).ok);
+});
+ok('readability: prefix collision reject', () => {
+  assert(!S.evaluateMarkerReadability(VM + '-extra', VM + '-extra', VM).ok);
+});
+ok('readability: suffix collision reject', () => {
+  assert(!S.evaluateMarkerReadability('pre-' + VM, 'pre-' + VM, VM).ok);
+});
+ok('readability: different marker reject', () => {
+  assert(!S.evaluateMarkerReadability('TN-SYN-diff-123456', 'TN-SYN-diff-123456', VM).ok);
+});
 
 console.log('TOTAL=' + (pass + fail) + ' PASS=' + pass + ' FAIL=' + fail);
 if (fail > 0) process.exit(1);
