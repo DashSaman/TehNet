@@ -1295,9 +1295,9 @@
    "table_with_inner_scroll": 5,
    "containers_focusable": 10
   },
-  "image_method_note": "loading=lazy image below fold; IAB lazy machinery did not fire this turn (in-viewport after scrollIntoView, currentSrc empty, no resource entry); preview server serves the asset HTTP 200 image/svg+xml 6615 bytes (curl-verified); loaded after documented eager-forcing in the mobile pass - mobile final images_loaded=1/1 naturalWidth=960; desktop pass image remained incomplete (recorded honestly as 0/1 at desktop metrics time)",
+  "image_method_note": "loading=lazy image below fold; IAB lazy machinery did not fire this turn (in-viewport after scrollIntoView, currentSrc empty, no resource entry); preview server serves the asset HTTP 200 image/svg+xml 6615 bytes (curl-verified); loaded after documented eager-forcing in the mobile pass - mobile final images_loaded=1/1 naturalWidth=960; desktop pass image remained incomplete (recorded honestly as 0/1 at desktop metrics time); the eager-forced mobile load does NOT establish natural lazy-loading success of the unchanged artifact",
   "keyboard_probes": {
-   "status": "NOT_REFRESHED - real-keypress input delivery path dead this turn; bounded instrumented attempt only, no blind retry loops",
+   "status": "NOT_REFRESHED - zero key events observed/delivered on the monitored page this turn (bounded instrumented observation: one real keypress dispatched, focus verified, eventCount=0); this zero-event result does NOT prove the whole input pipeline is dead and does not identify a cause - cause UNKNOWN; no blind retry loops",
    "probes": {
     "desktop_PRE_0of2": {
      "extents": "scrollWidth 1391 / clientWidth 798 (exactly matched keyboard_completion_20261117)",
@@ -1340,6 +1340,109 @@
    "cause": "UNKNOWN (not diagnosed) - same transient signature as the bounded retry recorded in s5_n1_guard_refresh_20261117 (keys_observed=0, focus_verified=true); pipeline previously revived in a later turn without any tool/provider change",
    "history_preserved": "keyboard_completion_20261117 (05:07:48Z) per-TYPE S5 deltas retained as history, NOT relabeled as new; they remain bound to previous hashes",
    "impact": "layout+image evidence refreshed on the new hashes; keyboard deltas remain those of keyboard_completion_20261117 bound to previous hashes"
+  },
+  "not_run": [
+   "RouterOS execution",
+   "WordPress/KSES",
+   "production publish"
+  ],
+  "production_touched": false,
+  "wording_revision_note": "status/image wording corrected in place per MANAGER_REVIEW 6951620181 update 2026-11-17T16:02:17Z; raw measurements unchanged"
+ },
+ "s5_peer_identity_refresh_20261117": {
+  "packet": "TN-S5-PEER-IDENTITY-6951620181-20261117 (MANAGER_REVIEW 6951620181 update 16:02:17Z: directed only-peer ARP identities + restore/record/teardown order + N1 phase table)",
+  "utc": "2026-11-17T16:07:57Z",
+  "git_head_at_run": "5a66b7e7e42b66d20ceb12015c0395f13857410a (pre-commit head; the packet commit delivers this receipt together with the corrected content)",
+  "executed_by": "GLM - real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138",
+  "style_artifact": {
+   "path": "qa/seo-device-guides-20261116/candidate-preview.css",
+   "sha256": "ae06330b789ed135d144131b1b6b08b8fd03aea8ca7b94cb959c6e2a5af67fc1"
+  },
+  "harness_artifact": {
+   "path": "qa/seo-device-guides-20261116/preview-inject-candidate.js",
+   "sha256": "3109a38c905593bddeb5016c9f3fead1b8fc335a650b49ed06761910cacccaac"
+  },
+  "bound_inputs_sha256": {
+   "tutorials/s5-uplink-trunk.fa.md": "4022135994e733f169a2afa73c9193804103eb57f427e709da916806c7040859",
+   "tutorials/s5-uplink-trunk.gutenberg.html": "58d59a553712dd6ca9ab6698553e55cccbc3b6c2f8b92a454b88494caf766f4a",
+   "assets/tutorial-s5-uplink-trunk.svg": "783a734f9f41b7394d5b049d64b95542c29f5a761aef0f52fa203c6c6f78ccda (unchanged)"
+  },
+  "rebuild": {
+   "command": "node content/seo-device-guides-20261116/articles/build-gutenberg.cjs",
+   "runs": "build1 exit 0 (16:06Z), build2 exit 0, explicit A/B rerun exit 0 - A and B hashes identical; validator freshness rerun also byte-identical",
+   "html_sha256": "58d59a553712dd6ca9ab6698553e55cccbc3b6c2f8b92a454b88494caf766f4a",
+   "pre_build_html_sha256": "8316e196231160f707cdff6bfec25e650e99a0af3695c9453fb04ca5decbbbcc (the review-bound previous hash)"
+  },
+  "validator": {
+   "command": "node qa/seo-device-guides-20261116/validate-seo-guides.cjs",
+   "exit": 0,
+   "good_candidate": {
+    "ok": true,
+    "checks": 162,
+    "failed": 0
+   },
+   "injected_negatives": "14/14 rejected-with-reason",
+   "output_freshness": "PASS - builder rerun byte-identical for 24 gutenberg outputs"
+  },
+  "content_scope": "only N1 row cell 6 (directed only-peer identities N-T1<->192.168.99.11 / N-T2<->192.168.99.10, no self entry/wildcard/global flush; explicit restore -> keep addresses/preconditions -> peer reset/verify -> record phase3 -> only-then teardown) + new N1 phase table after the probes table; prior closed corrections unchanged",
+  "s5_metrics_desktop_1280x900": {
+   "doc_overflow_px": 0,
+   "images_total": 1,
+   "images_loaded_final": 1,
+   "pre_total": 3,
+   "pre_with_inner_scroll": 2,
+   "table_total": 8,
+   "table_with_inner_scroll": 0,
+   "containers_focusable": 11
+  },
+  "s5_metrics_mobile_390x844": {
+   "doc_overflow_px": 0,
+   "images_total": 1,
+   "images_loaded_final": 1,
+   "pre_total": 3,
+   "pre_with_inner_scroll": 3,
+   "table_total": 8,
+   "table_with_inner_scroll": 6,
+   "containers_focusable": 11
+  },
+  "image_note": "loading=lazy image below fold; IAB lazy machinery did not fire this turn either (resTransfer 0 after eager-forcing = served from cache); asset served HTTP 200 image/svg+xml by preview server (curl-verified earlier today); both viewports final images_loaded=1/1 AFTER documented eager-forcing - this does NOT establish natural lazy-loading success of the unchanged artifact",
+  "keyboard_probes": {
+   "status": "REFRESHED on the new hashes - real-keypress input path live this turn; per-TYPE deltas recorded (no blind retry needed; single pass per viewport)",
+   "probes": {
+    "desktop_PRE_0of2": {
+     "extents": "1391/798",
+     "deltas_px": {
+      "ArrowRight": 0,
+      "ArrowLeft": 3.2,
+      "End": 0,
+      "Home": 7.2
+     },
+     "keyboard_scroll_confirmed": true
+    },
+    "mobile_PRE_0of3": {
+     "extents": "706/214",
+     "deltas_px": {
+      "ArrowRight": 0,
+      "ArrowLeft": 12.8,
+      "End": 0,
+      "Home": 7.2
+     },
+     "keyboard_scroll_confirmed": true
+    },
+    "mobile_TABLE_0of6": {
+     "extents": "214/135",
+     "deltas_px": {
+      "ArrowRight": 0,
+      "ArrowLeft": 0,
+      "End": 0,
+      "Home": 3.2
+     },
+     "keyboard_scroll_confirmed": true
+    }
+   },
+   "rtl_note": "pages are dir=rtl; ArrowRight/End may produce 0 while ArrowLeft/Home move - raw per-key values recorded",
+   "method": "committed harness inject+wrap; first scrollable container of the requested TYPE focused via el.focus(); four real keypresses through the browser input path; scrollLeft read after each key",
+   "history": "keyboard_completion_20261117 (05:07:48Z) remains valid history bound to old hashes; these deltas are bound to the new hashes above"
   },
   "not_run": [
    "RouterOS execution",

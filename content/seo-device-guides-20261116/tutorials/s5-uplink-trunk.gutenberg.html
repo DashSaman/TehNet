@@ -383,7 +383,7 @@
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>اثبات مسیر CPU تگ‌دار هر دو سوئیچ</td>
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
-<td>‏N1 ‏منفی لایه‌۲ ‏(هم‌پیشوند، دو VLAN) — سه فاز صریح: منفی → مثبت‌ِ disposable → منفی‌ِ بازگشتی</td>
+<td>‏N1 ‏منفی لایه‌۲ ‏(هم‌پیشوند، دو VLAN) — سه فاز صریح: منفی → مثبت‌ِ disposable → منفی‌ِ بازگشتی ‏(ترتیب کامل: جدول فازهای N1 زیر)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>‏N-T1 ‏(192.168.99.10‏، ‏VLAN10)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
@@ -391,9 +391,9 @@
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>‏N-T2 ‏(192.168.99.11‏، ‏VLAN20) — هم‌پیشوند؛ بدون gateway، بدون proxy-ARP و بدون static-neighbor؛ تصمیم تحویل on-link طبق ‏RFC1122 §3.3.1.1</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td>‏فاز‌۱ و فاز‌۳: timeout با ورودی ‏192.168.99.11 در `arp -a` ‏N-T1 به‌صورت incomplete/ناموجود؛ ‏فاز‌۲: replies با ورودی ARP کامل — انتظار ping و ARP هر فاز صریح و روی همین جفت میزبان/پورت اعلام‌شده ثبت می‌شود</td>
+<td>‏فاز‌۱ و فاز‌۳: timeout با ورودی همتا در `arp -a` ‏N-T1 به‌صورت incomplete/ناموجود؛ ‏فاز‌۲: replies با ورودی ARP کامل — انتظار ping و ARP هر فاز صریح و روی همین جفت میزبان/پورت اعلام‌شده ثبت می‌شود</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
-<td><strong>وضعیت کش ARP پیش از هر فاز اندازه‌گیری:</strong> فقط ورودی همسایه‌ٔ متعلق به همین probe سنتز ‏(mapping ‏192.168.99.11 روی ‏N-T1/N-T2) حذف یا ناموجودبودنش وارسی می‌شود ‏(یا روش مشاهده‌ٔ ARP تازه با سند)؛ flush سراسری کش و هر اثر روی میزبان/شبکه‌ٔ واقعی ممنوع است. دلیل طراحی: ورودی ARP مثبت‌ِ فاز‌۲ می‌تواند با بازگشت درست forwarding باقی بماند — پس در فاز‌۳ «کش پر» به‌تنهایی شاهد leak نیست و «کش خالی» تضمینی نیست؛ به همین دلیل reset/وارسی فقط-همسایه‌ٔ-متعلق پیش از هر فاز الزام است. ‏cleanup فاز‌۳: عضویت دقیق ‏pvid/جدول هر دو VLAN بازگردانده می‌شود و فقط آدرس/alias/همسایه‌ٔ متعلق به همین probe سنتز حذف می‌شود؛ اجرای واقعی میزبان/RouterOS بدون fixture صالح ‏NOT_RUN است</td>
+<td><strong>پیش‌شرط هر فاز اندازه‌گیری — هویت‌های جهت‌دار فقط-همتا:</strong> روی ‏N-T1 فقط ورودی همسایه‌ٔ همتایش یعنی ‏N-T2 ‏(192.168.99.11)؛ روی ‏N-T2 فقط ورودی همتایش یعنی ‏N-T1 ‏(192.168.99.10) — reset یا وارسی ناموجودبودن همان دو ورودی متعلق ‏(یا روش مشاهده‌ٔ ARP تازه با همان هویت دقیق میزبان/پورت/همتا)؛ ورودی خودِ میزبان، wildcard و flush سراسری هدف پاکسازی نیستند. <strong>ترتیب فاز۳ و تخلیه جداست:</strong> بازگرداندن عضویت‌ها → حفظ آدرس‌ها و پیش‌شرط‌ها → reset/وارسی فقط-همتا → اجرا و ثبت منفی‌ِ فاز‌۳ → فقط پس از ثبت، تخلیه‌ٔ آدرس/alias/همسایه‌ٔ متعلق به این probe سنتز با وارسی حذف؛ اجرای واقعی میزبان/RouterOS بدون fixture صالح ‏NOT_RUN است</td>
 <!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
 <td>‏امضای شکست مرز VLAN</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
@@ -418,6 +418,64 @@
 <td>drop ‏(frame-types فقط-تگ‌دار)</td>
 <!-- /wp:table-cell --><!-- wp:table-cell -->
 <td>شمارش drop یا sniffer اختیاری</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p><strong>ترتیب صریح فازهای N1 — بازگردانی، ثبت و تخلیه جداست؛ تخلیه فقط پس از ثبت فاز‌۳:</strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>فاز</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>وضعیت پل/جدول VLAN</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>آدرس‌ها/پیش‌شرط‌ها</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>کش ARP متعلق پیش از اندازه‌گیری</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>کنش و ثبت</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>‏فاز‌۱ — منفی‌ِ جداسازی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مبنا: ether7=pvid20 و ردیف‌های پایه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هر دو میزبان با آدرس‌های اعلام‌شده؛ بدون gateway/proxy-ARP/static-neighbor</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>روی ‏N-T1 فقط همتای ‏N-T2 ‏(192.168.99.11)؛ روی ‏N-T2 فقط همتای ‏N-T1 ‏(192.168.99.10) — reset/وارسی؛ بدون ورودی خودِ میزبان، بدون wildcard، بدون flush سراسری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>`ping 192.168.99.11` از ‏N-T1: timeout؛ `arp -a` ‏N-T1: ورودی همتا incomplete/ناموجود — ثبت</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏فاز‌۲ — مثبت disposable</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تغییر موقت ether7→pvid10 + انتقال ردیف‌ها ‏(خارج untagged-20، داخل untagged-10)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بدون تغییر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>همان فقط-همتا</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>همان ping: replies + ورودی ARP کامل — ثبت</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>‏فاز‌۳ — منفی‌ِ بازگشتی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بازگرداندن دقیق ether7=pvid20 و هر دو عضویت جدول</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>حفظ کامل آدرس‌ها و پیش‌شرط‌ها</strong> — حذف آدرس پیش از این فاز، timeout ناشی از پیکربندی ناقص می‌سازد نه جداسازی بازگشته</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>همان فقط-همتا</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>همان ping: timeout + ورودی همتا incomplete/ناموجود — <strong>ثبت</strong></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>تخلیه‌ٔ probe ‏(فقط پس از ثبت فاز‌۳)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>—</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>حذف فقط آدرس/alias/همسایه‌ٔ متعلق به همین probe سنتز + وارسی حذف؛ اجرای میزبان/RouterOS بدون fixture صالح ‏NOT_RUN</td>
 <!-- /wp:table-cell --></tr></tbody></table>
 <!-- /wp:table -->
 
