@@ -1748,7 +1748,7 @@
  },
  "balanced_markup_keyboard_refresh_20261117": {
   "packet": "TN-BALANCED-MARKUP-KEYBOARD-REFRESH-20261117 (NEXT_READY per APPROVE verdict update 2026-11-17T18:22:33Z)",
-  "utc": "2026-11-17T18:31:00Z window, seven atomic passes",
+  "utc": "unreconciled - the originally stated '2026-11-17T18:31:00Z window' POSTDATES the receipt commit (18:27:39Z) and the delivery comment (18:28:20Z); the original per-pass execution timestamps were not captured and remain UNKNOWN/unreconciled; a fresh bounded capture with actual per-pass host-clock timestamps is recorded in s5_balanced_keyboard_evidence_finish_20261117",
   "git_head_at_run": "ef7e429ed845b49cb827f4521e3c4593186d7722 (content bytes unchanged; receipt-only commit is a child of this SHA)",
   "executed_by": "GLM - real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138; real wheel scrolling and real keypresses only; no synthetic events, no scroll-property assignment",
   "bound_inputs_sha256": {
@@ -1856,7 +1856,7 @@
    "s5_desktop_1280x900": {
     "doc_overflow_px": 0,
     "containers_wrapped": 11,
-    "image_facts_distinct": "at page-top scroll position the lazy image was not yet fetched (complete=false, naturalWidth 0) - expected below-fold lazy state; natural loading on THESE bytes was separately established in s5_natural_image_verify_20261117; no forcing applied in this pass",
+    "image_facts_distinct": "at page-top scroll position the lazy image was not yet fetched (complete=false, naturalWidth 0) - expected below-fold lazy state, no forcing applied in this pass; image loading/rendering on the CURRENT balanced bytes (ce233b72d3f12ff8fc440bb6d85d2b9aa127f333ce1062e5bebfefc4be0b44b0) is bound in s5_mobile_image_render_fix_20261117 and s5_qa_receipt_finish_20261117 (the earlier s5_natural_image_verify_20261117 section binds the OLDER bd878105 HTML 58d59a55... and is history for those bytes only)",
     "pre_extents": "3 containers, 2 scrollable: #1 1391/958, #2 1391/958",
     "table_extents": "8 containers, 0 scrollable",
     "keyboard": {
@@ -1880,8 +1880,8 @@
    "s5_mobile_390x844": {
     "doc_overflow_px": 0,
     "containers_wrapped": 11,
-    "image_facts_distinct": "at page-top scroll position the lazy image was not yet fetched (complete=false) - same expected below-fold lazy state, no forcing applied",
-    "pre_extents": "3 containers, 3 scrollable (#0 706, #1 1391, #2 1391 / 374)",
+    "image_facts_distinct": "at page-top scroll position the lazy image was not yet fetched (complete=false) - expected below-fold lazy state, no forcing applied; current-bytes image references as above (s5_mobile_image_render_fix_20261117 / s5_qa_receipt_finish_20261117, HTML ce233b72...)",
+    "pre_extents": "3 containers, 3 of 3 scrollable (#0 706/374, #1 1391/374, #2 1391/374)",
     "table_extents": "8 containers, 0 scrollable (all 295/295 - previously 6/8 scrollable under the collapsed nested markup)",
     "keyboard": {
      "PRE_0of3": {
@@ -1921,6 +1921,281 @@
   "zero_event_note": "no zero-event attempt occurred this turn - every probed scrollable container produced real keypress deltas; no bounded recovery was needed",
   "extent_changes_from_balanced_markup": "balanced regeneration un-nested the figures: mobile table client widths rose from the collapsed 135 to 295 and NO table now has contained overflow on any measured page/viewport (7 tables M2, 6 M3, 8 S5, 9 N6 all N/A from these extents); PRE inner-scroll counts grew (M2 9->1 desktop / 6 mobile scrollable, M3 2/8, S5 2/3) because each pre now spans its own full-width figure instead of inherited nested widths",
   "limits": "first scrollable container per TYPE probed per pass; remaining scrollable containers extents-only; S5/N6 image states recorded at page-top positions (natural lazy loading on S5 bytes bound separately); WordPress/KSES/RouterOS NOT_RUN; DRAFT/NOT_DEPLOYED; production untouched",
+  "production_touched": false,
+  "chronology_correction_note": "CORRECTED per MANAGER_REVIEW 6958089358 update 2026-11-17T19:08:42Z: the execution-window claim was inconsistent with the disclosed chronology; it is now marked UNKNOWN/unreconciled rather than re-stated. The observed deltas and N/A extents in THIS section are retained as history; verifiable absolute-position evidence with real timestamps lives in the finish section. No cause (scheduler/quota/other) is inferred.",
+  "s5_reference_correction_note": "CORRECTED per MANAGER_REVIEW 6958089358: S5 image references re-bound from the older-HTML s5_natural_image_verify_20261117 (bd878105/58d59a55) to the current-bytes sections s5_mobile_image_render_fix_20261117 / s5_qa_receipt_finish_20261117 (HTML ce233b72...); no new image run performed; S5 mobile PRE value 3 of 3 scrollable is preserved as measured"
+ },
+ "s5_balanced_keyboard_evidence_finish_20261117": {
+  "packet": "TN-BALANCED-KEYBOARD-EVIDENCE-FINISH-20261117 (MANAGER_REVIEW 6958089358 update 19:08:42Z corrections 1-3)",
+  "utc": "2026-11-17T19:14:45Z - 19:15:52Z (six PRE passes + one extents pass; per-pass start/end below)",
+  "time_source": "Node REPL kernel host system clock via new Date().toISOString(), captured at each pass start and end",
+  "git_head_at_run": "d112ac88b8910eb73a32e01253bcacf3e87513cf (pre-commit head; receipt-only finish commit is a child of this SHA; content/CSS unchanged)",
+  "executed_by": "GLM - real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138; same existing input route; real keypresses only",
+  "bindings": {
+   "candidate-preview.css": "ae06330b789ed135d144131b1b6b08b8fd03aea8ca7b94cb959c6e2a5af67fc1",
+   "preview-inject-candidate.js (v3)": "e5a4e170e9fecf1946faf41b944017d008817ce208539156e44b108ef08a21d7",
+   "tutorials/m2-vlan-small-office.gutenberg.html": "3c30f6ddfe88794318deae441653658e3e9d215f6959d251f8ea151737d04c11",
+   "tutorials/m3-dhcp-dns.gutenberg.html": "e707cb4a4bb911d11021d12e4938b2cd7aa7f08cdfb36809c11f7746fd6737db",
+   "tutorials/s5-uplink-trunk.gutenberg.html": "ce233b72d3f12ff8fc440bb6d85d2b9aa127f333ce1062e5bebfefc4be0b44b0",
+   "tutorials/n6-support-selection.gutenberg.html": "3a21d85a5aa7cb25b4576771cc3443bbc222d00783c111bc1e146af4e4104f52"
+  },
+  "method": "six selected first-scrollable PRE cases (one per page/viewport with contained overflow) + current-extents N/A measurement for N6 mobile TABLE; per key: absolute signed scrollLeft read BEFORE, one real keypress, 450ms bounded settling, absolute signed scrollLeft read AFTER, delta computed; activeElement verified PRE before and after every key; real zeros recorded as zeros; no Home/End movement expectation manufactured; no synthetic events or scroll assignment",
+  "passes": {
+   "m2_desktop_1280x900": {
+    "pass_start_utc": "2026-11-17T19:14:45.866Z",
+    "pass_end_utc": "2026-11-17T19:14:49.292Z",
+    "container": "PRE index 7 of 9 (scrollWidth 1058 / clientWidth 958)",
+    "activeElement_verified_every_key": true,
+    "keys": {
+     "ArrowRight": {
+      "key": "ArrowRight",
+      "before_scrollLeft_abs": 0,
+      "after_scrollLeft_abs": 40,
+      "delta": 40,
+      "before_after_activeTag": "PRE",
+      "note": "M2 desktop selected PRE"
+     },
+     "ArrowLeft": {
+      "key": "ArrowLeft",
+      "before_scrollLeft_abs": 40,
+      "after_scrollLeft_abs": 0,
+      "delta": -40,
+      "before_after_activeTag": "PRE",
+      "note": "M2 desktop selected PRE"
+     },
+     "End": {
+      "key": "End",
+      "before_scrollLeft_abs": 0,
+      "after_scrollLeft_abs": 0,
+      "delta": 0,
+      "before_after_activeTag": "PRE",
+      "note": "real zero recorded as zero (no horizontal movement expectation manufactured for End)"
+     },
+     "Home": {
+      "key": "Home",
+      "before_scrollLeft_abs": 0,
+      "after_scrollLeft_abs": 0,
+      "delta": 0,
+      "before_after_activeTag": "PRE",
+      "note": "real zero recorded as zero (no horizontal movement expectation manufactured for Home)"
+     }
+    }
+   },
+   "m2_mobile_390x844": {
+    "pass_start_utc": "2026-11-17T19:15:11.905Z",
+    "pass_end_utc": "2026-11-17T19:15:15.407Z",
+    "container": "PRE index 2 of 9 (scrollWidth 621 / clientWidth 374); 6 of 9 scrollable",
+    "activeElement_verified_every_key": true,
+    "keys": {
+     "ArrowRight": {
+      "key": "ArrowRight",
+      "before_scrollLeft_abs": 0,
+      "after_scrollLeft_abs": 40,
+      "delta": 40,
+      "before_after_activeTag": "PRE",
+      "note": "M2 mobile selected PRE"
+     },
+     "ArrowLeft": {
+      "key": "ArrowLeft",
+      "before_scrollLeft_abs": 40,
+      "after_scrollLeft_abs": 0,
+      "delta": -40,
+      "before_after_activeTag": "PRE",
+      "note": "M2 mobile selected PRE"
+     },
+     "End": {
+      "key": "End",
+      "before_scrollLeft_abs": 0,
+      "after_scrollLeft_abs": 0,
+      "delta": 0,
+      "before_after_activeTag": "PRE",
+      "note": "real zero recorded as zero (no horizontal movement expectation manufactured for End)"
+     },
+     "Home": {
+      "key": "Home",
+      "before_scrollLeft_abs": 0,
+      "after_scrollLeft_abs": 0,
+      "delta": 0,
+      "before_after_activeTag": "PRE",
+      "note": "real zero recorded as zero (no horizontal movement expectation manufactured for Home)"
+     }
+    }
+   },
+   "m3_desktop_1280x900": {
+    "pass_start_utc": "2026-11-17T19:15:15.408Z",
+    "pass_end_utc": "2026-11-17T19:15:18.769Z",
+    "container": "PRE index 7 of 12 (scrollWidth 1446 / clientWidth 958); 2 of 12 scrollable",
+    "activeElement_verified_every_key": true,
+    "keys": {
+     "ArrowRight": {
+      "key": "ArrowRight",
+      "before_scrollLeft_abs": 0,
+      "after_scrollLeft_abs": 40,
+      "delta": 40,
+      "before_after_activeTag": "PRE",
+      "note": "M3 desktop selected PRE"
+     },
+     "ArrowLeft": {
+      "key": "ArrowLeft",
+      "before_scrollLeft_abs": 40,
+      "after_scrollLeft_abs": 0,
+      "delta": -40,
+      "before_after_activeTag": "PRE",
+      "note": "M3 desktop selected PRE"
+     },
+     "End": {
+      "key": "End",
+      "before_scrollLeft_abs": 0,
+      "after_scrollLeft_abs": 0,
+      "delta": 0,
+      "before_after_activeTag": "PRE",
+      "note": "real zero recorded as zero (no horizontal movement expectation manufactured for End)"
+     },
+     "Home": {
+      "key": "Home",
+      "before_scrollLeft_abs": 0,
+      "after_scrollLeft_abs": 0,
+      "delta": 0,
+      "before_after_activeTag": "PRE",
+      "note": "real zero recorded as zero (no horizontal movement expectation manufactured for Home)"
+     }
+    }
+   },
+   "m3_mobile_390x844": {
+    "pass_start_utc": "2026-11-17T19:15:41.012Z",
+    "pass_end_utc": "2026-11-17T19:15:44.517Z",
+    "container": "PRE index 1 of 12 (scrollWidth 705 / clientWidth 374); 8 of 12 scrollable",
+    "activeElement_verified_every_key": true,
+    "keys": {
+     "ArrowRight": {
+      "key": "ArrowRight",
+      "before_scrollLeft_abs": 0,
+      "after_scrollLeft_abs": 40,
+      "delta": 40,
+      "before_after_activeTag": "PRE",
+      "note": "M3 mobile selected PRE"
+     },
+     "ArrowLeft": {
+      "key": "ArrowLeft",
+      "before_scrollLeft_abs": 40,
+      "after_scrollLeft_abs": 0,
+      "delta": -40,
+      "before_after_activeTag": "PRE",
+      "note": "M3 mobile selected PRE"
+     },
+     "End": {
+      "key": "End",
+      "before_scrollLeft_abs": 0,
+      "after_scrollLeft_abs": 0,
+      "delta": 0,
+      "before_after_activeTag": "PRE",
+      "note": "real zero recorded as zero (no horizontal movement expectation manufactured for End)"
+     },
+     "Home": {
+      "key": "Home",
+      "before_scrollLeft_abs": 0,
+      "after_scrollLeft_abs": 0,
+      "delta": 0,
+      "before_after_activeTag": "PRE",
+      "note": "real zero recorded as zero (no horizontal movement expectation manufactured for Home)"
+     }
+    }
+   },
+   "s5_desktop_1280x900": {
+    "pass_start_utc": "2026-11-17T19:15:44.517Z",
+    "pass_end_utc": "2026-11-17T19:15:47.878Z",
+    "container": "PRE index 1 of 3 (scrollWidth 1391 / clientWidth 958); 2 of 3 scrollable",
+    "activeElement_verified_every_key": true,
+    "keys": {
+     "ArrowRight": {
+      "key": "ArrowRight",
+      "before_scrollLeft_abs": 0,
+      "after_scrollLeft_abs": 40,
+      "delta": 40,
+      "before_after_activeTag": "PRE",
+      "note": "S5 desktop selected PRE"
+     },
+     "ArrowLeft": {
+      "key": "ArrowLeft",
+      "before_scrollLeft_abs": 40,
+      "after_scrollLeft_abs": 0,
+      "delta": -40,
+      "before_after_activeTag": "PRE",
+      "note": "S5 desktop selected PRE"
+     },
+     "End": {
+      "key": "End",
+      "before_scrollLeft_abs": 0,
+      "after_scrollLeft_abs": 0,
+      "delta": 0,
+      "before_after_activeTag": "PRE",
+      "note": "real zero recorded as zero (no horizontal movement expectation manufactured for End)"
+     },
+     "Home": {
+      "key": "Home",
+      "before_scrollLeft_abs": 0,
+      "after_scrollLeft_abs": 0,
+      "delta": 0,
+      "before_after_activeTag": "PRE",
+      "note": "real zero recorded as zero (no horizontal movement expectation manufactured for Home)"
+     }
+    }
+   },
+   "s5_mobile_390x844": {
+    "pass_start_utc": "2026-11-17T19:15:47.878Z",
+    "pass_end_utc": "2026-11-17T19:15:51.203Z",
+    "container": "PRE index 0 of 3 (scrollWidth 706 / clientWidth 374); 3 of 3 scrollable (value preserved per review)",
+    "activeElement_verified_every_key": true,
+    "keys": {
+     "ArrowRight": {
+      "key": "ArrowRight",
+      "before_scrollLeft_abs": 0,
+      "after_scrollLeft_abs": 40,
+      "delta": 40,
+      "before_after_activeTag": "PRE",
+      "note": "S5 mobile selected PRE"
+     },
+     "ArrowLeft": {
+      "key": "ArrowLeft",
+      "before_scrollLeft_abs": 40,
+      "after_scrollLeft_abs": 0,
+      "delta": -40,
+      "before_after_activeTag": "PRE",
+      "note": "S5 mobile selected PRE"
+     },
+     "End": {
+      "key": "End",
+      "before_scrollLeft_abs": 0,
+      "after_scrollLeft_abs": 0,
+      "delta": 0,
+      "before_after_activeTag": "PRE",
+      "note": "real zero recorded as zero (no horizontal movement expectation manufactured for End)"
+     },
+     "Home": {
+      "key": "Home",
+      "before_scrollLeft_abs": 0,
+      "after_scrollLeft_abs": 0,
+      "delta": 0,
+      "before_after_activeTag": "PRE",
+      "note": "real zero recorded as zero (no horizontal movement expectation manufactured for Home)"
+     }
+    }
+   },
+   "n6_mobile_390x844_table_extents": {
+    "pass_start_utc": "2026-11-17T19:15:51.203Z",
+    "pass_end_utc": "2026-11-17T19:15:52.616Z",
+    "result": "N/A from THESE current extents - 0 PRE elements on page; 9 tables all 295/295 (0 scrollable); doc_overflow_px 0; no scroll forced, no input manufactured"
+   }
+  },
+  "chronology_statement": "the earlier section's '18:31:00Z window' is UNKNOWN/unreconciled (original per-pass times not captured; the stated window postdates its own receipt commit); THIS section's per-pass start/end values are freshly captured from the host clock at execution time and are the authoritative chronology for the absolute-position evidence",
+  "deltas_note": "the prior section's small floating-point deltas (e.g. 0.8/1.6/9.6) and THIS section's exact 40/-40 deltas are separate real observations of the same containers across two turns; both retained as history, neither relabeled; the settling interval before each AFTER read attributes motion to the immediately preceding key",
+  "image_references": "current-bytes (ce233b72...) image evidence bound in s5_mobile_image_render_fix_20261117 and s5_qa_receipt_finish_20261117; s5_natural_image_verify_20261117 binds the OLDER bd878105 HTML (58d59a55...) and is history for those bytes only; no new image run in this unit",
+  "not_run": [
+   "RouterOS execution",
+   "WordPress/KSES",
+   "production publish",
+   "public screenshots/traces/raw logs"
+  ],
   "production_touched": false
  }
 }
