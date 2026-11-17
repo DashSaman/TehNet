@@ -1,0 +1,496 @@
+<!-- READY_FOR_REVIEW / NOT_DEPLOYED — generated deterministically by build-gutenberg.cjs from ../tutorials/n6-support-selection.fa.md -->
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">انتخاب پشتیبانی شبکه — از نیازسنجی تا دورهٔ آزمایشی (N6)</h1>
+<!-- /wp:heading -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><p>وضعیت درس: <strong>DRAFT / NOT_DEPLOYED — در انتظار مرور.</strong> (درس مصوب سرفصل ‏N6: انتخاب پشتیبانی)</p><p>آموزش از سری پشتیبانی؛ مخاطب: مدیر کسب‌وکار و مدیر IT.</p><p>سناریوی کاملاً فرضی و آموزشی با دادهٔ ساختگی؛ هیچ پیمانکار/قیمت/پروژهٔ واقعی‌ای در این درس نیست و هیچ اجرای واقعی NOT_RUN است.</p><p>نمودار مفهومی و تألیفی است (نه عکس واقعی).</p></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پاسخ کوتاه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>انتخاب پشتیبانی شبکه یک <strong>فرایند شش‌گامی</strong> است: <strong>نیازسنجی</strong> ‏(ساعات بحرانی، حداکثر قطعی قابل‌تحمل، مهارت داخلی، دارایی‌ها) → <strong>فهرست گزینه‌ها</strong> ‏(قرارداد پیمانکار، فریلنسر ساعتی، ترکیبی، بدون قرارداد) → <strong>تطبیق نیاز با پوشش</strong> ‏(هر نیاز کدام گزینه جواب می‌دهد؟) → <strong>ارزیابی ساختاریافته</strong> ‏(جدول معیار/وزن با شواهد، نه حس) → <strong>دورهٔ آزمایشی کوتاه با معیار از-پیش‌نوشته</strong> → <strong>بازنگری دوره‌ای</strong>. اشتباه رایج: انتخاب با قیمت اولیه یا رابطهٔ شخصی، بدون نوشتن «چه چیزی باید پوشش داده شود» — نتیجه، قراردادی است که در اولین قطعی واقعی جواب نمی‌دهد. سؤالات قرارداد/SLA بلافاصله بعد از انتخاب ساختار می‌آیند (درس مکمل قرارداد و SLA).</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">پیش‌نیازها</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>نیازسنجی و طراحی دفتر: <a href="n1-office-design.fa.md">N1 طراحی شبکهٔ دفتر</a> · دادهٔ مانیتور برای نیازسنجی: <a href="n2-monitoring-maintenance.fa.md">N2 مانیتورینگ</a> · سؤالات قرارداد/SLA: <a href="n3-support-contract-sla.fa.md">مکمل قرارداد و SLA</a> · شواهد انجام کار: <a href="n1-network-troubleshooting.fa.md">N4 عیب‌یابی</a></li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">مبنا آزمایشگاه (Lab Baseline) — سناریوی فرضی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>بند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقدار فرضی</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>سازمان</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دفتر ‏۱۲ نفره + ‏۴ دوربین + ‏NAS — بدون کارمند IT تمام‌وقت ‏(فرضی)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>دارایی‌های شبکه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>روتر ‏hEX + سوئیچ ‏CRS326 + ‏AP + ‏NAS ‏(فرضی، الگوی N1)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>الگوی رخداد فرضی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ماهانه ‏۱-۲ رخداد؛ بیشتر «قطعی دسترسی» و «کندی»؛ هر فصل یک رخداد سخت‌افزاری ‏(فرض آموزشی)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>مهارت داخلی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>یک کارمند آشنا با مقدمات ‏(برق‌اندازی، کابل) — نه پیکربندی</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ساعت بحرانی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۸:۳۰ تا ‏۱۷:۰۰ شنبه تا چهارشنبه</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>بودجه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>متوسط — عدد واقعی ‏UNKNOWN تا استعلام؛ در این درس فقط ساختار مقایسه</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>اجرای واقعی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><strong>NOT_RUN</strong> — انتخاب آموزشی</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">گام ۱: نیازسنجی — قبل از دیدن هیچ پیشنهادی</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>سؤال نیازسنجی</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>چرا تعیین‌کننده است</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>منبع پاسخ</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>ساعات بحرانی دقیقاً کیست؟</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>پوشش ‏24-7 هزینه و مکانیزم جدا می‌خواهد؛ اگر قطعی جمعه‌شب بی‌اثر است، ‏24-7 نخرید</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>صاحب کسب‌وکار + جدول ساعات کار</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>حداکثر قطعی قابل‌تحمل چند ساعت است؟</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فاصلهٔ این عدد با «زمان رفع» پیشنهادها معیار اصلی تطبیق است</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>صاحب کسب‌وکار + تجربهٔ رخدادهای قبلی</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>چه چیزی داخلی حل می‌شود؟</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>برق‌اندازی/کابل/ری‌استارت = داخلی؛ پیکربندی/عیب عمیق = بیرونی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مصاحبه با کارمند آشنا + ثبت رخدادهای گذشته ‏(الگوی N4)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>دارایی‌ها و پیچیدگی چیست؟</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تعداد دستگاه و ‏VLAN‌ها دامنهٔ پشتیبانی را تعیین می‌کند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فهرست دارایی از مستندات ‏(الگوی N1/N4)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>دادهٔ واقعی از وضعیت موجود هست؟</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مانیتورینگ ‏(الگوی N2) عدد می‌دهد؛ بدون آن نیازسنجی حدسی است</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>گزارش مانیتور یا ثبت رخدادها — نبود = <strong>UNKNOWN</strong> با برچسب صریح</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">گام ۲: فهرست گزینه‌ها — چهار ساختار پایه</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>گزینه</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>ساختار</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مزیت</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>ریسک</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مناسب برای ‏(فرض)</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>قرارداد پیمانکار</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مبلغ دوره‌ای + دامنهٔ تعریف‌شده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>پاسخ‌گویی ثابت، رابطهٔ پایدار</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هزینهٔ ثابت حتی در ماه بی‌رخداد؛ کیفیت به دامنهٔ قرارداد بستگی دارد ‏(سؤالات مکمل قرارداد)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سازمان بدون مهارت داخلی با رخداد مستمر</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>فریلنسر ساعتی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تماس به‌هنگام + نرخ ساعتی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هزینه فقط با مصرف؛ انعطاف</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دسترس‌پذیری تضمین‌شده نیست؛ دانش شبکه نزد فرد می‌ماند نه سند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>رخداد کم و غیربحرانی</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>ترکیبی ‏(داخلی + بیرونی)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>رخداد ساده داخلی، عمیق بیرونی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هزینهٔ کمتر؛ سرعت برای موارد ساده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>مرز «ساده/عمیق» باید نوشته شود وگرنه فرار به بیرونی یا دست‌کاری خطرناک داخلی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>سازمان با کارمند نیمه‌آشنا — مثل مبنای این درس</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>بدون قرارداد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فقط در رخداد جست‌وجو</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>صفر هزینهٔ دوره‌ای</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>در رخداد بحرانی، پیدا کردن کمک زمان می‌برد؛ شواهد و مسئولیت مبهم</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تقریباً هیچ سازمان وابسته به شبکه‌ای — پرریسک‌ترین گزینه</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>هیچ‌کدام از این چهار ساختار ذاتاً «بهتر» نیست — خروجی گام ۳ تعیین می‌کند کدام با نیاز شما می‌خواند.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">گام ۳: تطبیق نیاز با پوشش — ماتریس</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>نیاز ‏(از گام ۱)</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>قرارداد</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>فریلنسر ساعتی</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>ترکیبی</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>بدون قرارداد</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>پاسخ در ساعت بحرانی ‏(مبنای فرضی: ‏۸:۳۰-۱۷)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>✓ اگر ساعات قرارداد بپوشاند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>△ اگر در دسترس باشد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>✓ بخش داخلی فوری است</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>✗</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>رخداد عمیق ‏(پیکربندی/روتینگ)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>✓</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>✓ ساعتی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>✓ بخش بیرونی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>△ جست‌وجوی زمان‌بر</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>رخداد ساده ‏(برق‌اندازی/کابل)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>△ ممکن است بیرونی گران باشد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>△</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>✓ داخلی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>✓ داخلی</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>دانش مستندشده نزد سازمان</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>✓ گزارش قراردادی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>✗ معمولاً فردی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>△ به نظم بستگی دارد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>✗</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>هزینهٔ ماه بی‌رخداد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ثابت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تقریباً صفر</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>کمتر از قرارداد کامل</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>صفر</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>قاعدهٔ خواندن ماتریس: هر ردیف «✗» یعنی همان نیاز در رخداد واقعی گلوگاه می‌شود. اگر مبنای فرضی این درس باشد ‏(رخداد ساده داخلی حل می‌شود، عمیق بیرونی می‌خواهد، ساعت بحرانی محدود) → گزینهٔ ترکیبی بیشترین تطبیق را دارد؛ همین حکم برای سازمان دیگر باید از ماتریس خودش بیاید، نه کپی این جدول.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image -->
+<figure class="wp-block-image size-large"><img src="../assets/tutorial-n6-support-selection.svg" alt="نمودار فرایند شش‌گامی انتخاب پشتیبانی درس N6 (تصویر مفهومی تألیفی)" width="900" loading="lazy"/><figcaption>نمودار فرایند شش‌گامی انتخاب پشتیبانی درس N6 (تصویر مفهومی تألیفی)</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p><strong>شرح متنی نمودار (جایگزین تصویر برای دسترس‌پذیری):</strong> شش جعبهٔ متوالی از راست به چپ ‏(RTL): «۱ نیازسنجی» ‏(ساعات بحرانی/قطعی قابل‌تحمل/مهارت داخلی) → «۲ گزینه‌ها» ‏(قرارداد/فریلنسر/ترکیبی/بدون قرارداد) → «۳ تطبیق» ‏(ماتریس نیاز×پوشش) → «۴ ارزیابی ساختاریافته» ‏(معیار/وزن/شواهد — وزن‌ها قبل از استعلام) → «۵ دورهٔ آزمایشی» ‏(معیار از-پیش‌نوشته) → «۶ بازنگری دوره‌ای». زیر نمودار: یادداشت «قیمت بعد از جدول معیار» و «نبود دادهٔ مانیتور = UNKNOWN». برچسب «تألیفی/مفهومی».</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">گام ۴: ارزیابی ساختاریافته — معیار/وزن/شواهد</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>معیار</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>وزن پیشنهادی ‏(قابل‌تغییر)</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>شواهد مطلوب — نه ادعا</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>عدد ‏(نمونهٔ خالی برای پرکردن)</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>تطبیق ساعات پوشش با ساعات بحرانی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۲۰٪</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>جدول ساعات مکتوب در پیشنهاد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>تعریف صریح دامنه و استثناها</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۲۰٪</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>فهرست دستگاه/سرویس + استثناها ‏(سؤال ۱ و ۵ مکمل قرارداد)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>زمان اولین پاسخ و زمان رفع — عددی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۲۰٪</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دو عدد جدا به‌تفکیک اولویت</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>شواهد انجام کار ‏(ثبت قبل/بعد + گزارش)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۱۵٪</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>نمونهٔ گزارش واقعی از کارهای قبلی ‏(بدون دادهٔ محرمانهٔ مشتریان قبلی)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>مسیر تشدید وقتی کار جلو نمی‌رود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۱۰٪</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>متن مسیر تشدید در پیشنهاد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>مستندسازی و تحویل سند به سازمان</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۱۰٪</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تعهد گزارش/سند در قرارداد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>مراجع قابل‌استعلام ‏(بدون دادهٔ شناساگر)</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>‏۵٪</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>پاسخ رضایت مشتریان قبلی به سؤالات ساختاریافته</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td></td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>نکتهٔ صداقت: وزن‌ها پیشنهاد ساختاری‌اند، نه استاندارد sourced؛ هر سازمان باید قبل از دیدن پیشنهادها وزن‌ها را بنویسد وگرنه وزن‌ها به نفع پیشنهاد قبلی تنظیم می‌شوند. قیمت بعد از اتمام این جدول وارد مقایسه می‌شود — نه قبل.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">گام ۵: دورهٔ آزمایشی کوتاه و معیار بازنگری</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>بند دورهٔ آزمایشی ‏(مثال ‏۳۰-۹۰ روزه — فرض)</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>معیار از-پیش‌نوشته</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>زمان اولین پاسخ در رخدادهای دوره</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>≤ عدد قرارداد در ‏≥ حد نصاب مکتوب ‏(مثلاً ‏۸۰٪ موارد)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>کیفیت شواهد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هر کار با ثبت قبل/بعد ‏(الگوی N4) تحویل شده</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>رخداد تکرار‌شونده</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>علت ریشه‌ای همان علت قبلی نباشد — اگر شد، در بازنگری مطرح</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>مستندسازی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هر تغییر پیکربندی با export/بکاپ ثبت ‏(الگوی مکمل بکاپ)</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>پایان دوره</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>جلسهٔ بازنگری با جدول معیار گام ۴ — تمدید/اصلاح/تعویض</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">خطاهای رایج</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>خطا</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>چرا گران است</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>درست</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>انتخاب فقط با قیمت اولیه</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ارزان‌ترین پیشنهاد بدون دامنهٔ صریح، در اولین رخداد عمیق جواب نمی‌دهد</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>اول ماتریس تطبیق و جدول معیار، بعد قیمت</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>خرید ‏24-7 بدون نیاز واقعی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>هزینه برای پوششی که استفاده نمی‌شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>ساعات بحرانی از گام ۱؛ پوشش را همان تعیین کند</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>بدون دورهٔ آزمایشی</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>اشتباه انتخاب تا پایان قرارداد گران می‌ماند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>دورهٔ کوتاه با معیار از-پیش‌نوشته</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>وزن‌دهی معیارها بعد از دیدن پیشنهادها</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>وزن‌ها به نفع گزینهٔ مطلوب تنظیم می‌شوند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>وزن‌ها قبل از استعلام مکتوب شوند</td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>بدون مانیتورینگ، «بهبود» سنجیده شود</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>بدون عدد پایه ‏(الگوی N2) هیچ بهبودی قابل‌اثبات نیست</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>قبل از شروع پشتیبانی، مبنا اندازه‌گیری شود — نبود = <strong>UNKNOWN</strong></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>دانش شبکه نزد فرد بماند</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>خروج فرد = گم‌شدن سازمان</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>تعهد مستندسازی/تحویل سند در هر ساختاری بنویسید</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">تمرین کوتاه (با پاسخ موردانتظار)</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"ordered":true} -->
+<ol class="wp-block-list"><!-- wp:list-item -->
+<li>چرا نیازسنجی قبل از دیدن پیشنهادهاست؟ — <strong>پاسخ موردانتظار:</strong> چون در غیر این صورت پیشنهادها معیار را تعریف می‌کنند؛ نیازسنجی مکتوب باعث می‌شود شما معیار را به پیشنهادها تحمیل کنید نه برعکس.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>مبنای فرضی این درس ‏(رخداد ساده داخلی، عمیق بیرونی، ساعت بحرانی محدود) کدام گزینه را ترجیح می‌دهد؟ — <strong>پاسخ موردانتظار:</strong> ترکیبی ‏(داخلی برای ساده، بیرونی برای عمیق) — طبق ماتریس گام ۳؛ حکم برای سازمان دیگر باید از ماتریس خودش بیاید.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>چرا «زمان اولین پاسخ» و «زمان رفع» دو معیار جداست؟ — <strong>پاسخ موردانتظار:</strong> پاسخ سریع با رفع دیر هفته‌ها قطعی می‌تواند همراهی شوند؛ جدا گرفتن هر کدام قابل‌چالش است.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>بدون مانیتورینگ موجود، کدام ستون ارزیابی مشکوک می‌ماند؟ — <strong>پاسخ موردانتظار:</strong> هر ادعای بهبود/در-دسترس-بودن — بدون عدد پایه ‏(الگوی N2) UNKNOWN است؛ دورهٔ آزمایشی هم بدون مبنا قابل‌سنجش نیست.</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>دورهٔ آزمایشی با کدام معیار تمام می‌شود؟ — <strong>پاسخ موردانتظار:</strong> جلسهٔ بازنگری با جدول معیار گام ۴ و معیارهای از-پیش‌نوشته — تمدید/اصلاح/تعویض؛ نه بر اساس حس.</li>
+<!-- /wp:list-item -->
+</ol>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">چک‌لیست تحویل</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>[ ] جدول نیازسنجی ‏(گام ۱) قبل از استعلام تکمیل شده</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] چهار گزینه در برابر نیازهای خودتان ماتریس شده ‏(گام ۳)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] وزن معیارها قبل از دیدن پیشنهادها مکتوب شده ‏(گام ۴)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] دورهٔ آزمایشی با معیار از-پیش‌نوشته و جلسهٔ بازنگری تعریف شده ‏(گام ۵)</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] سؤالات قرارداد/SLA از درس مکمل برای گزینهٔ منتخب آماده است</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] نبود دادهٔ مانیتور به‌عنوان UNKNOWN ثبت شده، نه حدس</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>[ ] انتخاب واقعی/خرید واقعی این درس NOT_RUN ‏(فریم‌ورک آموزشی)</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">منابع</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>الگوهای درون‌سری: <a href="n1-office-design.fa.md">N1 طراحی دفتر</a> · <a href="n1-network-troubleshooting.fa.md">N4 عیب‌یابی</a> · <a href="n2-monitoring-maintenance.fa.md">N5 مانیتورینگ</a> · <a href="n3-support-contract-sla.fa.md">مکمل قرارداد و SLA</a> · <a href="n5-config-backup-export.fa.md">مکمل بکاپ</a> · <a href="n6-incident-path.fa.md">مکمل مسیر رخداد</a></li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>تجربهٔ فرایندی عمومی انتخاب پشتیبانی — روش و ساختار، بدون ادعای قیمت/پیمانکار/آمار واقعی</li>
+<!-- /wp:list-item --><!-- wp:list-item -->
+<li>هیچ عدد SLA/قیمتی در این درس sourced نیست؛ همهٔ اعداد نمونه فرضی و برچسب‌دارند</li>
+<!-- /wp:list-item -->
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">آموزش‌های مرتبط و مسیر خدمت</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
+<th>پیوند</th>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<th>مقصد</th>
+<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
+<td>درس‌های مرتبط</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="n3-support-contract-sla.fa.md">مکمل قرارداد و SLA</a> · <a href="n1-network-troubleshooting.fa.md">N4 عیب‌یابی</a> · <a href="n2-monitoring-maintenance.fa.md">N5 مانیتورینگ</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>نقشهٔ کامل سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="/guides/topic-map/">topic map</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>پشتیبانی شبکهٔ سازمان شما</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td><a href="https://tehnet.ir/services/network-support-tehran/">خدمات پشتیبانی شبکهٔ تهران</a></td>
+<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
+<td>درس بعدی سری</td>
+<!-- /wp:table-cell --><!-- wp:table-cell -->
+<td>— (آخرین درس سری N در سرفصل مصوب؛ مکمل‌های بکاپ/مسیر رخداد در topic map)</td>
+<!-- /wp:table-cell --></tr></tbody></table>
+<!-- /wp:table -->

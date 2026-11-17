@@ -852,8 +852,52 @@ n3c = svg(960, 560,
     'پنج معیار تست کابل Cat6 permanent link: وایر مپ اتصال صحیح هشت رشته؛ طول حداکثر نود متر؛ تداخل نزدیک با حد استاندارد؛ بازتاب سیگنال با حد استاندارد؛ و تأخیر انتشار حداکثر پانصد و پنجاه و پنج نانوثانیه. ابزار تستر certification لازم است نه تستر ساده وایرمپ. این نمودار مفهومی و تألیفی TehNet است.',
     chr(10).join(b))
 
+
+# ---------------- N6c support selection (six-step flow) ----------------
+b = []
+b.append(text(480, 36, 'انتخاب پشتیبانی شبکه — فرایند شش‌گامی', 13, 'middle', '#1a1a1a', 'bold'))
+steps = [
+    ('۱ نیازسنجی', 'ساعات بحرانی · قطعی قابل‌تحمل · مهارت داخلی', '#1e88e5', 620),
+    ('۲ گزینه‌ها', 'قرارداد · فریلنسر ساعتی · ترکیبی · بدون قرارداد', '#00897b', 515),
+    ('۳ تطبیق', 'ماتریس نیاز × پوشش — هر ✗ یعنی گلوگاه', '#fb8c00', 410),
+    ('۴ ارزیابی', 'معیار/وزن/شواهد — وزن‌ها قبل از استعلام', '#8d6e63', 305),
+    ('۵ دورهٔ آزمایشی', 'معیار از-پیش‌نوشته · ۳۰-۹۰ روز فرض', '#43a047', 200),
+    ('۶ بازنگری', 'جلسهٔ پایان دوره با جدول معیار — تمدید/اصلاح/تعویض', '#6a1b9a', 95),
+]
+for title, sub, color, x in steps:
+    b.append(rect(x, 70, 95, 110, '#fafafa', color, 2))
+    b.append(text(x + 47, 96, title, 11, 'middle', color, 'bold'))
+    words, lines, cur = sub.split(' '), [], ''
+    for w in words:
+        if len(cur + ' ' + w) <= 18 or not cur:
+            cur = (cur + ' ' + w).strip()
+        else:
+            lines.append(cur); cur = w
+    lines.append(cur)
+    for li, ln in enumerate(lines[:4]):
+        b.append(text(x + 47, 118 + li * 14, ln, 8, 'middle', '#37474f'))
+    if x > 95:
+        b.append(line(x, 125, x - 105, 125, '#90a4ae', 2, '4,3'))
+# notes box
+b.append(rect(95, 210, 770, 88, '#fff8e1', '#f9a825', 2))
+b.append(text(480, 234, 'دو قاعدهٔ ثابت فرایند:', 11, 'middle', '#f57f17', 'bold'))
+notes = ['قیمت فقط بعد از تکمیل جدول معیار وارد مقایسه می‌شود — نه قبل از آن',
+         'نبود دادهٔ مانیتور برای سنجش «بهبود» یعنی UNKNOWN — حدس زده نمی‌شود']
+for ni, n in enumerate(notes):
+    b.append(text(480, 258 + ni * 16, n, 10, 'middle', '#5d4037'))
+# selection decision box
+b.append(rect(95, 320, 770, 74, '#e8f5e9', '#43a047', 2))
+b.append(text(480, 344, 'حکم برای مبنای فرضی این درس ‏(رخداد ساده داخلی + عمیق بیرونی + ساعت بحرانی محدود):', 11, 'middle', '#2e7d32', 'bold'))
+b.append(text(480, 366, 'گزینهٔ ترکیبی بیشترین تطبیق را دارد — حکم هر سازمان از ماتریس خودش می‌آید، نه کپی این جدول', 10, 'middle', '#37474f'))
+b.append(text(480, 384, 'همهٔ اعداد این درس فرضی و برچسب‌دارند — انتخاب/خرید واقعی NOT_RUN', 9, 'middle', '#78909c'))
+b.append(text(480, 533, 'نمودار مفهومی تألیفی TehNet — نه عکس واقعی — الگوی درس‌های N همین سری؛ اجرا NOT_RUN', 10, 'middle', '#78909c'))
+n6c = svg(960, 560,
+    'نمودار فرایند شش‌گامی انتخاب پشتیبانی درس N6',
+    'فرایند انتخاب پشتیبانی شبکه شش گام دارد: نیازسنجی با ساعات بحرانی و حداکثر قطعی قابل‌تحمل و مهارت داخلی؛ فهرست چهار گزینه یعنی قرارداد پیمانکار و فریلنسر ساعتی و ترکیبی و بدون قرارداد؛ ماتریس تطبیق نیاز با پوشش؛ ارزیابی ساختاریافته با جدول معیار و وزن و شواهد که وزن‌ها باید قبل از دیدن پیشنهادها نوشته شوند؛ دورهٔ آزمایشی کوتاه با معیار از پیش نوشته؛ و بازنگری دوره‌ای. دو قاعده ثابت: قیمت بعد از جدول معیار و نبود داده مانیتور یعنی نامعلوم. حکم مبنا فرضی: گزینه ترکیبی. این نمودار مفهومی و تألیفی TehNet است.',
+    chr(10).join(b))
+
 os.makedirs(OUT, exist_ok=True)
-for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4), ('tutorial-m5-vpn-architecture.svg', m5), ('tutorial-m6-dual-wan-failover.svg', m6), ('tutorial-s5-uplink-trunk.svg', s5), ('tutorial-s6-psu-power.svg', s6), ('tutorial-s5-loop-rstp-lacp.svg', s5c), ('tutorial-s6-nas-upgrade.svg', s6c), ('tutorial-n1-office-design.svg', n1c), ('tutorial-n2-rack-cable.svg', n2), ('tutorial-n3-cable-test.svg', n3c)):
+for name, content in (('tutorial-m2-topology.svg', m2), ('tutorial-m3-dhcp-dns-flow.svg', m3), ('tutorial-s2-poe-budget.svg', s2), ('tutorial-s3-module-decision.svg', s3), ('tutorial-n1-layer-ladder.svg', n1), ('tutorial-n4-acceptance-phases.svg', n4), ('tutorial-n2-monitoring-loop.svg', n2), ('tutorial-n3-sla-timeline.svg', n3), ('tutorial-n5-backup-export.svg', n5), ('tutorial-n6-incident-path.svg', n6), ('tutorial-m4-l3hw-flow.svg', m4), ('tutorial-m5-vpn-architecture.svg', m5), ('tutorial-m6-dual-wan-failover.svg', m6), ('tutorial-s5-uplink-trunk.svg', s5), ('tutorial-s6-psu-power.svg', s6), ('tutorial-s5-loop-rstp-lacp.svg', s5c), ('tutorial-s6-nas-upgrade.svg', s6c), ('tutorial-n1-office-design.svg', n1c), ('tutorial-n2-rack-cable.svg', n2), ('tutorial-n3-cable-test.svg', n3c), ('tutorial-n6-support-selection.svg', n6c)):
     p = os.path.join(OUT, name)
     with io.open(p, 'w', encoding='utf-8', newline='\n') as f:
         f.write(content)

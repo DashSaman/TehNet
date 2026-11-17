@@ -254,6 +254,9 @@ function validate(candidateInputs) {
     { md: 'tutorials/s5-loop-rstp-lacp.fa.md', html: 'tutorials/s5-loop-rstp-lacp.gutenberg.html', svg: 'assets/tutorial-s5-loop-rstp-lacp.svg', label: 'S5c',
       sectionsOverride: ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'تنظیم LACP', 'RSTP روی پل', 'سناریوی حلقهٔ تصادفی', 'خطاهای رایج', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'],
       service: 'https://tehnet.ir/services/network-setup-tehran/' },
+    { md: 'tutorials/n6-support-selection.fa.md', html: 'tutorials/n6-support-selection.gutenberg.html', svg: 'assets/tutorial-n6-support-selection.svg', label: 'N6c',
+      sectionsOverride: ['پاسخ کوتاه', 'پیش‌نیازها', 'مبنا آزمایشگاه', 'گام ۱: نیازسنجی', 'گام ۲: فهرست گزینه‌ها', 'گام ۳: تطبیق نیاز با پوشش', 'گام ۴: ارزیابی ساختاریافته', 'گام ۵: دورهٔ آزمایشی', 'خطاهای رایج', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع', 'آموزش‌های مرتبط'],
+      service: 'https://tehnet.ir/services/network-support-tehran/' },
   ];
   const TUT_SECTIONS_COMMON = ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'تست پذیرش', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'];
   for (let ti = 0; ti < TUTORIALS.length; ti++) {
@@ -340,6 +343,8 @@ if (require.main === module) {
     'tutorials/n1-office-design.gutenberg.html',
     'tutorials/n3-cable-test-report.fa.md',
     'tutorials/n3-cable-test-report.gutenberg.html',
+    'tutorials/n6-support-selection.fa.md',
+    'tutorials/n6-support-selection.gutenberg.html',
     'router-catalog.csv',
     'switch-catalog.csv',
     'image-provenance.csv',

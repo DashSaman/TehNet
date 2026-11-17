@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560">
+<title>نمودار فرایند شش‌گامی انتخاب پشتیبانی درس N6</title>
+<desc>فرایند انتخاب پشتیبانی شبکه شش گام دارد: نیازسنجی با ساعات بحرانی و حداکثر قطعی قابل‌تحمل و مهارت داخلی؛ فهرست چهار گزینه یعنی قرارداد پیمانکار و فریلنسر ساعتی و ترکیبی و بدون قرارداد؛ ماتریس تطبیق نیاز با پوشش؛ ارزیابی ساختاریافته با جدول معیار و وزن و شواهد که وزن‌ها باید قبل از دیدن پیشنهادها نوشته شوند؛ دورهٔ آزمایشی کوتاه با معیار از پیش نوشته؛ و بازنگری دوره‌ای. دو قاعده ثابت: قیمت بعد از جدول معیار و نبود داده مانیتور یعنی نامعلوم. حکم مبنا فرضی: گزینه ترکیبی. این نمودار مفهومی و تألیفی TehNet است.</desc>
+<text x="480" y="36" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#1a1a1a" font-weight="bold">انتخاب پشتیبانی شبکه — فرایند شش‌گامی</text>
+<rect x="620" y="70" width="95" height="110" rx="8" fill="#fafafa" stroke="#1e88e5" stroke-width="2"/>
+<text x="667" y="96" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#1e88e5" font-weight="bold">۱ نیازسنجی</text>
+<text x="667" y="118" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="8" text-anchor="middle" fill="#37474f" font-weight="normal">ساعات بحرانی ·</text>
+<text x="667" y="132" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="8" text-anchor="middle" fill="#37474f" font-weight="normal">قطعی قابل‌تحمل ·</text>
+<text x="667" y="146" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="8" text-anchor="middle" fill="#37474f" font-weight="normal">مهارت داخلی</text>
+<line x1="620" y1="125" x2="515" y2="125" stroke="#90a4ae" stroke-width="2" stroke-dasharray="4,3"/>
+<rect x="515" y="70" width="95" height="110" rx="8" fill="#fafafa" stroke="#00897b" stroke-width="2"/>
+<text x="562" y="96" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#00897b" font-weight="bold">۲ گزینه‌ها</text>
+<text x="562" y="118" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="8" text-anchor="middle" fill="#37474f" font-weight="normal">قرارداد · فریلنسر</text>
+<text x="562" y="132" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="8" text-anchor="middle" fill="#37474f" font-weight="normal">ساعتی · ترکیبی ·</text>
+<text x="562" y="146" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="8" text-anchor="middle" fill="#37474f" font-weight="normal">بدون قرارداد</text>
+<line x1="515" y1="125" x2="410" y2="125" stroke="#90a4ae" stroke-width="2" stroke-dasharray="4,3"/>
+<rect x="410" y="70" width="95" height="110" rx="8" fill="#fafafa" stroke="#fb8c00" stroke-width="2"/>
+<text x="457" y="96" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#fb8c00" font-weight="bold">۳ تطبیق</text>
+<text x="457" y="118" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="8" text-anchor="middle" fill="#37474f" font-weight="normal">ماتریس نیاز × پوشش</text>
+<text x="457" y="132" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="8" text-anchor="middle" fill="#37474f" font-weight="normal">— هر ✗ یعنی گلوگاه</text>
+<line x1="410" y1="125" x2="305" y2="125" stroke="#90a4ae" stroke-width="2" stroke-dasharray="4,3"/>
+<rect x="305" y="70" width="95" height="110" rx="8" fill="#fafafa" stroke="#8d6e63" stroke-width="2"/>
+<text x="352" y="96" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#8d6e63" font-weight="bold">۴ ارزیابی</text>
+<text x="352" y="118" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="8" text-anchor="middle" fill="#37474f" font-weight="normal">معیار/وزن/شواهد —</text>
+<text x="352" y="132" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="8" text-anchor="middle" fill="#37474f" font-weight="normal">وزن‌ها قبل از</text>
+<text x="352" y="146" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="8" text-anchor="middle" fill="#37474f" font-weight="normal">استعلام</text>
+<line x1="305" y1="125" x2="200" y2="125" stroke="#90a4ae" stroke-width="2" stroke-dasharray="4,3"/>
+<rect x="200" y="70" width="95" height="110" rx="8" fill="#fafafa" stroke="#43a047" stroke-width="2"/>
+<text x="247" y="96" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#43a047" font-weight="bold">۵ دورهٔ آزمایشی</text>
+<text x="247" y="118" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="8" text-anchor="middle" fill="#37474f" font-weight="normal">معیار از-پیش‌نوشته</text>
+<text x="247" y="132" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="8" text-anchor="middle" fill="#37474f" font-weight="normal">· ۳۰-۹۰ روز فرض</text>
+<line x1="200" y1="125" x2="95" y2="125" stroke="#90a4ae" stroke-width="2" stroke-dasharray="4,3"/>
+<rect x="95" y="70" width="95" height="110" rx="8" fill="#fafafa" stroke="#6a1b9a" stroke-width="2"/>
+<text x="142" y="96" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#6a1b9a" font-weight="bold">۶ بازنگری</text>
+<text x="142" y="118" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="8" text-anchor="middle" fill="#37474f" font-weight="normal">جلسهٔ پایان دوره</text>
+<text x="142" y="132" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="8" text-anchor="middle" fill="#37474f" font-weight="normal">با جدول معیار —</text>
+<text x="142" y="146" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="8" text-anchor="middle" fill="#37474f" font-weight="normal">تمدید/اصلاح/تعویض</text>
+<rect x="95" y="210" width="770" height="88" rx="8" fill="#fff8e1" stroke="#f9a825" stroke-width="2"/>
+<text x="480" y="234" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#f57f17" font-weight="bold">دو قاعدهٔ ثابت فرایند:</text>
+<text x="480" y="258" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#5d4037" font-weight="normal">قیمت فقط بعد از تکمیل جدول معیار وارد مقایسه می‌شود — نه قبل از آن</text>
+<text x="480" y="274" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#5d4037" font-weight="normal">نبود دادهٔ مانیتور برای سنجش «بهبود» یعنی UNKNOWN — حدس زده نمی‌شود</text>
+<rect x="95" y="320" width="770" height="74" rx="8" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
+<text x="480" y="344" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#2e7d32" font-weight="bold">حکم برای مبنای فرضی این درس ‏(رخداد ساده داخلی + عمیق بیرونی + ساعت بحرانی محدود):</text>
+<text x="480" y="366" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#37474f" font-weight="normal">گزینهٔ ترکیبی بیشترین تطبیق را دارد — حکم هر سازمان از ماتریس خودش می‌آید، نه کپی این جدول</text>
+<text x="480" y="384" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="9" text-anchor="middle" fill="#78909c" font-weight="normal">همهٔ اعداد این درس فرضی و برچسب‌دارند — انتخاب/خرید واقعی NOT_RUN</text>
+<text x="480" y="533" font-family="Tahoma, Segoe UI, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#78909c" font-weight="normal">نمودار مفهومی تألیفی TehNet — نه عکس واقعی — الگوی درس‌های N همین سری؛ اجرا NOT_RUN</text>
+</svg>

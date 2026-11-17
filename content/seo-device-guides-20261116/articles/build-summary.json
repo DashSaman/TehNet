@@ -155,6 +155,13 @@
    "type": "tutorial",
    "bytes": 25067,
    "per_model_images": 0
+  },
+  {
+   "md": "../tutorials/n6-support-selection.fa.md",
+   "html": "../tutorials/n6-support-selection.gutenberg.html",
+   "type": "tutorial",
+   "bytes": 30363,
+   "per_model_images": 0
   }
  ]
 }

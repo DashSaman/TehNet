@@ -272,6 +272,7 @@ const jobs = [
   ['../tutorials/n2-rack-cable.fa.md', '../tutorials/n2-rack-cable.gutenberg.html', 'tutorial'],
   ['../tutorials/n3-cable-test-report.fa.md', '../tutorials/n3-cable-test-report.gutenberg.html', 'tutorial'],
   ['../tutorials/n1-office-design.fa.md', '../tutorials/n1-office-design.gutenberg.html', 'tutorial'],
+  ['../tutorials/n6-support-selection.fa.md', '../tutorials/n6-support-selection.gutenberg.html', 'tutorial'],
 ];
 const summary = [];
 for (const job of jobs) {

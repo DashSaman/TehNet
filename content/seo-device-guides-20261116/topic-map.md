@@ -66,13 +66,13 @@
 | N3 ‏(گزارش تست کابل) | authored ‏(DRAFT) | tutorials/n3-cable-test-report.fa.md |
 | N4 ‏(عیب‌یابی) | پوشش‌شده: درس n1-network-troubleshooting.fa.md ‏(نام فایل ≠ شناسه مصوب) | همان |
 | N5 ‏(مانیتورینگ) | پوشش‌شده: درس n2-monitoring-maintenance.fa.md | همان |
-| N6 ‏(انتخاب پشتیبانی) | پوشش جزئی: n3-support-contract-sla.fa.md — درس اختصاصی در صف | همان |
+| N6 ‏(انتخاب پشتیبانی) | authored ‏(DRAFT): tutorials/n6-support-selection.fa.md | مکمل قرارداد/SLA جدا حفظ شده |
 
 - **درس‌های مکمل حفظ شده‌اند** ‏(supplementary، جدا از سرفصل مصوب): uplink/trunk ‏(s5-uplink-trunk)، PSU ‏(s6-psu-power)، عیب‌یابی/مانیتورینگ/قرارداد با فایل‌های فعلی‌شان، پذیرش تحویل ‏(n4-delivery-acceptance)، بکاپ ‏(n5-config-backup-export)، مسیر رخداد ‏(n6-incident-path).
 - **حالت‌ها جدا هستند:** authored ‏≠ ‏test-qualified ‏≠ ‏accepted ‏≠ ‏published. هیچ درسی منتشر نشده؛ publish مستلزم گیت است.
 - ledger اجرایی با وضعیت لحظه‌ای: `WORKQUEUE.md` در ریپو — هر بسته با SHA و رسید خودش.
 - نگاشت RRهای درس‌های canonical ‏(از ledger مدیریت): combined fourth revision = ‏6930620309؛ canonical loop/RSTP/LACP = ‏6930807455؛ canonical NAS upgrade = ‏6931021926؛ canonical office design = ‏6931198087 — این RRها «تحویل» را تأیید می‌کنند، نه پذیرش محتوایی.
-- S4/ادغام: تصمیم با مدیر. N6 اختصاصی: در صف تولید. بقیهٔ بسته‌ها ‏(دیسکاوری، گارد، کاندیدها، رندر): در صف مرور مدیر.
+- S4/ادغام: تصمیم با مدیر — تنها واحد مصوب unauthored باقی‌مانده. بقیهٔ بسته‌ها ‏(دیسکاوری، گارد، کاندیدها، رندر، درس‌های authored): در صف مرور مدیر.
 
 ## ملاحظات
 

@@ -492,7 +492,7 @@
   "manager-side browser run"
  ],
  "production_touched": false,
- "utc_extended": "2026-11-17T01:13:01Z",
+ "utc_extended": "2026-11-17T01:27:06Z",
  "pages_extra": [
   "tutorials/s2-poe-budget.gutenberg.html",
   "tutorials/s3-sfp-dac-fiber.gutenberg.html",
@@ -768,6 +768,74 @@
    "WordPress/theme/KSES integration (candidate applies at preview only)",
    "RouterOS execution",
    "throughput/wire-speed measurement"
+  ],
+  "production_touched": false
+ },
+ "n6c_canonical_preview_20261117": {
+  "packet": "TN-N6C-SUPPORT-SELECTION-20261117 (canonical N6 dedicated lesson — first real-browser preview)",
+  "utc": "2026-11-17T01:27:06Z",
+  "git_head_at_run": "0241e40efdc3546e7d3276341951293e29504e6a",
+  "executed_by": "GLM — real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138",
+  "style_artifact": {
+   "path": "qa/seo-device-guides-20261116/candidate-preview.css",
+   "sha256": "ae06330b789ed135d144131b1b6b08b8fd03aea8ca7b94cb959c6e2a5af67fc1"
+  },
+  "harness_artifact": {
+   "path": "qa/seo-device-guides-20261116/preview-inject-candidate.js",
+   "sha256": "3109a38c905593bddeb5016c9f3fead1b8fc335a650b49ed06761910cacccaac"
+  },
+  "bound_inputs_sha256": {
+   "tutorials/n6-support-selection.fa.md": "896afbc9ce904247d0ce19eee3f3b8ba517ce80315d2f58875a6dcacf73c5171",
+   "tutorials/n6-support-selection.gutenberg.html": "cead4ac0a4d94c536d14f0f8d8d531cc694bc4745833f7d1d6d17b49f0de8cb1",
+   "assets/tutorial-n6-support-selection.svg": "3fb88b134c8341c0e22204cf9a60d69ac43525998adb00bb7b69915474256a98"
+  },
+  "results": {
+   "desktop_1280x900": {
+    "h1": "انتخاب پشتیبانی شبکه — از نیازسنجی تا دورهٔ آزمایشی (N6)",
+    "doc_overflow_px": 0,
+    "images_total": 1,
+    "images_loaded": 1,
+    "pre_total": 0,
+    "table_total": 8,
+    "table_with_inner_scroll": 0,
+    "containers_focusable": 8,
+    "keyboard": {
+     "note": "no pre/table content exceeds its container at 1280px — nothing to scroll; focusability verified (8 containers tabindex=0)",
+     "keyboard_scroll_confirmed": false,
+     "not_applicable_reason": "no inner-scroll container at this viewport"
+    }
+   },
+   "mobile_390x844": {
+    "h1": "انتخاب پشتیبانی شبکه — از نیازسنجی تا دورهٔ آزمایشی (N6)",
+    "doc_overflow_px": 0,
+    "images_total": 1,
+    "images_loaded": 1,
+    "pre_total": 0,
+    "table_total": 8,
+    "table_with_inner_scroll": 6,
+    "containers_focusable": 8,
+    "keyboard": {
+     "focused_tag": "TABLE",
+     "scrollWidth": 191,
+     "clientWidth": 135,
+     "deltas_px": {
+      "ArrowRight": 0,
+      "ArrowLeft": 39.2,
+      "End": 40,
+      "Home": 40
+     },
+     "keyboard_scroll_confirmed": true
+    }
+   }
+  },
+  "method": "same committed harness (inject complete candidate CSS verbatim + tabindex/aria wrap + metrics + real keypress probe on first scrollable container)",
+  "evidence_pngs_local": [
+   "render-evidence/n6c-desktop-flow-diagram.png"
+  ],
+  "not_run": [
+   "WordPress/theme/KSES",
+   "RouterOS",
+   "production publish"
   ],
   "production_touched": false
  }
