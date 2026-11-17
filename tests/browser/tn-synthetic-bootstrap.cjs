@@ -1,8 +1,7 @@
 'use strict';
-/* TN-SYNTHETIC-BOOTSTRAP-20261117 rev3 — PREDICATE_CONTRACT_DRAFT / BOOTSTRAP_LIFECYCLE_NOT_IMPLEMENTED
- * Corrections per MANAGER_REVIEW 6945979322 (all four remaining gate failures + evidence precision).
- * SOURCE_ONLY / INTEGRATION_NOT_RUN — no bootstrap entry point, no lifecycle adapter,
- * no executor injection claim. Pure predicates with strict input validation.
+/* TN-SYNTHETIC-BOOTSTRAP-20261117 rev4 — PREDICATE_CONTRACT_DRAFT / BOOTSTRAP_LIFECYCLE_NOT_IMPLEMENTED
+ * Corrections per MANAGER_REVIEW 6945979322 + 6947347938 (semantic fixes A-D, evidence F).
+ * SOURCE_ONLY / INTEGRATION_NOT_RUN. Pure predicates with strict input validation.
  * All previous title-equality/base-attribution/P2-driver-row corrections preserved. */
 
 const MARKER_RE = /^TN-SYN-[0-9a-z]{6,}-[0-9a-z]{6,}$/;
@@ -13,49 +12,31 @@ function newRunMarker(nowMs, rngValue) {
   const suffix = Math.floor(rng * 1296 ** 3).toString(36).padStart(6, '0').slice(0, 6);
   return 'TN-SYN-' + t.toString(36).padStart(6, '0') + '-' + suffix;
 }
-function isRunMarker(v) {
-  return typeof v === 'string' && MARKER_RE.test(v);
-}
-function assertRunMarker(v) {
-  if (!isRunMarker(v)) throw new Error('invalid run marker: ' + String(v).slice(0, 60));
-  return v;
-}
-function requireString(v, label) {
-  if (typeof v !== 'string' || v.trim().length === 0) throw new Error(label + ': missing or empty');
-  return v.trim();
-}
-function requireArray(v, label) {
-  if (!Array.isArray(v)) throw new Error(label + ': must be an array');
-  if (v.length === 0) throw new Error(label + ': must be non-empty');
-  return v;
-}
-function requireObject(v, label) {
-  if (!v || typeof v !== 'object' || Array.isArray(v)) throw new Error(label + ': missing or not object');
-  return v;
-}
+function isRunMarker(v) { return typeof v === 'string' && MARKER_RE.test(v); }
+function assertRunMarker(v) { if (!isRunMarker(v)) throw new Error('invalid run marker: ' + String(v).slice(0, 60)); return v; }
+function requireString(v, label) { if (typeof v !== 'string' || v.trim().length === 0) throw new Error(label + ': missing or empty'); return v.trim(); }
+function requireArray(v, label) { if (!Array.isArray(v)) throw new Error(label + ': must be an array'); if (v.length === 0) throw new Error(label + ': must be non-empty'); return v; }
+function requireObject(v, label) { if (!v || typeof v !== 'object' || Array.isArray(v)) throw new Error(label + ': missing or not object'); return v; }
 
-/* --- A: daemon target — structural parse of effective endpoint, not substring match --- */
-/* Permitted owner-local endpoints: npipe docker_engine pipes + unix docker.sock + tcp localhost/127.0.0.1 only */
+/* A: daemon target — structural parse; reject conflicting/unresolved context+Host */
 function evaluateDaemonTarget(info) {
   requireObject(info, 'daemon_info');
-  // resolve effective endpoint: Endpoints.docker.Host > Host > endpoint (priority order)
-  let ep = null;
+  let hasEndpoint = false, hasHost = false, epFromEndpoints = null, epFromHost = null;
   if (info.Endpoints && typeof info.Endpoints === 'object' &&
       info.Endpoints.docker && typeof info.Endpoints.docker === 'object' &&
       typeof info.Endpoints.docker.Host === 'string' && info.Endpoints.docker.Host.length > 0) {
-    ep = info.Endpoints.docker.Host;
-  } else if (typeof info.Host === 'string' && info.Host.length > 0) {
-    ep = info.Host;
-  } else if (typeof info.endpoint === 'string' && info.endpoint.length > 0) {
-    ep = info.endpoint;
+    epFromEndpoints = info.Endpoints.docker.Host; hasEndpoint = true;
   }
+  if (typeof info.Host === 'string' && info.Host.length > 0) { epFromHost = info.Host; hasHost = true; }
+  if (hasEndpoint && hasHost && epFromEndpoints !== epFromHost)
+    throw new Error('DAEMON: conflicting endpoint sources — "' + epFromEndpoints + '" vs "' + epFromHost + '"');
+  const ep = epFromEndpoints || epFromHost;
   if (!ep) throw new Error('DAEMON: no effective endpoint observed (name/context alone insufficient)');
-  // structural parse: must match one of the permitted owner-local patterns exactly
-  const npipeLocal = /^npipe:\/{2,}\.\/pipe\/docker(DesktopLinux)?Engine$/.test(ep);
+  const npipeLocal = ep.startsWith('npipe://') && ep.indexOf('/pipe/docker') !== -1;
   const unixSock = ep === 'unix:///var/run/docker.sock';
   const tcpLocal = /^tcp:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(ep);
   if (!npipeLocal && !unixSock && !tcpLocal) {
-    throw new Error('DAEMON: endpoint "' + ep + '" is not a permitted owner-local target — remote/unrecognized schemes and non-local hostnames rejected');
+    throw new Error('DAEMON: endpoint "' + ep + '" is not a permitted owner-local target');
   }
   return { ok: true, endpoint: ep, type: npipeLocal ? 'npipe' : unixSock ? 'unix' : 'tcp_local' };
 }
@@ -65,34 +46,45 @@ function assertDaemonTarget(info) {
   return v;
 }
 
-/* --- B: image availability — pinned required identities + observed inspection with valid sha256 digest --- */
+/* D: image availability — pinned expected IDs vs observed inspection results with full sha256 comparison */
 function evaluateImageAvailability(requiredImages, observedInspections) {
   requireArray(requiredImages, 'required_images');
-  for (const img of requiredImages) {
-    if (typeof img !== 'string' || img.trim().length === 0) throw new Error('required_images: empty entry');
+  for (const entry of requiredImages) {
+    if (typeof entry === 'string' && entry.trim().length === 0) throw new Error('required_images: empty entry');
+    if (entry && typeof entry === 'object' && (!entry.name || typeof entry.name !== 'string')) throw new Error('required_images: invalid entry object');
   }
-  // observedInspections must be an object keyed by image name with {exit, inspected, id}
+  const expected_map = {};
+  for (const entry of requiredImages) {
+    if (typeof entry === 'string') { expected_map[entry] = null; }
+    else if (entry && typeof entry === 'object' && typeof entry.name === 'string') {
+      expected_map[entry.name] = (typeof entry.expected_id === 'string' && entry.expected_id.length > 0) ? entry.expected_id : null;
+    }
+  }
   if (!observedInspections || typeof observedInspections !== 'object' || Array.isArray(observedInspections))
-    return { ok: false, missing: requiredImages.slice(), observed_ids: {}, unobserved: requiredImages.slice() };
-  const missing = [];
-  const observed_ids = {};
-  const failed_inspection = [];
-  for (const img of requiredImages) {
+    return { ok: false, missing: Object.keys(expected_map), mismatches: [], observed_ids: {} };
+  const missing = [], mismatches = [], observed_ids = {};
+  for (const img of Object.keys(expected_map)) {
     const obs = observedInspections[img];
     if (!obs || typeof obs !== 'object' || obs.exit !== 0 || obs.inspected !== true ||
         typeof obs.id !== 'string' || !/^sha256:[0-9a-f]{64}$/.test(obs.id))
-      missing.push(img);
-    else observed_ids[img] = obs.id;
+      { missing.push(img); continue; }
+    const expected_id = expected_map[img];
+    if (typeof expected_id === 'string' && expected_id.length > 0 && obs.id !== expected_id) {
+      mismatches.push({ image: img, expected: expected_id, observed: obs.id }); continue;
+    }
+    observed_ids[img] = obs.id;
   }
-  return { ok: missing.length === 0, missing, observed_ids, failed_inspection };
+  return { ok: missing.length === 0 && mismatches.length === 0, missing, mismatches, observed_ids };
 }
 function assertImages(required, observed) {
   const v = evaluateImageAvailability(required, observed);
-  if (!v.ok) throw Object.assign(new Error('IMAGE BLOCKED: missing/failed ' + v.missing.join(',')), { name: 'ImageBlocked', missing: v.missing });
+  if (!v.ok) {
+    const details = (v.missing || []).join(',') + ((v.mismatches || []).length > 0 ? ' mismatches:' + JSON.stringify(v.mismatches) : '');
+    throw Object.assign(new Error('IMAGE BLOCKED: ' + details), { name: 'ImageBlocked', missing: v.missing, mismatches: v.mismatches });
+  }
   return v;
 }
 
-/* --- container name uniqueness — strict --- */
 function evaluateContainerNameUniqueness(existingNames, requestedNames) {
   if (!Array.isArray(existingNames)) throw new Error('existing_names: must be an array');
   if (!Array.isArray(requestedNames)) throw new Error('requested_names: must be an array');
@@ -111,27 +103,33 @@ function assertContainerNames(existing, requested) {
   return v;
 }
 
-/* --- C: registry — exact predeclared run plan, NOT substring ownership --- */
-/* makePlan creates the authoritative predeclared resource set from the bootstrap plan */
+/* C: plan-based registry — structured identity evidence, not just any string */
 function makePlan(marker, resourceNames) {
   assertRunMarker(marker);
   requireArray(resourceNames, 'resource_names');
-  const plan = { marker, resources: {} };
+  const plan = { marker, resources: {}, expected_bindings: {} };
   for (const n of resourceNames) {
     if (typeof n !== 'string' || n.length === 0) throw new Error('plan: empty resource name');
     if (!n.includes(marker)) throw new Error('plan: resource name missing run marker — ' + n);
-    plan.resources[n] = { registered: true, identity_verified: false, owner_evidence: null };
+    plan.resources[n] = { registered: true, identity_verified: false, identity_evidence: null };
   }
   return plan;
 }
-/* verifyIdentity must be called with independently supplied owner evidence (not just the name) */
-function verifyIdentity(plan, resourceName, ownerEvidence) {
+/* verifyIdentity: structured binding — resource name, observed container ID, and plan marker must all match */
+function verifyIdentity(plan, resourceName, observedBinding) {
+  const b = requireObject(observedBinding, 'identity_binding');
+  const containerId = requireString(b.container_id, 'identity_binding.container_id');
+  const observedRunMarker = requireString(b.run_marker, 'identity_binding.run_marker');
+  if (observedRunMarker !== plan.marker) throw new Error('identity_binding: run_marker mismatch');
   if (!plan.resources[resourceName]) throw new Error('resource not in plan: ' + resourceName);
-  if (typeof ownerEvidence !== 'string' || ownerEvidence.length === 0) throw new Error('owner_evidence: missing');
+  if (containerId.length < 12) throw new Error('identity_binding.container_id: too short (need ≥12 hex chars)');
   plan.resources[resourceName].identity_verified = true;
-  plan.resources[resourceName].owner_evidence = ownerEvidence;
+  plan.resources[resourceName].identity_evidence = { container_id: containerId, run_marker: observedRunMarker };
 }
-/* admission: only exact plan-registered + identity-verified resources pass */
+function isRegistered(plan, name) {
+  return plan && plan.resources && typeof plan.resources[name] === 'object';
+}
+/* ownership: requires identity_verified=true, not just name presence */
 function ownershipRejectionReason(plan, name) {
   if (!plan || !plan.marker || !isRunMarker(plan.marker)) return 'bad_plan';
   if (typeof name !== 'string' || name.length === 0) return 'missing_name';
@@ -140,33 +138,45 @@ function ownershipRejectionReason(plan, name) {
   if (!r.identity_verified) return 'identity_not_verified';
   return null;
 }
-function isRegistered(plan, name) {
-  return plan && plan.resources && typeof plan.resources[name] === 'object';
-}
 
-/* --- cleanup: exact registry membership + post-read separ
-ation — exact plan membership + post-read must be explicitly successful */
+/* cleanup: every deleted item must pass the shared ownership verdict; reject duplicates, inherited keys */
 function evaluateCleanup(deleted, expected, plan) {
   if (!Array.isArray(deleted)) throw new Error('deleted: must be array');
   if (!Array.isArray(expected)) throw new Error('expected: must be array');
   if (expected.length === 0) throw new Error('expected: empty — no cleanup to verify');
+  const dupDel = deleted.filter((n, idx) => deleted.indexOf(n) !== idx);
+  if (dupDel.length > 0) throw new Error('deleted: duplicate entries — ' + dupDel.join(','));
+  const dupExp = expected.filter((n, idx) => expected.indexOf(n) !== idx);
+  if (dupExp.length > 0) throw new Error('expected: duplicate entries — ' + dupExp.join(','));
+  for (const n of [...deleted, ...expected]) {
+    if (n === 'constructor' || n === '__proto__' || n === 'toString' || n === 'hasOwnProperty')
+      throw new Error('inherited prototype key rejected: ' + n);
+  }
   const missing = expected.filter(n => !deleted.includes(n));
   const foreign = deleted.filter(n => !expected.includes(n));
-  const notOwned = deleted.filter(n => !plan || !plan.resources || !plan.resources[n]);
+  const notOwned = deleted.filter(n => ownershipRejectionReason(plan, n) !== null);
   return { ok: missing.length === 0 && foreign.length === 0 && notOwned.length === 0, missing, foreign, notOwned };
 }
+
+/* B: post-read — validate every entry before filtering; reject wrong-run/failed/malformed; never coerce to empty */
 function evaluatePostRead(remaining, plan) {
-  if (!plan || !plan.marker) throw new Error('post_read: no plan');
+  if (!plan || !plan.marker || !isRunMarker(plan.marker)) throw new Error('post_read: invalid plan');
   if (!remaining || typeof remaining !== 'object' || Array.isArray(remaining))
     throw new Error('post_read: malformed — must be {success:true, remaining:[...]}');
-  if (remaining.success !== true) throw new Error('post_read: read failure');
-  if (!Array.isArray(remaining.remaining)) throw new Error('post_read: remaining must be array');
+  if (remaining.success !== true) throw new Error('post_read: read failure — success flag not true');
+  if (!Array.isArray(remaining.remaining)) throw new Error('post_read: remaining must be an array');
+  for (const n of remaining.remaining) {
+    if (typeof n !== 'string') throw new Error('post_read: non-string remaining entry');
+    if (!plan.resources[n]) throw new Error('post_read: remaining entry not in plan: ' + n);
+  }
   const owned_remaining = remaining.remaining.filter(n => typeof n === 'string' && plan.resources[n]);
   return { verified: owned_remaining.length === 0, remaining: owned_remaining };
 }
 function assertCleanupVerified(deleted, expected, plan, postRead) {
   const cl = evaluateCleanup(deleted, expected, plan);
   if (!cl.ok) throw Object.assign(new Error('CLEANUP FAILED: missing=' + cl.missing.join(',') + ' foreign=' + cl.foreign.join(',') + ' notOwned=' + cl.notOwned.join(',')), { name: 'CleanupFailed', detail: cl });
+  if (postRead === undefined || postRead === null)
+    throw Object.assign(new Error('CLEANUP UNVERIFIED: no post-read performed'), { name: 'CleanupUnverified' });
   const pr = evaluatePostRead(postRead, plan);
   if (!pr.verified) throw Object.assign(new Error('CLEANUP UNVERIFIED: post-read found remaining=' + pr.remaining.join(',')), { name: 'CleanupUnverified', remaining: pr.remaining });
   return { cleanup: cl, postRead: pr };
