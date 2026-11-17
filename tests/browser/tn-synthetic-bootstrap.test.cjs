@@ -117,12 +117,15 @@ throws('post-read: no run_marker reject', () => {
 ok('readability: exact marker-value positive', () => {
   assert(S.evaluateMarkerReadability(VM, VM, VM).ok);
 });
-ok('readability: empty expected marker reject', () => {
+ok('readability: empty DB observation reject', () => {
   assert(!S.evaluateMarkerReadability('', VM, VM).ok);
 });
 ok('readability: empty observed field reject', () => {
   assert(!S.evaluateMarkerReadability(VM, '', VM).ok);
 });
+throws('readability: actual empty expected marker rejects', () => {
+  S.evaluateMarkerReadability(VM, VM, '');
+}, 'invalid run marker');
 ok('readability: prefix collision reject', () => {
   assert(!S.evaluateMarkerReadability(VM + '-extra', VM + '-extra', VM).ok);
 });
