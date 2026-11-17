@@ -2550,5 +2550,131 @@
   },
   "boundaries": "NOT_DEPLOYED; RouterOS/probes/WordPress/KSES/DB integration remain unqualified/NOT_RUN; prior accepted work (M3/N6/S5/keyboard/figure/helper) untouched; no unrelated lesson rerun; no public screenshots/traces/raw logs",
   "production_touched": false
+ },
+ "s4c_f1b_finish_20261118": {
+  "packet": "TN-S4C-CONTRACT-PREVIEW-FINISH-20261117 — F1b per MANAGER_REVIEW 6963761000 update (2026-11-17T23:23:53Z)",
+  "utc": "2026-11-17T23:24:58Z (source edit) / preview 2026-11-17T23:26:24.910Z - 23:26:58.079Z (per-pass times below)",
+  "git_head_at_run": "8a9ec4426682d255f4906d2650dd98b01ae8bf0b (pre-commit head; the finish commit delivers corrected S4 MD/HTML + hardened validator + this receipt)",
+  "executed_by": "GLM - authoring/rebuild with existing tools + real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138; real wheel scroll + real keypresses only",
+  "bound_artifacts_sha256": {
+   "tutorials/s4-vlan-switch-l2.fa.md (corrected F1b)": "sha256:fbffbbbc5bb618dbe631f11062d774c090dd0151082643b1d7e628b082d7aad1",
+   "tutorials/s4-vlan-switch-l2.gutenberg.html (rebuilt)": "sha256:adcf9f3c73bc9ae7b4396ae7d4472b1e46857e4e16c93b84b8e3b928af378411",
+   "assets/tutorial-s4-vlan-l2.svg (unchanged)": "c7c8fb139c4b74fce43d57f39a800c43e65c83498d19231054bc466c75393003",
+   "validate-seo-guides.cjs (c19 get-based anchors + updated relocated-guard negative)": "sha256:f6e8d2b7aeae11b50629a55d2460ab256b2c21b91f1864415bc897e59b49ba00",
+   "candidate-preview.css": "ae06330b789ed135d144131b1b6b08b8fd03aea8ca7b94cb959c6e2a5af67fc1",
+   "preview-inject-candidate.js (v3)": "e5a4e170e9fecf1946faf41b944017d008817ce208539156e44b108ef08a21d7"
+  },
+  "F1b_fix": "board-identity guard now reads the setting DIRECTLY — :local bn [/system resource get board-name]; fail-closed readability check (:typeof  != str -> stop) and identity condition applied to the returned value (:local isCRS ( ~ CRS326); :if ( != true) -> stop) all BEFORE any effect; the stale find-based marker (/system resource find where board-name~) is absent from the source; port/name guards, non-transaction boundary and fail-closed behavior preserved",
+  "validator_hardening": {
+   "c19_anchors": "guardAnchors now require the get-based board-name read (:local bn [/system resource get board-name]), the fail-closed readability check (:typeof $bn != str), and the identity condition ($isCRS != true) — each positionally BEFORE add name=bridge1; a stale find-based board marker anywhere in the source fails c19 with its own reason (stale_find_marker)",
+   "updated_negative": "s4-identity-guard-after-bridge now moves the WHOLE get-based segment after bridge creation; setup proves the mutation occurred (original segment found, bridge-add anchor found, moved segment verified positioned after the bridge-add line) — otherwise throws",
+   "suite": "node qa/seo-device-guides-20261116/validate-seo-guides.cjs — exit 0; good candidate 164 checks/0 failed; negatives 20/20 rejected-with-reason; freshness PASS (builder rerun byte-identical for 24 outputs)"
+  },
+  "rebuild": {
+   "buildA_exit": 0,
+   "buildB_exit": 0,
+   "validator_rerun_byte_identical": true,
+   "s4_md_sha256": "sha256:fbffbbbc5bb618dbe631f11062d774c090dd0151082643b1d7e628b082d7aad1",
+   "s4_html_sha256": "sha256:adcf9f3c73bc9ae7b4396ae7d4472b1e46857e4e16c93b84b8e3b928af378411"
+  },
+  "final_bounded_preview": {
+   "method": "served HTML hashed equal to built file; DOM PRE/TABLE counts asserted 5/7 against served text counts before recording; real wheel scroll + real keypresses; no forcing",
+   "desktop_1280x900": {
+    "pass_start_utc": "2026-11-17T23:26:24.910Z",
+    "pass_end_utc": "2026-11-17T23:26:29.187Z",
+    "dom_counts": "PRE 5 / TABLE 7 (match served)",
+    "doc_overflow_px": 0,
+    "toc": "16 links / 0 dangling",
+    "endpoint_table_alignment": "9 header cells / all 8 data rows 9 cells — aligned",
+    "natural_diagram": "complete=true naturalWidth=960 rendered 880x513 positive area in viewport, evaluateImageRender ok=true",
+    "extents": {
+     "pre": "5 containers, 1 scrollable (#0 1463/958)",
+     "table": "7 containers, 0 scrollable"
+    },
+    "keyboard": {
+     "PRE_0of1": {
+      "focus": "PRE index 0, activeElement verified",
+      "keys": {
+       "ArrowRight": {
+        "before_abs": 0,
+        "after_abs": 40,
+        "delta": 40
+       },
+       "ArrowLeft": {
+        "before_abs": 40,
+        "after_abs": 0,
+        "delta": -40
+       }
+      }
+     },
+     "TABLE": {
+      "N_A": true,
+      "reason": "measured extents: no contained overflow"
+     }
+    }
+   },
+   "mobile_390x844": {
+    "pass_start_utc": "2026-11-17T23:26:52.182Z",
+    "pass_end_utc": "2026-11-17T23:26:58.079Z",
+    "dom_counts": "PRE 5 / TABLE 7 (match served)",
+    "doc_overflow_px": 0,
+    "toc": "16 links / 0 dangling",
+    "endpoint_table_alignment": "9 header cells / all 8 data rows 9 cells — aligned",
+    "natural_diagram": "natural fetch fired during real wheel scroll step 1; visible at step 2; rendered 295x172 positive area, evaluateImageRender ok=true",
+    "extents": {
+     "pre": "5 containers, 3 scrollable (#0 1463/374, #1 893/374, #2 921/374)",
+     "table": "7 containers, 1 scrollable (#2 endpoint table 337/295)"
+    },
+    "keyboard": {
+     "PRE_0of3": {
+      "focus": "PRE index 0 (1463/374), activeElement verified",
+      "keys": {
+       "ArrowRight": {
+        "before_abs": 0,
+        "after_abs": 40,
+        "delta": 40
+       },
+       "ArrowLeft": {
+        "before_abs": 40,
+        "after_abs": 0,
+        "delta": -40
+       }
+      }
+     },
+     "TABLE_0of1": {
+      "focus": "TABLE index 2 (337/295), activeElement verified",
+      "keys": {
+       "ArrowRight": {
+        "before_abs": 0,
+        "after_abs": 40,
+        "delta": 40
+       },
+       "ArrowLeft": {
+        "before_abs": 40,
+        "after_abs": 0,
+        "delta": -40
+       }
+      }
+     }
+    }
+   }
+  },
+  "changed_files": [
+   "tutorials/s4-vlan-switch-l2.fa.md",
+   "tutorials/s4-vlan-switch-l2.gutenberg.html",
+   "articles/build-summary.json",
+   "validate-seo-guides.cjs",
+   "validation-receipt.json",
+   "render-check-receipt.json"
+  ],
+  "not_run": [
+   "RouterOS execution",
+   "all probes",
+   "WordPress/KSES",
+   "DB integration",
+   "production publish"
+  ],
+  "boundaries": "NOT_DEPLOYED; prior accepted work untouched; no unrelated lesson rerun; no public screenshots/traces/raw logs",
+  "production_touched": false
  }
 }

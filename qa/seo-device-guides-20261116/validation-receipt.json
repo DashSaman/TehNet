@@ -3,9 +3,9 @@
  "validator": "validate-seo-guides.cjs rev8 (rev7 + S2 tutorial candidate)",
  "command": "node validate-seo-guides.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-17T23:19:18Z",
- "finished_utc": "2026-11-17T23:19:18Z",
- "control_head": "be15825785591067f71e0d0fbb49198f570de914",
+ "started_utc": "2026-11-17T23:25:57Z",
+ "finished_utc": "2026-11-17T23:25:57Z",
+ "control_head": "8a9ec4426682d255f4906d2650dd98b01ae8bf0b",
  "exit": 0,
  "good_candidate": {
   "ok": true,
@@ -148,7 +148,7 @@
    "failed": true,
    "reasonMatched": true,
    "reasons": [
-    "S4 baseline guard contract missing (all guards BEFORE first creation effect, complete 16-port guard list, created-name guard, documented enum values, non-transaction wording, honest recovery wording)"
+    "S4 baseline guard contract missing (all guards BEFORE first creation effect, complete 16-port guard list, created-name guard, direct get-based board-name read with fail-closed condition, documented enum values, non-transaction wording, honest recovery wording)"
    ]
   },
   {
@@ -163,11 +163,11 @@
   },
   {
    "name": "s4-identity-guard-after-bridge",
-   "injected": "S4 board-identity guard moved to immediately AFTER bridge creation",
+   "injected": "S4 board-identity guard segment (direct get-based read + fail-closed condition) moved to immediately AFTER bridge creation — setup proves the mutation occurred",
    "failed": true,
    "reasonMatched": true,
    "reasons": [
-    "S4 baseline guard contract missing (all guards BEFORE first creation effect, complete 16-port guard list, created-name guard, documented enum values, non-transaction wording, honest recovery wording)"
+    "S4 baseline guard contract missing (all guards BEFORE first creation effect, complete 16-port guard list, created-name guard, direct get-based board-name read with fail-closed condition, documented enum values, non-transaction wording, honest recovery wording)"
    ]
   },
   {
@@ -194,7 +194,7 @@
    "failed": true,
    "reasonMatched": true,
    "reasons": [
-    "S4 baseline guard contract missing (all guards BEFORE first creation effect, complete 16-port guard list, created-name guard, documented enum values, non-transaction wording, honest recovery wording)"
+    "S4 baseline guard contract missing (all guards BEFORE first creation effect, complete 16-port guard list, created-name guard, direct get-based board-name read with fail-closed condition, documented enum values, non-transaction wording, honest recovery wording)"
    ]
   }
  ],
@@ -247,8 +247,8 @@
   "tutorials/n3-cable-test-report.gutenberg.html": "ea3e0c5d835347559ebdf819cb96a93f0c288fa5e18b262425332be467e2d346",
   "tutorials/n6-support-selection.fa.md": "e7057c8d8fd92284ed9c143d2cfb83feb66b3b70b1c987a792e6749fdf3d0bc9",
   "tutorials/n6-support-selection.gutenberg.html": "3a21d85a5aa7cb25b4576771cc3443bbc222d00783c111bc1e146af4e4104f52",
-  "tutorials/s4-vlan-switch-l2.fa.md": "60da551c32a2a7bae9ccd402f8c9553d233799478567c129a6d534eaaf2e8f07",
-  "tutorials/s4-vlan-switch-l2.gutenberg.html": "16e0723dad319ff048a4ac2145cc26cabcb9423087b074f04c4b6a6320c256be",
+  "tutorials/s4-vlan-switch-l2.fa.md": "fbffbbbc5bb618dbe631f11062d774c090dd0151082643b1d7e628b082d7aad1",
+  "tutorials/s4-vlan-switch-l2.gutenberg.html": "adcf9f3c73bc9ae7b4396ae7d4472b1e46857e4e16c93b84b8e3b928af378411",
   "topic-map.md": "80a17b9f283a577200e83b2602764df2501282958e31ad19f5d506ff41081bc8",
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",
   "switch-catalog.csv": "aaa5aed94204ad93b312449d9b0c934164c59d2d6375eb3b5727fe94ae164718",

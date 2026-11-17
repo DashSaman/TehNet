@@ -380,7 +380,10 @@ function validate(candidateInputs) {
     const guardAnchors = [
       ':if ([:len [/interface bridge find]] > 0)',
       ':if ([:len [/interface bridge port find]] > 0)',
-      'board-name~"CRS326"',
+      ':local bn [/system resource get board-name]',
+      ':if (:typeof $bn != "str")',
+      ':local isCRS',
+      ':if ($isCRS != true)',
       ':foreach p in={1;2;3;4;5;6;7;8;9;10;11;12;13;14;23;24}',
       ':if ([:len [/interface find where name="mgmt88"]] > 0)',
       ':if ([:len [/ip address find where address~"192.168.88."]] > 0)',
@@ -399,12 +402,14 @@ function validate(candidateInputs) {
     const enumOk = s4Md.indexOf('admit-only-untagged-and-priority-tagged') >= 0 && s4Md.indexOf('admit-only-vlan-tagged') >= 0 && s4Md.indexOf('admit-all') >= 0;
     const inventedEnum = ['admit-all-vlan', 'admit-nothing'].filter(function(t){ return s4Md.indexOf(t) >= 0; });
     const nonTx = s4Md.indexOf('transaction نیست') >= 0;
+    const staleFindBoard = s4Md.indexOf('board-name~') >= 0;
     const recoveryOk = s4Md.indexOf('وارسی\u200cشده') >= 0 && s4Md.indexOf('از هر پورت access دیگری در حالت بی\u200cفیلتر در دسترس است') < 0;
     const missingGuard = guardAnchors.filter(function(a){ return s4Md.indexOf(a) < 0; });
     if (inventedEnum.length > 0) fail('c19_s4_baseline_guard_contract', 'S4 enum uses undocumented values (admit-all-vlan/admit-nothing are not in the documented Bridge Port Settings list)', { invented: inventedEnum });
+    else if (staleFindBoard) fail('c19_s4_baseline_guard_contract', 'S4 board-identity guard still uses the stale find-based marker instead of the direct get-based read', { stale_find_marker: true });
     else if (afterEffect.length > 0 || !portsOk || !enumOk || !nonTx || !recoveryOk || missingGuard.length > 0)
-      fail('c19_s4_baseline_guard_contract', 'S4 baseline guard contract missing (all guards BEFORE first creation effect, complete 16-port guard list, created-name guard, documented enum values, non-transaction wording, honest recovery wording)', { guards_after_first_effect: afterEffect, ports_missing_from_guard_list: portsMissing, enum_ok: enumOk, non_transactional_wording: nonTx, recoveryOk: recoveryOk, missing: missingGuard });
-    else pass('c19_s4_baseline_guard_contract', { guards_before_first_effect: true, ports_guarded: 16, enum_documented: true });
+      fail('c19_s4_baseline_guard_contract', 'S4 baseline guard contract missing (all guards BEFORE first creation effect, complete 16-port guard list, created-name guard, direct get-based board-name read with fail-closed condition, documented enum values, non-transaction wording, honest recovery wording)', { guards_after_first_effect: afterEffect, ports_missing_from_guard_list: portsMissing, enum_ok: enumOk, non_transactional_wording: nonTx, recoveryOk: recoveryOk, missing: missingGuard });
+    else pass('c19_s4_baseline_guard_contract', { guards_before_first_effect: true, ports_guarded: 16, board_name_direct_get: true, enum_documented: true });
 
     const epIdx = s4Md.indexOf('### جدول endpoint سنتز');
     const epEnd = epIdx >= 0 ? s4Md.indexOf('\n![', epIdx) : -1;
@@ -631,15 +636,25 @@ if (require.main === module) {
     }
   }, 'S4 endpoint/test-mode contract missing');
   /* per MANAGER_REVIEW 6962581521 R1: the two V8-verified counterexamples + a missing-used-port guard case */
-  injectNeg('s4-identity-guard-after-bridge', 'S4 board-identity guard moved to immediately AFTER bridge creation', function(clone){
+  injectNeg('s4-identity-guard-after-bridge', 'S4 board-identity guard segment (direct get-based read + fail-closed condition) moved to immediately AFTER bridge creation — setup proves the mutation occurred', function(clone){
     for (let i = 0; i < clone.length; i++) {
       if (clone[i].name === 'tutorials/s4-vlan-switch-l2.fa.md') {
-        const gLine = '    :if ([:len [/system resource find where board-name~"CRS326"]] = 0) do={ :error "S4: board-name does not indicate CRS326 — device identity does not match the declared map" }\n';
+        const segment = [
+          '    :local bn [/system resource get board-name]',
+          '    :if (:typeof $bn != "str") do={ :error "S4: board-name unreadable — device identity cannot be verified, stop" }',
+          '    :local isCRS ($bn ~ "CRS326")',
+          '    :if ($isCRS != true) do={ :error "S4: board-name does not indicate CRS326 — device identity does not match the declared map" }',
+        ].join('\n') + '\n';
         const anchor = 'add name=bridge1 vlan-filtering=no protocol-mode=rstp\n';
         const c = clone[i].content;
-        if (c.indexOf(gLine) < 0) throw new Error('s4-identity-guard-after-bridge setup: guard line not found');
+        if (c.indexOf(segment) < 0) throw new Error('s4-identity-guard-after-bridge setup: get-based board-identity segment not found');
         if (c.indexOf(anchor) < 0) throw new Error('s4-identity-guard-after-bridge setup: bridge add line not found');
-        clone[i].content = c.replace(gLine, '').replace(anchor, anchor + gLine);
+        const removed = c.replace(segment, '');
+        const moved = removed.replace(anchor, anchor + segment);
+        const segIdxInMoved = moved.indexOf(segment);
+        const bridgeIdxInMoved = moved.indexOf(anchor);
+        if (!(segIdxInMoved > bridgeIdxInMoved)) throw new Error('s4-identity-guard-after-bridge setup: mutation did not place the segment after bridge creation');
+        clone[i].content = moved;
       }
     }
   }, 'S4 baseline guard contract missing');
