@@ -1745,5 +1745,182 @@
   },
   "boundaries": "builder/generated outputs/MD/CSS unchanged by this finish; DRAFT/NOT_DEPLOYED; RouterOS/WordPress/KSES NOT_RUN; no production publish; no public screenshots/traces/raw logs; prior narrow approvals unchanged",
   "production_touched": false
+ },
+ "balanced_markup_keyboard_refresh_20261117": {
+  "packet": "TN-BALANCED-MARKUP-KEYBOARD-REFRESH-20261117 (NEXT_READY per APPROVE verdict update 2026-11-17T18:22:33Z)",
+  "utc": "2026-11-17T18:31:00Z window, seven atomic passes",
+  "git_head_at_run": "ef7e429ed845b49cb827f4521e3c4593186d7722 (content bytes unchanged; receipt-only commit is a child of this SHA)",
+  "executed_by": "GLM - real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138; real wheel scrolling and real keypresses only; no synthetic events, no scroll-property assignment",
+  "bound_inputs_sha256": {
+   "candidate-preview.css": "ae06330b789ed135d144131b1b6b08b8fd03aea8ca7b94cb959c6e2a5af67fc1",
+   "preview-inject-candidate.js (v3)": "e5a4e170e9fecf1946faf41b944017d008817ce208539156e44b108ef08a21d7",
+   "tutorials/m2-vlan-small-office.gutenberg.html": "3c30f6ddfe88794318deae441653658e3e9d215f6959d251f8ea151737d04c11",
+   "tutorials/m3-dhcp-dns.gutenberg.html": "e707cb4a4bb911d11021d12e4938b2cd7aa7f08cdfb36809c11f7746fd6737db",
+   "tutorials/s5-uplink-trunk.gutenberg.html": "ce233b72d3f12ff8fc440bb6d85d2b9aa127f333ce1062e5bebfefc4be0b44b0",
+   "tutorials/n6-support-selection.gutenberg.html": "3a21d85a5aa7cb25b4576771cc3443bbc222d00783c111bc1e146af4e4104f52"
+  },
+  "method": "fresh load per pass; committed style/harness injected; all PRE/TABLE extents enumerated; first scrollable container of each TYPE with contained overflow focused via el.focus() and driven by four real keypresses (ArrowRight/ArrowLeft/End/Home) with before/after scrollLeft recorded; N/A only when THESE extents show zero scrollable containers of that TYPE",
+  "passes": {
+   "m2_desktop_1280x900": {
+    "doc_overflow_px": 0,
+    "containers_wrapped": 16,
+    "image_facts_distinct": "rendered 880x532 positive area, complete=true naturalWidth=960; viewport intersection not applicable at page-top scroll position of this pass",
+    "pre_extents": "9 containers, 1 scrollable: #7 1058/958",
+    "table_extents": "7 containers, 0 scrollable",
+    "keyboard": {
+     "PRE_0of1": {
+      "focus": "PRE index 7 (1058/958)",
+      "deltas_px": {
+       "ArrowRight": 0,
+       "ArrowLeft": 0.8,
+       "End": 1.6,
+       "Home": 0.8
+      },
+      "keyboard_scroll_confirmed": true
+     },
+     "TABLE": {
+      "N_A": true,
+      "reason": "0 of 7 scrollable in THESE extents"
+     }
+    }
+   },
+   "m2_mobile_390x844": {
+    "doc_overflow_px": 0,
+    "containers_wrapped": 16,
+    "image_facts_distinct": "rendered 295x178 positive area, complete=true naturalWidth=960",
+    "pre_extents": "9 containers, 6 scrollable (#2 621, #3 685, #4 639, #5 377, #6 661, #7 1058 / 374)",
+    "table_extents": "7 containers, 0 scrollable (all 295/295 - balanced tables fit at 390)",
+    "keyboard": {
+     "PRE_0of6": {
+      "focus": "PRE index 2 (621/374)",
+      "deltas_px": {
+       "ArrowRight": 0,
+       "ArrowLeft": 3.2,
+       "End": 0,
+       "Home": 0.8
+      },
+      "keyboard_scroll_confirmed": true
+     },
+     "TABLE": {
+      "N_A": true,
+      "reason": "0 of 7 scrollable in THESE extents"
+     }
+    }
+   },
+   "m3_desktop_1280x900": {
+    "doc_overflow_px": 0,
+    "containers_wrapped": 18,
+    "image_facts_distinct": "rendered 880x495 positive area, complete=true naturalWidth=960",
+    "pre_extents": "12 containers, 2 scrollable: #7 1446/958, #8 1920/958",
+    "table_extents": "6 containers, 0 scrollable",
+    "keyboard": {
+     "PRE_0of2": {
+      "focus": "PRE index 7 (1446/958)",
+      "deltas_px": {
+       "ArrowRight": 0,
+       "ArrowLeft": 0.8,
+       "End": 0.8,
+       "Home": 0.8
+      },
+      "keyboard_scroll_confirmed": true
+     },
+     "TABLE": {
+      "N_A": true,
+      "reason": "0 of 6 scrollable in THESE extents"
+     }
+    }
+   },
+   "m3_mobile_390x844": {
+    "doc_overflow_px": 0,
+    "containers_wrapped": 18,
+    "image_facts_distinct": "rendered 295x166 positive area, complete=true naturalWidth=960",
+    "pre_extents": "12 containers, 8 scrollable (#1 705, #2 527, #3 856, #5 634, #6 692, #7 1446, #8 1920, #9 464 / 374)",
+    "table_extents": "6 containers, 0 scrollable (all 295/295)",
+    "keyboard": {
+     "PRE_0of8": {
+      "focus": "PRE index 1 (705/374)",
+      "deltas_px": {
+       "ArrowRight": 0,
+       "ArrowLeft": 0.8,
+       "End": 2.4,
+       "Home": 0
+      },
+      "keyboard_scroll_confirmed": true
+     },
+     "TABLE": {
+      "N_A": true,
+      "reason": "0 of 6 scrollable in THESE extents"
+     }
+    }
+   },
+   "s5_desktop_1280x900": {
+    "doc_overflow_px": 0,
+    "containers_wrapped": 11,
+    "image_facts_distinct": "at page-top scroll position the lazy image was not yet fetched (complete=false, naturalWidth 0) - expected below-fold lazy state; natural loading on THESE bytes was separately established in s5_natural_image_verify_20261117; no forcing applied in this pass",
+    "pre_extents": "3 containers, 2 scrollable: #1 1391/958, #2 1391/958",
+    "table_extents": "8 containers, 0 scrollable",
+    "keyboard": {
+     "PRE_0of2": {
+      "focus": "PRE index 1 (1391/958)",
+      "deltas_px": {
+       "ArrowRight": 9.6,
+       "ArrowLeft": 4,
+       "End": 8,
+       "Home": -2.4
+      },
+      "keyboard_scroll_confirmed": true,
+      "note": "bidirectional movement recorded (Home moved scrollLeft back)"
+     },
+     "TABLE": {
+      "N_A": true,
+      "reason": "0 of 8 scrollable in THESE extents"
+     }
+    }
+   },
+   "s5_mobile_390x844": {
+    "doc_overflow_px": 0,
+    "containers_wrapped": 11,
+    "image_facts_distinct": "at page-top scroll position the lazy image was not yet fetched (complete=false) - same expected below-fold lazy state, no forcing applied",
+    "pre_extents": "3 containers, 3 scrollable (#0 706, #1 1391, #2 1391 / 374)",
+    "table_extents": "8 containers, 0 scrollable (all 295/295 - previously 6/8 scrollable under the collapsed nested markup)",
+    "keyboard": {
+     "PRE_0of3": {
+      "focus": "PRE index 0 (706/374)",
+      "deltas_px": {
+       "ArrowRight": 0,
+       "ArrowLeft": 9.6,
+       "End": 0,
+       "Home": 6.4
+      },
+      "keyboard_scroll_confirmed": true
+     },
+     "TABLE": {
+      "N_A": true,
+      "reason": "0 of 8 scrollable in THESE extents"
+     }
+    }
+   },
+   "n6_mobile_390x844": {
+    "doc_overflow_px": 0,
+    "containers_wrapped": 9,
+    "image_facts_distinct": "at page-top scroll position the lazy image was not yet fetched (complete=false) - expected below-fold lazy state",
+    "pre_extents": "no PRE elements on this page",
+    "table_extents": "9 containers, 0 scrollable (all 295/295)",
+    "keyboard": {
+     "TABLE_0of0": {
+      "N_A": true,
+      "reason": "0 of 9 scrollable in THESE extents - the unit-named N6 mobile TABLE case no longer has contained overflow under the balanced markup (old-hash N6 mobile TABLE inner-scroll evidence is history)"
+     },
+     "PRE": {
+      "N_A": true,
+      "reason": "no PRE elements on this page"
+     }
+    }
+   }
+  },
+  "zero_event_note": "no zero-event attempt occurred this turn - every probed scrollable container produced real keypress deltas; no bounded recovery was needed",
+  "extent_changes_from_balanced_markup": "balanced regeneration un-nested the figures: mobile table client widths rose from the collapsed 135 to 295 and NO table now has contained overflow on any measured page/viewport (7 tables M2, 6 M3, 8 S5, 9 N6 all N/A from these extents); PRE inner-scroll counts grew (M2 9->1 desktop / 6 mobile scrollable, M3 2/8, S5 2/3) because each pre now spans its own full-width figure instead of inherited nested widths",
+  "limits": "first scrollable container per TYPE probed per pass; remaining scrollable containers extents-only; S5/N6 image states recorded at page-top positions (natural lazy loading on S5 bytes bound separately); WordPress/KSES/RouterOS NOT_RUN; DRAFT/NOT_DEPLOYED; production untouched",
+  "production_touched": false
  }
 }
