@@ -32,7 +32,7 @@ function evaluateDaemonTarget(info) {
     throw new Error('DAEMON: conflicting endpoint sources — "' + epFromEndpoints + '" vs "' + epFromHost + '"');
   const ep = epFromEndpoints || epFromHost;
   if (!ep) throw new Error('DAEMON: no effective endpoint observed (name/context alone insufficient)');
-  const npipeLocal = ep.startsWith('npipe://') && ep.indexOf('/pipe/docker') !== -1;
+  const npipeLocal = /^npipe:\/\/\/\/\.\/pipe\/docker(_engine|DesktopLinuxEngine)?$/.test(ep) || ep === 'npipe:////./pipe/docker_engine';
   const unixSock = ep === 'unix:///var/run/docker.sock';
   const tcpLocal = /^tcp:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(ep);
   if (!npipeLocal && !unixSock && !tcpLocal) {
@@ -49,16 +49,18 @@ function assertDaemonTarget(info) {
 /* D: image availability — pinned expected IDs vs observed inspection results with full sha256 comparison */
 function evaluateImageAvailability(requiredImages, observedInspections) {
   requireArray(requiredImages, 'required_images');
-  for (const entry of requiredImages) {
-    if (typeof entry === 'string' && entry.trim().length === 0) throw new Error('required_images: empty entry');
-    if (entry && typeof entry === 'object' && (!entry.name || typeof entry.name !== 'string')) throw new Error('required_images: invalid entry object');
-  }
+  if (requiredImages.length === 0) throw new Error('required_images: empty array');
+  // Every entry MUST be {name, expected_id} with BOTH fields — name-only/unpinned/null/42 reject
   const expected_map = {};
   for (const entry of requiredImages) {
-    if (typeof entry === 'string') { expected_map[entry] = null; }
-    else if (entry && typeof entry === 'object' && typeof entry.name === 'string') {
-      expected_map[entry.name] = (typeof entry.expected_id === 'string' && entry.expected_id.length > 0) ? entry.expected_id : null;
-    }
+    if (!entry || typeof entry !== 'object' || Array.isArray(entry))
+      throw new Error('required_images: invalid entry (must be {name, expected_id} object), got: ' + JSON.stringify(entry));
+    if (typeof entry.name !== 'string' || entry.name.trim().length === 0)
+      throw new Error('required_images: missing or empty name');
+    if (typeof entry.expected_id !== 'string' || !/^sha256:[0-9a-f]{64}$/.test(entry.expected_id))
+      throw new Error('required_images: missing or invalid expected_id (must be sha256:<64hex>) for ' + entry.name);
+    if (expected_map[entry.name]) throw new Error('required_images: duplicate entry for ' + entry.name);
+    expected_map[entry.name] = entry.expected_id;
   }
   if (!observedInspections || typeof observedInspections !== 'object' || Array.isArray(observedInspections))
     return { ok: false, missing: Object.keys(expected_map), mismatches: [], observed_ids: {} };
@@ -69,7 +71,7 @@ function evaluateImageAvailability(requiredImages, observedInspections) {
         typeof obs.id !== 'string' || !/^sha256:[0-9a-f]{64}$/.test(obs.id))
       { missing.push(img); continue; }
     const expected_id = expected_map[img];
-    if (typeof expected_id === 'string' && expected_id.length > 0 && obs.id !== expected_id) {
+    if (obs.id !== expected_id) {
       mismatches.push({ image: img, expected: expected_id, observed: obs.id }); continue;
     }
     observed_ids[img] = obs.id;
@@ -112,19 +114,33 @@ function makePlan(marker, resourceNames) {
     if (typeof n !== 'string' || n.length === 0) throw new Error('plan: empty resource name');
     if (!n.includes(marker)) throw new Error('plan: resource name missing run marker — ' + n);
     plan.resources[n] = { registered: true, identity_verified: false, identity_evidence: null };
+    plan.expected_bindings[n] = null;
   }
   return plan;
 }
 /* verifyIdentity: structured binding — resource name, observed container ID, and plan marker must all match */
 function verifyIdentity(plan, resourceName, observedBinding) {
-  const b = requireObject(observedBinding, 'identity_binding');
-  const containerId = requireString(b.container_id, 'identity_binding.container_id');
-  const observedRunMarker = requireString(b.run_marker, 'identity_binding.run_marker');
-  if (observedRunMarker !== plan.marker) throw new Error('identity_binding: run_marker mismatch');
+  const b = requireObject(observedBinding, 'observed_binding');
+  const containerId = requireString(b.container_id, 'observed_binding.container_id');
+  const observedRunMarker = requireString(b.run_marker, 'observed_binding.run_marker');
   if (!plan.resources[resourceName]) throw new Error('resource not in plan: ' + resourceName);
-  if (containerId.length < 12) throw new Error('identity_binding.container_id: too short (need ≥12 hex chars)');
+  const expected = plan.expected_bindings[resourceName];
+  if (!expected || typeof expected !== 'object') throw new Error('identity_binding: no expected binding declared for ' + resourceName);
+  if (observedRunMarker !== plan.marker) throw new Error('identity_binding: run_marker mismatch — observed "' + observedRunMarker + '" does not match plan marker "' + plan.marker + '"');
+  if (containerId !== expected.container_id) throw new Error('identity_binding: container_id mismatch — observed "' + containerId + '" vs expected "' + expected.container_id + '"');
+  if (containerId.length < 12) throw new Error('identity_binding.container_id: too short');
   plan.resources[resourceName].identity_verified = true;
   plan.resources[resourceName].identity_evidence = { container_id: containerId, run_marker: observedRunMarker };
+}
+function setExpectedBinding(plan, resourceName, containerId) {
+  if (!plan.resources[resourceName]) throw new Error('resource not in plan: ' + resourceName);
+  if (typeof containerId !== 'string' || containerId.length < 12) throw new Error('container_id: missing or too short');
+  plan.expected_bindings[resourceName] = { container_id: containerId, run_marker: plan.marker };
+}
+function setExpectedBinding(plan, resourceName, containerId) {
+  if (!plan.resources[resourceName]) throw new Error('resource not in plan: ' + resourceName);
+  if (typeof containerId !== 'string' || containerId.length < 12) throw new Error('container_id: missing or too short');
+  plan.expected_bindings[resourceName] = { container_id: containerId, run_marker: plan.marker };
 }
 function isRegistered(plan, name) {
   return plan && plan.resources && typeof plan.resources[name] === 'object';
@@ -203,7 +219,7 @@ module.exports = {
   evaluateDaemonTarget, assertDaemonTarget,
   evaluateImageAvailability, assertImages,
   evaluateContainerNameUniqueness, assertContainerNames,
-  makePlan, verifyIdentity, isRegistered, ownershipRejectionReason,
+  makePlan, verifyIdentity, isRegistered, ownershipRejectionReason, setExpectedBinding,
   evaluateCleanup, evaluatePostRead, assertCleanupVerified,
   evaluateMarkerReadability, assertMarkerReadable,
   MARKER_RE,
