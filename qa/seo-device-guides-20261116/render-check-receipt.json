@@ -1450,5 +1450,86 @@
    "production publish"
   ],
   "production_touched": false
+ },
+ "s5_natural_image_verify_20261117": {
+  "packet": "TN-S5-NATURAL-IMAGE-VERIFY-20261117 (NEXT_READY per MANAGER APPROVE verdict update 2026-11-17T16:12:23Z)",
+  "utc": "2026-11-17T16:19:21Z",
+  "git_head_at_run": "bd8781054a977e3de79bd92bf6f5955229a7fc4f (content bytes unchanged by this unit; this receipt-only commit is a child of that SHA)",
+  "executed_by": "GLM - real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138; all scrolling via real browser wheel input on the live target document",
+  "method_boundaries": "fresh reload per viewport; committed style/harness injected (they never touch the img); NO changes to src/loading attributes, no load()/decode() calls, no scrollIntoView, no scroll-property assignment, no synthesized events; observation read-only",
+  "bound_inputs_sha256": {
+   "tutorials/s5-uplink-trunk.fa.md": "4022135994e733f169a2afa73c9193804103eb57f427e709da916806c7040859",
+   "tutorials/s5-uplink-trunk.gutenberg.html": "58d59a553712dd6ca9ab6698553e55cccbc3b6c2f8b92a454b88494caf766f4a",
+   "assets/tutorial-s5-uplink-trunk.svg": "783a734f9f41b7394d5b049d64b95542c29f5a761aef0f52fa203c6c6f78ccda",
+   "candidate-preview.css": "ae06330b789ed135d144131b1b6b08b8fd03aea8ca7b94cb959c6e2a5af67fc1",
+   "preview-inject-candidate.js": "3109a38c905593bddeb5016c9f3fead1b8fc335a650b49ed06761910cacccaac"
+  },
+  "desktop_1280x900": {
+   "pre_scroll": {
+    "scrollY": 0,
+    "img_doc_top": 8115,
+    "currentSrc": "(empty)",
+    "complete": false,
+    "naturalWidth": 0,
+    "resource_entry": null,
+    "doc_scrollHeight": 12286
+   },
+   "natural_fetch_observed": "FIRED during real wheel scrolling at scrollY ~6558 (image still below viewport bottom 7458; within browser lazy threshold) - currentSrc resolved, complete true, resource entry present",
+   "brought_into_viewport": "real wheel scroll; final scrollY 7808, rect_top 307, rect_h 280, visible_in_viewport true",
+   "final_state": {
+    "complete": true,
+    "naturalWidth": 960,
+    "currentSrc": "(resolved)",
+    "resource_entry": {
+     "decodedBodySize": 6615,
+     "transferSize": 0,
+     "duration_ms": 1
+    },
+    "loading_attr": "lazy (unchanged)"
+   }
+  },
+  "mobile_390x844": {
+   "stability_verified_before_observation": {
+    "style_present": true,
+    "focusable_containers": 11,
+    "readyState": "complete"
+   },
+   "pre_scroll": {
+    "scrollY": 0,
+    "img_doc_top": 46222,
+    "currentSrc": "(empty)",
+    "complete": false,
+    "naturalWidth": 0,
+    "resource_entry": null,
+    "doc_scrollHeight": 144348
+   },
+   "natural_fetch_observed": "FIRED during real wheel scrolling at step 2 (scrollY 45940, image entered viewport region, rect_top 282) - step 1 at scrollY 33814 had NOT fired",
+   "final_state": {
+    "complete": true,
+    "naturalWidth": 960,
+    "currentSrc": "(resolved)",
+    "resource_entry": {
+     "decodedBodySize": 6615,
+     "transferSize": 0,
+     "duration_ms": 1
+    },
+    "loading_attr": "lazy (unchanged)",
+    "visible_in_viewport": true
+   }
+  },
+  "discarded_first_mobile_attempt": "one attempt discarded before being recorded as evidence: preScroll already showed currentSrc resolved with an anomalous document height - suspected viewport-set/reload identity race (same transient signature seen once earlier today); redone with explicit stability verification; not counted, not relabeled",
+  "fetch_outcome_note": "transferSize 0 with decodedBodySize 6615 = served from the browser cache within this session; the full asset size 6615 bytes matches the server-side HTTP 200 image/svg+xml curl read performed earlier today against the same preview server",
+  "visual_gaps_recorded_honestly": {
+   "natural_lazy_vs_production": "natural lazy-loading success at these bytes does NOT constitute natural-image production acceptance (manager boundary kept)",
+   "mobile_rendered_size_zero": "at 390px viewport the image computes to 0x0 (offsetWidth/offsetHeight 0, css width/height 0px): the ancestor figure container renders width 0 (figure rect 0x2082), and img{max-width:100%;height:auto} resolves against it; the image LOADS but is not user-visible at that width; cause beyond the committed img/figure rules - UNKNOWN; no source/CSS changes made per unit scope (recorded, not fixed blind)"
+  },
+  "verdict_within_unit": "NATURAL as-generated lazy loading PROVEN on desktop and mobile at bd878105 bytes via real page scroll: fetch fired without any attribute/load()/decode()/scrollIntoView intervention on both viewports",
+  "not_run": [
+   "RouterOS execution",
+   "WordPress/KSES",
+   "production publish",
+   "screenshot/trace publication"
+  ],
+  "production_touched": false
  }
 }
