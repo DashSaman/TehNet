@@ -1,0 +1,26 @@
+{
+  "packet": "TN-P2-RUNTIME-CAPABILITY-20261117",
+  "utc": "2026-11-17T08:10:00Z",
+  "scope": "Read-only inventory of owner-local runtime capabilities for the P2 synthetic bootstrap prerequisite",
+  "runtime_inventory": {
+    "node": {"available": true, "version": "v24.19.0"},
+    "python": {"available": true, "version": "3.12.10"},
+    "php_cli": {"available": false, "missing_capability": "php_binary"},
+    "mysql_cli": {"available": false, "missing_capability": "mysql_binary"},
+    "docker_cli": {"available": true, "version": "29.8.1"},
+    "docker_daemon": {"available": false, "error": "pipe dockerDesktopLinuxEngine not found — Docker Desktop installed but daemon not running", "context": "desktop-linux"},
+    "wordpress_source": {"available": "partial", "detail": "site/themes/tehnet/ (7 PHP files) + site/mu-plugins/ + site/plugins/ — theme and mu-plugin source present, no full WP core"},
+    "wordpress_mysql_images": {"available": false, "missing_capability": "docker_images_wordpress_mysql", "note": "cannot verify image availability while daemon is down; no pre-pulled WP/MySQL image confirmed"}
+  },
+  "missing_capabilities_exact": [
+    "php_binary",
+    "mysql_binary",
+    "docker_daemon_running",
+    "wordpress_core_source",
+    "docker_images_wordpress_mysql"
+  ],
+  "sufficient_for": ["source-only bootstrap code writing", "PURE tests stubbing Docker/exec", "Node.js/Python tooling"],
+  "not_sufficient_for": ["bootstrap execution", "WordPress/PHP/MySQL container spin-up", "integration testing"],
+  "verdict": "RUNTIME_PARTIALLY_AVAILABLE — source-only bootstrap + PURE tests READY; actual execution deferred until Docker daemon started AND WP/MySQL images confirmed (manager source review required first regardless)",
+  "production_touched": false
+}

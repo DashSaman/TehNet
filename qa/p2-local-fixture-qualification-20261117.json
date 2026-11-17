@@ -3,7 +3,8 @@
  "status": "BLOCKED_FIXTURE_QUALIFICATION / observations-only (WITHDRAWN QUALIFIED claim per MANAGER_REVIEW 6942088635)",
  "withdrawal_note": "The previous revision claimed QUALIFIED + committed-bootstrap synthetic-only. That claim is WITHDRAWN: the referenced checked-in bootstrap (ops/prepare-shop-preview.py, lines 44/58/80) SSHes to the remote host, DUMPS the production DB, COPIES live site files and IMPORTS the dump — it does not establish a fresh synthetic-only disposable ownership. The observations below describe an SSH_REMOTE_EXISTING_FIXTURE (legacy remote fixture), NOT a newly initialized owner-local synthetic environment and NOT cloud.",
  "execution_origin": "SSH_REMOTE_EXISTING_FIXTURE — observations-only over the existing authorized SSH path; zero bootstrap mutations performed; journey/form POST/discovery/delete-cleanup NOT_RUN",
- "head_at_run_of_observation": "c5f9b58d455c1c6c190b8ba68e92bfb45225d910 (observations) — this file patched in the follow-up commit",
+ "head_at_run_of_observation": "7d96f59995f1c8b5fd7f2dd292c67aabc177e4c6 (declared historical base at observation time; restored per MANAGER_REVIEW 6943384536 — the previous c5f9b58 attribution was unevidenced)",
+ "pure_run_base": "c5f9b58d455c1c6c190b8ba68e92bfb45225d910 (certain PURE-run base at 07:55:43Z only)",
  "utc": "UNKNOWN for historical probes (approximate session window 2026-11-17 early hours; not relabeled). Pure-suite re-run UTC recorded precisely in pure_suite_rerun below.",
  "sanitization_note": "Private IPs, private paths, the SSH alias, container identifiers and other-projects inventory are replaced with withheld-labels. Raw commands containing them replaced by safe forms.",
  "probes": [
@@ -82,7 +83,9 @@
    "command": "curl -H 'Host: …' http://<fixture-container-IP-withheld>/ (server-side READ-ONLY GET)",
    "observed": {
     "http": "200",
-    "page_title_matches_wp_blogname": true
+    "exact_title_equality": false,
+    "unique_browser_db_marker": "NOT_RUN",
+    "page_title_prefix_observed": "تهران نتورک | TehNet (served title extends beyond blogname — equality NOT established)"
    },
    "verdict": "public site title match is NOT a unique browser/DB marker — full marker evidence remains OPEN for the qualified fixture"
   },
@@ -122,10 +125,11 @@
   "helper_digest": "ec2a6f916073f86e5faaab3f63f4068e8a970107955a98a87cc2154a767f50ad",
   "test_digest": "ccef5afc3557bf346d74363f79fbbfbda83e7426b3fb347f5ea5b4f3084d4a93",
   "tail": "PASS REG legacy preserved: journey WITHOUT cleanup_binding still runs (non-fixture mode unchanged)\n\nTOTAL=46 PASS=46 FAIL=0",
-  "label": "PURE unit-test suite against existing runtime — NOT integration"
+  "label": "PURE unit-test suite against existing runtime — NOT integration",
+  "representation_note": "helper/test digests were computed over the LF-normalized working file; the manager verified they match the CRLF checkout exactly — representation difference only, NOT a digest mismatch"
  },
  "verdict": "BLOCKED_FIXTURE_QUALIFICATION — observations-only over SSH_REMOTE_EXISTING_FIXTURE. Missing prerequisite for QUALIFIED: an owner-local synthetic-only disposable fixture bootstrap in TehNet itself that (a) does not dump/copy production, (b) proves fresh namespace ownership and isolation with synthetic data, (c) provides a reachable intended endpoint and a unique browser/DB marker. Existing authorized path does not meet this; recorded as the BLOCKED prerequisite per directive (no install/pull/worker/runner/provider/scheduler, no guard weakening, no generic 'no cloud' blocker).",
- "next_stage_command_held_behind_gate": "UNCHANGED and still gated: after BOTH the driver source gate acceptance AND a qualified fixture, the integration stage command (tunnel per HANDOFF + TN_BROWSER_BASE=… node tests/browser/tn-local-staging-fix2-driver.cjs) applies. Neither precondition is currently met.",
+ "next_stage_command_held_behind_gate": "Held behind BOTH gates (driver source gate + fixture qualification). Under LOCAL authorization only, the next executable stage uses the owner-local access path that already exists in the committed tooling (no remote tunnel/proxy/renew is authorized by source or fixture acceptance alone). Exact command form recorded for that stage: TN_BROWSER_BASE=<local staging URL> node tests/browser/tn-local-staging-fix2-driver.cjs",
  "not_run": [
   "journey",
   "form POST",
