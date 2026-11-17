@@ -528,7 +528,7 @@ if (require.main === module) {
       if (clone[i].name === 'topic-map.md') {
         const c = clone[i].content;
         const li = c.indexOf('| N-مکمل: قرارداد/SLA');
-        if (li >= 0) clone[i].content = c.slice(0, li) + '\\n' + c.slice(li);
+        if (li >= 0) { const NL = String.fromCharCode(10); clone[i].content = c.slice(0, li) + NL + c.slice(li); if (clone[i].content.indexOf(NL + NL + '| N-مکمل: قرارداد/SLA') < 0) throw new Error('n6-supplement-row-blankline setup error: real-LF blank line not established'); }
       }
     }
   }, 'topic-map N6 routing/row-shape mismatch (canonical vs supplement)');
