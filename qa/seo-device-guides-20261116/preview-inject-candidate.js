@@ -70,3 +70,55 @@ export const scrollLeftJs =
   ' return el && (el.tagName==="PRE"||el.tagName==="TABLE")' +
   ' ? { tag: el.tagName, scrollLeft: el.scrollLeft, scrollWidth: el.scrollWidth, clientWidth: el.clientWidth }' +
   ' : { tag: el?el.tagName:null, scrollLeft: null }; })()';
+
+/* --- TN-S5-MOBILE-IMAGE-RENDER-FIX-20261117: reusable image-render visibility check ---
+ * RED symptom this check exists for: at 390x844 the lazy SVG loaded (complete=true,
+ * naturalWidth>0) yet rendered 0x0 (ancestor figure width 0) while an old record called
+ * it "visible" from its vertical coordinate alone. Load facts are NOT display proof.
+ * Additive exports only: existing inject/wrap/metrics behavior is unchanged. */
+
+/** Page-side observation (read-only; evaluate via tab.playwright.evaluate).
+ * Captures the tutorial's main figure image: rendered box, viewport box, ancestor
+ * chain boxes/computed styles, matched committed CSS rules, load facts, doc overflow. */
+export const imageRenderObsJs =
+  "(() => { const i=document.querySelector('figure img'); if(!i) return { found:false }; " +
+  ' const r=i.getBoundingClientRect(); const vw=window.innerWidth, vh=window.innerHeight; ' +
+  ' const chain=[]; let el=i; for(let d=0; d<5 && el; d++){ const rc=el.getBoundingClientRect(); const cs=getComputedStyle(el); ' +
+  " chain.push({ depth:d, tag:el.tagName, cls:el.getAttribute&&el.getAttribute('class')||null, rect_w:Math.round(rc.width), rect_h:Math.round(rc.height), " +
+  " display:cs.display, width:cs.width, maxWidth:cs.maxWidth, minWidth:cs.minWidth, marginLeft:cs.marginLeft, marginRight:cs.marginRight, " +
+  ' overflowX:cs.overflowX, position:cs.position }); el=el.parentElement; } ' +
+  ' const matched=[]; try { for(const sheet of document.styleSheets){ let rules; try{ rules=sheet.cssRules; }catch(e){ continue; } ' +
+  ' for(const rule of (rules||[])){ if(!rule.selectorText) continue; ' +
+  " let m=false; try{ m=i.matches(rule.selectorText); }catch(e){} if(m) matched.push({ target:\'img\', css:rule.style.cssText.slice(0,200) }); " +
+  " if(i.closest('figure')){ let mf=false; try{ mf=i.closest('figure').matches(rule.selectorText); }catch(e){} if(mf) matched.push({ target:\'figure\', css:rule.style.cssText.slice(0,200) }); } " +
+  ' } } } catch(e) { matched.push({ error:String(e).slice(0,80) }); } ' +
+  ' const e=performance.getEntriesByType("resource").find(x=>x.name.indexOf("tutorial-s5")>=0); ' +
+  ' return { found:true, tag:i.tagName, rect:{ w:Math.round(r.width), h:Math.round(r.height), top:Math.round(r.top), bottom:Math.round(r.bottom), left:Math.round(r.left), right:Math.round(r.right) }, ' +
+  ' viewport:{ w:vw, h:vh }, scrollY:Math.round(window.scrollY), ' +
+  " offsetW:i.offsetWidth, offsetH:i.offsetHeight, display:getComputedStyle(i).display, visibility:getComputedStyle(i).visibility, " +
+  " complete:i.complete, naturalWidth:i.naturalWidth, loading_attr:i.getAttribute('loading'), currentSrc:i.currentSrc?'(resolved)':'(empty)', " +
+  ' resource_entry:e?{ transferSize:e.transferSize, decodedBodySize:e.decodedBodySize }:null, ' +
+  " doc_overflow_px:document.documentElement.scrollWidth-document.documentElement.clientWidth, ancestor_chain:chain, matched_rules:matched }; })()";
+
+/** Pure predicate over imageRenderObsJs output. Pass requires ACTUAL DISPLAY:
+ * positive rendered width AND height, positive two-dimensional viewport
+ * intersection, loaded asset, not hidden, and zero document overflow.
+ * Load facts (complete/naturalWidth) alone never satisfy this check. */
+export function evaluateImageRender(obs) {
+  if (!obs || obs.found === false) return { ok: false, failures: ['image_not_found'] };
+  const failures = [];
+  const r = obs.rect || {};
+  const v = obs.viewport || {};
+  if (!(obs.complete === true)) failures.push('asset_not_complete');
+  if (!(typeof obs.naturalWidth === 'number' && obs.naturalWidth > 0)) failures.push('naturalWidth_not_positive');
+  if (!(typeof r.w === 'number' && r.w > 0)) failures.push('zero_rendered_width');
+  if (!(typeof r.h === 'number' && r.h > 0)) failures.push('zero_rendered_height');
+  if (r.w > 0 && r.h > 0) {
+    const horiz = Math.min(r.right, v.w) - Math.max(r.left, 0);
+    const vert = Math.min(r.bottom, v.h) - Math.max(r.top, 0);
+    if (!(horiz > 0 && vert > 0)) failures.push('no_two_dim_viewport_intersection');
+  }
+  if (obs.display === 'none' || obs.visibility === 'hidden' || obs.visibility === 'collapse') failures.push('hidden_or_clipped');
+  if (typeof obs.doc_overflow_px === 'number' && obs.doc_overflow_px > 0) failures.push('document_overflow_px_' + obs.doc_overflow_px);
+  return { ok: failures.length === 0, failures, rendered: { w: r.w, h: r.h }, viewport: v, loaded: { complete: obs.complete, naturalWidth: obs.naturalWidth } };
+}

@@ -1,10 +1,14 @@
 'use strict';
-/* TN-SEO-DEVICE-GUIDES-20261116 — deterministic Gutenberg builder (rev4).
+/* TN-SEO-DEVICE-GUIDES-20261116 — deterministic Gutenberg builder (rev5).
  * Rebuilds both article HTML files AND the M2/M3 tutorial HTML files from their
  * .fa.md sources. No timestamps in output.
  * rev3 (TN-M2-M3-CORRECTIONS-20261116, manager 6923833096): fenced code blocks,
  * blockquotes, ordered lists, Markdown image lines, tutorial jobs; tutorial
  * outputs receive NO per-model schematic injection and NO decision diagram.
+ * rev5 (TN-S5-MOBILE-IMAGE-RENDER-FIX-20261117, manager 6955115055): table
+ * figures now emit the missing </figure> closer — without it every later block
+ * nested inside the first unclosed table figure, collapsing nested widths
+ * (80px margins per level) until the S5 diagram rendered 0x0 at 390x844.
  * Asset paths use ../assets/ (resolvable from articles/ AND tutorials/ in the
  * repo preview tree); the proposed-public-URL map lives in publication-notes.json.
  * Determinism: running twice must produce byte-identical files (checked by validate-seo-guides.cjs). */
@@ -86,7 +90,7 @@ function mdToGutenberg(md, perModel) {
     if (inTable && rows.length) {
       const head = rows[0], body = rows.slice(1);
       const cells = (r, tag) => r.map(c => '<!-- wp:table-cell -->\n<' + tag + '>' + bold(c.trim()) + '</' + tag + '>\n<!-- /wp:table-cell -->').join('');
-      out.push('<!-- wp:table -->\n<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr>' + cells(head, 'th') + '</tr></thead><tbody>' + body.map(r => '<tr>' + cells(r, 'td') + '</tr>').join('') + '</tbody></table>\n<!-- /wp:table -->');
+      out.push('<!-- wp:table -->\n<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr>' + cells(head, 'th') + '</tr></thead><tbody>' + body.map(r => '<tr>' + cells(r, 'td') + '</tr>').join('') + '</tbody></table></figure>\n<!-- /wp:table -->');
       inTable = false; rows = [];
     }
   };

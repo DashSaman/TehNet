@@ -1530,6 +1530,132 @@
    "production publish",
    "screenshot/trace publication"
   ],
+  "production_touched": false,
+  "interpretation_correction_note": "CORRECTION per MANAGER_REVIEW 6955115055: the mobile final_state visible_in_viewport=true recorded here was WRONG as a visibility claim - the image rendered 0x0, so only its vertical coordinate entered the viewport band; a zero-area image is not visible. Raw measurements above are retained as history, unedited; the corrected predicate (positive two-dimensional rendered area) is enforced by the new imageRender check in preview-inject-candidate.js."
+ },
+ "s5_mobile_image_render_fix_20261117": {
+  "packet": "TN-S5-MOBILE-IMAGE-RENDER-FIX-20261117 (MANAGER_REVIEW 6955115055: red -> diagnose -> fix -> green for the 390x844 zero-area image render)",
+  "utc_start": "2026-11-17T17:11:00Z (RED run)",
+  "utc_receipt": "2026-11-17T17:17:16Z",
+  "git_head_at_run": "b7f0eedcc5c67d8079fb3192ae8ad960175b5e4b (pre-commit head; baseline content bytes pinned for RED: MD 4022135994e733f169a2afa73c9193804103eb57f427e709da916806c7040859 / HTML 58d59a553712dd6ca9ab6698553e55cccbc3b6c2f8b92a454b88494caf766f4a / SVG 783a734f9f41b7394d5b049d64b95542c29f5a761aef0f52fa203c6c6f78ccda / CSS ae06330b789ed135d144131b1b6b08b8fd03aea8ca7b94cb959c6e2a5af67fc1 unchanged)",
+  "executed_by": "GLM - real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138; all scrolling real wheel input; no src/loading/eager/load()/decode() forcing; no scroll-property assignment",
+  "reusable_check": {
+   "location": "qa/seo-device-guides-20261116/preview-inject-candidate.js (additive exports imageRenderObsJs + evaluateImageRender; existing inject/wrap/metrics exports unchanged)",
+   "harness_v2_sha256": "86cd33ce00c403bdcb266d1b744306b6a908ae8f6e0639044ea78713c6911e0d",
+   "predicate": "pass requires rect width>0 AND height>0, positive TWO-DIMENSIONAL viewport intersection (both axes), complete=true AND naturalWidth>0, not display:none/visibility:hidden, document overflow 0 - load facts alone never pass",
+   "note": "double style injection during runs is idempotent (identical rules); matched_rules lists may show duplicates"
+  },
+  "RED_baseline": {
+   "desktop_1280x900": {
+    "ok": true,
+    "rendered": "480x280",
+    "note": "nested-margin chain still left 478px at desktop width, so desktop passed even with the latent defect"
+   },
+   "mobile_390x844": {
+    "ok": false,
+    "failures": [
+     "zero_rendered_width",
+     "zero_rendered_height"
+    ],
+    "rendered": "0x0 (rect left 240 right 240 top 281 bottom 281)",
+    "loaded": {
+     "complete": true,
+     "naturalWidth": 960,
+     "currentSrc": "(resolved)"
+    },
+    "doc_overflow_px": 0,
+    "ancestor_chain_rect_widths": {
+     "img": 0,
+     "figure_wp_block_image": 0,
+     "figure_wp_block_table_level2": 0,
+     "figure_wp_block_table_level3": 55,
+     "figure_wp_block_table_level4": 135
+    },
+    "scroll_method": "real wheel, adaptive aim, image reached viewport band (top 281) before observation"
+   }
+  },
+  "diagnosis": {
+   "decisive_facts": [
+    "generated HTML contained ZERO </figure> and ZERO </table> closers across ALL lessons (S5 9 opens/0 closes, M2 8/0, N3 7/0, N6 10/0, S4 7/0) - builder flushTable (articles/build-gutenberg.cjs line 89 rev4) emitted '</tbody></table>' but never '</figure>'; wp-block-image figures DID close properly",
+    "without the closer, the HTML parser nests every later block inside the FIRST unclosed table figure; observed chain: image figure nested inside 3 table-figure levels, heights 2082/123259/132029/136417 on mobile",
+    "each nested figure adds 40px+40px margins: measured mobile width chain 135 -> 55 -> 0 -> 0 (135-80=55, 55-80 clamps to 0); desktop chain 798 -> ~478 explains why desktop still showed 480x280"
+   ],
+   "one_variable_probe": "the controlled probe was the builder closer itself: adding only '</figure>' to flushTable regenerated balanced markup (9/9 figures, 8/8 tables in S5; M2 8/8) and alone flipped mobile 0x0 -> 295x172 with no CSS/harness/source change; no other variable touched",
+   "root_cause_file": "content/seo-device-guides-20261116/articles/build-gutenberg.cjs (builder rev5, sha256 7a67caa2d46d1fd0407c928bb0e108eaacb379eab8edfebae4654c7d08152506)"
+  },
+  "fix": {
+   "change": "one emitted closer: '</tbody></table>' -> '</tbody></table></figure>' in flushTable + rev5 header note; NO CSS/harness/MD/lesson-text changes (candidate CSS sha ae06330b... unchanged; harness changed ONLY by the additive reusable check)",
+   "affected_pages": "all 24 gutenberg outputs regenerated (2 articles + all tutorials) because the missing closer was systematic; MD sources byte-identical everywhere; affected generated hashes supersede earlier bindings",
+   "rebuild": {
+    "buildA_exit": 0,
+    "buildB_exit": 0,
+    "A_B_byte_identical": true
+   },
+   "s5_html_new_sha256": "ce233b72d3f12ff8fc440bb6d85d2b9aa127f333ce1062e5bebfefc4be0b44b0",
+   "validator": {
+    "command": "node qa/seo-device-guides-20261116/validate-seo-guides.cjs",
+    "exit": 0,
+    "good_candidate": "162 checks / 0 failed",
+    "injected_negatives": "14/14 rejected-with-reason",
+    "freshness": "PASS (builder rerun byte-identical for 24 outputs)"
+   }
+  },
+  "GREEN_after_fix": {
+   "desktop_1280x900": {
+    "ok": true,
+    "failures": [],
+    "rendered": "880x513 (rect 192,280 - 1072,793)",
+    "complete": true,
+    "naturalWidth": 960,
+    "doc_overflow_px": 0,
+    "scroll_method": "real wheel one adaptive step, image visible (top 280)"
+   },
+   "mobile_390x844": {
+    "ok": true,
+    "failures": [],
+    "rendered": "295x172 (rect 40,281 - 335,453)",
+    "complete": true,
+    "naturalWidth": 960,
+    "doc_overflow_px": 0,
+    "scroll_method": "real wheel two adaptive steps (step 1 not yet visible, step 2 visible)",
+    "ancestor_chain_rect_widths": {
+     "img": 295,
+     "figure_wp_block_image": 295,
+     "body": 375
+    }
+   },
+   "svg_ratio_and_labels": "aspect preserved via max-width:100%/height:auto (960-wide natural raster scales proportionally: 880x513 desktop, 295x172 mobile); figcaption unchanged",
+   "natural_loading_and_keyboard": "loading=lazy attribute unchanged and lazy fetch still occurs during real scrolling; harness wrap (tabindex/aria) unchanged and applied; no document overflow"
+  },
+  "regression_on_affected_pages": [
+   {
+    "page": "m2-vlan-small-office",
+    "desktop_1280x900": {
+     "ok": true,
+     "rendered": "880x532",
+     "doc_overflow_px": 0
+    },
+    "mobile_390x844": {
+     "ok": true,
+     "rendered": "295x178",
+     "doc_overflow_px": 0
+    }
+   },
+   {
+    "page": "n6-support-selection",
+    "desktop_1280x900": {
+     "ok": true,
+     "rendered": "880x513",
+     "doc_overflow_px": 0
+    },
+    "mobile_390x844": {
+     "ok": true,
+     "rendered": "295x172",
+     "doc_overflow_px": 0
+    }
+   }
+  ],
+  "boundaries": "local preview only; DRAFT/NOT_DEPLOYED unchanged; RouterOS execution NOT_RUN; WordPress/KSES NOT_RUN; no production publish; natural retrieval remains distinct from production acceptance; prior S5 source/N1 plan, M3/N6/P2 approvals untouched (their generated-HTML bytes change by this systematic fix - flagged for review)",
   "production_touched": false
  }
 }
