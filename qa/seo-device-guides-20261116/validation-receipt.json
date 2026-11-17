@@ -3,9 +3,9 @@
  "validator": "validate-seo-guides.cjs rev8 (rev7 + S2 tutorial candidate)",
  "command": "node validate-seo-guides.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-17T05:57:28Z",
- "finished_utc": "2026-11-17T05:57:28Z",
- "control_head": "a6a7cf49f7b5a3b44f59386c025dcfadab65d0c5",
+ "started_utc": "2026-11-17T06:54:42Z",
+ "finished_utc": "2026-11-17T06:54:42Z",
+ "control_head": "a05ede365522e98cf15e06767b025100e729ace7",
  "exit": 0,
  "good_candidate": {
   "ok": true,
@@ -106,6 +106,15 @@
    ]
   },
   {
+   "name": "n6-supplement-row-blankline",
+   "injected": "blank line inserted before the supplement row, breaking the GFM table",
+   "failed": true,
+   "reasonMatched": true,
+   "reasons": [
+    "topic-map N6 routing/row-shape mismatch (canonical vs supplement)"
+   ]
+  },
+  {
    "name": "n6-topic-map-url-swap",
    "injected": "topic-map URLs swapped between canonical N6 and the contract/SLA supplement",
    "failed": true,
@@ -185,7 +194,7 @@
   "tutorials/n6-support-selection.gutenberg.html": "61e2072bb0f046837fcfca0abcb9cf3bfcee666b65de0111d75e4dfbb1a611c1",
   "tutorials/s4-vlan-switch-l2.fa.md": "380afa193ce0d658c0aa6ceb2cf7189a50d560e062f48997f92747c6c547fa76",
   "tutorials/s4-vlan-switch-l2.gutenberg.html": "a0f58729e4ab45607516332800f59a85dfa49feea1cbd802bc6b933b2ab35523",
-  "topic-map.md": "de2f840280932e6eadc0c3b21a11777cb128f098bc7775e4fc147e010a63f30c",
+  "topic-map.md": "80a17b9f283a577200e83b2602764df2501282958e31ad19f5d506ff41081bc8",
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",
   "switch-catalog.csv": "aaa5aed94204ad93b312449d9b0c934164c59d2d6375eb3b5727fe94ae164718",
   "image-provenance.csv": "57df5b7e151f4d35deef50d356335a408f859ad0a794345a752e307192cb96b4",
@@ -194,8 +203,8 @@
   "page-edits/network-support.proposed.html": "3ff92cf6315912e394ba52237814d0471b675cbc602144f0cdf6e2a36cb5f92b"
  },
  "summary": {
-  "negatives": 13,
-  "negatives_passed": 13,
+  "negatives": 14,
+  "negatives_passed": 14,
   "negatives_failed": 0
  },
  "execution_origin": {

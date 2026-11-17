@@ -317,33 +317,54 @@ function validate(candidateInputs) {
     else pass('c17_n6_step6_review', { body_chars: body17.length });
   }
 
-  /* C18 (6937439006 follow-up): per-ID row-shape and URL-field check in topic-map */
+  /* C18 (6937439006 + 6939893685): per-ID row-shape/URL-field check INSIDE a valid contiguous GFM table block */
   const tm = get('topic-map.md');
   if (tm !== null) {
+    const L = tm.split('\n');
+    const isDelim = function(l){ return /^[|: -]+\|$/.test(l.trim()); };
+    const isPipe = function(l){ return l.trim().indexOf('|') === 0; };
+    const blocks = [];
+    let bi = 0;
+    while (bi < L.length) {
+      if (isPipe(L[bi]) && bi + 1 < L.length && isDelim(L[bi + 1])) {
+        let bj = bi;
+        while (bj < L.length && isPipe(L[bj])) bj++;
+        blocks.push({ headerIdx: bi + 1, delimIdx: bi + 2, rows: L.slice(bi + 2, bj), startLine: bi + 1 });
+        bi = bj;
+      } else bi++;
+    }
     function tmRow(idPrefix) {
-      const lines = tm.split('\n');
-      for (let li = 0; li < lines.length; li++) {
-        if (lines[li].indexOf('| ' + idPrefix) === 0 && lines[li].indexOf('/guides/') >= 0) return { line: li + 1, cells: lines[li].split('|').slice(1, -1).map(function(x){ return x.trim(); }) };
+      for (let k = 0; k < blocks.length; k++) {
+        const rows = blocks[k].rows;
+        for (let ri = 0; ri < rows.length; ri++) {
+          if (rows[ri].indexOf('| ' + idPrefix) === 0) return { block: blocks[k], blockIdx: k, cells: rows[ri].split('|').slice(1, -1).map(function(x){ return x.trim(); }) };
+        }
       }
       return null;
     }
+    const probs = [];
+    const delimBroken = [];
+    for (let li = 1; li < L.length - 1; li++) {
+      if (L[li].trim() === '' && isPipe(L[li - 1]) && isPipe(L[li + 1])) delimBroken.push(li + 1);
+    }
+    if (delimBroken.length > 0) probs.push('blank line inside a pipe-table region breaks GFM table continuity at line(s) ' + delimBroken.join(','));
     const n6row = tmRow('N6 ');
     const suprow = tmRow('N-مکمل: قرارداد/SLA ');
-    const probs = [];
-    if (!n6row) probs.push('canonical N6 row missing');
+    if (!n6row) probs.push('canonical N6 row missing from any valid table block');
     else {
       if (n6row.cells.length !== 9) probs.push('N6 row has ' + n6row.cells.length + ' columns (need 9)');
       if (n6row.cells[3].indexOf('/guides/network-support-selection/') !== 0) probs.push('N6 URL field is ' + n6row.cells[3] + ' (need /guides/network-support-selection/)');
       if (n6row.cells[6].indexOf('ساختار پشتیبانی') < 0) probs.push('N6 question field does not match selection intent');
     }
-    if (!suprow) probs.push('supplement contract/SLA row missing');
+    if (!suprow) probs.push('supplement contract/SLA row missing from any valid table block');
     else {
+      if (n6row && suprow.blockIdx !== n6row.blockIdx) probs.push('supplement row is in a DIFFERENT table block than canonical N6 (blank line or stray header between them)');
       if (suprow.cells.length !== 9) probs.push('supplement row has ' + suprow.cells.length + ' columns (need 9)');
       if (suprow.cells[3].indexOf('/guides/support-contract-questions/') !== 0) probs.push('supplement URL field is ' + suprow.cells[3] + ' (need /guides/support-contract-questions/)');
       if (suprow.cells[6].indexOf('قرارداد پشتیبانی چه چیزهایی') < 0) probs.push('supplement question field mismatch');
     }
     if (probs.length > 0) fail('c18_n6_route_consistency', 'topic-map N6 routing/row-shape mismatch (canonical vs supplement)', { problems: probs });
-    else pass('c18_n6_route_consistency', { n6_route: n6row.cells[3], supplement_route: suprow.cells[3], columns: 9 });
+    else pass('c18_n6_route_consistency', { n6_route: n6row.cells[3], supplement_route: suprow.cells[3], columns: 9, table_blocks: blocks.length });
   }
 
   const failed = checks.filter(function(c){ return !c.pass; });
@@ -502,6 +523,15 @@ if (require.main === module) {
       }
     }
   }, 'N6 step-6 review SECTION missing or body incomplete (owner/trigger/data/UNKNOWN/outcomes)');
+  injectNeg('n6-supplement-row-blankline', 'blank line inserted before the supplement row, breaking the GFM table', function(clone){
+    for (let i = 0; i < clone.length; i++) {
+      if (clone[i].name === 'topic-map.md') {
+        const c = clone[i].content;
+        const li = c.indexOf('| N-مکمل: قرارداد/SLA');
+        if (li >= 0) clone[i].content = c.slice(0, li) + '\\n' + c.slice(li);
+      }
+    }
+  }, 'topic-map N6 routing/row-shape mismatch (canonical vs supplement)');
   injectNeg('n6-topic-map-url-swap', 'topic-map URLs swapped between canonical N6 and the contract/SLA supplement', function(clone){
     for (let i = 0; i < clone.length; i++) {
       if (clone[i].name === 'topic-map.md') {
