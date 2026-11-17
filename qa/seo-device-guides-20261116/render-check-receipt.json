@@ -2308,5 +2308,132 @@
   ],
   "boundaries": "NOT_DEPLOYED; prior approvals (M3/N6/S5 keyboard/figure/helper) untouched; no unrelated lesson rerun; no public screenshots/traces/raw logs",
   "production_touched": false
+ },
+ "s4c_contract_preview_finish_20261117": {
+  "packet": "TN-S4C-CONTRACT-PREVIEW-FINISH-20261117 (MANAGER_REVIEW 6962581521 R1-R3)",
+  "utc": "2026-11-17T22:21:36Z (source edits) / rebuild+validator ~22:24Z / preview 22:25:54Z - 22:26:27.374Z (per-pass times below)",
+  "git_head_at_run": "f54afa4f1488f74ead3fada0ca90075afe481901 (pre-commit head; the finish commit delivers corrected S4 MD/HTML + validator + receipts)",
+  "executed_by": "GLM - authoring/rebuild with existing tools + real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138; real wheel scroll + real keypresses only",
+  "bound_artifacts_sha256": {
+   "tutorials/s4-vlan-switch-l2.fa.md (corrected R1/R2)": "58256dd5725fdfcfbf9d8b2d518d436a0724b68d25b5628c81e9cfa6044db762",
+   "tutorials/s4-vlan-switch-l2.gutenberg.html (rebuilt)": "d2b8eb43f8664bf306ebbe501d0dda0fec8215345d9d4a98994f4016df159547",
+   "assets/tutorial-s4-vlan-l2.svg (unchanged)": "c7c8fb139c4b74fce43d57f39a800c43e65c83498d19231054bc466c75393003",
+   "validate-seo-guides.cjs (hardened c19/c20 + 3 negatives)": "e419f92c08b9a1b6b6422d7e613692c9a6a97c7be14483c12f65e993716f4a37",
+   "candidate-preview.css": "ae06330b789ed135d144131b1b6b08b8fd03aea8ca7b94cb959c6e2a5af67fc1",
+   "preview-inject-candidate.js (v3)": "e5a4e170e9fecf1946faf41b944017d008817ce208539156e44b108ef08a21d7"
+  },
+  "R1_contract_hardening": {
+   "source": "guards now cover ALL 16 used ports via :foreach over the explicit required-port list {1..10,11..14,23,24} BEFORE any effect; created-name guard added (mgmt88 as any existing interface -> stop); board-identity guard stays before bridge creation; commands use the documented FULL enum value admit-only-untagged-and-priority-tagged (the undocumented abbreviation is absent from the source); the braced block is explicitly described as NOT a transaction: guard errors before the first effect = zero changes, but an error after effects begin does NOT auto-rollback - handled manually/controlled on the disposable baseline with no automatic deletion of unknown state",
+   "validator_hardening": {
+    "c19": "now positionally requires EVERY guard anchor BEFORE 'add name=bridge1' (the V8 mutation of moving the board-identity guard after bridge creation now FAILS), parses the foreach required-port list and requires ALL 16 used ports (removing a used-port list entry now FAILS), requires the mgmt88 created-name guard, and requires the documented full enum while rejecting the undocumented abbreviation",
+    "c20": "now requires per-endpoint ROWS inside the endpoint-table section pairing each identifier with its exact address (H1 192.168.10.11, H3 192.168.10.13, C1 192.168.20.11 + alias 192.168.10.21, C2 192.168.20.12, M1 192.168.88.11, T-S tagged 192.168.10.2/24 and untagged 192.168.10.99/24) - deleting the five endpoint rows while keeping headings/prose now FAILS - plus the tagged->untagged->tagged phase marker and the NOT_PROVEN guard",
+    "new_negatives": [
+     "s4-identity-guard-after-bridge",
+     "s4-endpoint-rows-deleted",
+     "s4-used-port-guard-missing"
+    ],
+    "suite": "node qa/seo-device-guides-20261116/validate-seo-guides.cjs — exit 0; good candidate 164 checks/0 failed; negatives 19/19 rejected-with-reason (16 prior + 3 new); freshness PASS (builder rerun byte-identical for 24 outputs)"
+   }
+  },
+  "R2_trunk_sender_plan": "T-S platform specified as ONE lab PC with (a) VLAN10 tagged subinterface 192.168.10.2/24 and (b) untagged physical NIC 192.168.10.99/24 - the two addresses are NEVER active simultaneously (no ambiguous duplicate connected routes); test 7 is now the three-phase sequence tagged control (ping H1 replies) -> untagged negative (physical NIC same-prefix/no-gateway so T-S really sends untagged ARP/ping on-link; silence observed) -> tagged recovery control (exact restore, replies again); the drop conclusion is only recorded with the sender-side transmitted-frame-mode observation (e.g. T-S-side capture showing outgoing ARP untagged); without that observation the result is recorded NOT_PROVEN; CPU-side capture not a criterion (HW-offloaded traffic not assumed visible); no global flush; all addresses/interfaces exactly restored; execution remains NOT_RUN",
+  "R3_reconciled_preview": {
+   "method": "served HTML fetched from the preview server and hashed (d2b8eb43... == built file on disk) BEFORE the browser pass; DOM pre/table counts asserted equal to the served text counts (5/7) before any extents/N-A recording; both viewports measured on that same version",
+   "desktop_1280x900": {
+    "pass_start_utc": "2026-11-17T22:25:54.893Z",
+    "pass_end_utc": "2026-11-17T22:25:59.221Z",
+    "dom_counts": "PRE 5 / TABLE 7 (match served)",
+    "doc_overflow_px": 0,
+    "toc": "16 links / 0 dangling",
+    "natural_diagram": "complete=true, naturalWidth=960, rendered 880x513 positive area in viewport, evaluateImageRender ok=true (no forcing)",
+    "extents": {
+     "pre": "5 containers, 1 scrollable (#0 1463/958)",
+     "table": "7 containers, 0 scrollable"
+    },
+    "keyboard": {
+     "PRE_0of1": {
+      "focus": "PRE index 0, activeElement verified",
+      "keys": {
+       "ArrowRight": {
+        "before_abs": 0,
+        "after_abs": 40,
+        "delta": 40
+       },
+       "ArrowLeft": {
+        "before_abs": 40,
+        "after_abs": 0,
+        "delta": -40
+       }
+      }
+     },
+     "TABLE": {
+      "N_A": true,
+      "reason": "measured extents: no contained overflow"
+     }
+    }
+   },
+   "mobile_390x844": {
+    "pass_start_utc": "2026-11-17T22:26:21.615Z",
+    "pass_end_utc": "2026-11-17T22:26:27.374Z",
+    "dom_counts": "PRE 5 / TABLE 7 (match served)",
+    "doc_overflow_px": 0,
+    "toc": "16 links / 0 dangling",
+    "natural_diagram": "natural fetch fired during real wheel scroll (step 1), visible at step 2; rendered 295x172 positive area, evaluateImageRender ok=true (no forcing; mobile geometry measured THIS time per R3)",
+    "extents": {
+     "pre": "5 containers, 3 scrollable (#0 1463/374, #1 893/374, #2 921/374)",
+     "table": "7 containers, 1 scrollable (#2 = endpoint table 338/295)"
+    },
+    "keyboard": {
+     "PRE_0of3": {
+      "focus": "PRE index 0 (1463/374), activeElement verified",
+      "keys": {
+       "ArrowRight": {
+        "before_abs": 0,
+        "after_abs": 40,
+        "delta": 40
+       },
+       "ArrowLeft": {
+        "before_abs": 40,
+        "after_abs": 0,
+        "delta": -40
+       }
+      }
+     },
+     "TABLE_0of1": {
+      "focus": "TABLE index 2 (338/295), activeElement verified",
+      "keys": {
+       "ArrowRight": {
+        "before_abs": 0,
+        "after_abs": 40,
+        "delta": 40
+       },
+       "ArrowLeft": {
+        "before_abs": 40,
+        "after_abs": 0,
+        "delta": -40
+       }
+      }
+     }
+    }
+   },
+   "stale_desktop_7PRE_record": "the previous receipt's desktop 7-PRE extents (f54afa4) do not match these bytes; cause remains UNKNOWN (no quota/cache/provider inference); that observation is retained as history for its own turn and is superseded by this reconciled pass",
+   "no_expected_numbers_note": "all counts/dimensions in this section are actual measured values; no expected number was written in place of a measurement"
+  },
+  "changed_files": [
+   "tutorials/s4-vlan-switch-l2.fa.md",
+   "tutorials/s4-vlan-switch-l2.gutenberg.html",
+   "articles/build-summary.json",
+   "validate-seo-guides.cjs",
+   "validation-receipt.json",
+   "render-check-receipt.json"
+  ],
+  "not_run": [
+   "RouterOS execution",
+   "all probes (incl. T-S trunk phases)",
+   "WordPress/KSES",
+   "DB integration",
+   "production publish"
+  ],
+  "boundaries": "NOT_DEPLOYED; prior approvals untouched; no unrelated lesson rerun; no public screenshots/traces/raw logs",
+  "production_touched": false
  }
 }

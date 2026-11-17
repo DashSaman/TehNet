@@ -367,56 +367,61 @@ function validate(candidateInputs) {
     else pass('c18_n6_route_consistency', { n6_route: n6row.cells[3], supplement_route: suprow.cells[3], columns: 9, table_blocks: blocks.length });
   }
 
-  /* c19-c20 (per MANAGER_REVIEW 6961231363): S4 source-contract checks — PURE source
-   * text contract, NOT RouterOS execution. (1) single no-defaults lab baseline with a
-   * stop-on-error guard block whose identity/conflict preconditions precede the first
-   * effect and whose filter-last closes the same block; honest recovery wording.
-   * (2) replayable synthetic endpoint/test-mode acceptance plan (same-prefix L2 negative
-   * + same-VLAN disposable positive + separately declared routed phase + trunk negative
-   * with sender/positive-control/discriminating observation and the CPU-capture caveat). */
+  /* c19-c20 (per MANAGER_REVIEW 6961231363 + 6962581521 R1): S4 source-contract checks —
+   * PURE source-contract inspection of the actual construction block/order (NOT RouterOS
+   * execution). R1 hardening: every required guard must appear BEFORE the first creation
+   * effect (add name=bridge1); the foreach required-port list must cover ALL 16 used ports;
+   * the created-name guard (mgmt88) must be present; the documented FULL admission enum
+   * must be spelled in commands and the undocumented abbreviation absent; the braced block
+   * must be described as non-transactional. */
   const s4Md = get('tutorials/s4-vlan-switch-l2.fa.md');
   if (s4Md !== null) {
-    const guardMarkers = [
-      'stop-on-error',
-      ':if ([:len [/interface bridge find]] > 0) do={ :error "S4: bridge(s) exist',
-      ':if ([:len [/interface bridge port find]] > 0) do={ :error "S4: bridge-port memberships exist',
+    const bridgeAddIdx = s4Md.indexOf('add name=bridge1');
+    const guardAnchors = [
+      ':if ([:len [/interface bridge find]] > 0)',
+      ':if ([:len [/interface bridge port find]] > 0)',
       'board-name~"CRS326"',
-      ':if ([:len [/interface find where name="ether23"]]',
-      '192.168.88."]] > 0) do={ :error "S4: management subnet',
-      'frame-types=admit-only-untagged',
-      'set bridge1 vlan-filtering=yes',
-      ':put "S4: build complete (filtering enabled last)"',
-      'disposable',
+      ':foreach p in={1;2;3;4;5;6;7;8;9;10;11;12;13;14;23;24}',
+      ':if ([:len [/interface find where name="mgmt88"]] > 0)',
+      ':if ([:len [/ip address find where address~"192.168.88."]] > 0)',
     ];
-    const missingGuard = guardMarkers.filter(function(m){ return s4Md.indexOf(m) < 0; });
-    const guardIdx = s4Md.indexOf(':if ([:len [/interface bridge find]] > 0)');
-    const filterIdx = s4Md.indexOf('set bridge1 vlan-filtering=yes');
-    const blockOpen = s4Md.indexOf('\n{', Math.max(0, guardIdx - 600));
-    const blockClose = s4Md.indexOf('\n}', filterIdx);
-    const sameBlock = guardIdx >= 0 && filterIdx >= 0 && blockOpen >= 0 && blockClose >= 0 && blockOpen < guardIdx && filterIdx < blockClose;
-    const guardBeforeEffect = guardIdx >= 0 && s4Md.indexOf('add name=bridge1') > guardIdx;
+    const afterEffect = guardAnchors.filter(function(a){ const i = s4Md.indexOf(a); return !(i >= 0 && bridgeAddIdx >= 0 && i < bridgeAddIdx); });
+    let portsOk = false, portsMissing = [];
+    const li = s4Md.indexOf(':foreach p in={');
+    if (li >= 0 && li < bridgeAddIdx) {
+      const lEnd = s4Md.indexOf('} do=', li);
+      const list = s4Md.slice(li + ':foreach p in={'.length, lEnd);
+      const nums = list.split(';').map(function(x){ return x.trim(); });
+      const required = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','23','24'];
+      portsMissing = required.filter(function(p){ return nums.indexOf(p) < 0; });
+      portsOk = portsMissing.length === 0;
+    }
+    const enumOk = s4Md.indexOf('admit-only-untagged-and-priority-tagged') >= 0 && s4Md.indexOf('admit-all-vlan') >= 0 && s4Md.indexOf('admit-nothing') >= 0 && s4Md.indexOf('frame-types=admit-only-untagged ') < 0 && s4Md.indexOf('frame-types=admit-only-untagged' + String.fromCharCode(10)) < 0;
+    const nonTx = s4Md.indexOf('transaction نیست') >= 0;
     const recoveryOk = s4Md.indexOf('وارسی\u200cشده') >= 0 && s4Md.indexOf('از هر پورت access دیگری در حالت بی\u200cفیلتر در دسترس است') < 0;
-    if (missingGuard.length > 0 || !sameBlock || !guardBeforeEffect || !recoveryOk)
-      fail('c19_s4_baseline_guard_contract', 'S4 baseline guard contract missing (single no-defaults baseline, stop-on-error guard-before-effect, filter-last in same block, honest recovery wording)', { missing: missingGuard, sameBlock: sameBlock, guardBeforeEffect: guardBeforeEffect, recoveryOk: recoveryOk });
-    else pass('c19_s4_baseline_guard_contract', { guard_markers: guardMarkers.length, same_block: true });
+    const missingGuard = guardAnchors.filter(function(a){ return s4Md.indexOf(a) < 0; });
+    if (afterEffect.length > 0 || !portsOk || !enumOk || !nonTx || !recoveryOk || missingGuard.length > 0)
+      fail('c19_s4_baseline_guard_contract', 'S4 baseline guard contract missing (all guards BEFORE first creation effect, complete 16-port guard list, created-name guard, full documented admission enum, non-transaction wording, honest recovery wording)', { guards_after_first_effect: afterEffect, ports_missing_from_guard_list: portsMissing, enum_ok: enumOk, non_transactional_wording: nonTx, recoveryOk: recoveryOk, missing: missingGuard });
+    else pass('c19_s4_baseline_guard_contract', { guards_before_first_effect: true, ports_guarded: 16, enum_documented: true });
 
-    const endpointMarkers = [
-      'جدول endpoint سنتز و حالت آزمون',
-      'آدرس آزمون',
-      '192.168.10.21',
-      'fixture موقت روی لینک ether23',
-      'هم\u200cپیشوند',
-      'کنترل مثبت disposable',
-      'فاز routed',
-      'بازگشت کامل به مبنای آزمون',
-      'T-S',
-      'آفلودشده لزوماً',
-      'فقط همین ورودی',
+    const epIdx = s4Md.indexOf('### جدول endpoint سنتز');
+    const epEnd = epIdx >= 0 ? s4Md.indexOf('\n![', epIdx) : -1;
+    const section = (epIdx >= 0 && epEnd > epIdx) ? s4Md.slice(epIdx, epEnd) : '';
+    const endpointRows = [
+      ['H1', '192.168.10.11'], ['H3', '192.168.10.13'], ['C1', '192.168.20.11'],
+      ['C1', '192.168.10.21'], ['C2', '192.168.20.12'], ['M1', '192.168.88.11'],
+      ['T-S', '192.168.10.2/24'], ['T-S', '192.168.10.99/24'],
     ];
-    const missingEndpoint = endpointMarkers.filter(function(m){ return s4Md.indexOf(m) < 0; });
-    if (missingEndpoint.length > 0)
-      fail('c20_s4_endpoint_testmode_contract', 'S4 endpoint/test-mode contract missing (synthetic addresses/prefix/gateway, same-prefix negative + same-VLAN disposable positive, separate routed phase, trunk sender/positive-control/CPU-capture caveat)', { missing: missingEndpoint });
-    else pass('c20_s4_endpoint_testmode_contract', { endpoint_markers: endpointMarkers.length });
+    const epRowsMissing = endpointRows.filter(function(pair){
+      if (!section) return true;
+      const row = section.split('\n').find(function(l){ return l.indexOf('|') === 0 && l.indexOf(pair[0]) >= 0 && l.indexOf(pair[1]) >= 0; });
+      return !row;
+    });
+    const phaseMarker = s4Md.indexOf('untagged→تگ\u200cدار') >= 0;
+    const notProvenGuard = s4Md.indexOf('NOT_PROVEN') >= 0;
+    if (!section || epRowsMissing.length > 0 || !phaseMarker || !notProvenGuard)
+      fail('c20_s4_endpoint_testmode_contract', 'S4 endpoint/test-mode contract missing (per-endpoint rows with exact addresses, tagged->untagged->tagged sender phases, NOT_PROVEN guard for unobserved frame mode)', { section_present: !!section, rows_missing: epRowsMissing.map(function(p){ return p[0] + ':' + p[1]; }), phase_marker: phaseMarker, not_proven_guard: notProvenGuard });
+    else pass('c20_s4_endpoint_testmode_contract', { endpoint_rows: endpointRows.length, phase_sequence: 'tagged->untagged->tagged' });
   }
 
   const failed = checks.filter(function(c){ return !c.pass; });
@@ -624,6 +629,40 @@ if (require.main === module) {
       }
     }
   }, 'S4 endpoint/test-mode contract missing');
+  /* per MANAGER_REVIEW 6962581521 R1: the two V8-verified counterexamples + a missing-used-port guard case */
+  injectNeg('s4-identity-guard-after-bridge', 'S4 board-identity guard moved to immediately AFTER bridge creation', function(clone){
+    for (let i = 0; i < clone.length; i++) {
+      if (clone[i].name === 'tutorials/s4-vlan-switch-l2.fa.md') {
+        const gLine = '    :if ([:len [/system resource find where board-name~"CRS326"]] = 0) do={ :error "S4: board-name does not indicate CRS326 — device identity does not match the declared map" }\n';
+        const anchor = 'add name=bridge1 vlan-filtering=no protocol-mode=rstp\n';
+        const c = clone[i].content;
+        if (c.indexOf(gLine) < 0) throw new Error('s4-identity-guard-after-bridge setup: guard line not found');
+        if (c.indexOf(anchor) < 0) throw new Error('s4-identity-guard-after-bridge setup: bridge add line not found');
+        clone[i].content = c.replace(gLine, '').replace(anchor, anchor + gLine);
+      }
+    }
+  }, 'S4 baseline guard contract missing');
+  injectNeg('s4-endpoint-rows-deleted', 'five endpoint-table rows H1/H3/C1/C2/M1 deleted while headings and surrounding prose kept', function(clone){
+    for (let i = 0; i < clone.length; i++) {
+      if (clone[i].name === 'tutorials/s4-vlan-switch-l2.fa.md') {
+        const ids = ['H1', 'H3', 'C1', 'C2', 'M1'];
+        clone[i].content = clone[i].content.split('\n').filter(function(l){
+          if (l.trim().indexOf('|') !== 0) return true;
+          for (const id of ids) { if (l.indexOf(id) >= 0 && l.indexOf('میزبان') >= 0) return false; }
+          return true;
+        }).join('\n');
+      }
+    }
+  }, 'S4 endpoint/test-mode contract missing');
+  injectNeg('s4-used-port-guard-missing', 'ether23 removed from the S4 required-port foreach guard list', function(clone){
+    for (let i = 0; i < clone.length; i++) {
+      if (clone[i].name === 'tutorials/s4-vlan-switch-l2.fa.md') {
+        const anchor = '13;14;23;24';
+        if (clone[i].content.indexOf(anchor) < 0) throw new Error('s4-used-port-guard-missing setup: foreach list not found');
+        clone[i].content = clone[i].content.replace(anchor, '13;14;24');
+      }
+    }
+  }, 'S4 baseline guard contract missing');
 
   let negFail = 0;
   for (let ni = 0; ni < negatives.length; ni++) { if (!(negatives[ni].failed && negatives[ni].reasonMatched)) negFail++; }

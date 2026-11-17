@@ -3,9 +3,9 @@
  "validator": "validate-seo-guides.cjs rev8 (rev7 + S2 tutorial candidate)",
  "command": "node validate-seo-guides.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-17T21:29:09Z",
- "finished_utc": "2026-11-17T21:29:09Z",
- "control_head": "cbeeda58ed71b9292800c72938a5c213b6b62290",
+ "started_utc": "2026-11-17T22:24:24Z",
+ "finished_utc": "2026-11-17T22:24:25Z",
+ "control_head": "f54afa4f1488f74ead3fada0ca90075afe481901",
  "exit": 0,
  "good_candidate": {
   "ok": true,
@@ -148,7 +148,7 @@
    "failed": true,
    "reasonMatched": true,
    "reasons": [
-    "S4 baseline guard contract missing (single no-defaults baseline, stop-on-error guard-before-effect, filter-last in same block, honest recovery wording)"
+    "S4 baseline guard contract missing (all guards BEFORE first creation effect, complete 16-port guard list, created-name guard, full documented admission enum, non-transaction wording, honest recovery wording)"
    ]
   },
   {
@@ -158,7 +158,34 @@
    "reasonMatched": true,
    "reasons": [
     "tutorial required section missing",
-    "S4 endpoint/test-mode contract missing (synthetic addresses/prefix/gateway, same-prefix negative + same-VLAN disposable positive, separate routed phase, trunk sender/positive-control/CPU-capture caveat)"
+    "S4 endpoint/test-mode contract missing (per-endpoint rows with exact addresses, tagged->untagged->tagged sender phases, NOT_PROVEN guard for unobserved frame mode)"
+   ]
+  },
+  {
+   "name": "s4-identity-guard-after-bridge",
+   "injected": "S4 board-identity guard moved to immediately AFTER bridge creation",
+   "failed": true,
+   "reasonMatched": true,
+   "reasons": [
+    "S4 baseline guard contract missing (all guards BEFORE first creation effect, complete 16-port guard list, created-name guard, full documented admission enum, non-transaction wording, honest recovery wording)"
+   ]
+  },
+  {
+   "name": "s4-endpoint-rows-deleted",
+   "injected": "five endpoint-table rows H1/H3/C1/C2/M1 deleted while headings and surrounding prose kept",
+   "failed": true,
+   "reasonMatched": true,
+   "reasons": [
+    "S4 endpoint/test-mode contract missing (per-endpoint rows with exact addresses, tagged->untagged->tagged sender phases, NOT_PROVEN guard for unobserved frame mode)"
+   ]
+  },
+  {
+   "name": "s4-used-port-guard-missing",
+   "injected": "ether23 removed from the S4 required-port foreach guard list",
+   "failed": true,
+   "reasonMatched": true,
+   "reasons": [
+    "S4 baseline guard contract missing (all guards BEFORE first creation effect, complete 16-port guard list, created-name guard, full documented admission enum, non-transaction wording, honest recovery wording)"
    ]
   }
  ],
@@ -211,8 +238,8 @@
   "tutorials/n3-cable-test-report.gutenberg.html": "ea3e0c5d835347559ebdf819cb96a93f0c288fa5e18b262425332be467e2d346",
   "tutorials/n6-support-selection.fa.md": "e7057c8d8fd92284ed9c143d2cfb83feb66b3b70b1c987a792e6749fdf3d0bc9",
   "tutorials/n6-support-selection.gutenberg.html": "3a21d85a5aa7cb25b4576771cc3443bbc222d00783c111bc1e146af4e4104f52",
-  "tutorials/s4-vlan-switch-l2.fa.md": "201ff3bfe01da59431ad79345bd0361eae0254f1346a2101b4b1eede6889c279",
-  "tutorials/s4-vlan-switch-l2.gutenberg.html": "e95458462636a27dcc80a2198198bb0f8c45d7639d78e905049fc66bb70b5a76",
+  "tutorials/s4-vlan-switch-l2.fa.md": "58256dd5725fdfcfbf9d8b2d518d436a0724b68d25b5628c81e9cfa6044db762",
+  "tutorials/s4-vlan-switch-l2.gutenberg.html": "d2b8eb43f8664bf306ebbe501d0dda0fec8215345d9d4a98994f4016df159547",
   "topic-map.md": "80a17b9f283a577200e83b2602764df2501282958e31ad19f5d506ff41081bc8",
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",
   "switch-catalog.csv": "aaa5aed94204ad93b312449d9b0c934164c59d2d6375eb3b5727fe94ae164718",
@@ -222,8 +249,8 @@
   "page-edits/network-support.proposed.html": "3ff92cf6315912e394ba52237814d0471b675cbc602144f0cdf6e2a36cb5f92b"
  },
  "summary": {
-  "negatives": 16,
-  "negatives_passed": 16,
+  "negatives": 19,
+  "negatives_passed": 19,
   "negatives_failed": 0
  },
  "execution_origin": {

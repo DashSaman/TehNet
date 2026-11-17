@@ -50,11 +50,11 @@ VLAN روی سوئیچ یعنی یک سوئیچ را به چند **دامنهٔ 
 
 | پورت | نقش | pvid ‏(طبقه‌بندی ورودی untagged) | پذیرش ورودی ‏(frame-types) | عضویت VLAN ‏(خروجی) |
 |---|---|---|---|---|
-| ether1 تا ether10 | ‏۱۰ پورت دفتر — access | ‏10 | admit-only-untagged | vlan10 untagged |
-| ether11 تا ether14 | ‏۴ پورت دوربین — access | ‏20 | admit-only-untagged | vlan20 untagged |
+| ether1 تا ether10 | ‏۱۰ پورت دفتر — access | ‏10 | admit-only-untagged-and-priority-tagged | vlan10 untagged |
+| ether11 تا ether14 | ‏۴ پورت دوربین — access | ‏20 | admit-only-untagged-and-priority-tagged | vlan20 untagged |
 | ether15 تا ether22 | آزاد ‏(رشد) | — | — | — |
 | ether23 | **ترانک به روتر** — فقط تگ‌دار | ‏1 ‏(بی‌اثر روی تگ‌دار) | admit-only-vlan-tagged | vlan10+20+88 tagged |
-| ether24 | میزبان مدیریت — access | ‏88 | admit-only-untagged | vlan88 untagged |
+| ether24 | میزبان مدیریت — access | ‏88 | admit-only-untagged-and-priority-tagged | vlan88 untagged |
 | ‏bridge1 ‏(خودِ پل) | مسیر CPU | — | — | vlan88 tagged |
 | sfp-sfpplus1/2 | بدون پیکربندی در این درس ‏(رشد — الگوی S3) | — | — | — |
 
@@ -72,7 +72,7 @@ VLAN روی سوئیچ یعنی یک سوئیچ را به چند **دامنهٔ 
 | ‏C2 | دوربین آزمون | ether12 | 20 | ‏192.168.20.12/24 | — | — | بدون gateway ‏(فاز ‏L2) | مثبت همان VLAN |
 | ‏M1 | میزبان مدیریت | ether24 | 88 | ‏192.168.88.11/24 | — | — | بدون gateway | مدیریت |
 | سوئیچ ‏CPU | خودِ سوئیچ | مسیر ‏mgmt88 | 88 | ‏192.168.88.2/24 | — | — | — | هدف تست ‏۳ |
-| ‏T-S | میزبان آزمون ترانک ‏(fixture موقت روی لینک ether23، جای روتر — فقط مبنای آزمایشگاهی) | لینک ether23 | ‏10 ‏(تگ‌دار برای کنترل مثبت) | ‏192.168.10.2/24 ‏(روی زیراینترفیس تگ‌دار 10) | — | ‏192.168.10.0/24 | بدون gateway | فرستنده ترانک |
+| ‏T-S | میزبان آزمون ترانک ‏(fixture موقت روی لینک ether23، جای روتر — فقط مبنای آزمایشگاهی؛ یک ‏PC با ‏NIC فیزیکی + زیراینترفیس تگ‌دار ‏VLAN10) | لینک ether23 | ‏10 ‏(تگ‌دار) | فاز تگ‌دار: ‏192.168.10.2/24 روی زیراینترفیس ‏VLAN10؛ فاز ‏untagged: ‏192.168.10.99/24 روی NIC فیزیکی — آدرس‌ها هرگز هم‌زمان فعال نیستند ‏(بدون route مبهم) | ‏192.168.10.0/24 | بدون gateway | فرستنده ترانک — سه فاز تگ‌دار→untagged→تگ‌دار |
 | روتر ‏(خارج از درس) | مسیریاب لایه۳ | لینک ether23 ‏(فقط فاز routed جداگانه) | ‏10/20 | ‏192.168.10.1 ‏· ‏192.168.20.1 | — | متفاوت ‏(routed) | gateway میزبان‌ها فقط در فاز routed | فاز جداگانه اعلام‌شده |
 
 قاعدهٔ طراحی جفت منفی: ‏H1 و alias آزمونِ ‏C1 **هم‌پیشوند** ‏(192.168.10.0/24) هستند تا طبق ‏RFC1122 §3.3.1.1 تصمیم تحویل on-link گرفته شود و ARP مستقیم تلاش شود — این‌طور timeout معنای جداسازی لایه۲ دارد، نه «نبود مسیر». کلیدهای آزمون و aliasها فقط متعلق به fixture سنتز همین درس‌اند و plan بازگشت‌شان در جدول آزمون آمده است.
@@ -91,29 +91,27 @@ VLAN روی سوئیچ یعنی یک سوئیچ را به چند **دامنهٔ 
     :if ([:len [/interface bridge find]] > 0) do={ :error "S4: bridge(s) exist — not the assumed no-defaults disposable lab baseline; stop, no changes, dispose the lab state explicitly first" }
     :if ([:len [/interface bridge port find]] > 0) do={ :error "S4: bridge-port memberships exist — not the assumed baseline" }
     :if ([:len [/system resource find where board-name~"CRS326"]] = 0) do={ :error "S4: board-name does not indicate CRS326 — device identity does not match the declared map" }
-    :if ([:len [/interface find where name="ether1"]] = 0) do={ :error "S4: ether1 missing — port map identity mismatch" }
-    :if ([:len [/interface find where name="ether11"]] = 0) do={ :error "S4: ether11 missing — port map identity mismatch" }
-    :if ([:len [/interface find where name="ether23"]] = 0) do={ :error "S4: ether23 missing — port map identity mismatch" }
-    :if ([:len [/interface find where name="ether24"]] = 0) do={ :error "S4: ether24 missing — port map identity mismatch" }
+    :foreach p in={1;2;3;4;5;6;7;8;9;10;11;12;13;14;23;24} do={ :if ([:len [/interface find where name=("ether".$p)]] = 0) do={ :error "S4: required port ether$p missing — port map identity mismatch" } }
+    :if ([:len [/interface find where name="mgmt88"]] > 0) do={ :error "S4: name mgmt88 already in use — created-name conflict, stop" }
     :if ([:len [/ip address find where address~"192.168.88."]] > 0) do={ :error "S4: management subnet 192.168.88.x already assigned — resource/management conflict, stop" }
     /interface bridge
     add name=bridge1 vlan-filtering=no protocol-mode=rstp
     /interface bridge port
-    add bridge=bridge1 interface=ether1 pvid=10 frame-types=admit-only-untagged
-    add bridge=bridge1 interface=ether2 pvid=10 frame-types=admit-only-untagged
-    add bridge=bridge1 interface=ether3 pvid=10 frame-types=admit-only-untagged
-    add bridge=bridge1 interface=ether4 pvid=10 frame-types=admit-only-untagged
-    add bridge=bridge1 interface=ether5 pvid=10 frame-types=admit-only-untagged
-    add bridge=bridge1 interface=ether6 pvid=10 frame-types=admit-only-untagged
-    add bridge=bridge1 interface=ether7 pvid=10 frame-types=admit-only-untagged
-    add bridge=bridge1 interface=ether8 pvid=10 frame-types=admit-only-untagged
-    add bridge=bridge1 interface=ether9 pvid=10 frame-types=admit-only-untagged
-    add bridge=bridge1 interface=ether10 pvid=10 frame-types=admit-only-untagged
-    add bridge=bridge1 interface=ether11 pvid=20 frame-types=admit-only-untagged
-    add bridge=bridge1 interface=ether12 pvid=20 frame-types=admit-only-untagged
-    add bridge=bridge1 interface=ether13 pvid=20 frame-types=admit-only-untagged
-    add bridge=bridge1 interface=ether14 pvid=20 frame-types=admit-only-untagged
-    add bridge=bridge1 interface=ether24 pvid=88 frame-types=admit-only-untagged comment="میزبان مدیریت M1"
+    add bridge=bridge1 interface=ether1 pvid=10 frame-types=admit-only-untagged-and-priority-tagged
+    add bridge=bridge1 interface=ether2 pvid=10 frame-types=admit-only-untagged-and-priority-tagged
+    add bridge=bridge1 interface=ether3 pvid=10 frame-types=admit-only-untagged-and-priority-tagged
+    add bridge=bridge1 interface=ether4 pvid=10 frame-types=admit-only-untagged-and-priority-tagged
+    add bridge=bridge1 interface=ether5 pvid=10 frame-types=admit-only-untagged-and-priority-tagged
+    add bridge=bridge1 interface=ether6 pvid=10 frame-types=admit-only-untagged-and-priority-tagged
+    add bridge=bridge1 interface=ether7 pvid=10 frame-types=admit-only-untagged-and-priority-tagged
+    add bridge=bridge1 interface=ether8 pvid=10 frame-types=admit-only-untagged-and-priority-tagged
+    add bridge=bridge1 interface=ether9 pvid=10 frame-types=admit-only-untagged-and-priority-tagged
+    add bridge=bridge1 interface=ether10 pvid=10 frame-types=admit-only-untagged-and-priority-tagged
+    add bridge=bridge1 interface=ether11 pvid=20 frame-types=admit-only-untagged-and-priority-tagged
+    add bridge=bridge1 interface=ether12 pvid=20 frame-types=admit-only-untagged-and-priority-tagged
+    add bridge=bridge1 interface=ether13 pvid=20 frame-types=admit-only-untagged-and-priority-tagged
+    add bridge=bridge1 interface=ether14 pvid=20 frame-types=admit-only-untagged-and-priority-tagged
+    add bridge=bridge1 interface=ether24 pvid=88 frame-types=admit-only-untagged-and-priority-tagged comment="میزبان مدیریت M1"
     add bridge=bridge1 interface=ether23 frame-types=admit-only-vlan-tagged ingress-filtering=yes comment="trunk فقط-تگ‌دار به روتر"
     /interface bridge vlan
     add bridge=bridge1 vlan-ids=10 untagged=ether1,ether2,ether3,ether4,ether5,ether6,ether7,ether8,ether9,ether10 tagged=ether23
@@ -129,7 +127,9 @@ VLAN روی سوئیچ یعنی یک سوئیچ را به چند **دامنهٔ 
 }
 ```
 
-**ترتیب داخل بلوک:** گاردها **قبل از اولین اثر** اجرا می‌شوند ‏(هویت مدل با ‏board-name، موجود بودن پورت‌های نقشه، نبود پل/عضویت موجود، نبود تداخل subnet مدیریتی)؛ فیلترینگ **آخرین** دستور است؛ مسیر بازیابی مستقل از قبل وارسی شده ‏(بخش بازگشت امن). هیچ reset/delete/adapt روی دستگاه انجام نمی‌شود — بلوک یا کامل و روی مبنای فرضی اجرا می‌شود یا همان‌جا متوقف می‌شود.
+**ترتیب داخل بلوک و مرز تعهد:** گاردها **قبل از اولین اثر** اجرا می‌شوند ‏(هویت مدل، فهرست کامل ‏۱۶ پورت استفاده‌شده، نبود پل/عضویت موجود، آزادبودن نام ساخته‌شونده ‏mgmt88، نبود تداخل subnet مدیریتی)؛ خطای هر گارد در این نقطه = **صفر تغییر**. اما بلوک براکتی ‏RouterOS **transaction نیست** — اگر بعد از شروع آثار خطای غیرمنتظره‌ای رخ دهد، rollback خودکار وجود ندارد و تغییرات انجام‌شده باقی می‌ماند؛ در این مبنای disposable چنین حالتی به‌صورت کنترل‌شده و دستی رسیدگی می‌شود ‏(بازرسی، اصلاح یا dispose صریح) و هیچ حذف خودکارِ وضعیت نامعلومی انجام نمی‌شود. فیلترینگ **آخرین** دستور بلوک است و مسیر بازیابی مستقل از قبل وارسی شده ‏(بخش بازگشت امن). هیچ reset/delete/adapt روی دستگاه انجام نمی‌شود.
+
+**enum پذیرش ورودی — کامل و مستند ‏(سند ‏Bridging and Switching):** ‏admit-all-vlan ‏(پذیرش همه — پیش‌فرض) · ‏admit-only-untagged-and-priority-tagged ‏(فقط ‏untagged و ‏priority-tagged — انتخاب access این درس) · ‏admit-only-vlan-tagged ‏(فقط تگ‌دار — ترانک) · ‏admit-nothing. عبارت کوتاه‌شدهٔ «admit-only-untagged» مقدار سندشده نیست و به‌کار نمی‌رود.
 
 ## گام ۲: قطعهٔ access با pvid و پذیرش ورودی {#step2-access-pvid}
 
@@ -137,12 +137,12 @@ VLAN روی سوئیچ یعنی یک سوئیچ را به چند **دامنهٔ 
 
 ```routeros
     /interface bridge port
-    add bridge=bridge1 interface=ether1 pvid=10 frame-types=admit-only-untagged
+    add bridge=bridge1 interface=ether1 pvid=10 frame-types=admit-only-untagged-and-priority-tagged
     ...
-    add bridge=bridge1 interface=ether24 pvid=88 frame-types=admit-only-untagged comment="میزبان مدیریت M1"
+    add bridge=bridge1 interface=ether24 pvid=88 frame-types=admit-only-untagged-and-priority-tagged comment="میزبان مدیریت M1"
 ```
 
-**انتظار و معنا:** ‏۱۵ عضو access اضافه می‌شوند. **تفکیک کنترل‌ها:** `pvid=10` فقط فریم **untagged ورودی** را به VLAN10 طبقه‌بندی می‌کند و خروجی همان پورت را untagged می‌کند؛ `frame-types=admit-only-untagged` پذیرش ورودی را جدا کنترل می‌کند — با pvid تنها، یک فریم **تگ‌دار** با ‏VLAN10 روی پورت access رد نمی‌شد؛ پذیرش access صریح تنظیم شده تا رفتار پورت کاملاً معلوم باشد.
+**انتظار و معنا:** ‏۱۵ عضو access اضافه می‌شوند. **تفکیک کنترل‌ها:** `pvid=10` فقط فریم **untagged ورودی** را به VLAN10 طبقه‌بندی می‌کند و خروجی همان پورت را untagged می‌کند؛ `frame-types=admit-only-untagged-and-priority-tagged` پذیرش ورودی را جدا کنترل می‌کند — با pvid تنها، یک فریم **تگ‌دار** با ‏VLAN10 روی پورت access رد نمی‌شد؛ پذیرش access صریح تنظیم شده تا رفتار پورت کاملاً معلوم باشد.
 
 ## گام ۳: قطعهٔ جدول VLAN و ترانک تگ‌دار {#step3-vlan-table-trunk}
 
@@ -205,7 +205,7 @@ VLAN روی سوئیچ یعنی یک سوئیچ را به چند **دامنهٔ 
 | ‏۴ | ‏L2 — منفی | ‏H1 ‏(192.168.10.11) | ‏C1 ‏(alias آزمون ‏192.168.10.21 — هم‌پیشوند، VLAN20) | پیش‌شرط: ورودی همسایهٔ ‏192.168.10.21 در ‏H1 حذف/ناموجود ‏(فقط همین ورودی)؛ سپس `ping 192.168.10.21` | timeout + ورودی ‏192.168.10.21 در `arp -a` ‏H1 incomplete/ناموجود؛ **این به‌تنهایی کافی نیست** — با کنترل مثبت ‏۵ و تکرار منفی پس از بازگشت همراه می‌شود |
 | ‏۵ | ‏L2 — کنترل مثبت disposable | ‏H1 | ‏C1 ‏(192.168.10.21) | تغییر موقت ‏C1 به ‏pvid=10 + عضویت untagged در ردیف ‏10؛ همان ping | replies + ARP کامل — اثبات سلامت میزبان‌ها/روش؛ سپس **بازگشت دقیق** ‏C1 به ‏pvid=20 و عضویت قبلی و **تکرار تست ‏۴** برای اثبات بازگشت جداسازی |
 | ‏۶ | routed — فاز جداگانه اعلام‌شده | ‏H1 ‏(با gateway روتر در فاز routed) | ‏C1 ‏(192.168.20.11) | روتر با اینترفیس‌های routed ‏10/20 فعال ‏(اعلام‌شده، سمت روتر خارج از درس)؛ `ping` + `tracert` | اگر سیاست روتر اجازه دهد ping موفق می‌شود و مسیر از **روتر** است؛ `tracert` **چک شرطی** است — اگر پاسخ آمد گام اول = روتر ‏(اثبات مرز)؛ نبود پاسخ به‌تنهایی ردّ مسیر نیست؛ پایان فاز: بازگشت کامل به مبنای آزمون ‏L2 |
-| ‏۷ | ترانک — منفی untagged | فرستندهٔ آزمون ‏T-S | لینک ether23 | کنترل مثبت اول: ‏T-S با زیراینترفیس **تگ‌دار 10** باید ‏H1 را ping کند ‏(مسیر لینک/فرستنده/گیرنده سالم)؛ سپس ‏T-S همان مقصد را با فریم **untagged** ping می‌کند | کنترل مثبت: replies؛ سپس untagged: هیچ پاسخی از ‏H1 نیست — با کنترل مثبتِ پاس‌شده این «drop واقعی در پذیرش ورودی» است نه فرستنده/گیرندهٔ غایب. **توجه:** ترافیک آفلودشده لزوماً در capture سمت CPU دیده نمی‌شود — اتکا به sniffer/drop-counter سمت CPU به‌تنهایی این تست را کامل نمی‌کند |
+| ‏۷ | ترانک — تگ‌دار→untagged→تگ‌دار | فرستندهٔ آزمون ‏T-S | هدف ‏H1 ‏(192.168.10.11) | ‏(الف) کنترل تگ‌دار: فقط زیراینترفیس تگ‌دار ‏VLAN10 با ‏192.168.10.2/24 فعال ‏(NIC فیزیکی بدون آدرس) → `ping 192.168.10.11` → replies ‏(مسیر/فرستنده/گیرنده سالم)؛ ‏(ب) فاز untagged: زیراینترفیس تگ‌دار حذف/غیرفعال و NIC فیزیکی با ‏192.168.10.99/24 ‏(هم‌پیشوند ‏H1، بدون gateway، بدون route اضافه) فعال → همان ping — چون هم‌پیشوند است ‏T-S واقعاً فریم‌های ‏untagged ‏(ARP/ping) به لینک می‌فرستد؛ ‏(ج) کنترل بازگشتی تگ‌دار: آدرس untagged حذف و زیراینترفیس تگ‌دار دقیق برمی‌گردد → ping دوباره replies | ‏(الف) و ‏(ج) replies؛ ‏(ب) سکوت. تفسیر «drop واقعی پذیرش ورودی» فقط با کنترل تگ‌دارِ پاسِ بلافاصله قبل + مشاهدهٔ حالت فریم ارسالی ‏(مثلاً capture سمت خودِ ‏T-S که ARP خروجی untagged است) ثبت می‌شود؛ اگر این مشاهده ثبت نشود، نتیجه با برچسب **NOT_PROVEN** ثبت می‌شود. capture سمت CPU سوئیچ معیار نیست ‏(ترافیک آفلودشده لزوماً آنجا دیده نمی‌شود). بازگشت دقیق همهٔ آدرس/اینترفیس‌های ‏T-S؛ بدون flush عمومی |
 
 قواعد اجرا: پیش‌شرط همسایه فقط برای ورودی متعلق به همین آزمون؛ بازگشت دقیق عضویت/pvid بعد از فازهای موقت؛ حذف فقط آدرس/alias/همسایهٔ متعلق به fixture سنتز؛ **اجرای واقعی همهٔ پروب‌ها و RouterOS در این درس NOT_RUN است** — هیچ trace/flag/PASS جعلی وجود ندارد.
 
@@ -214,6 +214,7 @@ VLAN روی سوئیچ یعنی یک سوئیچ را به چند **دامنهٔ 
 - **پیش‌شرط قبل از فعال‌سازی فیلترینگ:** یک مسیر بازیابی **مستقل و وارسی‌شده** باید از قبل آماده باشد — در این مبنای آزمایشگاهی یعنی جلسهٔ کنسول/MAC-Winbox روی خودِ دستگاه که باز بودن و دسترسی‌پذیری‌اش **عملاً وارسی شده** است ‏(نه جلسهٔ تگ‌دار ‏VLAN88)؛ این وارسی بخشی از چک‌لیست قبل از روشن‌کردن فیلترینگ است. **از تنظیمات unspecified ‏MAC-server/interface به‌عنوان وعدهٔ دسترسی استفاده نمی‌شود** — بدون وارسی واقعی، چنین وعده‌ای داده نمی‌شود.
 - **بازگشت کنترل‌شده در همین آزمایشگاه:** از همان مسیر وارسی‌شده: `/interface bridge set bridge1 vlan-filtering=no` — همهٔ پورت‌ها بدون فیلتر پل می‌شوند؛ پیکربندی‌ها حذف نمی‌شوند و قابل اصلاح‌اند. **توجه صادقانه:** خاموش‌کردن فیلترینگ جداسازی را از بین می‌برد — این اقدام فقط «بازیابی کنترل‌شده در همین آزمایشگاه ایزوله» است، نه حالت عملیاتی.
 - **قاعدهٔ ترتیب:** هر تغییر ساختاری با فیلترینگ خاموش؛ روشن‌کردن **آخرین** دستور است؛ بعد از روشن‌کردن، تست ‏۳ ‏(مسیر CPU) قبل از بستن جلسه اجرا/ثبت می‌شود.
+- **بلوک ساخت transaction نیست:** خطای گارد قبل از اولین اثر = صفر تغییر؛ اما خطای بعد از شروع آثار rollback خودکار ندارد — در مبنای disposable کنترل‌شده و دستی رسیدگی می‌شود ‏(بدون حذف خودکار وضعیت نامعلوم).
 - **از دست رفتن دسترسی مدیریتی تگ‌دار:** فقط از مسیر بازیابی مستقل وارسی‌شدهٔ بالا؛ تکیه به «دسترسی از هر access» به‌عنوان مسیر تضمینی نداریم.
 
 ## عیب‌یابی {#troubleshooting}
@@ -240,7 +241,7 @@ VLAN روی سوئیچ یعنی یک سوئیچ را به چند **دامنهٔ 
 
 - [ ] مبنای آزمایشگاهی یکتا ‏(دستگاه مجزا/disposable ‏no-defaults) مکتوب؛ گارد هویت مدل/پورت‌ها/تداخل قبل از اولین اثر در همان بلوک stop-on-error
 - [ ] نقشهٔ پورت/VLAN با هویت endpointها و **جدول endpoint سنتز** ‏(آدرس/prefix/gateway/حالت آزمون) قبل از اجرا مکتوب شده
-- [ ] پل و اعضا با `vlan-filtering=no` در بلوک واحد ساخته؛ access با `pvid` + `frame-types=admit-only-untagged`
+- [ ] پل و اعضا با `vlan-filtering=no` در بلوک واحد ساخته؛ access با `pvid` + `frame-types=admit-only-untagged-and-priority-tagged`
 - [ ] جدول VLAN سه‌ردیفه کامل؛ ترانک فقط-تگ‌دار با ‏ingress-filtering
 - [ ] مسیر CPU ‏(bridge1 tagged در ‏88 + mgmt88 + آدرس) تنظیم و با تست ‏۳ آزموده
 - [ ] فیلترینگ آخر فعال؛ بازرسی پرچم `H` به‌عنوان **چک موردانتظر ‏(NOT_RUN)** در طرح ثبت ‏(ظرفیت اندازه‌گیری نشده)
