@@ -381,7 +381,7 @@ function validate(candidateInputs) {
       ':if ([:len [/interface bridge find]] > 0)',
       ':if ([:len [/interface bridge port find]] > 0)',
       ':local bn [/system resource get board-name]',
-      ':if (:typeof $bn != "str")',
+      ':if ([:typeof $bn] != "str")',
       ':local isCRS',
       ':if ($isCRS != true)',
       ':foreach p in={1;2;3;4;5;6;7;8;9;10;11;12;13;14;23;24}',
@@ -641,7 +641,7 @@ if (require.main === module) {
       if (clone[i].name === 'tutorials/s4-vlan-switch-l2.fa.md') {
         const segment = [
           '    :local bn [/system resource get board-name]',
-          '    :if (:typeof $bn != "str") do={ :error "S4: board-name unreadable — device identity cannot be verified, stop" }',
+          '    :if ([:typeof $bn] != "str") do={ :error "S4: board-name unreadable — device identity cannot be verified, stop" }',
           '    :local isCRS ($bn ~ "CRS326")',
           '    :if ($isCRS != true) do={ :error "S4: board-name does not indicate CRS326 — device identity does not match the declared map" }',
         ].join('\n') + '\n';

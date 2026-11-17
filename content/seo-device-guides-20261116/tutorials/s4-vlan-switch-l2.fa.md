@@ -91,7 +91,7 @@ VLAN روی سوئیچ یعنی یک سوئیچ را به چند **دامنهٔ 
     :if ([:len [/interface bridge find]] > 0) do={ :error "S4: bridge(s) exist — not the assumed no-defaults disposable lab baseline; stop, no changes, dispose the lab state explicitly first" }
     :if ([:len [/interface bridge port find]] > 0) do={ :error "S4: bridge-port memberships exist — not the assumed baseline" }
     :local bn [/system resource get board-name]
-    :if (:typeof $bn != "str") do={ :error "S4: board-name unreadable — device identity cannot be verified, stop" }
+    :if ([:typeof $bn] != "str") do={ :error "S4: board-name unreadable — device identity cannot be verified, stop" }
     :local isCRS ($bn ~ "CRS326")
     :if ($isCRS != true) do={ :error "S4: board-name does not indicate CRS326 — device identity does not match the declared map" }
     :foreach p in={1;2;3;4;5;6;7;8;9;10;11;12;13;14;23;24} do={ :if ([:len [/interface find where name=("ether".$p)]] = 0) do={ :error "S4: required port ether$p missing — port map identity mismatch" } }
