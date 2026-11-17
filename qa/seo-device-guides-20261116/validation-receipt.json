@@ -3,9 +3,9 @@
  "validator": "validate-seo-guides.cjs rev8 (rev7 + S2 tutorial candidate)",
  "command": "node validate-seo-guides.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-17T01:50:13Z",
- "finished_utc": "2026-11-17T01:50:13Z",
- "control_head": "41fd27dd79c5a19ff7b2f047b4c4f48d67352674",
+ "started_utc": "2026-11-17T02:00:07Z",
+ "finished_utc": "2026-11-17T02:00:07Z",
+ "control_head": "3e268ff6d7f10bb6c83497aa381c173c3f1e9623",
  "exit": 0,
  "good_candidate": {
   "ok": true,
@@ -151,9 +151,9 @@
   "router-catalog.csv": "289504c2f6ce1498869c3ad3305b4043f7a6c84e80057e5ce31a51e2d95d9af7",
   "switch-catalog.csv": "aaa5aed94204ad93b312449d9b0c934164c59d2d6375eb3b5727fe94ae164718",
   "image-provenance.csv": "57df5b7e151f4d35deef50d356335a408f859ad0a794345a752e307192cb96b4",
-  "page-edits/mikrotik-service.proposed.html": "c8c22f3e453bdbc5934d9e3b4e9b84e81e11b0fbfedb9e901fdce300dceabdfb",
-  "page-edits/network-setup.proposed.html": "ac244d2142a4022b20b98803e48c218c5138f5398b72a6f7bca1bae1fbe52c0b",
-  "page-edits/network-support.proposed.html": "52b58eefe6cd3ff50c65077ddc99f9ae66637a2fe4181bd16a6a9579adebf953"
+  "page-edits/mikrotik-service.proposed.html": "97e66095e74ed5cf33decfc3eb12ef495342bf97d0c7e86b4000527ba427848c",
+  "page-edits/network-setup.proposed.html": "f00425efd8ce408a5b89c7e63ae5b3425c705d928d96d224516cff5d915d5384",
+  "page-edits/network-support.proposed.html": "0a05e25e296bc2e746d4d1bd6c76ebf3d65c3ef8b5b5002d7ff1270f8e2cb901"
  },
  "summary": {
   "negatives": 9,
