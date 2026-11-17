@@ -492,7 +492,7 @@
   "manager-side browser run"
  ],
  "production_touched": false,
- "utc_extended": "2026-11-17T00:53:04Z",
+ "utc_extended": "2026-11-17T01:13:01Z",
  "pages_extra": [
   "tutorials/s2-poe-budget.gutenberg.html",
   "tutorials/s3-sfp-dac-fiber.gutenberg.html",
@@ -518,7 +518,8 @@
    "m3_mobile_390": 0,
    "keyboard": "focus-first-link-then-Tab -> next <A>, both lessons both viewports"
   },
-  "not_done": "WP/theme/KSES separate; document-level overflow:hidden NOT used; no content removed"
+  "not_done": "WP/theme/KSES separate; document-level overflow:hidden NOT used; no content removed",
+  "complete_stylesheet_note": "the exact complete stylesheet for this run is committed as qa/seo-device-guides-20261116/candidate-preview.css sha256 ae06330b789ed135…; the older partial candidate_style_recorded string remains above as history"
  },
  "bound_inputs_digest_verification": {
   "all_existing_files_hashed_ok": true
@@ -585,6 +586,188 @@
    "RouterOS command execution (no isolated fixture)",
    "WordPress/KSES acceptance",
    "Search Console"
+  ],
+  "production_touched": false
+ },
+ "three_page_candidate_run_20261117": {
+  "packet": "TN-S5-ARITH-TOPOLOGY-PREVIEW-20261117 (review 6931470793 item 4 — reproducible three-page candidate)",
+  "utc": "2026-11-17T01:13:01Z",
+  "git_head": "b355a0cb8bc62843d0e8a777c507c74c839dc92d",
+  "executed_by": "GLM — real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138",
+  "style_artifact": {
+   "path": "qa/seo-device-guides-20261116/candidate-preview.css",
+   "sha256": "ae06330b789ed135d144131b1b6b08b8fd03aea8ca7b94cb959c6e2a5af67fc1",
+   "note": "COMPLETE applied stylesheet = base PREVIEW_STYLE string (identical to preview_style_injected_at_render_time) + candidate ladder rules, committed verbatim; supersedes the partial candidate_style_recorded string (kept below for history)"
+  },
+  "harness_artifact": {
+   "path": "qa/seo-device-guides-20261116/preview-inject-candidate.js",
+   "sha256": "3109a38c905593bddeb5016c9f3fead1b8fc335a650b49ed06761910cacccaac",
+   "note": "replayable inject/wrap/metrics/probe module; containers get tabindex=0 + aria-label at preview time only"
+  },
+  "bound_inputs_sha256": {
+   "tutorials/m2-vlan-small-office.fa.md": "5817f96ec12b92480f649a32974caeeee4a291ef9272250660e99891d0dd0dfa",
+   "tutorials/m2-vlan-small-office.gutenberg.html": "2c47ab2840b7d255355252919099c2952e63d43aea2ff9880bb76230d5c304e8",
+   "tutorials/m3-dhcp-dns.fa.md": "ae0e2fdd39b1b0bc569192e259fae417d0f7b109109569de241cacd5da937269",
+   "tutorials/m3-dhcp-dns.gutenberg.html": "cbe8cc40b86333861d8ae6f817ad283016e34a38df1df574165b2ae835a25722",
+   "tutorials/s5-uplink-trunk.fa.md": "9dea7234b8e48577c078a1ff95726d46967020dd8c340693a39d95e231b9afb5",
+   "tutorials/s5-uplink-trunk.gutenberg.html": "4a7ec54e0435dac494c5825db12849a8f56f6d67a71b73e931f06a0de41f4758",
+   "assets/tutorial-s5-uplink-trunk.svg": "85ceff8e0f38f2d73a505fe460b77695add69946e1799001e06011f202cdfaa7"
+  },
+  "method": {
+   "injection": "single <style id=tn-candidate-preview> with the exact CSS file text (via harness injectJs)",
+   "wrap": "harness wrapJs — idempotent tabindex/aria-label on pre/table",
+   "metrics": "harness metricsJs (images, document overflow, contained inner-scroll counts, focusable count)",
+   "keyboard_probe": "real keypresses (Tab traversal + ArrowRight/ArrowLeft/End/Home on focused scrollable container); RTL pages scroll with reversed/.small deltas — raw values recorded"
+  },
+  "results_six": {
+   "m2_desktop_1280x900": {
+    "doc_overflow_px": 0,
+    "images_total": 1,
+    "images_loaded": 1,
+    "pre_total": 9,
+    "pre_with_inner_scroll": 4,
+    "table_total": 7,
+    "table_with_inner_scroll": 0,
+    "containers_focusable": 16,
+    "keyboard": {
+     "tabs_until_first_container": 2,
+     "first_container_tag": "TABLE",
+     "keyboard_scroll_probe": {
+      "focused_tag": "PRE",
+      "scrollWidth": 685,
+      "clientWidth": 638,
+      "deltas_px": {
+       "ArrowRight": 0,
+       "ArrowLeft": 4.8,
+       "End": 8,
+       "Home": 8
+      },
+      "keyboard_scroll_confirmed": true
+     }
+    }
+   },
+   "m2_mobile_390x844": {
+    "doc_overflow_px": 0,
+    "images_total": 1,
+    "images_loaded": 1,
+    "pre_total": 9,
+    "pre_with_inner_scroll": 9,
+    "table_total": 7,
+    "table_with_inner_scroll": 5,
+    "containers_focusable": 16,
+    "keyboard": {
+     "tabs_until_first_container": 2,
+     "first_container_tag": "TABLE",
+     "keyboard_scroll_probe": {
+      "focused_tag": "TABLE",
+      "scrollWidth": 199,
+      "clientWidth": 135,
+      "deltas_px": {
+       "ArrowRight": 0.8,
+       "Home_delta_note": "RTL semantics; container scroll position changed by real keypresses"
+      },
+      "keyboard_scroll_confirmed": true
+     }
+    }
+   },
+   "m3_desktop_1280x900": {
+    "doc_overflow_px": 0,
+    "images_total": 1,
+    "images_loaded": 1,
+    "pre_total": 12,
+    "pre_with_inner_scroll": 3,
+    "table_total": 6,
+    "table_with_inner_scroll": 0,
+    "containers_focusable": 18,
+    "keyboard": {
+     "tabs_until_first_container": 3,
+     "first_container_tag": "TABLE",
+     "keyboard_scroll_probe": {
+      "focused_tag": "PRE",
+      "scrollWidth": 856,
+      "clientWidth": 798,
+      "deltas_px": {
+       "ArrowRight": 4.8,
+       "ArrowLeft": 14.4,
+       "End": 12.8,
+       "Home": 11.2
+      },
+      "keyboard_scroll_confirmed": true
+     }
+    }
+   },
+   "m3_mobile_390x844": {
+    "doc_overflow_px": 0,
+    "images_total": 1,
+    "images_loaded": 1,
+    "pre_total": 12,
+    "pre_with_inner_scroll": 12,
+    "table_total": 6,
+    "table_with_inner_scroll": 4,
+    "containers_focusable": 18,
+    "keyboard": {
+     "tabs_until_first_container": 3,
+     "first_container_tag": "TABLE",
+     "keyboard_scroll_probe": {
+      "focused_tag": "PRE",
+      "scrollWidth": 276,
+      "clientWidth": 214,
+      "deltas_px": {
+       "Home": 3.2,
+       "note": "container scroll position changed by real keypresses (RTL)"
+      },
+      "keyboard_scroll_confirmed": true
+     }
+    }
+   },
+   "s5_desktop_1280x900": {
+    "doc_overflow_px": 0,
+    "images_total": 1,
+    "images_loaded": 1,
+    "pre_total": 2,
+    "pre_with_inner_scroll": 0,
+    "table_total": 5,
+    "table_with_inner_scroll": 0,
+    "containers_focusable": 7,
+    "keyboard": {
+     "keyboard_scroll_probe": {
+      "focused": null,
+      "note": "no pre/table content exceeds its container at 1280px — nothing to scroll; focusability still verified (7 containers tabindex=0)"
+     },
+     "keyboard_scroll_confirmed": false,
+     "not_applicable_reason": "no inner-scroll container exists at this viewport"
+    }
+   },
+   "s5_mobile_390x844": {
+    "doc_overflow_px": 0,
+    "images_total": 1,
+    "images_loaded": 1,
+    "pre_total": 2,
+    "pre_with_inner_scroll": 2,
+    "table_total": 5,
+    "table_with_inner_scroll": 2,
+    "containers_focusable": 7,
+    "keyboard": {
+     "keyboard_scroll_probe": {
+      "focused_tag": "PRE",
+      "scrollWidth": 706,
+      "clientWidth": 214,
+      "deltas_px": {
+       "ArrowRight": 0,
+       "ArrowLeft": 17.6,
+       "End": 22.4,
+       "Home": 24
+      },
+      "keyboard_scroll_confirmed": true
+     }
+    }
+   }
+  },
+  "run_isolation": "this section is a NEW distinct run; earlier sections (measured/…, m3_cleanupfix_refresh_20261117) are preserved verbatim as separate historical runs — no rebinding of old measurements to new hashes",
+  "not_run": [
+   "WordPress/theme/KSES integration (candidate applies at preview only)",
+   "RouterOS execution",
+   "throughput/wire-speed measurement"
   ],
   "production_touched": false
  }

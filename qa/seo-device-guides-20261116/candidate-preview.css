@@ -1,0 +1,24 @@
+/* TN-CANDIDATE-PREVIEW-CSS v1 (2026-11-17) — the COMPLETE applied preview stylesheet
+ * Scope: LOCAL preview only (preview-server.py + real-browser measurement).
+ * This file is the exact stylesheet injected at render time for the three-page
+ * candidate run; generated files under content/ are NOT modified by it.
+ * WordPress/theme/KSES integration NOT_RUN. No document-level overflow:hidden; no content removed.
+ *
+ * Composition:
+ *   lines 14-20 = base PREVIEW_STYLE (identical string to
+ *     render-check-receipt.preview_style_injected_at_render_time), and
+ *   lines 22-25 = candidate rules from overflow_resolution_v3 ladder
+ *     (pre>code block + body overflow-wrap + figure guard), which with the base
+ *     measured 0px document overflow on M2/M3 (v3) and is re-measured for
+ *     M2/M3/S5 in the three-page candidate run receipt section. */
+body{background:#fff;color:#111;font-family:Tahoma,Arial,sans-serif;margin:24px auto;max-width:960px;line-height:1.9}
+pre{background:#f6f8fa;border:1px solid #ddd;padding:12px;overflow:auto}
+code{font-family:Consolas,monospace;font-size:13px}
+table{border-collapse:collapse;max-width:100%;display:block;overflow-x:auto}
+th,td{border:1px solid #999;padding:5px 9px}
+img{max-width:100%;height:auto}
+blockquote{border-right:3px solid #1e88e5;padding-right:12px;color:#444}
+/* --- candidate rules (overflow_resolution_v3 ladder, verbatim combination) --- */
+pre>code{display:block;max-width:100%}
+body{overflow-wrap:anywhere}
+figure{max-width:100%;overflow-x:auto}

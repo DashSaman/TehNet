@@ -1,6 +1,7 @@
 # Topic Map — TN-TEHNET-SEARCH-LEARNING-REVENUE-V2
 
 > سه خوشهٔ محتوایی مرتبط با خدمات واقعی TehNet؛ هر خوشه شامل intent، مخاطب، URL مقصد، زیرموضوع، سؤال مشتری، منبع و خدمت مرتبط.
+> **هم‌سازمان با سرفصل مصوب Mission V2 (MANAGER_FLOW_V2):** شماره‌گذاری N1-N6 همان سرفصل مصوب است ‏(N1 طراحی دفتر، ‏N2 رک/کابل، ‏N3 گزارش تست کابل، ‏N4 عیب‌یابی، ‏N5 مانیتورینگ، ‏N6 انتخاب پشتیبانی)؛ درس‌های مکمل ‏(supplementary) جدا و با برچسب «مکمل» فهرست می‌شوند. وضعیت اجرا در انتهای همین فایل و ledger اجرایی در `WORKQUEUE.md` (ریپو) نگه‌داری می‌شود.
 
 ## خوشهٔ الف: MikroTik و مسیریابی
 
@@ -20,20 +21,25 @@
 | S1 | مقایسه/انتخاب | مدیر IT/خریدار | /guides/mikrotik-switches-crs/ | /services/network-setup-tehran/ | CSS/CRS/RouterOS/SwOS، PoE، L2/L3HW | «کدام سوئیچ میکروتیک برای شرکت؟» | switch-catalog.csv | طراحی و اجرای شبکه |
 | S2 | آموزشی | کارشناس شبکه | /guides/switch-poe-budget/ | /services/network-setup-tehran/ | PoE af/at/پسیو، بودجهٔ توان، PSU | «چقدر PoE مصرف می‌کند؟» | سند MikroTik | طراحی PoE |
 | S3 | آموزشی | کارشناس شبکه | /guides/sfp-sfp-plus-guide/ | /services/network-setup-tehran/ | ماژول نوری، تک/دو-موج، سرعت، سازگاری | «کدام ماژول SFP بخرم؟» | سند سازنده | اجرای فیبر |
-| S4 | آموزشی | کارشناس شبکه | /guides/switch-vlan-design/ | /services/network-setup-tehran/ | access/trunk، جدول پورت/VLAN، امنیت | «چطور VLAN طراحی کنم؟» | سند RouterOS | کانفیگ VLAN |
-| S5 | آموزشی | کارشناس شبکه | /guides/switch-uplink-trunk/ | /services/network-setup-tehran/ | انتخاب uplink (GbE/2.5G/SFP+)، ترانک تگ‌دار، محدودیت پهنای‌باند | «بین سوئیچ‌ها چه uplink‌ای بگذارم؟» | سند MikroTik + صفحات محصول | طراحی توپولوژی |
-| S6 | آموزشی | مدیر IT/خریدار | /guides/switch-psu-power/ | /services/network-setup-tehran/ | PSU پیوست/جدا (نمونهٔ سندشده: netPower 16P بدون PSU)، ظرفیت PSU نسبت به بودجهٔ PoE | «آداپتور/PSU سوئیچ کافی است؟» | صفحات رسمی محصول | طراحی برق و اجرا |
+| S4 | آموزشی | کارشناس شبکه | /guides/switch-vlan-design/ ‏(پیشنهادی) | /services/network-setup-tehran/ | access/trunk، جدول پورت/VLAN، امنیت — **هم‌پوشان با M2؛ تصمیم ادغام/جداسازی با مدیر** | «چطور VLAN طراحی کنم؟» | سند RouterOS | کانفیگ VLAN |
+| S5 | آموزشی | کارشناس شبکه | /guides/switch-loop-rstp-lacp/ ‏(پیشنهادی — سرفصل مصوب) | /services/network-setup-tehran/ | **مصوب: حلقهٔ تصادفی، RSTP، باند LACP** | «حلقهٔ شبکه چطور شکل می‌گیرد و چطور بسته می‌شود؟» | سند MikroTik + صفحات محصول | طراحی توپولوژی |
+| S6 | آموزشی | مدیر IT/خریدار | /guides/switch-nas-server-upgrade/ ‏(پیشنهادی — سرفصل مصوب) | /services/network-setup-tehran/ | **مصوب: ارتقای NAS/سرور به ‏2.5G/10G ‏(CRS309، DAC، NIC سرور)** | «اتصال NAS/سرور را چطور ارتقا بدهم؟» | صفحات رسمی محصول | طراحی برق و اجرا |
+| S5-مکمل | آموزشی | کارشناس شبکه | /guides/switch-uplink-trunk/ ‏(پیشنهادی) | /services/network-setup-tehran/ | مکمل: انتخاب uplink ‏(GbE/SFP)، ترانک تگ‌دار، محدودیت پهنای‌باند ‏(CRS112/CRS326) | «بین سوئیچ‌ها چه uplink‌ای بگذارم؟» | سند MikroTik + صفحات محصول | طراحی توپولوژی |
+| S6-مکمل | آموزشی | مدیر IT/خریدار | /guides/switch-psu-power/ ‏(پیشنهادی) | /services/network-setup-tehran/ | مکمل: PSU پیوست/جدا ‏(نمونهٔ سندشده: netPower 16P بدون PSU)، ظرفیت PSU نسبت به بودجهٔ PoE | «آداپتور/PSU سوئیچ کافی است؟» | صفحات رسمی محصول | طراحی برق و اجرا |
 
-## خوشهٔ ج: پشتیبانی، مانیتورینگ و قرارداد خدمات
+## خوشهٔ ج: پشتیبانی، مانیتورینگ و قرارداد خدمات — شماره‌گذاری مصوب
 
 | id | intent | مخاطب | URL هدف | صفحهٔ مادر | زیرموضوع | سؤال مشتری | منبع لازم | خدمت مرتبط |
 |---|---|---|---|---|---|---|---|---|
-| N1 | عیب‌یابی | کاربر/مدیر شبکه | /guides/network-troubleshooting/ | /services/network-support-tehran/ | مسیر تشخیص، ابزارها، جدول عیب‌یابی | «شبکه قطع است، از کجا شروع کنم؟» | تجربهٔ فنی | پشتیبانی شبکه |
-| N2 | آموزشی | مدیر IT | /guides/network-monitoring/ | /services/network-support-tehran/ | معیارها، ابزارها، هشدارها | «شبکه را چطور مانیتور کنم؟» | تجربهٔ فنی | پشتیبانی دوره‌ای |
-| N3 | تصمیم/قرارداد | مدیر کسب‌وکار | /guides/support-contract-questions/ (پیشنهادی — جایگزین slug مردهٔ 404) | /services/network-support-tehran/ | محدوده، مسئول تأیید، SLA | «قرارداد پشتیبانی چه چیزهایی را روشن کند؟» | تجربهٔ فنی | قرارداد پشتیبانی |
-| N4 | آموزشی/چک‌لیست | کارشناس/مدیر شبکه | /guides/network-delivery-acceptance/ | /services/network-setup-tehran/ | تست‌های مثبت/منفی پذیرش، ثبت قبل/بعد، مستندسازی تحویل | «چطور تحویل شبکه را بپذیرم؟» | تجربهٔ فنی + الگوی درس‌های M2/M3 | راه‌اندازی شبکه |
-| N5 | آموزشی | کارشناس شبکه | /guides/mikrotik-config-backup/ | /services/network-support-tehran/ | تفاوت backup و export، آزمون بازیابی، زمان‌بندی نگهداری | «از کانفیگ میکروتیک بکاپ بگیرم؟» | سند RouterOS | پشتیبانی دوره‌ای |
-| N6 | آموزشی/فرایند | مدیر کسب‌وکار | /guides/network-incident-path/ | /services/network-support-tehran/ | تشدید، ثبت رخداد، اثر اختلال و استثناهای اینترنت/تأمین قطعه | «وقت قطعی چه مسیری طی می‌شود؟» | تجربهٔ فنی | پشتیبانی شبکه |
+| N1 | آموزشی/طراحی | مدیر IT | /guides/office-network-design/ ‏(پیشنهادی — سرفصل مصوب) | /services/network-setup-tehran/ | **مصوب: طراحی شبکهٔ دفتر — نیازسنجی تا نقشهٔ نهایی** | «شبکهٔ دفتر را چطور طراحی کنم؟» | تجربهٔ فنی + سند RouterOS | راه‌اندازی شبکه |
+| N2 | آموزشی | کارشناس شبکه | /guides/rack-cabling-standard/ ‏(پیشنهادی — سرفصل مصوب) | /services/network-setup-tehran/ | **مصوب: رک و کابل‌کشی — چیدمان، برچسب‌گذاری، استاندارد** | «رک و کابل‌کشی استاندارد چه چیزی دارد؟» | تجربهٔ فنی | راه‌اندازی شبکه |
+| N3 | آموزشی/کنترل کیفی | کارشناس شبکه | /guides/cable-certification-report/ ‏(پیشنهادی — سرفصل مصوب) | /services/network-setup-tehran/ | **مصوب: گزارش تست کابل — پنج معیار، ابزار، قالب گزارش** | «تست کابل قابل‌استناد چه شکلی است؟» | TIA/EIA-568.2-D ‏(مرجع عمومی) | راه‌اندازی شبکه |
+| N4 | عیب‌یابی | کاربر/مدیر شبکه | /guides/network-troubleshooting/ | /services/network-support-tehran/ | **مصوب: مسیر تشخیص، ابزارها، جدول عیب‌یابی** | «شبکه قطع است، از کجا شروع کنم؟» | تجربهٔ فنی | پشتیبانی شبکه |
+| N5 | آموزشی | مدیر IT | /guides/network-monitoring/ | /services/network-support-tehran/ | **مصوب: معیارها، ابزارها، هشدارها** | «شبکه را چطور مانیتور کنم؟» | تجربهٔ فنی | پشتیبانی دوره‌ای |
+| N6 | تصمیم/قرارداد | مدیر کسب‌وکار | /guides/support-contract-questions/ ‏(پیشنهادی — جایگزین slug مردهٔ 404) | /services/network-support-tehran/ | **مصوب: انتخاب پشتیبانی — محدوده، مسئول تأیید، SLA** | «قرارداد پشتیبانی چه چیزهایی را روشن کند؟» | تجربهٔ فنی | قرارداد پشتیبانی |
+| N-مکمل: پذیرش تحویل | آموزشی/چک‌لیست | کارشناس/مدیر شبکه | /guides/network-delivery-acceptance/ ‏(پیشنهادی) | /services/network-setup-tehran/ | مکمل: تست‌های مثبت/منفی پذیرش، ثبت قبل/بعد، مستندسازی تحویل | «چطور تحویل شبکه را بپذیرم؟» | تجربهٔ فنی + الگوی درس‌های M2/M3 | راه‌اندازی شبکه |
+| N-مکمل: بکاپ/export | آموزشی | کارشناس شبکه | /guides/mikrotik-config-backup/ ‏(پیشنهادی) | /services/network-support-tehran/ | مکمل: تفاوت backup و export، آزمون بازیابی، زمان‌بندی نگهداری | «از کانفیگ میکروتیک بکاپ بگیرم؟» | سند RouterOS | پشتیبانی دوره‌ای |
+| N-مکمل: مسیر رخداد | آموزشی/فرایند | مدیر کسب‌وکار | /guides/network-incident-path/ ‏(پیشنهادی) | /services/network-support-tehran/ | مکمل: تشدید، ثبت رخداد، اثر اختلال و استثناهای اینترنت/تأمین قطعه | «وقت قطعی چه مسیری طی می‌شود؟» | تجربهٔ فنی | پشتیبانی شبکه |
 
 ## لینک‌های داخلی
 
@@ -44,21 +50,29 @@
 | /services/network-support-tehran/ | /network-support-contract-guide/ | راهنمای قرارداد پشتیبانی | بخش قرارداد | **BLOCKED 2026-11-16: مقصد 404 شده (دیسکاوری) — تا تصمیم مالک دربارهٔ بازتولید/ریدایرکت، این ردیف اعمال نشود** |
 | /services/remote-support/ | /services/mikrotik-tehran/ | خدمات میکروتیک | بخش خدمات مرتبط | کاربر ریموت برای MikroTik نیاز به پشتیبانی دارد |
 
-## وضعیت اجرا (به‌روزرسانی 2026-11-17 — صادقانه)
+## وضعیت اجرا (هم‌سازی‌شده با سرفصل مصوب Mission V2 — به‌روزرسانی 2026-11-17، صادقانه)
 
-**همهٔ ۱۸ واحد Masterplan ‏(M1-M6، ‏S1-S6، ‏N1-N6) اکنون authored شده‌اند** — هرکدام DRAFT با pipeline کامل ‏(MD+SVG+HTML+validator+رندر+رسید):
+**ادعای قبلی «همهٔ ۱۸ واحد authored شده‌اند» پس گرفته می‌شود.** وضعیت دقیق به تفکیک سرفصل مصوب:
 
-- M1: مقالهٔ موجود (articles/mikrotik-routers.fa.md) — READY_FOR_REVIEW
-- S1: مقالهٔ موجود (articles/mikrotik-switches-crs.fa.md) — READY_FOR_REVIEW (خروجی HTML همگام شد)
-- M2/M3: بازنگری سوم (طبق MANAGER_REVIEW 6926700769) — REVIEW_REQUEST (RR 6927129500)
-- M4/M5/M6: authored این نوبت‌ها — REVIEW_REQUEST (M4 در RR 6928866485؛ ‏M5 در RR 6929152100؛ ‏M6 در RR 6929419821)
-- S2: بودجهٔ PoE — REVIEW_REQUEST (RR 6927296031) · ‏S3: ماژول‌ها — REVIEW_REQUEST (RR 6927493389)
-- S5 آپ‌لینک/ترانک و ‏S6 برق/PSU: authored — REVIEW_REQUEST (RR 6929623471 و بخش در RRهای بعدی)
-- N1 عیب‌یابی، ‏N2 مانیتورینگ، ‏N3 قرارداد/SLA، ‏N4 پذیرش، ‏N5 بکاپ، ‏N6 مسیر رخداد: authored — REVIEW_REQUEST (RRهای 6927622932 تا 6929900858)
-- S4 (طراحی VLAN سوئیچ): هم‌پوشان با M2 — تصمیم ادغام/جداسازی با مرور مدیر (فقط ردیف topic-map، درس مستقل authored نشده)
-- N3: slug واقعی پیشنهادی (راهنمای قبلی 404 شده — دیسکاوری)؛ ردیف لینک قرارداد BLOCKED تا تصمیم مالک
-- لینک‌های داخلی: ردیف‌های مقصدهای زنده معتبر؛ ردیف قرارداد BLOCKED — بدون تصمیم مالک اعمال نشود
-- بقیهٔ بسته‌ها (دیسکاوری، گارد/Masterplan، نقشهٔ لینک، کاندیدها): در صف مرور مدیر
+| سرفصل مصوب | وضعیت | artifact |
+|---|---|---|
+| M1-M6 | authored ‏(DRAFT — در صف مرور) | مقالهٔ روتر + درس‌های M2-M6 |
+| S1-S3 | authored ‏(DRAFT — در صف مرور) | مقالهٔ سوئیچ + درس‌های S2/S3 |
+| S4 ‏(طراحی VLAN سوئیچ) | unauthored — هم‌پوشان با M2؛ تصمیم ادغام/جداسازی با مدیر | — |
+| S5 ‏(loop/RSTP/LACP) | authored ‏(DRAFT) | tutorials/s5-loop-rstp-lacp.fa.md |
+| S6 ‏(ارتقای NAS/سرور) | authored ‏(DRAFT) | tutorials/s6-nas-server-upgrade.fa.md |
+| N1 ‏(طراحی دفتر) | authored ‏(DRAFT) | tutorials/n1-office-design.fa.md |
+| N2 ‏(رک/کابل) | authored ‏(DRAFT) | tutorials/n2-rack-cable.fa.md |
+| N3 ‏(گزارش تست کابل) | authored ‏(DRAFT) | tutorials/n3-cable-test-report.fa.md |
+| N4 ‏(عیب‌یابی) | پوشش‌شده: درس n1-network-troubleshooting.fa.md ‏(نام فایل ≠ شناسه مصوب) | همان |
+| N5 ‏(مانیتورینگ) | پوشش‌شده: درس n2-monitoring-maintenance.fa.md | همان |
+| N6 ‏(انتخاب پشتیبانی) | پوشش جزئی: n3-support-contract-sla.fa.md — درس اختصاصی در صف | همان |
+
+- **درس‌های مکمل حفظ شده‌اند** ‏(supplementary، جدا از سرفصل مصوب): uplink/trunk ‏(s5-uplink-trunk)، PSU ‏(s6-psu-power)، عیب‌یابی/مانیتورینگ/قرارداد با فایل‌های فعلی‌شان، پذیرش تحویل ‏(n4-delivery-acceptance)، بکاپ ‏(n5-config-backup-export)، مسیر رخداد ‏(n6-incident-path).
+- **حالت‌ها جدا هستند:** authored ‏≠ ‏test-qualified ‏≠ ‏accepted ‏≠ ‏published. هیچ درسی منتشر نشده؛ publish مستلزم گیت است.
+- ledger اجرایی با وضعیت لحظه‌ای: `WORKQUEUE.md` در ریپو — هر بسته با SHA و رسید خودش.
+- نگاشت RRهای درس‌های canonical ‏(از ledger مدیریت): combined fourth revision = ‏6930620309؛ canonical loop/RSTP/LACP = ‏6930807455؛ canonical NAS upgrade = ‏6931021926؛ canonical office design = ‏6931198087 — این RRها «تحویل» را تأیید می‌کنند، نه پذیرش محتوایی.
+- S4/ادغام: تصمیم با مدیر. N6 اختصاصی: در صف تولید. بقیهٔ بسته‌ها ‏(دیسکاوری، گارد، کاندیدها، رندر): در صف مرور مدیر.
 
 ## ملاحظات
 
