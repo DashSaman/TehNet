@@ -1,6 +1,6 @@
 'use strict';
-/* TN-SYNTHETIC-BOOTSTRAP-20261117 rev2 — PREDICATE_CONTRACT_DRAFT / BOOTSTRAP_LIFECYCLE_NOT_IMPLEMENTED
- * Corrections per MANAGER_REVIEW 6944753704 (all six counterexamples addressed).
+/* TN-SYNTHETIC-BOOTSTRAP-20261117 rev3 — PREDICATE_CONTRACT_DRAFT / BOOTSTRAP_LIFECYCLE_NOT_IMPLEMENTED
+ * Corrections per MANAGER_REVIEW 6945979322 (all four remaining gate failures + evidence precision).
  * SOURCE_ONLY / INTEGRATION_NOT_RUN — no bootstrap entry point, no lifecycle adapter,
  * no executor injection claim. Pure predicates with strict input validation.
  * All previous title-equality/base-attribution/P2-driver-row corrections preserved. */
@@ -34,49 +34,65 @@ function requireObject(v, label) {
   return v;
 }
 
+/* --- A: daemon target — structural parse of effective endpoint, not substring match --- */
+/* Permitted owner-local endpoints: npipe docker_engine pipes + unix docker.sock + tcp localhost/127.0.0.1 only */
 function evaluateDaemonTarget(info) {
   requireObject(info, 'daemon_info');
-  const ep = info.Endpoints && info.Endpoints.docker && typeof info.Endpoints.docker.Host === 'string' && info.Endpoints.docker.Host.length > 0
-    ? info.Endpoints.docker.Host
-    : typeof info.Host === 'string' && info.Host.length > 0 ? info.Host : null;
-  if (!ep) throw new Error('DAEMON: no effective endpoint observed (name alone insufficient)');
-  if (/^ssh:\/\//.test(ep)) throw new Error('DAEMON: remote ssh endpoint rejected');
-  if (/^tcp:\/\//.test(ep) && ep.indexOf('localhost') < 0 && ep.indexOf('127.0.0.1') < 0)
-    throw new Error('DAEMON: remote tcp endpoint rejected');
-  const localPipe = ep.indexOf('npipe:////./pipe/docker') === 0 || ep.indexOf('unix:///var/run/docker.sock') === 0;
-  if (!localPipe && !ep.startsWith('unix://') && !ep.startsWith('npipe:////./pipe/docker') && ep.indexOf('localhost') < 0 && ep.indexOf('127.0.0.1') < 0)
-    throw new Error('DAEMON: unrecognized endpoint "' + ep + '"');
-  return { ok: true, endpoint: ep };
+  // resolve effective endpoint: Endpoints.docker.Host > Host > endpoint (priority order)
+  let ep = null;
+  if (info.Endpoints && typeof info.Endpoints === 'object' &&
+      info.Endpoints.docker && typeof info.Endpoints.docker === 'object' &&
+      typeof info.Endpoints.docker.Host === 'string' && info.Endpoints.docker.Host.length > 0) {
+    ep = info.Endpoints.docker.Host;
+  } else if (typeof info.Host === 'string' && info.Host.length > 0) {
+    ep = info.Host;
+  } else if (typeof info.endpoint === 'string' && info.endpoint.length > 0) {
+    ep = info.endpoint;
+  }
+  if (!ep) throw new Error('DAEMON: no effective endpoint observed (name/context alone insufficient)');
+  // structural parse: must match one of the permitted owner-local patterns exactly
+  const npipeLocal = /^npipe:\/{2,}\.\/pipe\/docker(DesktopLinux)?Engine$/.test(ep);
+  const unixSock = ep === 'unix:///var/run/docker.sock';
+  const tcpLocal = /^tcp:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(ep);
+  if (!npipeLocal && !unixSock && !tcpLocal) {
+    throw new Error('DAEMON: endpoint "' + ep + '" is not a permitted owner-local target — remote/unrecognized schemes and non-local hostnames rejected');
+  }
+  return { ok: true, endpoint: ep, type: npipeLocal ? 'npipe' : unixSock ? 'unix' : 'tcp_local' };
 }
 function assertDaemonTarget(info) {
   const v = evaluateDaemonTarget(info);
-  if (!v.ok) throw Object.assign(new Error('DAEMON BLOCKED'), { name: 'DaemonBlocked', failed: v });
+  if (!v.ok) throw Object.assign(new Error('DAEMON BLOCKED: ' + (v.failed || []).join(',')), { name: 'DaemonBlocked', failed: v.failed });
   return v;
 }
 
-function evaluateImageAvailability(requiredImages, observedImages) {
+/* --- B: image availability — pinned required identities + observed inspection with valid sha256 digest --- */
+function evaluateImageAvailability(requiredImages, observedInspections) {
   requireArray(requiredImages, 'required_images');
   for (const img of requiredImages) {
     if (typeof img !== 'string' || img.trim().length === 0) throw new Error('required_images: empty entry');
   }
-  if (!observedImages || typeof observedImages !== 'object' || Array.isArray(observedImages))
-    return { ok: false, missing: requiredImages.slice(), observed_ids: {} };
+  // observedInspections must be an object keyed by image name with {exit, inspected, id}
+  if (!observedInspections || typeof observedInspections !== 'object' || Array.isArray(observedInspections))
+    return { ok: false, missing: requiredImages.slice(), observed_ids: {}, unobserved: requiredImages.slice() };
   const missing = [];
   const observed_ids = {};
+  const failed_inspection = [];
   for (const img of requiredImages) {
-    const obs = observedImages[img];
-    if (!obs || typeof obs !== 'object' || typeof obs.id !== 'string' || obs.id.length < 12)
+    const obs = observedInspections[img];
+    if (!obs || typeof obs !== 'object' || obs.exit !== 0 || obs.inspected !== true ||
+        typeof obs.id !== 'string' || !/^sha256:[0-9a-f]{64}$/.test(obs.id))
       missing.push(img);
     else observed_ids[img] = obs.id;
   }
-  return { ok: missing.length === 0, missing, observed_ids };
+  return { ok: missing.length === 0, missing, observed_ids, failed_inspection };
 }
 function assertImages(required, observed) {
   const v = evaluateImageAvailability(required, observed);
-  if (!v.ok) throw Object.assign(new Error('IMAGE BLOCKED: missing ' + v.missing.join(',')), { name: 'ImageBlocked', missing: v.missing });
+  if (!v.ok) throw Object.assign(new Error('IMAGE BLOCKED: missing/failed ' + v.missing.join(',')), { name: 'ImageBlocked', missing: v.missing });
   return v;
 }
 
+/* --- container name uniqueness — strict --- */
 function evaluateContainerNameUniqueness(existingNames, requestedNames) {
   if (!Array.isArray(existingNames)) throw new Error('existing_names: must be an array');
   if (!Array.isArray(requestedNames)) throw new Error('requested_names: must be an array');
@@ -95,52 +111,74 @@ function assertContainerNames(existing, requested) {
   return v;
 }
 
-function makeRegistry(marker) {
+/* --- C: registry — exact predeclared run plan, NOT substring ownership --- */
+/* makePlan creates the authoritative predeclared resource set from the bootstrap plan */
+function makePlan(marker, resourceNames) {
   assertRunMarker(marker);
-  return { marker, resources: new Set() };
+  requireArray(resourceNames, 'resource_names');
+  const plan = { marker, resources: {} };
+  for (const n of resourceNames) {
+    if (typeof n !== 'string' || n.length === 0) throw new Error('plan: empty resource name');
+    if (!n.includes(marker)) throw new Error('plan: resource name missing run marker — ' + n);
+    plan.resources[n] = { registered: true, identity_verified: false, owner_evidence: null };
+  }
+  return plan;
 }
-function registerResource(reg, name) {
-  if (typeof name !== 'string' || name.length === 0) throw new Error('resource name: empty');
-  if (!name.includes(reg.marker)) throw new Error('resource name missing run marker: ' + name);
-  reg.resources.add(name);
+/* verifyIdentity must be called with independently supplied owner evidence (not just the name) */
+function verifyIdentity(plan, resourceName, ownerEvidence) {
+  if (!plan.resources[resourceName]) throw new Error('resource not in plan: ' + resourceName);
+  if (typeof ownerEvidence !== 'string' || ownerEvidence.length === 0) throw new Error('owner_evidence: missing');
+  plan.resources[resourceName].identity_verified = true;
+  plan.resources[resourceName].owner_evidence = ownerEvidence;
 }
-function isRegistered(reg, name) { return reg.resources.has(name); }
-function ownershipRejectionReason(reg, name) {
-  if (!reg || !reg.marker || !isRunMarker(reg.marker)) return 'bad_registry';
+/* admission: only exact plan-registered + identity-verified resources pass */
+function ownershipRejectionReason(plan, name) {
+  if (!plan || !plan.marker || !isRunMarker(plan.marker)) return 'bad_plan';
   if (typeof name !== 'string' || name.length === 0) return 'missing_name';
-  if (!reg.resources.has(name)) return 'not_in_registry';
+  const r = plan.resources[name];
+  if (!r) return 'not_in_plan';
+  if (!r.identity_verified) return 'identity_not_verified';
   return null;
 }
+function isRegistered(plan, name) {
+  return plan && plan.resources && typeof plan.resources[name] === 'object';
+}
 
-function evaluateCleanup(deleted, expected, reg) {
+/* --- cleanup: exact registry membership + post-read separ
+ation — exact plan membership + post-read must be explicitly successful */
+function evaluateCleanup(deleted, expected, plan) {
   if (!Array.isArray(deleted)) throw new Error('deleted: must be array');
   if (!Array.isArray(expected)) throw new Error('expected: must be array');
   if (expected.length === 0) throw new Error('expected: empty — no cleanup to verify');
   const missing = expected.filter(n => !deleted.includes(n));
   const foreign = deleted.filter(n => !expected.includes(n));
-  const notOwned = deleted.filter(n => reg && reg.resources && !reg.resources.has(n));
+  const notOwned = deleted.filter(n => !plan || !plan.resources || !plan.resources[n]);
   return { ok: missing.length === 0 && foreign.length === 0 && notOwned.length === 0, missing, foreign, notOwned };
 }
-function evaluatePostRead(remaining, reg) {
-  if (!reg) throw new Error('post_read: no registry');
-  const rem = Array.isArray(remaining) ? remaining.filter(n => typeof n === 'string' && reg.resources.has(n)) : [];
-  return { verified: rem.length === 0, remaining: rem };
+function evaluatePostRead(remaining, plan) {
+  if (!plan || !plan.marker) throw new Error('post_read: no plan');
+  if (!remaining || typeof remaining !== 'object' || Array.isArray(remaining))
+    throw new Error('post_read: malformed — must be {success:true, remaining:[...]}');
+  if (remaining.success !== true) throw new Error('post_read: read failure');
+  if (!Array.isArray(remaining.remaining)) throw new Error('post_read: remaining must be array');
+  const owned_remaining = remaining.remaining.filter(n => typeof n === 'string' && plan.resources[n]);
+  return { verified: owned_remaining.length === 0, remaining: owned_remaining };
 }
-function assertCleanupVerified(deleted, expected, reg, postRead) {
-  const cl = evaluateCleanup(deleted, expected, reg);
+function assertCleanupVerified(deleted, expected, plan, postRead) {
+  const cl = evaluateCleanup(deleted, expected, plan);
   if (!cl.ok) throw Object.assign(new Error('CLEANUP FAILED: missing=' + cl.missing.join(',') + ' foreign=' + cl.foreign.join(',') + ' notOwned=' + cl.notOwned.join(',')), { name: 'CleanupFailed', detail: cl });
-  if (postRead === undefined || postRead === null) throw Object.assign(new Error('CLEANUP UNVERIFIED: no post-read performed'), { name: 'CleanupUnverified' });
-  const pr = evaluatePostRead(postRead, reg);
-  if (!pr.verified) throw Object.assign(new Error('CLEANUP UNVERIFIED: post-read found remaining'), { name: 'CleanupUnverified', remaining: pr.remaining });
+  const pr = evaluatePostRead(postRead, plan);
+  if (!pr.verified) throw Object.assign(new Error('CLEANUP UNVERIFIED: post-read found remaining=' + pr.remaining.join(',')), { name: 'CleanupUnverified', remaining: pr.remaining });
   return { cleanup: cl, postRead: pr };
 }
 
-function evaluateMarkerReadability(dbMarker, servedMarker, expectedMarker) {
+/* marker readability: exact comparison of named/endpoint-bound fields */
+function evaluateMarkerReadability(dbMarkerField, servedMarkerField, expectedMarker) {
   assertRunMarker(expectedMarker);
-  if (typeof dbMarker !== 'string' || dbMarker.length === 0) return { ok: false, reason: 'db_marker_missing_or_empty' };
-  if (typeof servedMarker !== 'string' || servedMarker.length === 0) return { ok: false, reason: 'served_marker_missing_or_empty' };
-  if (dbMarker !== expectedMarker) return { ok: false, reason: dbMarker.indexOf(expectedMarker) === 0 ? 'db_prefix_collision' : dbMarker.endsWith(expectedMarker) ? 'db_suffix_collision' : 'db_mismatch' };
-  if (servedMarker !== expectedMarker) return { ok: false, reason: servedMarker.indexOf(expectedMarker) === 0 ? 'served_prefix_collision' : servedMarker.endsWith(expectedMarker) ? 'served_suffix_collision' : 'served_mismatch' };
+  if (typeof dbMarkerField !== 'string' || dbMarkerField.length === 0) return { ok: false, reason: 'db_marker_missing_or_empty' };
+  if (typeof servedMarkerField !== 'string' || servedMarkerField.length === 0) return { ok: false, reason: 'served_marker_missing_or_empty' };
+  if (dbMarkerField !== expectedMarker) return { ok: false, reason: dbMarkerField.indexOf(expectedMarker) === 0 ? 'db_prefix_collision' : dbMarkerField.endsWith(expectedMarker) ? 'db_suffix_collision' : 'db_mismatch' };
+  if (servedMarkerField !== expectedMarker) return { ok: false, reason: servedMarkerField.indexOf(expectedMarker) === 0 ? 'served_prefix_collision' : servedMarkerField.endsWith(expectedMarker) ? 'served_suffix_collision' : 'served_mismatch' };
   return { ok: true };
 }
 function assertMarkerReadable(db, served, expected) {
@@ -155,7 +193,7 @@ module.exports = {
   evaluateDaemonTarget, assertDaemonTarget,
   evaluateImageAvailability, assertImages,
   evaluateContainerNameUniqueness, assertContainerNames,
-  makeRegistry, registerResource, isRegistered, ownershipRejectionReason,
+  makePlan, verifyIdentity, isRegistered, ownershipRejectionReason,
   evaluateCleanup, evaluatePostRead, assertCleanupVerified,
   evaluateMarkerReadability, assertMarkerReadable,
   MARKER_RE,
