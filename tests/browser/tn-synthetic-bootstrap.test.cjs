@@ -132,6 +132,9 @@ ok('readability: suffix collision reject', () => {
 ok('readability: different marker reject', () => {
   assert(!S.evaluateMarkerReadability('TN-SYN-diff-123456', 'TN-SYN-diff-123456', VM).ok);
 });
+throws('cleanup: no post-read rejects', () => {
+  S.assertCleanupVerified(['tn-syn-web-' + VM], ['tn-syn-web-' + VM], PLAN, undefined);
+}, 'CLEANUP UNVERIFIED');
 
 console.log('TOTAL=' + (pass + fail) + ' PASS=' + pass + ' FAIL=' + fail);
 if (fail > 0) process.exit(1);
