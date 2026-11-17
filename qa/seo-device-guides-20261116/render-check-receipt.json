@@ -2197,5 +2197,116 @@
    "public screenshots/traces/raw logs"
   ],
   "production_touched": false
+ },
+ "s4c_source_corrections_20261117": {
+  "packet": "TN-S4C-SOURCE-CORRECTIONS-20261117 (MANAGER_REVIEW 6961231363 corrections C1-C3 on canonical S4 lesson)",
+  "utc": "2026-11-17T21:29:19Z (rebuild/validator); preview passes 21:29:46.199Z - 21:30:14.402Z (per-pass times below)",
+  "git_head_at_run": "cbeeda58ed71b9292800c72938a5c213b6b62290 (pre-commit head; the packet commit delivers corrected S4 MD/HTML + validator + receipts)",
+  "executed_by": "GLM - authoring/rebuild with existing tools + real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138; real wheel scroll + real keypresses only",
+  "bound_artifacts_sha256": {
+   "tutorials/s4-vlan-switch-l2.fa.md (corrected)": "201ff3bfe01da59431ad79345bd0361eae0254f1346a2101b4b1eede6889c279",
+   "tutorials/s4-vlan-switch-l2.gutenberg.html (rebuilt)": "e95458462636a27dcc80a2198198bb0f8c45d7639d78e905049fc66bb70b5a76",
+   "assets/tutorial-s4-vlan-l2.svg (unchanged - no semantic change)": "c7c8fb139c4b74fce43d57f39a800c43e65c83498d19231054bc466c75393003",
+   "candidate-preview.css": "ae06330b789ed135d144131b1b6b08b8fd03aea8ca7b94cb959c6e2a5af67fc1",
+   "preview-inject-candidate.js (v3)": "e5a4e170e9fecf1946faf41b944017d008817ce208539156e44b108ef08a21d7"
+  },
+  "correction_C1_baseline_guard": "single unambiguous disposable/no-defaults lab baseline declared (never reset/adapt an existing device); stop-on-error block contains identity guards BEFORE the first effect (board-name CRS326, required ports ether1/11/23/24 present, zero existing bridges/bridge-ports, zero existing 192.168.88.x management addresses) followed by the complete construction with filter-last; non-matching baseline = stop with NO changes and explicit dispose; old reuse-or-create dual choice removed; recovery wording rewritten to a verified independent recovery path (pre-verified console/MAC-Winbox session) required BEFORE filtering, filtering-off framed as controlled recovery in the isolated lab only; the old overpromise phrase 'from any access port' removed",
+  "correction_C2_endpoint_testmode": "new synthetic endpoint/test-mode table: H1/H3 (192.168.10.11/.13), C1/C2 (192.168.20.11/.12), M1 (192.168.88.11), switch CPU (192.168.88.2), trunk test sender T-S fixture (temporary on the ether23 link, replacing the router in the lab baseline) and the separately declared routed-phase router - all with IP/prefix/gateway/test-mode; L2 negative uses same-prefix/no-router (H1 192.168.10.11 -> C1 test alias 192.168.10.21 per RFC1122 3.3.1.1 on-link rationale) with target-only neighbor reset/verify precondition, a working same-VLAN disposable positive control on the SAME pair (C1 temporarily pvid=10, then exact restore + negative repeat), and a separately declared routed phase (tracert as a CONDITIONAL check, baseline restored afterwards); trunk negative identifies sender T-S, untagged mode, a tagged positive control first (proves link/sender/receiver) and a discriminating observation (absence WITH passing positive control = real ingress drop); CPU sniffer/drop-counter explicitly NOT relied on (HW-offloaded traffic not assumed visible in CPU capture); global/unrelated neighbor state never cleared; all RouterOS/probe outcomes remain NOT_RUN",
+  "correction_C3_capability_claims": "'no L3/routing' hardware-inability statements removed from boundary table/exercises - corrected to: CRS326 with RouterOS supports routing (official product page) and THIS lesson intentionally configures only the L2 data path, delegating inter-VLAN routing/policy to the external router; tracert documented as a conditional check (responses not guaranteed); PVID taught as INGRESS classification of untagged frames, with frame admission (frame-types) and VLAN egress membership as separate controls - access admission explicitly set to admit-only-untagged; H-flag inspection recorded as an EXPECTED NOT_RUN check, not an executed verification; port-map table gained an admission column; SVG unchanged (c7c8fb13 - its labels never claimed no-routing, no semantic change)",
+  "rebuild": {
+   "buildA_exit": 0,
+   "buildB_exit": 0,
+   "A_B_byte_identical": true,
+   "s4_html_sha256": "e95458462636a27dcc80a2198198bb0f8c45d7639d78e905049fc66bb70b5a76"
+  },
+  "validator": {
+   "command": "node qa/seo-device-guides-20261116/validate-seo-guides.cjs",
+   "utc": "2026-11-17T21:28Z window",
+   "exit": 0,
+   "good_candidate": {
+    "ok": true,
+    "checks": 164,
+    "failed": 0
+   },
+   "injected_negatives": "16/16 rejected-with-reason (14 prior + 2 new S4: s4-baseline-guard-omitted, s4-endpoint-testmode-stripped)",
+   "new_checks": "c19_s4_baseline_guard_contract + c20_s4_endpoint_testmode_contract - candidate-consuming PURE source-contract checks (NOT RouterOS execution); sectionsOverride updated to the new headings",
+   "freshness": "PASS - builder rerun byte-identical for 24 gutenberg outputs"
+  },
+  "preview_desktop_1280x900": {
+   "pass_start_utc": "2026-11-17T21:29:46.199Z",
+   "pass_end_utc": "2026-11-17T21:29:49.747Z",
+   "doc_overflow_px": 0,
+   "toc": "16 links, 0 dangling (in-browser)",
+   "diagram_natural": "lazy attribute untouched; natural fetch observed during real wheel scroll (fired by step 1); rendered 880x513 positive area in viewport; evaluateImageRender ok=true",
+   "pre_extents": "7 containers, 0 scrollable (all 958/958)",
+   "table_extents": "scrollable count 0",
+   "keyboard": {
+    "PRE": {
+     "N_A": true,
+     "reason": "measured extents: no contained overflow"
+    },
+    "TABLE": {
+     "N_A": true,
+     "reason": "measured extents: no contained overflow"
+    }
+   }
+  },
+  "preview_mobile_390x844": {
+   "pass_start_utc": "2026-11-17T21:30:10.915Z",
+   "pass_end_utc": "2026-11-17T21:30:14.402Z",
+   "doc_overflow_px": 0,
+   "toc": "16 links, 0 dangling (in-browser)",
+   "pre_extents": "5 containers, 3 scrollable (#0 1391/374, #1 750/374, #2 921/374)",
+   "table_extents": "7 containers, 1 scrollable (#2 = the new endpoint table, 337/295)",
+   "keyboard": {
+    "PRE_0of3": {
+     "focus": "PRE index 0 (1391/374), activeElement verified",
+     "keys": {
+      "ArrowRight": {
+       "before_abs": 0,
+       "after_abs": 40,
+       "delta": 40
+      },
+      "ArrowLeft": {
+       "before_abs": 40,
+       "after_abs": 0,
+       "delta": -40
+      }
+     }
+    },
+    "TABLE_0of1": {
+     "focus": "TABLE index 2 (337/295), activeElement verified",
+     "keys": {
+      "ArrowRight": {
+       "before_abs": 0,
+       "after_abs": 40,
+       "delta": 40
+      },
+      "ArrowLeft": {
+       "before_abs": 40,
+       "after_abs": 0,
+       "delta": -40
+      }
+     }
+    }
+   }
+  },
+  "changed_files": [
+   "tutorials/s4-vlan-switch-l2.fa.md",
+   "tutorials/s4-vlan-switch-l2.gutenberg.html",
+   "articles/build-summary.json (S4 bytes)",
+   "validate-seo-guides.cjs (+c19/c20 +2 negatives +S4 sectionsOverride)",
+   "validation-receipt.json",
+   "render-check-receipt.json (this section)"
+  ],
+  "not_run": [
+   "RouterOS execution",
+   "all probes",
+   "WordPress/KSES",
+   "DB integration",
+   "production publish"
+  ],
+  "boundaries": "NOT_DEPLOYED; prior approvals (M3/N6/S5 keyboard/figure/helper) untouched; no unrelated lesson rerun; no public screenshots/traces/raw logs",
+  "production_touched": false
  }
 }

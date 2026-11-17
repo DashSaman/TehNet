@@ -258,7 +258,7 @@ function validate(candidateInputs) {
       sectionsOverride: ['پاسخ کوتاه', 'فهرست', 'پیش‌نیازها', 'مبنا آزمایشگاه', 'گام ۱: نیازسنجی', 'گام ۲: فهرست گزینه‌ها', 'گام ۳: تطبیق نیاز با پوشش', 'گام ۴: ارزیابی ساختاریافته', 'گام ۵: دورهٔ آزمایشی', 'گام ۶: بازنگری دوره‌ای', 'خطاهای رایج', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع', 'آموزش‌های مرتبط'],
       service: 'https://tehnet.ir/services/network-support-tehran/' },
     { md: 'tutorials/s4-vlan-switch-l2.fa.md', html: 'tutorials/s4-vlan-switch-l2.gutenberg.html', svg: 'assets/tutorial-s4-vlan-l2.svg', label: 'S4c',
-      sectionsOverride: ['پاسخ کوتاه', 'فهرست', 'پیش‌نیازها', 'مبنا آزمایشگاه', 'نقشهٔ پورت و VLAN', 'گام ۱: بازرسی اولیه', 'گام ۲: پورت‌های access', 'گام ۳: جدول VLAN و ترانک', 'گام ۴: مسیر CPU مدیریت', 'گام ۵: فعال‌سازی فیلترینگ', 'مرز لایه۲ و لایه۳', 'آزمون پذیرش مثبت/منفی', 'بازگشت امن و بازیابی', 'عیب‌یابی', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع', 'آموزش‌های مرتبط'],
+      sectionsOverride: ['پاسخ کوتاه', 'فهرست', 'پیش‌نیازها', 'مبنا آزمایشگاه یکتا، نقشهٔ پورت/VLAN و جدول endpoint سنتز', 'نقشهٔ پورت و VLAN', 'جدول endpoint سنتز و حالت آزمون', 'گام ۱: گارد مبنای آزمایشگاهی', 'گام ۲: قطعهٔ access', 'گام ۳: قطعهٔ جدول VLAN', 'گام ۴: قطعهٔ مسیر CPU', 'گام ۵: قطعهٔ فیلترینگ', 'مرز لایه۲ و لایه۳', 'آزمون پذیرش مثبت/منفی', 'بازگشت امن و بازیابی', 'عیب‌یابی', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع', 'آموزش‌های مرتبط'],
       service: 'https://tehnet.ir/services/network-setup-tehran/' },
   ];
   const TUT_SECTIONS_COMMON = ['پاسخ کوتاه', 'مبنا آزمایشگاه', 'تست پذیرش', 'تمرین کوتاه', 'چک‌لیست تحویل', 'منابع رسمی', 'آموزش‌های مرتبط'];
@@ -365,6 +365,58 @@ function validate(candidateInputs) {
     }
     if (probs.length > 0) fail('c18_n6_route_consistency', 'topic-map N6 routing/row-shape mismatch (canonical vs supplement)', { problems: probs });
     else pass('c18_n6_route_consistency', { n6_route: n6row.cells[3], supplement_route: suprow.cells[3], columns: 9, table_blocks: blocks.length });
+  }
+
+  /* c19-c20 (per MANAGER_REVIEW 6961231363): S4 source-contract checks — PURE source
+   * text contract, NOT RouterOS execution. (1) single no-defaults lab baseline with a
+   * stop-on-error guard block whose identity/conflict preconditions precede the first
+   * effect and whose filter-last closes the same block; honest recovery wording.
+   * (2) replayable synthetic endpoint/test-mode acceptance plan (same-prefix L2 negative
+   * + same-VLAN disposable positive + separately declared routed phase + trunk negative
+   * with sender/positive-control/discriminating observation and the CPU-capture caveat). */
+  const s4Md = get('tutorials/s4-vlan-switch-l2.fa.md');
+  if (s4Md !== null) {
+    const guardMarkers = [
+      'stop-on-error',
+      ':if ([:len [/interface bridge find]] > 0) do={ :error "S4: bridge(s) exist',
+      ':if ([:len [/interface bridge port find]] > 0) do={ :error "S4: bridge-port memberships exist',
+      'board-name~"CRS326"',
+      ':if ([:len [/interface find where name="ether23"]]',
+      '192.168.88."]] > 0) do={ :error "S4: management subnet',
+      'frame-types=admit-only-untagged',
+      'set bridge1 vlan-filtering=yes',
+      ':put "S4: build complete (filtering enabled last)"',
+      'disposable',
+    ];
+    const missingGuard = guardMarkers.filter(function(m){ return s4Md.indexOf(m) < 0; });
+    const guardIdx = s4Md.indexOf(':if ([:len [/interface bridge find]] > 0)');
+    const filterIdx = s4Md.indexOf('set bridge1 vlan-filtering=yes');
+    const blockOpen = s4Md.indexOf('\n{', Math.max(0, guardIdx - 600));
+    const blockClose = s4Md.indexOf('\n}', filterIdx);
+    const sameBlock = guardIdx >= 0 && filterIdx >= 0 && blockOpen >= 0 && blockClose >= 0 && blockOpen < guardIdx && filterIdx < blockClose;
+    const guardBeforeEffect = guardIdx >= 0 && s4Md.indexOf('add name=bridge1') > guardIdx;
+    const recoveryOk = s4Md.indexOf('وارسی\u200cشده') >= 0 && s4Md.indexOf('از هر پورت access دیگری در حالت بی\u200cفیلتر در دسترس است') < 0;
+    if (missingGuard.length > 0 || !sameBlock || !guardBeforeEffect || !recoveryOk)
+      fail('c19_s4_baseline_guard_contract', 'S4 baseline guard contract missing (single no-defaults baseline, stop-on-error guard-before-effect, filter-last in same block, honest recovery wording)', { missing: missingGuard, sameBlock: sameBlock, guardBeforeEffect: guardBeforeEffect, recoveryOk: recoveryOk });
+    else pass('c19_s4_baseline_guard_contract', { guard_markers: guardMarkers.length, same_block: true });
+
+    const endpointMarkers = [
+      'جدول endpoint سنتز و حالت آزمون',
+      'آدرس آزمون',
+      '192.168.10.21',
+      'fixture موقت روی لینک ether23',
+      'هم\u200cپیشوند',
+      'کنترل مثبت disposable',
+      'فاز routed',
+      'بازگشت کامل به مبنای آزمون',
+      'T-S',
+      'آفلودشده لزوماً',
+      'فقط همین ورودی',
+    ];
+    const missingEndpoint = endpointMarkers.filter(function(m){ return s4Md.indexOf(m) < 0; });
+    if (missingEndpoint.length > 0)
+      fail('c20_s4_endpoint_testmode_contract', 'S4 endpoint/test-mode contract missing (synthetic addresses/prefix/gateway, same-prefix negative + same-VLAN disposable positive, separate routed phase, trunk sender/positive-control/CPU-capture caveat)', { missing: missingEndpoint });
+    else pass('c20_s4_endpoint_testmode_contract', { endpoint_markers: endpointMarkers.length });
   }
 
   const failed = checks.filter(function(c){ return !c.pass; });
@@ -551,6 +603,27 @@ if (require.main === module) {
       }
     }
   }, 'tutorial required section missing');
+  injectNeg('s4-baseline-guard-omitted', 'S4 stop-on-error guard lines stripped from the build block', function(clone){
+    for (let i = 0; i < clone.length; i++) {
+      if (clone[i].name === 'tutorials/s4-vlan-switch-l2.fa.md') {
+        clone[i].content = clone[i].content.replace(/ {4}:if \(\[:len \[\/interface bridge find\]\] > 0\) do=\{ :error "S4: bridge\(s\) exist[^\n]*\n/, '').replace(/ {4}:if \(\[:len \[\/interface bridge port find\]\] > 0\) do=\{ :error "S4: bridge-port memberships exist[^\n]*\n/, '');
+      }
+    }
+  }, 'S4 baseline guard contract missing');
+  injectNeg('s4-endpoint-testmode-stripped', 'S4 synthetic endpoint/test-mode section body stripped', function(clone){
+    for (let i = 0; i < clone.length; i++) {
+      if (clone[i].name === 'tutorials/s4-vlan-switch-l2.fa.md') {
+        const c = clone[i].content;
+        const hIdx = c.indexOf('### جدول endpoint سنتز و حالت آزمون');
+        if (hIdx >= 0) {
+          const lineStart = c.lastIndexOf('\n', hIdx) + 1;
+          const nextH = c.indexOf('\n![', hIdx + 1);
+          const end2 = nextH >= 0 ? nextH + 1 : c.length;
+          clone[i].content = c.slice(0, lineStart) + '### جدول endpoint سنتز و حالت آزمون {#endpoints-testmode}' + c.slice(end2);
+        }
+      }
+    }
+  }, 'S4 endpoint/test-mode contract missing');
 
   let negFail = 0;
   for (let ni = 0; ni < negatives.length; ni++) { if (!(negatives[ni].failed && negatives[ni].reasonMatched)) negFail++; }
