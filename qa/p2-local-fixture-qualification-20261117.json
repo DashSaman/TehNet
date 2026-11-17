@@ -1,38 +1,36 @@
 {
  "packet": "TN-P2-LOCAL-FIXTURE-QUALIFICATION-20261117",
- "execution_origin": "LOCAL_TEST/LOCAL_STAGING — owner-authorized local TehNet execution; read-only observations, zero bootstrap mutations performed (fixture already exists from 2026-10-16 committed bootstrap ops/prepare-shop-preview.py --pull=never)",
- "head_at_run": "7d96f59995f1c8b5fd7f2dd292c67aabc177e4c6",
- "utc": "2026-11-17T07:19:17Z",
- "scope": "fixture qualification ONLY per manager directive: ownership/isolation/identity/payload hashes/pure suite. Journey/form POST/discovery/delete-cleanup NOT_RUN behind the driver source gate (MANAGER_REVIEW 6913955570; rev5 receipt 99adf594 = checkpoint, no separate acceptance yet).",
+ "status": "BLOCKED_FIXTURE_QUALIFICATION / observations-only (WITHDRAWN QUALIFIED claim per MANAGER_REVIEW 6942088635)",
+ "withdrawal_note": "The previous revision claimed QUALIFIED + committed-bootstrap synthetic-only. That claim is WITHDRAWN: the referenced checked-in bootstrap (ops/prepare-shop-preview.py, lines 44/58/80) SSHes to the remote host, DUMPS the production DB, COPIES live site files and IMPORTS the dump — it does not establish a fresh synthetic-only disposable ownership. The observations below describe an SSH_REMOTE_EXISTING_FIXTURE (legacy remote fixture), NOT a newly initialized owner-local synthetic environment and NOT cloud.",
+ "execution_origin": "SSH_REMOTE_EXISTING_FIXTURE — observations-only over the existing authorized SSH path; zero bootstrap mutations performed; journey/form POST/discovery/delete-cleanup NOT_RUN",
+ "head_at_run_of_observation": "c5f9b58d455c1c6c190b8ba68e92bfb45225d910 (observations) — this file patched in the follow-up commit",
+ "utc": "UNKNOWN for historical probes (approximate session window 2026-11-17 early hours; not relabeled). Pure-suite re-run UTC recorded precisely in pure_suite_rerun below.",
+ "sanitization_note": "Private IPs, private paths, the SSH alias, container identifiers and other-projects inventory are replaced with withheld-labels. Raw commands containing them replaced by safe forms.",
  "probes": [
   {
    "name": "ssh_connectivity",
-   "command": "ssh -o BatchMode=yes -o ConnectTimeout=10 netauto-main 'echo CONN_OK; hostname; docker inspect …'",
-   "utc": "2026-11-17T~05:25Z",
+   "command": "ssh <authorized-alias-withheld> 'echo CONN_OK; hostname; docker inspect <fixture-web-container> …'",
+   "utc": "UNKNOWN (historical, approximate ~05:25Z prior revision)",
    "exit": 0,
    "observed": {
     "conn": "CONN_OK",
-    "container_id": "20615696cdc4853f9203eb6e2544806d1bac4b8918db31451638c87e89230420",
-    "name": "/tehnet-ux-preview-wordpress",
+    "container_id_fingerprint": "20615696cdc4… (full withheld)",
+    "name": "<fixture-web-container>",
     "status": "running",
-    "created": "2026-10-16T18:24:15Z"
+    "created": "2026-10-16"
    }
   },
   {
    "name": "ownership_state_json",
    "observed": {
-    "state_web_id": "20615696cdc4853f9203eb6e2544806d1bac4b8918db31451638c87e89230420",
-    "state_web_container": "tehnet-ux-preview-20261016: web_container=tehnet-ux-preview-wordpress"
+    "state_web_id": "matches docker inspect Id (fingerprint 20615696cdc4…, full withheld)",
+    "state_web_container": "<fixture-web-container>"
    },
-   "expected": {
-    "web_id": "== docker inspect Id",
-    "web_container": "tehnet-ux-preview-wordpress"
-   },
-   "match": true
+   "verdict": "ownership of the LEGACY fixture confirmed only — does NOT prove a fresh disposable synthetic-only environment (bootstrap reference dumps/copies production)"
   },
   {
    "name": "preflight_probe_wpcli",
-   "command": "helpers buildPreflightProbePhp() → base64 → docker exec wp-cli eval-file (READ-ONLY)",
+   "command": "helpers buildPreflightProbePhp() → base64 → wp-cli eval-file (READ-ONLY)",
    "exit": 0,
    "observed": {
     "env": "staging",
@@ -45,108 +43,97 @@
     "http_probe_blocked": true,
     "payments_disabled": true
    },
-   "expected": "identical 9-field set from tn-fixture-helpers.cjs evaluatePreflight",
-   "match": true
+   "expected": "identical 9-field set",
+   "match": true,
+   "note": "9 flags alone do NOT satisfy the fixture contract — identity/parity/marker evidence still required"
   },
   {
    "name": "isolation_network",
    "observed": {
-    "fixture_network": "tehnet-ux-preview-20261016",
-    "members": {
-     "tehnet-ux-preview-wordpress": "172.18.0.3",
-     "tehnet-ux-preview-db": "172.18.0.2"
+    "fixture_network": "dedicated fixture network (name withheld)",
+    "fixture_members": {
+     "<fixture-web-container>": "fixture-network IP (withheld)",
+     "<fixture-db-container>": "fixture-network IP (withheld)"
     },
-    "production_stacks_on_other_networks": {
-     "tehnet-db": "tehnet-internal 172.24.0.4",
-     "tehnet-wordpress": "tehnet-internal 172.24.0.2",
-     "mytel-wp-db": "mytel-wp_default 172.23.0.2",
-     "tehnet-software": "tehnet-software_software 172.19.0.2",
-     "tunnelpannel-tehnet-web": "host network"
-    }
+    "other_stacks": "observed on SEPARATE networks — names/IPs/inventory withheld"
    },
-   "match": true,
-   "note": "app+db are ALONE on the dedicated bridge; production stacks are on different networks — docker-DNS reachability from the fixture to shared DBs does not exist by network membership"
+   "verdict": "fixture app+db appear alone on their dedicated bridge; however this legacy-fixture observation does not establish fresh synthetic-only disposable ownership"
   },
   {
    "name": "db_binding",
    "observed": {
     "wp_config_DB_NAME": "tehnetux",
-    "wp_config_DB_HOST": "tehnet-ux-preview-db"
+    "wp_config_DB_HOST": "<fixture-db-container>"
    },
-   "expected": {
-    "db_name": "tehnetux",
-    "db_host": "fixture's own db container on the dedicated network"
-   },
-   "match": true
+   "verdict": "binding observed; NOT parity evidence for installed code or an independent marker"
   },
   {
    "name": "port_binding",
    "observed": {
-    "docker_port": "NO published ports (80/tcp: null)",
+    "docker_port": "no published ports",
     "listener_18085": "ABSENT on host",
     "http_via_host_localhost_18085": "HTTP 000"
    },
-   "expected": "dead binding is a KNOWN state — HANDOFF.md documents the workaround (tunnel directly to container IP 172.18.0.3:80 via SSH)",
-   "match": true,
-   "note": "observed, not routed around: for the qualification the HTTP marker was read server-side via the container IP with Host header"
+   "known_state": "HANDOFF.md documents the dead binding + tunnel-to-container-IP workaround",
+   "verdict": "the INTENDED endpoint (localhost:18085) has NO listener; a server-side GET via the container IP with a Host header is NOT a unique browser/DB marker"
   },
   {
    "name": "http_db_marker_match",
-   "command": "curl -H 'Host: localhost:18085' http://172.18.0.3/ (server-side READ-ONLY GET)",
+   "command": "curl -H 'Host: …' http://<fixture-container-IP-withheld>/ (server-side READ-ONLY GET)",
    "observed": {
     "http": "200",
-    "page_title": "تهران نتورک | TehNet – آموزش، خدمات و تجهیزات شبکه",
-    "wp_option_blogname": "تهران نتورک | TehNet",
-    "wp_option_siteurl": "http://localhost:18085"
+    "page_title_matches_wp_blogname": true
    },
-   "match": true,
-   "note": "served-page marker matches DB option values — server-side observation; the FULL real-browser marker match belongs to the gated journey"
+   "verdict": "public site title match is NOT a unique browser/DB marker — full marker evidence remains OPEN for the qualified fixture"
   },
   {
    "name": "installed_payload_hashes",
    "observed": {
-    "tmp_tn_ux_fixture_php": "171275330803a985ebeac32c6b5e213862e5aebd9c7449788ab19a76fc1d1d53",
-    "tmp_tn_ux_parts_json": "2ce6c8d9e3edce36132f499a47cb16a12826628bdd724602202cdaba0dae7ef6",
-    "tmp_tn_ux_model_glb": "045d23d98142452394dae57fb71692d4d9cf07555e9c84e16dda46500d4b2738"
+    "tmp_tn_ux_fixture_php": "171275330803a985…",
+    "tmp_tn_ux_parts_json": "2ce6c8d9e3ed…",
+    "tmp_tn_ux_model_glb": "045d23d98142…"
    },
-   "note": "installer-bound fixture payload still present in the container"
+   "verdict": "three installer-file hashes + DB name + plugin versions are NOT parity of installed code and NOT an independent marker"
   },
   {
-   "name": "plugins_themes_versions",
+   "name": "plugins_versions",
    "observed": {
-    "plugins": {
-     "akismet": "5.7",
-     "hello": "1.7.2",
-     "tehnet-core": "0.3.1",
-     "tehnet-store": "0.7.0",
-     "woocommerce": "11.1.1",
-     "tehnet-ux-isolation": "(no version header)",
-     "tehnet-search-metadata": "0.2.2"
-    }
-   }
+    "akismet": "5.7",
+    "hello": "1.7.2",
+    "tehnet-core": "0.3.1",
+    "tehnet-store": "0.7.0",
+    "woocommerce": "11.1.1",
+    "tehnet-ux-isolation": "(no version header)",
+    "tehnet-search-metadata": "0.2.2"
+   },
+   "verdict": "versions kept as observed; NOT converted into plugin/theme file hashes"
   },
   {
-   "name": "pure_suite_existing_runtime",
-   "command": "node tests/browser/tn-fixture-helpers.test.cjs",
-   "exit": 0,
-   "utc": "2026-11-17 (this turn)",
-   "observed": {
-    "total": 46,
-    "pass": 46,
-    "fail": 0
-   },
-   "label": "PURE unit-test suite against existing runtime — explicitly NOT an integration run"
+   "name": "pure_suite_rerun",
+   "status": "see pure_suite_rerun record — actual run executed this follow-up with command/UTC start-end/exit/full code SHA/helper+test digests"
   }
  ],
- "verdict": "FIXTURE QUALIFIED — ownership, isolation, identity, blocks, payload hashes and pure suite all observed green with zero mutations. The INTEGRATION stage (journey/form POST/discovery/cleanup via tn-local-staging-fix2-driver.cjs) remains HELD behind the driver source gate.",
- "next_stage_command_held_behind_gate": "1) establish the documented access path per HANDOFF.md (SSH tunnel to 172.18.0.3:80 as localhost:18085, or renew the dead 127.0.0.1:18085 docker-proxy binding via ops/prepare-shop-preview.py conventions); 2) TN_BROWSER_BASE=http://localhost:18085 node tests/browser/tn-local-staging-fix2-driver.cjs — executable only AFTER the manager accepts the driver source gate (6913955570 / rev5 / 99adf594).",
+ "pure_suite_rerun": {
+  "command": "node tests/browser/tn-fixture-helpers.test.cjs",
+  "utc_start": "2026-11-17T07:55:43Z",
+  "utc_end": "2026-11-17T07:55:43Z",
+  "exit": 0,
+  "full_code_sha_at_run": "c5f9b58d455c1c6c190b8ba68e92bfb45225d910",
+  "helper_digest": "ec2a6f916073f86e5faaab3f63f4068e8a970107955a98a87cc2154a767f50ad",
+  "test_digest": "ccef5afc3557bf346d74363f79fbbfbda83e7426b3fb347f5ea5b4f3084d4a93",
+  "tail": "PASS REG legacy preserved: journey WITHOUT cleanup_binding still runs (non-fixture mode unchanged)\n\nTOTAL=46 PASS=46 FAIL=0",
+  "label": "PURE unit-test suite against existing runtime — NOT integration"
+ },
+ "verdict": "BLOCKED_FIXTURE_QUALIFICATION — observations-only over SSH_REMOTE_EXISTING_FIXTURE. Missing prerequisite for QUALIFIED: an owner-local synthetic-only disposable fixture bootstrap in TehNet itself that (a) does not dump/copy production, (b) proves fresh namespace ownership and isolation with synthetic data, (c) provides a reachable intended endpoint and a unique browser/DB marker. Existing authorized path does not meet this; recorded as the BLOCKED prerequisite per directive (no install/pull/worker/runner/provider/scheduler, no guard weakening, no generic 'no cloud' blocker).",
+ "next_stage_command_held_behind_gate": "UNCHANGED and still gated: after BOTH the driver source gate acceptance AND a qualified fixture, the integration stage command (tunnel per HANDOFF + TN_BROWSER_BASE=… node tests/browser/tn-local-staging-fix2-driver.cjs) applies. Neither precondition is currently met.",
  "not_run": [
   "journey",
   "form POST",
   "discovery",
   "delete/cleanup",
   "WordPress/KSES acceptance",
-  "publication"
+  "publication",
+  "bootstrap effects"
  ],
  "production_touched": false
 }
