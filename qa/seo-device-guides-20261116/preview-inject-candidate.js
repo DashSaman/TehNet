@@ -101,24 +101,40 @@ export const imageRenderObsJs =
   " doc_overflow_px:document.documentElement.scrollWidth-document.documentElement.clientWidth, ancestor_chain:chain, matched_rules:matched }; })()";
 
 /** Pure predicate over imageRenderObsJs output. Pass requires ACTUAL DISPLAY:
- * positive rendered width AND height, positive two-dimensional viewport
- * intersection, loaded asset, not hidden, and zero document overflow.
- * Load facts (complete/naturalWidth) alone never satisfy this check. */
+ * finite required geometry/viewport observations, positive rendered width AND
+ * height, positive two-dimensional viewport intersection, loaded asset, present
+ * computed display/visibility observations that are not hidden, and a FINITE
+ * observed document overflow exactly equal to zero.
+ * Load facts (complete/naturalWidth) alone never satisfy this check, and a
+ * partial/unusable observation (missing or NaN required fields) FAILS CLOSED. */
 export function evaluateImageRender(obs) {
   if (!obs || obs.found === false) return { ok: false, failures: ['image_not_found'] };
   const failures = [];
   const r = obs.rect || {};
   const v = obs.viewport || {};
+  const finite = (x) => typeof x === 'number' && Number.isFinite(x);
+  const geoOk = ['w', 'h', 'top', 'bottom', 'left', 'right'].every(k => finite(r[k]));
+  const vpOk = finite(v.w) && finite(v.h) && v.w > 0 && v.h > 0;
+  if (!geoOk) failures.push('invalid_or_missing_rect_geometry');
+  if (!vpOk) failures.push('invalid_or_missing_viewport');
   if (!(obs.complete === true)) failures.push('asset_not_complete');
-  if (!(typeof obs.naturalWidth === 'number' && obs.naturalWidth > 0)) failures.push('naturalWidth_not_positive');
-  if (!(typeof r.w === 'number' && r.w > 0)) failures.push('zero_rendered_width');
-  if (!(typeof r.h === 'number' && r.h > 0)) failures.push('zero_rendered_height');
-  if (r.w > 0 && r.h > 0) {
+  if (!(finite(obs.naturalWidth) && obs.naturalWidth > 0)) failures.push('naturalWidth_not_positive');
+  if (geoOk) {
+    if (!(r.w > 0)) failures.push('zero_rendered_width');
+    if (!(r.h > 0)) failures.push('zero_rendered_height');
+  }
+  if (geoOk && vpOk) {
     const horiz = Math.min(r.right, v.w) - Math.max(r.left, 0);
     const vert = Math.min(r.bottom, v.h) - Math.max(r.top, 0);
-    if (!(horiz > 0 && vert > 0)) failures.push('no_two_dim_viewport_intersection');
+    if (!(Number.isFinite(horiz) && Number.isFinite(vert) && horiz > 0 && vert > 0))
+      failures.push('no_two_dim_viewport_intersection');
   }
+  /* required computed-style observations must be PRESENT before hidden checks */
+  if (typeof obs.display !== 'string' || obs.display.length === 0) failures.push('missing_display_observation');
+  if (typeof obs.visibility !== 'string' || obs.visibility.length === 0) failures.push('missing_visibility_observation');
   if (obs.display === 'none' || obs.visibility === 'hidden' || obs.visibility === 'collapse') failures.push('hidden_or_clipped');
-  if (typeof obs.doc_overflow_px === 'number' && obs.doc_overflow_px > 0) failures.push('document_overflow_px_' + obs.doc_overflow_px);
+  /* required document-overflow observation: must be finite and exactly zero */
+  if (!finite(obs.doc_overflow_px)) failures.push('missing_or_nonfinite_doc_overflow');
+  else if (obs.doc_overflow_px !== 0) failures.push('document_overflow_px_' + obs.doc_overflow_px);
   return { ok: failures.length === 0, failures, rendered: { w: r.w, h: r.h }, viewport: v, loaded: { complete: obs.complete, naturalWidth: obs.naturalWidth } };
 }

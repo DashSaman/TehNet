@@ -1576,12 +1576,14 @@
   },
   "diagnosis": {
    "decisive_facts": [
-    "generated HTML contained ZERO </figure> and ZERO </table> closers across ALL lessons (S5 9 opens/0 closes, M2 8/0, N3 7/0, N6 10/0, S4 7/0) - builder flushTable (articles/build-gutenberg.cjs line 89 rev4) emitted '</tbody></table>' but never '</figure>'; wp-block-image figures DID close properly",
-    "without the closer, the HTML parser nests every later block inside the FIRST unclosed table figure; observed chain: image figure nested inside 3 table-figure levels, heights 2082/123259/132029/136417 on mobile",
+    "literal tag counts (node String.match regex over the EXACT bytes of git revision b7f0eed for old and the committed new files) showed the missing closers were TABLE-WRAPPER FIGURES ONLY: S5 figures 9 open/1 close -> 9/9 with tables 8/8 -> 8/8 throughout; M2 figures 8/1 -> 8/8 with tables 7/7 -> 7/7; N6 figures 10/1 -> 10/10 with tables 9/9 -> 9/9 - <table>/<thead>/<tbody> and the authored-image figure were already closed before the fix",
+    "without the table-figure closer the HTML parser nests every later block inside the FIRST unclosed table figure (observed mobile chain heights 2082/123259/132029/136417); each nested figure adds 40px+40px margins: measured mobile width chain 135 -> 55 -> 0 -> 0, desktop chain 798 -> ~478",
     "each nested figure adds 40px+40px margins: measured mobile width chain 135 -> 55 -> 0 -> 0 (135-80=55, 55-80 clamps to 0); desktop chain 798 -> ~478 explains why desktop still showed 480x280"
    ],
    "one_variable_probe": "the controlled probe was the builder closer itself: adding only '</figure>' to flushTable regenerated balanced markup (9/9 figures, 8/8 tables in S5; M2 8/8) and alone flipped mobile 0x0 -> 295x172 with no CSS/harness/source change; no other variable touched",
-   "root_cause_file": "content/seo-device-guides-20261116/articles/build-gutenberg.cjs (builder rev5, sha256 7a67caa2d46d1fd0407c928bb0e108eaacb379eab8edfebae4654c7d08152506)"
+   "root_cause_file": "content/seo-device-guides-20261116/articles/build-gutenberg.cjs (builder rev5, sha256 7a67caa2d46d1fd0407c928bb0e108eaacb379eab8edfebae4654c7d08152506)",
+   "count_correction_note": "CORRECTED per MANAGER_REVIEW 6955115055 update 2026-11-17T18:11:16Z: the previously committed claim of ZERO </figure> AND ZERO </table> closers was WRONG - a faulty shell grep pipeline produced it; the node-regex literal recount on exact revision bytes confirms only the table-wrapper figures lacked closers. Root cause, one-closer fix and all before/after dimensions unchanged and retained.",
+   "counting_method": "node String.match counts over exact bytes: old = git show b7f0eed:<path>, new = committed working file"
   },
   "fix": {
    "change": "one emitted closer: '</tbody></table>' -> '</tbody></table></figure>' in flushTable + rev5 header note; NO CSS/harness/MD/lesson-text changes (candidate CSS sha ae06330b... unchanged; harness changed ONLY by the additive reusable check)",
@@ -1656,6 +1658,92 @@
    }
   ],
   "boundaries": "local preview only; DRAFT/NOT_DEPLOYED unchanged; RouterOS execution NOT_RUN; WordPress/KSES NOT_RUN; no production publish; natural retrieval remains distinct from production acceptance; prior S5 source/N1 plan, M3/N6/P2 approvals untouched (their generated-HTML bytes change by this systematic fix - flagged for review)",
+  "production_touched": false
+ },
+ "s5_qa_receipt_finish_20261117": {
+  "packet": "TN-S5-FINAL-QA-RECEIPT-FINISH-20261117 (MANAGER_REVIEW 6955115055 update 18:11:16Z FINAL CORRECTIONS 1-2)",
+  "utc": "2026-11-17T18:16:08Z (pure suite run); browser recheck followed in the same turn",
+  "git_head_at_run": "29a19bd05ebc7d092616c529af8cfd58f8b08c47 (pre-commit head; builder/generated outputs/MD/CSS unchanged by this finish)",
+  "executed_by": "GLM - pure Node suite + real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138 for the bounded recheck only",
+  "correction_1_tag_counts": {
+   "method": "node String.match literal counts over exact revision bytes (old via git show b7f0eed:<path>)",
+   "verified": {
+    "s5": {
+     "figures_old": "9 open/1 close",
+     "figures_new": "9/9",
+     "tables_old": "8/8",
+     "tables_new": "8/8"
+    },
+    "m2": {
+     "figures_old": "8 open/1 close",
+     "figures_new": "8/8",
+     "tables_old": "7/7",
+     "tables_new": "7/7"
+    },
+    "n6": {
+     "figures_old": "10 open/1 close",
+     "figures_new": "10/10",
+     "tables_old": "9/9",
+     "tables_new": "9/9"
+    }
+   },
+   "statement": "only TABLE-WRAPPER figures lacked closers; table elements and authored-image figures were already closed before the fix - matches the manager's independent counts"
+  },
+  "correction_2_fail_closed_predicate": {
+   "harness_v3_sha256": "e5a4e170e9fecf1946faf41b944017d008817ce208539156e44b108ef08a21d7",
+   "contract": "pass now requires: finite rect geometry (w/h/top/bottom/left/right), finite positive viewport, complete=true, finite positive naturalWidth, rendered width>0 AND height>0, finite positive two-dimensional viewport intersection, PRESENT string display/visibility observations (missing -> missing_display_observation / missing_visibility_observation), and a FINITE document_overflow_px exactly equal to 0 (missing/NaN/nonzero -> missing_or_nonfinite_doc_overflow / document_overflow_px_N)",
+   "prior_fail_open_counterexamples_now_closed": [
+    "doc_overflow_px removed",
+    "doc_overflow_px NaN",
+    "display/visibility removed"
+   ]
+  },
+  "pure_regression_suite": {
+   "file": "qa/seo-device-guides-20261116/preview-image-render.test.mjs",
+   "test_sha256": "c3a6b63bf51db23d15d2e415e82270b38d28bf9886f331d6d7d0b9b2bab7bc7a",
+   "command": "node qa/seo-device-guides-20261116/preview-image-render.test.mjs",
+   "started_utc": "2026-11-17T18:15:58Z",
+   "exit_code": 0,
+   "results": "TOTAL=13 PASS=13 FAIL=0",
+   "covered_cases": [
+    "positive green sample",
+    "recorded 0x0 mobile sample",
+    "offscreen positive size",
+    "positive document overflow",
+    "missing doc_overflow_px",
+    "NaN doc_overflow_px",
+    "missing display observation",
+    "missing visibility observation",
+    "hidden display",
+    "non-finite rect geometry",
+    "invalid viewport",
+    "negative doc overflow (strict zero)",
+    "image not found"
+   ],
+   "note": "pure suite for THIS helper only; the 162-check SEO validator is a separate suite and does not cover these negative cases"
+  },
+  "bounded_browser_recheck_with_final_harness": {
+   "scope": "S5 desktop+mobile only, fresh loads, real wheel scroll, same committed check; old RED not recreated; unrelated lessons not rerun",
+   "desktop_1280x900": {
+    "ok": true,
+    "failures": [],
+    "rendered": "880x513",
+    "doc_overflow_px": 0,
+    "scroll": "one real wheel step to visible"
+   },
+   "mobile_390x844": {
+    "ok": true,
+    "failures": [],
+    "rendered": "295x172 (rect 40,280-335,452)",
+    "complete": true,
+    "naturalWidth": 960,
+    "doc_overflow_px": 0,
+    "display": "inline",
+    "visibility": "visible",
+    "scroll": "two real wheel steps to visible"
+   }
+  },
+  "boundaries": "builder/generated outputs/MD/CSS unchanged by this finish; DRAFT/NOT_DEPLOYED; RouterOS/WordPress/KSES NOT_RUN; no production publish; no public screenshots/traces/raw logs; prior narrow approvals unchanged",
   "production_touched": false
  }
 }
