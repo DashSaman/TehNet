@@ -54,16 +54,19 @@
 
 ## راه‌اندازی ترانک — شروع صریح و توالی کامل (فیلترینگ آخر)
 
-شروع صریح: هر دو سوئیچ از تنظیمات کارخانه/فاقد پل سفارشی ‏(بازرسی اول)؛ نگارش ‏RouterOS v7.16+. اگر bridge پیش‌فرض وجود دارد، مالکیت را بازرسی و همان را به‌کار بگیرید یا حذف/بازسازی کنید — دو bridge روی پورت‌های مشترک ممنوع.
+شروع صریح — **یک مبنای آزمایشگاهی یکتا و disposable:** هر دو سوئیچ در حالت **reset-configuration بدون defaults** ‏(`/system reset-configuration skip-backup=yes no-defaults=yes` — سند رسمی؛ فقط در آزمایشگاه مجاز و disposable، هرگز روی شبکهٔ واقعی)؛ نگارش ‏RouterOS v7.16+. در این مبنا، هیچ پلی و هیچ عضویت پورت وجود ندارد و هر دو بلاک زیر **از صفر می‌سازند** ‏(add، نه set). گارد پیش از هر اثر: اگر بازرسی پل یا عضویت غیرخالی بود، این همان مبنای فرض‌شده نیست — همان‌جا متوقف شوید و مبنای آزمایشگاهی را صریحاً dispose کنید؛ حدس‌زدن، ادغام یا حذف پیکربندی ناشناخته ممنوع است. دو bridge روی پورت‌های مشترک ممنوع.
 
 **توجه سازوکار — صادقانه از ماتریس رسمی:** طبق جدول ‏«Bridge hardware offloading» سند ‏Bridging and Switching، سری ‏CRS1xx/CRS2xx ‏(شامل CRS112) برای ‏«Bridge VLAN Filtering» آفلود سخت‌افزاری **ندارد** — یعنی با `vlan-filtering=yes` روی پل، سوئیچینگ VLAN مسیر CPU ‏(نرم‌افزاری) را طی می‌کند و هیچ ظرفیت ‏wire-speed‌ای برای این پیکربندی ادعا **نمی‌شود**؛ این درس فقط درستی پیکربندی و جداسازی را آزمون می‌کند و throughput را اندازه نمی‌گیرد ‏(اندازه‌گیری ظرفیت واقعی = الگوی N2، در این محیط NOT_RUN). اگر VLAN-filtering سخت‌افزاری لازم است: مدل سری ‏CRS3xx با ردیف ✓ ماتریس ‏(مثل پل مرکزی همین درس، CRS326-24G-2S+RM) یا روش switch-chip مخصوص ‏CRS1xx/2xx ‏(راهنمای Basic VLAN switching سند رسمی) انتخاب شود. پس از هر تغییر، پرچم `H` پورت‌ها در `/interface bridge port print` بازبینی شود — پرچم، صادقانه وضعیت آفلود فعلی را نشان می‌دهد، آن را نمی‌سازد.
 
 ```routeros
-# --- سمت CRS112 (طبقه) ---
-# بازرسی مالکیت
-/interface bridge print
-/interface bridge port print
-# پل و اعضا با pvid هر access پورت
+# --- گارد مبنا (روی هر دو سوئیچ، پیش از هر اثر) ---
+{
+    :if ([:len [/interface bridge find]] > 0) do={ :error "TN-S5: bridge(s) exist — not the assumed no-defaults baseline; dispose the lab state explicitly first, do not guess or merge" }
+    :if ([:len [/interface bridge port find]] > 0) do={ :error "TN-S5: bridge-port memberships exist — not the assumed baseline" }
+    :put "TN-S5: baseline OK (no bridge, no memberships)"
+}
+
+# --- سمت CRS112 (طبقه) — ساخت از صفر ---
 /interface bridge
 add name=bridge1 vlan-filtering=no protocol-mode=rstp
 /interface bridge port
@@ -89,32 +92,53 @@ add address=192.168.88.2/24 interface=mgmt88
 /interface bridge
 set bridge1 vlan-filtering=yes
 
-# --- سمت CRS326 (مرکز) — کامل: عضویت ترانک + نقاط آزمون + مسیر CPU ---
-# پیش‌شرط‌ها: بازرسی پل پیش‌فرض کارخانه («bridge» با همهٔ پورت‌ها؛ اگر نیست، پل بسازید و اعضا را اضافه کنید)
-/interface bridge print
-/interface bridge port print
-# عضویت/پذیرش پورت ترانک: فقط فریم تگ‌دار — همان قرارداد سمت طبقه
+# --- سمت CRS326 (مرکز) — ساخت از صفر، همان گارد مبنا اعمال شده ---
+/interface bridge
+add name=bridge1 vlan-filtering=no protocol-mode=rstp
+# عضویت ترانک و نقاط آزمون: add صریح (مبنا بدون عضویت است — set روی رکورد ناموجود کار نمی‌کند)
 /interface bridge port
-set [find where interface=ether24] frame-types=admit-only-vlan-tagged comment="uplink trunk از CRS112"
-# نقاط آزمون اعلام‌شده سمت مرکز (پیش‌نیاز تست‌های مثبت/منفی ماتریس)
-set [find where interface=ether1] pvid=10 comment="کاربر آزمون VLAN10"
-set [find where interface=ether2] pvid=20 comment="دوربین آزمون VLAN20"
-# جدول VLAN: ترانک تگ‌دار + اعضای آزمون + مسیر CPU مدیریت (خودِ bridge عضو تگ‌دار 88)
+add bridge=bridge1 interface=ether24 frame-types=admit-only-vlan-tagged ingress-filtering=yes comment="uplink trunk از CRS112"
+add bridge=bridge1 interface=ether1 pvid=10 comment="کاربر آزمون VLAN10 (U-C1)"
+add bridge=bridge1 interface=ether2 pvid=20 comment="دوربین آزمون VLAN20 (C-C1)"
+# جدول VLAN: ترانک تگ‌دار + اعضای آزمون + مسیر CPU مدیریت (خودِ پل عضو تگ‌دار 88)
 /interface bridge vlan
-add bridge=bridge vlan-ids=10 tagged=ether24 untagged=ether1
-add bridge=bridge vlan-ids=20 tagged=ether24 untagged=ether2
-add bridge=bridge vlan-ids=88 tagged=ether24,bridge
+add bridge=bridge1 vlan-ids=10 tagged=ether24 untagged=ether1
+add bridge=bridge1 vlan-ids=20 tagged=ether24 untagged=ether2
+add bridge=bridge1 vlan-ids=88 tagged=ether24,bridge1
 # مسیر مدیریت سمت مرکز
 /interface vlan
-add name=mgmt88 vlan-id=88 interface=bridge
+add name=mgmt88 vlan-id=88 interface=bridge1
 /ip address
 add address=192.168.88.3/24 interface=mgmt88
-# فیلترینگ آخر — با مسیر بازگشت: set bridge vlan-filtering=no از جلسهٔ MAC/Console
+# فیلترینگ آخر — با مسیر بازگشت: set bridge1 vlan-filtering=no از جلسهٔ MAC/Console
 /interface bridge
-set bridge vlan-filtering=yes
+set bridge1 vlan-filtering=yes
 ```
 
-نقاط پایانی آزمون — صریح و اعلام‌شده: **مثبت:** کاربر طبقه ‏(VLAN10) ↔ ‏ether1 مرکز ‏(VLAN10) باید ping بگذرد؛ دوربین طبقه ‏(VLAN20) ↔ ‏ether2 مرکز ‏(VLAN20) باید ping بگذرد؛ ‏192.168.88.2 ‏(طبقه) ↔ ‏192.168.88.3 ‏(مرکز) روی ‏mgmt88 — اثبات مسیر CPU تگ‌دار هر دو سوئیچ. **منفی:** کاربر طبقه ↔ دوربین طبقه و کاربر آزمون مرکز ↔ دوربین آزمون مرکز باید رد شوند ‏(الگوی منفی M2)؛ فریم untagged روی ‏ether8/ether24 هر دو طرف باید drop شود ‏(frame-types تگ‌دار-فقط). «هر دو طرف مسیر مدیریت دارند» فقط وقتی معنا دارد که همین سه تست با نام پورت مبدأ/مقصد اجرا و ثبت شده باشند — ردیف جدول چاپی به‌تنهایی اثبات forward/isolation نیست (الگوی N4).
+### جدول نقاط پایانی آزمون — فرضی، با IP/پیش‌فرض صریح
+
+| شناسه | میزبان/مبدأ | پورت فیزیکی | VLAN | آدرس فرضی | gateway |
+|---|---|---|---|---|---|
+| ‏U-F1 | لپ‌تاپ طبقه | ‏CRS112 ether1 ‏(access ‏pvid10) | ‏10 | ‏192.168.88.10/24 | **بدون gateway** ‏(آزمون لایه۲) |
+| ‏U-C1 | لپ‌تاپ مرکز | ‏CRS326 ether1 ‏(access ‏pvid10) | ‏10 | ‏192.168.88.11/24 | بدون gateway |
+| ‏C-F1 | دوربین آزمون طبقه | ‏CRS112 ether6 ‏(access ‏pvid20) | ‏20 | ‏192.168.20.10/24 | بدون gateway |
+| ‏C-C1 | دوربین آزمون مرکز | ‏CRS326 ether2 ‏(access ‏pvid20) | ‏20 | ‏192.168.20.11/24 | بدون gateway |
+| ‏M-F | CPU خودِ CRS112 | مسیر ‏mgmt88 | ‏88 | ‏192.168.88.2/24 | — |
+| ‏M-C | CPU خودِ CRS326 | مسیر ‏mgmt88 | ‏88 | ‏192.168.88.3/24 | — |
+
+نکتهٔ صادقانه: در این مبنا هیچ پورت access-88 برای میزبان مدیریتی فیزیکی پیکربندی نشده — پروب مدیریت، **دستور سمت سوئیچ با مبدأ مسیر mgmt88** است ‏(ردیف ‏P3). اگر میزبان مدیریتی فیزیکی لازم شد، یک پورت access با pvid=88 باید به هر دو جدول VLAN اضافه و در همین جدول اعلام شود.
+
+### پروب‌ها — مبدأ/مقصد/فرمان/شاهد دقیق
+
+| # | از (مبدأ) | فرمان/مسیر | به (مقصد) | انتظار | شاهد ثبت |
+|---|---|---|---|---|---|
+| ‏P1 ‏مثبت جفت کاربر | ‏U-F1 | `ping 192.168.88.11` | ‏U-C1 ‏(همان ‏VLAN10، از ترانک) | پاسخ | replies + ورودی ‏192.168.88.11 در `arp -a` ‏U-F1 |
+| ‏P2 ‏مثبت جفت دوربین | ‏C-F1 | `ping 192.168.20.11` | ‏C-C1 ‏(همان ‏VLAN20، از ترانک) | پاسخ | replies + ورودی ARP |
+| ‏P3 ‏مدیریت CPU هر دو سوئیچ | روی خودِ CRS112: `/ping 192.168.88.3` ‏(مبدأ: مسیر ‏mgmt88) | و معکوس روی ‏CRS326: `/ping 192.168.88.2` | ‏M-C ‏/ ‏M-F | پاسخ دوطرفه | اثبات مسیر CPU تگ‌دار هر دو سوئیچ |
+| ‏N1 ‏منفی لایه۲ + کنترل مثبت | ‏U-F1 | `ping 192.168.20.10` | ‏C-F1 ‏(cross-VLAN) | بدون مسیریاب: timeout؛ `arp -a` ‏U-F1 ورودی ‏192.168.20.x ندارد | **کنترل مثبت همان روش:** بلافاصله `ping 192.168.88.11` ‏(P1) موفق — پس روش تست سالم است و شکست مختص مرز VLAN است |
+| ‏N2 ‏فریم untagged سمت روتر | روتر ‏(خارج از درس) | ارسال untagged به ‏ether8/ether24 | پورت‌های ترانک | drop ‏(frame-types فقط-تگ‌دار) | شمارش drop یا sniffer اختیاری |
+
+**تفکیک صریح لایه۲ از لایه۳:** اگر روتر بالادستی بین VLANها مسیریابی کند، همین ping‏ِ N1 موفق می‌شود — اما مسیرش لایه۳ است ‏(`tracert` گام اول = روتر)؛ پذیرش سیاست/فایروال بین-VLAN کار درس‌های M2/M4 است و در این درس ادعا یا آزمون نمی‌شود. «هر دو طرف مسیر مدیریت دارند» فقط وقتی معنا دارد که ‏P3 با مبدأ/مقصد نام‌برده اجرا و ثبت شده باشد — ردیف جدول چاپی به‌تنهایی اثبات forward/isolation نیست (الگوی N4).
 
 ![نمودار آپ‌لینک و ترانک S5 — دو سوئیچ با ترانک تگ‌دار و سقف ظرفیت (تصویر مفهومی تألیفی)](../assets/tutorial-s5-uplink-trunk.svg)
 
@@ -125,9 +149,9 @@ set bridge vlan-filtering=yes
 | # | تست | انتظار |
 |---|---|---|
 | ‏۱ | هر VLAN از هر دو طرف روی پورت آپ‌لینک تگ‌دار ثبت شده؟ | `/interface bridge vlan print` هر دو سوئیچ معادل — ‏ether8/ether24 تگ‌دار برای ‏10/20/88 |
-| ‏۲ | ترافیک هر VLAN از ترانک عبور می‌کند؟ | ping کاربر طبقه ↔ ‏ether1 مرکز ‏(VLAN10)؛ دوربین طبقه ↔ ‏ether2 مرکز ‏(VLAN20) |
-| ‏۳ | مسیر CPU مدیریت هر دو سوئیچ زنده است؟ | ping ‏192.168.88.2 ↔ ‏192.168.88.3 روی ‏mgmt88 |
-| ‏۴ | جداسازی‌ها حفظ شده؟ | منفی: کاربر↔دوربین هر دو سوئیچ رد؛ untagged روی پورت‌های ترانک drop ‏(تگ‌دار-فقط) |
+| ‏۲ | ترافیک هر VLAN از ترانک عبور می‌کند؟ | پروب‌های ‏P1 ‏(U-F1→U-C1، ‏VLAN10) و ‏P2 ‏(C-F1→C-C1، ‏VLAN20) طبق جدول پروب |
+| ‏۳ | مسیر CPU مدیریت هر دو سوئیچ زنده است؟ | پروب ‏P3: `/ping 192.168.88.3` از CRS112 و `/ping 192.168.88.2` از CRS326 ‏(مبدأ مسیر ‏mgmt88) |
+| ‏۴ | جداسازی‌ها حفظ شده؟ | پروب ‏N1 با کنترل مثبت ‏(P1) + ‏N2: untagged روی پورت‌های ترانک drop ‏(تگ‌دار-فقط) |
 | ‏۵ | ظرفیت آپ‌لینک ≥ جمع محتمل؟ | محاسبهٔ بالا ‏(مبنا ‏۷ پورت) + مانیتور ‏(الگوی N2) — throughput در این درس NOT_RUN |
 
 ## خطاهای رایج

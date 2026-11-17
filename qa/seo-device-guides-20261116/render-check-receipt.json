@@ -492,7 +492,7 @@
   "manager-side browser run"
  ],
  "production_touched": false,
- "utc_extended": "2026-11-17T01:51:13Z",
+ "utc_extended": "2026-11-17T02:57:28Z",
  "pages_extra": [
   "tutorials/s2-poe-budget.gutenberg.html",
   "tutorials/s3-sfp-dac-fiber.gutenberg.html",
@@ -918,6 +918,78 @@
    "WordPress/theme/KSES integration (preview only)",
    "RouterOS execution",
    "throughput measurement"
+  ],
+  "production_touched": false
+ },
+ "s5_corrections_refresh_20261117": {
+  "packet": "TN-S5-CORRECTIONS-6936364489-20261117 (baseline/endpoint/probe-table + 0.875 word; keyboard per-TYPE evidence honestly BLOCKED-instrumented)",
+  "utc": "2026-11-17T02:57:28Z",
+  "git_head_at_run": "461ea9df7026ebff2098d2876386f0572ed2783f",
+  "executed_by": "GLM — real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138",
+  "style_artifact": {
+   "path": "qa/seo-device-guides-20261116/candidate-preview.css",
+   "sha256": "ae06330b789ed135d144131b1b6b08b8fd03aea8ca7b94cb959c6e2a5af67fc1"
+  },
+  "harness_artifact": {
+   "path": "qa/seo-device-guides-20261116/preview-inject-candidate.js",
+   "sha256": "3109a38c905593bddeb5016c9f3fead1b8fc335a650b49ed06761910cacccaac"
+  },
+  "bound_inputs_sha256": {
+   "tutorials/s5-uplink-trunk.fa.md": "10232fc933b7f5af2fb42f7ede4c8cd294da18e20fa04d9cda505987527b49dd",
+   "tutorials/s5-uplink-trunk.gutenberg.html": "288c882063b8b62ab2ecf9af3de1e184042a8e800a967f960d196a6bfb3f4fdc",
+   "assets/tutorial-s5-uplink-trunk.svg": "783a734f9f41b7394d5b049d64b95542c29f5a761aef0f52fa203c6c6f78ccda"
+  },
+  "s5_refreshed_metrics": {
+   "desktop_1280x900": {
+    "doc_overflow_px": 0,
+    "images_total": 1,
+    "images_loaded": 1,
+    "pre_total": 2,
+    "pre_with_inner_scroll": 1,
+    "table_total": 7,
+    "table_with_inner_scroll": 0,
+    "containers_focusable": 9
+   },
+   "mobile_390x844": {
+    "doc_overflow_px": 0,
+    "images_total": 1,
+    "images_loaded": 1,
+    "pre_total": 2,
+    "pre_with_inner_scroll": 2,
+    "table_total": 7,
+    "table_with_inner_scroll": 5,
+    "containers_focusable": 9
+   }
+  },
+  "keyboard_per_type_status_on_new_hashes": {
+   "status": "NOT_PROVEN — environment-blocked, instrumented honestly",
+   "missing_states": [
+    "m2_mobile_PRE",
+    "m3_mobile_TABLE",
+    "s5_mobile_TABLE"
+   ],
+   "attempts_instrumented": {
+    "method": "document-level keydown capture counter installed before each attempt; counter stayed 0 across every attempt",
+    "channels_tried": [
+     "IAB cua.keypress",
+     "Playwright locator.press (CDP input)",
+     "dom_cua.keypress with node ref"
+    ],
+    "tabs_tried": [
+     "existing session tab",
+     "fresh new tab (iab-tab:55adcb1f…)"
+    ],
+    "focus_verified": "activeElement stayed on the marked container between attempts; a real cua.click into the page was also performed before retry",
+    "window": "~02:05-02:20Z 2026-11-17, bounded wait+retry loop ~80s plus individual attempts",
+    "counter_result": 0,
+    "contrast": "the SAME instrumented-style probes DID produce real scroll deltas earlier the same day (01:13-01:30Z runs bound in three_page_candidate_run_20261117), so this is a transient host keyboard-focus loss of the browser pane, not a page property"
+   },
+   "not_fabricated": "no scrollLeft assignment, no synthetic dispatch, no padded evidence — the three states remain UNPROVEN for keyboard scrolling on the new hashes until real key events reach the page again"
+  },
+  "not_run": [
+   "RouterOS execution",
+   "WordPress/KSES",
+   "throughput"
   ],
   "production_touched": false
  }
