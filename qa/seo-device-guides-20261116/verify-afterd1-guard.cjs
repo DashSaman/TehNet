@@ -140,18 +140,33 @@ function verifyPageCore(input) {
       : 'FAIL: reintroduced ' + present.join(', ');
     if (present.length) { failures++; for (const p of present) r.reasons.push('forbidden_dead_slug_present:' + p); }
   }
+  // G7 (6970814289 follow-up / 6980096096 item 1): EVERY /guides/ href in the selected
+  // proposed page must be a known committed topic-map row — invented/unknown guide
+  // slugs fail even when byte parity (G4) still passes.
+  if (Array.isArray(input.topicMapSlugs)) {
+    const used = proposed.match(/href="\/guides\/[a-z0-9-]+\/"/g) || [];
+    const unknown = used.map(h => h.slice(6, -1)).filter(href => input.topicMapSlugs.indexOf(href) === -1);
+    r.checks.g7_topic_map_known = unknown.length === 0
+      ? 'PASS (' + used.length + ' guide hrefs, all committed topic-map rows)'
+      : 'FAIL: unknown ' + unknown.join(', ');
+    if (unknown.length) { failures++; for (const u of unknown) r.reasons.push('unknown_guide_href:' + u); }
+  }
   return { r, failures };
 }
 
 if (PROBES) {
   /* ---- NEGATIVE PROBES: same core, mutated in-memory inputs from the real selected bytes ---- */
   const pages = MANIFEST.pages;
+  const tmSlugs = MANIFEST.topic_map_file
+    ? Array.from(new Set((fs.readFileSync(path.join(ROOT, MANIFEST.topic_map_file), 'utf8').replace(/\r\n/g, NL).match(/\/guides\/[a-z0-9-]+\//g) || [])))
+    : [];
   const loadPage = (p) => ({
     patchText: fs.readFileSync(path.join(CONTENT, p.patch), 'utf8'),
     proposedContent: fs.readFileSync(path.join(CONTENT, p.proposed), 'utf8'),
     afterD1Sha256: p.after_d1_sha256,
     expectedGuides: p.expected_guides || [],
     forbiddenSlugs: p.forbidden_slugs || [],
+    topicMapSlugs: tmSlugs,
   });
   const setup = pages.find(p => p.name === 'network-setup');
   const base = loadPage(setup);
@@ -185,7 +200,27 @@ if (PROBES) {
     /* the pre-D1 commit lacks the after-D1 payload file entirely, so the wrong-base
      * regression surfaces as g1_git_show_error — an equally specific failure reason */
     const ok = out.failures > 0 && (out.r.reasons.indexOf('g1_base_digest_mismatch') >= 0 || out.r.reasons.indexOf('g2_header_prefix_mismatch') >= 0 || out.r.reasons.indexOf('g1_git_show_error') >= 0);
-    probes.push({ probe: 'P4_wrong_pinned_base', expected_failure: 'g1_base_digest_mismatch|g2_header_prefix_mismatch', failed_as_expected: ok, reasons: out.r.reasons });
+    probes.push({ probe: 'P4_wrong_pinned_base', expected_failure: 'g1_base_digest_mismatch|g2_header_prefix_mismatch|g1_git_show_error', failed_as_expected: ok, reasons: out.r.reasons });
+  }
+  // P5 (6980096096 item 1): a JOINTLY updated patch+proposed pair carrying an extra
+  // UNKNOWN /guides/ link — byte parity (G4) still passes, but G7 must reject the
+  // unknown guide through the same consuming path.
+  {
+    const unknownSentence = ' درس <a href="/guides/probe-unknown-guide/">probe unknown</a> جدا توضیح داده می‌شود.';
+    /* find a '+' added line in the setup patch that carries the office-network-design paragraph */
+    const anchorLine = base.patchText.split('\n').find(l => l.charAt(0) === '+' && l.indexOf('/guides/office-network-design/') >= 0);
+    if (!anchorLine) throw new Error('P5 anchor added-line not found');
+    const mutatedLine = anchorLine.slice(0, -4) + unknownSentence + '</p>';
+    const mutatedPatch = base.patchText.split(anchorLine).join('+' + mutatedLine.slice(1));
+    /* the SAME sentence inserted into the proposed paragraph -> byte parity preserved */
+    const proposedAnchor = base.proposedContent.indexOf('/guides/office-network-design/');
+    const paraEnd = base.proposedContent.indexOf('</p>', proposedAnchor);
+    const mutatedProposed = base.proposedContent.slice(0, paraEnd) + unknownSentence + base.proposedContent.slice(paraEnd);
+    const out = verifyPageCore(Object.assign({}, base, { name: 'P5-joint-unknown-guide', patchText: mutatedPatch, proposedContent: mutatedProposed }));
+    const ok = out.failures > 0
+      && out.r.reasons.some(x => x.indexOf('unknown_guide_href:/guides/probe-unknown-guide/') === 0)
+      && out.r.reasons.indexOf('g4_proposed_bytes_differ') === -1;
+    probes.push({ probe: 'P5_joint_patch_plus_proposed_unknown_guide', expected_failure: 'unknown_guide_href:/guides/probe-unknown-guide/ (with G4 byte parity still passing)', failed_as_expected: ok, reasons: out.r.reasons });
   }
   const allOk = probes.every(p => p.failed_as_expected);
   const finishedUtc = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
@@ -206,6 +241,11 @@ if (PROBES) {
   process.exitCode = allOk ? 0 : 1;
 } else {
   /* ---- CLI path: default or alternate manifest ---- */
+  /* topic-map slug set for G7 (node parsing — grep mis-detects this UTF-8 file as binary) */
+  const tmRel = MANIFEST.topic_map_file;
+  const topicMapSlugs = tmRel
+    ? Array.from(new Set((fs.readFileSync(path.join(ROOT, tmRel), 'utf8').replace(/\r\n/g, NL).match(/\/guides\/[a-z0-9-]+\//g) || [])))
+    : null;
   const results = [];
   let failures = 0;
   for (const page of MANIFEST.pages) {
@@ -218,6 +258,7 @@ if (PROBES) {
       afterD1Sha256: page.after_d1_sha256,
       expectedGuides: page.expected_guides || null,
       forbiddenSlugs: page.forbidden_slugs || null,
+      topicMapSlugs: topicMapSlugs || null,
     };
     const { r, failures: f } = verifyPageCore(input);
     failures += f;

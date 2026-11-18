@@ -27,7 +27,7 @@
     "/services/server-virtualization-tehran/",
     "/network-support-contract-guide/"
    ],
-   "draft_status": "DRAFT_NOT_PUBLISHED"
+   "draft_status": "DRAFT_NOT_PUBLISHED (visible English DRAFT tokens removed from copy 2026-11-18; Persian educational limitation retained)"
   },
   {
    "name": "network-setup",
@@ -56,7 +56,7 @@
     "/services/server-virtualization-tehran/",
     "/network-support-contract-guide/"
    ],
-   "draft_status": "DRAFT_NOT_PUBLISHED"
+   "draft_status": "DRAFT_NOT_PUBLISHED (visible English DRAFT tokens removed from copy 2026-11-18; Persian educational limitation retained)"
   },
   {
    "name": "network-support",
@@ -79,7 +79,7 @@
     "/services/server-virtualization-tehran/",
     "/network-support-contract-guide/"
    ],
-   "draft_status": "DRAFT_NOT_PUBLISHED"
+   "draft_status": "DRAFT_NOT_PUBLISHED (visible English DRAFT tokens removed from copy 2026-11-18; Persian educational limitation retained)"
   }
  ],
  "rev": 4,
@@ -92,5 +92,6 @@
   "candidates_status": "historical_not_selected — see page-edits/candidates/candidates-manifest.json",
   "draft_status": "DRAFT — all guide destinations explicitly unpublished until the separate release/index gates",
   "generated_utc": "2026-11-18T13:25:58Z"
- }
+ },
+ "topic_map_file": "content/seo-device-guides-20261116/topic-map.md"
 }
