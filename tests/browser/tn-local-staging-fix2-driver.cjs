@@ -382,8 +382,15 @@ function captureReceiptToken(url) {
   out.journey = { status: res.status, operation_error: res.operationError, close_error: res.closeError, effect_log: res.effectLog };
 
   /* OWNED transient cleanup — only this run's PRIVATE tokens; owned-post cleanup has
-     already been VERIFIED inside runJourney (delete-result + post-read non-array guards). */
-  const tc = aClearReceiptTransients(privTokens);
+     already been VERIFIED inside runJourney (delete-result + post-read non-array guards).
+     MANAGER_REVIEW 6970814289: with ZERO privately captured receipt tokens the result is
+     recorded locally (cleared=0/requested=0) and the external transient-deletion adapter
+     is NEVER invoked — a rejected identity must not enter any deletion adapter. For
+     NONEMPTY privately captured owned tokens the scoped cleanup STILL runs even when a
+     later operation step failed — it is never gated on the overall journey status. */
+  const tc = privTokens.length > 0
+    ? aClearReceiptTransients(privTokens)
+    : { cleared: 0, requested: 0, note: 'no privately captured receipt tokens — transient deletion adapter not invoked' };
   ck('owned_transients_cleared', tc.cleared === tc.requested * 2, tc);
 
   /* sanitized result binding — actual checks array bound; marker + private tokens +

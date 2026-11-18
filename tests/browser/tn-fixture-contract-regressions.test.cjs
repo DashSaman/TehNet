@@ -185,8 +185,10 @@ function harnessContract(extra) {
 /* Explicitly injected synthetic QUALIFIED adapter — the ONLY positive path
  * (MANAGER_REVIEW 6969817290 #1). Pure in-memory; records every invocation into the
  * supplied sink array (merged into harness stats). */
-function syntheticQualifiedAdapter(sink, contract) {
-  const rec = (kind) => { sink.push({ kind }); };
+function syntheticQualifiedAdapter(sink, contract, opts) {
+  opts = opts || {};
+  const rec = (kind, extra) => { sink.push(Object.assign({ kind }, extra || {})); };
+  const findQueue = Array.isArray(opts.findOwnedQueue) ? opts.findOwnedQueue.slice() : null;
   return {
     qualified: true,
     reason: 'synthetic-injected-for-positive-control',
@@ -197,14 +199,52 @@ function syntheticQualifiedAdapter(sink, contract) {
       home: TEST_BASE + '/', db_name: 'tehnetux', env: 'staging', blog_public: '0',
       mail_blocked: true, http_blocked: true, cron_disabled: true,
       http_probe_blocked: true, payments_disabled: true }; },
-    findOwned: () => { rec('adapter-findOwned'); return []; },
-    deleteOwned: () => { rec('adapter-deleteOwned'); return { deleted: [], failed: [], skipped: [] }; },
+    findOwned: () => { rec('adapter-findOwned'); return (findQueue && findQueue.length) ? findQueue.shift() : []; },
+    deleteOwned: () => { rec('adapter-deleteOwned'); return opts.deleteOwnedResult || { deleted: [], failed: [], skipped: [] }; },
     countRecords: () => { rec('adapter-countRecords'); return 0; },
-    recordDetail: () => { rec('adapter-recordDetail'); return { missing: true }; },
-    clearReceiptTransients: (tokens) => { rec('adapter-clearReceiptTransients'); return { cleared: tokens.length * 2, requested: tokens.length }; },
+    recordDetail: () => { rec('adapter-recordDetail'); return opts.recordDetailResult || { missing: true }; },
+    clearReceiptTransients: (tokens) => {
+      rec('adapter-clearReceiptTransients', { tokensCount: Array.isArray(tokens) ? tokens.length : -1 });
+      return { cleared: tokens.length * 2, requested: tokens.length };
+    },
   };
 }
-
+/* Rich synthetic OPERATION page (only for the token-capture control): executes the
+ * c1 keyboard flow far enough to capture a receipt token into private memory, then
+ * fails late (waitForSelector) so the control proves scoped cleanup runs after a
+ * later operation failure. Pure in-memory; the driver's real logic consumes it. */
+function makeRichOperationPage(rec) {
+  const TOKEN = 'feedface1234';
+  let evalCount = 0, urlCount = 0;
+  const page = {
+    on: (ev, handler) => { rec('rich-page-on', { ev });
+      if (ev === 'response') handler({
+        status: () => 302,
+        headers: () => ({ location: TEST_BASE + '/services/network-setup-tehran/?tn_ticket=sent&tn_service_receipt=' + TOKEN }),
+        request: () => ({ method: () => 'POST' }),
+      });
+      return null;
+    },
+    url: () => { urlCount++; rec('page-url', { rich: true });
+      return urlCount === 1
+        ? (TEST_BASE + '/services/network-setup-tehran/?tn_service_context=server-scoping')
+        : (TEST_BASE + '/services/network-setup-tehran/?tn_ticket=sent&tn_service_receipt=' + TOKEN); },
+    goto: async () => ({ status: () => 200 }),
+    evaluate: async () => { evalCount++;
+      if (evalCount === 1) return { tag: 'A', href: TEST_BASE + '/services/network-setup-tehran/?tn_service_context=server-scoping' };
+      if (evalCount === 2) return 'server-scoping';
+      return '\u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0634\u0645\u0627 \u062b\u0628\u062a \u0634\u062f TN-777'; },
+    keyboard: { press: async () => {}, type: async () => {} },
+    locator: () => ({ first: () => ({ focus: async () => {} }) }),
+    waitForNavigation: async () => {},
+    waitForSelector: async () => { throw new Error('synthetic receipt-selector failure after token capture'); },
+  };
+  return new Proxy(page, { get(t, p) {
+    if (Object.prototype.hasOwnProperty.call(t, p)) return t[p];
+    if (typeof p === 'symbol' || p === 'then') return undefined;
+    throw new Error('RICH_PAGE_NO_METHOD:' + String(p));
+  } });
+}
 async function runDriverHarness(opts) {
   const cfg = {
     source: DRIVER_SRC,               /* source text to execute (fixed or pinned pre-fix) */
@@ -217,6 +257,7 @@ async function runDriverHarness(opts) {
     markerValue: null,                /* meta marker value the synthetic DOM reports */
     gotoThrows: false,                /* synthetic navigation throws (read failure path) */
     urlThrows: false,                 /* synthetic page.url() throws (observed-URL failure path) */
+    richCtxIndex: null,              /* operation-context index served by the rich synthetic page (token-capture control) */
     ...opts,
   };
   const calls = [];
@@ -265,6 +306,7 @@ async function runDriverHarness(opts) {
    * marker value; operation pages answer minimally and lack every other method
    * (accessing one throws, surfacing any unexpected synthetic-page dependency). */
   const makePage = (isMarkerPage, pageIndex) => {
+    if (cfg.richCtxIndex === pageIndex) return makeRichOperationPage((k, x) => calls.push(Object.assign({ kind: k }, x || {})));
     const base = {
       on: () => null,
       url: () => {
@@ -363,6 +405,7 @@ async function runDriverHarness(opts) {
     operationCountCalls: count(c => c.kind === 'adapter-countRecords'),
     discoveryCalls: count(c => c.kind === 'adapter-findOwned'),
     deleteCalls: count(c => c.kind === 'adapter-deleteOwned'),
+    transientClearCalls: count(c => c.kind === 'adapter-clearReceiptTransients'),
     browserLaunches: count(c => c.kind === 'browser-launch'),
     markerPageUrlReads: count(c => c.kind === 'page-url' && c.isMarkerPage),
     browserCloses: count(c => c.kind === 'browser-close'),
@@ -448,6 +491,7 @@ t('harness(actual entrypoint): complete-but-unqualified contract => BLOCKED_NO_Q
   assert.equal(r.stats.browserLaunches, 0);
   assert.equal(r.stats.discoveryCalls, 0);
   assert.equal(r.stats.deleteCalls, 0);
+  assert.equal(r.stats.transientClearCalls, 0, 'no transient deletion adapter call on the unqualified route');
   assert.equal(receipt.journey.external_adapter_attempts, 0);
   assert.ok(receipt.adapter_qualification, 'qualification state recorded in receipt');
   assert.equal(receipt.adapter_qualification.qualified, false);
@@ -585,6 +629,7 @@ t('harness(actual entrypoint): injected qualified adapter + matching URL/marker 
   assert.equal(r.stats.browserLaunches, 1);
   assert.ok(r.stats.operationCountCalls >= 2, 'operation ran (baseline + final counts through the injected adapter)');
   assert.ok(r.stats.discoveryCalls >= 1, 'discovery ran through the injected adapter');
+  assert.equal(r.stats.transientClearCalls, 0, 'empty-token no-call: PASSED path with zero captured tokens must NOT invoke the transient deletion adapter (6970814289)');
   const logNames = (receipt.journey.effect_log || []).map(e => e.effect);
   for (const k of ['preflightProbes', 'openBrowser', 'readBrowserMarker', 'closeBrowser', 'findOwnedRecords']) {
     assert.ok(logNames.indexOf(k) >= 0, 'effect log must include ' + k + ': ' + JSON.stringify(logNames));
@@ -648,13 +693,48 @@ function assertIdentityBlocked(r) {
   assert.equal(logNames.indexOf('deleteOwnedRecords'), -1, 'no delete after identity failure');
   assert.equal(r.stats.operationCountCalls, 0, 'operation (baseline counting) must not run');
   assert.equal(r.stats.discoveryCalls, 0, 'no discovery adapter call');
-  assert.equal(r.stats.deleteCalls, 0, 'no delete adapter call');
+  assert.equal(r.stats.deleteCalls, 0, 'no deleteOwned adapter call');
+  assert.equal(r.stats.transientClearCalls, 0, 'no clearReceiptTransients adapter call on rejected identity (6970814289)');
   assert.equal(r.stats.browserLaunches, 1);
   assert.ok(r.stats.ctxCloses >= 1, 'marker context closed in finally');
   assert.equal(r.stats.browserCloses, 1, 'journey closed the browser');
   assert.equal(r.exitCode, 1);
 }
 
+/* D11 — positive owned-token cleanup control (6970814289): a receipt token IS captured,
+ * a later operation step fails, and the scoped transient cleanup STILL runs through the
+ * adapter with the NONEMPTY token list (not gated on overall PASSED); token stays redacted. */
+t('harness(actual entrypoint): captured owned token + later operation failure => transient cleanup STILL runs with nonempty tokens; token redacted', async () => {
+  const contract = harnessContract();
+  const aCalls = [];
+  const r = await runDriverHarness({
+    contract,
+    adapter: syntheticQualifiedAdapter(aCalls, contract, {
+      findOwnedQueue: [[{ id: 777, type: 'tn_ticket', email_has_marker: true }], []],
+      deleteOwnedResult: { deleted: [777], failed: [], skipped: [] },
+      recordDetailResult: { id: 777, status: 'private', kind: 'service' },
+    }),
+    extraCalls: aCalls,
+    richCtxIndex: 2,
+    markerValue: 'TN-RUN-contract-beef',
+  });
+  assert.equal(r.err, null);
+  assert.equal(r.receipts['fix2-clean-error.json'], undefined);
+  const receiptText = r.receipts['fix2-clean-result.json'];
+  const receipt = JSON.parse(receiptText);
+  assert.equal(receipt.journey.status, 'PASSED', 'journey completes; the failure is inside the operation case ledger');
+  const c1err = receipt.checks.find(c => c.name === 'c1_error');
+  assert.ok(c1err && c1err.pass === false, 'later operation failure recorded');
+  assert.equal(receipt.owned_tokens_captured, 1, 'exactly one receipt token captured');
+  const clearCall = aCalls.find(c => c.kind === 'adapter-clearReceiptTransients');
+  assert.ok(clearCall, 'transient deletion adapter invoked for the NONEMPTY token list');
+  assert.equal(clearCall.tokensCount, 1, 'the adapter received the nonempty token list');
+  assert.equal(r.stats.transientClearCalls, 1);
+  assert.ok(r.stats.deleteCalls >= 1, 'journey owned-record cleanup ran');
+  assert.equal(receiptText.indexOf('feedface1234'), -1, 'token value redacted from the published receipt');
+  assert.equal(r.exitCode, 1);
+  assert.equal(r.stats.browserCloses, 1);
+});
 let fail = 0;
 (async () => {
   for (const [name, fn] of tests) {
