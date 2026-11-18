@@ -1,0 +1,220 @@
+{
+ "unit": "TN-G04-SITEMAP-MATRIX-V2-20261118",
+ "receipt_type": "LOCAL_TEST — no integration claim",
+ "manager_review": "https://github.com/DashSaman/TehNet/pull/96#issuecomment-6981114962",
+ "tested_full_head": "d081ecfdbc93776ea7a9b641ae26e3ccbccdfe6c",
+ "tested_head_parent": "34f0bba9c4886f1eecd6970aea46f7f78e2c1869",
+ "branch": "content/site-improvements-20261116",
+ "command_set": "node verify-afterd1-guard.cjs ; node verify-afterd1-guard.cjs --probes ; node verify-afterd1-guard.cjs candidates/candidates-manifest.json (all from qa/seo-device-guides-20261116/)",
+ "cwd": "qa/seo-device-guides-20261116/",
+ "runner_node_version": "v24.19.0",
+ "started_utc": "2026-11-18T14:19:56Z",
+ "finished_utc": "2026-11-18T14:19:57Z",
+ "input_digests": {
+  "content/seo-device-guides-20261116/page-edits/commercial/mikrotik-service.commercial.html": {
+   "raw_working_bytes_sha256": "19d22d1feb2c0086333e3ad96eb4a975e0d4e2cbdcbb20b4d4f5f67993ce2c5b",
+   "lf_normalized_sha256": "19d22d1feb2c0086333e3ad96eb4a975e0d4e2cbdcbb20b4d4f5f67993ce2c5b",
+   "working_has_crlf": false,
+   "published_blob_sha256": "19d22d1feb2c0086333e3ad96eb4a975e0d4e2cbdcbb20b4d4f5f67993ce2c5b",
+   "lf_normalized_matches_published_blob": true
+  },
+  "content/seo-device-guides-20261116/page-edits/commercial/network-setup.commercial.html": {
+   "raw_working_bytes_sha256": "7b249bb9d1e53f0ae7141a084b06d21e625d63c3374de0679a864175675a77c2",
+   "lf_normalized_sha256": "7b249bb9d1e53f0ae7141a084b06d21e625d63c3374de0679a864175675a77c2",
+   "working_has_crlf": false,
+   "published_blob_sha256": "7b249bb9d1e53f0ae7141a084b06d21e625d63c3374de0679a864175675a77c2",
+   "lf_normalized_matches_published_blob": true
+  },
+  "content/seo-device-guides-20261116/page-edits/commercial/network-support.commercial.html": {
+   "raw_working_bytes_sha256": "a1b43d561ac5c78aa2b5cd0f1ab01c0dcd183351454d652b2e82ecd67a3a858b",
+   "lf_normalized_sha256": "a1b43d561ac5c78aa2b5cd0f1ab01c0dcd183351454d652b2e82ecd67a3a858b",
+   "working_has_crlf": false,
+   "published_blob_sha256": "a1b43d561ac5c78aa2b5cd0f1ab01c0dcd183351454d652b2e82ecd67a3a858b",
+   "lf_normalized_matches_published_blob": true
+  },
+  "content/seo-device-guides-20261116/page-edits/commercial/mikrotik-service.commercial.patch": {
+   "raw_working_bytes_sha256": "3cdbebbaf0f85c8f819f5c3d2ed1a89cf47c71f67e954ef3b206579e88ef8ed7",
+   "lf_normalized_sha256": "3cdbebbaf0f85c8f819f5c3d2ed1a89cf47c71f67e954ef3b206579e88ef8ed7",
+   "working_has_crlf": false,
+   "published_blob_sha256": "3cdbebbaf0f85c8f819f5c3d2ed1a89cf47c71f67e954ef3b206579e88ef8ed7",
+   "lf_normalized_matches_published_blob": true
+  },
+  "content/seo-device-guides-20261116/page-edits/commercial/network-setup.commercial.patch": {
+   "raw_working_bytes_sha256": "3d374e6de4de741c27beb762b8b9ab48c6bb211ff8d2aa78bc9f7b71ede38a08",
+   "lf_normalized_sha256": "3d374e6de4de741c27beb762b8b9ab48c6bb211ff8d2aa78bc9f7b71ede38a08",
+   "working_has_crlf": false,
+   "published_blob_sha256": "3d374e6de4de741c27beb762b8b9ab48c6bb211ff8d2aa78bc9f7b71ede38a08",
+   "lf_normalized_matches_published_blob": true
+  },
+  "content/seo-device-guides-20261116/page-edits/commercial/network-support.commercial.patch": {
+   "raw_working_bytes_sha256": "9883db6c47ada5b1e323c89d086f57a5cea8c50ee1cd3af2dd76faaf21d08e5a",
+   "lf_normalized_sha256": "9883db6c47ada5b1e323c89d086f57a5cea8c50ee1cd3af2dd76faaf21d08e5a",
+   "working_has_crlf": false,
+   "published_blob_sha256": "9883db6c47ada5b1e323c89d086f57a5cea8c50ee1cd3af2dd76faaf21d08e5a",
+   "lf_normalized_matches_published_blob": true
+  },
+  "content/seo-device-guides-20261116/page-edits/commercial/commercial-manifest.json": {
+   "raw_working_bytes_sha256": "a7b3dee8916dba0ef70c251015b4e7e12e5976ea618e26a6dda391767a5c7867",
+   "lf_normalized_sha256": "a7b3dee8916dba0ef70c251015b4e7e12e5976ea618e26a6dda391767a5c7867",
+   "working_has_crlf": false,
+   "published_blob_sha256": "a7b3dee8916dba0ef70c251015b4e7e12e5976ea618e26a6dda391767a5c7867",
+   "lf_normalized_matches_published_blob": true
+  },
+  "qa/seo-device-guides-20261116/release/16-destination-matrix.json": {
+   "raw_working_bytes_sha256": "f49088e37b051eff75e03ef820ea64f58dcc979661aaa778763e0684fbf9bae0",
+   "lf_normalized_sha256": "f49088e37b051eff75e03ef820ea64f58dcc979661aaa778763e0684fbf9bae0",
+   "working_has_crlf": false,
+   "published_blob_sha256": "f49088e37b051eff75e03ef820ea64f58dcc979661aaa778763e0684fbf9bae0",
+   "lf_normalized_matches_published_blob": true
+  },
+  "content/seo-device-guides-20261116/page-edits/mikrotik-service.proposed.html": {
+   "raw_working_bytes_sha256": "6217088ae94eeccd7de4327fea3a3bdfc91f18437bb424724e07b2a0de9f4efd",
+   "lf_normalized_sha256": "6217088ae94eeccd7de4327fea3a3bdfc91f18437bb424724e07b2a0de9f4efd",
+   "working_has_crlf": false,
+   "published_blob_sha256": "6217088ae94eeccd7de4327fea3a3bdfc91f18437bb424724e07b2a0de9f4efd",
+   "lf_normalized_matches_published_blob": true
+  },
+  "content/seo-device-guides-20261116/page-edits/network-setup.proposed.html": {
+   "raw_working_bytes_sha256": "eed5896f6b4d7d61a70f2f0bf655949f62d0d2a98e8d0277492c94ae87bdc064",
+   "lf_normalized_sha256": "eed5896f6b4d7d61a70f2f0bf655949f62d0d2a98e8d0277492c94ae87bdc064",
+   "working_has_crlf": false,
+   "published_blob_sha256": "eed5896f6b4d7d61a70f2f0bf655949f62d0d2a98e8d0277492c94ae87bdc064",
+   "lf_normalized_matches_published_blob": true
+  },
+  "content/seo-device-guides-20261116/page-edits/network-support.proposed.html": {
+   "raw_working_bytes_sha256": "f801d05ca566bd06f6a8b42e92a48d325790e08c015b9284f8a0af98e140add7",
+   "lf_normalized_sha256": "f801d05ca566bd06f6a8b42e92a48d325790e08c015b9284f8a0af98e140add7",
+   "working_has_crlf": false,
+   "published_blob_sha256": "f801d05ca566bd06f6a8b42e92a48d325790e08c015b9284f8a0af98e140add7",
+   "lf_normalized_matches_published_blob": true
+  },
+  "content/seo-device-guides-20261116/page-edits/mikrotik-service.patch": {
+   "raw_working_bytes_sha256": "f0a2f5c07f14eda68e4f3e61000dd9b0061748be36c7afb872e6684a656e334e",
+   "lf_normalized_sha256": "f0a2f5c07f14eda68e4f3e61000dd9b0061748be36c7afb872e6684a656e334e",
+   "working_has_crlf": false,
+   "published_blob_sha256": "f0a2f5c07f14eda68e4f3e61000dd9b0061748be36c7afb872e6684a656e334e",
+   "lf_normalized_matches_published_blob": true
+  },
+  "content/seo-device-guides-20261116/page-edits/network-setup.patch": {
+   "raw_working_bytes_sha256": "a238f28a9028b7d0ff92035fec1fa3b5df03a65ec722958b988116d40630897e",
+   "lf_normalized_sha256": "a238f28a9028b7d0ff92035fec1fa3b5df03a65ec722958b988116d40630897e",
+   "working_has_crlf": false,
+   "published_blob_sha256": "a238f28a9028b7d0ff92035fec1fa3b5df03a65ec722958b988116d40630897e",
+   "lf_normalized_matches_published_blob": true
+  },
+  "content/seo-device-guides-20261116/page-edits/network-support.patch": {
+   "raw_working_bytes_sha256": "33c2283a0efaf9b87a7891d9e1f1f08daa7951fad8e21909df50b364a92f7857",
+   "lf_normalized_sha256": "33c2283a0efaf9b87a7891d9e1f1f08daa7951fad8e21909df50b364a92f7857",
+   "working_has_crlf": false,
+   "published_blob_sha256": "33c2283a0efaf9b87a7891d9e1f1f08daa7951fad8e21909df50b364a92f7857",
+   "lf_normalized_matches_published_blob": true
+  },
+  "content/seo-device-guides-20261116/page-edits/pages-manifest.json": {
+   "raw_working_bytes_sha256": "1299fd01c769eefad5cb47adba6699b035d98d081619fc76427497766d622fd5",
+   "lf_normalized_sha256": "1299fd01c769eefad5cb47adba6699b035d98d081619fc76427497766d622fd5",
+   "working_has_crlf": false,
+   "published_blob_sha256": "1299fd01c769eefad5cb47adba6699b035d98d081619fc76427497766d622fd5",
+   "lf_normalized_matches_published_blob": true
+  },
+  "content/seo-device-guides-20261116/page-edits/candidates/candidates-manifest.json": {
+   "raw_working_bytes_sha256": "b86c498d8bf170edef0b3b11207f2463d3a0afd42af91951ed862c391362ea1e",
+   "lf_normalized_sha256": "b86c498d8bf170edef0b3b11207f2463d3a0afd42af91951ed862c391362ea1e",
+   "working_has_crlf": false,
+   "published_blob_sha256": "b86c498d8bf170edef0b3b11207f2463d3a0afd42af91951ed862c391362ea1e",
+   "lf_normalized_matches_published_blob": true
+  },
+  "qa/seo-device-guides-20261116/verify-afterd1-guard.cjs": {
+   "raw_working_bytes_sha256": "de71e46c4017d9bb56e80d4e53539e45b908d952752469ecd5aff90813f791a8",
+   "lf_normalized_sha256": "1d4082e48dd6b22df6d016b84654b6875955ce178c8f8242aa75aaacf009d724",
+   "working_has_crlf": true,
+   "published_blob_sha256": "1d4082e48dd6b22df6d016b84654b6875955ce178c8f8242aa75aaacf009d724",
+   "lf_normalized_matches_published_blob": true
+  },
+  "content/seo-device-guides-20261116/topic-map.md": {
+   "raw_working_bytes_sha256": "b290e6832def83f512347f0c4bc4777f17704700526cc0fe64d05cb3e684d024",
+   "lf_normalized_sha256": "80a17b9f283a577200e83b2602764df2501282958e31ad19f5d506ff41081bc8",
+   "working_has_crlf": true,
+   "published_blob_sha256": "80a17b9f283a577200e83b2602764df2501282958e31ad19f5d506ff41081bc8",
+   "lf_normalized_matches_published_blob": true
+  }
+ },
+ "digest_policy_note": "raw working-byte AND LF-normalized sha256 per file, with explicit per-file CRLF flag and per-file published-blob match; no uniform all-inputs-exact claim",
+ "suite_results": [
+  {
+   "run": "guard_default_selected_bundle",
+   "command": "node verify-afterd1-guard.cjs",
+   "cwd": "qa/seo-device-guides-20261116/",
+   "exit_code": 0,
+   "summary_line": "GUARD=PASS failures=0 | RECEIPT afterd1-guard-receipt.json | exit=0",
+   "page_lines": [
+    "mikrotik-service {\"g1_base_digest\":\"PASS\",\"g2_header_prefix\":\"PASS\",\"g3_context_verified\":\"PASS (2 hunk[s], all context lines match base)\",\"g4_proposed_matches\":\"PASS\",\"g5_expected_guides\":\"PASS (8 canonical guide edges present)\",\"g6_forbidden_slugs\":\"PASS (4 known-dead slugs absent)\",\"g7_topic_map_known\":\"PASS (8 guide hrefs, all committed topic-map rows)\"}",
+    "network-setup {\"g1_base_digest\":\"PASS\",\"g2_header_prefix\":\"PASS\",\"g3_context_verified\":\"PASS (6 hunk[s], all context lines match base)\",\"g4_proposed_matches\":\"PASS\",\"g5_expected_guides\":\"PASS (11 canonical guide edges present)\",\"g6_forbidden_slugs\":\"PASS (4 known-dead slugs absent)\",\"g7_topic_map_known\":\"PASS (11 guide hrefs, all committed topic-map rows)\"}",
+    "network-support {\"g1_base_digest\":\"PASS\",\"g2_header_prefix\":\"PASS\",\"g3_context_verified\":\"PASS (4 hunk[s], all context lines match base)\",\"g4_proposed_matches\":\"PASS\",\"g5_expected_guides\":\"PASS (5 canonical guide edges present)\",\"g6_forbidden_slugs\":\"PASS (4 known-dead slugs absent)\",\"g7_topic_map_known\":\"PASS (5 guide hrefs, all committed topic-map rows)\"}"
+   ],
+   "stderr_first_line": null
+  },
+  {
+   "run": "guard_probes_negative_controls",
+   "command": "node verify-afterd1-guard.cjs --probes",
+   "cwd": "qa/seo-device-guides-20261116/",
+   "exit_code": 0,
+   "summary_line": "PROBES=ALL-AS-EXPECTED | RECEIPT afterd1-guard-receipt-probes.json | exit=0",
+   "page_lines": [
+    "P1_removed_required_guide FAILED-AS-EXPECTED [\"g4_proposed_bytes_differ\",\"expected_guide_missing:/guides/sfp-sfp-plus-guide/\"]",
+    "P2_reintroduced_dead_slug FAILED-AS-EXPECTED [\"g4_proposed_bytes_differ\",\"forbidden_dead_slug_present:/services/server-virtualization-tehran/\"]",
+    "P3_proposed_changed_without_patch_update FAILED-AS-EXPECTED [\"g4_proposed_bytes_differ\"]",
+    "P4_wrong_pinned_base FAILED-AS-EXPECTED [\"g1_git_show_error\"]",
+    "P5_joint_patch_plus_proposed_unknown_guide (LF and CRLF variants) FAILED-AS-EXPECTED [\"unknown_guide_href:/guides/probe-unknown-guide/\"]"
+   ],
+   "stderr_first_line": null
+  },
+  {
+   "run": "guard_candidates_historical",
+   "command": "node verify-afterd1-guard.cjs candidates/candidates-manifest.json",
+   "cwd": "qa/seo-device-guides-20261116/",
+   "exit_code": 0,
+   "summary_line": "GUARD=PASS failures=0 | RECEIPT afterd1-guard-receipt-candidates-manifest.json | exit=0",
+   "page_lines": [
+    "network-setup {\"g1_base_digest\":\"PASS\",\"g2_header_prefix\":\"PASS\",\"g3_context_verified\":\"PASS (3 hunk[s], all context lines match base)\",\"g4_proposed_matches\":\"PASS\"}",
+    "network-support {\"g1_base_digest\":\"PASS\",\"g2_header_prefix\":\"PASS\",\"g3_context_verified\":\"PASS (3 hunk[s], all context lines match base)\",\"g4_proposed_matches\":\"PASS\"}"
+   ],
+   "stderr_first_line": null
+  },
+  {
+   "run": "guard_commercial_cut",
+   "command": "node verify-afterd1-guard.cjs commercial/commercial-manifest.json",
+   "cwd": "qa/seo-device-guides-20261116/",
+   "exit_code": 0,
+   "summary_line": "GUARD=PASS failures=0 | RECEIPT afterd1-guard-receipt-commercial-manifest.json | exit=0",
+   "page_lines": [
+    "mikrotik-service {\"g1_base_digest\":\"PASS\",\"g2_header_prefix\":\"PASS\",\"g3_context_verified\":\"PASS (2 hunk[s], all context lines match base)\",\"g4_proposed_matches\":\"PASS\",\"g6_forbidden_slugs\":\"PASS (4 known-dead slugs absent)\"}",
+    "network-setup {\"g1_base_digest\":\"PASS\",\"g2_header_prefix\":\"PASS\",\"g3_context_verified\":\"PASS (5 hunk[s], all context lines match base)\",\"g4_proposed_matches\":\"PASS\",\"g6_forbidden_slugs\":\"PASS (4 known-dead slugs absent)\"}",
+    "network-support {\"g1_base_digest\":\"PASS\",\"g2_header_prefix\":\"PASS\",\"g3_context_verified\":\"PASS (4 hunk[s], all context lines match base)\",\"g4_proposed_matches\":\"PASS\",\"g6_forbidden_slugs\":\"PASS (4 known-dead slugs absent)\"}"
+   ],
+   "stderr_first_line": null
+  },
+  {
+   "run": "g03_boundary",
+   "boundary": "NOT_RUN — fixture eligibility re-verified 2026-11-18: no listener on default staging port localhost:18085; P2-fixture-qualification BLOCKED; exact missing gate = owner-local synthetic-only bootstrap absent; journeys remain NOT_RUN",
+   "not_run": true,
+   "exit_code": null
+  },
+  {
+   "run": "g04_sitemap_membership_check",
+   "command": "node verify-afterd1-guard.cjs release/verify-sitemap-membership.cjs",
+   "cwd": "qa/seo-device-guides-20261116/",
+   "exit_code": null,
+   "summary_line": null,
+   "page_lines": [],
+   "stderr_first_line": null
+  }
+ ],
+ "correction_coverage": {
+  "A_combined_bundle": "single selected bundle per page: hub contextual edits + candidate-v2 repairs (restored: 4 distinct dead slugs x6 links) + canonical N6 + S3/S5/S6 new setup edges + missing-space fix; G1-G4 byte-exact on the selected files",
+  "B_manifest_reconciliation": "pages-manifest.json rev4 = SELECTED bundle consumed by the guard (selected_bundle block recorded); candidates-manifest marked HISTORICAL/NOT_SELECTED for attribution only",
+  "C_missing_edges": "S3 /guides/sfp-sfp-plus-guide/, S5 /guides/switch-loop-rstp-lacp/, S6 /guides/switch-nas-server-upgrade/ added contextually from related paragraphs with DRAFT limitation; all slugs are canonical topic-map rows (parent edge coverage now all18 across the three mothers); draft_status DRAFT_NOT_PUBLISHED recorded",
+  "D_consuming_path": "guard rev3 + G7 topic-map-backed unknown-guide check consumed by CLI and --probes; 5 negative probes (removed required guide, reintroduced dead slug, proposed bytes changed without patch update, wrong pinned base, JOINT patch+proposed unknown guide with byte parity passing) each FAILED-AS-EXPECTED with specific reasons; default guard GUARD=PASS failures=0",
+  "E_copy_status": "missing space fixed (است.برای -> است. برای); new paragraphs keep the honest DRAFT/not-measured limitation in Persian; no invented outcomes/model facts/URLs"
+ },
+ "not_run": "No WordPress/KSES apply, production deployment, browser rendering, live URL/crawl, submission or ranking claim. Draft URLs remain explicitly unpublished pending the separate publication/index/recovery gates."
+}
