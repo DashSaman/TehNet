@@ -1,0 +1,95 @@
+{
+ "unit": "TN-C06-REPORT-COHERENCE-20261118",
+ "receipt_type": "LOCAL_TEST — read-only git/file evidence gathering; no live effect",
+ "manager_review": "https://github.com/DashSaman/TehNet/pull/96#issuecomment-6982818795",
+ "tested_full_head": "e09ac8e9b58f8e65630a9a34022f729fb61fe0b2",
+ "tested_head_parent": "d02c7b02943b07b6706b0186c8b6eb4dd6e2b58c",
+ "branch": "content/site-improvements-20261116",
+ "command": "node release/build-release-reconciliation.cjs",
+ "cwd": "qa/seo-device-guides-20261116/",
+ "runner_node_version": "v24.19.0",
+ "started_utc": "2026-11-18T15:29:35Z",
+ "finished_utc": "2026-11-18T15:29:36Z",
+ "run": {
+  "exit_code": 0,
+  "summary": [
+   "D1: NOT_RUN (deploy gated) — payload present on PR100 branch head",
+   "D2: NOT_RUN — install OFF (by design until D1)",
+   "D3: NOT_ACTIVATED — hard entry gate CLOSED (recovery prerequisite unsatisfied)",
+   "PR101-before-D3 + PR102/103: OPEN — merge decisions WAITING_FOR_OWNER (ordering PR101-before-D3 intact: D3 not attempted)",
+   "G03 — local browser acceptance: ACCEPTED (browser journey, exact inputs/limits) — HTTP subcase + browser journey closed; full release/browser PARITY remains a separate open qualification",
+   "recovery — mandatory D1/D2/D3 entry gate: GATE CLOSED — D1/D2/D3 entry not permitted until owner provides the off-host destination and the full test restore + wp-content rehearsal are executed and recorded",
+   "internal_consistency=CONSISTENT | WROTE release/c06-release-lane-reconciliation.json"
+  ]
+ },
+ "input_digests": {
+  "qa/seo-device-guides-20261116/release/build-release-reconciliation.cjs": {
+   "raw_working_bytes_sha256": "f5c295cd180f5c56ca1dd6a6821c878d4d66fb9295a84e6630a8fd89c3a77da3",
+   "lf_normalized_sha256": "f5c295cd180f5c56ca1dd6a6821c878d4d66fb9295a84e6630a8fd89c3a77da3",
+   "working_has_crlf": false,
+   "published_blob_sha256": "f5c295cd180f5c56ca1dd6a6821c878d4d66fb9295a84e6630a8fd89c3a77da3",
+   "lf_normalized_matches_published_blob": true
+  },
+  "qa/seo-device-guides-20261116/release/c06-release-lane-reconciliation.json": {
+   "raw_working_bytes_sha256": "b7d00a463e2a8b5da36b3e5e8a2852dc04d7a9c80caf10379f6d9311b82d417d",
+   "lf_normalized_sha256": "b7d00a463e2a8b5da36b3e5e8a2852dc04d7a9c80caf10379f6d9311b82d417d",
+   "working_has_crlf": false,
+   "published_blob_sha256": "b7d00a463e2a8b5da36b3e5e8a2852dc04d7a9c80caf10379f6d9311b82d417d",
+   "lf_normalized_matches_published_blob": true,
+   "note": "regenerated during the receipt run (new finished_utc); committed together with this receipt so the published blob equals the recorded digest"
+  },
+  "qa/seo-device-guides-20261116/release/16-destination-matrix.json": {
+   "raw_working_bytes_sha256": "f49088e37b051eff75e03ef820ea64f58dcc979661aaa778763e0684fbf9bae0",
+   "lf_normalized_sha256": "f49088e37b051eff75e03ef820ea64f58dcc979661aaa778763e0684fbf9bae0",
+   "working_has_crlf": false,
+   "published_blob_sha256": "f49088e37b051eff75e03ef820ea64f58dcc979661aaa778763e0684fbf9bae0",
+   "lf_normalized_matches_published_blob": true
+  },
+  "qa/seo-device-guides-20261116/release/verify-sitemap-membership.cjs": {
+   "raw_working_bytes_sha256": "5c25276b7657a52fd04ac1788d0e1b73e9ad04a6dee23df8e72052a2513d4833",
+   "lf_normalized_sha256": "5c25276b7657a52fd04ac1788d0e1b73e9ad04a6dee23df8e72052a2513d4833",
+   "working_has_crlf": false,
+   "published_blob_sha256": "5c25276b7657a52fd04ac1788d0e1b73e9ad04a6dee23df8e72052a2513d4833",
+   "lf_normalized_matches_published_blob": true
+  },
+  "ops/agent-control/OWNER_DECISION_INDEXABILITY_2026-11-12.fa.md": {
+   "raw_working_bytes_sha256": "590eb4901c6517efe7239fd0ca701769be063b4fe0431b244f21212182bb62aa",
+   "lf_normalized_sha256": "827236fbe262564d75f83683b982e81e0908a833d312237e8199597242446d7c",
+   "working_has_crlf": true,
+   "published_blob_sha256": "827236fbe262564d75f83683b982e81e0908a833d312237e8199597242446d7c",
+   "lf_normalized_matches_published_blob": true
+  },
+  "qa/growth-2026-10-31/production-recovery.json": {
+   "raw_working_bytes_sha256": "4f52ecf3d988d062e611978885bb1d57da6a2c0b54d5b98b2f5135565f3c6808",
+   "lf_normalized_sha256": "d3c9775d639777fce4eacb6d4b24b8a9781b2be20696409e42093236b1c3f851",
+   "working_has_crlf": true,
+   "published_blob_sha256": "d3c9775d639777fce4eacb6d4b24b8a9781b2be20696409e42093236b1c3f851",
+   "lf_normalized_matches_published_blob": true
+  },
+  "qa/store-2026-10-15/production-recovery.json": {
+   "raw_working_bytes_sha256": "6eb252af063f8c2861d58e0ee79583e8776059ec6f0d4619d74209aa36d40649",
+   "lf_normalized_sha256": "548dccfda4daeace17ea2b8a6f3ef1e9ca9be7c2ce3d38f79c094e2318f82c30",
+   "working_has_crlf": true,
+   "published_blob_sha256": "548dccfda4daeace17ea2b8a6f3ef1e9ca9be7c2ce3d38f79c094e2318f82c30",
+   "lf_normalized_matches_published_blob": true
+  }
+ },
+ "digest_policy_note": "raw + LF-normalized per file with per-file blob match; no uniform claim",
+ "headline": {
+  "production_release": "HELD (verdict 6982343308)",
+  "g03_local_browser_journey": "ACCEPTED for the exact inputs and limits (manager-side LOCAL_STAGING evidence recorded); no production readiness follows",
+  "merge_ready": "NO — M0 open and WAITING_FOR_OWNER; exact-head CI for PR100 a54198ce is VERIFIED SUCCESSFUL (4 completed successful check runs, 2026-11-18) — the merge decision remains the owner gate",
+  "d1_d2_d3_entry": "CLOSED — mandatory recovery gate unsatisfied (off-host test restore + wp-content rehearsal absent)",
+  "ordering": "PR101-before-D3 intact (D3 never attempted)",
+  "release_authorization": "NONE — everything remains owner-gated"
+ },
+ "internal_consistency": "CONSISTENT",
+ "not_run": [
+  "WordPress/KSES",
+  "browser",
+  "production deployment",
+  "backup execution",
+  "off-host restore execution",
+  "sitemap submission"
+ ]
+}
