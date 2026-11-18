@@ -439,6 +439,43 @@ function identityBindingOk(browserMarker, expected) {
   return { ok: failed.length === 0, failed, checks: checks.map(([name, pass]) => ({ name, pass })) };
 }
 
+/* --- TN-P2-ORIGINAL-DRIVER-SOURCE-CORRECTION-20261118: pure seam (no I/O) ---
+ * fixtureContractCompleteness: an adapter call is eligible ONLY for a COMPLETE
+ * contract (all five required fields); anything else — including withdrawn/legacy
+ * shapes — is default-blocked before the first external effect.
+ * observedEndpointBindingOk: the OBSERVED final URL must equal BOTH the contract
+ * app_endpoint AND the journey expected home_url; a redirected synthetic endpoint
+ * with the same marker, or a contract/BASE disagreement, fails here BEFORE
+ * operation/submit/discovery. Missing/empty/throwing observed URLs fail closed. */
+function fixtureContractCompleteness(contract) {
+  const c = (contract && typeof contract === "object") ? contract : {};
+  const req = [
+    ["fixture_marker_name", v => typeof v === "string" && v.length > 0],
+    ["fixture_marker_value", v => typeof v === "string" && v.length > 0],
+    ["app_endpoint", v => typeof v === "string" && v.length > 0],
+    ["db_identity", v => typeof v === "string" && v.length > 0],
+    ["source_fingerprints", v => v && typeof v === "object" && !Array.isArray(v) && Object.keys(v).length > 0],
+  ];
+  const missing = req.filter(([k, ok]) => !ok(c[k])).map(([k]) => k);
+  return { complete: missing.length === 0, missing };
+}
+function adapterEligibility(contract, digestReadiness) {
+  const comp = fixtureContractCompleteness(contract);
+  const dig = digestReadiness && typeof digestReadiness === "object" ? digestReadiness : {};
+  const reasons = [];
+  if (!comp.complete) reasons.push("incomplete_contract: " + comp.missing.join(","));
+  if (!(dig && dig.ok === true)) reasons.push("missing_or_invalid_digests");
+  return { eligible: reasons.length === 0, reasons, completeness: comp };
+}
+function observedEndpointBindingOk(observedUrl, contractAppEndpoint, expectedHomeUrl) {
+  const failed = [];
+  if (typeof observedUrl !== "string" || observedUrl.length === 0) failed.push("observed_url_missing");
+  if (typeof contractAppEndpoint !== "string" || contractAppEndpoint.length === 0) failed.push("contract_endpoint_missing");
+  if (typeof expectedHomeUrl !== "string" || expectedHomeUrl.length === 0) failed.push("expected_home_url_missing");
+  if (failed.length === 0 && observedUrl !== contractAppEndpoint) failed.push("observed_url_contract_endpoint_mismatch");
+  if (failed.length === 0 && observedUrl !== expectedHomeUrl) failed.push("observed_url_expected_home_mismatch");
+  return { ok: failed.length === 0, failed };
+}
 module.exports = {
   newRunMarker, isRunMarker, assertRunMarker, formEmail,
   isOwnedRecord, ownershipRejectionReason,
@@ -447,4 +484,5 @@ module.exports = {
   buildPreflightProbePhp, buildFindOwnedPhp, buildDeleteOwnedPhp,
   redactText, redactTokens, safeDetail, serializeOutput, runJourney, ALLOWED_TYPES,
   evaluateFixtureContract, preEffectGate, postBindingOk, validateDigestMap, identityBindingOk,
+  fixtureContractCompleteness, adapterEligibility, observedEndpointBindingOk,
 };

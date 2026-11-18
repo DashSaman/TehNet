@@ -108,18 +108,28 @@ function digestMap() {
   }
   return { REQUIRED_DIGEST_KEYS, map: m };
 }
+/* MANAGER_REVIEW 6969086962 A: the blocked receipt reports the ACTUAL number of
+ * external adapter attempts (each sshwp eval-file uploads a remote temp PHP —
+ * not a zero-mutation probe). No blanket "zero effects" claim. */
+let adapterAttempts = 0;
 function writeBlockedReceipt(status) {
   out.finished_utc = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
   out.status = status;
-  out.journey = { status, note: 'zero effects executed — gate failed before openBrowser' };
+  out.journey = {
+    status,
+    note: 'blocked before openBrowser/operation/discovery/delete — external adapter attempts so far (sshwp eval-file, each uploads a remote temp PHP): ' + adapterAttempts,
+    external_adapter_attempts: adapterAttempts,
+    browser_launches: 0,
+  };
   out.cleanup = { requested: 0, deleted: [], delete_failed_ids: [], skipped_unowned: [], post_read_owned_remaining: [], error: null };
   fs.writeFileSync('fix2-clean-result.json', JSON.stringify(H.serializeOutput(out, checks, RUN_MARKER, privTokens), null, 1));
-  console.log('RESULT=' + status + ' (no effects executed)');
+  console.log('RESULT=' + status + ' (blocked before openBrowser; sshwp attempts=' + adapterAttempts + ')');
   process.exitCode = 1;
 }
 
 /* SSH wp-cli eval-file with base64 payload; returns the JSON line */
 function sshwp(php) {
+  adapterAttempts++;
   const b64 = Buffer.from(php).toString('base64');
   const raw = execSync(SSH + ' "docker exec ' + CTN + ' sh -c \'echo ' + b64 + ' | base64 -d > /tmp/_tn_fix2.php && ' + WPC + ' eval-file /tmp/_tn_fix2.php\'"', { encoding: 'utf8', timeout: 30000 });
   const lines = raw.trim().split('\n');
@@ -153,7 +163,28 @@ function captureReceiptToken(url) {
    * any mutating effect. The browser-side marker is later READ FROM THE RENDERED
    * ENDPOINT (separate channel, via readBrowserMarker) — never copied from cleanup. */
   let cleanupEvidence = null, fixtureVerdict = null;
-  if (FIXTURE_CONTRACT && FIXTURE_CONTRACT.fixture_marker_name && FIXTURE_CONTRACT.cleanup_fingerprint_source) {
+  /* MANAGER_REVIEW 6969086962 A: contract COMPLETENESS and digest readiness are validated
+   * BEFORE the first external adapter call (sshwp uploads a temp PHP file to the remote
+   * container — an external effect). An incomplete contract or missing digest must reach
+   * the blocked receipt with ZERO external/browser/operation/discovery/delete effects.
+   * A withdrawn/legacy fixture stays unreachable: default is blocked unless the COMPLETE
+   * contract is supplied. Pure decision consumed from tn-fixture-helpers (injected seam). */
+  const dm = digestMap();
+  const dig = H.validateDigestMap(dm.REQUIRED_DIGEST_KEYS, dm.map);
+  const eligibility = H.adapterEligibility(FIXTURE_CONTRACT, dig);
+  ck('adapter_eligibility', eligibility.eligible, {
+    contract_complete: eligibility.completeness.complete,
+    contract_missing: eligibility.completeness.missing,
+    digests_ok: dig.ok,
+    missingDigests: dig.missing,
+    reasons: eligibility.reasons
+  });
+  if (!eligibility.eligible) {
+    writeBlockedReceipt(eligibility.completeness.complete ? 'BLOCKED_MISSING_EVIDENCE' : 'BLOCKED_FIXTURE_OWNERSHIP');
+    return;
+  }
+  /* Adapter eligible ONLY here: complete contract + valid digests validated before use. */
+  {
     const optName = H.phpSingleQuoted(FIXTURE_CONTRACT.fixture_marker_name);
     const fpName = H.phpSingleQuoted(FIXTURE_CONTRACT.cleanup_fingerprint_source);
     /* correct key/value fields: marker NAME = the contract's option name (literal string),
@@ -164,11 +195,18 @@ function captureReceiptToken(url) {
        the journey and FINAL two-channel identity is enforced there before mutation. */
     fixtureVerdict = H.evaluateFixtureContract(null, cleanupEvidence, FIXTURE_CONTRACT, 'preliminary');
   }
-  const dm = digestMap();
   const gate = H.preEffectGate({ requiredDigestKeys: dm.REQUIRED_DIGEST_KEYS, artifactDigests: dm.map, fixtureContract: fixtureVerdict });
   ck('pre_effect_gate', gate.ok, { status: gate.status, missingDigests: gate.missingDigests, contractFailed: gate.verdict ? gate.verdict.failed : 'NO_CONTRACT_SUPPLIED' });
   if (!gate.ok) { writeBlockedReceipt(gate.status); return; }
   ck('expected_artifact_digests_present', true, { note: 'validated BEFORE effects (see pre_effect_gate); repo-side expectation only — installed-combination attestation stays separate' });
+  /* MANAGER_REVIEW 6969086962 B: contract/BASE endpoint disagreement must block BEFORE
+   * openBrowser/operation — the journey's expected.home_url is BASE + '/', so a contract
+   * naming a different endpoint would silently bind the wrong target. */
+  if (FIXTURE_CONTRACT.app_endpoint && FIXTURE_CONTRACT.app_endpoint !== BASE + '/') {
+    out.endpoint_disagreement = { contract_app_endpoint: FIXTURE_CONTRACT.app_endpoint, driver_base: BASE + '/' };
+    writeBlockedReceipt('BLOCKED_CONTRACT_ENDPOINT_MISMATCH');
+    return;
+  }
 
   const res = await H.runJourney({
     marker: RUN_MARKER,
@@ -184,17 +222,28 @@ function captureReceiptToken(url) {
         return b;
       },
       /* browser-side marker: READ from the rendered endpoint via the contract-named
-         mechanism (meta:<name>). Separate channel — never copied from cleanup evidence. */
+         mechanism (meta:<name>). Separate channel — never copied from cleanup evidence.
+         MANAGER_REVIEW 6969086962 B: the OBSERVED final URL is bound (never the
+         hardcoded BASE); read failures surface as null marker so the journey's
+         identity gate blocks BEFORE operation/submit/discovery; the synthetic
+         browser context is closed in finally on every path. */
       readBrowserMarker: async ({ browser }) => {
         const src = FIXTURE_CONTRACT.browser_marker_source || '';
         if (!/^meta:/.test(src)) return { home_url: BASE + '/', fixture_marker_name: FIXTURE_CONTRACT.fixture_marker_name, fixture_marker_value: null };
         const sel = 'meta[name="' + src.slice(5) + '"]';
         const ctx = await browser.newContext({ viewport: { width: 640, height: 480 }, locale: 'fa' });
-        const p = await ctx.newPage();
-        await p.goto(BASE + '/', { waitUntil: 'domcontentloaded', timeout: 20000 });
-        const value = await p.evaluate(s => { const m = document.querySelector(s); return m ? m.getAttribute('content') : null; }, sel);
-        await ctx.close();
-        return { home_url: BASE + '/', fixture_marker_name: FIXTURE_CONTRACT.fixture_marker_name, fixture_marker_value: value };
+        let markerValue = null, observedUrl = null;
+        try {
+          const p = await ctx.newPage();
+          await p.goto(BASE + '/', { waitUntil: 'domcontentloaded', timeout: 20000 });
+          observedUrl = p.url();
+          markerValue = await p.evaluate(s => { const m = document.querySelector(s); return m ? m.getAttribute('content') : null; }, sel);
+        } finally {
+          await ctx.close().catch(() => {});
+        }
+        /* OBSERVED final URL bound — never the hardcoded BASE (a redirected synthetic
+           endpoint with the same marker must FAIL the endpoint binding downstream). */
+        return { home_url: observedUrl || (BASE + '/'), fixture_marker_name: FIXTURE_CONTRACT.fixture_marker_name, fixture_marker_value: markerValue };
       },
       closeBrowser: async b => { await b.close(); },
       findOwnedRecords: async marker => JSON.parse(sshwp(H.buildFindOwnedPhp(marker))),
