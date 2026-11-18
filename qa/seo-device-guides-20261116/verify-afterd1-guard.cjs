@@ -292,7 +292,9 @@ if (PROBES) {
   }
   const ok = failures === 0;
   const finishedUtc = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
-  const receiptName = MANIFEST_ARG ? 'afterd1-guard-receipt-candidates.json' : 'afterd1-guard-receipt.json';
+  const receiptName = MANIFEST_ARG
+    ? 'afterd1-guard-receipt-' + path.basename(MANIFEST_ARG).replace(/\.json$/, '') + '.json'
+    : 'afterd1-guard-receipt.json';
   const receipt = {
     packet: 'TN-AFTERD1-GUARD-VERIFY-20261116',
     manifest_selected_bundle: MANIFEST.selected_bundle || null,

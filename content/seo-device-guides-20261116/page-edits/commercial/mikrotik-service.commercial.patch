@@ -1,0 +1,54 @@
+--- a/content/commercial-decision-2026-11-08-v2/mikrotik-service.html@a54198ce7ed3535d6783432d8401660e2e023f9d (after-D1 118f34b1ec9e…)
+
++++ b/content/commercial-decision-2026-11-08-v2/mikrotik-service.html (commercial cut, NOT_DEPLOYED)
+
+@@ -3,7 +3,7 @@
+ <!-- /wp:paragraph -->
+ 
+ <!-- wp:paragraph -->
+-<p>شرح کوتاه و پاک‌سازی‌شدهٔ مسئله را در <a href="/support/">درخواست پشتیبانی</a> بنویسید؛ برای پروژه یا برآورد سازمانی، <a href="/services/?tn_service_context=security-scoping#service-request">درخواست سازمانی</a> را ثبت کنید. نصب ابزار یا تحویل رمز برای ثبت درخواست اولیه لازم نیست.</p>
++<p>شرح کوتاه و پاک‌سازی‌شدهٔ مسئله را در <a href="/support/">درخواست پشتیبانی</a> بنویسید؛ برای پروژه یا برآورد سازمانی، <a href="/services/?tn_service_context=mikrotik#service-request">درخواست سازمانی</a> را ثبت کنید. نصب ابزار یا تحویل رمز برای ثبت درخواست اولیه لازم نیست.</p>
+ <!-- /wp:paragraph -->
+ 
+ <!-- wp:paragraph -->
+@@ -130,6 +130,40 @@
+ <p><strong>منابع و حد بررسی:</strong> دو صفحهٔ جاری MikroTik، بخش‌های Export/Import و محدودیت‌های Safe Mode، و بخش پردازش سخت‌افزاری Bridge در ۱ نوامبر ۲۰۲۶ بازبینی شدند. انتخابگر مستند نسخهٔ7.26 را نشان می‌داد؛ این نسخهٔ دستگاه یا توصیهٔ ارتقای آن نیست. سایت قدیمی مستندات پیام توقف ویرایش دارد و پشتوانهٔ جاری این متن نیست. قالب درخواست و مثال، پیشنهاد توضیحی‌اند؛ هیچ کانفیگ، آزمون شبکه، بازیابی یا پروژهٔ مشتری در این متن گزارش نشده است.</p>
+ <!-- /wp:paragraph -->
+ 
++<!-- wp:paragraph -->
++<p><strong>پاسخ کوتاه:</strong> ما کارهای رایج MikroTik را با محدودهٔ روشن انجام می‌دهیم: نصب و کانفیگ RouterOS، فایروال و NAT، VLAN، چند لینک اینترنت، VPN سایت‌به‌سایت، مدیریت پهنای باند، و رفع اختلال با ثبت قبل/بعد تغییرات.</p>
++<!-- /wp:paragraph -->
++<!-- wp:heading -->
++<h2 class="wp-block-heading">کارها و خروجی تحویل </h2>
++<!-- /wp:heading -->
++<!-- wp:list -->
++<ul class="wp-block-list"><!-- wp:list-item -->
++<li>کانفیگ اولیهٔ RouterOS (interface، NAT، DHCP، فایروال پایه)</li>
++<!-- /wp:list-item --><!-- wp:list-item -->
++<li>VPN سایت‌به‌سایت (IPsec/WireGuard بسته به مدل و نسخه)</li>
++<!-- /wp:list-item --><!-- wp:list-item -->
++<li>VLAN و بخش‌بندی شبکه، مدیریت پهنای باند</li>
++<!-- /wp:list-item --><!-- wp:list-item -->
++<li>بررسی اختلال با ثبت نشانهٔ قبل/بعد و گزارش جلسه</li>
++<!-- /wp:list-item -->
++</ul>
++<!-- /wp:list -->
++<!-- wp:paragraph -->
++<p><strong>خروجی قابل‌تحویل:</strong> پیکربندی مستندشده، فایل backup، گزارش تغییرات.</p>
++<!-- /wp:paragraph -->
++<!-- wp:paragraph -->
++<p><strong>محدودیت‌ها:</strong> تضمین سرعت اینترنت ISP، رفع خرابی سخت‌افزار فیزیکی و کاری خارج از محدودهٔ توافق‌شده انجام نمی‌شود.</p>
++<!-- /wp:paragraph -->
++<!-- wp:heading -->
++<h2 class="wp-block-heading">انتخاب مسیر </h2>
++<!-- /wp:heading -->
++<!-- wp:paragraph -->
++<p>اگر هنوز تجهیز ندارید، راهنمای انتخاب و مقایسهٔ روترهای میکروتیک مدل مناسب را مشخص می‌کند؛ برای سوئیچ و PoE راهنمای سوئیچ‌های CRS است.</p>
++<!-- /wp:paragraph -->
++<!-- wp:paragraph -->
++<p><strong>CTA:</strong> برای برآورد، <a href="/b2b/">درخواست سازمانی</a> یا <a href="/support/">سامانهٔ پشتیبانی</a> با شرح کوتاه و بدون رمز/backup ثبت کنید. هماهنگی تلفنی: [tehnet_phone].</p>
++<!-- /wp:paragraph -->
++
+ <!-- wp:shortcode -->
+ [tn_editorial_note]
+ <!-- /wp:shortcode -->

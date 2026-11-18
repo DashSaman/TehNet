@@ -2,8 +2,8 @@
  "packet": "TN-AFTERD1-GUARD-PROBES-20261118",
  "command": "node verify-afterd1-guard.cjs --probes",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-18T13:54:08Z",
- "finished_utc": "2026-11-18T13:54:08Z",
+ "started_utc": "2026-11-18T14:03:39Z",
+ "finished_utc": "2026-11-18T14:03:39Z",
  "exit": 0,
  "note": "same verifyPageCore consuming path as the default guard; mutated in-memory inputs only — no repo file modified",
  "probes": [

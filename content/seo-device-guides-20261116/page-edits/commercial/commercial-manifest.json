@@ -1,0 +1,74 @@
+{
+ "packet": "TN-G02G04-COMMERCIAL-CUT-20261118",
+ "status": "CANDIDATE / NOT_DEPLOYED — commercial cut awaiting release gates and owner publication consent",
+ "base_note": "same pinned after-D1 base as pages-manifest.json (a54198ce… commits; per-page after_d1_sha256 identical)",
+ "construction": "PRE-HUB proposed state (461ea9df7026ebff2098d2876386f0572ed2783f^ = base+FAQ, zero guide links) + candidate-v2 dead-link repairs + ONE primary CTA context fix per mother; NO /guides/ draft links (all 21 verified 404 on 2026-11-18)",
+ "topic_map_file": null,
+ "commercial_cta": {
+  "mikrotik-service": {
+   "primary_cta_destination": "/services/?tn_service_context=mikrotik#service-request",
+   "form_context_value": "mikrotik",
+   "form_context_verified": "live /services/ form option value (2026-11-18 sweep)"
+  },
+  "network-setup": {
+   "primary_cta_destination": "/services/?tn_service_context=network-setup#service-request",
+   "form_context_value": "network-setup",
+   "form_context_verified": "live /services/ form option value (2026-11-18 sweep)"
+  },
+  "network-support": {
+   "primary_cta_destination": "/services/?tn_service_context=network-support#service-request",
+   "form_context_value": "network-support",
+   "form_context_verified": "live /services/ form option value (2026-11-18 sweep)"
+  }
+ },
+ "release_readiness": {
+  "policy_16": "11 live (200, no noindex observed) + 5 dead (404) — fresh read-only GET sweep 2026-11-18",
+  "guide_draft_21": "all 21 /guides/ destinations return 404 (2026-11-18 sweep) — excluded from this cut by construction",
+  "sitemap": "wp-sitemap.xml reachable, 71 URL entries across 6 child files (2026-11-18) — reconciliation vs release plan recorded in qa release evidence",
+  "request_journey": "NOT_RUN — no qualified isolated LOCAL_STAGING fixture (P2-fixture-qualification BLOCKED); boundary recorded"
+ },
+ "pages": [
+  {
+   "name": "mikrotik-service",
+   "after_d1_file": "content/commercial-decision-2026-11-08-v2/mikrotik-service.html",
+   "after_d1_sha256": "118f34b1ec9eb08531d18e52bbedf8e25f4d7745928214b4388e6d39ede41f15",
+   "patch": "commercial/mikrotik-service.commercial.patch",
+   "proposed": "commercial/mikrotik-service.commercial.html",
+   "draft_status": "DRAFT_NOT_PUBLISHED",
+   "forbidden_slugs": [
+    "/network-project-proposal-checklist/",
+    "/business-server-planning-guide/",
+    "/services/server-virtualization-tehran/",
+    "/network-support-contract-guide/"
+   ]
+  },
+  {
+   "name": "network-setup",
+   "after_d1_file": "content/commercial-decision-2026-11-08-v2/network-setup.html",
+   "after_d1_sha256": "ab56940e609f5afa17aad6917dc2834490e0437aa7ecadc2c66adae6a22e2460",
+   "patch": "commercial/network-setup.commercial.patch",
+   "proposed": "commercial/network-setup.commercial.html",
+   "draft_status": "DRAFT_NOT_PUBLISHED",
+   "forbidden_slugs": [
+    "/network-project-proposal-checklist/",
+    "/business-server-planning-guide/",
+    "/services/server-virtualization-tehran/",
+    "/network-support-contract-guide/"
+   ]
+  },
+  {
+   "name": "network-support",
+   "after_d1_file": "content/commercial-decision-2026-11-08-v2/network-support.html",
+   "after_d1_sha256": "f0ecdcfe014371ac22df9647512a6ccd73b18d52a357c4fc681e442ff3ec37de",
+   "patch": "commercial/network-support.commercial.patch",
+   "proposed": "commercial/network-support.commercial.html",
+   "draft_status": "DRAFT_NOT_PUBLISHED",
+   "forbidden_slugs": [
+    "/network-project-proposal-checklist/",
+    "/business-server-planning-guide/",
+    "/services/server-virtualization-tehran/",
+    "/network-support-contract-guide/"
+   ]
+  }
+ ]
+}

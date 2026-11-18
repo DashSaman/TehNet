@@ -1,0 +1,53 @@
+--- a/content/commercial-decision-2026-11-08-v2/network-support.html@a54198ce7ed3535d6783432d8401660e2e023f9d (after-D1 f0ecdcfe0143…)
+
++++ b/content/commercial-decision-2026-11-08-v2/network-support.html (commercial cut, NOT_DEPLOYED)
+
+@@ -1,6 +1,6 @@
+ <!-- wp:paragraph {"className":"tn-lead"} --><p class="tn-lead">پشتیبانی شبکه تهران برای عیب‌یابی شبکه‌ای است که اکنون از آن استفاده می‌کنید: قطعی، کندی، خطای دسترسی یا اختلال پس از تغییر تنظیمات. برای شروع، نشانهٔ مشکل و اثر آن بر کار مجموعه را بفرستید؛ روش بررسی و محدودهٔ کار پیش از اجرا مشخص می‌شود.</p><!-- /wp:paragraph -->
+ 
+-<!-- wp:paragraph --><p><a href="/support/">ثبت و پیگیری درخواست پشتیبانی</a> · <a href="/services/?tn_service_context=monitoring-scoping#service-request">درخواست بررسی سازمانی و پیش‌فاکتور</a></p><!-- /wp:paragraph -->
++<!-- wp:paragraph --><p><a href="/support/">ثبت و پیگیری درخواست پشتیبانی</a> · <a href="/services/?tn_service_context=network-support#service-request">درخواست بررسی سازمانی و پیش‌فاکتور</a></p><!-- /wp:paragraph -->
+ 
+ <!-- wp:paragraph --><p>تماس برای هماهنگی: <strong dir="ltr">[tehnet_phone]</strong></p><!-- /wp:paragraph -->
+ 
+@@ -47,7 +47,7 @@
+ <!-- /wp:table -->
+ 
+ <!-- wp:paragraph -->
+-<p><strong>پاسخ، شروع بررسی و رفع مشکل سه زمان متفاوت‌اند.</strong> برای همان قرارداد، ساعات پوشش و استثناها، روش ارجاع، مسئول دریافت و وابستگی تأمین/اینترنت را بنویسید. هدف پاسخ را به تضمین رفع تبدیل نکنید؛ نتیجهٔ آزموده‌نشده باز می‌ماند. <a href="/network-support-contract-guide/">راهنمای بندهای عملیاتی پشتیبانی</a> کاربرگ مقایسهٔ توافق و خروج از همکاری دارد؛ دربارهٔ اعتبار حقوقی قرارداد باید جدا مشورت کنید.</p>
++<p><strong>پاسخ، شروع بررسی و رفع مشکل سه زمان متفاوت‌اند.</strong> برای همان قرارداد، ساعات پوشش و استثناها، روش ارجاع، مسئول دریافت و وابستگی تأمین/اینترنت را بنویسید. هدف پاسخ را به تضمین رفع تبدیل نکنید؛ نتیجهٔ آزموده‌نشده باز می‌ماند. <a href="/services/network-support-tehran/">راهنمای بندهای عملیاتی پشتیبانی</a> کاربرگ مقایسهٔ توافق و خروج از همکاری دارد؛ دربارهٔ اعتبار حقوقی قرارداد باید جدا مشورت کنید.</p>
+ <!-- /wp:paragraph -->
+ 
+ <!-- wp:heading {"anchor":"support-open-report"} -->
+@@ -63,7 +63,7 @@
+ <!-- /wp:table -->
+ 
+ <!-- wp:paragraph -->
+-<p>برای شبکهٔ جدید <a href="/services/network-setup-tehran/">راه‌اندازی</a> و برای workload یا مهاجرت <a href="/services/server-virtualization-tehran/">سرور و مجازی‌سازی</a> را ببینید. <a href="/services/?tn_service_context=monitoring-scoping#service-request">درخواست همکاری یا مانیتورینگ</a> در همان تیکت خدمات ادامه پیدا می‌کند؛ تجهیزات و پیش‌فاکتور B2B مسیر موجود خود را دارند.</p>
++<p>برای شبکهٔ جدید <a href="/services/network-setup-tehran/">راه‌اندازی</a> و برای workload یا مهاجرت <a href="/services/">سرور و مجازی‌سازی</a> را ببینید. <a href="/services/?tn_service_context=monitoring-scoping#service-request">درخواست همکاری یا مانیتورینگ</a> در همان تیکت خدمات ادامه پیدا می‌کند؛ تجهیزات و پیش‌فاکتور B2B مسیر موجود خود را دارند.</p>
+ <!-- /wp:paragraph -->
+ 
+ <!-- wp:heading --><h2 class="wp-block-heading">منابع مرتبط و گام بعد</h2><!-- /wp:heading -->
+@@ -91,3 +91,22 @@
+ <!-- wp:heading {"level":3} --><h3 class="wp-block-heading">آیا دریافت هشدار یعنی مشکل رفع شده است؟</h3><!-- /wp:heading -->
+ 
+ <!-- wp:paragraph --><p>خیر؛ کشف، ارسال پیام، پذیرفتن مسئولیت و رفع مسئله مراحل جدا هستند. هنگام مقایسهٔ پیشنهادها، نتیجهٔ مورد انتظار هر مرحله و استثناهای وابسته به اینترنت، تأمین قطعه یا سرویس‌دهندهٔ دیگر را بخواهید. اگر هدفتان جلوگیری از غافلگیری در قطعی‌هاست، <a href="/services/?tn_service_context=monitoring-scoping#service-request">درخواست راه‌اندازی یا بهبود مانیتورینگ</a> را با نام کلی سرویس و اثر اختلال ثبت کنید؛ رمز یا نقشهٔ محرمانه لازم نیست.</p><!-- /wp:paragraph -->
++<!-- wp:paragraph -->
++<p><strong>پاسخ کوتاه:</strong> پشتیبانی ما سه بخش دارد: رخداد (رفع اختلال با ثبت قبل/بعد)، نگهداری دوره‌ای (بررسی سلامت، backup، به‌روزرسانی کنترل‌شده) و گزارش تحویل. پیش از شروع، محدودهٔ پشتیبانی و مسیر ثبت روشن می‌شود.</p>
++<!-- /wp:paragraph -->
++<!-- wp:heading -->
++<h2 class="wp-block-heading">گزارش و تحویل </h2>
++<!-- /wp:heading -->
++<!-- wp:paragraph -->
++<p>هر رخداد با این اقلام بسته می‌شود: شرح مسئله، تغییرات اعمال‌شده، نشانهٔ سالم‌شدن، و موارد باز. برای MikroTik فایل backup و نسخهٔ RouterOS ثبت می‌شود.</p>
++<!-- /wp:paragraph -->
++<!-- wp:heading -->
++<h2 class="wp-block-heading">قبل از قرارداد چه بخوانید؟ </h2>
++<!-- /wp:heading -->
++<!-- wp:paragraph -->
++<p>پرسش‌های کلیدی پیش از توافق (سطح دسترسی، مسئول تأیید، بازهٔ کاری) در <a href="/services/network-support-tehran/">راهنمای قرارداد پشتیبانی شبکه</a> آمده است.</p>
++<!-- /wp:paragraph -->
++<!-- wp:paragraph -->
++<p><strong>CTA:</strong> ثبت رخداد در <a href="/support/">سامانهٔ پشتیبانی</a>؛ بررسی سازمانی در <a href="/b2b/">درخواست سازمانی</a>.</p>
++<!-- /wp:paragraph -->
++

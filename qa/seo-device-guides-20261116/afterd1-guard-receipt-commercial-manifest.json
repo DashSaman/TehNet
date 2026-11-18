@@ -1,0 +1,55 @@
+{
+ "packet": "TN-AFTERD1-GUARD-VERIFY-20261116",
+ "manifest_selected_bundle": null,
+ "command": "node verify-afterd1-guard.cjs commercial/commercial-manifest.json",
+ "cwd": "qa/seo-device-guides-20261116/",
+ "started_utc": "2026-11-18T14:03:39Z",
+ "finished_utc": "2026-11-18T14:03:39Z",
+ "exit": 0,
+ "failures": 0,
+ "results": [
+  {
+   "name": "mikrotik-service",
+   "checks": {
+    "g1_base_digest": "PASS",
+    "g2_header_prefix": "PASS",
+    "g3_context_verified": "PASS (2 hunk[s], all context lines match base)",
+    "g4_proposed_matches": "PASS",
+    "g6_forbidden_slugs": "PASS (4 known-dead slugs absent)"
+   },
+   "reasons": [],
+   "base_commit": "a54198ce7ed3535d6783432d8401660e2e023f9d"
+  },
+  {
+   "name": "network-setup",
+   "checks": {
+    "g1_base_digest": "PASS",
+    "g2_header_prefix": "PASS",
+    "g3_context_verified": "PASS (5 hunk[s], all context lines match base)",
+    "g4_proposed_matches": "PASS",
+    "g6_forbidden_slugs": "PASS (4 known-dead slugs absent)"
+   },
+   "reasons": [],
+   "base_commit": "a54198ce7ed3535d6783432d8401660e2e023f9d"
+  },
+  {
+   "name": "network-support",
+   "checks": {
+    "g1_base_digest": "PASS",
+    "g2_header_prefix": "PASS",
+    "g3_context_verified": "PASS (4 hunk[s], all context lines match base)",
+    "g4_proposed_matches": "PASS",
+    "g6_forbidden_slugs": "PASS (4 known-dead slugs absent)"
+   },
+   "reasons": [],
+   "base_commit": "a54198ce7ed3535d6783432d8401660e2e023f9d"
+  }
+ ],
+ "mode": "LOCAL_TEST — read-only against git history; writes only the receipt",
+ "not_run": [
+  "WordPress/KSES apply of patches",
+  "production deployment",
+  "browser rendering"
+ ],
+ "production_touched": false
+}

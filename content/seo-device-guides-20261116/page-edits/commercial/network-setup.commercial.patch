@@ -1,0 +1,93 @@
+--- a/content/commercial-decision-2026-11-08-v2/network-setup.html@a54198ce7ed3535d6783432d8401660e2e023f9d (after-D1 ab56940e609f…)
+
++++ b/content/commercial-decision-2026-11-08-v2/network-setup.html (commercial cut, NOT_DEPLOYED)
+
+@@ -39,7 +39,7 @@
+ <!-- /wp:table -->
+ 
+ <!-- wp:paragraph -->
+-<p>برای مقایسهٔ پیشنهادهای دو مجری از <a href="/network-project-proposal-checklist/">برگهٔ هم‌دامنه‌کردن پیشنهادها</a> استفاده کنید. تجهیزات، مجوز، اجرا، مستندات و نگهداری را جدا ببینید. رمز، backup، دادهٔ مشتری یا نقشهٔ محرمانه را در فرم عمومی نفرستید؛ دریافت جزئیات تخصصی بعداً با کانال و دسترسی مجاز هماهنگ می‌شود.</p>
++<p>برای مقایسهٔ پیشنهادهای دو مجری از <a href="/services/network-setup-tehran/">برگهٔ هم‌دامنه‌کردن پیشنهادها</a> استفاده کنید. تجهیزات، مجوز، اجرا، مستندات و نگهداری را جدا ببینید. رمز، backup، دادهٔ مشتری یا نقشهٔ محرمانه را در فرم عمومی نفرستید؛ دریافت جزئیات تخصصی بعداً با کانال و دسترسی مجاز هماهنگ می‌شود.</p>
+ <!-- /wp:paragraph -->
+ 
+ <!-- wp:heading {"anchor":"agreed-design"} -->
+@@ -183,7 +183,7 @@
+ <!-- /wp:heading -->
+ 
+ <!-- wp:paragraph -->
+-<p>برای بررسی اولیه با <strong>[tehnet_phone]</strong> تماس بگیرید یا از <a href="/contact/">صفحهٔ تماس</a> هماهنگ شوید. برای برآورد سازمانی، <a href="/services/?tn_service_context=wifi-branch-scoping#service-request">درخواست بررسی پروژه و پیش‌فاکتور</a> در دسترس است؛ شرح نیاز را بدون اطلاعات حساس بنویسید. مشخص کنید شبکهٔ جدید می‌خواهید، جابه‌جایی دارید یا یک بخش را توسعه می‌دهید؛ تعداد تقریبی کاربران، محل پروژه و سرویس حیاتی را هم بنویسید. ثبت درخواست، تأیید زمان اجرا یا قیمت نیست.</p>
++<p>برای بررسی اولیه با <strong>[tehnet_phone]</strong> تماس بگیرید یا از <a href="/contact/">صفحهٔ تماس</a> هماهنگ شوید. برای برآورد سازمانی، <a href="/services/?tn_service_context=network-setup#service-request">درخواست بررسی پروژه و پیش‌فاکتور</a> در دسترس است؛ شرح نیاز را بدون اطلاعات حساس بنویسید. مشخص کنید شبکهٔ جدید می‌خواهید، جابه‌جایی دارید یا یک بخش را توسعه می‌دهید؛ تعداد تقریبی کاربران، محل پروژه و سرویس حیاتی را هم بنویسید. ثبت درخواست، تأیید زمان اجرا یا قیمت نیست.</p>
+ <!-- /wp:paragraph -->
+ 
+ <!-- wp:paragraph -->
+@@ -219,7 +219,7 @@
+ <!-- /wp:heading -->
+ 
+ <!-- wp:paragraph -->
+-<p>شبکه باید مسیر دسترسی کاربران به برنامه و داده را فراهم کند؛ طراحی میزبان، VM، مهاجرت برنامه و backup/restore دامنهٔ مکمل و مستقلی دارند. اگر این بخش هم لازم است، <a href="/services/server-virtualization-tehran/">خدمت سرور و مجازی‌سازی در تهران</a> ورودی‌های workload، نسخه/مجوز، دو سناریوی فرضی و ماتریس پذیرش را توضیح می‌دهد. ظرفیت یا سازگاری از صرف نام یک محصول نتیجه نمی‌شود.</p>
++<p>شبکه باید مسیر دسترسی کاربران به برنامه و داده را فراهم کند؛ طراحی میزبان، VM، مهاجرت برنامه و backup/restore دامنهٔ مکمل و مستقلی دارند. اگر این بخش هم لازم است، <a href="/services/">خدمت سرور و مجازی‌سازی در تهران</a> ورودی‌های workload، نسخه/مجوز، دو سناریوی فرضی و ماتریس پذیرش را توضیح می‌دهد. ظرفیت یا سازگاری از صرف نام یک محصول نتیجه نمی‌شود.</p>
+ <!-- /wp:paragraph -->
+ 
+ <!-- wp:paragraph -->
+@@ -226,4 +226,4 @@
+-<p>برای شروع <a href="/business-server-planning-guide/#planning-sheet">فرم نیازسنجی سرور</a> را آماده کنید و <a href="/services/?tn_service_context=server-scoping#service-request">درخواست با موضوع سرور</a> بفرستید. هدف و محدودیت توقف کافی است؛ انتخاب بستر و معیار بازیابی پس از بررسی تأیید می‌شوند. جزئیات اجرا و پذیرش سرور در همان صفحهٔ تخصصی آمده است.</p>
++<p>برای شروع <a href="/services/network-setup-tehran/">فرم نیازسنجی سرور</a> را آماده کنید و <a href="/services/?tn_service_context=server-scoping#service-request">درخواست با موضوع سرور</a> بفرستید. هدف و محدودیت توقف کافی است؛ انتخاب بستر و معیار بازیابی پس از بررسی تأیید می‌شوند. جزئیات اجرا و پذیرش سرور در همان صفحهٔ تخصصی آمده است.</p>
+ <!-- /wp:paragraph -->
+ 
+ <!-- wp:heading {"anchor":"branch-connectivity-brief"} -->
+@@ -266,6 +266,55 @@
+ <p><strong>حد بازبینی این دو بخش:</strong> منابع رسمی Microsoft و MikroTik در۴نوامبر۲۰۲۶ برای نکته‌های مشخص بالا خوانده شدند. این صفحه خدمت‌نامه و قالب بررسی است؛ در تهیهٔ آن، Hyper-V، سرور مشتری، تونل، backup/restore یا تست شبکه اجرا نشده است. معیار و نتیجهٔ هر پروژه باید با همان محیط و مسئول مجاز تعیین و ثبت شوند.</p>
+ <!-- /wp:paragraph -->
+ 
++<!-- wp:paragraph -->
++<p><strong>پاسخ کوتاه:</strong> راه‌اندازی شبکه در چهار گام انجام می‌شود: نیازسنجی و نقشه، اجرا (کابل/تجهیز)، پیکربندی و تست پذیرش، تحویل مستندات. تجهیزات پیشنهادی بسته به سناریو متفاوت است.</p>
++<!-- /wp:paragraph -->
++<!-- wp:heading -->
++<h2 class="wp-block-heading">ورودی موردنیاز از شما </h2>
++<!-- /wp:heading -->
++<!-- wp:list -->
++<ul class="wp-block-list"><!-- wp:list-item -->
++<li>نقشه/تعداد پریزها و نقاط نصب، تعداد کاربر و VLANهای موردنیاز</li>
++<!-- /wp:list-item --><!-- wp:list-item -->
++<li>وضعیت اینترنت و امکان حضور در محل در بازه‌های مشخص</li>
++<!-- /wp:list-item --><!-- wp:list-item -->
++<li>الزامات خاص (دوربین، تلفن IP، سرور/NAS)</li>
++<!-- /wp:list-item -->
++</ul>
++<!-- /wp:list -->
++<!-- wp:heading -->
++<h2 class="wp-block-heading">انتخاب تجهیز بر اساس سناریو </h2>
++<!-- /wp:heading -->
++<!-- wp:table -->
++<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><!-- wp:table-cell -->
++<th>سناریو</th>
++<!-- /wp:table-cell --><!-- wp:table-cell -->
++<th>تجهیز پیشنهادی برای بررسی</th>
++<!-- /wp:table-cell --></tr></thead><tbody><tr><!-- wp:table-cell -->
++<td>---</td>
++<!-- /wp:table-cell --><!-- wp:table-cell -->
++<td>---</td>
++<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
++<td>دفتر تا ۱۰ نفر</td>
++<!-- /wp:table-cell --><!-- wp:table-cell -->
++<td>روتر hEX + سوئیچ CSS610</td>
++<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
++<td>شعبه با PoE (دوربین/تلفن)</td>
++<!-- /wp:table-cell --><!-- wp:table-cell -->
++<td>CRS112 یا netPower 16P</td>
++<!-- /wp:table-cell --></tr><tr><!-- wp:table-cell -->
++<td>دفتر بزرگ/رک</td>
++<!-- /wp:table-cell --><!-- wp:table-cell -->
++<td>RB3011/L009 یا RB5009 + CRS354</td>
++<!-- /wp:table-cell --></tr></tbody></table>
++<!-- /wp:table -->
++<!-- wp:paragraph -->
++<p>(جدول راهنمای انتخاب است؛ مدل دقیق پس از نیازسنجی. جزئیات: راهنمای روترهای میکروتیک و سوئیچ‌های CRS.)</p>
++<!-- /wp:paragraph -->
++<!-- wp:paragraph -->
++<p><strong>CTA:</strong> برای نیازسنجی و برآورد، <a href="/b2b/">درخواست سازمانی</a> را با همان ورودی‌های بالا ثبت کنید.</p>
++<!-- /wp:paragraph -->
++
+ <!-- wp:shortcode -->
+ [tn_editorial_note]
+ <!-- /wp:shortcode -->

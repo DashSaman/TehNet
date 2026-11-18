@@ -1,0 +1,253 @@
+{
+ "unit": "TN-G02G04-RELEASE-EVIDENCE-20261118",
+ "mode": "READ_ONLY public HTTPS GETs (2026-11-18) — no submission/noindex change/production action; status+flags only",
+ "manager_live_observations_cross_ref": "https://github.com/DashSaman/TehNet/pull/96#issuecomment-6980096096 (11 of 16 live, 5 x 404; sitemap 71 entries across 6 children; GSC stored excluded->live test eligible)",
+ "policy_16_policy_urls": [
+  {
+   "path": "/",
+   "status": 200,
+   "noindex_observed": false,
+   "in_sitemap": false
+  },
+  {
+   "path": "/services/",
+   "status": 200,
+   "noindex_observed": false,
+   "in_sitemap": false
+  },
+  {
+   "path": "/services/voice-network-readiness/",
+   "status": 200,
+   "noindex_observed": false,
+   "in_sitemap": false
+  },
+  {
+   "path": "/services/remote-support/",
+   "status": 200,
+   "noindex_observed": false,
+   "in_sitemap": false
+  },
+  {
+   "path": "/services/mikrotik-tehran/",
+   "status": 200,
+   "noindex_observed": false,
+   "in_sitemap": false
+  },
+  {
+   "path": "/services/network-setup-tehran/",
+   "status": 200,
+   "noindex_observed": false,
+   "in_sitemap": false
+  },
+  {
+   "path": "/services/network-support-tehran/",
+   "status": 200,
+   "noindex_observed": false,
+   "in_sitemap": false
+  },
+  {
+   "path": "/services/network-tehran/",
+   "status": 200,
+   "noindex_observed": false,
+   "in_sitemap": false
+  },
+  {
+   "path": "/about/",
+   "status": 200,
+   "noindex_observed": false,
+   "in_sitemap": false
+  },
+  {
+   "path": "/contact/",
+   "status": 200,
+   "noindex_observed": false,
+   "in_sitemap": false
+  },
+  {
+   "path": "/technical-methodology/",
+   "status": 200,
+   "noindex_observed": false,
+   "in_sitemap": false
+  },
+  {
+   "path": "/network-support-contract-guide/",
+   "status": 404,
+   "noindex_observed": false,
+   "in_sitemap": false
+  },
+  {
+   "path": "/network-project-proposal-checklist/",
+   "status": 404,
+   "noindex_observed": false,
+   "in_sitemap": false
+  },
+  {
+   "path": "/business-server-planning-guide/",
+   "status": 404,
+   "noindex_observed": false,
+   "in_sitemap": false
+  },
+  {
+   "path": "/server-backup-restore-acceptance/",
+   "status": 404,
+   "noindex_observed": false,
+   "in_sitemap": false
+  },
+  {
+   "path": "/services/server-virtualization-tehran/",
+   "status": 404,
+   "noindex_observed": false,
+   "in_sitemap": false
+  }
+ ],
+ "policy_summary": {
+  "live_200": 11,
+  "dead_404": 5
+ },
+ "guide_draft_21": [
+  {
+   "path": "/guides/mikrotik-routers/",
+   "status": 404
+  },
+  {
+   "path": "/guides/mikrotik-switches-crs/",
+   "status": 404
+  },
+  {
+   "path": "/guides/mikrotik-vlan/",
+   "status": 404
+  },
+  {
+   "path": "/guides/switch-vlan-l2/",
+   "status": 404
+  },
+  {
+   "path": "/guides/office-network-design/",
+   "status": 404
+  },
+  {
+   "path": "/guides/switch-poe-budget/",
+   "status": 404
+  },
+  {
+   "path": "/guides/network-delivery-acceptance/",
+   "status": 404
+  },
+  {
+   "path": "/guides/cable-certification-report/",
+   "status": 404
+  },
+  {
+   "path": "/guides/rack-cabling-standard/",
+   "status": 404
+  },
+  {
+   "path": "/guides/sfp-sfp-plus-guide/",
+   "status": 404
+  },
+  {
+   "path": "/guides/switch-loop-rstp-lacp/",
+   "status": 404
+  },
+  {
+   "path": "/guides/switch-nas-server-upgrade/",
+   "status": 404
+  },
+  {
+   "path": "/guides/network-troubleshooting/",
+   "status": 404
+  },
+  {
+   "path": "/guides/network-support-selection/",
+   "status": 404
+  },
+  {
+   "path": "/guides/network-monitoring/",
+   "status": 404
+  },
+  {
+   "path": "/guides/network-incident-path/",
+   "status": 404
+  },
+  {
+   "path": "/guides/mikrotik-config-backup/",
+   "status": 404
+  },
+  {
+   "path": "/guides/mikrotik-dhcp-dns/",
+   "status": 404
+  },
+  {
+   "path": "/guides/mikrotik-vpn/",
+   "status": 404
+  },
+  {
+   "path": "/guides/mikrotik-dual-wan/",
+   "status": 404
+  },
+  {
+   "path": "/guides/mikrotik-l3hw/",
+   "status": 404
+  }
+ ],
+ "guide_summary": {
+  "total": 21,
+  "all_404": true
+ },
+ "sitemap": {
+  "wp_sitemap_url": "https://tehnet.ir/wp-sitemap.xml",
+  "status": 200,
+  "child_files": [
+   {
+    "url": "https://tehnet.ir/wp-sitemap-posts-post-1.xml",
+    "status": 200,
+    "count": 2
+   },
+   {
+    "url": "https://tehnet.ir/wp-sitemap-posts-page-1.xml",
+    "status": 200,
+    "count": 31
+   },
+   {
+    "url": "https://tehnet.ir/wp-sitemap-posts-product-1.xml",
+    "status": 200,
+    "count": 25
+   },
+   {
+    "url": "https://tehnet.ir/wp-sitemap-taxonomies-category-1.xml",
+    "status": 200,
+    "count": 1
+   },
+   {
+    "url": "https://tehnet.ir/wp-sitemap-taxonomies-product_cat-1.xml",
+    "status": 200,
+    "count": 11
+   },
+   {
+    "url": "https://tehnet.ir/wp-sitemap-users-1.xml",
+    "status": 200,
+    "count": 1
+   }
+  ],
+  "total_url_entries": 71,
+  "reconciliation": "71 entries vs selected release plan: 16-URL policy subset — 11 live are in the releasable set; 5 dead policy URLs and all 21 draft /guides/ destinations are EXCLUDED from any independently releasable commercial slice until each target passes a release check; sitemap submission itself remains a separate owner gate"
+ },
+ "form_context_verification": {
+  "kind": "form_context_verification",
+  "url": "https://tehnet.ir/services/",
+  "status": 200,
+  "tn_service_context_values_observed": [],
+  "option_values_observed": [
+   "general-network",
+   "network-support",
+   "network-setup",
+   "mikrotik",
+   "remote-support",
+   "voice-network",
+   "monitoring-scoping",
+   "server-scoping",
+   "security-scoping",
+   "wifi-branch-scoping"
+  ]
+ }
+}
