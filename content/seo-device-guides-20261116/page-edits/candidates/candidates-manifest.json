@@ -1,6 +1,6 @@
 {
  "packet": "TN-CANDIDATE-LINK-REPAIRS-20261116",
- "status": "CANDIDATE / NOT_DEPLOYED — awaiting manager review; accepted packets untouched",
+ "status": "HISTORICAL / NOT_SELECTED (2026-11-18) — the dead-link repairs in this candidate set are now folded into the SELECTED combined bundle (page-edits/pages-manifest.json rev 4); files kept for SHA-bound attribution; do not cite this candidate PASS as proof of the selected bundle",
  "base_note": "same pinned after-D1 base as pages-manifest.json (a54198ce… commits; per-page after_d1_sha256 identical)",
  "mapping": [
   {

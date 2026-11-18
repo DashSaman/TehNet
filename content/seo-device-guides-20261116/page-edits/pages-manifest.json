@@ -1,5 +1,5 @@
 {
- "packet": "TN-SEO-PAGES-20261116",
+ "packet": "TN-SEO-PAGES-20261116 + TN-CLUSTER-HUB-LINKS-20261117 (selected combined bundle)",
  "base_ref": "778ee3f4a5bdb852a1c491b3af12e263a9eee3ad",
  "generated_utc": "2026-11-16T12:11:12Z",
  "pages": [
@@ -10,7 +10,24 @@
    "lf_matches_expected_decision": "LF_MATCHES_EXPECTED_DECISION",
    "baseline_sha256_prefix": "ab9d96e52fb5",
    "patch": "page-edits/mikrotik-service.patch",
-   "proposed": "page-edits/mikrotik-service.proposed.html"
+   "proposed": "page-edits/mikrotik-service.proposed.html",
+   "expected_guides": [
+    "/guides/mikrotik-routers/",
+    "/guides/mikrotik-switches-crs/",
+    "/guides/mikrotik-vlan/",
+    "/guides/switch-vlan-l2/",
+    "/guides/mikrotik-dhcp-dns/",
+    "/guides/mikrotik-vpn/",
+    "/guides/mikrotik-dual-wan/",
+    "/guides/mikrotik-l3hw/"
+   ],
+   "forbidden_slugs": [
+    "/network-project-proposal-checklist/",
+    "/business-server-planning-guide/",
+    "/services/server-virtualization-tehran/",
+    "/network-support-contract-guide/"
+   ],
+   "draft_status": "DRAFT_NOT_PUBLISHED"
   },
   {
    "name": "network-setup",
@@ -19,7 +36,27 @@
    "lf_matches_expected_decision": "LF_MATCHES_EXPECTED_DECISION",
    "baseline_sha256_prefix": "709c49b6d2e0",
    "patch": "page-edits/network-setup.patch",
-   "proposed": "page-edits/network-setup.proposed.html"
+   "proposed": "page-edits/network-setup.proposed.html",
+   "expected_guides": [
+    "/guides/office-network-design/",
+    "/guides/switch-vlan-l2/",
+    "/guides/switch-poe-budget/",
+    "/guides/network-delivery-acceptance/",
+    "/guides/cable-certification-report/",
+    "/guides/rack-cabling-standard/",
+    "/guides/mikrotik-routers/",
+    "/guides/mikrotik-switches-crs/",
+    "/guides/sfp-sfp-plus-guide/",
+    "/guides/switch-loop-rstp-lacp/",
+    "/guides/switch-nas-server-upgrade/"
+   ],
+   "forbidden_slugs": [
+    "/network-project-proposal-checklist/",
+    "/business-server-planning-guide/",
+    "/services/server-virtualization-tehran/",
+    "/network-support-contract-guide/"
+   ],
+   "draft_status": "DRAFT_NOT_PUBLISHED"
   },
   {
    "name": "network-support",
@@ -28,10 +65,32 @@
    "lf_matches_expected_decision": "LF_MATCHES_EXPECTED_DECISION",
    "baseline_sha256_prefix": "73d1b477170f",
    "patch": "page-edits/network-support.patch",
-   "proposed": "page-edits/network-support.proposed.html"
+   "proposed": "page-edits/network-support.proposed.html",
+   "expected_guides": [
+    "/guides/network-troubleshooting/",
+    "/guides/network-support-selection/",
+    "/guides/network-monitoring/",
+    "/guides/network-incident-path/",
+    "/guides/mikrotik-config-backup/"
+   ],
+   "forbidden_slugs": [
+    "/network-project-proposal-checklist/",
+    "/business-server-planning-guide/",
+    "/services/server-virtualization-tehran/",
+    "/network-support-contract-guide/"
+   ],
+   "draft_status": "DRAFT_NOT_PUBLISHED"
   }
  ],
- "rev": 3,
+ "rev": 4,
  "payload_chain_note": "778ee3f page files are the PRE-D1 baseline (== staging-sync consts); AFTER-D1 intended bodies live in the PR100 decision payload files. Patches generated against after-D1 bodies.",
- "gates": "insertion-only block before editorial-note shortcode; existing content/anchors/service limits/shortcodes preserved; NOT_DEPLOYED"
+ "gates": "insertion-only block before editorial-note shortcode; existing content/anchors/service limits/shortcodes preserved; NOT_DEPLOYED",
+ "selected_bundle": {
+  "selected": true,
+  "correction_review": "https://github.com/DashSaman/TehNet/pull/96#issuecomment-6973101846",
+  "contents": "after-D1 base + candidate-v2 dead-link repairs (4 distinct dead slugs, 6 links) + contextual hub guide edits (canonical N6 retained) + three new canonical setup edges S3/S5/S6 + missing-space fix",
+  "candidates_status": "historical_not_selected — see page-edits/candidates/candidates-manifest.json",
+  "draft_status": "DRAFT — all guide destinations explicitly unpublished until the separate release/index gates",
+  "generated_utc": "2026-11-18T13:25:58Z"
+ }
 }
