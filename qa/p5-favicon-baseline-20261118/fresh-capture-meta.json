@@ -1,0 +1,87 @@
+{
+ "capture_type": "read-only public favicon-chain capture",
+ "tool": "curl (existing), unauthenticated, normal TLS",
+ "capture_start_utc": "2026-11-18T02:37:23.175Z",
+ "pre_work_git_head": "eb4d07f5e538e5de48c47c3341ebc767d005d665",
+ "responses": [
+  {
+   "name": "home",
+   "url": "https://tehnet.ir/",
+   "redirects_followed": false,
+   "attempt": 2,
+   "request_started_utc": "2026-11-18T02:37:40.457Z",
+   "response_completed_utc": "2026-11-18T02:37:41.406Z",
+   "status": 200,
+   "mime": "text/html; charset=UTF-8",
+   "bytes": 72599,
+   "final_url": "https://tehnet.ir/",
+   "location_header": null,
+   "raw_body_sha256": "sha256:1fe8e70b92b08ec6d53b0c8ab5c216e0677d753f680a902e2e006271605a4523"
+  },
+  {
+   "name": "services",
+   "url": "https://tehnet.ir/services/",
+   "redirects_followed": false,
+   "attempt": 1,
+   "request_started_utc": "2026-11-18T02:37:41.407Z",
+   "response_completed_utc": "2026-11-18T02:37:42.338Z",
+   "status": 200,
+   "mime": "text/html; charset=UTF-8",
+   "bytes": 64143,
+   "final_url": "https://tehnet.ir/services/",
+   "location_header": null,
+   "raw_body_sha256": "sha256:7a88b9c90be24b5e4f0e70034a5aefe6e62efe94d1ebbf13d6a3ddcd4c7f0933"
+  },
+  {
+   "name": "manifest",
+   "url": "https://tehnet.ir/?tn_pwa=manifest",
+   "redirects_followed": false,
+   "attempt": 1,
+   "request_started_utc": "2026-11-18T02:37:42.338Z",
+   "response_completed_utc": "2026-11-18T02:37:42.990Z",
+   "status": 200,
+   "mime": "application/manifest+json; charset=utf-8",
+   "bytes": 258,
+   "final_url": "https://tehnet.ir/?tn_pwa=manifest",
+   "location_header": null,
+   "raw_body_sha256": "sha256:ead38ba6b2f00b015f91a63a16f647ea3a3f2b2fa5383b4ecc01c71217073b48"
+  },
+  {
+   "name": "favicon-ico-302",
+   "url": "https://tehnet.ir/favicon.ico",
+   "redirects_followed": false,
+   "attempt": 1,
+   "request_started_utc": "2026-11-18T02:37:42.990Z",
+   "response_completed_utc": "2026-11-18T02:37:43.661Z",
+   "status": 302,
+   "mime": "text/html; charset=UTF-8",
+   "bytes": 0,
+   "final_url": "https://tehnet.ir/favicon.ico",
+   "location_header": "https://tehnet.ir/wp-includes/images/w-logo-gray-white-bg.png",
+   "raw_body_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "name": "favicon-followed-png",
+   "url": "https://tehnet.ir/wp-includes/images/w-logo-gray-white-bg.png",
+   "redirects_followed": false,
+   "attempt": 1,
+   "request_started_utc": "2026-11-18T02:37:43.661Z",
+   "response_completed_utc": "2026-11-18T02:37:44.027Z",
+   "status": 200,
+   "mime": "image/png",
+   "bytes": 3241,
+   "final_url": "https://tehnet.ir/wp-includes/images/w-logo-gray-white-bg.png",
+   "location_header": null,
+   "raw_body_sha256": "sha256:c965a500f698483526faf92ac286047cecd825608cd1d83276de392b30a13a83"
+  }
+ ],
+ "failures": [
+  {
+   "name": "home",
+   "url": "https://tehnet.ir/",
+   "attempt": 1,
+   "error": "Command failed: curl -sS --ssl-revoke-best-effort --max-time 30 -w \"META|%{http_code}|%{content_type}|%{size_download}|%{url_effective}\" -D "
+  }
+ ],
+ "capture_end_utc": "2026-11-18T02:37:44.027Z"
+}
