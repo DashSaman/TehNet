@@ -1,0 +1,58 @@
+{
+  "packet": "TN-P5-FAVICON-PUBLIC-BASELINE-20261118 (MANAGER_REVIEW 6964914484 update 2026-11-18T01:26:24Z — NEXT READY, public read-only baseline)",
+  "utc": "2026-11-18T04:59:00Z - 05:02:00Z window (public fetches + comparison)",
+  "pre_work_checkout_head": "2c81c2684a72439c8024aa02dcf88b860c59b3e7",
+  "scope": "READ-ONLY public https://tehnet.ir/ and https://tehnet.ir/services/ plus at most three referenced public icon assets; no admin/login/REST mutation, no crawl beyond the two pages",
+  "public_pages": [
+    { "url": "https://tehnet.ir/", "http_status": 200, "content_type": "text/html; charset=UTF-8", "bytes": 72599, "saved_as": "public-home.html" },
+    { "url": "https://tehnet.ir/services/", "http_status": 200, "content_type": "text/html; charset=UTF-8", "bytes": 64143, "saved_as": "public-services.html" }
+  ],
+  "head_icon_references": {
+    "home": "0 icon/apple-touch-icon/shortcut-icon link tags (16 link tags total: manifest, oembed×2, stylesheets)",
+    "services": "0 icon/apple-touch-icon/shortcut-icon link tags",
+    "manifest_link_present": true,
+    "manifest_url": "https://tehnet.ir/?tn_pwa=manifest",
+    "manifest_http": { "status": 200, "content_type": "application/manifest+json; charset=utf-8", "bytes": 258 },
+    "manifest_icons_array": "ABSENT — the served manifest JSON contains name/short_name/description/lang/dir/start_url/scope/display/background_color/theme_color but NO icons array",
+    "default_favicon_ico": { "url": "https://tehnet.ir/favicon.ico", "status": 302, "followed_to": "https://tehnet.ir/wp-includes/images/w-logo-gray-white-bg.png", "followed_status": 200 }
+  },
+  "referenced_icon_assets_fetched": [
+    {
+      "url": "https://tehnet.ir/wp-includes/images/w-logo-gray-white-bg.png",
+      "reached_via": "/favicon.ico 302 redirect (WordPress default favicon fallback)",
+      "http_status": 200,
+      "content_type": "image/png",
+      "bytes": 3241,
+      "dimensions": "80x80 (PNG IHDR)",
+      "sha256": "c965a500f698483526faf92ac286047cecd825608cd1d83276de392b30a13a83",
+      "visual": "generic WordPress W mark on gray circle (bounded visual inspection, local window)"
+    }
+  ],
+  "referenced_icon_assets_note": "cap was 3; only ONE public icon asset is actually referenced (the favicon.ico redirect target). The head references no icons and the manifest declares no icons array, so there are no other referenced public icon assets within scope",
+  "comparison_with_prepared_checkout_assets": {
+    "prepared_dir": "site/themes/tehnet/assets/img/",
+    "prepared_assets": {
+      "favicon.jpg": { "bytes": 122674, "sha256": "6a095bdbb67f81fddd2bbd8aa40444b37ad1a5f2ec482f8556c4b5a03c1ddcfa" },
+      "favicon.svg": { "bytes": 163774, "sha256": "6e691f657e612aafe7576677e10ed8ae7116cd56d4e2300520addc693abd0949" },
+      "site-icon-32.png": { "bytes": 5174, "sha256": "ea42ae907e6235e6e3326e14665e0ff494f2452a44866e72a250ed8d28489dea" },
+      "site-icon-120.png": { "bytes": 28295, "sha256": "1c80bcb4b1c9cf2ef28e4e18900b507df6acd81e0fa9d259233b93b802a3bdc4" },
+      "site-icon-180.png": { "bytes": 52333, "sha256": "cafb75d8819305202e18698284c5c63bbcaa381c177da2620f6b65703747a6d9" },
+      "site-icon-512.png": { "bytes": 276624, "sha256": "e26fcbd57ea95c533a55c01931f74737e22f3e16fa13f200a8fdd4c0e3b07bb0" },
+      "tehnet-logo.jpg": { "bytes": 122674, "sha256": "6a095bdbb67f81fddd2bbd8aa40444b37ad1a5f2ec482f8556c4b5a03c1ddcfa" }
+    },
+    "exact_hash_match_with_served_fallback": "NONE — the served 3241-byte WordPress default PNG matches no prepared asset",
+    "bounded_visual_comparison": {
+      "method": "existing local preview server + browser window screenshots of the served PNG and prepared site-icon-180.png/favicon.jpg (private, local window only)",
+      "result": "served asset = generic WordPress W mark (gray circle); prepared site-icons/favicon.jpg = TehNet brand mark (TEHRAN NETWORK badge) — different images entirely, not the same brand mark with a different transform",
+      "limits": "visual comparison is human-eye inspection of rendered images, not a pixel-diff; sufficient here because the two are plainly different marks"
+    }
+  },
+  "conclusion": {
+    "current_served_icon": "WordPress default fallback (wp-includes/images/w-logo-gray-white-bg.png, 80x80 PNG) reached only via /favicon.ico redirect; NO icon/apple-touch-icon link tags in the public head; PWA manifest declares NO icons array",
+    "site_icon_precedence": "if the WordPress Site Icon option were set, WordPress would emit <link rel=icon/apple-touch-icon> tags in the public head — their total absence is consistent with the Site Icon option NOT being set; the actual option value in the DB is UNKNOWN (DB not queried, out of scope)",
+    "publication_blocker": "the prepared TehNet favicon/site-icon assets exist in the theme directory but are not wired as the WordPress Site Icon — that wiring is the precise missing publication step",
+    "next_change": "upload site-icon-512.png as the WordPress Site Icon via wp-admin (owner action on the production site) — NOT executed in this unit; no deploy/option change performed"
+  },
+  "not_run": ["WordPress/KSES", "DB queries", "RouterOS", "production option changes", "deploy"],
+  "privacy": "public pages/assets only; screenshots/traces kept private; no credentials/customer/payment/security data touched"
+}
