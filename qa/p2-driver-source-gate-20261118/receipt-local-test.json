@@ -1,0 +1,58 @@
+{
+  "unit": "TN-P2-ORIGINAL-DRIVER-SOURCE-GATE-20261118",
+  "receipt_type": "PURE_LOCAL_TEST — no integration claim",
+  "manager_review": "https://github.com/DashSaman/TehNet/pull/96#issuecomment-6969086962",
+  "DECISION_addressed": "NEEDS_CHANGES — source correction A/B/C/D",
+  "tested_full_head": "269c944a1f92041b5121d7bb34fa0bffef1fb6a6",
+  "tested_head_parent": "99adf594146c90bc10010a2b1cadce6347e62878",
+  "branch": "ops/agent-control-20261111",
+  "reviewed_pre_fix_source_pinned": "99adf594146c90bc10010a2b1cadce6347e62878",
+  "delivery_files_clean_at_tested_head": true,
+  "command": "node tests/browser/tn-fixture-contract-regressions.test.cjs ; node tests/browser/tn-fixture-helpers.test.cjs",
+  "cwd": "D:/Codex-Projects/Codex/2026-10-15/referenced-chatgpt-conversation-this-is-an/work/TehNet-growth-20261031",
+  "runner_node_version": "v24.19.0",
+  "started_utc": "2026-11-18T05:02:51Z",
+  "finished_utc": "2026-11-18T05:02:51Z",
+  "input_digests_sha256": {
+    "tests/browser/tn-local-staging-fix2-driver.cjs": "a1194ed3234072c3f9ccb05dff127ad145dfc806f4f66cde72156a4d15fe865a",
+    "tests/browser/tn-fixture-helpers.cjs": "9f1aa0a616ef7672e8fe5287925986a44ca7216780e3496044d0509919dd9bc5",
+    "tests/browser/tn-fixture-contract-regressions.test.cjs": "b07b03784a675599a7152f3093bef5be277c2adf11b5f4dc6efe8e313380cb71",
+    "tests/browser/tn-fixture-helpers.test.cjs": "ccef5afc3557bf346d74363f79fbbfbda83e7426b3fb347f5ea5b4f3084d4a93"
+  },
+  "suite_results": [
+    {
+      "suite": "tn-fixture-contract-regressions.test.cjs",
+      "exit_code": 0,
+      "total_line": "TOTAL=28 PASS=28 FAIL=0",
+      "pass_count": 28,
+      "fail_details": [],
+      "stderr_first_line": null
+    },
+    {
+      "suite": "tn-fixture-helpers.test.cjs",
+      "exit_code": 0,
+      "total_line": "TOTAL=46 PASS=46 FAIL=0",
+      "pass_count": 46,
+      "fail_details": [],
+      "stderr_first_line": null
+    }
+  ],
+  "harness_description": {
+    "method": "vm.runInThisContext loads the EXACT published driver source (fixed source live at HEAD; pre-fix reproducers pinned to 99adf59 via local read-only git show) with only its async invocation prefixed by return",
+    "stubs": [
+      "playwright (synthetic chromium/page/context; no real browser)",
+      "node:child_process execSync (in-memory; docker/ssh/wp commands NEVER executed; unexpected commands throw => test fails)",
+      "node:fs writeFileSync (receipt captured in memory, nothing written)"
+    ],
+    "network": "none — no socket is created; localhost URL is a synthetic constant never dialed",
+    "unexpected_effect_policy": "any adapter/docker/ssh command not matching the known read-only probe catalog throws UNEXPECTED_ADAPTER_CALL and fails the test"
+  },
+  "coverage": {
+    "A_eligibility_before_adapter": "D1 no-contract, D2 incomplete contract (manager P1 #1 counterexample), D3 missing digest — all: adapter_calls=0, remote_temp_writes=0, browser_launches=0",
+    "B_observed_url_binding": "D5 redirected final URL => BLOCKED_IDENTITY zero operation/discovery/delete + marker ctx closed; D6 throwing navigation; D7 null marker; D4 contract/BASE mismatch blocks before openBrowser",
+    "positive_control": "D8 matching observed URL + marker => journey PASSED with operation/discovery enabled",
+    "pre_fix_reproducers": "D9 pinned 99adf59 incomplete contract => adapter reached + remote temp write requested + receipt claimed \"zero effects\"; D10 pinned 99adf59 redirected URL => false PASSED with page.url() never called",
+    "pure_seams_and_source_order": "sections A/B/C of the regression suite (17 tests) + helper suite (46 tests)"
+  },
+  "not_run": "No real driver journey, PHP evaluation, DB integration, SSH call, browser launch, environment/network/security change, old-fixture contact, production action, or deploy. Integration remains NOT_RUN and separately gated."
+}
