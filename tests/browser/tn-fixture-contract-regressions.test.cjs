@@ -1,14 +1,18 @@
 'use strict';
-/* TN-P2-ORIGINAL-DRIVER-SOURCE-GATE-20261118 — pure regressions per
- * MANAGER_REVIEW (comment 6969086962). Zero network/browser/RouterOS/DB effects;
- * Node built-ins only. Sections:
+/* TN-P2-DRIVER-REMAINING-ACCEPTANCE-20261118 — pure regressions per
+ * MANAGER_REVIEW 6969817290 (supersedes the 6969086962 round; preserves its accepted
+ * fixes). Zero network/browser/RouterOS/DB effects; Node built-ins only. Sections:
  *   A/B/C — source-consuming order/binding regressions + pure helper seams.
  *   D — ACTUAL-ENTRYPOINT harness: loads the real published driver source in a vm
- *       with every require (playwright / child_process / fs) replaced by in-memory
- *       stubs that RECORD all attempted effects. No duplicate callback: the exact
- *       published readBrowserMarker/adapter code paths execute. The pre-fix source
- *       is pinned to the reviewed SHA (99adf59…) and both reported P1 failures are
- *       reproduced against it, then asserted fixed against the current source. */
+ *       with every require replaced by in-memory stubs that RECORD all attempted
+ *       effects. No duplicate callback: the exact published readBrowserMarker and
+ *       adapter gating execute. The pre-fix source stays pinned to the reviewed SHA
+ *       (99adf59…) for the two historical reproducers.
+ * KEY ACCEPTANCE (6969817290): a complete contract + digests NEVER qualifies an
+ * adapter — the default withdrawn route makes ZERO external attempts, endpoint
+ * disagreement blocks BEFORE any attempt, the positive path exists ONLY through an
+ * explicitly injected synthetic qualified adapter, and the observed final URL is
+ * consumed FAIL-CLOSED (no BASE fallback). */
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const os = require('node:os');
@@ -17,6 +21,7 @@ const vm = require('node:vm');
 const H = require('./tn-fixture-helpers.cjs');
 
 const DRIVER_PATH = path.join(__dirname, 'tn-local-staging-fix2-driver.cjs');
+const SEAM_PATH = path.join(__dirname, 'tn-fix2-adapter-seam.cjs');
 const PREFIX_DRIVER_SHA = '99adf594146c90bc10010a2b1cadce6347e62878'; /* reviewed pre-fix source (permanent pin) */
 const REPO_ROOT = path.join(__dirname, '..', '..');
 const TEST_BASE = 'http://127.0.0.1:18085';
@@ -56,28 +61,46 @@ t('adapterEligibility: null contract is ineligible (withdrawn/legacy default blo
   assert.equal(e.eligible, false);
   assert.ok(e.reasons.some(r => r.indexOf('incomplete_contract') >= 0));
 });
+t('adapterEligibility: eligibility NEVER asserts adapter qualification (contract boolean cannot qualify)', () => {
+  /* 6969817290 #1: eligibility is only contract-shape + digest readiness — it carries no
+   * notion of a qualified adapter, so no contract field can act as one. */
+  const e = H.adapterEligibility(Object.assign(clone(COMPLETE_CONTRACT), { adapter_qualified: true, qualified: true }), { ok: true, missing: [] });
+  assert.equal(Object.prototype.hasOwnProperty.call(e, 'qualified'), false);
+  assert.equal(JSON.stringify(e.reasons), '[]');
+});
 
 /* --- B: source-consuming order/binding regressions on the driver --- */
-t('driver source: cleanupEvidence sshwp call comes AFTER adapter eligibility gate', () => {
+t('driver source: eligibility gate precedes endpoint gate precedes adapter qualification precedes first adapter use', () => {
   const elig = DRIVER_SRC.indexOf('adapter_eligibility');
-  const ssh = DRIVER_SRC.indexOf('cleanupEvidence = JSON.parse(sshwp(');
-  assert.ok(elig >= 0 && ssh > elig, 'eligibility gate must precede the first external adapter call');
+  const disagree = DRIVER_SRC.indexOf('BLOCKED_CONTRACT_ENDPOINT_MISMATCH');
+  const qual = DRIVER_SRC.indexOf('BLOCKED_NO_QUALIFIED_ADAPTER');
+  const firstUse = DRIVER_SRC.indexOf('aCleanupEvidence(FIXTURE_CONTRACT)');
+  assert.ok(elig >= 0 && elig < disagree, 'eligibility must precede the endpoint gate');
+  assert.ok(disagree >= 0 && disagree < qual, 'endpoint gate must precede adapter qualification');
+  assert.ok(qual >= 0 && qual < firstUse, 'adapter qualification must precede the first adapter use');
 });
-t('driver source: incomplete contract path returns BEFORE the sshwp adapter call', () => {
+t('driver source: ineligible path returns BEFORE the adapter seam is loaded', () => {
   const gateIdx = DRIVER_SRC.indexOf("writeBlockedReceipt(eligibility.completeness.complete ? 'BLOCKED_MISSING_EVIDENCE' : 'BLOCKED_FIXTURE_OWNERSHIP')");
-  const sshIdx = DRIVER_SRC.indexOf('cleanupEvidence = JSON.parse(sshwp(');
-  assert.ok(gateIdx >= 0 && sshIdx > gateIdx, 'blocked receipt must be written before any adapter effect');
+  const loadIdx = DRIVER_SRC.indexOf('function loadAdapter');
+  const callIdx = DRIVER_SRC.indexOf('const adapter = loadAdapter()');
+  assert.ok(gateIdx >= 0 && loadIdx >= 0 && callIdx > loadIdx);
+  assert.ok(gateIdx < callIdx, 'ineligible path must return before any adapter load/use');
 });
-t('driver source: successful meta-path return binds the OBSERVED final URL (not hardcoded BASE)', () => {
+t('driver source: NO legacy adapter route remains (no SSH/docker/wp-cli command material)', () => {
+  assert.equal(DRIVER_SRC.indexOf('ssh netauto-main'), -1, 'ssh target constant must be gone');
+  assert.equal(DRIVER_SRC.indexOf('docker exec'), -1, 'docker command material must be gone');
+  assert.equal(DRIVER_SRC.indexOf('wp-cli.phar'), -1, 'wp-cli command material must be gone');
+  assert.equal(DRIVER_SRC.indexOf('function sshwp'), -1, 'implicit sshwp adapter must be gone');
+});
+t('driver source: successful meta-path return binds the OBSERVED final URL with NO BASE fallback', () => {
   const rbStart = DRIVER_SRC.indexOf('readBrowserMarker: async');
   assert.ok(rbStart >= 0, 'readBrowserMarker not found');
   const rbEnd = DRIVER_SRC.indexOf('closeBrowser: async', rbStart);
   const seg = DRIVER_SRC.slice(rbStart, rbEnd);
   assert.ok(seg.indexOf('observedUrl') >= 0, 'observed final URL must be bound');
   assert.ok(seg.indexOf('return { home_url: observedUrl') >= 0, 'success path must return the observed URL');
-  const successReturn = seg.indexOf('return { home_url: observedUrl');
-  assert.ok(seg.slice(0, successReturn).indexOf("return { home_url: BASE + '/'") >= 0,
-    'the non-meta early return may keep BASE (null marker => identity fails) — success path must NOT');
+  assert.equal(seg.indexOf('observedUrl ||'), -1, 'the BASE fallback must be gone (6969817290 #2)');
+  assert.ok(seg.indexOf("home_url: null") >= 0, 'missing/empty observed URL must yield null home_url (fail closed)');
 });
 t('driver source: browser context closed in finally (synthetic resources closed on failure)', () => {
   const rbStart = DRIVER_SRC.indexOf('readBrowserMarker: async');
@@ -86,10 +109,12 @@ t('driver source: browser context closed in finally (synthetic resources closed 
   assert.ok(seg.indexOf('finally') >= 0, 'context close must be in finally');
   assert.ok(seg.indexOf('ctx.close()') >= 0);
 });
-t('driver source: contract/BASE endpoint disagreement blocks before openBrowser', () => {
+t('driver source: contract/BASE endpoint disagreement blocks before openBrowser AND before the adapter seam load', () => {
   const disagree = DRIVER_SRC.indexOf('BLOCKED_CONTRACT_ENDPOINT_MISMATCH');
+  const loadIdx = DRIVER_SRC.indexOf('const adapter = loadAdapter()');
   const open = DRIVER_SRC.indexOf('openBrowser: async');
-  assert.ok(disagree >= 0 && disagree < open, 'endpoint disagreement block must precede openBrowser');
+  assert.ok(disagree >= 0 && disagree < loadIdx, 'endpoint disagreement must block before the adapter seam is even loaded');
+  assert.ok(disagree < open, 'endpoint disagreement block must precede openBrowser');
 });
 t('driver source: missing/throwing marker read surfaces as null value (journey blocks)', () => {
   const rbStart = DRIVER_SRC.indexOf('readBrowserMarker: async');
@@ -157,23 +182,50 @@ function harnessContract(extra) {
     cleanup_fingerprint_source: 'tn_fixture_fingerprint_source',
   }, extra || {});
 }
+/* Explicitly injected synthetic QUALIFIED adapter — the ONLY positive path
+ * (MANAGER_REVIEW 6969817290 #1). Pure in-memory; records every invocation into the
+ * supplied sink array (merged into harness stats). */
+function syntheticQualifiedAdapter(sink, contract) {
+  const rec = (kind) => { sink.push({ kind }); };
+  return {
+    qualified: true,
+    reason: 'synthetic-injected-for-positive-control',
+    cleanupEvidence: (c) => { rec('adapter-cleanupEvidence'); return {
+      db_name: c.db_identity, fixture_marker_name: c.fixture_marker_name,
+      fixture_marker_value: c.fixture_marker_value, source_fingerprints: c.source_fingerprints }; },
+    preflightProbes: () => { rec('adapter-preflightProbes'); return {
+      home: TEST_BASE + '/', db_name: 'tehnetux', env: 'staging', blog_public: '0',
+      mail_blocked: true, http_blocked: true, cron_disabled: true,
+      http_probe_blocked: true, payments_disabled: true }; },
+    findOwned: () => { rec('adapter-findOwned'); return []; },
+    deleteOwned: () => { rec('adapter-deleteOwned'); return { deleted: [], failed: [], skipped: [] }; },
+    countRecords: () => { rec('adapter-countRecords'); return 0; },
+    recordDetail: () => { rec('adapter-recordDetail'); return { missing: true }; },
+    clearReceiptTransients: (tokens) => { rec('adapter-clearReceiptTransients'); return { cleared: tokens.length * 2, requested: tokens.length }; },
+  };
+}
 
 async function runDriverHarness(opts) {
   const cfg = {
     source: DRIVER_SRC,               /* source text to execute (fixed or pinned pre-fix) */
     contract: undefined,              /* undefined => no contract file (null path); object => temp file */
+    adapter: undefined,               /* undefined => the REAL seam module (disabled default); object => injected */
+    extraCalls: null,                 /* sink array from an injected adapter, merged into stats */
     failGitShowFor: null,             /* substring of git show command to fail (missing digest) */
-    finalUrl: TEST_BASE + '/',        /* observed final URL the synthetic page reports */
+    legacyAdapterCommands: false,     /* true ONLY for pinned pre-fix reproducers (old source ssh's directly) */
+    finalUrl: TEST_BASE + '/',        /* observed final URL the synthetic marker page reports */
     markerValue: null,                /* meta marker value the synthetic DOM reports */
     gotoThrows: false,                /* synthetic navigation throws (read failure path) */
+    urlThrows: false,                 /* synthetic page.url() throws (observed-URL failure path) */
     ...opts,
   };
   const calls = [];
   const receipts = {};
   const rec = (kind, extra) => calls.push(Object.assign({ kind }, extra || {}));
 
-  /* execSync stub: local git reads answered in-memory; ANY docker/adapter command is
-   * recorded; unexpected commands throw so an unexpected adapter call fails the test. */
+  /* execSync stub: local git reads answered in-memory. From the FIXED source, docker/ssh
+   * commands are IMPOSSIBLE (the implicit adapter is gone) — any such command throws and
+   * fails the test. The legacy sniffing answers ONLY for the pinned pre-fix reproducers. */
   const execStub = (cmd) => {
     const c = String(cmd);
     if (/^git rev-parse\b/.test(c)) { rec('exec', { cmd: c, note: 'local git read' }); return '9'.repeat(40) + '\n'; }
@@ -182,25 +234,29 @@ async function runDriverHarness(opts) {
       if (cfg.failGitShowFor && c.indexOf(cfg.failGitShowFor) >= 0) throw new Error('git show failed (harness-injected missing digest)');
       return 'stub-blob-content\n';
     }
+    /* decode the base64-embedded wp-cli payload BEFORE recording, so the recorded
+     * exec carries the decoded php for content-level assertions */
+    const b64 = /echo ([A-Za-z0-9+/=]+) \| base64 -d/.exec(c);
+    const php = b64 ? Buffer.from(b64[1], 'base64').toString('utf8') : null;
+    rec('exec', { cmd: c, php: php || undefined, note: php ? 'external adapter attempt (decoded payload bound)' : 'external command attempt' });
+    if (!cfg.legacyAdapterCommands) {
+      throw new Error('UNEXPECTED_EXTERNAL_COMMAND_FROM_FIXED_SOURCE: ' + c.slice(0, 120));
+    }
+    /* legacy answering ONLY for the pinned pre-fix source (its own implicit sshwp) */
     if (c.indexOf('docker exec') >= 0) {
-      if (c.indexOf('transient delete') >= 0) { rec('exec', { cmd: c, note: 'external transient delete' }); return ''; }
-      /* the wp-cli eval-file payload is base64-embedded — decode before sniffing */
-      const b64 = /echo ([A-Za-z0-9+/=]+) \| base64 -d/.exec(c);
-      const php = b64 ? Buffer.from(b64[1], 'base64').toString('utf8') : c;
-      rec('exec', { cmd: c, php });
-      if (php.indexOf('wp_count_posts') >= 0) return '{"n":0}';
-      if (php.indexOf('get_post(') >= 0) return '{"missing":true}';
-      if (php.indexOf('wp_get_environment_type') >= 0) {
+      if (c.indexOf('transient delete') >= 0) return '';
+      const body = php || c;
+      if (body.indexOf('wp_count_posts') >= 0) return '{"n":0}';
+      if (body.indexOf('get_post(') >= 0) return '{"missing":true}';
+      if (body.indexOf('wp_get_environment_type') >= 0) {
         return JSON.stringify({ home: TEST_BASE + '/', db_name: 'tehnetux', env: 'staging', blog_public: '0',
           mail_blocked: true, http_blocked: true, cron_disabled: true, http_probe_blocked: true, payments_disabled: true });
       }
-      if (php.indexOf('get_option') >= 0) {
+      if (body.indexOf('get_option') >= 0) {
         return JSON.stringify({ db_name: 'tehnetux', fixture_marker_name: cfg.contract.fixture_marker_name,
           fixture_marker_value: cfg.contract.fixture_marker_value, source_fingerprints: cfg.contract.source_fingerprints });
       }
-      if (php.indexOf('_tn_email') >= 0) return '[]';
-    } else {
-      rec('exec', { cmd: c });
+      if (body.indexOf('_tn_email') >= 0) return '[]';
     }
     throw new Error('UNEXPECTED_ADAPTER_CALL: ' + c.slice(0, 120));
   };
@@ -211,7 +267,11 @@ async function runDriverHarness(opts) {
   const makePage = (isMarkerPage, pageIndex) => {
     const base = {
       on: () => null,
-      url: () => { rec('page-url', { pageIndex, isMarkerPage }); return isMarkerPage ? cfg.finalUrl : (TEST_BASE + '/'); },
+      url: () => {
+        rec('page-url', { pageIndex, isMarkerPage });
+        if (cfg.urlThrows && isMarkerPage) throw new Error('synthetic page.url() failure');
+        return isMarkerPage ? cfg.finalUrl : (TEST_BASE + '/');
+      },
       goto: async (u) => { rec('goto', { u: String(u), pageIndex, isMarkerPage }); if (cfg.gotoThrows && isMarkerPage) throw new Error('synthetic navigation failure'); return { status: () => 200 }; },
       evaluate: async () => { rec('evaluate', { pageIndex, isMarkerPage }); return isMarkerPage ? cfg.markerValue : null; },
     };
@@ -248,6 +308,9 @@ async function runDriverHarness(opts) {
     if (spec === 'node:child_process') return { execSync: execStub };
     if (spec === 'node:fs') return fsStub;
     const resolved = (spec.charAt(0) === '.') ? path.resolve(__dirname, spec) : spec;
+    /* adapter seam: injected ONLY when the case supplies one; otherwise the REAL
+     * module loads (disabled default = withdrawn route). */
+    if (resolved === SEAM_PATH && cfg.adapter) return cfg.adapter;
     return require(resolved);
   };
 
@@ -287,15 +350,19 @@ async function runDriverHarness(opts) {
   const exitCode = process.exitCode;
   process.exitCode = prevExit;
 
-  const count = (pred) => calls.filter(pred).length;
+  const allCalls = calls.concat(Array.isArray(cfg.extraCalls) ? cfg.extraCalls : []);
+  const count = (pred) => allCalls.filter(pred).length;
   const execHas = (s) => count(c => c.kind === 'exec' && (c.cmd.indexOf(s) >= 0 || (typeof c.php === 'string' && c.php.indexOf(s) >= 0)));
+  const adapterMethodCalls = count(c => c.kind.indexOf('adapter-') === 0);
   const stats = {
+    adapterMethodCalls,
     adapterCalls: execHas('docker exec'),
-    wpEvalFileAttempts: execHas('eval-file'),
+    legacyDiscoveryCalls: execHas('_tn_email'),
     remoteTempWrites: execHas('base64 -d > /tmp/'),
     transientDeletes: execHas('transient delete'),
-    dbCountCalls: execHas('wp_count_posts'),
-    findOwnedCalls: execHas('_tn_email'),
+    operationCountCalls: count(c => c.kind === 'adapter-countRecords'),
+    discoveryCalls: count(c => c.kind === 'adapter-findOwned'),
+    deleteCalls: count(c => c.kind === 'adapter-deleteOwned'),
     browserLaunches: count(c => c.kind === 'browser-launch'),
     markerPageUrlReads: count(c => c.kind === 'page-url' && c.isMarkerPage),
     browserCloses: count(c => c.kind === 'browser-close'),
@@ -318,8 +385,9 @@ function blockedReceiptAssertions(r, status) {
 t('harness(actual entrypoint): no contract => BLOCKED_FIXTURE_OWNERSHIP, zero external adapter/browser effects', async () => {
   const r = await runDriverHarness({ contract: undefined });
   const receipt = blockedReceiptAssertions(r, 'BLOCKED_FIXTURE_OWNERSHIP');
-  assert.equal(r.stats.adapterCalls, 0, 'no external adapter call may be attempted: ' + JSON.stringify(r.stats));
-  assert.equal(r.stats.remoteTempWrites, 0, 'no remote temp-file write may be attempted');
+  assert.equal(r.stats.adapterMethodCalls, 0, 'no adapter invocation may occur');
+  assert.equal(r.stats.adapterCalls, 0);
+  assert.equal(r.stats.remoteTempWrites, 0);
   assert.equal(r.stats.browserLaunches, 0);
   assert.equal(receipt.journey.external_adapter_attempts, 0);
   assert.equal(receipt.journey.browser_launches, 0);
@@ -327,14 +395,13 @@ t('harness(actual entrypoint): no contract => BLOCKED_FIXTURE_OWNERSHIP, zero ex
   assert.equal(r.exitCode, 1);
 });
 
-/* D2 — the manager's exact P1 counterexample: incomplete contract (marker+fingerprint only) */
+/* D2 — the historical P1 counterexample: incomplete contract (marker+fingerprint only) */
 t('harness(actual entrypoint): incomplete contract => zero adapter calls, no remote temp write, blocked receipt', async () => {
   const r = await runDriverHarness({
     contract: { fixture_marker_name: 'n', cleanup_fingerprint_source: 'fp' },
   });
   const receipt = blockedReceiptAssertions(r, 'BLOCKED_FIXTURE_OWNERSHIP');
-  assert.equal(r.stats.adapterCalls, 0, 'legacy external adapter must NOT be reached');
-  assert.equal(r.stats.wpEvalFileAttempts, 0);
+  assert.equal(r.stats.adapterMethodCalls, 0);
   assert.equal(r.stats.remoteTempWrites, 0);
   assert.equal(r.stats.browserLaunches, 0);
   assert.equal(receipt.journey.external_adapter_attempts, 0);
@@ -350,86 +417,174 @@ t('harness(actual entrypoint): missing required digest => BLOCKED_MISSING_EVIDEN
     failGitShowFor: 'class-index-policy.php',
   });
   const receipt = blockedReceiptAssertions(r, 'BLOCKED_MISSING_EVIDENCE');
-  assert.equal(r.stats.adapterCalls, 0);
+  assert.equal(r.stats.adapterMethodCalls, 0);
   assert.equal(r.stats.remoteTempWrites, 0);
   assert.equal(r.stats.browserLaunches, 0);
   assert.equal(receipt.journey.external_adapter_attempts, 0);
   assert.equal(r.exitCode, 1);
 });
 
-/* D4 — contract/BASE endpoint disagreement blocks BEFORE openBrowser (one read-only
- * cleanup-evidence probe may have run; receipt reports it honestly) */
-t('harness(actual entrypoint): contract endpoint != BASE => BLOCKED_CONTRACT_ENDPOINT_MISMATCH before openBrowser', async () => {
+/* D4 (6969817290 #1) — contract/BASE endpoint disagreement blocks with ZERO external
+ * attempts (previously one cleanup-evidence upload preceded the block) */
+t('harness(actual entrypoint): contract endpoint != BASE => BLOCKED_CONTRACT_ENDPOINT_MISMATCH with ZERO external attempts', async () => {
   const r = await runDriverHarness({ contract: harnessContract({ app_endpoint: 'http://fixture-elsewhere.invalid/' }) });
   const receipt = blockedReceiptAssertions(r, 'BLOCKED_CONTRACT_ENDPOINT_MISMATCH');
-  assert.equal(r.stats.browserLaunches, 0, 'no browser may be launched');
-  assert.equal(r.stats.dbCountCalls, 0, 'no operation effect');
-  assert.equal(r.stats.findOwnedCalls, 0, 'no discovery effect');
-  assert.equal(r.stats.transientDeletes, 0);
-  assert.equal(r.stats.adapterCalls, 1, 'only the single cleanup-evidence probe');
-  assert.equal(receipt.journey.external_adapter_attempts, 1, 'receipt reports the actual attempt count');
+  assert.equal(r.stats.adapterMethodCalls, 0, 'no adapter invocation before the block');
+  assert.equal(r.stats.adapterCalls, 0, 'no legacy adapter call');
+  assert.equal(r.stats.remoteTempWrites, 0, 'no remote temp write');
+  assert.equal(r.stats.browserLaunches, 0, 'no browser launch');
+  assert.equal(receipt.journey.external_adapter_attempts, 0, 'receipt reports zero attempts');
   assert.equal(r.exitCode, 1);
 });
 
-/* D5 — redirected final URL with a matching marker: identity must block, zero
- * operation/submit/discovery/delete; synthetic context closed */
+/* D4b (6969817290 #1) — COMPLETE contract + valid digests + matching endpoint, but NO
+ * injected adapter: the default withdrawn route makes ZERO external attempts */
+t('harness(actual entrypoint): complete-but-unqualified contract => BLOCKED_NO_QUALIFIED_ADAPTER, zero adapter/upload/browser effects', async () => {
+  const r = await runDriverHarness({ contract: harnessContract() });
+  const receipt = blockedReceiptAssertions(r, 'BLOCKED_NO_QUALIFIED_ADAPTER');
+  assert.equal(r.stats.adapterMethodCalls, 0, 'no adapter method may run without an injected qualified adapter');
+  assert.equal(r.stats.adapterCalls, 0);
+  assert.equal(r.stats.remoteTempWrites, 0, 'no remote temp write attempted');
+  assert.equal(r.stats.browserLaunches, 0);
+  assert.equal(r.stats.discoveryCalls, 0);
+  assert.equal(r.stats.deleteCalls, 0);
+  assert.equal(receipt.journey.external_adapter_attempts, 0);
+  assert.ok(receipt.adapter_qualification, 'qualification state recorded in receipt');
+  assert.equal(receipt.adapter_qualification.qualified, false);
+  assert.ok(/withdrawn/.test(receipt.adapter_qualification.reason), receipt.adapter_qualification.reason);
+  const elig = receipt.checks.find(c => c.name === 'adapter_eligibility');
+  assert.ok(elig && elig.pass === true, 'eligibility passed — qualification is what blocked');
+  assert.equal(r.exitCode, 1);
+});
+
+/* D5 — redirected final URL with a matching marker (injected adapter): identity must
+ * block, zero operation/discovery/delete; synthetic resources closed */
 t('harness(actual entrypoint): redirected final URL => BLOCKED_IDENTITY (browser_endpoint), zero operation/discovery/delete', async () => {
+  const contract = harnessContract();
+  const aCalls = [];
   const r = await runDriverHarness({
-    contract: harnessContract(),
+    contract,
+    adapter: syntheticQualifiedAdapter(aCalls, contract),
+    extraCalls: aCalls,
     finalUrl: 'http://redirected-target.invalid/',
     markerValue: 'TN-RUN-contract-beef',
   });
-  assert.equal(r.err, null);
-  const receipt = JSON.parse(r.receipts['fix2-clean-result.json']);
-  assert.equal(receipt.journey.status, 'BLOCKED_IDENTITY');
-  const logNames = (receipt.journey.effect_log || []).map(e => e.effect);
-  assert.ok(logNames.indexOf('closeBrowser') >= 0, 'browser closed after identity failure');
-  assert.equal(logNames.indexOf('findOwnedRecords'), -1, 'no discovery after identity failure');
-  assert.equal(logNames.indexOf('deleteOwnedRecords'), -1, 'no delete after identity failure');
-  assert.equal(r.stats.dbCountCalls, 0, 'operation (baseline counting) must not run');
-  assert.equal(r.stats.findOwnedCalls, 0, 'no discovery adapter call');
-  assert.equal(r.stats.browserLaunches, 1);
-  assert.ok(r.stats.ctxCloses >= 1, 'marker context closed in finally');
-  assert.equal(r.stats.markerPageUrlReads >= 1, true, 'the OBSERVED final URL was actually read');
-  assert.equal(r.exitCode, 1);
+  assertIdentityBlocked(r);
+});
+
+/* D5b — EMPTY observed URL with a correct marker must NOT fall back to BASE */
+t('harness(actual entrypoint): empty observed URL => BLOCKED_IDENTITY (no BASE fallback), zero operation/discovery/delete', async () => {
+  const contract = harnessContract();
+  const aCalls = [];
+  const r = await runDriverHarness({
+    contract,
+    adapter: syntheticQualifiedAdapter(aCalls, contract),
+    extraCalls: aCalls,
+    finalUrl: '',
+    markerValue: 'TN-RUN-contract-beef',
+  });
+  assertIdentityBlocked(r);
+});
+
+/* D5c — NULL observed URL with a correct marker must NOT fall back to BASE */
+t('harness(actual entrypoint): null observed URL => BLOCKED_IDENTITY (no BASE fallback), zero operation/discovery/delete', async () => {
+  const contract = harnessContract();
+  const aCalls = [];
+  const r = await runDriverHarness({
+    contract,
+    adapter: syntheticQualifiedAdapter(aCalls, contract),
+    extraCalls: aCalls,
+    finalUrl: null,
+    markerValue: 'TN-RUN-contract-beef',
+  });
+  assertIdentityBlocked(r);
+});
+
+/* D5d — THROWING page.url(): read failure surfaces as blocked identity */
+t('harness(actual entrypoint): throwing page.url() => BLOCKED_IDENTITY, zero operation/discovery/delete, context closed', async () => {
+  const contract = harnessContract();
+  const aCalls = [];
+  const r = await runDriverHarness({
+    contract,
+    adapter: syntheticQualifiedAdapter(aCalls, contract),
+    extraCalls: aCalls,
+    urlThrows: true,
+    markerValue: 'TN-RUN-contract-beef',
+  });
+  assertIdentityBlocked(r);
 });
 
 /* D6 — throwing navigation: blocked identity, resources closed, zero mutation */
 t('harness(actual entrypoint): throwing marker navigation => BLOCKED_IDENTITY, zero operation/discovery/delete', async () => {
-  const r = await runDriverHarness({ contract: harnessContract(), gotoThrows: true, markerValue: 'TN-RUN-contract-beef' });
-  assert.equal(r.err, null);
-  const receipt = JSON.parse(r.receipts['fix2-clean-result.json']);
-  assert.equal(receipt.journey.status, 'BLOCKED_IDENTITY');
-  assert.equal(r.stats.dbCountCalls, 0);
-  assert.equal(r.stats.findOwnedCalls, 0);
-  assert.equal(r.stats.transientDeletes, 0);
-  assert.ok(r.stats.ctxCloses >= 1, 'context closed even on the throwing path');
-  assert.equal(r.stats.browserCloses, 1, 'journey closed the browser');
+  const contract = harnessContract();
+  const aCalls = [];
+  const r = await runDriverHarness({
+    contract,
+    adapter: syntheticQualifiedAdapter(aCalls, contract),
+    extraCalls: aCalls,
+    gotoThrows: true,
+    markerValue: 'TN-RUN-contract-beef',
+  });
+  assertIdentityBlocked(r);
 });
 
-/* D7 — missing marker value: blocked identity, zero mutation */
+/* D7 — missing (null) marker value: blocked identity, zero mutation */
 t('harness(actual entrypoint): null marker value => BLOCKED_IDENTITY, zero operation/discovery/delete', async () => {
-  const r = await runDriverHarness({ contract: harnessContract(), markerValue: null });
-  assert.equal(r.err, null);
-  const receipt = JSON.parse(r.receipts['fix2-clean-result.json']);
-  assert.equal(receipt.journey.status, 'BLOCKED_IDENTITY');
-  assert.equal(r.stats.dbCountCalls, 0);
-  assert.equal(r.stats.findOwnedCalls, 0);
-  assert.equal(r.stats.transientDeletes, 0);
-  assert.equal(r.stats.browserLaunches, 1);
+  const contract = harnessContract();
+  const aCalls = [];
+  const r = await runDriverHarness({
+    contract,
+    adapter: syntheticQualifiedAdapter(aCalls, contract),
+    extraCalls: aCalls,
+    markerValue: null,
+  });
+  assertIdentityBlocked(r);
 });
 
-/* D8 — positive control: matching observed URL + matching marker => journey PASSED
- * with operation/discovery actually enabled */
-t('harness(actual entrypoint): matching observed URL + marker => PASSED, operation/discovery enabled', async () => {
-  const r = await runDriverHarness({ contract: harnessContract(), markerValue: 'TN-RUN-contract-beef' });
+/* D7b — MISSING marker attribute (undefined from the DOM query): blocked identity */
+t('harness(actual entrypoint): missing (undefined) marker value => BLOCKED_IDENTITY, zero operation/discovery/delete', async () => {
+  const contract = harnessContract();
+  const aCalls = [];
+  const r = await runDriverHarness({
+    contract,
+    adapter: syntheticQualifiedAdapter(aCalls, contract),
+    extraCalls: aCalls,
+    markerValue: undefined,
+  });
+  assertIdentityBlocked(r);
+});
+
+/* D7c — MISMATCHED marker value (another fixture's marker): blocked identity */
+t('harness(actual entrypoint): mismatched marker value => BLOCKED_IDENTITY, zero operation/discovery/delete', async () => {
+  const contract = harnessContract();
+  const aCalls = [];
+  const r = await runDriverHarness({
+    contract,
+    adapter: syntheticQualifiedAdapter(aCalls, contract),
+    extraCalls: aCalls,
+    markerValue: 'TN-RUN-some-other-marker',
+  });
+  assertIdentityBlocked(r);
+});
+
+/* D8 — positive control: explicitly injected synthetic qualified adapter + matching
+ * observed URL + matching marker => journey PASSED with operation/discovery enabled */
+t('harness(actual entrypoint): injected qualified adapter + matching URL/marker => PASSED, operation/discovery enabled', async () => {
+  const contract = harnessContract();
+  const aCalls = [];
+  const r = await runDriverHarness({
+    contract,
+    adapter: syntheticQualifiedAdapter(aCalls, contract),
+    extraCalls: aCalls,
+    markerValue: 'TN-RUN-contract-beef',
+  });
   assert.equal(r.err, null);
   assert.equal(r.receipts['fix2-clean-error.json'], undefined);
   const receipt = JSON.parse(r.receipts['fix2-clean-result.json']);
   assert.equal(receipt.journey.status, 'PASSED', 'journey must pass on the matching control');
   assert.equal(r.stats.browserLaunches, 1);
-  assert.ok(r.stats.dbCountCalls >= 2, 'operation ran (baseline + final counts)');
-  assert.ok(r.stats.findOwnedCalls >= 1, 'discovery ran');
+  assert.ok(r.stats.operationCountCalls >= 2, 'operation ran (baseline + final counts through the injected adapter)');
+  assert.ok(r.stats.discoveryCalls >= 1, 'discovery ran through the injected adapter');
   const logNames = (receipt.journey.effect_log || []).map(e => e.effect);
   for (const k of ['preflightProbes', 'openBrowser', 'readBrowserMarker', 'closeBrowser', 'findOwnedRecords']) {
     assert.ok(logNames.indexOf(k) >= 0, 'effect log must include ' + k + ': ' + JSON.stringify(logNames));
@@ -437,7 +592,7 @@ t('harness(actual entrypoint): matching observed URL + marker => PASSED, operati
   assert.equal(receipt.journey.operation_error, null);
 });
 
-/* D9 — REPRODUCER of manager P1 #1 against the PINNED pre-fix source (99adf59…):
+/* D9 — REPRODUCER of the historical P1 #1 against the PINNED pre-fix source (99adf59…):
  * the incomplete contract reached the legacy external adapter (remote temp write)
  * before any completeness gate, and the receipt still claimed "zero effects". */
 t('reproducer(pinned 99adf59 source): incomplete contract reached legacy adapter with a remote temp write + dishonest receipt', async () => {
@@ -447,6 +602,7 @@ t('reproducer(pinned 99adf59 source): incomplete contract reached legacy adapter
   const r = await runDriverHarness({
     source: prefix,
     contract: { fixture_marker_name: 'n', cleanup_fingerprint_source: 'fp' },
+    legacyAdapterCommands: true,
   });
   assert.equal(r.err, null);
   const receipt = JSON.parse(r.receipts['fix2-clean-result.json']);
@@ -457,7 +613,7 @@ t('reproducer(pinned 99adf59 source): incomplete contract reached legacy adapter
   assert.equal(receipt.journey.note.indexOf('zero effects executed'), 0, 'pre-fix receipt claimed zero effects despite the adapter call');
 });
 
-/* D10 — REPRODUCER of manager P1 #2 against the PINNED pre-fix source: the marker
+/* D10 — REPRODUCER of the historical P1 #2 against the PINNED pre-fix source: the marker
  * adapter manufactured endpoint evidence (hardcoded BASE, page.url() never read),
  * so a redirected final URL still PASSED with operation/discovery enabled. */
 t('reproducer(pinned 99adf59 source): redirected final URL still PASSED (observed URL never read)', async () => {
@@ -469,15 +625,35 @@ t('reproducer(pinned 99adf59 source): redirected final URL still PASSED (observe
     contract: harnessContract(),
     finalUrl: 'http://redirected-target.invalid/',
     markerValue: 'TN-RUN-contract-beef',
+    legacyAdapterCommands: true,
   });
   assert.equal(r.err, null);
   const receipt = JSON.parse(r.receipts['fix2-clean-result.json']);
   assert.equal(receipt.journey.status, 'PASSED', 'pre-fix: redirect with matching marker must reproduce the false PASSED');
   assert.equal(r.stats.markerPageUrlReads, 0, 'pre-fix: page.url() was never called');
   assert.ok(r.stats.browserLaunches >= 1);
-  assert.ok(r.stats.dbCountCalls >= 2, 'pre-fix: operation ran on the redirected target');
-  assert.ok(r.stats.findOwnedCalls >= 1, 'pre-fix: discovery ran');
+  assert.ok(r.stats.adapterCalls >= 2, 'pre-fix: legacy adapter calls ran on the redirected target');
+  assert.ok(r.stats.legacyDiscoveryCalls >= 1, 'pre-fix: discovery ran');
 });
+
+/* helper for the identity-blocked cases */
+function assertIdentityBlocked(r) {
+  assert.equal(r.err, null);
+  assert.equal(r.receipts['fix2-clean-error.json'], undefined);
+  const receipt = JSON.parse(r.receipts['fix2-clean-result.json']);
+  assert.equal(receipt.journey.status, 'BLOCKED_IDENTITY', 'expected BLOCKED_IDENTITY, got ' + receipt.journey.status);
+  const logNames = (receipt.journey.effect_log || []).map(e => e.effect);
+  assert.ok(logNames.indexOf('closeBrowser') >= 0, 'browser closed after identity failure');
+  assert.equal(logNames.indexOf('findOwnedRecords'), -1, 'no discovery after identity failure');
+  assert.equal(logNames.indexOf('deleteOwnedRecords'), -1, 'no delete after identity failure');
+  assert.equal(r.stats.operationCountCalls, 0, 'operation (baseline counting) must not run');
+  assert.equal(r.stats.discoveryCalls, 0, 'no discovery adapter call');
+  assert.equal(r.stats.deleteCalls, 0, 'no delete adapter call');
+  assert.equal(r.stats.browserLaunches, 1);
+  assert.ok(r.stats.ctxCloses >= 1, 'marker context closed in finally');
+  assert.equal(r.stats.browserCloses, 1, 'journey closed the browser');
+  assert.equal(r.exitCode, 1);
+}
 
 let fail = 0;
 (async () => {

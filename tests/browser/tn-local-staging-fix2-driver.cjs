@@ -22,9 +22,7 @@ const { execSync } = require('node:child_process');
 const H = require('./tn-fixture-helpers.cjs');
 
 const BASE = process.env.TN_BROWSER_BASE || 'http://localhost:18085';
-const SSH = 'ssh netauto-main';
-const CTN = 'tehnet-ux-preview-wordpress';
-const WPC = 'php /var/www/html/wp-cli.phar --allow-root --path=/var/www/html --user=AmirrezaGol';
+/* (withdrawn legacy SSH/container constants removed — MANAGER_REVIEW 6969817290 #1) */
 const PR100_REF = 'origin/feat/setup-reconcile-20261113';
 const REPO = __dirname + '/../..';
 
@@ -41,7 +39,7 @@ const out = {
     'SIMULATED CAPTCHA (staging disabled by design)',
     'LOCAL_STAGING not cloud — cloud-runner execution remains BLOCKED on Docker networking',
     'original CSS preserved (no scroll-behavior override); navigation errors NOT suppressed',
-    'DB access via SSH wp-cli (read-only probes + marker-scoped owned delete only)',
+    'External access ONLY via the explicitly injected qualified adapter seam (read-only probes + marker-scoped owned delete); default seam DISABLED',
   ],
   checks: [], owned_tokens_captured: 0, expected_artifact_digests: {}, cleanup: null, journey: null,
   not_run_cases: [
@@ -109,7 +107,7 @@ function digestMap() {
   return { REQUIRED_DIGEST_KEYS, map: m };
 }
 /* MANAGER_REVIEW 6969086962 A: the blocked receipt reports the ACTUAL number of
- * external adapter attempts (each sshwp eval-file uploads a remote temp PHP —
+ * external adapter attempts (each adapter call is an external effect —
  * not a zero-mutation probe). No blanket "zero effects" claim. */
 let adapterAttempts = 0;
 function writeBlockedReceipt(status) {
@@ -117,40 +115,29 @@ function writeBlockedReceipt(status) {
   out.status = status;
   out.journey = {
     status,
-    note: 'blocked before openBrowser/operation/discovery/delete — external adapter attempts so far (sshwp eval-file, each uploads a remote temp PHP): ' + adapterAttempts,
+    note: 'blocked before openBrowser/operation/discovery/delete — external adapter attempts so far: ' + adapterAttempts,
     external_adapter_attempts: adapterAttempts,
     browser_launches: 0,
   };
   out.cleanup = { requested: 0, deleted: [], delete_failed_ids: [], skipped_unowned: [], post_read_owned_remaining: [], error: null };
   fs.writeFileSync('fix2-clean-result.json', JSON.stringify(H.serializeOutput(out, checks, RUN_MARKER, privTokens), null, 1));
-  console.log('RESULT=' + status + ' (blocked before openBrowser; sshwp attempts=' + adapterAttempts + ')');
+  console.log('RESULT=' + status + ' (blocked before openBrowser; adapter attempts=' + adapterAttempts + ')');
   process.exitCode = 1;
 }
 
-/* SSH wp-cli eval-file with base64 payload; returns the JSON line */
-function sshwp(php) {
-  adapterAttempts++;
-  const b64 = Buffer.from(php).toString('base64');
-  const raw = execSync(SSH + ' "docker exec ' + CTN + ' sh -c \'echo ' + b64 + ' | base64 -d > /tmp/_tn_fix2.php && ' + WPC + ' eval-file /tmp/_tn_fix2.php\'"', { encoding: 'utf8', timeout: 30000 });
-  const lines = raw.trim().split('\n');
-  return lines.filter(l => l.startsWith('{') || l.startsWith('[')).pop() || '{}';
-}
-function dbCount(type) {
-  return JSON.parse(sshwp('<?php echo json_encode(["n"=>(int)wp_count_posts("' + type + '")->publish+(int)wp_count_posts("' + type + '")->private]);')).n;
-}
-/* read-only detail for ids ALREADY verified owned by the exact-marker query */
-function dbOwnedDetail(id) {
-  return JSON.parse(sshwp('<?php $p=get_post(' + id + ');echo json_encode($p?["id"=>(int)$p->ID,"status"=>$p->post_status,"kind"=>get_post_meta(' + id + ',"_tn_request_kind",true),"state"=>get_post_meta(' + id + ',"_tn_quote_state",true)?:get_post_meta(' + id + ',"_tn_ticket_state",true):null]:["missing"=>true]);'));
-}
-/* OWNED transient cleanup — only tokens captured from THIS run's receipts/redirects */
-function clearOwnedReceiptTransients(tokens) {
-  let cleared = 0;
-  for (const t of tokens) {
-    for (const name of ['tn_service_receipt_' + t, '_transient_timeout_tn_service_receipt_' + t]) {
-      try { execSync(SSH + ' "docker exec ' + CTN + ' ' + WPC + ' transient delete ' + name + '"', { encoding: 'utf8', timeout: 10000 }); cleared++; } catch (e) { /* transient already absent is fine */ }
-    }
-  }
-  return { cleared, requested: tokens.length };
+/* MANAGER_REVIEW 6969817290 #1: NO implicit legacy adapter. The withdrawn SSH/container
+ * route is GONE from this source — the external route is reachable ONLY through the
+ * explicit adapter seam module (tn-fix2-adapter-seam.cjs), whose shipped default is
+ * DISABLED. A complete contract + valid digests never qualify an adapter, and no
+ * contract-supplied boolean can; qualification comes exclusively from the explicitly
+ * injected QUALIFIED adapter module. Pure tests inject a synthetic eligible adapter
+ * through this seam; a real route additionally requires the separate environment/access
+ * gates. Nothing here probes or reconnects any old fixture. */
+function loadAdapter() {
+  try {
+    const mod = require('./tn-fix2-adapter-seam.cjs');
+    return (mod && typeof mod === 'object') ? mod : null;
+  } catch (e) { return null; }
 }
 function captureReceiptToken(url) {
   const m = /[?&]tn_service_receipt=([0-9a-f]+)/i.exec(url || '');
@@ -183,30 +170,56 @@ function captureReceiptToken(url) {
     writeBlockedReceipt(eligibility.completeness.complete ? 'BLOCKED_MISSING_EVIDENCE' : 'BLOCKED_FIXTURE_OWNERSHIP');
     return;
   }
-  /* Adapter eligible ONLY here: complete contract + valid digests validated before use. */
+  /* MANAGER_REVIEW 6969817290 #1: known contract/BASE endpoint disagreement blocks
+   * BEFORE ANY external attempt — the journey's expected.home_url is BASE + '/', so a
+   * contract naming a different endpoint would silently bind the wrong target. This
+   * check now runs BEFORE the adapter seam is even loaded (previously one cleanup-
+   * evidence upload preceded it). */
+  if (FIXTURE_CONTRACT.app_endpoint && FIXTURE_CONTRACT.app_endpoint !== BASE + '/') {
+    out.endpoint_disagreement = { contract_app_endpoint: FIXTURE_CONTRACT.app_endpoint, driver_base: BASE + '/' };
+    writeBlockedReceipt('BLOCKED_CONTRACT_ENDPOINT_MISMATCH');
+    return;
+  }
+  /* MANAGER_REVIEW 6969817290 #1: a complete contract + digests do NOT independently
+   * qualify any adapter. The only reachable route is an explicitly injected QUALIFIED
+   * adapter through the seam module; the shipped default is the withdrawn route,
+   * DISABLED — no self-declared contract boolean can enable it. */
+  const adapter = loadAdapter();
+  if (!adapter || adapter.qualified !== true
+    || typeof adapter.cleanupEvidence !== 'function' || typeof adapter.preflightProbes !== 'function'
+    || typeof adapter.findOwned !== 'function' || typeof adapter.deleteOwned !== 'function'
+    || typeof adapter.countRecords !== 'function' || typeof adapter.recordDetail !== 'function'
+    || typeof adapter.clearReceiptTransients !== 'function') {
+    out.adapter_qualification = {
+      qualified: !!(adapter && adapter.qualified),
+      reason: adapter ? (adapter.reason || 'unqualified_adapter_module') : 'adapter_seam_unloadable',
+    };
+    writeBlockedReceipt('BLOCKED_NO_QUALIFIED_ADAPTER');
+    return;
+  }
+  /* MANAGER_REVIEW 6969817290 #1: every adapter access is counted — the blocked receipt's
+   * external_adapter_attempts stays honest for any later blocking path. */
+  const ac = (method) => (...args) => { adapterAttempts++; return adapter[method](...args); };
+  const aCleanupEvidence = ac('cleanupEvidence');
+  const aPreflightProbes = ac('preflightProbes');
+  const aFindOwned = ac('findOwned');
+  const aDeleteOwned = ac('deleteOwned');
+  const aCountRecords = ac('countRecords');
+  const aRecordDetail = ac('recordDetail');
+  const aClearReceiptTransients = ac('clearReceiptTransients');
+  /* Adapter qualified ONLY here: complete contract + valid digests + explicitly injected
+   * qualified adapter, all validated BEFORE the first external attempt. */
   {
-    const optName = H.phpSingleQuoted(FIXTURE_CONTRACT.fixture_marker_name);
-    const fpName = H.phpSingleQuoted(FIXTURE_CONTRACT.cleanup_fingerprint_source);
-    /* correct key/value fields: marker NAME = the contract's option name (literal string),
-       marker VALUE = the installed option value; fingerprints from the named source */
-    cleanupEvidence = JSON.parse(sshwp('<?php global $wpdb; echo json_encode(["db_name"=>$wpdb->dbname,"fixture_marker_name"=>' + optName + ',"fixture_marker_value"=>(string)get_option(' + optName + ',""),"source_fingerprints"=>get_option(' + fpName + ',null)]));'));
     /* PRELIMINARY stage (6913701634): cleanup-side + contract completeness ONLY.
        The browser side is not available yet; it is read by readBrowserMarker inside
        the journey and FINAL two-channel identity is enforced there before mutation. */
+    cleanupEvidence = aCleanupEvidence(FIXTURE_CONTRACT);
     fixtureVerdict = H.evaluateFixtureContract(null, cleanupEvidence, FIXTURE_CONTRACT, 'preliminary');
   }
   const gate = H.preEffectGate({ requiredDigestKeys: dm.REQUIRED_DIGEST_KEYS, artifactDigests: dm.map, fixtureContract: fixtureVerdict });
   ck('pre_effect_gate', gate.ok, { status: gate.status, missingDigests: gate.missingDigests, contractFailed: gate.verdict ? gate.verdict.failed : 'NO_CONTRACT_SUPPLIED' });
   if (!gate.ok) { writeBlockedReceipt(gate.status); return; }
   ck('expected_artifact_digests_present', true, { note: 'validated BEFORE effects (see pre_effect_gate); repo-side expectation only — installed-combination attestation stays separate' });
-  /* MANAGER_REVIEW 6969086962 B: contract/BASE endpoint disagreement must block BEFORE
-   * openBrowser/operation — the journey's expected.home_url is BASE + '/', so a contract
-   * naming a different endpoint would silently bind the wrong target. */
-  if (FIXTURE_CONTRACT.app_endpoint && FIXTURE_CONTRACT.app_endpoint !== BASE + '/') {
-    out.endpoint_disagreement = { contract_app_endpoint: FIXTURE_CONTRACT.app_endpoint, driver_base: BASE + '/' };
-    writeBlockedReceipt('BLOCKED_CONTRACT_ENDPOINT_MISMATCH');
-    return;
-  }
 
   const res = await H.runJourney({
     marker: RUN_MARKER,
@@ -215,7 +228,7 @@ function captureReceiptToken(url) {
       cleanup_binding: { fixture_marker_name: FIXTURE_CONTRACT.fixture_marker_name, fixture_marker_value: cleanupEvidence.fixture_marker_value },
     },
     effects: {
-      preflightProbes: async () => JSON.parse(sshwp(H.buildPreflightProbePhp())),
+      preflightProbes: async () => aPreflightProbes(),
       openBrowser: async () => {
         const b = await chromium.launch({ headless: true });
         out.browser = { engine: 'chromium', version: b.version() };
@@ -223,13 +236,14 @@ function captureReceiptToken(url) {
       },
       /* browser-side marker: READ from the rendered endpoint via the contract-named
          mechanism (meta:<name>). Separate channel — never copied from cleanup evidence.
-         MANAGER_REVIEW 6969086962 B: the OBSERVED final URL is bound (never the
-         hardcoded BASE); read failures surface as null marker so the journey's
-         identity gate blocks BEFORE operation/submit/discovery; the synthetic
-         browser context is closed in finally on every path. */
+         MANAGER_REVIEW 6969817290 #2: the ACTUAL observed final URL is consumed
+         FAIL-CLOSED — no `observedUrl || BASE` fallback; an empty/null/missing
+         observed URL returns home_url=null so the identity gate BLOCKS, and read
+         failures surface as null marker. The synthetic browser context is closed in
+         finally on every path. */
       readBrowserMarker: async ({ browser }) => {
         const src = FIXTURE_CONTRACT.browser_marker_source || '';
-        if (!/^meta:/.test(src)) return { home_url: BASE + '/', fixture_marker_name: FIXTURE_CONTRACT.fixture_marker_name, fixture_marker_value: null };
+        if (!/^meta:/.test(src)) return { home_url: null, fixture_marker_name: FIXTURE_CONTRACT.fixture_marker_name, fixture_marker_value: null };
         const sel = 'meta[name="' + src.slice(5) + '"]';
         const ctx = await browser.newContext({ viewport: { width: 640, height: 480 }, locale: 'fa' });
         let markerValue = null, observedUrl = null;
@@ -241,16 +255,18 @@ function captureReceiptToken(url) {
         } finally {
           await ctx.close().catch(() => {});
         }
-        /* OBSERVED final URL bound — never the hardcoded BASE (a redirected synthetic
-           endpoint with the same marker must FAIL the endpoint binding downstream). */
-        return { home_url: observedUrl || (BASE + '/'), fixture_marker_name: FIXTURE_CONTRACT.fixture_marker_name, fixture_marker_value: markerValue };
+        /* OBSERVED final URL bound verbatim — never manufactured from BASE (a
+           redirected synthetic endpoint with the same marker must FAIL the endpoint
+           binding downstream; an empty/null URL must fail closed, not fall back). */
+        if (typeof observedUrl !== 'string' || observedUrl.length === 0) observedUrl = null;
+        return { home_url: observedUrl, fixture_marker_name: FIXTURE_CONTRACT.fixture_marker_name, fixture_marker_value: markerValue };
       },
       closeBrowser: async b => { await b.close(); },
-      findOwnedRecords: async marker => JSON.parse(sshwp(H.buildFindOwnedPhp(marker))),
-      deleteOwnedRecords: async (ids, marker) => JSON.parse(sshwp(H.buildDeleteOwnedPhp(marker, ids))),
+      findOwnedRecords: async marker => aFindOwned(marker),
+      deleteOwnedRecords: async (ids, marker) => aDeleteOwned(ids, marker),
     },
     operation: async ({ browser }) => {
-      const baseline = { tickets: dbCount('tn_ticket'), quotes: dbCount('tn_quote') };
+      const baseline = { tickets: aCountRecords('tn_ticket'), quotes: aCountRecords('tn_quote') };
       ck('baseline_recorded', true, baseline);
       /* === CASE 1: services journey — keyboard-only from source page === */
       try {
@@ -300,11 +316,11 @@ function captureReceiptToken(url) {
         const tn = receipt.match(/TN-(\d+)/);
         ck('c1_receipt_visible_with_tracking', /\u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0634\u0645\u0627 \u062b\u0628\u062a \u0634\u062f/.test(receipt) && !!tn, { tracking: tn ? 'TN-' + tn[1] : null });
         /* marker-scoped verification — NO newest-global selection */
-        const owned = JSON.parse(sshwp(H.buildFindOwnedPhp(RUN_MARKER))).filter(r => r.email_has_marker === true);
+        const owned = aFindOwned(RUN_MARKER).filter(r => r.email_has_marker === true);
         const svc = owned.find(r => r.type === 'tn_ticket' && (!tn || r.id === parseInt(tn[1], 10)));
         ck('c1_db_owned_ticket_marker_exact', !!svc, { owned_count: owned.length });
         if (svc) {
-          const d = dbOwnedDetail(svc.id);
+          const d = aRecordDetail(svc.id);
           ck('c1_db_record_private_ticket', d.status === 'private' && d.kind === 'service', { id: d.id, status: d.status, kind: d.kind });
           ck('c1_post_receipt_row_bound', !!(tn && parseInt(tn[1], 10) === svc.id), { receipt_id: tn ? 'TN-' + tn[1] : null, owned_row: svc.id });
         }
@@ -329,7 +345,7 @@ function captureReceiptToken(url) {
         await Promise.all([page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 20000 }), page.click('form.tn-quote-form button[type="submit"]')]);
         const lastR2 = redirects2.map(r => r.location).filter(l => l.includes('tn_quote')).pop();
         ck('c2_redirect_captured', /tn_quote=sent/.test(page.url()) && !!lastR2, { lastRedirect: lastR2 ? lastR2.slice(0, 120) : 'none' });
-        const owned2 = JSON.parse(sshwp(H.buildFindOwnedPhp(RUN_MARKER))).filter(r => r.email_has_marker === true && r.type === 'tn_quote');
+        const owned2 = aFindOwned(RUN_MARKER).filter(r => r.email_has_marker === true && r.type === 'tn_quote');
         ck('c2_db_owned_quote_marker_exact', owned2.length >= 1, { owned_quotes: owned2.length });
         await ctx.close();
       } catch (e) { ck('c2_error', false, { err: String(e.message).slice(0, 150) }); }
@@ -337,7 +353,7 @@ function captureReceiptToken(url) {
       try {
         const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, locale: 'fa', javaScriptEnabled: false });
         const page = await ctx.newPage();
-        const beforeQ = dbCount('tn_quote');
+        const beforeQ = aCountRecords('tn_quote');
         const r3 = await page.goto(BASE + '/b2b/', { waitUntil: 'load', timeout: 20000 });
         ck('c3_http200_nojs', r3.status() === 200, { status: r3.status() });
         const pid3 = await page.evaluate(() => { const s = document.querySelector('form.tn-quote-form select[name="tn_item_product[]"]'); const o = s && s.querySelector('option:nth-child(2)'); return o ? o.value : null; });
@@ -348,15 +364,15 @@ function captureReceiptToken(url) {
         await page.selectOption('form.tn-quote-form select[name="tn_item_product[]"]', pid3, { timeout: 10000 });
         await page.fill('form.tn-quote-form input[name="tn_item_qty[]"]', '1', { timeout: 10000 });
         await Promise.all([page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 20000 }), page.click('form.tn-quote-form button[type="submit"]')]);
-        const afterQ = dbCount('tn_quote');
+        const afterQ = aCountRecords('tn_quote');
         ck('c3_nojs_quote_created', afterQ > beforeQ, { before: beforeQ, after: afterQ });
         ck('c3_nojs_redirect_sent', page.url().includes('tn_quote=sent'), { url: page.url().slice(0, 140) });
-        const owned3 = JSON.parse(sshwp(H.buildFindOwnedPhp(RUN_MARKER))).filter(r => r.email_has_marker === true && r.type === 'tn_quote');
-        const d3 = owned3.length ? dbOwnedDetail(owned3[owned3.length - 1].id) : null;
+        const owned3 = aFindOwned(RUN_MARKER).filter(r => r.email_has_marker === true && r.type === 'tn_quote');
+        const d3 = owned3.length ? aRecordDetail(owned3[owned3.length - 1].id) : null;
         ck('c3_nojs_record_verified_owned', !!(d3 && d3.state === 'received'), { id: d3 ? d3.id : null, state: d3 ? d3.state : null });
         await ctx.close();
       } catch (e) { ck('c3_error', false, { err: String(e.message).slice(0, 150) }); }
-      return { baseline: { tickets: dbCount('tn_ticket'), quotes: dbCount('tn_quote') } };
+      return { baseline: { tickets: aCountRecords('tn_ticket'), quotes: aCountRecords('tn_quote') } };
     },
   });
 
@@ -367,7 +383,7 @@ function captureReceiptToken(url) {
 
   /* OWNED transient cleanup — only this run's PRIVATE tokens; owned-post cleanup has
      already been VERIFIED inside runJourney (delete-result + post-read non-array guards). */
-  const tc = clearOwnedReceiptTransients(privTokens);
+  const tc = aClearReceiptTransients(privTokens);
   ck('owned_transients_cleared', tc.cleared === tc.requested * 2, tc);
 
   /* sanitized result binding — actual checks array bound; marker + private tokens +
