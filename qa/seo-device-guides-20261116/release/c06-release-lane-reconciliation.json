@@ -1,0 +1,157 @@
+{
+ "unit": "TN-C06-RELEASE-RECOVERY-RECONCILIATION-20261118",
+ "receipt_type": "LOCAL_TEST — read-only git/file evidence gathering; no live effect",
+ "manager_review": "https://github.com/DashSaman/TehNet/pull/96#issuecomment-6981609373 (next substantive C06)",
+ "definitions_source": "ops/agent-control/OWNER_DECISION_INDEXABILITY_2026-11-12.fa.md",
+ "generated_utc": "2026-11-18T14:50:13Z",
+ "lane": [
+  {
+   "id": "M0",
+   "definition": "merge PR100 (feat/setup-reconcile-20261113) instead of PR94 — superset; owner decision ops/agent-control/OWNER_DECISION_INDEXABILITY_2026-11-12.fa.md",
+   "evidence": {
+    "branch": "origin/feat/setup-reconcile-20261113",
+    "head_at_2026_11_18": "a54198ce7ed3535d6783432d8401660e2e023f9d",
+    "head_in_owner_decision_snapshot": "d4575807ed3535d6783432d8401660e2e023f9d (2026-11-14 cycle-12 CI snapshot)",
+    "branch_advanced_since_snapshot": true,
+    "payload_dir_at_head": [
+     "README.fa.md",
+     "action-board.json",
+     "before-after.json",
+     "business-server-planning-guide.html",
+     "business-server-planning-guide.md",
+     "manifest.json",
+     "metadata.json",
+     "mikrotik-service.html",
+     "mikrotik-service.md",
+     "network-project-proposal-checklist.html",
+     "network-project-proposal-checklist.md",
+     "network-setup.html",
+     "network-setup.md",
+     "network-support-contract-guide.html",
+     "network-support-contract-guide.md",
+     "network-support.html",
+     "network-support.md",
+     "network-tehran.html",
+     "network-tehran.md",
+     "server-backup-restore-acceptance.html"
+    ],
+    "ci_snapshot": "PR_CI_SNAPSHOT_2026-11-14-cycle12.json — 16/16 green at d457580-era"
+   },
+   "status": "OPEN — WAITING_FOR_OWNER (merge decision)",
+   "gaps": [
+    "PR100 head advanced beyond the owner-decision snapshot (d4575807ed35 -> a54198ce7ed3): the fresh-CI guarantee recorded for d457580 does NOT automatically cover the advanced head — a fresh CI run is required before any merge decision"
+   ]
+  },
+  {
+   "id": "D1",
+   "definition": "publish decision pages — scope tehnet-commercial-decision-20261108-v2: 10 pages (5 updated + 5 new) + 15 runtime files; NOT body-only; rollback includes runtime files",
+   "evidence": {
+    "payload_bodies_at_pr100_head": 10,
+    "payload_pages": [
+     "business-server-planning-guide.html",
+     "mikrotik-service.html",
+     "network-project-proposal-checklist.html",
+     "network-setup.html",
+     "network-support-contract-guide.html",
+     "network-support.html",
+     "network-tehran.html",
+     "server-backup-restore-acceptance.html",
+     "server-virtualization-tehran.html",
+     "services.html"
+    ],
+    "deployment": "NOT_RUN — publishing gated on M0 merge and the mandatory recovery gate"
+   },
+   "status": "NOT_RUN (deploy gated) — payload present on PR100 branch head",
+   "gaps": [
+    "recovery hard gate unsatisfied (see recovery element) — entry not permitted"
+   ]
+  },
+  {
+   "id": "D2",
+   "definition": "silent install of index policy module — scope tehnet-index-runtime-20261108-v1: class-index-policy.php + bootstrap Core with checksum; NO option -> site behavior unchanged; install kept OFF",
+   "evidence": {
+    "module_file_at_pr100_head": "present (4419 bytes)",
+    "installed_in_production": "NO (per owner decision doc; live /services/ form and page behavior unchanged)"
+   },
+   "status": "NOT_RUN — install OFF (by design until D1)",
+   "gaps": [
+    "recovery hard gate unsatisfied (see recovery element) — entry not permitted"
+   ]
+  },
+  {
+   "id": "D3",
+   "definition": "activate 16-URL allowlist — ONLY after D1+D2 complete and MANDATORY recovery verified (off-host destination + full test restore + wp-content restore rehearsal); one exact option (path+ID); global blog_public=0 untouched",
+   "evidence": {
+    "live_observable_2026_11_18": "11 of 16 policy URLs return 200 WITHOUT observed noindex meta; all 5 draft /guides/ destinations 404",
+    "allowlist_option_state": "UNKNOWN from this checkout — no authorized WordPress route; the owner decision doc recorded all pages noindex,nofollow at authoring time, so the live no-noindex observation indicates a live config change whose mechanism is UNKNOWN and NOT claimed here"
+   },
+   "status": "NOT_ACTIVATED — hard entry gate CLOSED (recovery prerequisite unsatisfied)",
+   "gaps": [
+    "live config change mechanism UNKNOWN — not attested",
+    "entry requires: off-host destination + full test restore + wp-content rehearsal (verified recovery), D1 and D2 completed, fresh backup + checksum per step"
+   ]
+  },
+  {
+   "id": "PR101-before-D3 + PR102/103",
+   "definition": "buyer-journey PRs (33=PR100, 37=PR101 remote-buyer, b2b=PR102, support=PR103) must merge before D3; PR102/103 scope = staging-verified buyer revisions, NOT_DEPLOYED",
+   "evidence": {
+    "pr101_remote_buyer_head": "cb391c2dc262a65e524962fa7fc44a0187f476fe",
+    "pr102_b2b_head": "cf48ea69cbe0e5e45a6be7e9bb958ec141595015 (recorded cf48ea69c… — MATCHES)",
+    "pr103_support_head": "ca271a813dde64f8efa421475bde70c54e8bafe6 (recorded ca271a813… — MATCHES)",
+    "ci_snapshot": "16/16 green at the 2026-11-14 cycle-12 snapshot"
+   },
+   "status": "OPEN — merge decisions WAITING_FOR_OWNER (ordering PR101-before-D3 intact: D3 not attempted)",
+   "gaps": []
+  },
+  {
+   "id": "recovery — mandatory D1/D2/D3 entry gate",
+   "definition": "verified recovery MUST include (a) an off-host destination + a full test restore from it, and (b) a wp-content restore rehearsal; same-host DB-only backup is insufficient (owner decision + recorded recovery limits)",
+   "evidence": {
+    "evidence_files": [
+     {
+      "file": "qa/growth-2026-10-31/production-recovery.json",
+      "sha256": "4f52ecf3d988d062e611978885bb1d57da6a2c0b54d5b98b2f5135565f3c6808",
+      "utc": "2026-10-31T19:58:27.339799+00:00",
+      "recorded_status": "VERIFIED",
+      "limits": [
+       "Recovery covers WordPress files and SQL; compose/nginx/SSH/DNS/Origin/network-policy recovery and OOB are not certified.",
+       "Backup and raw restored data remain private. A fresh drift/backup gate is required at actual deployment time.",
+       "Initial extraction was stopped by exact owned-process digest after repeated gzip seeks proved unsuitable; no restore containers existed at that stop. The first partial copy and backup were retained privately.",
+       "The completed attempt used one-pass archive extraction, per-file content hash comparison, disk reserve guard, isolated database import, native WordPress boot and owned-resource cleanup.",
+       "No content release, live payment, credential rotation or shared-history rewrite occurred."
+      ],
+      "scope": "Fresh private production backup restored to new isolated resources; existing preview untouched"
+     },
+     {
+      "file": "qa/store-2026-10-15/production-recovery.json",
+      "sha256": "6eb252af063f8c2861d58e0ee79583e8776059ec6f0d4619d74209aa36d40649",
+      "utc": "2026-10-15T15:37:27.968723+00:00",
+      "recorded_status": "passed",
+      "limits": null,
+      "scope": "Fresh production backup restored locally into new DB and new volume. No source overwritten."
+     }
+    ],
+    "conclusion": "off-host destination test restore: ABSENT; wp-content restore rehearsal: ABSENT — the mandatory entry gate is UNSATISFIED as of 2026-11-18"
+   },
+   "status": "GATE CLOSED — D1/D2/D3 entry not permitted until owner provides the off-host destination and the full test restore + wp-content rehearsal are executed and recorded",
+   "gaps": [
+    "this conclusion is the recorded hard gate, not a new prohibition"
+   ]
+  }
+ ],
+ "internal_consistency": "CONSISTENT",
+ "headline": {
+  "merge_ready": "NO — M0 open and WAITING_FOR_OWNER; PR100 head advanced past the fresh-CI snapshot (new CI required)",
+  "d1_d2_d3_entry": "CLOSED — mandatory recovery gate unsatisfied (off-host test restore + wp-content rehearsal absent)",
+  "ordering": "PR101-before-D3 intact (D3 never attempted)",
+  "release_authorization": "NONE — everything remains owner-gated"
+ },
+ "not_run": [
+  "WordPress/KSES",
+  "browser",
+  "production deployment",
+  "backup execution",
+  "off-host restore execution",
+  "sitemap submission"
+ ]
+}
