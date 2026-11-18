@@ -1,0 +1,67 @@
+{
+  "packet": "TN-P5-SITE-ICON-PUBLICATION-PACKET-20261118 (MANAGER_REVIEW 6964914484 update 01:26:24Z NEXT READY — per owner tick directive)",
+  "utc": "2026-11-18T03:33:30.159Z (asset verification)",
+  "status": "PREPARATION_ONLY — no upload/save/option change/deploy performed in this unit",
+  "asset": {
+    "path": "site/themes/tehnet/assets/img/site-icon-512.png",
+    "format": "PNG (IHDR magic verified)",
+    "dimensions": "512x512",
+    "bytes": 276624,
+    "sha256": "e26fcbd57ea95c533a55c01931f74737e22f3e16fa13f200a8fdd4c0e3b07bb0",
+    "verified_via": "local Node fs read + PNG IHDR parse (existing Node runtime)",
+    "verification_command": "node -e readFileSync + readUInt32BE(16/20) + createHash(sha256)",
+    "verification_utc": "2026-11-18T03:33:30.159Z",
+    "exit": 0,
+    "no_image_generation_or_edit": true
+  },
+  "accepted_public_baseline": {
+    "receipt": "qa/p5-favicon-baseline-20261118/receipt-favicon-baseline.json (MANAGER_REVIEW 6964914484 update 01:26:24Z ACCEPTED scope)",
+    "captured_utc_note": "original capture window preserved verbatim and marked UNKNOWN/unreconciled per MANAGER_REVIEW 6966987401; fresh qualified capture 2026-11-18T02:24:48.458Z-02:24:52.458Z machine ISO",
+    "facts": [
+      "home and services heads contain ZERO icon/apple-touch-icon/shortcut-icon link tags",
+      "PWA manifest (tn_pwa=manifest, 200, 258B) contains NO icons array",
+      "/favicon.ico 302-redirects to wp-includes/images/w-logo-gray-white-bg.png (80x80 PNG, sha256 c965a500f698483526faf92ac286047cecd825608cd1d83276de392b30a13a83)",
+      "bounded visual comparison: served = generic WordPress W mark; prepared = TehNet brand mark — different images"
+    ]
+  },
+  "proposed_native_site_icon_action": {
+    "action": "upload site/themes/tehnet/assets/img/site-icon-512.png as the WordPress Site Icon via wp-admin (Media > Site Icon) on the production site",
+    "executor": "site owner via wp-admin",
+    "expected_effect": "WordPress emits <link rel=icon> / <link rel=apple-touch-icon> tags in the public head and serves cropped site-icon sizes; /favicon.ico requests are served from the Site Icon",
+    "not_executed_in_this_unit": true,
+    "scope_guards": "site_logo option, theme files, content, blog_public, robots, protected IDs 194/196/206 — all untouched"
+  },
+  "actual_pre_state_and_drift": {
+    "pre_state": "public head has ZERO icon link tags; /favicon.ico 302-redirects to wp-includes default; PWA manifest has no icons array",
+    "drift": "prepared theme assets (site-icon-32/120/180/512, favicon.jpg/svg) exist in the checkout but none are referenced by the served head — the served icon (via /favicon.ico redirect) is the generic WordPress W mark, not the TehNet brand",
+    "captured_in": "favicon-baseline receipt (ACCEPTED scope) + fresh qualified capture 2026-11-18T02:24:48.458-52.458Z"
+  },
+  "rollback": {
+    "prior_value": "the actually captured prior served state = zero head icon tags + /favicon.ico 302 to wp-includes default (public favicon-baseline receipt)",
+    "rollback_action_if_published_then_reverted": "clear the WordPress Site Icon option (wp-admin: remove Site Icon) — this removes the emitted icon link tags and restores the exact captured prior public state",
+    "not_executed_in_this_unit": true
+  },
+  "public_readback": {
+    "home_status": "200 text/html",
+    "services_status": "200 text/html",
+    "head_icon_tags": 0,
+    "manifest_icons_array": "absent",
+    "favicon_ico": "302 -> wp-includes/images/w-logo-gray-white-bg.png (200 image/png 3241B 80x80)",
+    "icon_brand": "generic WordPress W mark (NOT the TehNet brand)"
+  },
+  "site_icon_pre_state": {
+    "db_option_value": "UNKNOWN",
+    "missing_precondition": "no authorized WordPress route exists in this checkout — no wp-admin access, no DB query capability, no wp-cli on the local checkout; reading the DB option requires one of those authorized routes, positively identified as TehNet production, none of which exists here",
+    "note": "public head absence of icon tags is CONSISTENT with an unset option but does not PROVE the DB option value"
+  },
+  "untouched_guarantees": [
+    "site_logo option",
+    "theme files",
+    "content",
+    "blog_public",
+    "robots",
+    "protected IDs 194/196/206"
+  ],
+  "not_run": ["WordPress/KSES", "DB queries", "RouterOS", "production option changes", "upload", "deploy"],
+  "privacy": "public pages/assets only; no credentials/customer/payment/security data; screenshots/traces private"
+}
