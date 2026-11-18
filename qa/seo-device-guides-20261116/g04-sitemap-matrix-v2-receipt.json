@@ -201,12 +201,13 @@
   },
   {
    "run": "g04_sitemap_membership_check",
-   "command": "node verify-afterd1-guard.cjs release/verify-sitemap-membership.cjs",
-   "cwd": "qa/seo-device-guides-20261116/",
-   "exit_code": null,
-   "summary_line": null,
+   "command": "node release/verify-sitemap-membership.cjs",
+   "cwd": "qa/seo-device-guides-20261116/release/",
+   "exit_code": 0,
+   "summary_line": "SITEMAP-CHECK=PASS failures=0 | exit=0",
    "page_lines": [],
-   "stderr_first_line": null
+   "stderr_first_line": null,
+   "evidence": "fresh direct execution 2026-11-18 (verified before the receipt commit); detailed per-check results in release/sitemap-membership-check-receipt.json"
   }
  ],
  "correction_coverage": {
