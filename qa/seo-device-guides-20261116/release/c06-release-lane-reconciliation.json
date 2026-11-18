@@ -3,7 +3,7 @@
  "receipt_type": "LOCAL_TEST — read-only git/file evidence gathering; no live effect",
  "manager_review": "https://github.com/DashSaman/TehNet/pull/96#issuecomment-6981609373 (next substantive C06)",
  "definitions_source": "ops/agent-control/OWNER_DECISION_INDEXABILITY_2026-11-12.fa.md",
- "generated_utc": "2026-11-18T15:07:41Z",
+ "generated_utc": "2026-11-18T15:29:13Z",
  "lane": [
   {
    "id": "M0",
@@ -35,30 +35,36 @@
      "network-tehran.md",
      "server-backup-restore-acceptance.html"
     ],
-    "ci_snapshot": "PR_CI_SNAPSHOT_2026-11-14-cycle12.json — 16/16 green at d457580-era (historical)",
+    "ci_snapshot": "PR_CI_SNAPSHOT_2026-11-14-cycle12.json — historical only, superseded by exact-head evidence",
     "exact_head_check_runs_2026_11_18": {
-     "fetched": true,
+     "status": "VERIFIED_SUCCESSFUL",
+     "source": "live API fetch",
+     "head_sha": "a54198ce7ed3535d6783432d8401660e2e023f9d",
      "total": 4,
-     "completed_ok": 4,
+     "completed_successful": 4,
      "runs": [
       {
        "name": "tracked-file-privacy",
        "conclusion": "success",
+       "head_sha": "a54198ce7ed3535d6783432d8401660e2e023f9d",
        "html_url": "https://github.com/DashSaman/TehNet/actions/runs/43611457682/job/132497197391"
       },
       {
        "name": "release-operator-boundaries",
        "conclusion": "success",
+       "head_sha": "a54198ce7ed3535d6783432d8401660e2e023f9d",
        "html_url": "https://github.com/DashSaman/TehNet/actions/runs/43611457682/job/132497197192"
       },
       {
        "name": "release-operator-boundaries",
        "conclusion": "success",
+       "head_sha": "a54198ce7ed3535d6783432d8401660e2e023f9d",
        "html_url": "https://github.com/DashSaman/TehNet/actions/runs/43611452836/job/132497183359"
       },
       {
        "name": "tracked-file-privacy",
        "conclusion": "success",
+       "head_sha": "a54198ce7ed3535d6783432d8401660e2e023f9d",
        "html_url": "https://github.com/DashSaman/TehNet/actions/runs/43611452836/job/132497183078"
       }
      ]
@@ -66,7 +72,7 @@
    },
    "status": "OPEN — WAITING_FOR_OWNER (merge decision); exact-head CI evidence recorded 2026-11-18",
    "gaps": [
-    "PR100 head advanced beyond the owner-decision snapshot (d4575807ed35 -> a54198ce7ed3). Per verdict 6982343308 the EXACT current head carries four completed successful check runs (manager-verified 2026-11-18; recorded in exact_head_check_runs_2026_11_18) — the historical snapshot alone was insufficient and has been superseded; the merge decision itself remains the owner gate"
+    "PR100 head advanced beyond the owner-decision snapshot (d457580… -> a54198ce…); exact-head CI for THIS head is VERIFIED SUCCESSFUL (4 completed successful check runs, 2026-11-18) — the historical snapshot is superseded; the merge decision remains the owner gate"
    ]
   },
   {
@@ -115,14 +121,14 @@
    "status": "NOT_ACTIVATED — hard entry gate CLOSED (recovery prerequisite unsatisfied)",
    "gaps": [
     "live config change mechanism UNKNOWN — not attested",
-    "entry requires: off-host destination + full test restore + wp-content rehearsal (verified recovery), D1 and D2 completed, fresh backup + checksum per step",
-    "the five HTTP-404 policy rows are four root-level paths + one service path; the 21 /guides/ draft destinations are a separate observation (verdict 6982343308)",
-    "PR101 merge is the explicit prerequisite before D3; PR102/103 release decisions stay separate; protected IDs 194/196/206"
+    "the five missing policy URLs are FOUR ROOT-LEVEL PATHS (/network-support-contract-guide/, /network-project-proposal-checklist/, /business-server-planning-guide/, /server-backup-restore-acceptance/) + ONE SERVICE PATH (/services/server-virtualization-tehran/) — all absent from the live sitemap; the 21 /guides/ draft destinations are a SEPARATE observation and are NOT part of this policy gap (verdict 6982818795)",
+    "PR101 merge is the explicit prerequisite before D3; PR102 and PR103 carry SEPARATE release decisions and are NOT D3 prerequisites",
+    "current D3 activation is UNVERIFIED; protected IDs 194/196/206 intact"
    ]
   },
   {
    "id": "PR101-before-D3 + PR102/103",
-   "definition": "buyer-journey PRs (33=PR100, 37=PR101 remote-buyer, b2b=PR102, support=PR103) must merge before D3; PR102/103 scope = staging-verified buyer revisions, NOT_DEPLOYED",
+   "definition": "ONLY PR101 (page-37 remote-buyer) is the explicit merge prerequisite before D3; PR102 (b2b) and PR103 (support) carry SEPARATE independent release decisions and are NOT D3 prerequisites; their scope = staging-verified buyer revisions, NOT_DEPLOYED",
    "evidence": {
     "pr101_remote_buyer_head": "cb391c2dc262a65e524962fa7fc44a0187f476fe",
     "pr102_b2b_head": "cf48ea69cbe0e5e45a6be7e9bb958ec141595015 (recorded cf48ea69c… — MATCHES)",
@@ -186,7 +192,7 @@
  "headline": {
   "production_release": "HELD (verdict 6982343308)",
   "g03_local_browser_journey": "ACCEPTED for the exact inputs and limits (manager-side LOCAL_STAGING evidence recorded); no production readiness follows",
-  "merge_ready": "NO — M0 open and WAITING_FOR_OWNER; PR100 head advanced past the fresh-CI snapshot (new CI required)",
+  "merge_ready": "NO — M0 open and WAITING_FOR_OWNER; exact-head CI for PR100 a54198ce is VERIFIED SUCCESSFUL (4 completed successful check runs, 2026-11-18) — the merge decision remains the owner gate",
   "d1_d2_d3_entry": "CLOSED — mandatory recovery gate unsatisfied (off-host test restore + wp-content rehearsal absent)",
   "ordering": "PR101-before-D3 intact (D3 never attempted)",
   "release_authorization": "NONE — everything remains owner-gated"

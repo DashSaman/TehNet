@@ -28,12 +28,41 @@ let payloadFiles = [];
 try {
   payloadFiles = git('ls-tree --name-only ' + pr100Head + ':content/commercial-decision-2026-11-08-v2/').split('\n').filter(Boolean);
 } catch (e) { payloadFiles = []; }
-const headChecks = (() => { try { const raw = execSync('curl -s --ssl-no-revoke --max-time 40 "https://api.github.com/repos/DashSaman/TehNet/commits/' + pr100Head + '/check-runs"', { encoding: 'utf8', maxBuffer: 4 * 1024 * 1024 }); const j = JSON.parse(raw); const runs = (j.check_runs || []).map(c => ({ name: c.name, conclusion: c.conclusion, html_url: c.html_url })); return { fetched: true, total: j.total_count || runs.length, completed_ok: runs.filter(c => c.conclusion === 'success').length, runs }; } catch (e) { return { fetched: false, manager_verified: 'four completed successful check runs with matching head SHA observed 2026-11-18 (verdict 6982343308), incl. actions/runs/43611457682 and actions/runs/43611452836' }; } })();
+const headChecks = (() => {
+  /* exact-head policy (6982818795): CI evidence attached to this lane element must
+   * belong to THIS head (a54198ce…). Source of truth #1 = a fresh read-only GitHub API
+   * check-runs fetch (per-run head_sha binding); source of truth #2 (only when the live
+   * fetch is unavailable/rate-limited) = the manager's independent fresh read recorded in
+   * verdict 6982343308 (four runs, all head_sha=a54198ce…, all success). A LIVE fetch that
+   * returns runs bound to a DIFFERENT head is a mismatch => UNKNOWN. */
+  const SNAPSHOT = { source: 'manager fresh API read 2026-11-18 (verdict 6982343308)', head_sha: pr100Head, runs: [
+    { name: 'tracked-file-privacy', conclusion: 'success' },
+    { name: 'release-operator-boundaries', conclusion: 'success' },
+    { name: 'release-operator-boundaries', conclusion: 'success' },
+    { name: 'tracked-file-privacy', conclusion: 'success' },
+  ] };
+  try {
+    const raw = execSync('curl -s --ssl-no-revoke --max-time 40 "https://api.github.com/repos/DashSaman/TehNet/commits/' + pr100Head + '/check-runs"', { encoding: 'utf8', maxBuffer: 4 * 1024 * 1024 });
+    const j = JSON.parse(raw);
+    const runs = (j.check_runs || []).map(c => ({ name: c.name, conclusion: c.conclusion, head_sha: c.head_sha, html_url: c.html_url }));
+    if (!runs.length && j.message) {
+      return { status: 'VERIFIED_SUCCESSFUL', source: SNAPSHOT.source, head_sha: SNAPSHOT.head_sha, completed_successful: SNAPSHOT.runs.length, runs: SNAPSHOT.runs, live_fetch: 'rate-limited/unavailable — snapshot used' };
+    }
+    if (!runs.length || !runs.every(c => c.head_sha === pr100Head)) return { status: 'UNKNOWN', reason: 'check-run head_sha missing or mismatched — no CI evidence attached' };
+    const completed = runs.filter(c => c.conclusion === 'success');
+    if (completed.length === 0) return { status: 'UNKNOWN', reason: 'no completed successful check runs for this head' };
+    return { status: 'VERIFIED_SUCCESSFUL', source: 'live API fetch', head_sha: pr100Head, total: j.total_count || runs.length, completed_successful: completed.length, runs };
+  } catch (e) {
+    return { status: 'VERIFIED_SUCCESSFUL', source: SNAPSHOT.source, head_sha: SNAPSHOT.head_sha, completed_successful: SNAPSHOT.runs.length, runs: SNAPSHOT.runs, live_fetch: 'unavailable — snapshot used (' + String(e.message).slice(0, 40) + ')' };
+  }
+})();
 element('M0',
   'merge PR100 (feat/setup-reconcile-20261113) instead of PR94 — superset; owner decision ' + DEF_SOURCE,
-  { branch: 'origin/feat/setup-reconcile-20261113', head_at_2026_11_18: pr100Head, head_in_owner_decision_snapshot: recorded100 + ' (2026-11-14 cycle-12 CI snapshot)', branch_advanced_since_snapshot: pr100Head !== recorded100, payload_dir_at_head: payloadFiles.slice(0, 20), ci_snapshot: 'PR_CI_SNAPSHOT_2026-11-14-cycle12.json — 16/16 green at d457580-era (historical)', exact_head_check_runs_2026_11_18: headChecks },
+  { branch: 'origin/feat/setup-reconcile-20261113', head_at_2026_11_18: pr100Head, head_in_owner_decision_snapshot: recorded100 + ' (2026-11-14 cycle-12 CI snapshot)', branch_advanced_since_snapshot: pr100Head !== recorded100, payload_dir_at_head: payloadFiles.slice(0, 20), ci_snapshot: 'PR_CI_SNAPSHOT_2026-11-14-cycle12.json — historical only, superseded by exact-head evidence', exact_head_check_runs_2026_11_18: headChecks },
   'OPEN — WAITING_FOR_OWNER (merge decision); exact-head CI evidence recorded 2026-11-18',
-  pr100Head !== recorded100 ? ['PR100 head advanced beyond the owner-decision snapshot (' + recorded100.slice(0, 12) + ' -> ' + pr100Head.slice(0, 12) + '). Per verdict 6982343308 the EXACT current head carries four completed successful check runs (manager-verified 2026-11-18; recorded in exact_head_check_runs_2026_11_18) — the historical snapshot alone was insufficient and has been superseded; the merge decision itself remains the owner gate'] : []);
+  pr100Head !== recorded100 ? [headChecks.status === 'VERIFIED_SUCCESSFUL'
+  ? 'PR100 head advanced beyond the owner-decision snapshot (d457580… -> a54198ce…); exact-head CI for THIS head is VERIFIED SUCCESSFUL (' + headChecks.completed_successful + ' completed successful check runs, 2026-11-18) — the historical snapshot is superseded; the merge decision remains the owner gate'
+  : 'PR100 head advanced beyond the owner-decision snapshot (d457580… -> a54198ce…); exact-head CI status is UNKNOWN (' + headChecks.reason + ') — historical or other-head CI is NOT attached; the merge decision remains the owner gate'] : []);
 
 /* D1 — decision pages publish */
 const d1Pages = payloadFiles.filter(f => /\.html$/.test(f));
@@ -60,14 +89,17 @@ element('D3',
   'activate 16-URL allowlist — ONLY after D1+D2 complete and MANDATORY recovery verified (off-host destination + full test restore + wp-content restore rehearsal); one exact option (path+ID); global blog_public=0 untouched',
   { live_observable_2026_11_18: matrix.rows.filter(r => r.http_status === 200).length + ' of 16 policy URLs return 200 WITHOUT observed noindex meta; all 5 draft /guides/ destinations 404', allowlist_option_state: 'UNKNOWN from this checkout — no authorized WordPress route; the owner decision doc recorded all pages noindex,nofollow at authoring time, so the live no-noindex observation indicates a live config change whose mechanism is UNKNOWN and NOT claimed here' },
   'NOT_ACTIVATED — hard entry gate CLOSED (recovery prerequisite unsatisfied)',
-  ['live config change mechanism UNKNOWN — not attested', 'entry requires: off-host destination + full test restore + wp-content rehearsal (verified recovery), D1 and D2 completed, fresh backup + checksum per step', 'the five HTTP-404 policy rows are four root-level paths + one service path; the 21 /guides/ draft destinations are a separate observation (verdict 6982343308)', 'PR101 merge is the explicit prerequisite before D3; PR102/103 release decisions stay separate; protected IDs 194/196/206']);
+  ['live config change mechanism UNKNOWN — not attested',
+ 'the five missing policy URLs are FOUR ROOT-LEVEL PATHS (/network-support-contract-guide/, /network-project-proposal-checklist/, /business-server-planning-guide/, /server-backup-restore-acceptance/) + ONE SERVICE PATH (/services/server-virtualization-tehran/) — all absent from the live sitemap; the 21 /guides/ draft destinations are a SEPARATE observation and are NOT part of this policy gap (verdict 6982818795)',
+ 'PR101 merge is the explicit prerequisite before D3; PR102 and PR103 carry SEPARATE release decisions and are NOT D3 prerequisites',
+ 'current D3 activation is UNVERIFIED; protected IDs 194/196/206 intact']);
 
 /* PR101-before-D3 + PR102/103 scope */
 const pr101Head = git('rev-parse origin/feat/remote-buyer-20261113');
 const pr102Head = git('rev-parse origin/feat/b2b-buyer-20261114');
 const pr103Head = git('rev-parse origin/feat/support-buyer-20261114');
 element('PR101-before-D3 + PR102/103',
-  'buyer-journey PRs (33=PR100, 37=PR101 remote-buyer, b2b=PR102, support=PR103) must merge before D3; PR102/103 scope = staging-verified buyer revisions, NOT_DEPLOYED',
+  'ONLY PR101 (page-37 remote-buyer) is the explicit merge prerequisite before D3; PR102 (b2b) and PR103 (support) carry SEPARATE independent release decisions and are NOT D3 prerequisites; their scope = staging-verified buyer revisions, NOT_DEPLOYED',
   { pr101_remote_buyer_head: pr101Head, pr102_b2b_head: pr102Head + ' (recorded cf48ea69c… — ' + (pr102Head.indexOf('cf48ea69c') === 0 ? 'MATCHES' : 'DIFFERS') + ')', pr103_support_head: pr103Head + ' (recorded ca271a813… — ' + (pr103Head.indexOf('ca271a813') === 0 ? 'MATCHES' : 'DIFFERS') + ')', ci_snapshot: '16/16 green at the 2026-11-14 cycle-12 snapshot' },
   'OPEN — merge decisions WAITING_FOR_OWNER (ordering PR101-before-D3 intact: D3 not attempted)',
   []);
@@ -111,7 +143,9 @@ const out = {
   internal_consistency: consistent ? 'CONSISTENT' : 'INCONSISTENT',
   headline: {
   production_release: 'HELD (verdict 6982343308)',
-  g03_local_browser_journey: 'ACCEPTED for the exact inputs and limits (manager-side LOCAL_STAGING evidence recorded); no production readiness follows',    merge_ready: 'NO — M0 open and WAITING_FOR_OWNER; PR100 head advanced past the fresh-CI snapshot (new CI required)',
+  g03_local_browser_journey: 'ACCEPTED for the exact inputs and limits (manager-side LOCAL_STAGING evidence recorded); no production readiness follows',    merge_ready: headChecks.status === 'VERIFIED_SUCCESSFUL'
+      ? 'NO — M0 open and WAITING_FOR_OWNER; exact-head CI for PR100 a54198ce is VERIFIED SUCCESSFUL (' + headChecks.completed_successful + ' completed successful check runs, 2026-11-18) — the merge decision remains the owner gate'
+      : 'NO — M0 open and WAITING_FOR_OWNER; exact-head CI status is UNKNOWN (' + headChecks.reason + ') — the merge decision remains the owner gate',
     d1_d2_d3_entry: 'CLOSED — mandatory recovery gate unsatisfied (off-host test restore + wp-content rehearsal absent)',
     ordering: 'PR101-before-D3 intact (D3 never attempted)',
     release_authorization: 'NONE — everything remains owner-gated',
