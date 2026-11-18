@@ -2680,7 +2680,7 @@
  "s4c_bracket_form_20261117": {
   "packet": "TN-S4C-CONTRACT-PREVIEW-FINISH-20261117 — bracketed nested-command spelling per MANAGER_REVIEW 6963761000 update (2026-11-17T23:32:34Z)",
   "utc": "2026-11-17T23:34:25Z (source edit) / preview 23:35:22.463Z - 23:35:54.048Z (per-pass times below)",
-  "git_head_at_run": "f58bb8e84bce3f7addc2a39016faac97c7815bc7 (corrected per MANAGER_REVIEW 6963761000 update 23:40:55Z: the previously recorded 8a9ec44... was a stale transcription error — the actual pre-commit head captured by git rev-parse at the start of that work turn was f58bb8e..., which is also the review source_request's parent; reconciled from this captured session metadata, not inferred from the parent relationship)",
+  "git_head_at_run": "UNKNOWN/unreconciled (original reported value preserved: 8a9ec4426682d255f4906d2650dd98b01ae8bf0b)",
   "executed_by": "GLM - authoring/rebuild with existing tools + real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138; real wheel scroll + real keypresses only",
   "bound_artifacts_sha256": {
    "tutorials/s4-vlan-switch-l2.fa.md (bracketed form)": "sha256:fd83b0f354729f0ba7513c0684b2697717ca95c27f7b4b92dbde54116475c093",
@@ -2796,7 +2796,7 @@
   ],
   "boundaries": "NOT_DEPLOYED; prior accepted work untouched; no unrelated lesson rerun; no public screenshots/traces/raw logs",
   "production_touched": false,
-  "head_correction_note": "head value corrected in place from actual session metadata (tick-start git rev-parse capture); raw measurements unchanged"
+  "head_correction_note": "REVISED per MANAGER_REVIEW 6964914484 rule 4: the previously written f58bb8e correction is downgraded — an f58bb8e rev-parse capture exists in session logs but WITHOUT recorded UTC/command/exit, so it is not treated as qualification; the original runtime HEAD for this receipt stays UNKNOWN/unreconciled and the original reported 8a9ec44 value is preserved above. Raw measurements unchanged."
  },
  "s4c_endpoint_readability_20261118": {
   "packet": "TN-S4C-ENDPOINT-TABLE-MOBILE-READABILITY-20261118 (MANAGER_REVIEW 6963761000 update 23:40:55Z — READY mobile readability of the 9-column endpoint table)",
@@ -2805,11 +2805,11 @@
   "executed_by": "GLM - real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138; real wheel scroll + real keypresses only",
   "served_byte_match": "served HTML sha256 d0f82dbb85193e6f0d358a0713151367406f3d502a3cbe2be12c007eeaabaf13 == built file on disk, captured before the BEFORE pass (5 PRE / 7 TABLE text counts)",
   "bound_artifacts_sha256": {
-   "s4-endpoint-presentation.css (NEW S4-scoped artifact)": "SEE_GIT",
-   "preview-inject-candidate.js (v4 — additive exports loadS4EndpointPresentationCss/s4EndpointPresentationJs; all prior exports untouched)": "SEE_GIT",
-   "candidate-preview.css (shared — UNCHANGED)": "ae06330b789ed135d144131b1b6b08b8fd03aea8ca7b94cb959c6e2a5af67fc1",
-   "tutorials/s4-vlan-switch-l2.gutenberg.html (unchanged this unit)": "d0f82dbb85193e6f0d358a0713151367406f3d502a3cbe2be12c007eeaabaf13",
-   "tutorials/s4-vlan-switch-l2.fa.md (unchanged this unit)": "60da551c32a2a7bae9ccd402f8c9553d233799478567c129a6d534eaaf2e8f07"
+   "s4-endpoint-presentation.css (NEW S4-scoped artifact)": "cabbd4f43dd43f442dfdcf342bc2c1b0556610e3b384b2f6c55ad0e34cfd0e1d",
+   "preview-inject-candidate.js (v4 harness at run time; unchanged since)": "dfa04e117067aff19c9927b1151c81ad8b81bfd513a69db60299ecb3c88fc76a",
+   "tutorials/s4-vlan-switch-l2.fa.md (current, bracketed form)": "fd83b0f354729f0ba7513c0684b2697717ca95c27f7b4b92dbde54116475c093",
+   "tutorials/s4-vlan-switch-l2.gutenberg.html (current, served==disk verified at BEFORE capture)": "d0f82dbb85193e6f0d358a0713151367406f3d502a3cbe2be12c007eeaabaf13",
+   "candidate-preview.css (shared — UNCHANGED)": "ae06330b789ed135d144131b1b6b08b8fd03aea8ca7b94cb959c6e2a5af67fc1"
   },
   "fix_design": "S4-scoped presentation hook: additive harness exports loadS4EndpointPresentationCss() + s4EndpointPresentationJs(cssText); the injected script is GUARDED — it acts only when a table contains the unique synthetic marker 192.168.10.99/24 AND has a 9-cell header (on M2/M3/N6/S5 pages it returns {applied:false} and touches nothing); the new s4-endpoint-presentation.css is a separate S4-only artifact (shared candidate-preview.css untouched); the presentation gives the endpoint table a readable contained horizontal layout — table display:table with width:max-content and nowrap cells (words and numeric tokens stay on ONE readable line each), while the wrapping figure (overflow-x:auto from the base rules, class tn-s4-endpoint-wrap) is the contained horizontal scroll container and carries keyboard focus (tabindex=0 + Persian aria-label)",
   "BEFORE_mobile_390x844": {
@@ -2925,6 +2925,79 @@
    "production publish"
   ],
   "boundaries": "NOT_DEPLOYED; no RouterOS-instruction changes (CSS-only presentation fix); closed M3/N6/S5/figure/helper work untouched; no public screenshots/traces/raw logs",
+  "production_touched": false,
+  "binding_note": "bindings replaced per MANAGER_REVIEW 6964914484: SEE_GIT placeholders and the stale MD 60da551c replaced with actual digests (CSS/harness/MD/HTML verified by manager fresh GET + local hash agreement; bytes unchanged since the run). Runtime-limit retained: the run-time in-flight digests were not separately hashed at the moment of execution — the binding above pins the exact published bytes, and the fresh bounded replay in s4c_presentation_replay_finish_20261118 re-executed the observation on those bytes.",
+  "correction_note": "CORRECTED per MANAGER_REVIEW 6964914484: SEE_GIT placeholders replaced with actual digests; stale MD binding replaced with fd83b0f3 (the current bracketed-form MD). BEFORE_desktop was not captured in the original run and is marked NOT_CAPTURED (no backfill); the fresh replay-finish section records a full desktop pass on the final bytes.",
+  "BEFORE_desktop": "NOT_CAPTURED"
+ },
+ "s4c_presentation_replay_finish_20261118": {
+  "packet": "TN-S4C-ENDPOINT-TABLE-MOBILE-READABILITY-20261118 — replay finish per MANAGER_REVIEW 6964914484",
+  "utc": "2026-11-18T00:18:44.671Z (mobile pass) / 00:19:17.192Z - 00:19:21.407Z (desktop pass)",
+  "git_head_at_run": "df0df3756313916a61f1d4bb979a52463aa9082f (real pre-work checkout head, git rev-parse before the passes; the finish commit delivers the replay recipe + this receipt)",
+  "executed_by": "GLM - real browser (ZCode IAB Chromium) against preview-server.py 127.0.0.1:8138; real wheel scroll + real keypresses only; read-only observation snippet",
+  "replay_recipe_committed": "qa/seo-device-guides-20261116/s4-figure-observe-replay.md (exact steps + dedicated read-only FIGURE observation snippet; generic scrollLeftJs NOT used as a FIGURE witness)",
+  "bindings": {
+   "candidate-preview.css": "ae06330b789ed135d144131b1b6b08b8fd03aea8ca7b94cb959c6e2a5af67fc1",
+   "preview-inject-candidate.js (v4)": "dfa04e117067aff19c9927b1151c81ad8b81bfd513a69db60299ecb3c88fc76a",
+   "s4-endpoint-presentation.css": "cabbd4f43dd43f442dfdcf342bc2c1b0556610e3b384b2f6c55ad0e34cfd0e1d",
+   "tutorials/s4-vlan-switch-l2.fa.md": "fd83b0f354729f0ba7513c0684b2697717ca95c27f7b4b92dbde54116475c093",
+   "tutorials/s4-vlan-switch-l2.gutenberg.html (served==disk)": "d0f82dbb85193e6f0d358a0713151367406f3d502a3cbe2be12c007eeaabaf13"
+  },
+  "mobile_390x844": {
+   "pass_start_utc": "2026-11-18T00:18:44.671Z",
+   "pass_end_utc": "2026-11-18T00:18:49.524Z",
+   "doc_overflow_px": 0,
+   "toc": "16 links / 0 dangling",
+   "endpoint_fields": "9 header cells / 8 body rows; ids H1,H3,C1,C2,M1,سوئیچ CPU,T-S,روتر(خارج از درس) — full field text present",
+   "wrapper": "figure.tn-s4-endpoint-wrap tabindex=0 aria set; focus verified (activeElement===figure)",
+   "wrapper_keys": {
+    "ArrowRight": {
+     "before_abs": 0,
+     "after_abs": 40,
+     "delta": 40,
+     "activeTag": "FIGURE"
+    },
+    "ArrowLeft": {
+     "before_abs": 40,
+     "after_abs": 0,
+     "delta": -40,
+     "activeTag": "FIGURE"
+    }
+   },
+   "natural_diagram": "lazy fired during real scroll; final complete=true naturalWidth=960 rendered 295x172 visible; evaluateImageRender ok"
+  },
+  "desktop_1280x900": {
+   "pass_start_utc": "2026-11-18T00:19:17.192Z",
+   "pass_end_utc": "2026-11-18T00:19:21.407Z",
+   "doc_overflow_px": 0,
+   "toc": "16 links / 0 dangling",
+   "endpoint_fields": "9 header cells / 8 body rows — full field text present",
+   "wrapper": "figure.tn-s4-endpoint-wrap tabindex=0 aria set; 880px viewport vs scrollWidth 3491; focus verified (activeElement===figure)",
+   "wrapper_keys": {
+    "ArrowRight": {
+     "before_abs": 0,
+     "after_abs": 40,
+     "delta": 40,
+     "activeTag": "FIGURE"
+    },
+    "ArrowLeft": {
+     "before_abs": 40,
+     "after_abs": 0,
+     "delta": -40,
+     "activeTag": "FIGURE"
+    }
+   },
+   "natural_diagram": "complete=true naturalWidth=960 rendered 880x513 visible; evaluateImageRender ok"
+  },
+  "limits": "original readability-run runtime HEAD remains UNKNOWN/unreconciled (f58bb8e rev-parse capture exists without recorded UTC/command/exit — not treated as qualification); original run-time in-flight digests were not separately hashed (limit retained); screenshots/traces private, none published",
+  "not_run": [
+   "RouterOS execution",
+   "all probes",
+   "WordPress/KSES",
+   "DB integration",
+   "production publish",
+   "unrelated lessons/full content suite"
+  ],
   "production_touched": false
  }
 }
