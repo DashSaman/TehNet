@@ -54,5 +54,11 @@
     "pre_fix_reproducers": "D9 pinned 99adf59 incomplete contract => adapter reached + remote temp write requested + receipt claimed \"zero effects\"; D10 pinned 99adf59 redirected URL => false PASSED with page.url() never called",
     "pure_seams_and_source_order": "sections A/B/C of the regression suite (17 tests) + helper suite (46 tests)"
   },
-  "not_run": "No real driver journey, PHP evaluation, DB integration, SSH call, browser launch, environment/network/security change, old-fixture contact, production action, or deploy. Integration remains NOT_RUN and separately gated."
+  "not_run": "No real driver journey, PHP evaluation, DB integration, SSH call, browser launch, environment/network/security change, old-fixture contact, production action, or deploy. Integration remains NOT_RUN and separately gated.",
+  "published_blob_digests_sha256": {
+    "note": "git (core.autocrlf=true) normalized CRLF->LF on commit; content identical, git status clean at tested HEAD. Local working bytes were CRLF (driver 399 CRLFs); published blobs are LF. The suite consumed the local working bytes.",
+    "tests/browser/tn-local-staging-fix2-driver.cjs": "f7b5ffd0fd54882e8871b959cfc4f72a274d28b42240a9bedccf54b0f7138621",
+    "tests/browser/tn-fixture-helpers.cjs": "fd3bb77bedf3f5efba789bdc1cc63159e8f71cbe1af22ed729e11690348ae967",
+    "tests/browser/tn-fixture-contract-regressions.test.cjs": "b07b03784a675599a7152f3093bef5be277c2adf11b5f4dc6efe8e313380cb71"
+  }
 }
