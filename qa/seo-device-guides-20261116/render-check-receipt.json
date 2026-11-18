@@ -2949,7 +2949,7 @@
    "doc_overflow_px": 0,
    "toc": "16 links / 0 dangling",
    "endpoint_fields": "9 header cells / 8 body rows; ids H1,H3,C1,C2,M1,سوئیچ CPU,T-S,روتر(خارج از درس) — full field text present",
-   "wrapper": "figure.tn-s4-endpoint-wrap tabindex=0 aria set; focus verified (activeElement===figure)",
+   "wrapper": "figure.tn-s4-endpoint-wrap tabindex=0 aria-label set; focus verified (activeElement===FIGURE); numeric extents in wrapper_numeric",
    "wrapper_keys": {
     "ArrowRight": {
      "before_abs": 0,
@@ -2964,7 +2964,14 @@
      "activeTag": "FIGURE"
     }
    },
-   "natural_diagram": "lazy fired during real scroll; final complete=true naturalWidth=960 rendered 295x172 visible; evaluateImageRender ok"
+   "natural_diagram": "lazy fired during real scroll; final complete=true naturalWidth=960 rendered 295x172 visible; evaluateImageRender ok",
+   "wrapper_numeric": {
+    "source": "captured output of the fresh bounded replay pass in THIS section (pass interval 2026-11-18T00:18:44.671Z - 00:18:49.524Z)",
+    "clientWidth": 295,
+    "scrollWidth": 3491,
+    "measured_on": "figure.tn-s4-endpoint-wrap (the actual horizontal overflow container)",
+    "note": "real captured values at the recorded pass UTC; not copied from any historical pass"
+   }
   },
   "desktop_1280x900": {
    "pass_start_utc": "2026-11-18T00:19:17.192Z",
@@ -2989,7 +2996,7 @@
    },
    "natural_diagram": "complete=true naturalWidth=960 rendered 880x513 visible; evaluateImageRender ok"
   },
-  "limits": "original readability-run runtime HEAD remains UNKNOWN/unreconciled (f58bb8e rev-parse capture exists without recorded UTC/command/exit — not treated as qualification); original run-time in-flight digests were not separately hashed (limit retained); screenshots/traces private, none published",
+  "limits": "scope-corrected: the UNKNOWN/unreconciled runtime HEAD belongs to s4c_bracket_form_20261117 only — the readability pre-work capture in THIS section is a separate qualified record (f58bb8e rev-parse capture exists without recorded UTC/command/exit — not treated as qualification); original run-time in-flight digests were not separately hashed (limit retained); screenshots/traces private, none published",
   "not_run": [
    "RouterOS execution",
    "all probes",
