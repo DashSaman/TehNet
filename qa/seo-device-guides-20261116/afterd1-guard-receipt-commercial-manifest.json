@@ -3,8 +3,8 @@
  "manifest_selected_bundle": null,
  "command": "node verify-afterd1-guard.cjs commercial/commercial-manifest.json",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-18T14:03:39Z",
- "finished_utc": "2026-11-18T14:03:39Z",
+ "started_utc": "2026-11-18T14:04:58Z",
+ "finished_utc": "2026-11-18T14:04:58Z",
  "exit": 0,
  "failures": 0,
  "results": [
