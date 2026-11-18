@@ -1,0 +1,128 @@
+{
+ "packet": "TN-G04-SITEMAP-MEMBERSHIP-CHECK-20261118",
+ "command": "node verify-sitemap-membership.cjs",
+ "cwd": "qa/seo-device-guides-20261116/",
+ "started_utc": "2026-11-18T14:18:55Z",
+ "finished_utc": "2026-11-18T14:18:59Z",
+ "exit": 0,
+ "failures": 0,
+ "checks": [
+  {
+   "check": "wp_sitemap_reachable",
+   "pass": true,
+   "detail": "status=200"
+  },
+  {
+   "check": "sitemap_child_files_parsed",
+   "pass": true,
+   "detail": "6 children, 71 total loc entries"
+  },
+  {
+   "check": "total_loc_entries_matches_matrix_record",
+   "pass": true,
+   "detail": "xml=71 matrix=71"
+  },
+  {
+   "check": "membership_row:/",
+   "pass": true,
+   "detail": "xml_truth=true recorded=true"
+  },
+  {
+   "check": "membership_row:/services/",
+   "pass": true,
+   "detail": "xml_truth=true recorded=true"
+  },
+  {
+   "check": "membership_row:/services/voice-network-readiness/",
+   "pass": true,
+   "detail": "xml_truth=true recorded=true"
+  },
+  {
+   "check": "membership_row:/services/remote-support/",
+   "pass": true,
+   "detail": "xml_truth=true recorded=true"
+  },
+  {
+   "check": "membership_row:/services/mikrotik-tehran/",
+   "pass": true,
+   "detail": "xml_truth=true recorded=true"
+  },
+  {
+   "check": "membership_row:/services/network-setup-tehran/",
+   "pass": true,
+   "detail": "xml_truth=true recorded=true"
+  },
+  {
+   "check": "membership_row:/services/network-support-tehran/",
+   "pass": true,
+   "detail": "xml_truth=true recorded=true"
+  },
+  {
+   "check": "membership_row:/services/network-tehran/",
+   "pass": true,
+   "detail": "xml_truth=true recorded=true"
+  },
+  {
+   "check": "membership_row:/about/",
+   "pass": true,
+   "detail": "xml_truth=true recorded=true"
+  },
+  {
+   "check": "membership_row:/contact/",
+   "pass": true,
+   "detail": "xml_truth=true recorded=true"
+  },
+  {
+   "check": "membership_row:/technical-methodology/",
+   "pass": true,
+   "detail": "xml_truth=true recorded=true"
+  },
+  {
+   "check": "membership_row:/network-support-contract-guide/",
+   "pass": true,
+   "detail": "xml_truth=false recorded=false"
+  },
+  {
+   "check": "membership_row:/network-project-proposal-checklist/",
+   "pass": true,
+   "detail": "xml_truth=false recorded=false"
+  },
+  {
+   "check": "membership_row:/business-server-planning-guide/",
+   "pass": true,
+   "detail": "xml_truth=false recorded=false"
+  },
+  {
+   "check": "membership_row:/server-backup-restore-acceptance/",
+   "pass": true,
+   "detail": "xml_truth=false recorded=false"
+  },
+  {
+   "check": "membership_row:/services/server-virtualization-tehran/",
+   "pass": true,
+   "detail": "xml_truth=false recorded=false"
+  },
+  {
+   "check": "draft_candidates_subset_of_live_members",
+   "pass": true,
+   "detail": "11 candidates, all live+member=true"
+  },
+  {
+   "check": "draft_candidates_exclude_dead_rows",
+   "pass": true,
+   "detail": "5 dead rows excluded from candidates=true"
+  },
+  {
+   "check": "policy16_summary_agreement",
+   "pass": true,
+   "detail": "live=11 dead=5 rows=16 (16-URL contract preserved)"
+  }
+ ],
+ "mode": "LOCAL_TEST — read-only public GETs + XML loc parsing; writes only this receipt; no sitemap mutation/submission",
+ "not_run": [
+  "WordPress apply",
+  "production deployment",
+  "browser rendering",
+  "sitemap submission"
+ ]
+}

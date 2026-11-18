@@ -1,253 +1,262 @@
 {
- "unit": "TN-G02G04-RELEASE-EVIDENCE-20261118",
- "mode": "READ_ONLY public HTTPS GETs (2026-11-18) — no submission/noindex change/production action; status+flags only",
- "manager_live_observations_cross_ref": "https://github.com/DashSaman/TehNet/pull/96#issuecomment-6980096096 (11 of 16 live, 5 x 404; sitemap 71 entries across 6 children; GSC stored excluded->live test eligible)",
- "policy_16_policy_urls": [
-  {
-   "path": "/",
-   "status": 200,
-   "noindex_observed": false,
-   "in_sitemap": false
-  },
-  {
-   "path": "/services/",
-   "status": 200,
-   "noindex_observed": false,
-   "in_sitemap": false
-  },
-  {
-   "path": "/services/voice-network-readiness/",
-   "status": 200,
-   "noindex_observed": false,
-   "in_sitemap": false
-  },
-  {
-   "path": "/services/remote-support/",
-   "status": 200,
-   "noindex_observed": false,
-   "in_sitemap": false
-  },
-  {
-   "path": "/services/mikrotik-tehran/",
-   "status": 200,
-   "noindex_observed": false,
-   "in_sitemap": false
-  },
-  {
-   "path": "/services/network-setup-tehran/",
-   "status": 200,
-   "noindex_observed": false,
-   "in_sitemap": false
-  },
-  {
-   "path": "/services/network-support-tehran/",
-   "status": 200,
-   "noindex_observed": false,
-   "in_sitemap": false
-  },
-  {
-   "path": "/services/network-tehran/",
-   "status": 200,
-   "noindex_observed": false,
-   "in_sitemap": false
-  },
-  {
-   "path": "/about/",
-   "status": 200,
-   "noindex_observed": false,
-   "in_sitemap": false
-  },
-  {
-   "path": "/contact/",
-   "status": 200,
-   "noindex_observed": false,
-   "in_sitemap": false
-  },
-  {
-   "path": "/technical-methodology/",
-   "status": 200,
-   "noindex_observed": false,
-   "in_sitemap": false
-  },
-  {
-   "path": "/network-support-contract-guide/",
-   "status": 404,
-   "noindex_observed": false,
-   "in_sitemap": false
-  },
-  {
-   "path": "/network-project-proposal-checklist/",
-   "status": 404,
-   "noindex_observed": false,
-   "in_sitemap": false
-  },
-  {
-   "path": "/business-server-planning-guide/",
-   "status": 404,
-   "noindex_observed": false,
-   "in_sitemap": false
-  },
-  {
-   "path": "/server-backup-restore-acceptance/",
-   "status": 404,
-   "noindex_observed": false,
-   "in_sitemap": false
-  },
-  {
-   "path": "/services/server-virtualization-tehran/",
-   "status": 404,
-   "noindex_observed": false,
-   "in_sitemap": false
-  }
- ],
- "policy_summary": {
-  "live_200": 11,
-  "dead_404": 5
- },
- "guide_draft_21": [
-  {
-   "path": "/guides/mikrotik-routers/",
-   "status": 404
-  },
-  {
-   "path": "/guides/mikrotik-switches-crs/",
-   "status": 404
-  },
-  {
-   "path": "/guides/mikrotik-vlan/",
-   "status": 404
-  },
-  {
-   "path": "/guides/switch-vlan-l2/",
-   "status": 404
-  },
-  {
-   "path": "/guides/office-network-design/",
-   "status": 404
-  },
-  {
-   "path": "/guides/switch-poe-budget/",
-   "status": 404
-  },
-  {
-   "path": "/guides/network-delivery-acceptance/",
-   "status": 404
-  },
-  {
-   "path": "/guides/cable-certification-report/",
-   "status": 404
-  },
-  {
-   "path": "/guides/rack-cabling-standard/",
-   "status": 404
-  },
-  {
-   "path": "/guides/sfp-sfp-plus-guide/",
-   "status": 404
-  },
-  {
-   "path": "/guides/switch-loop-rstp-lacp/",
-   "status": 404
-  },
-  {
-   "path": "/guides/switch-nas-server-upgrade/",
-   "status": 404
-  },
-  {
-   "path": "/guides/network-troubleshooting/",
-   "status": 404
-  },
-  {
-   "path": "/guides/network-support-selection/",
-   "status": 404
-  },
-  {
-   "path": "/guides/network-monitoring/",
-   "status": 404
-  },
-  {
-   "path": "/guides/network-incident-path/",
-   "status": 404
-  },
-  {
-   "path": "/guides/mikrotik-config-backup/",
-   "status": 404
-  },
-  {
-   "path": "/guides/mikrotik-dhcp-dns/",
-   "status": 404
-  },
-  {
-   "path": "/guides/mikrotik-vpn/",
-   "status": 404
-  },
-  {
-   "path": "/guides/mikrotik-dual-wan/",
-   "status": 404
-  },
-  {
-   "path": "/guides/mikrotik-l3hw/",
-   "status": 404
-  }
- ],
- "guide_summary": {
-  "total": 21,
-  "all_404": true
- },
- "sitemap": {
+ "unit": "TN-G04-SITEMAP-MATRIX-V2-20261118",
+ "rev": 2,
+ "mode": "READ_ONLY public HTTPS GETs + sitemap XML loc parsing (2026-11-18); no sitemap mutation/submission",
+ "manager_review": "https://github.com/DashSaman/TehNet/pull/96#issuecomment-6981114962 (G02 SOURCE APPROVE; G04 NEEDS_CHANGES — matrix must agree with actual XML)",
+ "policy_contract": "the 16-URL PR100 policy list is PRESERVED unchanged as the contract; nothing is added to or removed from the live sitemap",
+ "sitemap_observed": {
   "wp_sitemap_url": "https://tehnet.ir/wp-sitemap.xml",
-  "status": 200,
+  "wp_sitemap_status": 200,
   "child_files": [
    {
     "url": "https://tehnet.ir/wp-sitemap-posts-post-1.xml",
     "status": 200,
-    "count": 2
+    "url_count": 2
    },
    {
     "url": "https://tehnet.ir/wp-sitemap-posts-page-1.xml",
     "status": 200,
-    "count": 31
+    "url_count": 31
    },
    {
     "url": "https://tehnet.ir/wp-sitemap-posts-product-1.xml",
     "status": 200,
-    "count": 25
+    "url_count": 25
    },
    {
     "url": "https://tehnet.ir/wp-sitemap-taxonomies-category-1.xml",
     "status": 200,
-    "count": 1
+    "url_count": 1
    },
    {
     "url": "https://tehnet.ir/wp-sitemap-taxonomies-product_cat-1.xml",
     "status": 200,
-    "count": 11
+    "url_count": 11
    },
    {
     "url": "https://tehnet.ir/wp-sitemap-users-1.xml",
     "status": 200,
-    "count": 1
+    "url_count": 1
    }
   ],
-  "total_url_entries": 71,
-  "reconciliation": "71 entries vs selected release plan: 16-URL policy subset — 11 live are in the releasable set; 5 dead policy URLs and all 21 draft /guides/ destinations are EXCLUDED from any independently releasable commercial slice until each target passes a release check; sitemap submission itself remains a separate owner gate"
+  "total_loc_entries": 71,
+  "sitemap_meta_total_entries": 71,
+  "agrees_with_manager_observation": true
  },
- "form_context_verification": {
-  "kind": "form_context_verification",
-  "url": "https://tehnet.ir/services/",
-  "status": 200,
-  "tn_service_context_values_observed": [],
-  "option_values_observed": [
-   "general-network",
-   "network-support",
-   "network-setup",
-   "mikrotik",
-   "remote-support",
-   "voice-network",
-   "monitoring-scoping",
-   "server-scoping",
-   "security-scoping",
-   "wifi-branch-scoping"
-  ]
+ "rows": [
+  {
+   "path": "/",
+   "full_url": "https://tehnet.ir",
+   "http_status": 200,
+   "live_sitemap_membership": true,
+   "live_sitemap_membership_source": "wp-sitemap.xml child loc values parsed 2026-11-18 (71 total entries)",
+   "observed_canonical": "https://tehnet.ir/",
+   "noindex_observed": false,
+   "proposed_inclusion": "yes (draft review scope)",
+   "proposed_reason": "eligible live policy URL — 200, no noindex observed, present in live wp-sitemap child loc values",
+   "release_disposition": "draft_review_scope — release authorization remains a separate owner gate"
+  },
+  {
+   "path": "/services/",
+   "full_url": "https://tehnet.ir/services",
+   "http_status": 200,
+   "live_sitemap_membership": true,
+   "live_sitemap_membership_source": "wp-sitemap.xml child loc values parsed 2026-11-18 (71 total entries)",
+   "observed_canonical": "https://tehnet.ir/services/",
+   "noindex_observed": false,
+   "proposed_inclusion": "yes (draft review scope)",
+   "proposed_reason": "eligible live policy URL — 200, no noindex observed, present in live wp-sitemap child loc values",
+   "release_disposition": "draft_review_scope — release authorization remains a separate owner gate"
+  },
+  {
+   "path": "/services/voice-network-readiness/",
+   "full_url": "https://tehnet.ir/services/voice-network-readiness",
+   "http_status": 200,
+   "live_sitemap_membership": true,
+   "live_sitemap_membership_source": "wp-sitemap.xml child loc values parsed 2026-11-18 (71 total entries)",
+   "observed_canonical": "https://tehnet.ir/services/voice-network-readiness/",
+   "noindex_observed": false,
+   "proposed_inclusion": "yes (draft review scope)",
+   "proposed_reason": "eligible live policy URL — 200, no noindex observed, present in live wp-sitemap child loc values",
+   "release_disposition": "draft_review_scope — release authorization remains a separate owner gate"
+  },
+  {
+   "path": "/services/remote-support/",
+   "full_url": "https://tehnet.ir/services/remote-support",
+   "http_status": 200,
+   "live_sitemap_membership": true,
+   "live_sitemap_membership_source": "wp-sitemap.xml child loc values parsed 2026-11-18 (71 total entries)",
+   "observed_canonical": "https://tehnet.ir/services/remote-support/",
+   "noindex_observed": false,
+   "proposed_inclusion": "yes (draft review scope)",
+   "proposed_reason": "eligible live policy URL — 200, no noindex observed, present in live wp-sitemap child loc values",
+   "release_disposition": "draft_review_scope — release authorization remains a separate owner gate"
+  },
+  {
+   "path": "/services/mikrotik-tehran/",
+   "full_url": "https://tehnet.ir/services/mikrotik-tehran",
+   "http_status": 200,
+   "live_sitemap_membership": true,
+   "live_sitemap_membership_source": "wp-sitemap.xml child loc values parsed 2026-11-18 (71 total entries)",
+   "observed_canonical": "https://tehnet.ir/services/mikrotik-tehran/",
+   "noindex_observed": false,
+   "proposed_inclusion": "yes (draft review scope)",
+   "proposed_reason": "eligible live policy URL — 200, no noindex observed, present in live wp-sitemap child loc values",
+   "release_disposition": "draft_review_scope — release authorization remains a separate owner gate"
+  },
+  {
+   "path": "/services/network-setup-tehran/",
+   "full_url": "https://tehnet.ir/services/network-setup-tehran",
+   "http_status": 200,
+   "live_sitemap_membership": true,
+   "live_sitemap_membership_source": "wp-sitemap.xml child loc values parsed 2026-11-18 (71 total entries)",
+   "observed_canonical": "https://tehnet.ir/services/network-setup-tehran/",
+   "noindex_observed": false,
+   "proposed_inclusion": "yes (draft review scope)",
+   "proposed_reason": "eligible live policy URL — 200, no noindex observed, present in live wp-sitemap child loc values",
+   "release_disposition": "draft_review_scope — release authorization remains a separate owner gate"
+  },
+  {
+   "path": "/services/network-support-tehran/",
+   "full_url": "https://tehnet.ir/services/network-support-tehran",
+   "http_status": 200,
+   "live_sitemap_membership": true,
+   "live_sitemap_membership_source": "wp-sitemap.xml child loc values parsed 2026-11-18 (71 total entries)",
+   "observed_canonical": "https://tehnet.ir/services/network-support-tehran/",
+   "noindex_observed": false,
+   "proposed_inclusion": "yes (draft review scope)",
+   "proposed_reason": "eligible live policy URL — 200, no noindex observed, present in live wp-sitemap child loc values",
+   "release_disposition": "draft_review_scope — release authorization remains a separate owner gate"
+  },
+  {
+   "path": "/services/network-tehran/",
+   "full_url": "https://tehnet.ir/services/network-tehran",
+   "http_status": 200,
+   "live_sitemap_membership": true,
+   "live_sitemap_membership_source": "wp-sitemap.xml child loc values parsed 2026-11-18 (71 total entries)",
+   "observed_canonical": "https://tehnet.ir/services/network-tehran/",
+   "noindex_observed": false,
+   "proposed_inclusion": "yes (draft review scope)",
+   "proposed_reason": "eligible live policy URL — 200, no noindex observed, present in live wp-sitemap child loc values",
+   "release_disposition": "draft_review_scope — release authorization remains a separate owner gate"
+  },
+  {
+   "path": "/about/",
+   "full_url": "https://tehnet.ir/about",
+   "http_status": 200,
+   "live_sitemap_membership": true,
+   "live_sitemap_membership_source": "wp-sitemap.xml child loc values parsed 2026-11-18 (71 total entries)",
+   "observed_canonical": "https://tehnet.ir/about/",
+   "noindex_observed": false,
+   "proposed_inclusion": "yes (draft review scope)",
+   "proposed_reason": "eligible live policy URL — 200, no noindex observed, present in live wp-sitemap child loc values",
+   "release_disposition": "draft_review_scope — release authorization remains a separate owner gate"
+  },
+  {
+   "path": "/contact/",
+   "full_url": "https://tehnet.ir/contact",
+   "http_status": 200,
+   "live_sitemap_membership": true,
+   "live_sitemap_membership_source": "wp-sitemap.xml child loc values parsed 2026-11-18 (71 total entries)",
+   "observed_canonical": "https://tehnet.ir/contact/",
+   "noindex_observed": false,
+   "proposed_inclusion": "yes (draft review scope)",
+   "proposed_reason": "eligible live policy URL — 200, no noindex observed, present in live wp-sitemap child loc values",
+   "release_disposition": "draft_review_scope — release authorization remains a separate owner gate"
+  },
+  {
+   "path": "/technical-methodology/",
+   "full_url": "https://tehnet.ir/technical-methodology",
+   "http_status": 200,
+   "live_sitemap_membership": true,
+   "live_sitemap_membership_source": "wp-sitemap.xml child loc values parsed 2026-11-18 (71 total entries)",
+   "observed_canonical": "https://tehnet.ir/technical-methodology/",
+   "noindex_observed": false,
+   "proposed_inclusion": "yes (draft review scope)",
+   "proposed_reason": "eligible live policy URL — 200, no noindex observed, present in live wp-sitemap child loc values",
+   "release_disposition": "draft_review_scope — release authorization remains a separate owner gate"
+  },
+  {
+   "path": "/network-support-contract-guide/",
+   "full_url": "https://tehnet.ir/network-support-contract-guide",
+   "http_status": 404,
+   "live_sitemap_membership": false,
+   "live_sitemap_membership_source": "wp-sitemap.xml child loc values parsed 2026-11-18 (71 total entries)",
+   "observed_canonical": null,
+   "noindex_observed": false,
+   "proposed_inclusion": "no",
+   "proposed_reason": "404 observed (2026-11-18 sweep) — excluded from any releasable slice until the target passes a release check; sitemap membership currently absent (consistent)",
+   "release_disposition": "excluded — restore/recreate target first, then re-verify"
+  },
+  {
+   "path": "/network-project-proposal-checklist/",
+   "full_url": "https://tehnet.ir/network-project-proposal-checklist",
+   "http_status": 404,
+   "live_sitemap_membership": false,
+   "live_sitemap_membership_source": "wp-sitemap.xml child loc values parsed 2026-11-18 (71 total entries)",
+   "observed_canonical": null,
+   "noindex_observed": false,
+   "proposed_inclusion": "no",
+   "proposed_reason": "404 observed (2026-11-18 sweep) — excluded from any releasable slice until the target passes a release check; sitemap membership currently absent (consistent)",
+   "release_disposition": "excluded — restore/recreate target first, then re-verify"
+  },
+  {
+   "path": "/business-server-planning-guide/",
+   "full_url": "https://tehnet.ir/business-server-planning-guide",
+   "http_status": 404,
+   "live_sitemap_membership": false,
+   "live_sitemap_membership_source": "wp-sitemap.xml child loc values parsed 2026-11-18 (71 total entries)",
+   "observed_canonical": null,
+   "noindex_observed": false,
+   "proposed_inclusion": "no",
+   "proposed_reason": "404 observed (2026-11-18 sweep) — excluded from any releasable slice until the target passes a release check; sitemap membership currently absent (consistent)",
+   "release_disposition": "excluded — restore/recreate target first, then re-verify"
+  },
+  {
+   "path": "/server-backup-restore-acceptance/",
+   "full_url": "https://tehnet.ir/server-backup-restore-acceptance",
+   "http_status": 404,
+   "live_sitemap_membership": false,
+   "live_sitemap_membership_source": "wp-sitemap.xml child loc values parsed 2026-11-18 (71 total entries)",
+   "observed_canonical": null,
+   "noindex_observed": false,
+   "proposed_inclusion": "no",
+   "proposed_reason": "404 observed (2026-11-18 sweep) — excluded from any releasable slice until the target passes a release check; sitemap membership currently absent (consistent)",
+   "release_disposition": "excluded — restore/recreate target first, then re-verify"
+  },
+  {
+   "path": "/services/server-virtualization-tehran/",
+   "full_url": "https://tehnet.ir/services/server-virtualization-tehran",
+   "http_status": 404,
+   "live_sitemap_membership": false,
+   "live_sitemap_membership_source": "wp-sitemap.xml child loc values parsed 2026-11-18 (71 total entries)",
+   "observed_canonical": null,
+   "noindex_observed": false,
+   "proposed_inclusion": "no",
+   "proposed_reason": "404 observed (2026-11-18 sweep) — excluded from any releasable slice until the target passes a release check; sitemap membership currently absent (consistent)",
+   "release_disposition": "excluded — restore/recreate target first, then re-verify"
+  }
+ ],
+ "draft_review_scope": {
+  "note": "the eligible 11-URL cut is DRAFT REVIEW SCOPE ONLY — separate from release authorization; not submitted anywhere",
+  "candidate_urls": [
+   "https://tehnet.ir",
+   "https://tehnet.ir/services",
+   "https://tehnet.ir/services/voice-network-readiness",
+   "https://tehnet.ir/services/remote-support",
+   "https://tehnet.ir/services/mikrotik-tehran",
+   "https://tehnet.ir/services/network-setup-tehran",
+   "https://tehnet.ir/services/network-support-tehran",
+   "https://tehnet.ir/services/network-tehran",
+   "https://tehnet.ir/about",
+   "https://tehnet.ir/contact",
+   "https://tehnet.ir/technical-methodology"
+  ],
+  "count": 11
+ },
+ "membership_summary": {
+  "live_and_in_sitemap": 11,
+  "dead_and_absent": 5,
+  "agrees_with_manager_observation": "all 11 live policy URLs in wp-sitemap-posts-page-1.xml loc values; only the five 404 policy URLs absent"
  }
 }
