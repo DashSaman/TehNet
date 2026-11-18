@@ -1,0 +1,583 @@
+{
+ "schema": 2,
+ "key": "tehnet-index-allowlist-20261108-v1",
+ "operation": "activate",
+ "candidate_kind": "INTENDED_BUNDLE_SOURCE_ONLY",
+ "status": "NOT_FOR_ACTIVATION",
+ "identity_base": "production",
+ "production_ids_preserved": true,
+ "staging_environment_binding": {
+  "unresolved_separate_mapping": true,
+  "proposed_env_ids_example": {
+   "/services/voice-network-readiness/": {
+    "production": 206,
+    "staging": 193
+   }
+  }
+ },
+ "inputs": {
+  "pr100_head": "a54198ce7ed3535d6783432d8401660e2e023f9d",
+  "pr101_head": "cb391c2dc262a65e524962fa7fc44a0187f476fe",
+  "payload_digests": {
+   "decision_29_network_tehran": "abe760a97700b3a7b5eb8a2205f724e2b7ab3818d1afe02342c6fa2b28d5eff0",
+   "decision_31_network_support": "f0ecdcfe014371ac22df9647512a6ccd73b18d52a357c4fc681e442ff3ec37de",
+   "decision_33_network_setup": "ab56940e609f5afa17aad6917dc2834490e0437aa7ecadc2c66adae6a22e2460",
+   "decision_35_mikrotik": "118f34b1ec9eb08531d18e52bbedf8e25f4d7745928214b4388e6d39ede41f15",
+   "decision_8_services": "130de122301c55e7980f6dace4f576b5254a0a325bd75cea5d09faec72bf990d",
+   "decision_A1": "a8b11e725d73f3f04b51c57958825fc0f7f4b0c7764454895a49e8e782a91ccd",
+   "decision_A2": "a11e50ed377c4958fa8466676b895738a72c718ed2b4f8f8d049046f99993b8b",
+   "decision_A3": "67e7e81664fa64f908fa8212c40e1119d2efe0b4eaca41d83d05819c69773963",
+   "decision_A4": "10a42956c4e488d1e80af0e1260c87db97a2e45b3a3542814c4433943299bf38",
+   "decision_N1": "b79aba49434a8e6931607db123388b0a169caff85db057b441b615bc7cfcfd1d",
+   "pr101_buyer_body": "8feda428c594fe71933b7edfcd092ce7d150b47b3edaa8468c95e8cf82e55c20",
+   "pr101_buyer_baseline_body": "2f5210b20f6d51559aee901c5a9d56120ff16b150b8c28e95516f646fe0d866c"
+  }
+ },
+ "release_precedence": {
+  "8": "decision body only; title/excerpt unchanged-by-release",
+  "37": "PR101 remote-buyer payload (content/remote-buyer-20261113); remote-support manifest/body = baseline",
+  "29313335": "PR100 DECISION scope payloads (body+title+excerpt) — the guarded DECISION_SCOPE handler loads these; staging-sync constants kept as BEFORE evidence only"
+ },
+ "allowlist_paths_exact": [
+  "/",
+  "/services/",
+  "/services/voice-network-readiness/",
+  "/services/remote-support/",
+  "/services/mikrotik-tehran/",
+  "/services/network-setup-tehran/",
+  "/services/network-support-tehran/",
+  "/services/network-tehran/",
+  "/about/",
+  "/contact/",
+  "/technical-methodology/",
+  "/network-support-contract-guide/",
+  "/network-project-proposal-checklist/",
+  "/business-server-planning-guide/",
+  "/server-backup-restore-acceptance/",
+  "/services/server-virtualization-tehran/"
+ ],
+ "targets": [
+  {
+   "path": "/services/network-tehran/",
+   "id": 29,
+   "identity": "production",
+   "status": "RESOLVED_COMPLETE",
+   "fields": {
+    "body": {
+     "state": "RESOLVED_COMPLETE",
+     "sha256": "abe760a97700b3a7b5eb8a2205f724e2b7ab3818d1afe02342c6fa2b28d5eff0"
+    },
+    "title": {
+     "state": "RESOLVED_COMPLETE",
+     "value": "خدمات شبکه تهران؛ انتخاب خدمت و تعیین دامنهٔ پروژه"
+    },
+    "excerpt": {
+     "state": "RESOLVED_COMPLETE",
+     "sha256": "c63f6f937ba51cc73235cb76ee4740f52f36e9aa0fb92ed9622fb5ddc0446c4e"
+    }
+   },
+   "binding": {
+    "scope": "tehnet-commercial-decision-20261108-v2",
+    "ref": "a54198ce7ed3535d6783432d8401660e2e023f9d",
+    "file": "content/commercial-decision-2026-11-08-v2/network-tehran.html",
+    "transform": "post_content = payload bytes (lf-verified); title/excerpt = decision manifest strings (const-compared with guarded PHP DECISION_TARGETS)"
+   },
+   "notes": [
+    {
+     "before_evidence": "staging-sync const carries pre-release baseline body n/a — staging-only scope, refused in production; kept as BEFORE evidence, NOT intended values"
+    }
+   ],
+   "carried_reference": {
+    "title": "خدمات شبکه تهران؛ انتخاب خدمت و تعیین دامنهٔ پروژه",
+    "body_sha256": "abe760a97700b3a7b5eb8a2205f724e2b7ab3818d1afe02342c6fa2b28d5eff0",
+    "excerpt_sha256": "c63f6f937ba51cc73235cb76ee4740f52f36e9aa0fb92ed9622fb5ddc0446c4e"
+   }
+  },
+  {
+   "path": "/services/network-support-tehran/",
+   "id": 31,
+   "identity": "production",
+   "status": "RESOLVED_COMPLETE",
+   "fields": {
+    "body": {
+     "state": "RESOLVED_COMPLETE",
+     "sha256": "f0ecdcfe014371ac22df9647512a6ccd73b18d52a357c4fc681e442ff3ec37de"
+    },
+    "title": {
+     "state": "RESOLVED_COMPLETE",
+     "value": "پشتیبانی شبکه تهران؛ رخداد، نگهداری و گزارش تحویل"
+    },
+    "excerpt": {
+     "state": "RESOLVED_COMPLETE",
+     "sha256": "9a95a58bf915d0f9c7e717297a83efc031b0678a7a4aa7f0aa7f1905e035a4df"
+    }
+   },
+   "binding": {
+    "scope": "tehnet-commercial-decision-20261108-v2",
+    "ref": "a54198ce7ed3535d6783432d8401660e2e023f9d",
+    "file": "content/commercial-decision-2026-11-08-v2/network-support.html",
+    "transform": "post_content = payload bytes (lf-verified); title/excerpt = decision manifest strings (const-compared with guarded PHP DECISION_TARGETS)"
+   },
+   "notes": [
+    {
+     "before_evidence": "staging-sync const carries pre-release baseline body 73d1b477170f… — staging-only scope, refused in production; kept as BEFORE evidence, NOT intended values"
+    }
+   ],
+   "carried_reference": {
+    "title": "پشتیبانی شبکه تهران؛ رخداد، نگهداری و گزارش تحویل",
+    "body_sha256": "f0ecdcfe014371ac22df9647512a6ccd73b18d52a357c4fc681e442ff3ec37de",
+    "excerpt_sha256": "9a95a58bf915d0f9c7e717297a83efc031b0678a7a4aa7f0aa7f1905e035a4df"
+   }
+  },
+  {
+   "path": "/services/network-setup-tehran/",
+   "id": 33,
+   "identity": "production",
+   "status": "RESOLVED_COMPLETE",
+   "fields": {
+    "body": {
+     "state": "RESOLVED_COMPLETE",
+     "sha256": "ab56940e609f5afa17aad6917dc2834490e0437aa7ecadc2c66adae6a22e2460"
+    },
+    "title": {
+     "state": "RESOLVED_COMPLETE",
+     "value": "راه‌اندازی شبکه شرکت در تهران؛ نیازسنجی تا پذیرش"
+    },
+    "excerpt": {
+     "state": "RESOLVED_COMPLETE",
+     "sha256": "04703687f543ee775065686a91f579a320202ae428edfe48bb076727732e1b3d"
+    }
+   },
+   "binding": {
+    "scope": "tehnet-commercial-decision-20261108-v2",
+    "ref": "a54198ce7ed3535d6783432d8401660e2e023f9d",
+    "file": "content/commercial-decision-2026-11-08-v2/network-setup.html",
+    "transform": "post_content = payload bytes (lf-verified); title/excerpt = decision manifest strings (const-compared with guarded PHP DECISION_TARGETS)"
+   },
+   "notes": [
+    {
+     "before_evidence": "staging-sync const carries pre-release baseline body 709c49b6d2e0… — staging-only scope, refused in production; kept as BEFORE evidence, NOT intended values"
+    }
+   ],
+   "carried_reference": {
+    "title": "راه‌اندازی شبکه شرکت در تهران؛ نیازسنجی تا پذیرش",
+    "body_sha256": "ab56940e609f5afa17aad6917dc2834490e0437aa7ecadc2c66adae6a22e2460",
+    "excerpt_sha256": "04703687f543ee775065686a91f579a320202ae428edfe48bb076727732e1b3d"
+   }
+  },
+  {
+   "path": "/services/mikrotik-tehran/",
+   "id": 35,
+   "identity": "production",
+   "status": "RESOLVED_COMPLETE",
+   "fields": {
+    "body": {
+     "state": "RESOLVED_COMPLETE",
+     "sha256": "118f34b1ec9eb08531d18e52bbedf8e25f4d7745928214b4388e6d39ede41f15"
+    },
+    "title": {
+     "state": "RESOLVED_COMPLETE",
+     "value": "خدمات میکروتیک تهران؛ بررسی RouterOS و تغییر کنترل‌شده"
+    },
+    "excerpt": {
+     "state": "RESOLVED_COMPLETE",
+     "sha256": "9bb7b9837a9d0524e5aa7dc14d25bc5cd0fc4a438a067f240b5e3ca72d0deca6"
+    }
+   },
+   "binding": {
+    "scope": "tehnet-commercial-decision-20261108-v2",
+    "ref": "a54198ce7ed3535d6783432d8401660e2e023f9d",
+    "file": "content/commercial-decision-2026-11-08-v2/mikrotik-service.html",
+    "transform": "post_content = payload bytes (lf-verified); title/excerpt = decision manifest strings (const-compared with guarded PHP DECISION_TARGETS)"
+   },
+   "notes": [
+    {
+     "before_evidence": "staging-sync const carries pre-release baseline body ab9d96e52fb5… — staging-only scope, refused in production; kept as BEFORE evidence, NOT intended values"
+    }
+   ],
+   "carried_reference": {
+    "title": "خدمات میکروتیک تهران؛ بررسی RouterOS و تغییر کنترل‌شده",
+    "body_sha256": "118f34b1ec9eb08531d18e52bbedf8e25f4d7745928214b4388e6d39ede41f15",
+    "excerpt_sha256": "9bb7b9837a9d0524e5aa7dc14d25bc5cd0fc4a438a067f240b5e3ca72d0deca6"
+   }
+  },
+  {
+   "path": "/services/",
+   "id": 8,
+   "identity": "production",
+   "status": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+   "fields": {
+    "body": {
+     "state": "RESOLVED_COMPLETE",
+     "sha256": "130de122301c55e7980f6dace4f576b5254a0a325bd75cea5d09faec72bf990d"
+    },
+    "title": {
+     "state": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+     "value": "خدمات"
+    },
+    "excerpt": {
+     "state": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+     "sha256": "0749d60a30b612feec2361a56700def9a0a0550f85b0169a30db066a78b18b39"
+    }
+   },
+   "binding": {
+    "scope": "tehnet-commercial-decision-20261108-v2",
+    "ref": "a54198ce7ed3535d6783432d8401660e2e023f9d",
+    "file": "content/commercial-decision-2026-11-08-v2/services.html",
+    "transform": "post_content = payload bytes (lf-verified); change_fields=[post_content] only"
+   },
+   "notes": [
+    "title/excerpt untouched by this release — unchanged fields need authoritative readback/provenance, carried 11-08 values are reference only"
+   ],
+   "carried_reference": {
+    "title": "خدمات",
+    "body_sha256": "130de122301c55e7980f6dace4f576b5254a0a325bd75cea5d09faec72bf990d",
+    "excerpt_sha256": "0749d60a30b612feec2361a56700def9a0a0550f85b0169a30db066a78b18b39"
+   }
+  },
+  {
+   "path": "/services/remote-support/",
+   "id": 37,
+   "identity": "production",
+   "status": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+   "fields": {
+    "body": {
+     "state": "RESOLVED_COMPLETE",
+     "sha256": "8feda428c594fe71933b7edfcd092ce7d150b47b3edaa8468c95e8cf82e55c20"
+    },
+    "title": {
+     "state": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+     "value": "پشتیبانی شبکه از راه دور"
+    },
+    "excerpt": {
+     "state": "UNCHANGED_FIELD_NEEDS_PROVENANCE"
+    }
+   },
+   "binding": {
+    "scope": "tehnet-service-remote-buyer-20261113-v1",
+    "ref": "cb391c2dc262a65e524962fa7fc44a0187f476fe",
+    "file": "content/remote-buyer-20261113/remote-support-buyer-20261113.html",
+    "transform": "post_content = buyer payload bytes (lf-verified); change_fields=[post_content]; title/slug/excerpt/meta preserved"
+   },
+   "notes": [
+    {
+     "before_evidence": "PR101 remote-support manifest body 2f5210b2… is the BASELINE of the same page, not the intended body"
+    },
+    "status DRAFT_NOT_DEPLOYED"
+   ],
+   "carried_reference": {
+    "title": "پشتیبانی شبکه از راه دور",
+    "body_sha256": "8feda428c594fe71933b7edfcd092ce7d150b47b3edaa8468c95e8cf82e55c20",
+    "excerpt_sha256": null
+   }
+  },
+  {
+   "path": "/network-support-contract-guide/",
+   "id": null,
+   "identity": "production",
+   "status": "RESOLVED_COMPLETE",
+   "fields": {
+    "body": {
+     "state": "RESOLVED_COMPLETE",
+     "sha256": "a8b11e725d73f3f04b51c57958825fc0f7f4b0c7764454895a49e8e782a91ccd"
+    },
+    "title": {
+     "state": "RESOLVED_COMPLETE",
+     "value": "قرارداد پشتیبانی شبکه؛ پیش از توافق چه چیزهایی را روشن کنیم؟"
+    },
+    "excerpt": {
+     "state": "RESOLVED_COMPLETE",
+     "sha256": "c6eb28f7de9d4b2593be0ad5f7d734182a97096280cf0f6a3b788df3bc6d8d6c"
+    }
+   },
+   "binding": {
+    "scope": "tehnet-commercial-decision-20261108-v2",
+    "ref": "a54198ce7ed3535d6783432d8401660e2e023f9d",
+    "file": "content/commercial-decision-2026-11-08-v2/network-support-contract-guide.html",
+    "transform": "new page: post_content = payload bytes (lf-verified); title = guarded const (compared); excerpt = manifest string"
+   },
+   "notes": [],
+   "carried_reference": {
+    "title": "قرارداد پشتیبانی شبکه؛ پیش از توافق چه چیزهایی را روشن کنیم؟",
+    "body_sha256": "a8b11e725d73f3f04b51c57958825fc0f7f4b0c7764454895a49e8e782a91ccd",
+    "excerpt_sha256": "c6eb28f7de9d4b2593be0ad5f7d734182a97096280cf0f6a3b788df3bc6d8d6c"
+   }
+  },
+  {
+   "path": "/network-project-proposal-checklist/",
+   "id": null,
+   "identity": "production",
+   "status": "RESOLVED_COMPLETE",
+   "fields": {
+    "body": {
+     "state": "RESOLVED_COMPLETE",
+     "sha256": "a11e50ed377c4958fa8466676b895738a72c718ed2b4f8f8d049046f99993b8b"
+    },
+    "title": {
+     "state": "RESOLVED_COMPLETE",
+     "value": "پیشنهادهای اجرای شبکه را چگونه هم‌دامنه مقایسه کنیم؟"
+    },
+    "excerpt": {
+     "state": "RESOLVED_COMPLETE",
+     "sha256": "137bda095b6a328466dc5813f118c4054215baa64f8535d215a642c34f364cfe"
+    }
+   },
+   "binding": {
+    "scope": "tehnet-commercial-decision-20261108-v2",
+    "ref": "a54198ce7ed3535d6783432d8401660e2e023f9d",
+    "file": "content/commercial-decision-2026-11-08-v2/network-project-proposal-checklist.html",
+    "transform": "new page: post_content = payload bytes (lf-verified); title = guarded const (compared); excerpt = manifest string"
+   },
+   "notes": [],
+   "carried_reference": {
+    "title": "پیشنهادهای اجرای شبکه را چگونه هم‌دامنه مقایسه کنیم؟",
+    "body_sha256": "a11e50ed377c4958fa8466676b895738a72c718ed2b4f8f8d049046f99993b8b",
+    "excerpt_sha256": "137bda095b6a328466dc5813f118c4054215baa64f8535d215a642c34f364cfe"
+   }
+  },
+  {
+   "path": "/business-server-planning-guide/",
+   "id": null,
+   "identity": "production",
+   "status": "RESOLVED_COMPLETE",
+   "fields": {
+    "body": {
+     "state": "RESOLVED_COMPLETE",
+     "sha256": "67e7e81664fa64f908fa8212c40e1119d2efe0b4eaca41d83d05819c69773963"
+    },
+    "title": {
+     "state": "RESOLVED_COMPLETE",
+     "value": "نیازسنجی سرور شرکت؛ پیش از انتخاب CPU و RAM چه بپرسیم؟"
+    },
+    "excerpt": {
+     "state": "RESOLVED_COMPLETE",
+     "sha256": "e6e40e7b198af1d5ff53ec7d86bdb97fcd9399b1ca3a7ded29e0d563691c73ed"
+    }
+   },
+   "binding": {
+    "scope": "tehnet-commercial-decision-20261108-v2",
+    "ref": "a54198ce7ed3535d6783432d8401660e2e023f9d",
+    "file": "content/commercial-decision-2026-11-08-v2/business-server-planning-guide.html",
+    "transform": "new page: post_content = payload bytes (lf-verified); title = guarded const (compared); excerpt = manifest string"
+   },
+   "notes": [],
+   "carried_reference": {
+    "title": "نیازسنجی سرور شرکت؛ پیش از انتخاب CPU و RAM چه بپرسیم؟",
+    "body_sha256": "67e7e81664fa64f908fa8212c40e1119d2efe0b4eaca41d83d05819c69773963",
+    "excerpt_sha256": "e6e40e7b198af1d5ff53ec7d86bdb97fcd9399b1ca3a7ded29e0d563691c73ed"
+   }
+  },
+  {
+   "path": "/server-backup-restore-acceptance/",
+   "id": null,
+   "identity": "production",
+   "status": "RESOLVED_COMPLETE",
+   "fields": {
+    "body": {
+     "state": "RESOLVED_COMPLETE",
+     "sha256": "10a42956c4e488d1e80af0e1260c87db97a2e45b3a3542814c4433943299bf38"
+    },
+    "title": {
+     "state": "RESOLVED_COMPLETE",
+     "value": "اسنپ‌شات، بکاپ و آزمون بازیابی؛ چه مدرکی تحویل بگیریم؟"
+    },
+    "excerpt": {
+     "state": "RESOLVED_COMPLETE",
+     "sha256": "c68043bd0f60828d3ca687538054bbd78c949ab72b55853bb1eb40da630a3a9c"
+    }
+   },
+   "binding": {
+    "scope": "tehnet-commercial-decision-20261108-v2",
+    "ref": "a54198ce7ed3535d6783432d8401660e2e023f9d",
+    "file": "content/commercial-decision-2026-11-08-v2/server-backup-restore-acceptance.html",
+    "transform": "new page: post_content = payload bytes (lf-verified); title = guarded const (compared); excerpt = manifest string"
+   },
+   "notes": [],
+   "carried_reference": {
+    "title": "اسنپ‌شات، بکاپ و آزمون بازیابی؛ چه مدرکی تحویل بگیریم؟",
+    "body_sha256": "10a42956c4e488d1e80af0e1260c87db97a2e45b3a3542814c4433943299bf38",
+    "excerpt_sha256": "c68043bd0f60828d3ca687538054bbd78c949ab72b55853bb1eb40da630a3a9c"
+   }
+  },
+  {
+   "path": "/services/server-virtualization-tehran/",
+   "id": null,
+   "identity": "production",
+   "status": "RESOLVED_COMPLETE",
+   "fields": {
+    "body": {
+     "state": "RESOLVED_COMPLETE",
+     "sha256": "b79aba49434a8e6931607db123388b0a169caff85db057b441b615bc7cfcfd1d"
+    },
+    "title": {
+     "state": "RESOLVED_COMPLETE",
+     "value": "سرور و مجازی‌سازی در تهران؛ از نیازسنجی تا تحویل سرویس"
+    },
+    "excerpt": {
+     "state": "RESOLVED_COMPLETE",
+     "sha256": "1a6437673527cae1e1aff3b9fe6b392d5e0bec1d15210c9c783c212680eccf3c"
+    }
+   },
+   "binding": {
+    "scope": "tehnet-commercial-decision-20261108-v2",
+    "ref": "a54198ce7ed3535d6783432d8401660e2e023f9d",
+    "file": "content/commercial-decision-2026-11-08-v2/server-virtualization-tehran.html",
+    "transform": "new page: post_content = payload bytes (lf-verified); title = guarded const (compared); excerpt = manifest string"
+   },
+   "notes": [],
+   "carried_reference": {
+    "title": "سرور و مجازی‌سازی در تهران؛ از نیازسنجی تا تحویل سرویس",
+    "body_sha256": "b79aba49434a8e6931607db123388b0a169caff85db057b441b615bc7cfcfd1d",
+    "excerpt_sha256": "1a6437673527cae1e1aff3b9fe6b392d5e0bec1d15210c9c783c212680eccf3c"
+   }
+  },
+  {
+   "path": "/contact/",
+   "id": 11,
+   "identity": "production",
+   "status": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+   "fields": {
+    "body": {
+     "state": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+     "sha256": null
+    },
+    "title": {
+     "state": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+     "value": "تماس با ما"
+    },
+    "excerpt": {
+     "state": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+     "sha256": "6a24037159bb6fc79036fa88997071b060eff1e5c05fcd3b438d462b0d2c77c5"
+    }
+   },
+   "binding": null,
+   "notes": [
+    "no release payload touches this page; unchanged field needs authoritative readback/provenance"
+   ],
+   "carried_reference": {
+    "title": "تماس با ما",
+    "body_sha256": "404dcd28d91a02c13f412102214903e51016bb6f357ac25c6a95fb3e2cef93e5",
+    "excerpt_sha256": "6a24037159bb6fc79036fa88997071b060eff1e5c05fcd3b438d462b0d2c77c5"
+   }
+  },
+  {
+   "path": "/technical-methodology/",
+   "id": 187,
+   "identity": "production",
+   "status": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+   "fields": {
+    "body": {
+     "state": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+     "sha256": null
+    },
+    "title": {
+     "state": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+     "value": "روش منابع، آزمون و اصلاح محتوا"
+    },
+    "excerpt": {
+     "state": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+     "sha256": "bf96fd6a27888cd7b13bb9f2cfc45f0fb5845df51e6403c628ed51abe1e085c0"
+    }
+   },
+   "binding": null,
+   "notes": [
+    "no release payload touches this page; unchanged field needs authoritative readback/provenance"
+   ],
+   "carried_reference": {
+    "title": "روش منابع، آزمون و اصلاح محتوا",
+    "body_sha256": "97a8bbb7efd82d1628d33bc45620dcdca3bb0a425e7fe41df963f72d097148e0",
+    "excerpt_sha256": "bf96fd6a27888cd7b13bb9f2cfc45f0fb5845df51e6403c628ed51abe1e085c0"
+   }
+  },
+  {
+   "path": "/services/voice-network-readiness/",
+   "id": 206,
+   "identity": "production",
+   "status": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+   "fields": {
+    "body": {
+     "state": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+     "sha256": null
+    },
+    "title": {
+     "state": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+     "value": "آماده‌سازی و بررسی شبکه برای VoIP"
+    },
+    "excerpt": {
+     "state": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+     "sha256": null
+    }
+   },
+   "binding": null,
+   "notes": [
+    "no release payload touches this page; body matched BOTH environment readbacks (7f384153…, DB observation not release intent); staging id 193 recorded solely in staging_environment_binding"
+   ],
+   "carried_reference": {
+    "title": "آماده‌سازی و بررسی شبکه برای VoIP",
+    "body_sha256": "7f384153b9140fe60db47dca2690ebd1e6e85ff8a16637745d12e7f23844a915",
+    "excerpt_sha256": null
+   }
+  },
+  {
+   "path": "/",
+   "id": 5,
+   "identity": "production",
+   "status": "AUTHORIZATION_REFERENCE_UNVERIFIED",
+   "fields": {
+    "body": {
+     "state": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+     "sha256": null
+    },
+    "title": {
+     "state": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+     "value": "خانه"
+    },
+    "excerpt": {
+     "state": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+     "sha256": "5790af9dd32b040aaa34410267a0140b21bb7d2eace57f14b3825789be7896e3"
+    }
+   },
+   "binding": null,
+   "notes": [
+    "live 2026-11-15 home/about/profile changes are associated with commit 8c74794 but the exact authorization/mutation receipt has NOT been supplied — AUTHORIZATION_REFERENCE_UNVERIFIED; the later public-index goal is not retrospective permission"
+   ],
+   "carried_reference": {
+    "title": "خانه",
+    "body_sha256": "6ba0eb044641ff0ab9be439dad2e9f2381356f13d2862599e78faab8fe8259c2",
+    "excerpt_sha256": "5790af9dd32b040aaa34410267a0140b21bb7d2eace57f14b3825789be7896e3"
+   }
+  },
+  {
+   "path": "/about/",
+   "id": 10,
+   "identity": "production",
+   "status": "AUTHORIZATION_REFERENCE_UNVERIFIED",
+   "fields": {
+    "body": {
+     "state": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+     "sha256": null
+    },
+    "title": {
+     "state": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+     "value": "درباره ما"
+    },
+    "excerpt": {
+     "state": "UNCHANGED_FIELD_NEEDS_PROVENANCE",
+     "sha256": "e8d214af9ee027d4fc9bab887c732004d068123ae0fcf9a4ef8cd8646320bd2a"
+    }
+   },
+   "binding": null,
+   "notes": [
+    "live 2026-11-15 home/about/profile changes are associated with commit 8c74794 but the exact authorization/mutation receipt has NOT been supplied — AUTHORIZATION_REFERENCE_UNVERIFIED; the later public-index goal is not retrospective permission"
+   ],
+   "carried_reference": {
+    "title": "درباره ما",
+    "body_sha256": "ac9985db27f4a4a93f10490173ab2eab52ab204cda7e343f1c78b31e264314c6",
+    "excerpt_sha256": "e8d214af9ee027d4fc9bab887c732004d068123ae0fcf9a4ef8cd8646320bd2a"
+   }
+  }
+ ],
+ "resolved_complete_count": 9,
+ "activation_incomplete": true,
+ "production_authorization": "NEEDS_SEPARATE_EXACT_ALLOWLIST_OWNER_APPROVAL"
+}

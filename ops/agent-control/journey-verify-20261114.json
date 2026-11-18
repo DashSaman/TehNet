@@ -1,0 +1,134 @@
+{
+ "status": "PASS",
+ "total": 23,
+ "failures": 0,
+ "checks": [
+  {
+   "name": "network-setup_http200",
+   "pass": true,
+   "detail": {
+    "status": 200
+   }
+  },
+  {
+   "name": "network-setup_anchor_scope-and-cost",
+   "pass": true
+  },
+  {
+   "name": "network-setup_anchor_project-request",
+   "pass": true
+  },
+  {
+   "name": "network-setup_anchor_why-tehnet",
+   "pass": true
+  },
+  {
+   "name": "remote-support_http200",
+   "pass": true,
+   "detail": {
+    "status": 200
+   }
+  },
+  {
+   "name": "remote-support_anchor_session-journey",
+   "pass": true
+  },
+  {
+   "name": "remote-support_anchor_why-tehnet",
+   "pass": true
+  },
+  {
+   "name": "remote-support_anchor_remote-fit",
+   "pass": true
+  },
+  {
+   "name": "b2b_http200",
+   "pass": true,
+   "detail": {
+    "status": 200
+   }
+  },
+  {
+   "name": "b2b_anchor_quote-checklist",
+   "pass": true
+  },
+  {
+   "name": "b2b_anchor_quote-process",
+   "pass": true
+  },
+  {
+   "name": "b2b_anchor_quote-boundaries",
+   "pass": true
+  },
+  {
+   "name": "b2b_form",
+   "pass": true
+  },
+  {
+   "name": "support_http200",
+   "pass": true,
+   "detail": {
+    "status": 200
+   }
+  },
+  {
+   "name": "support_anchor_ticket-checklist",
+   "pass": true
+  },
+  {
+   "name": "support_anchor_ticket-process",
+   "pass": true
+  },
+  {
+   "name": "support_anchor_ticket-routes",
+   "pass": true
+  },
+  {
+   "name": "support_form",
+   "pass": true
+  },
+  {
+   "name": "setup_mentions_support",
+   "pass": true
+  },
+  {
+   "name": "remote_refers_setup",
+   "pass": true
+  },
+  {
+   "name": "b2b_refers_services",
+   "pass": true
+  },
+  {
+   "name": "support_routes_all4",
+   "pass": true
+  },
+  {
+   "name": "all_internal_links_resolve",
+   "pass": true,
+   "detail": {
+    "broken": [],
+    "total_checked": 17
+   }
+  }
+ ],
+ "links_resolved": {
+  "/services/network-support-tehran/": 200,
+  "/services/voice-network-readiness/": 200,
+  "/network-project-proposal-checklist/": 200,
+  "/learn/mikrotik/mtcna/routeros-winbox/": 200,
+  "/technical-methodology/": 200,
+  "/shop/": 200,
+  "/learn/mikrotik/mtcna/": 200,
+  "/services/remote-support/": 200,
+  "/contact/": 200,
+  "/services/": 200,
+  "/services/mikrotik-tehran/": 200,
+  "/services/server-virtualization-tehran/": 200,
+  "/business-server-planning-guide/": 200,
+  "/support/": 200,
+  "/b2b/": 200,
+  "/services/network-setup-tehran/": 200,
+  "/lab/voice-network-checklist/": 200
+ }
+}

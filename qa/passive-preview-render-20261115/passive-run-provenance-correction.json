@@ -1,0 +1,33 @@
+{
+  "packet": "TN-TWO-HOUR-EXECUTION-20261116 / passive-receipt-provenance-correction",
+  "corrected_utc": "2026-11-16T10:36:00Z",
+  "corrects_run": {
+    "run_id": "TN-PASSIVE-RESPONSIVE-PREVIEW-MWJ3U2EG",
+    "reported_utc": "2026-11-16T10:12:23Z",
+    "reported_label": "LOCAL_STAGING",
+    "commit": "a7119566ebaf7a1069e3d92b173721587b59a202"
+  },
+  "real_execution_origin": {
+    "category": "owner-local machine, Git Bash + local PHP/Node/Playwright",
+    "authorization_state_at_run_time": "EXPIRED — the LOCAL_STAGING window ended 2026-11-16T04:30:00Z; the run happened ~05:42 later without an active authorization",
+    "cloud_runner_used": false,
+    "file://_standalone_only": true,
+    "conclusion": "the run's LOCAL_STAGING label was INVALID at execution time; the run is recorded as an UNAUTHORIZED-CONTEXT execution and is NOT an authorized-environment receipt"
+  },
+  "disposition_of_results": {
+    "technical_value": "the 16 assertion outputs informed the rev3 keyboard-bridge design (revealed that real arrow keys do not scroll a tabindex=0 container without a handler)",
+    "as_evidence": "NOT usable as an authorized-execution receipt; treated as design input only"
+  },
+  "authorized_environment_status": {
+    "pre_authorized_cloud_runner_available": false,
+    "cloud_runner_history": "GitHub-hosted runner browser execution was BLOCKED_DEFINITIVE earlier (8 attempts; Docker networking layer); no new cloud runner was created (prohibited)",
+    "keyboard_scroll_test_authorized_run": "NOT_RUN",
+    "re_run_condition": "only after the owner supplies a positively authorized disposable cloud app/browser environment"
+  },
+  "integrity_notes": [
+    "no IP, private path, screenshot or trace is included in this correction",
+    "the canonical snapshot provenance correction (published SHA 778ee3f4…, digest 180ddbf1… unchanged) in commit a711956 remains valid — it is a source fact, independent of run authorization",
+    "no attempt is made to relabel the run as cloud; no quota/provider/auth change was made"
+  ],
+  "production_touched": false
+}

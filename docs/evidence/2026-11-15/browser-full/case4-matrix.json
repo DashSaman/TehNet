@@ -1,0 +1,95 @@
+{
+ "status": "PASS",
+ "total": 13,
+ "failures": 0,
+ "checks": [
+  {
+   "name": "m320_services_200",
+   "pass": true,
+   "detail": {
+    "status": 200
+   }
+  },
+  {
+   "name": "m320_services_form",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "name": "m320_services_no_overflow",
+   "pass": true,
+   "detail": {
+    "px": 0
+   }
+  },
+  {
+   "name": "m320_b2b_200",
+   "pass": true,
+   "detail": {
+    "status": 200
+   }
+  },
+  {
+   "name": "m320_b2b_form",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "name": "m320_b2b_no_overflow",
+   "pass": true,
+   "detail": {
+    "px": 0
+   }
+  },
+  {
+   "name": "m320_support_200",
+   "pass": true,
+   "detail": {
+    "status": 200
+   }
+  },
+  {
+   "name": "m320_support_form",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "name": "m320_support_no_overflow",
+   "pass": true,
+   "detail": {
+    "px": 0
+   }
+  },
+  {
+   "name": "b2b_dark_toggle",
+   "pass": true,
+   "detail": {
+    "theme": "dark"
+   }
+  },
+  {
+   "name": "b2b_dark_form_still_present",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "name": "b2b_nojs_form_html_post",
+   "pass": true,
+   "detail": {
+    "present": true,
+    "actionOk": true,
+    "method": "post",
+    "submitBtn": true
+   }
+  },
+  {
+   "name": "support_nojs_form_html_post",
+   "pass": true,
+   "detail": {
+    "present": true,
+    "method": "post",
+    "submitBtn": true
+   }
+  }
+ ]
+}

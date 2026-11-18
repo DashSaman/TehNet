@@ -1,0 +1,231 @@
+{
+ "packet": "TN-INDEX-INTENDED-BUNDLE-20261116",
+ "rev": 3,
+ "run_utc": "2026-11-16T10:30:01Z",
+ "mode": "SOURCE_ONLY — inputs read from git at pinned SHAs; zero DB/SSH/browser contact",
+ "command": "node qa/index-preflight-20261115/intended-bundle/build-intended-manifest.cjs (2x byte-identical)",
+ "determinism": {
+  "generations": 2,
+  "manifest_sha256": "c8b85d48089ce3b2f8f52a20ccc6393f521b3415923224c0371b7f04e5ec3283",
+  "byte_identical": true
+ },
+ "inputs": {
+  "pr100_head": "a54198ce7ed3535d6783432d8401660e2e023f9d",
+  "pr101_head": "cb391c2dc262a65e524962fa7fc44a0187f476fe",
+  "payload_digests": {
+   "decision_29_network_tehran": "abe760a97700b3a7b5eb8a2205f724e2b7ab3818d1afe02342c6fa2b28d5eff0",
+   "decision_31_network_support": "f0ecdcfe014371ac22df9647512a6ccd73b18d52a357c4fc681e442ff3ec37de",
+   "decision_33_network_setup": "ab56940e609f5afa17aad6917dc2834490e0437aa7ecadc2c66adae6a22e2460",
+   "decision_35_mikrotik": "118f34b1ec9eb08531d18e52bbedf8e25f4d7745928214b4388e6d39ede41f15",
+   "decision_8_services": "130de122301c55e7980f6dace4f576b5254a0a325bd75cea5d09faec72bf990d",
+   "decision_A1": "a8b11e725d73f3f04b51c57958825fc0f7f4b0c7764454895a49e8e782a91ccd",
+   "decision_A2": "a11e50ed377c4958fa8466676b895738a72c718ed2b4f8f8d049046f99993b8b",
+   "decision_A3": "67e7e81664fa64f908fa8212c40e1119d2efe0b4eaca41d83d05819c69773963",
+   "decision_A4": "10a42956c4e488d1e80af0e1260c87db97a2e45b3a3542814c4433943299bf38",
+   "decision_N1": "b79aba49434a8e6931607db123388b0a169caff85db057b441b615bc7cfcfd1d",
+   "pr101_buyer_body": "8feda428c594fe71933b7edfcd092ce7d150b47b3edaa8468c95e8cf82e55c20",
+   "pr101_buyer_baseline_body": "2f5210b20f6d51559aee901c5a9d56120ff16b150b8c28e95516f646fe0d866c"
+  }
+ },
+ "release_precedence": {
+  "8": "decision body only; title/excerpt unchanged-by-release",
+  "37": "PR101 remote-buyer payload (content/remote-buyer-20261113); remote-support manifest/body = baseline",
+  "29313335": "PR100 DECISION scope payloads (body+title+excerpt) — the guarded DECISION_SCOPE handler loads these; staging-sync constants kept as BEFORE evidence only"
+ },
+ "row_status_distribution": {
+  "RESOLVED_COMPLETE": 9,
+  "UNCHANGED_FIELD_NEEDS_PROVENANCE": 5,
+  "AUTHORIZATION_REFERENCE_UNVERIFIED": 2
+ },
+ "status_taxonomy": {
+  "RESOLVED_COMPLETE": "body+title+excerpt all release-determined",
+  "UNCHANGED_FIELD_NEEDS_PROVENANCE": "field untouched by any release — needs authoritative readback/provenance (NOT owner-blocked)",
+  "AUTHORIZATION_REFERENCE_UNVERIFIED": "live changes (8c74794 association) lack a supplied authorization/mutation receipt"
+ },
+ "checks": {
+  "checks": [
+   {
+    "name": "original_exact16",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "production_ids_preserved",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "voice206_preserved",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "no_staging_ids_in_production_rows",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "precedence_31_uses_decision_body",
+    "pass": true,
+    "detail": {
+     "note": "NOT the sync baseline 73d1b477170f"
+    }
+   },
+   {
+    "name": "precedence_33_uses_decision_body",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "precedence_35_uses_decision_body",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "precedence_37_uses_buyer_body",
+    "pass": true,
+    "detail": {
+     "expected": "8feda428…",
+     "note": "2f5210b2 kept as baseline evidence only"
+    }
+   },
+   {
+    "name": "sync_values_absent_from_intended_fields",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "allowlist_no_private_routes",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "auth_reference_unverified_used",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "needs_provenance_used",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "not_for_activation",
+    "pass": true,
+    "detail": null
+   },
+   {
+    "name": "all_negative_probes_rejected",
+    "pass": true,
+    "detail": [
+     {
+      "name": "baseline-as-final:31",
+      "rejected": true,
+      "reasonMatched": true,
+      "reason": "GEN_REJECT: decision body checksum mismatch: network-support.html"
+     },
+     {
+      "name": "baseline-body-as-final:31",
+      "rejected": true,
+      "reasonMatched": true,
+      "reason": "GEN_REJECT: decision body checksum mismatch: network-support.html"
+     },
+     {
+      "name": "conflicting-title:29",
+      "rejected": true,
+      "reasonMatched": true,
+      "reason": "GEN_REJECT: const TITLE drift for decision target 29"
+     },
+     {
+      "name": "missing-input:buyer",
+      "rejected": true,
+      "reasonMatched": true,
+      "reason": "Cannot read properties of null (reading 'content_sha256_lf')"
+     },
+     {
+      "name": "missing-input:A1-body",
+      "rejected": true,
+      "reasonMatched": true,
+      "reason": "GEN_REJECT: decision page body payload MISSING: network-support-contract-guide.html"
+     },
+     {
+      "name": "private-target-added",
+      "rejected": true,
+      "reasonMatched": true,
+      "reason": "GEN_REJECT: original manifest must carry exactly 16 targets"
+     },
+     {
+      "name": "path-swapped",
+      "rejected": true,
+      "reasonMatched": true,
+      "reason": "GEN_REJECT: unknown path: /about/"
+     }
+    ]
+   },
+   {
+    "name": "deterministic_regeneration",
+    "pass": true,
+    "detail": null
+   }
+  ],
+  "negatives": [
+   {
+    "name": "baseline-as-final:31",
+    "rejected": true,
+    "reasonMatched": true,
+    "reason": "GEN_REJECT: decision body checksum mismatch: network-support.html"
+   },
+   {
+    "name": "baseline-body-as-final:31",
+    "rejected": true,
+    "reasonMatched": true,
+    "reason": "GEN_REJECT: decision body checksum mismatch: network-support.html"
+   },
+   {
+    "name": "conflicting-title:29",
+    "rejected": true,
+    "reasonMatched": true,
+    "reason": "GEN_REJECT: const TITLE drift for decision target 29"
+   },
+   {
+    "name": "missing-input:buyer",
+    "rejected": true,
+    "reasonMatched": true,
+    "reason": "Cannot read properties of null (reading 'content_sha256_lf')"
+   },
+   {
+    "name": "missing-input:A1-body",
+    "rejected": true,
+    "reasonMatched": true,
+    "reason": "GEN_REJECT: decision page body payload MISSING: network-support-contract-guide.html"
+   },
+   {
+    "name": "private-target-added",
+    "rejected": true,
+    "reasonMatched": true,
+    "reason": "GEN_REJECT: original manifest must carry exactly 16 targets"
+   },
+   {
+    "name": "path-swapped",
+    "rejected": true,
+    "reasonMatched": true,
+    "reason": "GEN_REJECT: unknown path: /about/"
+   }
+  ],
+  "summary": {
+   "checks": 15,
+   "checks_passed": 15,
+   "negative_probes": 7,
+   "all_rejected": true
+  }
+ },
+ "candidate_status": "NOT_FOR_ACTIVATION",
+ "production_authorization": "NEEDS_SEPARATE_EXACT_ALLOWLIST_OWNER_APPROVAL",
+ "scope_limits": [
+  "guarded originals/runtime/scripts untouched",
+  "no merge/D2/D3/blog_public/backup/production action",
+  "NOT_FOR_ACTIVATION until environment binding + unresolved fields are resolved and explicit release gates pass"
+ ],
+ "production_touched": false,
+ "correction": "6904880164 #2: negative probes isolated (single-input corruption) + expected rejection reason asserted; unrelated TypeError no longer counted as rejection"
+}

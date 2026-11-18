@@ -1,0 +1,50 @@
+{
+ "run_id": "TN-BROWSER-RUN-20261115-CASE2-MWHH4ZE3",
+ "utc": "2026-11-15T06:49:15Z",
+ "case": "b2b-quote-journey",
+ "steps": [
+  {
+   "name": "http200",
+   "pass": true,
+   "detail": {
+    "status": 200
+   }
+  },
+  {
+   "name": "form_present",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "name": "real_product_option",
+   "pass": true,
+   "detail": {
+    "pid": "85"
+   }
+  },
+  {
+   "name": "keyboard_filled",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "name": "submitted_redirect",
+   "pass": true,
+   "detail": {
+    "url": "http://localhost:18085/b2b/?tn_quote=sent"
+   }
+  },
+  {
+   "name": "sent_page_visible",
+   "pass": true,
+   "detail": {}
+  }
+ ],
+ "status": "PASS",
+ "browser": {
+  "engine": "chromium",
+  "version": "158.0.8127.18"
+ },
+ "quote_url": "http://localhost:18085/b2b/?tn_quote=sent",
+ "failures": 0
+}

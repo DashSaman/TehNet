@@ -1,0 +1,110 @@
+{
+ "status": "PASS",
+ "total": 14,
+ "failures": 0,
+ "checks": [
+  {
+   "name": "A_http200",
+   "pass": true,
+   "detail": {
+    "status": 200
+   }
+  },
+  {
+   "name": "A_cta_focused",
+   "pass": true,
+   "detail": {
+    "tag": "A",
+    "href": "/services/?tn_service_context=server-scoping#service-request"
+   }
+  },
+  {
+   "name": "A_cta_navigated",
+   "pass": true,
+   "detail": {
+    "url": "http://localhost:18085/services/?tn_service_context=server-scoping#service-request"
+   }
+  },
+  {
+   "name": "A_context_preselected",
+   "pass": true,
+   "detail": {
+    "value": "server-scoping"
+   }
+  },
+  {
+   "name": "A_kb_focus_1",
+   "pass": true,
+   "detail": {
+    "fn1": "tn_service_context"
+   }
+  },
+  {
+   "name": "A_kb_tab_to_name",
+   "pass": true,
+   "detail": {
+    "fn2": "tn_name"
+   }
+  },
+  {
+   "name": "A_kb_submit_redirect",
+   "pass": true,
+   "detail": {
+    "url": "http://localhost:18085/support/?tn_ticket=sent&tn_service_receipt=dMFjUGC44AT78hX6JkWDaoEbvkXohdwY"
+   }
+  },
+  {
+   "name": "A_post_captured",
+   "pass": true,
+   "detail": {
+    "redirect": {
+     "code": 302,
+     "location": "http://localhost:18085/support/?tn_ticket=sent&tn_service_receipt=dMFjUGC44AT78hX6JkWDaoEbvkXohdwY"
+    }
+   }
+  },
+  {
+   "name": "A_receipt_TN",
+   "pass": true,
+   "detail": {
+    "tracking": "TN-804"
+   }
+  },
+  {
+   "name": "B_nojs_quote_302",
+   "pass": true,
+   "detail": {
+    "url": "http://localhost:18085/b2b/?tn_quote=sent"
+   }
+  },
+  {
+   "name": "C_support_302",
+   "pass": true,
+   "detail": {
+    "url": "http://localhost:18085/support/?tn_ticket=sent"
+   }
+  },
+  {
+   "name": "C_mobile375_no_overflow",
+   "pass": true,
+   "detail": {
+    "px": 0
+   }
+  },
+  {
+   "name": "D_mobile320_no_overflow",
+   "pass": true,
+   "detail": {
+    "px": 0
+   }
+  },
+  {
+   "name": "D_dark_toggle",
+   "pass": true,
+   "detail": {
+    "theme": "dark"
+   }
+  }
+ ],
+ "browser_ver": "158.0.8127.18"
+}

@@ -1,0 +1,47 @@
+[
+ {
+  "url": "https://tehnet.ir/learn/mikrotik/mtcna/static-routing/",
+  "status": 200,
+  "robots": "noindex, nofollow",
+  "canonical_self": true,
+  "h1": 1,
+  "ldjson": 1,
+  "imgs": 6
+ },
+ {
+  "url": "https://tehnet.ir/learn/mikrotik/mtcna/nat-masquerade/",
+  "status": 200,
+  "robots": "noindex, nofollow",
+  "canonical_self": true,
+  "h1": 1,
+  "ldjson": 1,
+  "imgs": 2
+ },
+ {
+  "url": "https://tehnet.ir/learn/mikrotik/mtcna/firewall-basics/",
+  "status": 200,
+  "robots": "noindex, nofollow",
+  "canonical_self": true,
+  "h1": 1,
+  "ldjson": 1,
+  "imgs": 2
+ },
+ {
+  "url": "https://tehnet.ir/learn/mikrotik/mtcna/queues-troubleshooting/",
+  "status": 200,
+  "robots": "noindex, nofollow",
+  "canonical_self": true,
+  "h1": 1,
+  "ldjson": 1,
+  "imgs": 2
+ },
+ {
+  "url": "https://tehnet.ir/lab/",
+  "status": 200,
+  "robots": "noindex, nofollow",
+  "canonical_self": true,
+  "h1": 1,
+  "ldjson": 0,
+  "imgs": 2
+ }
+]

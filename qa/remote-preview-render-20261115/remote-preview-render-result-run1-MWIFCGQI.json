@@ -1,0 +1,159 @@
+{
+ "packet": "TN-REMOTE-PREVIEW-RENDER-20261115",
+ "run_id": "TN-REMOTE-PREVIEW-RENDER-MWIFCGQI",
+ "started_utc": "2026-11-15T22:46:51Z",
+ "finished_utc": "2026-11-15T22:46:52Z",
+ "label": "LOCAL_STAGING existing tools (playwright 158.0.8127.18, headless, file:// standalone)",
+ "source": {
+  "commit": "395413a0bb1d57f63321e1fef6e9d78833a50ce3",
+  "file": "content/remote-intake-example-20261115/remote-support-with-intake.preview.html",
+  "blob_sha256": "c33df1e3a033760915122e4f7268bd040987489b9d10ce5bffc41e5e772a8f49",
+  "bytes": 20805
+ },
+ "assertions": [
+  {
+   "id": "d1_standalone_loads",
+   "pass": true,
+   "detail": {
+    "chars": 8736
+   }
+  },
+  {
+   "id": "d2_h2_set_exact",
+   "pass": true,
+   "detail": {
+    "order": [
+     "session-journey",
+     "remote-fit",
+     "before-connection",
+     "view-and-control",
+     "session-boundaries",
+     "session-example",
+     "session-handoff",
+     "scope-and-request",
+     "why-tehnet"
+    ]
+   }
+  },
+  {
+   "id": "d3_intake_h2_before_why_tehnet",
+   "pass": true,
+   "detail": {
+    "sessionExampleIdx": 5,
+    "whyTehnetIdx": 8
+   }
+  },
+  {
+   "id": "d4_inpage_anchors_resolve",
+   "pass": true,
+   "detail": {
+    "anchors": [
+     "before-connection",
+     "session-boundaries",
+     "session-handoff"
+    ],
+    "resolved": [
+     true,
+     true,
+     true
+    ]
+   }
+  },
+  {
+   "id": "d5_internal_links_exact",
+   "pass": true,
+   "detail": {
+    "expected": 13,
+    "found": 13
+   }
+  },
+  {
+   "id": "d6_external_links_three",
+   "pass": true,
+   "detail": {
+    "count": 3
+   }
+  },
+  {
+   "id": "d7_phone_shortcode_literal_standalone",
+   "pass": true,
+   "detail": {
+    "note": "standalone render does NOT expand shortcodes"
+   }
+  },
+  {
+   "id": "d8_editorial_note_literal_standalone",
+   "pass": true,
+   "detail": {
+    "note": "standalone render does NOT expand shortcodes"
+   }
+  },
+  {
+   "id": "d9_no_forms_present",
+   "pass": true,
+   "detail": {
+    "forms": 0
+   }
+  },
+  {
+   "id": "k1_first_tab_focuses_link",
+   "pass": true,
+   "detail": {
+    "tag": "A",
+    "href": "/support/"
+   }
+  },
+  {
+   "id": "k2_tab_traversal_follows_dom_links",
+   "pass": true,
+   "detail": {
+    "traversed": 6,
+    "urlsShown": "none — activation not pressed"
+   }
+  },
+  {
+   "id": "m1_mobile_loads",
+   "pass": true,
+   "detail": {
+    "h2": 9
+   }
+  },
+  {
+   "id": "m2_no_horizontal_overflow",
+   "pass": true,
+   "detail": {
+    "overflowPx": 0
+   }
+  },
+  {
+   "id": "m3_all_h2_visible_mobile",
+   "pass": true,
+   "detail": {
+    "hidden": 0
+   }
+  },
+  {
+   "id": "m4_intake_section_visible_mobile",
+   "pass": true,
+   "detail": {}
+  }
+ ],
+ "summary": {
+  "total": 15,
+  "passed": 15,
+  "failed": 0
+ },
+ "scope": {
+  "form_posts": 0,
+  "screenshots": 0,
+  "traces": 0,
+  "public_url": "none",
+  "external_navigations": 0
+ },
+ "limitations": [
+  "STANDALONE static render — does NOT prove WordPress shortcode/theme rendering: [tehnet_phone] and [tn_editorial_note] remain literal text here (d7/d8 assert their literal preservation in source).",
+  "WordPress-integration claim remains NOT_RUN: the intake fragment is NOT_DEPLOYED to staging, so no fixture render of the integrated page exists.",
+  "Keyboard check verifies focus traversal only (no Enter activation, no navigations)."
+ ],
+ "production_touched": false
+}

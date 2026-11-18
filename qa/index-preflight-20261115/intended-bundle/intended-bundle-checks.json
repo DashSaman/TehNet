@@ -1,0 +1,177 @@
+{
+ "checks": [
+  {
+   "name": "original_exact16",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "production_ids_preserved",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "voice206_preserved",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "no_staging_ids_in_production_rows",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "precedence_31_uses_decision_body",
+   "pass": true,
+   "detail": {
+    "note": "NOT the sync baseline 73d1b477170f"
+   }
+  },
+  {
+   "name": "precedence_33_uses_decision_body",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "precedence_35_uses_decision_body",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "precedence_37_uses_buyer_body",
+   "pass": true,
+   "detail": {
+    "expected": "8feda428…",
+    "note": "2f5210b2 kept as baseline evidence only"
+   }
+  },
+  {
+   "name": "sync_values_absent_from_intended_fields",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "allowlist_no_private_routes",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "auth_reference_unverified_used",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "needs_provenance_used",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "not_for_activation",
+   "pass": true,
+   "detail": null
+  },
+  {
+   "name": "all_negative_probes_rejected",
+   "pass": true,
+   "detail": [
+    {
+     "name": "baseline-as-final:31",
+     "rejected": true,
+     "reasonMatched": true,
+     "reason": "GEN_REJECT: decision body checksum mismatch: network-support.html"
+    },
+    {
+     "name": "baseline-body-as-final:31",
+     "rejected": true,
+     "reasonMatched": true,
+     "reason": "GEN_REJECT: decision body checksum mismatch: network-support.html"
+    },
+    {
+     "name": "conflicting-title:29",
+     "rejected": true,
+     "reasonMatched": true,
+     "reason": "GEN_REJECT: const TITLE drift for decision target 29"
+    },
+    {
+     "name": "missing-input:buyer",
+     "rejected": true,
+     "reasonMatched": true,
+     "reason": "Cannot read properties of null (reading 'content_sha256_lf')"
+    },
+    {
+     "name": "missing-input:A1-body",
+     "rejected": true,
+     "reasonMatched": true,
+     "reason": "GEN_REJECT: decision page body payload MISSING: network-support-contract-guide.html"
+    },
+    {
+     "name": "private-target-added",
+     "rejected": true,
+     "reasonMatched": true,
+     "reason": "GEN_REJECT: original manifest must carry exactly 16 targets"
+    },
+    {
+     "name": "path-swapped",
+     "rejected": true,
+     "reasonMatched": true,
+     "reason": "GEN_REJECT: unknown path: /about/"
+    }
+   ]
+  },
+  {
+   "name": "deterministic_regeneration",
+   "pass": true,
+   "detail": null
+  }
+ ],
+ "negatives": [
+  {
+   "name": "baseline-as-final:31",
+   "rejected": true,
+   "reasonMatched": true,
+   "reason": "GEN_REJECT: decision body checksum mismatch: network-support.html"
+  },
+  {
+   "name": "baseline-body-as-final:31",
+   "rejected": true,
+   "reasonMatched": true,
+   "reason": "GEN_REJECT: decision body checksum mismatch: network-support.html"
+  },
+  {
+   "name": "conflicting-title:29",
+   "rejected": true,
+   "reasonMatched": true,
+   "reason": "GEN_REJECT: const TITLE drift for decision target 29"
+  },
+  {
+   "name": "missing-input:buyer",
+   "rejected": true,
+   "reasonMatched": true,
+   "reason": "Cannot read properties of null (reading 'content_sha256_lf')"
+  },
+  {
+   "name": "missing-input:A1-body",
+   "rejected": true,
+   "reasonMatched": true,
+   "reason": "GEN_REJECT: decision page body payload MISSING: network-support-contract-guide.html"
+  },
+  {
+   "name": "private-target-added",
+   "rejected": true,
+   "reasonMatched": true,
+   "reason": "GEN_REJECT: original manifest must carry exactly 16 targets"
+  },
+  {
+   "name": "path-swapped",
+   "rejected": true,
+   "reasonMatched": true,
+   "reason": "GEN_REJECT: unknown path: /about/"
+  }
+ ],
+ "summary": {
+  "checks": 15,
+  "checks_passed": 15,
+  "negative_probes": 7,
+  "all_rejected": true
+ }
+}

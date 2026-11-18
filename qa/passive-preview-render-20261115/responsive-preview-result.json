@@ -1,0 +1,222 @@
+{
+ "packet": "TN-PASSIVE-RESPONSIVE-PREVIEW-20261115",
+ "rev": 1,
+ "run_id": "TN-PASSIVE-RESPONSIVE-PREVIEW-MWJ3U2EG",
+ "started_utc": "2026-11-16T10:12:23Z",
+ "finished_utc": "2026-11-16T10:12:24Z",
+ "label": "LOCAL_STAGING existing tools (playwright 158.0.8127.18, headless, file:// standalone before/after)",
+ "inputs": {
+  "before": {
+   "role": "canonical standalone",
+   "sha256": "180ddbf10d208abe6ffbc5f4f48e97a417908052c6053a9261235ba170c3d16b",
+   "pinned": "180ddbf10d208abe6ffbc5f4f48e97a417908052c6053a9261235ba170c3d16b",
+   "published_commit_resolvable": "778ee3f4a5bdb852a1c491b3af12e263a9eee3ad",
+   "local_head_unpublished_reference": "89ead8f58594635130ce35716c4d3ad82fa39e70",
+   "provenance_note": "canonical snapshot bound to the RESOLVABLE published SHA 778ee3f4 (byte-identical, same digest 180ddbf1…); the earlier 89ead8f reference was a local-only head and is recorded as local/unpublished, not the published branch head"
+  },
+  "after": {
+   "role": "responsive preview candidate",
+   "sha256": "60258c868bbf82adeef0120200283c9f5331aa62d410ba5681ceb36673f6726d",
+   "pinned": "60258c868bbf82adeef0120200283c9f5331aa62d410ba5681ceb36673f6726d",
+   "file": "content/passive-responsive-preview-20261115/passive-responsive-preview.candidate.html"
+  }
+ },
+ "diagnosis": {
+  "theme_pattern": "pinned theme visual-refresh.css:79-84 provides overflow handling ONLY via the .tn-decision-table wrapper (max-width:100%; overflow-x:auto; padded bordered cells); plain wp-block-table figures get NO overflow rule from the pinned theme source",
+  "draft_tables_use_wrapper": false,
+  "missing_integration_context": "candidate mirrors the theme OWN established pattern; whether WP core block CSS adds overflow outside the pinned theme source is NOT_VERIFIED_FROM_PINNED_SOURCE — the canonical draft is therefore NOT declared defective"
+ },
+ "assertions": [
+  {
+   "id": "p0_before_digest_match",
+   "pass": true,
+   "detail": {
+    "input": "180ddbf10d208abe…"
+   }
+  },
+  {
+   "id": "p1_after_digest_match",
+   "pass": true,
+   "detail": {
+    "input": "60258c868bbf82ad…"
+   }
+  },
+  {
+   "id": "b1_before_mobile_overflow_present",
+   "pass": true,
+   "detail": {
+    "overflowPx": 52,
+    "note": "the already-reported finding reproduced"
+   }
+  },
+  {
+   "id": "b2_before_exact_ordered_focus",
+   "pass": true,
+   "detail": {
+    "positions": [
+     "https://www.flukenetworks.com/blog/cabling-chronicles/wire-map-testing-it-s-not-all-about-color",
+     "/services/network-setup-tehran/",
+     "/services/#service-request",
+     "/services/network-support-tehran/",
+     "https://www.flukenetworks.com/knowledge-base/dsx-cableanalyzer-series/permanent-link-definition-dsx-cableanalyzer",
+     "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+    ]
+   }
+  },
+  {
+   "id": "a1_after_mobile_page_fits",
+   "pass": true,
+   "detail": {
+    "overflowPx": 0,
+    "note": "BEFORE was 52px"
+   }
+  },
+  {
+   "id": "a2_scrolled_region_scrollable",
+   "pass": true,
+   "detail": {
+    "wrappers": [
+     {
+      "sw": 704,
+      "cw": 292
+     },
+     {
+      "sw": 704,
+      "cw": 292
+     }
+    ]
+   }
+  },
+  {
+   "id": "a3_captions_preserved",
+   "pass": true,
+   "detail": {
+    "captions": [
+     "قالب تحویل لینک‌های پسیو — داد",
+     "مقایسه اقلام پیش‌فاکتور — قالب"
+    ]
+   }
+  },
+  {
+   "id": "a4_header_semantics_preserved",
+   "pass": true,
+   "detail": {
+    "thTotal": 14
+   }
+  },
+  {
+   "id": "a5_links_unchanged",
+   "pass": true,
+   "detail": {
+    "count": 6
+   }
+  },
+  {
+   "id": "a6_visible_text_preserved",
+   "pass": true,
+   "detail": {
+    "note": "normalized whitespace comparison — canonical wording/cells intact"
+   }
+  },
+  {
+   "id": "a7_after_exact_ordered_focus",
+   "pass": true,
+   "detail": {
+    "positions": [
+     "REGION:جدول — برای دیدن همه ستو",
+     "https://www.flukenetworks.com/blog/cabling-chronicles/wire-map-testing-it-s-not-all-about-color",
+     "REGION:جدول — برای دیدن همه ستو",
+     "/services/network-setup-tehran/",
+     "/services/#service-request",
+     "/services/network-support-tehran/"
+    ]
+   }
+  },
+  {
+   "id": "k1_both_regions_tab_reachable",
+   "pass": true,
+   "detail": {
+    "regions": [
+     1,
+     3
+    ]
+   }
+  },
+  {
+   "id": "k2_real_keys_move_region",
+   "pass": true,
+   "detail": {
+    "per": [
+     {
+      "region": 1,
+      "keys": 9,
+      "before": 0,
+      "after": 412
+     },
+     {
+      "region": 2,
+      "keys": 9,
+      "before": 0,
+      "after": 412
+     }
+    ]
+   }
+  },
+  {
+   "id": "k3_real_keys_reach_last_column",
+   "pass": true,
+   "detail": {
+    "per": [
+     {
+      "region": 1,
+      "atMax": true,
+      "lastVisible": true
+     },
+     {
+      "region": 2,
+      "atMax": true,
+      "lastVisible": true
+     }
+    ],
+    "note": "real ArrowRight input only; no scrollLeft assignment, no programmatic focus"
+   }
+  },
+  {
+   "id": "a9_desktop_no_overflow",
+   "pass": true,
+   "detail": {
+    "overflowPx": 0
+   }
+  },
+  {
+   "id": "a10_desktop_tables_fit",
+   "pass": true,
+   "detail": {
+    "fit": [
+     true,
+     true
+    ]
+   }
+  }
+ ],
+ "summary": {
+  "total": 16,
+  "passed": 16,
+  "failed": 0
+ },
+ "scope": {
+  "form_posts": 0,
+  "screenshots": 0,
+  "traces": 0,
+  "public_url": "none",
+  "external_navigations": 0,
+  "canonical_draft_edits": 0,
+  "theme_production_mutations": 0
+ },
+ "limitations": [
+  "Preview proposal NOT_DEPLOYED — not WordPress/KSES acceptance, no authority to alter theme/production.",
+  "Standalone render only; WordPress rendering of the candidate remains NOT_RUN.",
+  "Column reachability probe focuses the region (tabindex=0, role=region, aria-label) then exercises the full scrollable range; Tab traversal performed without activation."
+ ],
+ "production_touched": false
+}

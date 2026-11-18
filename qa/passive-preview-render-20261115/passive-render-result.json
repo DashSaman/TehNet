@@ -1,0 +1,274 @@
+{
+ "packet": "TN-PASSIVE-STANDALONE-RENDER-20261115",
+ "rev": 1,
+ "run_id": "TN-PASSIVE-STANDALONE-RENDER-MWIG0AHC",
+ "started_utc": "2026-11-15T23:05:23Z",
+ "finished_utc": "2026-11-15T23:05:23Z",
+ "label": "LOCAL_STAGING existing tools (playwright, headless, file:// standalone)",
+ "source": {
+  "branch": "feat/passive-network-content-20261115",
+  "head": "89ead8f58594635130ce35716c4d3ad82fa39e70",
+  "file": "seo/competitive-2026-11-11/draft-passive-network-tehran.gutenberg.html",
+  "pinned_sha256": "180ddbf10d208abe6ffbc5f4f48e97a417908052c6053a9261235ba170c3d16b",
+  "input_sha256": "180ddbf10d208abe6ffbc5f4f48e97a417908052c6053a9261235ba170c3d16b",
+  "bytes": 19816
+ },
+ "assertions": [
+  {
+   "id": "p0_pinned_digest_match",
+   "pass": true,
+   "detail": {
+    "pinned": "180ddbf10d208abe…",
+    "input": "180ddbf10d208abe…"
+   }
+  },
+  {
+   "id": "d1_standalone_loads",
+   "pass": true,
+   "detail": {
+    "chars": 8471
+   }
+  },
+  {
+   "id": "d2_heading_structure",
+   "pass": true,
+   "detail": {
+    "h2": 8,
+    "h3": 9
+   }
+  },
+  {
+   "id": "d3_two_tables_present",
+   "pass": true,
+   "detail": {
+    "tables": 2
+   }
+  },
+  {
+   "id": "d4_table_captions_present",
+   "pass": true,
+   "detail": {
+    "captions": [
+     "قالب تحویل لینک‌های پسیو — داده‌های فرضی",
+     "مقایسه اقلام پیش‌فاکتور — قالب همسان‌ساز"
+    ]
+   }
+  },
+  {
+   "id": "d5_table_header_association",
+   "pass": true,
+   "detail": {
+    "th": [
+     8,
+     6
+    ],
+    "scopes": [
+     [
+      "col",
+      "col",
+      "col",
+      "col",
+      "col",
+      "col",
+      "col",
+      "col"
+     ],
+     [
+      "col",
+      "col",
+      "col",
+      "col",
+      "col",
+      "col"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "d6_ordered_list_real_numbering",
+   "pass": true,
+   "detail": {
+    "li": 7,
+    "manualPrefix": 0,
+    "listStyle": "decimal"
+   }
+  },
+  {
+   "id": "d7_no_dangling_fragment_links",
+   "pass": true,
+   "detail": {
+    "fragmentLinks": 0,
+    "note": "draft defines no in-page anchors; no # targets to resolve"
+   }
+  },
+  {
+   "id": "d8_mptl_corrected_wording_present",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "id": "d9_appl_topology_note_present",
+   "pass": true,
+   "detail": {
+    "note": "AP-01 AP/PL topology wording"
+   }
+  },
+  {
+   "id": "d10_old_plchannel_phrase_absent",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "id": "d11_cyrillic_absent",
+   "pass": true,
+   "detail": {
+    "cyrillicChars": 0
+   }
+  },
+  {
+   "id": "d12_persian_reserve_wording_present",
+   "pass": true,
+   "detail": {
+    "occurrences": 2
+   }
+  },
+  {
+   "id": "d13_no_forms_present",
+   "pass": true,
+   "detail": {
+    "forms": 0
+   }
+  },
+  {
+   "id": "d14_external_links_present",
+   "pass": true,
+   "detail": {
+    "count": 3,
+    "note": "reference links preserved (no navigation performed)"
+   }
+  },
+  {
+   "id": "k1_first_tab_focuses_first_link",
+   "pass": true,
+   "detail": {
+    "focused": "https://www.flukenetworks.com/blog/cabling-chronicles/wire-map-testing-it-s-not-all-about-color"
+   }
+  },
+  {
+   "id": "k2_exact_ordered_focus",
+   "pass": true,
+   "detail": {
+    "positions": [
+     {
+      "step": 1,
+      "href": "https://www.flukenetworks.com/blog/cabling-chronicles/wire-map-testing-it-s-not-all-about-color",
+      "expected": "https://www.flukenetworks.com/blog/cabling-chronicles/wire-map-testing-it-s-not-all-about-color"
+     },
+     {
+      "step": 2,
+      "href": "/services/network-setup-tehran/",
+      "expected": "/services/network-setup-tehran/"
+     },
+     {
+      "step": 3,
+      "href": "/services/#service-request",
+      "expected": "/services/#service-request"
+     },
+     {
+      "step": 4,
+      "href": "/services/network-support-tehran/",
+      "expected": "/services/network-support-tehran/"
+     },
+     {
+      "step": 5,
+      "href": "https://www.flukenetworks.com/knowledge-base/dsx-cableanalyzer-series/permanent-link-definition-dsx-cableanalyzer",
+      "expected": "https://www.flukenetworks.com/knowledge-base/dsx-cableanalyzer-series/permanent-link-definition-dsx-cableanalyzer"
+     },
+     {
+      "step": 6,
+      "href": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "expected": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+     }
+    ]
+   }
+  },
+  {
+   "id": "k3_negative_repeated_focus_rejected",
+   "pass": true,
+   "detail": {
+    "predicateVerdictOnFabricated": false
+   }
+  },
+  {
+   "id": "m1_mobile_loads",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "id": "m2_no_horizontal_overflow",
+   "pass": false,
+   "detail": {
+    "overflowPx": 52,
+    "cause": [
+     {
+      "tag": "TABLE",
+      "cls": "has-fixed-layout",
+      "w": 394
+     },
+     {
+      "tag": "CAPTION",
+      "cls": "wp-element-caption",
+      "w": 394
+     },
+     {
+      "tag": "THEAD",
+      "cls": "",
+      "w": 390
+     },
+     {
+      "tag": "TR",
+      "cls": "",
+      "w": 390
+     }
+    ],
+    "attribution": "standalone context lacks the WP block/theme overflow wrapper for the has-fixed-layout table; WordPress/theme table handling NOT_RUN — canonical draft NOT edited (digest preserved)"
+   }
+  },
+  {
+   "id": "m3_tables_rendered_mobile",
+   "pass": true,
+   "detail": {
+    "widthsPx": [
+     394,
+     302
+    ]
+   }
+  },
+  {
+   "id": "m4_ordered_list_visible_mobile",
+   "pass": true,
+   "detail": {}
+  }
+ ],
+ "summary": {
+  "total": 22,
+  "passed": 21,
+  "failed": 1
+ },
+ "scope": {
+  "form_posts": 0,
+  "screenshots": 0,
+  "traces": 0,
+  "public_url": "none",
+  "external_navigations": 0,
+  "canonical_draft_edits": 0
+ },
+ "limitations": [
+  "STANDALONE static render — NOT WordPress/KSES/theme acceptance: WordPress rendering, KSES filtering and theme CSS are NOT_RUN.",
+  "FINDING (m2): standalone mobile render shows 52px horizontal overflow caused by the has-fixed-layout table (394px > 390px viewport). WordPress block/theme overflow handling is NOT_RUN; the canonical draft was NOT edited because a draft-level defect is not proven — decision left to review.",
+  "No technical certification result is claimed: MPTL/PL wording and AP/PL topology note are asserted as TEXT PRESENCE in the corrected draft only.",
+  "Draft defines no in-page anchors, so fragment-target assertion is vacuous (no dangling # links).",
+  "Keyboard check verifies exact ordered focus traversal only (no activation, no navigations)."
+ ],
+ "production_touched": false
+}
