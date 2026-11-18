@@ -1,9 +1,17 @@
 {
  "packet": "TN-AFTERD1-GUARD-VERIFY-20261116",
+ "manifest_selected_bundle": {
+  "selected": true,
+  "correction_review": "https://github.com/DashSaman/TehNet/pull/96#issuecomment-6973101846",
+  "contents": "after-D1 base + candidate-v2 dead-link repairs (4 distinct dead slugs, 6 links) + contextual hub guide edits (canonical N6 retained) + three new canonical setup edges S3/S5/S6 + missing-space fix",
+  "candidates_status": "historical_not_selected — see page-edits/candidates/candidates-manifest.json",
+  "draft_status": "DRAFT — all guide destinations explicitly unpublished until the separate release/index gates",
+  "generated_utc": "2026-11-18T13:25:58Z"
+ },
  "command": "node verify-afterd1-guard.cjs",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-16T18:54:33Z",
- "finished_utc": "2026-11-16T18:54:33Z",
+ "started_utc": "2026-11-18T13:27:24Z",
+ "finished_utc": "2026-11-18T13:27:24Z",
  "exit": 0,
  "manifest_base_ref": "778ee3f4a5bdb852a1c491b3af12e263a9eee3ad",
  "failures": 0,
@@ -13,9 +21,12 @@
    "checks": {
     "g1_base_digest": "PASS",
     "g2_header_prefix": "PASS",
-    "g3_context_verified": "PASS (1 hunk[s], all context lines match base)",
-    "g4_proposed_matches": "PASS"
+    "g3_context_verified": "PASS (2 hunk[s], all context lines match base)",
+    "g4_proposed_matches": "PASS",
+    "g5_expected_guides": "PASS (8 canonical guide edges present)",
+    "g6_forbidden_slugs": "PASS (4 known-dead slugs absent)"
    },
+   "reasons": [],
    "base_commit": "a54198ce7ed3535d6783432d8401660e2e023f9d"
   },
   {
@@ -23,9 +34,12 @@
    "checks": {
     "g1_base_digest": "PASS",
     "g2_header_prefix": "PASS",
-    "g3_context_verified": "PASS (1 hunk[s], all context lines match base)",
-    "g4_proposed_matches": "PASS"
+    "g3_context_verified": "PASS (6 hunk[s], all context lines match base)",
+    "g4_proposed_matches": "PASS",
+    "g5_expected_guides": "PASS (11 canonical guide edges present)",
+    "g6_forbidden_slugs": "PASS (4 known-dead slugs absent)"
    },
+   "reasons": [],
    "base_commit": "a54198ce7ed3535d6783432d8401660e2e023f9d"
   },
   {
@@ -33,13 +47,16 @@
    "checks": {
     "g1_base_digest": "PASS",
     "g2_header_prefix": "PASS",
-    "g3_context_verified": "PASS (1 hunk[s], all context lines match base)",
-    "g4_proposed_matches": "PASS"
+    "g3_context_verified": "PASS (4 hunk[s], all context lines match base)",
+    "g4_proposed_matches": "PASS",
+    "g5_expected_guides": "PASS (5 canonical guide edges present)",
+    "g6_forbidden_slugs": "PASS (4 known-dead slugs absent)"
    },
+   "reasons": [],
    "base_commit": "a54198ce7ed3535d6783432d8401660e2e023f9d"
   }
  ],
- "mode": "LOCAL_TEST — read-only against git history; temp dir under OS tmp; no repo file modified",
+ "mode": "LOCAL_TEST — read-only against git history; writes only the receipt",
  "not_run": [
   "WordPress/KSES apply of patches",
   "production deployment",

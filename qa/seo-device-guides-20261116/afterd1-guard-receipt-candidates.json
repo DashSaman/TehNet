@@ -1,9 +1,10 @@
 {
  "packet": "TN-AFTERD1-GUARD-VERIFY-20261116",
- "command": "node verify-afterd1-guard.cjs",
+ "manifest_selected_bundle": null,
+ "command": "node verify-afterd1-guard.cjs candidates/candidates-manifest.json",
  "cwd": "qa/seo-device-guides-20261116/",
- "started_utc": "2026-11-16T18:54:33Z",
- "finished_utc": "2026-11-16T18:54:33Z",
+ "started_utc": "2026-11-18T13:27:24Z",
+ "finished_utc": "2026-11-18T13:27:24Z",
  "exit": 0,
  "failures": 0,
  "results": [
@@ -15,6 +16,7 @@
     "g3_context_verified": "PASS (3 hunk[s], all context lines match base)",
     "g4_proposed_matches": "PASS"
    },
+   "reasons": [],
    "base_commit": "a54198ce7ed3535d6783432d8401660e2e023f9d"
   },
   {
@@ -25,10 +27,11 @@
     "g3_context_verified": "PASS (3 hunk[s], all context lines match base)",
     "g4_proposed_matches": "PASS"
    },
+   "reasons": [],
    "base_commit": "a54198ce7ed3535d6783432d8401660e2e023f9d"
   }
  ],
- "mode": "LOCAL_TEST — read-only against git history; temp dir under OS tmp; no repo file modified",
+ "mode": "LOCAL_TEST — read-only against git history; writes only the receipt",
  "not_run": [
   "WordPress/KSES apply of patches",
   "production deployment",

@@ -1,0 +1,47 @@
+{
+ "packet": "TN-AFTERD1-GUARD-PROBES-20261118",
+ "command": "node verify-afterd1-guard.cjs --probes",
+ "cwd": "qa/seo-device-guides-20261116/",
+ "started_utc": "2026-11-18T13:27:24Z",
+ "finished_utc": "2026-11-18T13:27:24Z",
+ "exit": 0,
+ "note": "same verifyPageCore consuming path as the default guard; mutated in-memory inputs only — no repo file modified",
+ "probes": [
+  {
+   "probe": "P1_removed_required_guide",
+   "expected_failure": "expected_guide_missing:/guides/sfp-sfp-plus-guide/",
+   "failed_as_expected": true,
+   "reasons": [
+    "g4_proposed_bytes_differ",
+    "expected_guide_missing:/guides/sfp-sfp-plus-guide/"
+   ]
+  },
+  {
+   "probe": "P2_reintroduced_dead_slug",
+   "expected_failure": "forbidden_dead_slug_present:/services/server-virtualization-tehran/",
+   "failed_as_expected": true,
+   "reasons": [
+    "g4_proposed_bytes_differ",
+    "forbidden_dead_slug_present:/services/server-virtualization-tehran/"
+   ]
+  },
+  {
+   "probe": "P3_proposed_changed_without_patch_update",
+   "expected_failure": "g4_proposed_bytes_differ",
+   "failed_as_expected": true,
+   "reasons": [
+    "g4_proposed_bytes_differ"
+   ]
+  },
+  {
+   "probe": "P4_wrong_pinned_base",
+   "expected_failure": "g1_base_digest_mismatch|g2_header_prefix_mismatch",
+   "failed_as_expected": true,
+   "reasons": [
+    "g1_git_show_error"
+   ]
+  }
+ ],
+ "all_probes_failed_as_expected": true,
+ "mode": "LOCAL_TEST — read-only; no WordPress/browser/production effect"
+}
