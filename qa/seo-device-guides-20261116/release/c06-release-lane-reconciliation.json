@@ -3,7 +3,7 @@
  "receipt_type": "LOCAL_TEST — read-only git/file evidence gathering; no live effect",
  "manager_review": "https://github.com/DashSaman/TehNet/pull/96#issuecomment-6981609373 (next substantive C06)",
  "definitions_source": "ops/agent-control/OWNER_DECISION_INDEXABILITY_2026-11-12.fa.md",
- "generated_utc": "2026-11-18T14:51:25Z",
+ "generated_utc": "2026-11-18T15:06:38Z",
  "lane": [
   {
    "id": "M0",
@@ -35,11 +35,38 @@
      "network-tehran.md",
      "server-backup-restore-acceptance.html"
     ],
-    "ci_snapshot": "PR_CI_SNAPSHOT_2026-11-14-cycle12.json — 16/16 green at d457580-era"
+    "ci_snapshot": "PR_CI_SNAPSHOT_2026-11-14-cycle12.json — 16/16 green at d457580-era (historical)",
+    "exact_head_check_runs_2026_11_18": {
+     "fetched": true,
+     "total": 4,
+     "completed_ok": 4,
+     "runs": [
+      {
+       "name": "tracked-file-privacy",
+       "conclusion": "success",
+       "html_url": "https://github.com/DashSaman/TehNet/actions/runs/43611457682/job/132497197391"
+      },
+      {
+       "name": "release-operator-boundaries",
+       "conclusion": "success",
+       "html_url": "https://github.com/DashSaman/TehNet/actions/runs/43611457682/job/132497197192"
+      },
+      {
+       "name": "release-operator-boundaries",
+       "conclusion": "success",
+       "html_url": "https://github.com/DashSaman/TehNet/actions/runs/43611452836/job/132497183359"
+      },
+      {
+       "name": "tracked-file-privacy",
+       "conclusion": "success",
+       "html_url": "https://github.com/DashSaman/TehNet/actions/runs/43611452836/job/132497183078"
+      }
+     ]
+    }
    },
-   "status": "OPEN — WAITING_FOR_OWNER (merge decision)",
+   "status": "OPEN — WAITING_FOR_OWNER (merge decision); exact-head CI evidence recorded 2026-11-18",
    "gaps": [
-    "PR100 head advanced beyond the owner-decision snapshot (d4575807ed35 -> a54198ce7ed3): the fresh-CI guarantee recorded for d457580 does NOT automatically cover the advanced head — a fresh CI run is required before any merge decision"
+    "PR100 head advanced beyond the owner-decision snapshot (d4575807ed35 -> a54198ce7ed3). Per verdict 6982343308 the EXACT current head carries four completed successful check runs (manager-verified 2026-11-18; recorded in exact_head_check_runs_2026_11_18) — the historical snapshot alone was insufficient and has been superseded; the merge decision itself remains the owner gate"
    ]
   },
   {
@@ -71,7 +98,7 @@
    "definition": "silent install of index policy module — scope tehnet-index-runtime-20261108-v1: class-index-policy.php + bootstrap Core with checksum; NO option -> site behavior unchanged; install kept OFF",
    "evidence": {
     "module_file_at_pr100_head": "present (4419 bytes)",
-    "installed_in_production": "NO (per owner decision doc; live /services/ form and page behavior unchanged)"
+    "installed_in_production": "UNKNOWN without authorized evidence — the historical owner decision recorded install OFF at authoring time; the CURRENT production runtime/option state is not attested (verdict 6982343308)"
    },
    "status": "NOT_RUN — install OFF (by design until D1)",
    "gaps": [
@@ -88,7 +115,9 @@
    "status": "NOT_ACTIVATED — hard entry gate CLOSED (recovery prerequisite unsatisfied)",
    "gaps": [
     "live config change mechanism UNKNOWN — not attested",
-    "entry requires: off-host destination + full test restore + wp-content rehearsal (verified recovery), D1 and D2 completed, fresh backup + checksum per step"
+    "entry requires: off-host destination + full test restore + wp-content rehearsal (verified recovery), D1 and D2 completed, fresh backup + checksum per step",
+    "the five HTTP-404 policy rows are four root-level paths + one service path; the 21 /guides/ draft destinations are a separate observation (verdict 6982343308)",
+    "PR101 merge is the explicit prerequisite before D3; PR102/103 release decisions stay separate; protected IDs 194/196/206"
    ]
   },
   {
@@ -102,6 +131,20 @@
    },
    "status": "OPEN — merge decisions WAITING_FOR_OWNER (ordering PR101-before-D3 intact: D3 not attempted)",
    "gaps": []
+  },
+  {
+   "id": "G03 — local browser acceptance",
+   "definition": "request journey button->form->receipt on isolated LOCAL_STAGING (synthetic data) for the three commercial CTAs",
+   "evidence": {
+    "executed": "manager-side Codex LOCAL_STAGING 2026-11-18 14:59 UTC (verdict 6982343308)",
+    "inputs": "cdb7ff9 commercial bodies + a54198ce theme/Core/Store + WooCommerce 11.1.1 + exact after-D1 Services body",
+    "results": "3 renders (1440/375); 3 distinct context preselections; 3 POSTs -> 302 -> private receipts HTTP 200/noindex/no-referrer; DB readback = exactly 3 matching private records; teardown verified"
+   },
+   "status": "ACCEPTED (browser journey, exact inputs/limits) — HTTP subcase + browser journey closed; full release/browser PARITY remains a separate open qualification",
+   "gaps": [
+    "no production readiness follows from the local test",
+    "production configuration and live CAPTCHA not tested"
+   ]
   },
   {
    "id": "recovery — mandatory D1/D2/D3 entry gate",
@@ -131,7 +174,7 @@
       "scope": "Fresh production backup restored locally into new DB and new volume. No source overwritten."
      }
     ],
-    "conclusion": "off-host destination test restore: ABSENT; wp-content restore rehearsal: ABSENT — the mandatory entry gate is UNSATISFIED as of 2026-11-18"
+    "conclusion": "the October recovery records include WordPress files and SQL but do NOT establish CURRENT full recovery from the required off-host destination, nor the separately qualified wp-content restore rehearsal — the mandatory entry gate remains UNSATISFIED (verdict 6982343308 framing)"
    },
    "status": "GATE CLOSED — D1/D2/D3 entry not permitted until owner provides the off-host destination and the full test restore + wp-content rehearsal are executed and recorded",
    "gaps": [
@@ -141,6 +184,8 @@
  ],
  "internal_consistency": "CONSISTENT",
  "headline": {
+  "production_release": "HELD (verdict 6982343308)",
+  "g03_local_browser_journey": "ACCEPTED for the exact inputs and limits (manager-side LOCAL_STAGING evidence recorded); no production readiness follows",
   "merge_ready": "NO — M0 open and WAITING_FOR_OWNER; PR100 head advanced past the fresh-CI snapshot (new CI required)",
   "d1_d2_d3_entry": "CLOSED — mandatory recovery gate unsatisfied (off-host test restore + wp-content rehearsal absent)",
   "ordering": "PR101-before-D3 intact (D3 never attempted)",

@@ -28,11 +28,12 @@ let payloadFiles = [];
 try {
   payloadFiles = git('ls-tree --name-only ' + pr100Head + ':content/commercial-decision-2026-11-08-v2/').split('\n').filter(Boolean);
 } catch (e) { payloadFiles = []; }
+const headChecks = (() => { try { const raw = execSync('curl -s --ssl-no-revoke --max-time 40 "https://api.github.com/repos/DashSaman/TehNet/commits/' + pr100Head + '/check-runs"', { encoding: 'utf8', maxBuffer: 4 * 1024 * 1024 }); const j = JSON.parse(raw); const runs = (j.check_runs || []).map(c => ({ name: c.name, conclusion: c.conclusion, html_url: c.html_url })); return { fetched: true, total: j.total_count || runs.length, completed_ok: runs.filter(c => c.conclusion === 'success').length, runs }; } catch (e) { return { fetched: false, manager_verified: 'four completed successful check runs with matching head SHA observed 2026-11-18 (verdict 6982343308), incl. actions/runs/43611457682 and actions/runs/43611452836' }; } })();
 element('M0',
   'merge PR100 (feat/setup-reconcile-20261113) instead of PR94 — superset; owner decision ' + DEF_SOURCE,
-  { branch: 'origin/feat/setup-reconcile-20261113', head_at_2026_11_18: pr100Head, head_in_owner_decision_snapshot: recorded100 + ' (2026-11-14 cycle-12 CI snapshot)', branch_advanced_since_snapshot: pr100Head !== recorded100, payload_dir_at_head: payloadFiles.slice(0, 20), ci_snapshot: 'PR_CI_SNAPSHOT_2026-11-14-cycle12.json — 16/16 green at d457580-era' },
-  'OPEN — WAITING_FOR_OWNER (merge decision)',
-  pr100Head !== recorded100 ? ['PR100 head advanced beyond the owner-decision snapshot (' + recorded100.slice(0, 12) + ' -> ' + pr100Head.slice(0, 12) + '): the fresh-CI guarantee recorded for d457580 does NOT automatically cover the advanced head — a fresh CI run is required before any merge decision'] : []);
+  { branch: 'origin/feat/setup-reconcile-20261113', head_at_2026_11_18: pr100Head, head_in_owner_decision_snapshot: recorded100 + ' (2026-11-14 cycle-12 CI snapshot)', branch_advanced_since_snapshot: pr100Head !== recorded100, payload_dir_at_head: payloadFiles.slice(0, 20), ci_snapshot: 'PR_CI_SNAPSHOT_2026-11-14-cycle12.json — 16/16 green at d457580-era (historical)', exact_head_check_runs_2026_11_18: headChecks },
+  'OPEN — WAITING_FOR_OWNER (merge decision); exact-head CI evidence recorded 2026-11-18',
+  pr100Head !== recorded100 ? ['PR100 head advanced beyond the owner-decision snapshot (' + recorded100.slice(0, 12) + ' -> ' + pr100Head.slice(0, 12) + '). Per verdict 6982343308 the EXACT current head carries four completed successful check runs (manager-verified 2026-11-18; recorded in exact_head_check_runs_2026_11_18) — the historical snapshot alone was insufficient and has been superseded; the merge decision itself remains the owner gate'] : []);
 
 /* D1 — decision pages publish */
 const d1Pages = payloadFiles.filter(f => /\.html$/.test(f));
@@ -48,7 +49,7 @@ let moduleHead = null;
 try { moduleHead = git('show ' + pr100Head + ':' + moduleFile).length; } catch (e) { moduleHead = 'ABSENT'; }
 element('D2',
   'silent install of index policy module — scope tehnet-index-runtime-20261108-v1: class-index-policy.php + bootstrap Core with checksum; NO option -> site behavior unchanged; install kept OFF',
-  { module_file_at_pr100_head: moduleHead === 'ABSENT' ? 'ABSENT' : 'present (' + moduleHead + ' bytes)', installed_in_production: 'NO (per owner decision doc; live /services/ form and page behavior unchanged)' },
+  { module_file_at_pr100_head: moduleHead === 'ABSENT' ? 'ABSENT' : 'present (' + moduleHead + ' bytes)', installed_in_production: 'UNKNOWN without authorized evidence — the historical owner decision recorded install OFF at authoring time; the CURRENT production runtime/option state is not attested (verdict 6982343308)' },
   'NOT_RUN — install OFF (by design until D1)',
   ['recovery hard gate unsatisfied (see recovery element) — entry not permitted']);
 
@@ -59,7 +60,7 @@ element('D3',
   'activate 16-URL allowlist — ONLY after D1+D2 complete and MANDATORY recovery verified (off-host destination + full test restore + wp-content restore rehearsal); one exact option (path+ID); global blog_public=0 untouched',
   { live_observable_2026_11_18: matrix.rows.filter(r => r.http_status === 200).length + ' of 16 policy URLs return 200 WITHOUT observed noindex meta; all 5 draft /guides/ destinations 404', allowlist_option_state: 'UNKNOWN from this checkout — no authorized WordPress route; the owner decision doc recorded all pages noindex,nofollow at authoring time, so the live no-noindex observation indicates a live config change whose mechanism is UNKNOWN and NOT claimed here' },
   'NOT_ACTIVATED — hard entry gate CLOSED (recovery prerequisite unsatisfied)',
-  ['live config change mechanism UNKNOWN — not attested', 'entry requires: off-host destination + full test restore + wp-content rehearsal (verified recovery), D1 and D2 completed, fresh backup + checksum per step']);
+  ['live config change mechanism UNKNOWN — not attested', 'entry requires: off-host destination + full test restore + wp-content rehearsal (verified recovery), D1 and D2 completed, fresh backup + checksum per step', 'the five HTTP-404 policy rows are four root-level paths + one service path; the 21 /guides/ draft destinations are a separate observation (verdict 6982343308)', 'PR101 merge is the explicit prerequisite before D3; PR102/103 release decisions stay separate; protected IDs 194/196/206']);
 
 /* PR101-before-D3 + PR102/103 scope */
 const pr101Head = git('rev-parse origin/feat/remote-buyer-20261113');
@@ -71,7 +72,7 @@ element('PR101-before-D3 + PR102/103',
   'OPEN — merge decisions WAITING_FOR_OWNER (ordering PR101-before-D3 intact: D3 not attempted)',
   []);
 
-/* recovery evidence — the mandatory gate */
+/* G03 — local browser acceptance recorded (verdict 6982343308, manager-side Codex LOCAL_STAGING 14:59 UTC) */
 function readRecovery(rel) {
   const abs = path.join(ROOT, rel);
   const raw = fs.readFileSync(abs);
@@ -82,9 +83,14 @@ const recovery = [
   readRecovery('qa/growth-2026-10-31/production-recovery.json'),
   readRecovery('qa/store-2026-10-15/production-recovery.json'),
 ];
+element('G03 — local browser acceptance',
+  'request journey button->form->receipt on isolated LOCAL_STAGING (synthetic data) for the three commercial CTAs',
+  { executed: 'manager-side Codex LOCAL_STAGING 2026-11-18 14:59 UTC (verdict 6982343308)', inputs: 'cdb7ff9 commercial bodies + a54198ce theme/Core/Store + WooCommerce 11.1.1 + exact after-D1 Services body', results: '3 renders (1440/375); 3 distinct context preselections; 3 POSTs -> 302 -> private receipts HTTP 200/noindex/no-referrer; DB readback = exactly 3 matching private records; teardown verified' },
+  'ACCEPTED (browser journey, exact inputs/limits) — HTTP subcase + browser journey closed; full release/browser PARITY remains a separate open qualification',
+  ['no production readiness follows from the local test', 'production configuration and live CAPTCHA not tested']);
 element('recovery — mandatory D1/D2/D3 entry gate',
   'verified recovery MUST include (a) an off-host destination + a full test restore from it, and (b) a wp-content restore rehearsal; same-host DB-only backup is insufficient (owner decision + recorded recovery limits)',
-  { evidence_files: recovery, conclusion: 'off-host destination test restore: ABSENT; wp-content restore rehearsal: ABSENT — the mandatory entry gate is UNSATISFIED as of 2026-11-18' },
+  { evidence_files: recovery, conclusion: 'the October recovery records include WordPress files and SQL but do NOT establish CURRENT full recovery from the required off-host destination, nor the separately qualified wp-content restore rehearsal — the mandatory entry gate remains UNSATISFIED (verdict 6982343308 framing)' },
   'GATE CLOSED — D1/D2/D3 entry not permitted until owner provides the off-host destination and the full test restore + wp-content rehearsal are executed and recorded',
   ['this conclusion is the recorded hard gate, not a new prohibition']);
 
@@ -104,7 +110,8 @@ const out = {
   lane: lane,
   internal_consistency: consistent ? 'CONSISTENT' : 'INCONSISTENT',
   headline: {
-    merge_ready: 'NO — M0 open and WAITING_FOR_OWNER; PR100 head advanced past the fresh-CI snapshot (new CI required)',
+  production_release: 'HELD (verdict 6982343308)',
+  g03_local_browser_journey: 'ACCEPTED for the exact inputs and limits (manager-side LOCAL_STAGING evidence recorded); no production readiness follows',    merge_ready: 'NO — M0 open and WAITING_FOR_OWNER; PR100 head advanced past the fresh-CI snapshot (new CI required)',
     d1_d2_d3_entry: 'CLOSED — mandatory recovery gate unsatisfied (off-host test restore + wp-content rehearsal absent)',
     ordering: 'PR101-before-D3 intact (D3 never attempted)',
     release_authorization: 'NONE — everything remains owner-gated',
