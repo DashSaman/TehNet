@@ -1,0 +1,95 @@
+{
+  "unit": "TN-P2-DRIVER-REMAINING-ACCEPTANCE-20261118",
+  "receipt_type": "PURE_LOCAL_TEST — no integration claim",
+  "manager_review": "https://github.com/DashSaman/TehNet/pull/96#issuecomment-6969817290",
+  "prior_round": "TN-P2-ORIGINAL-DRIVER-SOURCE-GATE-20261118 (6969086962; deliveries RR 6969618740/6969655081 at 269c944/122cce2) — accepted parts preserved, two failing cases corrected",
+  "tested_full_head": "26e1c087a60880aa3961756bd4ca204aa99472c3",
+  "tested_head_parent": "122cce2d939aa45b25825b72eb88b8dff880f58e",
+  "branch": "ops/agent-control-20261111",
+  "delivery_files_clean_at_tested_head": true,
+  "command": "node tests/browser/tn-fixture-contract-regressions.test.cjs ; node tests/browser/tn-fixture-helpers.test.cjs",
+  "cwd": "D:/Codex-Projects/Codex/2026-10-15/referenced-chatgpt-conversation-this-is-an/work/TehNet-growth-20261031",
+  "runner_node_version": "v24.19.0",
+  "started_utc": "2026-11-18T05:30:57Z",
+  "finished_utc": "2026-11-18T05:30:57Z",
+  "input_digests": {
+    "tests/browser/tn-local-staging-fix2-driver.cjs": {
+      "raw_working_bytes_sha256": "be91017e9f3a2680c31983a81894f3c75830ec5aaddf423b23e683db419f7f07",
+      "lf_normalized_sha256": "9bc4273d2d035014ba67f1245309c4170c5eca8795c33c41f518ada7b119f73b",
+      "working_has_crlf": true,
+      "published_blob_sha256": "9bc4273d2d035014ba67f1245309c4170c5eca8795c33c41f518ada7b119f73b",
+      "lf_normalized_matches_published_blob": true
+    },
+    "tests/browser/tn-fix2-adapter-seam.cjs": {
+      "raw_working_bytes_sha256": "1f73ddd6be32e698ec2cc1f81a74196265cf55676dcfc7dedd84450fbdd4d6bd",
+      "lf_normalized_sha256": "1f73ddd6be32e698ec2cc1f81a74196265cf55676dcfc7dedd84450fbdd4d6bd",
+      "working_has_crlf": false,
+      "published_blob_sha256": "1f73ddd6be32e698ec2cc1f81a74196265cf55676dcfc7dedd84450fbdd4d6bd",
+      "lf_normalized_matches_published_blob": true
+    },
+    "tests/browser/tn-fixture-helpers.cjs": {
+      "raw_working_bytes_sha256": "ebee22b9673f4d795cb5a618a61fc8a2d97cd33ae6309d2ec4e14f875425d1a8",
+      "lf_normalized_sha256": "fd3bb77bedf3f5efba789bdc1cc63159e8f71cbe1af22ed729e11690348ae967",
+      "working_has_crlf": true,
+      "published_blob_sha256": "fd3bb77bedf3f5efba789bdc1cc63159e8f71cbe1af22ed729e11690348ae967",
+      "lf_normalized_matches_published_blob": true
+    },
+    "tests/browser/tn-fixture-contract-regressions.test.cjs": {
+      "raw_working_bytes_sha256": "1336546b438f009b607baf0d157a43d78744bc105c2c386c3e5f8078ba0cfaeb",
+      "lf_normalized_sha256": "5f5a6fc5f5c5ba5834ebd82c54555444aed3cb8e98465fc93561baf277798d44",
+      "working_has_crlf": true,
+      "published_blob_sha256": "5f5a6fc5f5c5ba5834ebd82c54555444aed3cb8e98465fc93561baf277798d44",
+      "lf_normalized_matches_published_blob": true
+    },
+    "tests/browser/tn-fixture-helpers.test.cjs": {
+      "raw_working_bytes_sha256": "ccef5afc3557bf346d74363f79fbbfbda83e7426b3fb347f5ea5b4f3084d4a93",
+      "lf_normalized_sha256": "ee8bcc93444d64f5b9685c6daf346bb5a30cd4177f977418224049c20a57b0f2",
+      "working_has_crlf": true,
+      "published_blob_sha256": "ee8bcc93444d64f5b9685c6daf346bb5a30cd4177f977418224049c20a57b0f2",
+      "lf_normalized_matches_published_blob": true
+    }
+  },
+  "digest_policy_note": "raw working-byte hashes AND LF-normalized hashes are recorded per file; git (core.autocrlf=true) normalizes CRLF->LF on commit, so the published blob corresponds to the LF-normalized hash; per-file lf_normalized_matches_published_blob states the actual match — no uniform all-inputs-exact claim",
+  "pinned_prefix_source": {
+    "source": "git show 99adf594146c90bc10010a2b1cadce6347e62878:tests/browser/tn-local-staging-fix2-driver.cjs (local read-only)",
+    "raw_sha256": "dff188e4643456b508f25c1e4c3c8bfc3540b3b09aa5e517aa828984928c00db",
+    "published_blob_sha256_at_99adf59": "dff188e4643456b508f25c1e4c3c8bfc3540b3b09aa5e517aa828984928c00db",
+    "matches": true
+  },
+  "suite_results": [
+    {
+      "suite": "tn-fixture-contract-regressions.test.cjs",
+      "exit_code": 0,
+      "total_line": "TOTAL=36 PASS=36 FAIL=0",
+      "pass_count": 36,
+      "fail_details": [],
+      "stderr_first_line": null
+    },
+    {
+      "suite": "tn-fixture-helpers.test.cjs",
+      "exit_code": 0,
+      "total_line": "TOTAL=46 PASS=46 FAIL=0",
+      "pass_count": 46,
+      "fail_details": [],
+      "stderr_first_line": null
+    }
+  ],
+  "harness_description": {
+    "method": "vm.runInThisContext loads the EXACT published driver source (live at tested HEAD; pre-fix reproducers pinned to 99adf59 via local read-only git show) with only its async invocation prefixed by return",
+    "adapter_policy": "the adapter seam module (tn-fix2-adapter-seam.cjs) is loaded by the real require in negative cases (shipped DISABLED default); positive control injects a synthetic qualified adapter through the SAME seam — no contract boolean qualifies an adapter",
+    "stubs": [
+      "playwright (synthetic chromium/page/context)",
+      "node:child_process execSync (in-memory; from the fixed source ANY docker/ssh command throws => test fails; legacy answering exists ONLY for the pinned pre-fix reproducers)",
+      "node:fs writeFileSync (receipt captured in memory, nothing written)"
+    ],
+    "network": "none — no socket created; localhost URL is a synthetic constant never dialed"
+  },
+  "acceptance_coverage": {
+    "case1_complete_but_unqualified": "D4b complete contract+digests+matching endpoint, default seam => BLOCKED_NO_QUALIFIED_ADAPTER with zero adapter method calls, zero remote temp writes, zero browser launches; D4 endpoint disagreement => BLOCKED_CONTRACT_ENDPOINT_MISMATCH with ZERO attempts (previously one upload); D1-D3 unchanged zero-call gates preserved",
+    "case2_observed_url_fail_closed": "D5b empty URL, D5c null URL, D5d throwing page.url() => BLOCKED_IDENTITY before operation (no BASE fallback); D5 redirect; D6 throwing navigation; D7 null / D7b undefined / D7c mismatched marker — all blocked with zero operation/discovery/delete and synthetic resources closed",
+    "positive_control": "D8 explicitly injected synthetic qualified adapter + matching observed URL + matching marker => journey PASSED with operation/discovery enabled through the injected adapter",
+    "source_checks": "no ssh/docker/wp-cli command material remains in the driver; eligibility -> endpoint -> adapter-qualification -> first-use order asserted; blocked receipt carries the honest attempt counter",
+    "reproducers": "D9/D10 pinned 99adf59 pre-fix source still reproduce the two historical P1 failures"
+  },
+  "not_run": "No real driver journey, PHP evaluation, DB integration, SSH call, browser launch, environment/network/security/auth change, or old-fixture probe/reconnect. RouterOS and WordPress/KSES remain NOT_RUN. No production/merge/deploy/publication/D3 action."
+}
