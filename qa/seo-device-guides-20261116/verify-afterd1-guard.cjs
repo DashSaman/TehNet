@@ -202,25 +202,51 @@ if (PROBES) {
     const ok = out.failures > 0 && (out.r.reasons.indexOf('g1_base_digest_mismatch') >= 0 || out.r.reasons.indexOf('g2_header_prefix_mismatch') >= 0 || out.r.reasons.indexOf('g1_git_show_error') >= 0);
     probes.push({ probe: 'P4_wrong_pinned_base', expected_failure: 'g1_base_digest_mismatch|g2_header_prefix_mismatch|g1_git_show_error', failed_as_expected: ok, reasons: out.r.reasons });
   }
-  // P5 (6980096096 item 1): a JOINTLY updated patch+proposed pair carrying an extra
-  // UNKNOWN /guides/ link — byte parity (G4) still passes, but G7 must reject the
-  // unknown guide through the same consuming path.
+  // P5 (6980096096 item 1; portability fix per 6980425277): a JOINTLY updated patch+proposed
+  // pair carrying an extra UNKNOWN /guides/ link — byte parity (G4) still passes, but G7
+  // must reject the unknown guide through the same consuming path. EOL PORTABILITY: the
+  // paired mutation is built from EOL-NORMALIZED inputs (CRLF checkouts truncate the wrong
+  // suffix otherwise); the probe then runs TWICE — LF inputs and CRLF-forced inputs — and
+  // BOTH variants must reject with ONLY unknown_guide_href while G4 stays green.
   {
     const unknownSentence = ' درس <a href="/guides/probe-unknown-guide/">probe unknown</a> جدا توضیح داده می‌شود.';
-    /* find a '+' added line in the setup patch that carries the office-network-design paragraph */
-    const anchorLine = base.patchText.split('\n').find(l => l.charAt(0) === '+' && l.indexOf('/guides/office-network-design/') >= 0);
-    if (!anchorLine) throw new Error('P5 anchor added-line not found');
-    const mutatedLine = anchorLine.slice(0, -4) + unknownSentence + '</p>';
-    const mutatedPatch = base.patchText.split(anchorLine).join('+' + mutatedLine.slice(1));
-    /* the SAME sentence inserted into the proposed paragraph -> byte parity preserved */
-    const proposedAnchor = base.proposedContent.indexOf('/guides/office-network-design/');
-    const paraEnd = base.proposedContent.indexOf('</p>', proposedAnchor);
-    const mutatedProposed = base.proposedContent.slice(0, paraEnd) + unknownSentence + base.proposedContent.slice(paraEnd);
-    const out = verifyPageCore(Object.assign({}, base, { name: 'P5-joint-unknown-guide', patchText: mutatedPatch, proposedContent: mutatedProposed }));
-    const ok = out.failures > 0
-      && out.r.reasons.some(x => x.indexOf('unknown_guide_href:/guides/probe-unknown-guide/') === 0)
-      && out.r.reasons.indexOf('g4_proposed_bytes_differ') === -1;
-    probes.push({ probe: 'P5_joint_patch_plus_proposed_unknown_guide', expected_failure: 'unknown_guide_href:/guides/probe-unknown-guide/ (with G4 byte parity still passing)', failed_as_expected: ok, reasons: out.r.reasons });
+    const runVariant = (eol) => {
+      const patchText = eol === 'CRLF' ? norm(base.patchText).replace(/\n/g, '\r\n') : base.patchText.replace(/\r\n/g, '\n');
+      const proposedContent = eol === 'CRLF' ? norm(base.proposedContent).replace(/\n/g, '\r\n') : base.proposedContent.replace(/\r\n/g, '\n');
+      /* normalize BEFORE building the paired mutation so suffix truncation is EOL-safe */
+      const nPatch = patchText.replace(/\r\n/g, '\n');
+      const nProposed = proposedContent.replace(/\r\n/g, '\n');
+      const anchorLine = nPatch.split('\n').find(l => l.charAt(0) === '+' && l.indexOf('/guides/office-network-design/') >= 0);
+      if (!anchorLine) throw new Error('P5 anchor added-line not found (' + eol + ' variant)');
+      if (!anchorLine.endsWith('</p>')) throw new Error('P5 anchor line lacks </p> suffix (' + eol + ' variant)');
+      const mutatedLine = anchorLine.slice(0, -4) + unknownSentence + '</p>';
+      const mutatedPatch = nPatch.split(anchorLine).join(mutatedLine);
+      const proposedAnchor = nProposed.indexOf('/guides/office-network-design/');
+      const paraEnd = nProposed.indexOf('</p>', proposedAnchor);
+      const mutatedProposed = nProposed.slice(0, paraEnd) + unknownSentence + nProposed.slice(paraEnd);
+      return verifyPageCore(Object.assign({}, base, {
+        name: 'P5-joint-unknown-guide-' + eol,
+        patchText: mutatedPatch,
+        proposedContent: mutatedProposed,
+      }));
+    };
+    const lf = runVariant('LF');
+    const crlf = runVariant('CRLF');
+    const variantOk = (out) => out.failures > 0
+      && out.r.reasons.length === 1
+      && out.r.reasons[0] === 'unknown_guide_href:/guides/probe-unknown-guide/'
+      && out.r.checks.g4_proposed_matches === 'PASS';
+    const ok = variantOk(lf) && variantOk(crlf);
+    probes.push({
+      probe: 'P5_joint_patch_plus_proposed_unknown_guide (LF and CRLF variants)',
+      expected_failure: 'exactly unknown_guide_href:/guides/probe-unknown-guide/ in BOTH EOL variants, with G4 byte parity passing',
+      failed_as_expected: ok,
+      variants: {
+        lf: { failed_as_expected: variantOk(lf), reasons: lf.r.reasons, g4: lf.r.checks.g4_proposed_matches },
+        crlf: { failed_as_expected: variantOk(crlf), reasons: crlf.r.reasons, g4: crlf.r.checks.g4_proposed_matches },
+      },
+      reasons: lf.r.reasons,
+    });
   }
   const allOk = probes.every(p => p.failed_as_expected);
   const finishedUtc = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
