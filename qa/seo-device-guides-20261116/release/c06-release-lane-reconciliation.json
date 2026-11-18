@@ -3,7 +3,7 @@
  "receipt_type": "LOCAL_TEST — read-only git/file evidence gathering; no live effect",
  "manager_review": "https://github.com/DashSaman/TehNet/pull/96#issuecomment-6981609373 (next substantive C06)",
  "definitions_source": "ops/agent-control/OWNER_DECISION_INDEXABILITY_2026-11-12.fa.md",
- "generated_utc": "2026-11-18T15:06:38Z",
+ "generated_utc": "2026-11-18T15:07:41Z",
  "lane": [
   {
    "id": "M0",
