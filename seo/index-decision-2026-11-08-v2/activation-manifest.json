@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "key": "tehnet-index-allowlist-20261108-v1",
+  "operation": "activate",
+  "targets": [
+    {
+      "path": "/",
+      "id": 5,
+      "title": "خانه",
+      "body_sha256": "6ba0eb044641ff0ab9be439dad2e9f2381356f13d2862599e78faab8fe8259c2",
+      "excerpt_sha256": "5790af9dd32b040aaa34410267a0140b21bb7d2eace57f14b3825789be7896e3"
+    },
+    {
+      "path": "/services/",
+      "id": 8,
+      "title": "خدمات",
+      "body_sha256": "130de122301c55e7980f6dace4f576b5254a0a325bd75cea5d09faec72bf990d",
+      "excerpt_sha256": "0749d60a30b612feec2361a56700def9a0a0550f85b0169a30db066a78b18b39"
+    },
+    {
+      "path": "/services/voice-network-readiness/",
+      "id": 206,
+      "title": "آماده‌سازی و بررسی شبکه برای VoIP",
+      "body_sha256": "7f384153b9140fe60db47dca2690ebd1e6e85ff8a16637745d12e7f23844a915"
+    },
+    {
+      "path": "/services/remote-support/",
+      "id": 37,
+      "title": "پشتیبانی شبکه از راه دور",
+      "body_sha256": "8feda428c594fe71933b7edfcd092ce7d150b47b3edaa8468c95e8cf82e55c20"
+    },
+    {
+      "path": "/services/mikrotik-tehran/",
+      "id": 35,
+      "title": "خدمات میکروتیک تهران؛ بررسی RouterOS و تغییر کنترل‌شده",
+      "body_sha256": "118f34b1ec9eb08531d18e52bbedf8e25f4d7745928214b4388e6d39ede41f15",
+      "excerpt_sha256": "9bb7b9837a9d0524e5aa7dc14d25bc5cd0fc4a438a067f240b5e3ca72d0deca6"
+    },
+    {
+      "path": "/services/network-setup-tehran/",
+      "id": 33,
+      "title": "راه‌اندازی شبکه شرکت در تهران؛ نیازسنجی تا پذیرش",
+      "body_sha256": "ab56940e609f5afa17aad6917dc2834490e0437aa7ecadc2c66adae6a22e2460",
+      "excerpt_sha256": "04703687f543ee775065686a91f579a320202ae428edfe48bb076727732e1b3d"
+    },
+    {
+      "path": "/services/network-support-tehran/",
+      "id": 31,
+      "title": "پشتیبانی شبکه تهران؛ رخداد، نگهداری و گزارش تحویل",
+      "body_sha256": "f0ecdcfe014371ac22df9647512a6ccd73b18d52a357c4fc681e442ff3ec37de",
+      "excerpt_sha256": "9a95a58bf915d0f9c7e717297a83efc031b0678a7a4aa7f0aa7f1905e035a4df"
+    },
+    {
+      "path": "/services/network-tehran/",
+      "id": 29,
+      "title": "خدمات شبکه تهران؛ انتخاب خدمت و تعیین دامنهٔ پروژه",
+      "body_sha256": "abe760a97700b3a7b5eb8a2205f724e2b7ab3818d1afe02342c6fa2b28d5eff0",
+      "excerpt_sha256": "c63f6f937ba51cc73235cb76ee4740f52f36e9aa0fb92ed9622fb5ddc0446c4e"
+    },
+    {
+      "path": "/about/",
+      "id": 10,
+      "title": "درباره ما",
+      "body_sha256": "ac9985db27f4a4a93f10490173ab2eab52ab204cda7e343f1c78b31e264314c6",
+      "excerpt_sha256": "e8d214af9ee027d4fc9bab887c732004d068123ae0fcf9a4ef8cd8646320bd2a"
+    },
+    {
+      "path": "/contact/",
+      "id": 11,
+      "title": "تماس با ما",
+      "body_sha256": "404dcd28d91a02c13f412102214903e51016bb6f357ac25c6a95fb3e2cef93e5",
+      "excerpt_sha256": "6a24037159bb6fc79036fa88997071b060eff1e5c05fcd3b438d462b0d2c77c5"
+    },
+    {
+      "path": "/technical-methodology/",
+      "id": 187,
+      "title": "روش منابع، آزمون و اصلاح محتوا",
+      "body_sha256": "97a8bbb7efd82d1628d33bc45620dcdca3bb0a425e7fe41df963f72d097148e0",
+      "excerpt_sha256": "bf96fd6a27888cd7b13bb9f2cfc45f0fb5845df51e6403c628ed51abe1e085c0"
+    },
+    {
+      "path": "/network-support-contract-guide/",
+      "id": null,
+      "key": "A1",
+      "title": "قرارداد پشتیبانی شبکه؛ پیش از توافق چه چیزهایی را روشن کنیم؟",
+      "body_sha256": "a8b11e725d73f3f04b51c57958825fc0f7f4b0c7764454895a49e8e782a91ccd",
+      "excerpt_sha256": "c6eb28f7de9d4b2593be0ad5f7d734182a97096280cf0f6a3b788df3bc6d8d6c"
+    },
+    {
+      "path": "/network-project-proposal-checklist/",
+      "id": null,
+      "key": "A2",
+      "title": "پیشنهادهای اجرای شبکه را چگونه هم‌دامنه مقایسه کنیم؟",
+      "body_sha256": "a11e50ed377c4958fa8466676b895738a72c718ed2b4f8f8d049046f99993b8b",
+      "excerpt_sha256": "137bda095b6a328466dc5813f118c4054215baa64f8535d215a642c34f364cfe"
+    },
+    {
+      "path": "/business-server-planning-guide/",
+      "id": null,
+      "key": "A3",
+      "title": "نیازسنجی سرور شرکت؛ پیش از انتخاب CPU و RAM چه بپرسیم؟",
+      "body_sha256": "67e7e81664fa64f908fa8212c40e1119d2efe0b4eaca41d83d05819c69773963",
+      "excerpt_sha256": "e6e40e7b198af1d5ff53ec7d86bdb97fcd9399b1ca3a7ded29e0d563691c73ed"
+    },
+    {
+      "path": "/server-backup-restore-acceptance/",
+      "id": null,
+      "key": "A4",
+      "title": "اسنپ‌شات، بکاپ و آزمون بازیابی؛ چه مدرکی تحویل بگیریم؟",
+      "body_sha256": "10a42956c4e488d1e80af0e1260c87db97a2e45b3a3542814c4433943299bf38",
+      "excerpt_sha256": "c68043bd0f60828d3ca687538054bbd78c949ab72b55853bb1eb40da630a3a9c"
+    },
+    {
+      "path": "/services/server-virtualization-tehran/",
+      "id": null,
+      "key": "N1",
+      "title": "سرور و مجازی‌سازی در تهران؛ از نیازسنجی تا تحویل سرویس",
+      "body_sha256": "b79aba49434a8e6931607db123388b0a169caff85db057b441b615bc7cfcfd1d",
+      "excerpt_sha256": "1a6437673527cae1e1aff3b9fe6b392d5e0bec1d15210c9c783c212680eccf3c"
+    }
+  ],
+  "production_authorization": "NEEDS_SEPARATE_EXACT_ALLOWLIST_OWNER_APPROVAL"
+}

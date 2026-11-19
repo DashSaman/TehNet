@@ -1,0 +1,11 @@
+<?php
+/** Fixed public educational aid; no input, database or WordPress bootstrap. */
+header('X-Robots-Tag: noindex, nofollow');
+header('X-Content-Type-Options: nosniff');
+header('Content-Type: text/csv; charset=UTF-8');
+header('Content-Disposition: attachment; filename="server-backup-restore-acceptance-2.csv"');
+echo '﻿"سرویس فرضی","آزمون پیشنهادی","شاهد قابل درخواست","آنچه هنوز ثابت نمی‌شود","نتیجه"
+"فایل مشترک","بازکردن فایل نمونه توسط کاربر مجاز و منع حساب غیرمجاز","نسخه/نقطهٔ داده، زمان شروع و پذیرش، تأیید نماینده","درستی همهٔ فایل‌ها یا تحمل خرابی بعدی","NOT_TESTED"
+"برنامهٔ اداری","کار نمایندهٔ برنامه با تأیید مسئول/فروشنده","وابستگی‌ها، نسخه، وضعیت داده و خروجی کار","عملکرد تمام فرایندها یا سازگاری هر نسخه","NOT_TESTED"
+"بازگشت به محیط اصلی","طرح برگشت و کنترل تغییر جداگانه","تصمیم‌گیر و شرط توقف/بازگشت","موفقیتِ failback از صرف restore نتیجه نمی‌شود","NOT_TESTED"
+';

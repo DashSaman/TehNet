@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "status": "READY_FOR_REVIEW_NOT_DEPLOYED",
+  "runtime_changes": [],
+  "indexability_changed": false,
+  "targets": [
+    {
+      "id": 8,
+      "url": "https://tehnet.ir/services/",
+      "title_observed": "خدمات",
+      "content_file": "services.html",
+      "expected_content_sha256": "d42bbd0faa6a2b66d4255adc758571795da6658316148a925160b74f9e1368b0",
+      "content_sha256": "f6624f817d47cc5692985fef6d7436b432232c069dd320613fc151f47261773f",
+      "change_fields": [
+        "post_content"
+      ]
+    },
+    {
+      "id": 29,
+      "url": "https://tehnet.ir/services/network-tehran/",
+      "title_observed": "خدمات شبکه تهران",
+      "content_file": "network-tehran.html",
+      "expected_content_sha256": "16b9789a148a48da56b3353ab982c7030105f3b0cadc1d9fd4d025860d4ebe26",
+      "content_sha256": "304a1791189ef92c86b3a7a5f733aabb9f3723165cc4a5cb8488879a94b6ebc7",
+      "change_fields": [
+        "post_content"
+      ]
+    }
+  ],
+  "preserve": [
+    "title",
+    "H1",
+    "URL",
+    "excerpt",
+    "all meta",
+    "all forms/nonce/CAPTCHA",
+    "blog_public",
+    "payments",
+    "MyTel"
+  ],
+  "qualification": {
+    "cloud_native": "VERIFIED_AUTHORING_RENDER_ONLY",
+    "full_frontend": "VERIFIED_AUTOMATED_327_WITH_REAL_THEME_ASSETS",
+    "synthetic_ticket_persistence": "VERIFIED_ONE_PRIVATE_TICKET_AND_OWNED_RECORD_REMOVAL",
+    "google_challenge": "NOT_TESTED_TRANSPORT_FIXTURE_ONLY",
+    "manual_visual_review": "NOT_RUN_OWNER_CHOICE",
+    "production": "NOT_DEPLOYED",
+    "canonical_release_scope": "NOT_IMPLEMENTED",
+    "receipt": "../../seo/readiness-2026-11-08/full-frontend-verification.json"
+  }
+}

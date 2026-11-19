@@ -6,6 +6,19 @@ defined('ABSPATH') || exit;
 final class TehNet_Core_Content_Types {
     public function register(): void {
         add_action('init', [$this, 'register_types']);
+        add_filter('option_rewrite_rules', [$this, 'existing_lab_page_rules']);
+    }
+
+    /** Exact known public page routes; no stored rewrite/URL mutation. */
+    public function existing_lab_page_rules($rules) {
+        if (!is_array($rules)) return $rules;
+        $prefix=[];
+        foreach ([76=>'gns3-mikrotik',188=>'wireguard-mtu',207=>'voice-network-checklist'] as $id=>$slug) {
+            $page=get_post($id);
+            if (!$page || $page->post_type!=='page' || $page->post_status!=='publish' || $page->post_password!=='' || get_page_uri($id)!=='lab/'.$slug || get_page_by_path($slug,OBJECT,'tn_lab')) continue;
+            $prefix['lab/'.$slug.'/?$']='index.php?page_id='.$id;
+        }
+        return $prefix+$rules;
     }
 
     public function register_types(): void {

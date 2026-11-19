@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "key": "tehnet-index-runtime-20261108-v1",
+  "operation": "install-off",
+  "default": "OFF",
+  "blog_public": "0",
+  "production_authorization": "NEEDS_SEPARATE_OWNER_APPROVAL"
+}

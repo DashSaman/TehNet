@@ -1,0 +1,68 @@
+{
+  "reviewed": "2026-11-08",
+  "status": "SCOPED_REVIEW_NOT_FULL_SITE_AUDIT",
+  "sources": [
+    {
+      "id": "GSC-AI-REPORT-2026",
+      "class": "OFFICIAL",
+      "url": "https://support.google.com/webmasters/answer/16984139?hl=en",
+      "scope": "Dedicated AI impressions report; no TehNet data obtained"
+    },
+    {
+      "id": "GSC-AI-CONTROL-2026",
+      "class": "OFFICIAL",
+      "url": "https://support.google.com/webmasters/answer/16908024",
+      "scope": "Include/Exclude/Inherit, effective TehNet setting UNKNOWN"
+    },
+    {
+      "id": "GSC-AI-ANNOUNCEMENT",
+      "class": "OFFICIAL",
+      "url": "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports",
+      "scope": "2026 reporting update; supersedes treating the older AI features page as exhaustive reporting guidance"
+    },
+    {
+      "id": "GOOGLE-EXTENDED",
+      "class": "OFFICIAL",
+      "url": "https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers#google-extended",
+      "scope": "Training/other grounding control distinguished from Search and account-level Search AI control"
+    },
+    {
+      "id": "OPENAI-BOTS",
+      "class": "OFFICIAL",
+      "url": "https://developers.openai.com/api/docs/bots",
+      "scope": "Search/training/user fetch distinctions; no WAF changes"
+    },
+    {
+      "id": "CLAUDE-BOTS",
+      "class": "OFFICIAL",
+      "url": "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+      "scope": "ClaudeBot/SearchBot/User distinctions"
+    },
+    {
+      "id": "PERPLEXITY-BOTS",
+      "class": "OFFICIAL",
+      "url": "https://docs.perplexity.ai/docs/resources/perplexity-crawlers",
+      "scope": "SearchBot/User; not a blanket WAF-skip authorization"
+    },
+    {
+      "id": "LIVE-GET",
+      "class": "OBSERVED",
+      "source": "baseline.json",
+      "scope": "13 bounded TLS GET observations; no index verdict"
+    },
+    {
+      "id": "NATIVE-RENDER",
+      "class": "OBSERVED",
+      "source": "verification.json",
+      "scope": "33 native and144 component browser checks; not complete frontend/commerce/release qualification"
+    }
+  ],
+  "central_research_directory": "UNAVAILABLE_404",
+  "central_named_docs_read": [
+    "docs/competitor-service-evidence.md",
+    "docs/cross-brand-intent-portfolios.md",
+    "docs/wordpress-service-intake-validation.md"
+  ],
+  "central_source_sha": "52cc1f110e18a8111eda657ae92368e837d46fb3",
+  "central_writes": 0
+}

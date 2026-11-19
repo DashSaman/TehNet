@@ -1,0 +1,433 @@
+{
+  "schema": 1,
+  "status": "VERIFIED_STAGING_NOT_DEPLOYED",
+  "source_commit": "ec7eb0a0f44305f3064ae7666106a0f4e4031c05",
+  "baseline_commit": "6d54fe885e33f37540e8143630ff93af5c63e6b5",
+  "main_last_observed": "04c2af953b6676306b702933aecc412a76d67730",
+  "run_url": "https://github.com/DashSaman/TehNet/actions/runs/42503696771",
+  "job_id": 128801658114,
+  "public_guard_run_url": "https://github.com/DashSaman/TehNet/actions/runs/42503696790",
+  "qualified_sha256": {
+    "content/commercial-decision-2026-11-08-v2/manifest.json": "ff609999f00b7e715da4bffffdcb5b8c8df0dcb884334033492553b2124cfd3c",
+    "seo/index-decision-2026-11-08-v2/runtime-manifest.json": "8e677bf8d8ee741e1f60026be9ae1319a9498a0699515aaeb3ef1f130d2e36ce",
+    "seo/index-decision-2026-11-08-v2/activation-manifest.json": "523d48d5525e0e72f139c1fde2de1fa154e730f1f78317e77f03bd7ef1ab2e46",
+    "ops/release-growth-content.py": "673917b3f95ea632570486260238694fb75367ec0d548fc8d7e29ae8bc5e4bcf",
+    "ops/migrate-growth-content.php": "ed0bc9131ad564495d36600e5b145a99f76d605ced14074bb27c4b983761fc62",
+    "ops/migrate-index-policy.php": "4bdb67fa252799c2ca1ca1e6c45a9f8588367497d81136cef83dd586d23067e6"
+  },
+  "counts": {
+    "complete_main_texts": 9,
+    "existing_owners": 5,
+    "new_pages": 5,
+    "new_articles": 4,
+    "csv": 8,
+    "print": 4,
+    "content_runtime_files": 15,
+    "index_runtime_files": 2,
+    "index_activation_option_writes": 1,
+    "production_pages_changed": 0,
+    "index_candidates": 16,
+    "indexed_urls_confirmed": null
+  },
+  "browser": {
+    "status": "PASS",
+    "checks": 2112,
+    "viewports": [
+      1440,
+      768,
+      375,
+      320
+    ],
+    "no_js": true,
+    "no_js_dark_mode": "NOT_AVAILABLE_CURRENT_SERVER_LIGHT_MARKUP",
+    "real_theme_css_and_fonts": true,
+    "screenshots_exported": 0,
+    "canonical_form_posts": 1,
+    "negative_http_tests": 5,
+    "production_mutations": 0,
+    "captcha": "Enabled; isolated server-transport fixture only; Google challenge NOT_TESTED",
+    "noindex_preserved": true
+  },
+  "native_content": {
+    "baseline-routes": {
+      "status": "PASS",
+      "checks": 1,
+      "runtime": {
+        "WordPress": "7.1.4",
+        "PHP": "8.3.36",
+        "Core": "0.3.1",
+        "database": "11.4.13"
+      }
+    },
+    "accept": {
+      "status": "PASS",
+      "checks": 69,
+      "runtime": {
+        "WordPress": "7.1.4",
+        "PHP": "8.3.36",
+        "Core": "0.3.1",
+        "database": "11.4.13"
+      }
+    },
+    "verify-ticket": {
+      "status": "PASS",
+      "checks": 3,
+      "runtime": {
+        "WordPress": "7.1.4",
+        "PHP": "8.3.36",
+        "Core": "0.3.1",
+        "database": "11.4.13"
+      }
+    },
+    "cleanup-http-state": {
+      "status": "PASS",
+      "checks": 4,
+      "runtime": {
+        "WordPress": "7.1.4",
+        "PHP": "8.3.36",
+        "Core": "0.3.1",
+        "database": "11.4.13"
+      }
+    },
+    "rollback-accept": {
+      "status": "PASS",
+      "checks": 13,
+      "runtime": {
+        "WordPress": "7.1.4",
+        "PHP": "8.3.36",
+        "Core": "0.3.1",
+        "database": "11.4.13"
+      }
+    },
+    "seed": {
+      "status": "PASS",
+      "checks": 32,
+      "runtime": {
+        "WordPress": "7.1.4",
+        "PHP": "8.3.36",
+        "Core": "NONE",
+        "database": "11.4.13"
+      }
+    },
+    "prepare": {
+      "status": "PASS",
+      "checks": 31,
+      "runtime": {
+        "WordPress": "7.1.4",
+        "PHP": "8.3.36",
+        "Core": "0.3.2",
+        "database": "11.4.13"
+      }
+    }
+  },
+  "index_native": {
+    "off": {
+      "status": "PASS",
+      "checks": 5
+    },
+    "active": {
+      "status": "PASS",
+      "checks": 8
+    },
+    "restored": {
+      "status": "PASS",
+      "checks": 7
+    }
+  },
+  "index_http": {
+    "off": {
+      "status": "PASS",
+      "checks": 49
+    },
+    "active": {
+      "status": "PASS",
+      "checks": 86
+    },
+    "restored": {
+      "status": "PASS",
+      "checks": 49
+    }
+  },
+  "publisher": [
+    {
+      "kind": "TN_DECISION_PUBLISHER",
+      "status": "PASS",
+      "scope": "tehnet-commercial-decision-20261108-v2",
+      "check": {
+        "status": "READY",
+        "files_pending": 15,
+        "content": {
+          "status": "READY",
+          "pages_pending": 5,
+          "hubs_pending": 5,
+          "protected_digest": "7dbf1e27591bee82b3dd0960a480628d66e44cf92ab5eeee54fad6a2e89c9f9a"
+        }
+      },
+      "apply": {
+        "status": "APPLIED",
+        "files_changed": 15,
+        "content": {
+          "status": "APPLIED",
+          "pages_created": 5,
+          "hubs_updated": 5,
+          "page_ids": {
+            "A1": 217,
+            "A2": 218,
+            "A3": 219,
+            "A4": 220,
+            "N1": 221
+          },
+          "protected_digest": "7dbf1e27591bee82b3dd0960a480628d66e44cf92ab5eeee54fad6a2e89c9f9a",
+          "protected_state_unchanged": true
+        }
+      },
+      "repeat": {
+        "status": "APPLIED",
+        "files_changed": 0,
+        "content": {
+          "status": "APPLIED",
+          "pages_pending": 0,
+          "hubs_pending": 0,
+          "pages_created": 0,
+          "hubs_updated": 0,
+          "page_ids": {
+            "A1": 217,
+            "A2": 218,
+            "A3": 219,
+            "A4": 220,
+            "N1": 221
+          },
+          "protected_state_unchanged": true
+        }
+      },
+      "production_mutations": 0
+    },
+    {
+      "kind": "TN_INDEX_PUBLISHER",
+      "scope": "tehnet-index-runtime-20261108-v1",
+      "mode": "check",
+      "result": {
+        "status": "READY",
+        "files_pending": 2,
+        "content": {
+          "status": "READY",
+          "protected_digest": "ec2c06a3ccd71912c6be397762219da73d0855653b9f284fe5cb9539d3c0c013",
+          "option_writes": 0,
+          "approved_paths": 0,
+          "blog_public": "0"
+        }
+      },
+      "production_mutations": 0
+    },
+    {
+      "kind": "TN_INDEX_PUBLISHER",
+      "scope": "tehnet-index-runtime-20261108-v1",
+      "mode": "apply",
+      "result": {
+        "status": "APPLIED",
+        "files_changed": 2,
+        "content": {
+          "status": "APPLIED",
+          "protected_digest": "ec2c06a3ccd71912c6be397762219da73d0855653b9f284fe5cb9539d3c0c013",
+          "protected_state_unchanged": true,
+          "blog_public": "0",
+          "option_writes": 0,
+          "option_restored": false
+        }
+      },
+      "production_mutations": 0
+    },
+    {
+      "kind": "TN_INDEX_PUBLISHER",
+      "scope": "tehnet-index-runtime-20261108-v1",
+      "mode": "apply",
+      "result": {
+        "status": "APPLIED",
+        "files_changed": 0,
+        "content": {
+          "status": "APPLIED",
+          "protected_state_unchanged": true,
+          "policy_scope_unchanged": true,
+          "option_writes": 0
+        }
+      },
+      "production_mutations": 0
+    },
+    {
+      "kind": "TN_INDEX_PUBLISHER",
+      "scope": "tehnet-index-allowlist-20261108-v1",
+      "mode": "check",
+      "result": {
+        "status": "READY",
+        "files_pending": 0,
+        "content": {
+          "status": "READY",
+          "protected_digest": "ec2c06a3ccd71912c6be397762219da73d0855653b9f284fe5cb9539d3c0c013",
+          "option_writes": 1,
+          "approved_paths": 16,
+          "blog_public": "0"
+        }
+      },
+      "production_mutations": 0
+    },
+    {
+      "kind": "TN_INDEX_PUBLISHER",
+      "scope": "tehnet-index-allowlist-20261108-v1",
+      "mode": "apply",
+      "result": {
+        "status": "APPLIED",
+        "files_changed": 0,
+        "content": {
+          "status": "APPLIED",
+          "protected_digest": "ec2c06a3ccd71912c6be397762219da73d0855653b9f284fe5cb9539d3c0c013",
+          "protected_state_unchanged": true,
+          "blog_public": "0",
+          "option_writes": 1,
+          "option_restored": false
+        }
+      },
+      "production_mutations": 0
+    },
+    {
+      "kind": "TN_INDEX_PUBLISHER",
+      "scope": "tehnet-index-allowlist-20261108-v1",
+      "mode": "apply",
+      "result": {
+        "status": "APPLIED",
+        "files_changed": 0,
+        "content": {
+          "status": "APPLIED",
+          "protected_state_unchanged": true,
+          "policy_scope_unchanged": true,
+          "option_writes": 0
+        }
+      },
+      "production_mutations": 0
+    },
+    {
+      "kind": "TN_INDEX_PUBLISHER",
+      "scope": "tehnet-index-allowlist-20261108-v1",
+      "mode": "rollback",
+      "result": {
+        "status": "ROLLED_BACK",
+        "files_restored": 0,
+        "content": {
+          "status": "ROLLED_BACK",
+          "protected_digest": "71beb5905d8cbeb2f3cfd2d1e5368372386b8908bf70e5919522e7322d86d4d7",
+          "protected_state_unchanged": true,
+          "blog_public": "0",
+          "option_writes": 1,
+          "option_restored": true
+        }
+      },
+      "production_mutations": 0
+    },
+    {
+      "kind": "TN_INDEX_PUBLISHER",
+      "scope": "tehnet-index-runtime-20261108-v1",
+      "mode": "rollback",
+      "result": {
+        "status": "ROLLED_BACK",
+        "files_restored": 2,
+        "content": {
+          "status": "ROLLED_BACK",
+          "protected_digest": "71beb5905d8cbeb2f3cfd2d1e5368372386b8908bf70e5919522e7322d86d4d7",
+          "protected_state_unchanged": true,
+          "blog_public": "0",
+          "option_writes": 0,
+          "option_restored": true
+        }
+      },
+      "production_mutations": 0
+    },
+    {
+      "kind": "TN_DECISION_PUBLISHER",
+      "status": "PASS",
+      "rollback": {
+        "status": "ROLLED_BACK",
+        "files_restored": 15,
+        "content": {
+          "status": "ROLLED_BACK",
+          "hubs_restored": 5,
+          "pages_drafted": 5,
+          "protected_state_unchanged": true
+        }
+      },
+      "repeat_rollback": {
+        "status": "ROLLED_BACK",
+        "files_restored": 15,
+        "content": {
+          "status": "ROLLED_BACK",
+          "hubs_restored": 0,
+          "pages_drafted": 0,
+          "protected_state_unchanged": true
+        }
+      },
+      "new_pages_retained_as_drafts": true,
+      "production_mutations": 0
+    }
+  ],
+  "python_boundary_tests": 37,
+  "prior_single_owner_native_regression_checks": 37,
+  "protected_state_after_http": {
+    "changed_keys": [],
+    "original_missing_keys": [],
+    "production_mutations": 0
+  },
+  "owned_http_cleanup": {
+    "new_synthetic_wc_sessions_removed": 0,
+    "original_rows_preserved": true,
+    "production_mutations": 0
+  },
+  "cleanup": {
+    "verified": true,
+    "app_removed": true,
+    "db_removed": true,
+    "cli_container_removed": true,
+    "internal_network_removed": true,
+    "actual_relay_pid_exited": true,
+    "relay_launcher_reaped": true,
+    "temporary_private_directory_removed": true
+  },
+  "fixture_records": {
+    "canonical_service_ticket": 1,
+    "canonical_ticket_private_thread_context_verified": true,
+    "canonical_ticket_and_receipt_removed": true,
+    "index_preservation_record": 1,
+    "index_preservation_record_survived_rollback": true,
+    "index_preservation_record_then_removed": true,
+    "new_wc_sessions_removed": 0,
+    "real_customer_data_loaded": false
+  },
+  "deployment": {
+    "merge": "NEEDS_APPROVAL",
+    "content": "NEEDS_APPROVAL",
+    "index_runtime_off_install": "NEEDS_APPROVAL",
+    "index_activation_exact16": "NEEDS_APPROVAL",
+    "explicit_production_content_configuration_or_form_writes": 0
+  },
+  "security": {
+    "source_patterns": "PASS",
+    "publication_guard": "PASS",
+    "old_private_value_list": "NOT_RUN_OWNER_APPROVED_BRANCH_EXCEPTION",
+    "exception_branch": "feat/seo-readiness-20261108",
+    "history_sanitization": "NOT_CLAIMED",
+    "historical_credential_rotation": "UNKNOWN_UNCHANGED",
+    "origin_network_dns_ssh_changes": 0,
+    "screenshots_exported": 0,
+    "local_access": "Attached directive read only; no local desktop/browser/VM/credentials/private-list or workspace operation"
+  },
+  "limitations": {
+    "human_visual_review": "NOT_RUN_OWNER_SELECTED_AUTOMATED_ONLY",
+    "no_js_dark_mode": "NOT_AVAILABLE_CURRENT_SERVER_LIGHT_MARKUP",
+    "gutenberg_editor_gui_save": "NOT_RUN; native parse/serialize/KSES/exact wp_update_post verified",
+    "real_google_captcha": "NOT_TESTED; enabled isolated transport fixture only",
+    "real_google_crawl_or_index": "NOT_TESTED",
+    "gsc_bing_property_data": "UNAVAILABLE_LAST_RECORDED_CONNECTOR_ATTEMPT",
+    "production_runtime_equivalence": "NOT_PROVEN; last authorized production PHP8.3.32 versus fixture8.3.36",
+    "production_backup_recovery_drift": "REQUIRED_BEFORE_OWNER_AUTHORIZED_RELEASE",
+    "canonical_content_rollback": "Strict managed and protected-state guards retained; real unrelated state drift requires reconciliation, never fixture cleanup on production",
+    "software_tunnels": "Independent applications unchanged; not emulated in fixture",
+    "central_seo_repository_write": "NOT_PERFORMED; portable lessons prepared in TehNet"
+  }
+}
