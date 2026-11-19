@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "key": "tehnet-service-b2b-buyer-20261114-v1",
+  "status": "DRAFT_NOT_DEPLOYED",
+  "identity": "page resolved by slug 'b2b' per environment (production ID 194, staging ID 191) — same body bytes verified on both",
+  "target": {
+    "url": "https://tehnet.ir/b2b/",
+    "title_observed": "خرید سازمانی و پیش‌فاکتور",
+    "expected_content_sha256": "df89d9251a68595cbfc002d0bc9a2d697979f8ebeeca4b8d338cdd2ef25a9df3",
+    "change_fields": [
+      "post_content"
+    ],
+    "preserve": [
+      "ID",
+      "URL",
+      "title",
+      "slug",
+      "parent",
+      "status",
+      "excerpt",
+      "all meta",
+      "the tn_b2b_quote form shortcode"
+    ],
+    "id": 191,
+    "id_note": "staging-resolved ID; the production bundle must name the production-resolved ID (194) — slug resolution validates it"
+  },
+  "content_file": "b2b-buyer-20261114.html",
+  "content_sha256_lf": "a026022d8fc3e564da374164ad49f4687770307a3670cf41c094ec83b8dada6a",
+  "protected": [
+    "home",
+    "menus",
+    "products/all meta",
+    "orders/customers/tickets/quotes",
+    "blog_public",
+    "payments/ERP",
+    "MyTel production",
+    "the quote form flow (nonce/transport)"
+  ],
+  "qualification": {
+    "source_review": "ADDITIVE_ONLY_on_production_truth_df89d925",
+    "form_regression": "PENDING_STAGING_RUN",
+    "production": "NOT_DEPLOYED"
+  },
+  "limits": [
+    "No prices, stock, or response-time claims invented; boundaries state variability explicitly",
+    "Additive sections only; original paragraph and the tn_b2b_quote shortcode preserved verbatim",
+    "Page stays outside the 16-URL index allowlist (b2b remains noindex per PR94 policy) — this is a buyer-journey improvement, not an SEO-index play",
+    "Production release requires a bundle whose target.id matches the production-resolved ID (194) — slug resolution validates it"
+  ]
+}

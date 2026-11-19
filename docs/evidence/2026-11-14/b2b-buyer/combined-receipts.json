@@ -1,0 +1,55 @@
+{
+ "schema": 1,
+ "date": "2026-11-14",
+ "title": "Staging receipts for b2b buyer revision (page: b2b; staging ID 191, production ID 194)",
+ "identity": {
+  "production_ID": 194,
+  "staging_ID": 191,
+  "method": "scope resolves by slug per environment; manifests name the environment-resolved ID",
+  "baseline": "df89d925 (production 194 == staging 191 exactly; read-only SHA2 verified; no sync needed)"
+ },
+ "sequence": [
+  {
+   "step": "check",
+   "result": "FAILED once",
+   "detail": "pageScope was assigned before slug resolution (null id keyed the hub allowlist) — ordering fixed, honestly recorded"
+  },
+  {
+   "step": "check (fixed bundle d0ea0a1c)",
+   "result": "READY",
+   "detail": "expected df89d925 matched; protected digest 439f76e4..."
+  },
+  {
+   "step": "apply",
+   "result": "APPLIED",
+   "detail": "body a026022d; protected unchanged"
+  },
+  {
+   "step": "native acceptance",
+   "result": "PASS 13/13",
+   "detail": "hash, title/excerpt unchanged, anchors, lead preserved, shortcode wrapped + registered, service links, blog_public=0"
+  },
+  {
+   "step": "browser",
+   "result": "PASS 14/14",
+   "detail": "all sections/anchors, form.tn-quote-form renders with nonce+email+textarea (regression gate), links, noindex, mobile"
+  },
+  {
+   "step": "repeat check",
+   "result": "APPLIED 0 writes (idempotent)"
+  },
+  {
+   "step": "rollback drill",
+   "result": "ROLLED_BACK",
+   "detail": "ID 191 restored to exactly df89d925; protected unchanged"
+  },
+  {
+   "step": "reviewed re-apply",
+   "result": "APPLIED",
+   "detail": "stale journal removed per recorded pattern; fresh run dir; final state applied with identical protected digest"
+  }
+ ],
+ "source_commit": "d0ea0a1c110d207779182ac7fe1e49ef5f7017db",
+ "production_mutations": 0,
+ "production_note": "production bundle must name target.id=194 (production-resolved); same scope machinery validates"
+}
