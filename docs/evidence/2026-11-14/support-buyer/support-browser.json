@@ -1,0 +1,64 @@
+{
+ "status": "PASS",
+ "total": 12,
+ "failures": 0,
+ "checks": [
+  {
+   "name": "http200",
+   "pass": true,
+   "detail": 200
+  },
+  {
+   "name": "section_چه اطلاعاتی ثب",
+   "pass": true
+  },
+  {
+   "name": "section_فرایند بررسی ت",
+   "pass": true
+  },
+  {
+   "name": "section_مسیر سریع‌تر ب",
+   "pass": true
+  },
+  {
+   "name": "section_مشکل سفارش، اس",
+   "pass": true
+  },
+  {
+   "name": "anchors",
+   "pass": true
+  },
+  {
+   "name": "ticket_form_renders",
+   "pass": true,
+   "detail": {}
+  },
+  {
+   "name": "ticket_form_nonce",
+   "pass": true
+  },
+  {
+   "name": "route_links",
+   "pass": true
+  },
+  {
+   "name": "no_console_errors",
+   "pass": true,
+   "detail": {
+    "errors": []
+   }
+  },
+  {
+   "name": "noindex_staging_support",
+   "pass": true,
+   "detail": "noindex, nofollow"
+  },
+  {
+   "name": "mobile_no_overflow",
+   "pass": true,
+   "detail": {
+    "px": 0
+   }
+  }
+ ]
+}

@@ -265,6 +265,32 @@ class ReleaseBoundaries(unittest.TestCase):
         prefixes = [row[2] for row in self.module.CONTENT_SCOPES.values()]
         self.assertEqual(len(set(prefixes)), len(prefixes))
 
+    def test_support_buyer_scope_resolves_by_slug_and_preserves_ticket_shortcode(self):
+        import json, hashlib
+        scope = 'tehnet-service-support-buyer-20261114-v1'
+        files, extra, runtime = self.module.scope_spec(scope)
+        self.assertEqual(files, [])
+        self.assertEqual(extra, ['content/support-buyer-20261114/manifest.json',
+            'content/support-buyer-20261114/support-buyer-20261114.html',
+            'ops/migrate-growth-content.php'])
+        self.assertEqual(len(runtime), 8)
+        self.assertIn('site/mu-plugins/tehnet-search-metadata.php', runtime)
+        self.assertIn(scope, self.module.GUARDED_SCOPES)
+        manifest = json.load(open('content/support-buyer-20261114/manifest.json', encoding='utf-8'))
+        self.assertEqual(manifest['target']['expected_content_sha256'], 'c03b121aa300a0139a9e4226c2db60dc7d31d8fbdc3095d309901391aa776693')
+        body = open('content/support-buyer-20261114/support-buyer-20261114.html', 'rb').read().replace(b'\r\n', b'\n')
+        digest = hashlib.sha256(body).hexdigest()
+        self.assertEqual(digest, manifest['content_sha256_lf'])
+        text = body.decode('utf-8')
+        self.assertIn('مشکل سفارش، استعلام یا پیش‌فاکتور خود را ثبت کنید', text)
+        self.assertIn('[tn_support_ticket]', text)
+        for anchor in ['ticket-checklist', 'ticket-process', 'ticket-routes']:
+            self.assertIn(f'id="{anchor}"', text)
+        for link in ['/services/network-support-tehran/', '/services/remote-support/', '/services/network-setup-tehran/', '/b2b/']:
+            self.assertIn(link, text)
+        source = open('ops/migrate-growth-content.php', encoding='utf-8').read()
+        self.assertIn("'tehnet-service-support-buyer-20261114-v1'=>['id'=>null,'slug'=>'support'", source)
+
     def test_mikrotik_service_scope_is_body_only_current_guarded_and_separate(self):
         scope = 'tehnet-service-mikrotik-20261101-v1'
         files, extra, runtime = self.module.scope_spec(scope)
