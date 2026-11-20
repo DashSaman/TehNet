@@ -1,0 +1,199 @@
+{
+ "pages": 8,
+ "issues": [],
+ "http_fails": [],
+ "checked": [
+  {
+   "page": "homepage",
+   "type": "cta_above_fold",
+   "count": 2,
+   "ctas": [
+    {
+     "href": "http://localhost:18085/contact/",
+     "text": "تماس با ما"
+    },
+    {
+     "href": "http://localhost:18085/contact/",
+     "text": "تماس با ما"
+    }
+   ]
+  },
+  {
+   "page": "homepage",
+   "type": "mobile_nav_click",
+   "href": "http://localhost:18085/",
+   "navigated": true
+  },
+  {
+   "page": "homepage",
+   "type": "mobile_nav_test_complete",
+   "ariaBefore": "false",
+   "ariaAfter": "true",
+   "found": true
+  },
+  {
+   "page": "homepage",
+   "type": "no_js_nav",
+   "visible": true,
+   "linkCount": 8
+  },
+  {
+   "page": "services",
+   "type": "cta_above_fold",
+   "count": 2,
+   "ctas": [
+    {
+     "href": "http://localhost:18085/contact/",
+     "text": "تماس با ما"
+    },
+    {
+     "href": "http://localhost:18085/contact/",
+     "text": "تماس با ما"
+    }
+   ]
+  },
+  {
+   "page": "services",
+   "type": "mobile_nav_click",
+   "href": "http://localhost:18085/",
+   "navigated": true
+  },
+  {
+   "page": "services",
+   "type": "mobile_nav_test_complete",
+   "ariaBefore": "false",
+   "ariaAfter": "true",
+   "found": true
+  },
+  {
+   "page": "services",
+   "type": "no_js_nav",
+   "visible": true,
+   "linkCount": 8
+  },
+  {
+   "page": "contact",
+   "type": "mobile_nav_click",
+   "href": "http://localhost:18085/",
+   "navigated": true
+  },
+  {
+   "page": "contact",
+   "type": "mobile_nav_test_complete",
+   "ariaBefore": "false",
+   "ariaAfter": "true",
+   "found": true
+  },
+  {
+   "page": "contact",
+   "type": "no_js_nav",
+   "visible": true,
+   "linkCount": 8
+  },
+  {
+   "page": "about",
+   "type": "mobile_nav_click",
+   "href": "http://localhost:18085/",
+   "navigated": true
+  },
+  {
+   "page": "about",
+   "type": "mobile_nav_test_complete",
+   "ariaBefore": "false",
+   "ariaAfter": "true",
+   "found": true
+  },
+  {
+   "page": "about",
+   "type": "no_js_nav",
+   "visible": true,
+   "linkCount": 8
+  },
+  {
+   "page": "mtcna-hub",
+   "type": "mobile_nav_click",
+   "href": "http://localhost:18085/",
+   "navigated": true
+  },
+  {
+   "page": "mtcna-hub",
+   "type": "mobile_nav_test_complete",
+   "ariaBefore": "false",
+   "ariaAfter": "true",
+   "found": true
+  },
+  {
+   "page": "mtcna-hub",
+   "type": "no_js_nav",
+   "visible": true,
+   "linkCount": 8
+  },
+  {
+   "page": "lab",
+   "type": "mobile_nav_click",
+   "href": "http://localhost:18085/",
+   "navigated": true
+  },
+  {
+   "page": "lab",
+   "type": "mobile_nav_test_complete",
+   "ariaBefore": "false",
+   "ariaAfter": "true",
+   "found": true
+  },
+  {
+   "page": "lab",
+   "type": "no_js_nav",
+   "visible": true,
+   "linkCount": 8
+  },
+  {
+   "page": "shop",
+   "type": "mobile_nav_click",
+   "href": "http://localhost:18085/",
+   "navigated": true
+  },
+  {
+   "page": "shop",
+   "type": "mobile_nav_test_complete",
+   "ariaBefore": "false",
+   "ariaAfter": "true",
+   "found": true
+  },
+  {
+   "page": "shop",
+   "type": "no_js_nav",
+   "visible": true,
+   "linkCount": 8
+  },
+  {
+   "page": "routeros-winbox",
+   "type": "mobile_nav_click",
+   "href": "http://localhost:18085/",
+   "navigated": true
+  },
+  {
+   "page": "routeros-winbox",
+   "type": "mobile_nav_test_complete",
+   "ariaBefore": "false",
+   "ariaAfter": "true",
+   "found": true
+  },
+  {
+   "page": "routeros-winbox",
+   "type": "no_js_nav",
+   "visible": true,
+   "linkCount": 8
+  },
+  {
+   "page": "shop",
+   "uniqueImageUrls": 16,
+   "brokenImages": 0,
+   "brokenUrlList": []
+  }
+ ],
+ "summary": {
+  "total_issues": 0,
+  "unique_issue_types": []
+ }
+}

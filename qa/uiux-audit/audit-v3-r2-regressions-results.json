@@ -1,0 +1,247 @@
+{
+ "mode": "regressions",
+ "pages": 8,
+ "issues": [],
+ "http_fails": [],
+ "checked": [
+  {
+   "page": "homepage",
+   "vp": "375_light",
+   "type": "theme_toggle_real_exercise",
+   "darkBg": "rgb(11, 21, 33)",
+   "lightBg": "rgb(242, 244, 248)",
+   "meta": "#080f18"
+  },
+  {
+   "page": "homepage",
+   "type": "mobile_nav_navigation_verified",
+   "from": "/",
+   "to": "/learn/",
+   "href": "http://localhost:18085/learn/"
+  },
+  {
+   "page": "homepage",
+   "type": "mobile_nav_test_complete",
+   "ariaBefore": "false",
+   "ariaAfter": "true",
+   "escapeClosedFirst": true,
+   "links": 8
+  },
+  {
+   "page": "homepage",
+   "type": "no_js_nav",
+   "visible": true,
+   "linkCount": 8
+  },
+  {
+   "page": "services",
+   "vp": "375_light",
+   "type": "theme_toggle_real_exercise",
+   "darkBg": "rgb(11, 21, 33)",
+   "lightBg": "rgb(244, 246, 250)",
+   "meta": "#080f18"
+  },
+  {
+   "page": "services",
+   "type": "mobile_nav_navigation_verified",
+   "from": "/services/",
+   "to": "/",
+   "href": "http://localhost:18085/"
+  },
+  {
+   "page": "services",
+   "type": "mobile_nav_test_complete",
+   "ariaBefore": "false",
+   "ariaAfter": "true",
+   "escapeClosedFirst": true,
+   "links": 8
+  },
+  {
+   "page": "services",
+   "type": "no_js_nav",
+   "visible": true,
+   "linkCount": 8
+  },
+  {
+   "page": "contact",
+   "vp": "375_light",
+   "type": "theme_toggle_real_exercise",
+   "darkBg": "rgb(13, 23, 35)",
+   "lightBg": "rgb(242, 244, 248)",
+   "meta": "#080f18"
+  },
+  {
+   "page": "contact",
+   "type": "mobile_nav_navigation_verified",
+   "from": "/contact/",
+   "to": "/",
+   "href": "http://localhost:18085/"
+  },
+  {
+   "page": "contact",
+   "type": "mobile_nav_test_complete",
+   "ariaBefore": "false",
+   "ariaAfter": "true",
+   "escapeClosedFirst": true,
+   "links": 8
+  },
+  {
+   "page": "contact",
+   "type": "no_js_nav",
+   "visible": true,
+   "linkCount": 8
+  },
+  {
+   "page": "about",
+   "vp": "375_light",
+   "type": "theme_toggle_real_exercise",
+   "darkBg": "rgb(11, 21, 33)",
+   "lightBg": "rgb(244, 246, 250)",
+   "meta": "#080f18"
+  },
+  {
+   "page": "about",
+   "type": "mobile_nav_navigation_verified",
+   "from": "/about/",
+   "to": "/",
+   "href": "http://localhost:18085/"
+  },
+  {
+   "page": "about",
+   "type": "mobile_nav_test_complete",
+   "ariaBefore": "false",
+   "ariaAfter": "true",
+   "escapeClosedFirst": true,
+   "links": 8
+  },
+  {
+   "page": "about",
+   "type": "no_js_nav",
+   "visible": true,
+   "linkCount": 8
+  },
+  {
+   "page": "mtcna-hub",
+   "vp": "375_light",
+   "type": "theme_toggle_real_exercise",
+   "darkBg": "rgb(13, 23, 35)",
+   "lightBg": "rgb(244, 246, 250)",
+   "meta": "#080f18"
+  },
+  {
+   "page": "mtcna-hub",
+   "type": "mobile_nav_navigation_verified",
+   "from": "/learn/mikrotik/mtcna/",
+   "to": "/",
+   "href": "http://localhost:18085/"
+  },
+  {
+   "page": "mtcna-hub",
+   "type": "mobile_nav_test_complete",
+   "ariaBefore": "false",
+   "ariaAfter": "true",
+   "escapeClosedFirst": true,
+   "links": 8
+  },
+  {
+   "page": "mtcna-hub",
+   "type": "no_js_nav",
+   "visible": true,
+   "linkCount": 8
+  },
+  {
+   "page": "lab",
+   "vp": "375_light",
+   "type": "theme_toggle_real_exercise",
+   "darkBg": "rgb(13, 23, 35)",
+   "lightBg": "rgb(242, 244, 248)",
+   "meta": "#080f18"
+  },
+  {
+   "page": "lab",
+   "type": "mobile_nav_navigation_verified",
+   "from": "/lab/",
+   "to": "/",
+   "href": "http://localhost:18085/"
+  },
+  {
+   "page": "lab",
+   "type": "mobile_nav_test_complete",
+   "ariaBefore": "false",
+   "ariaAfter": "true",
+   "escapeClosedFirst": true,
+   "links": 8
+  },
+  {
+   "page": "lab",
+   "type": "no_js_nav",
+   "visible": true,
+   "linkCount": 8
+  },
+  {
+   "page": "shop",
+   "vp": "375_light",
+   "type": "theme_toggle_real_exercise",
+   "darkBg": "rgb(11, 21, 33)",
+   "lightBg": "rgb(245, 247, 251)",
+   "meta": "#080f18"
+  },
+  {
+   "page": "shop",
+   "type": "mobile_nav_navigation_verified",
+   "from": "/shop/",
+   "to": "/",
+   "href": "http://localhost:18085/"
+  },
+  {
+   "page": "shop",
+   "type": "mobile_nav_test_complete",
+   "ariaBefore": "false",
+   "ariaAfter": "true",
+   "escapeClosedFirst": true,
+   "links": 8
+  },
+  {
+   "page": "shop",
+   "type": "no_js_nav",
+   "visible": true,
+   "linkCount": 8
+  },
+  {
+   "page": "routeros-winbox",
+   "vp": "375_light",
+   "type": "theme_toggle_real_exercise",
+   "darkBg": "rgb(13, 23, 35)",
+   "lightBg": "rgb(242, 244, 248)",
+   "meta": "#080f18"
+  },
+  {
+   "page": "routeros-winbox",
+   "type": "mobile_nav_navigation_verified",
+   "from": "/learn/mikrotik/mtcna/routeros-winbox/",
+   "to": "/",
+   "href": "http://localhost:18085/"
+  },
+  {
+   "page": "routeros-winbox",
+   "type": "mobile_nav_test_complete",
+   "ariaBefore": "false",
+   "ariaAfter": "true",
+   "escapeClosedFirst": true,
+   "links": 8
+  },
+  {
+   "page": "routeros-winbox",
+   "type": "no_js_nav",
+   "visible": true,
+   "linkCount": 8
+  }
+ ],
+ "console_errors": [],
+ "summary": {
+  "total_issues": 0,
+  "blocking_http": 0,
+  "blocking": 0,
+  "unique_issue_types": []
+ }
+}
