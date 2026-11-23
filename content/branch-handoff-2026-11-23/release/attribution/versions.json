@@ -1,0 +1,24 @@
+{
+  "original": {
+    "assets/service-attribution.js": "50908f34a8380baf2b3e33f4325ce3c4385f6e357f9bc7448918e6e4735f6e6c",
+    "includes/class-tickets.php": "ff654e31ea59c1fa56b10bc48951975b185d29a83b7f98f025e015a095330ef4"
+  },
+  "split": {
+    "assets/service-attribution.js": "8bea2030151252cba9d26b72206fed465d5e65fdf2c854941cc3f6eae71db43f",
+    "includes/class-tickets.php": "4e312a201d75363212d7a071a40ca58a674734eb265f58447010a933cb1d7691"
+  },
+  "final": {
+    "assets/service-attribution.js": "a737923e28a1ed66a188316d140097b456bb6d5db475c4de5bdfdd510013701b",
+    "includes/class-tickets.php": "4e312a201d75363212d7a071a40ca58a674734eb265f58447010a933cb1d7691"
+  },
+  "patches": {
+    "original": {
+      "name": "form-attribution-combined.patch",
+      "sha256": "11a95626dd3d5a7158a97d92f8f220932dffa44a0b03911ca5186c1ca31173af"
+    },
+    "split": {
+      "name": "tehnet-chatgpt-referral-followup.patch",
+      "sha256": "050b316527dd28e688e205268871f569537b90a3fc33024b911de09d4a90631d"
+    }
+  }
+}

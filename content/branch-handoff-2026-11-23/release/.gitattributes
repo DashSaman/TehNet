@@ -1,0 +1,7 @@
+# Unified diff context uses a single space on empty context lines.
+*.patch -text whitespace=-blank-at-eol
+*.pdf binary
+*.html text eol=lf
+*.py text eol=lf
+*.json text eol=lf
+*.php text eol=lf

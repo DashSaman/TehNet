@@ -1,3 +1,7 @@
+## ۲۳ نوامبر ۲۰۲۶ · بستهٔ برگه‌های خدمات
+
+در وردپرس هم‌نسخه، مرورگر موبایل از راه‌اندازی و پشتیبانی به برگه، فایل PDF و فرم با موضوع درست رسید. مسیر میکروتیک، مقاله و جدول چهارردیفی هم بازخوانی شد. [راهنمای انتشار و برگشت چهار صفحه](content/branch-handoff-2026-11-23/release/README.fa.md)
+
 ## CURRENT — 2026-11-08؛ PR94 نسخهٔ دوم: خدمات و مقالات آماده، انتشار ممنوع تا تأیید
 **VERIFIED_STAGING_NOT_DEPLOYED**. [گزارش نهایی](seo/commercial-decision-2026-11-08-v2/report.fa.md)، [رسید](seo/commercial-decision-2026-11-08-v2/verification.json)، [صف کامل](content/commercial-decision-2026-11-08-v2/action-board.json)، [قبل/بعد](content/commercial-decision-2026-11-08-v2/before-after.json). سورس `ec7eb0a0f44305f3064ae7666106a0f4e4031c05`، [cloud42503696771](https://github.com/DashSaman/TehNet/actions/runs/42503696771) پذیرفته شد؛ ادامهٔ پایین این CURRENT سابقه است.
 

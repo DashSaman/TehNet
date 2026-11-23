@@ -1,0 +1,11 @@
+{
+  "path": "services/mikrotik-tehran",
+  "base_content_commit": "521a4dffab4e237e2d8a711cbf96d125290490b2",
+  "apply_after_body_sha256": "fca79ce0e212d51d094dd71e334ef389da465ff80e2c2433f7ef273322575348",
+  "after_body_sha256": "ebf8bd3cc08f851011484da6a19964e5952b5c3f858a6120d31ba1bae25b9fcf",
+  "replace_once": {
+    "before": "مسئول شبکه و نمایندهٔ شعبه نتیجهٔ آزمون دوباره را کنار هم ثبت کنند.</p>",
+    "after": "مسئول شبکه و نمایندهٔ شعبه نتیجهٔ آزمون دوباره را کنار هم ثبت کنند. اگر هنوز روش اتصال دو دفتر را انتخاب نکرده‌اید، <a href=\"/interbranch-link-decision/\">مقایسهٔ لینک مستقیم و اینترنت برای اتصال شعبه‌ها</a> را بخوانید.</p>"
+  },
+  "reverse_only_if_current_sha256": "ebf8bd3cc08f851011484da6a19964e5952b5c3f858a6120d31ba1bae25b9fcf"
+}
