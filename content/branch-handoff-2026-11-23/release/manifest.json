@@ -1,0 +1,27 @@
+{
+  "public_directory": "/wp-content/uploads/tehnet-worksheets/",
+  "files": {
+    "branch-acceptance.html": "a5465dde1a85ec5102e4a3bfb3524aeaf0468d1b7b4ccc53a5dbb0b4c9c612d8",
+    "branch-acceptance.pdf": "bba6dadaeed1c17a90fd8e74d0a6babb9ba7f46b503efa2d10b3dc27822a7d1d",
+    "monthly-support.html": "50333691f0099848ff30878d3e3c0217eb71447607ca0041b256df54ab3c148f",
+    "monthly-support.pdf": "b2b3a4dae6d4cfb8fa43756449d1dee1ad5968a37146c3e6f9bd80b3f550e5fe"
+  },
+  "bodies": {
+    "services/network-setup-tehran": {
+      "before": "7dc2056e31ba1d5c203929d8764d25617e1fddf838015f4dd10bc5e38a49d6e8",
+      "after": "752356176f93fae98789448b9dcd2664b5b816b526f43fa9cf49adf3f65f56e6"
+    },
+    "services/network-support-tehran": {
+      "before": "9041c16c0ea95f89fdaf6d3f521001966e0f312cd103800e2b98f25c253f2f46",
+      "after": "e4d2a8958889b76c612d2c9ea9bafb3ebe3fa25342ea71aaee000e7c9ea9909c"
+    },
+    "services/mikrotik-tehran": {
+      "before": "ab9d96e52fb50fc3f2d0f535d614c4d6dbd29395d10e32002f608b8cd7c950e7",
+      "after": "ebf8bd3cc08f851011484da6a19964e5952b5c3f858a6120d31ba1bae25b9fcf"
+    },
+    "interbranch-link-decision": {
+      "before": "bcbc24439a49c9b6e6fc1d73c6501cf72238437cf60270adbc7172bc33a32ec6",
+      "after": "e30834c1df19dfee41d2e0dfd5db9045c7b0e8aa9da569df96f6b443923d7918"
+    }
+  }
+}

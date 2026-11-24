@@ -1,0 +1,19 @@
+{
+  "source_url": "https://tehnet.ir/interbranch-link-decision/",
+  "expected_source_body_sha256": "bcbc24439a49c9b6e6fc1d73c6501cf72238437cf60270adbc7172bc33a32ec6",
+  "expected_updated_source_body_sha256": "823326b138b10e2c78a728c94bb45005a286bf6883dfd05f947bcad5103b2b71",
+  "replace_once": {
+    "before": "<a href=\"/services/network-setup-tehran/\">خدمت راه‌اندازی شبکه</a>",
+    "after": "<a href=\"/services/network-setup-tehran/#branch-handoff-checklist\">چک‌لیست تحویل ارتباط شعب</a>"
+  },
+  "destination_url": "https://tehnet.ir/services/network-setup-tehran/#branch-handoff-checklist",
+  "existing_cta_href": "/services/?tn_service_context=network-setup#service-request",
+  "release_checks": [
+    "در staging هم‌نسخه، هش بدنهٔ هر دو صفحه و یکتایی متن پیوند را پیش از تغییر بررسی کنید.",
+    "ابتدا جدول مقصد را درج کنید. سپس پیوند مقاله را یک بار جایگزین کنید و در مرورگر از مقاله به همان جدول بروید.",
+    "جدول باید چهار ردیف و دو سرستون داشته باشد. در موبایل سرریز افقی کل صفحه بررسی شود.",
+    "پیوند استعلام فعلی باید موضوع راه‌اندازی شبکه را در فرم انتخاب کند. روی تولید فرم ارسال نشود.",
+    "پاسخ عمومی هر دو صفحه، canonical و robots با خط مبنا تطبیق داده شوند.",
+    "در برگشت، اول پیوند مقاله و سپس بدنهٔ صفحهٔ خدمت را برگردانید و برابری هر دو هش پایه را بسنجید."
+  ]
+}

@@ -1,3 +1,11 @@
+## ۲۴ نوامبر ۲۰۲۶ · مسیر خرید خدمات و نقشهٔ وردپرس
+
+برای بازخوانی عمومی، ابتدا رسید ظرفیت و بازیابی را دریافت و هش زنده را با پایه تطبیق دهید. [نسخه، آزمون و برگشت](content/service-buyers-2026-11-24/README.fa.md)
+
+## ۲۳ نوامبر ۲۰۲۶ · بستهٔ برگه‌های خدمات
+
+دو برگهٔ خدمات، PDFها، چهار بدنه و وصلهٔ جداگانهٔ منبع فرم آماده‌اند. [راهنمای انتشار و برگشت چهار صفحه](content/branch-handoff-2026-11-23/release/README.fa.md) ترتیب انتشار و کنترل هش را مشخص می‌کند. انتشار وابسته به بکاپ تازه، بازیابی مستقل و ۵۰٪ فضای آزاد پس از بکاپ هر دو دامنه است.
+
 ## CURRENT — 2026-11-08؛ PR94 نسخهٔ دوم: خدمات و مقالات آماده، انتشار ممنوع تا تأیید
 **VERIFIED_STAGING_NOT_DEPLOYED**. [گزارش نهایی](seo/commercial-decision-2026-11-08-v2/report.fa.md)، [رسید](seo/commercial-decision-2026-11-08-v2/verification.json)، [صف کامل](content/commercial-decision-2026-11-08-v2/action-board.json)، [قبل/بعد](content/commercial-decision-2026-11-08-v2/before-after.json). سورس `ec7eb0a0f44305f3064ae7666106a0f4e4031c05`، [cloud42503696771](https://github.com/DashSaman/TehNet/actions/runs/42503696771) پذیرفته شد؛ ادامهٔ پایین این CURRENT سابقه است.
 

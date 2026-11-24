@@ -1,0 +1,12 @@
+{
+  "scope": "existing-network-setup-branch-handoff-only",
+  "url": "https://tehnet.ir/services/network-setup-tehran/",
+  "base_main": "8b90459d71b4350e6b0909aedfd67defd408db6f",
+  "expected_live_body_sha256": "7dc2056e31ba1d5c203929d8764d25617e1fddf838015f4dd10bc5e38a49d6e8",
+  "anchor_before": "branch-connectivity-brief",
+  "after_heading": "تحویل را با کارکرد برنامه و مسیر برگشت بسنجیم",
+  "after_block": "core/list",
+  "fragment": "branch-handoff-checklist",
+  "payload": "branch-handoff.html",
+  "payload_sha256": "fb87c697c13a634aae76f823532bbc59f9edef392695f2ca6397663f74ae047c"
+}

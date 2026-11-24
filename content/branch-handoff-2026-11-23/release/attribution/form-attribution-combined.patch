@@ -1,0 +1,104 @@
+diff --git a/site/plugins/tehnet-store/assets/service-attribution.js b/site/plugins/tehnet-store/assets/service-attribution.js
+index 7cfd7c0..0ab8b3a 100644
+--- a/site/plugins/tehnet-store/assets/service-attribution.js
++++ b/site/plugins/tehnet-store/assets/service-attribution.js
+@@ -2,24 +2,53 @@
+   'use strict';
+ 
+   const storageKey = 'tn-service-entry';
+-  const medium = new URLSearchParams(location.search).get('utm_medium')?.trim().toLowerCase();
+-  let source;
++  const tags = new URLSearchParams(location.search);
++  const medium = tags.get('utm_medium')?.trim().toLowerCase();
++  const taggedSource = tags.get('utm_source')?.trim().toLowerCase();
++  const referrer = document.referrer ? new URL(document.referrer) : null;
++  const host = referrer?.hostname.replace(/^www\./, '');
++  // Known Google Search domains from google.com/supported_domains, kept locally.
++  const googleSuffixes = new Set([
++    'ad ae al am as at az ba be bf bg bi bj bs bt by ca cat cd cf cg ch ci cl cm cn co.ao co.bw co.ck',
++    'co.cr co.id co.il co.in co.jp co.ke co.kr co.ls co.ma co.mz co.nz co.th co.tz co.ug co.uk co.uz',
++    'co.ve co.vi co.za co.zm co.zw com com.af com.ag com.ar com.au com.bd com.bh com.bn com.bo com.br',
++    'com.bz com.co com.cu com.cy com.do com.ec com.eg com.et com.fj com.gh com.gi com.gt com.hk com.jm',
++    'com.kh com.kw com.lb com.ly com.mm com.mt com.mx com.my com.na com.ng com.ni com.np com.om com.pa',
++    'com.pe com.pg com.ph com.pk com.pr com.py com.qa com.sa com.sb com.sg com.sl com.sv com.tj com.tr',
++    'com.tw com.ua com.uy com.vc com.vn cv cz de dj dk dm dz ee es fi fm fr ga ge gg gl gm gr gy hn hr ht',
++    'hu ie im iq is it je jo kg ki kz la li lk lt lu lv md me mg mk ml mn mu mv mw ne nl no nr nu pl pn',
++    'ps pt ro rs ru rw sc se sh si sk sm sn so sr st td tg tl tm tn to tt vu ws',
++  ].join(' ').split(' '));
++
++  let searchSource;
++  if (host?.startsWith('google.') && googleSuffixes.has(host.slice(7))) {
++    searchSource = 'google-organic';
++  } else if (host === 'bing.com') {
++    searchSource = 'bing-organic';
++  }
+ 
+-  if (medium === 'organic') {
+-    source = 'organic-search';
++  let source;
++  if (['gclid', 'gbraid', 'wbraid', 'msclkid'].some(key => tags.has(key))) {
++    source = 'campaign';
++  } else if (medium === 'organic') {
++    if (taggedSource === 'google' || taggedSource === 'bing') {
++      source = taggedSource + '-organic';
++    } else {
++      source = taggedSource ? 'organic-search' : (searchSource ?? 'organic-search');
++    }
+   } else if (medium === 'social' || medium === 'social-media') {
+     source = 'social';
+-  } else if (['email', 'newsletter', 'campaign', 'cpc', 'paid', 'paid-social'].includes(medium)) {
++  } else if (['email', 'newsletter', 'campaign', 'cpc', 'paid', 'paid-social', 'ppc', 'paid-search', 'paidsearch', 'cpm'].includes(medium)) {
+     source = 'campaign';
+-  } else if (document.referrer) {
+-    const referrer = new URL(document.referrer);
+-    const host = referrer.hostname;
++  } else if (!referrer && taggedSource === 'chatgpt.com' && (!medium || medium === 'referral')) {
++    source = 'ai-referral';
++  } else if (referrer) {
+     if (referrer.origin !== location.origin) {
+-      if (['chatgpt.com', 'chat.openai.com', 'perplexity.ai', 'claude.ai', 'gemini.google.com', 'copilot.microsoft.com'].includes(host)
+-        || host === 'www.perplexity.ai') {
++      if (['chatgpt.com', 'chat.openai.com', 'perplexity.ai', 'claude.ai', 'gemini.google.com', 'copilot.microsoft.com'].includes(host)) {
+         source = 'ai-referral';
+-      } else if (/^(?:www\.)?google\.(?:com|[a-z]{2}|(?:co|com)\.[a-z]{2})$/.test(host)
+-        || /^(?:www\.)?(?:bing\.com|duckduckgo\.com|search\.yahoo\.com|yandex\.(?:com|ru))$/.test(host)) {
++      } else if (searchSource) {
++        source = searchSource;
++      } else if (['duckduckgo.com', 'search.yahoo.com', 'yandex.com', 'yandex.ru'].includes(host)) {
+         source = 'organic-search';
+       } else if (/(?:^|\.)(?:linkedin\.com|instagram\.com|facebook\.com|x\.com|t\.co|t\.me|youtube\.com)$/.test(host)) {
+         source = 'social';
+diff --git a/site/plugins/tehnet-store/includes/class-tickets.php b/site/plugins/tehnet-store/includes/class-tickets.php
+index 15565a5..065d5fb 100644
+--- a/site/plugins/tehnet-store/includes/class-tickets.php
++++ b/site/plugins/tehnet-store/includes/class-tickets.php
+@@ -7,7 +7,9 @@ final class TehNet_Store_Tickets {
+     private const PAGE_SLUG='support';
+     public const STATES=['open','answered','closed'];
+     private const SERVICE_SOURCES = [
+-        'organic-search' => 'جستجوی وب',
++        'google-organic' => 'جست‌وجوی گوگل',
++        'bing-organic' => 'جست‌وجوی بینگ',
++        'organic-search' => 'جست‌وجوی دیگر یا موتور نامشخص',
+         'ai-referral' => 'پاسخ‌گوی هوش مصنوعی',
+         'social' => 'شبکه‌های اجتماعی',
+         'campaign' => 'پیوند کمپین',
+@@ -18,7 +20,7 @@ final class TehNet_Store_Tickets {
+         'home', 'services', 'services/voice-network-readiness', 'services/remote-support',
+         'services/mikrotik-tehran', 'services/network-setup-tehran', 'services/network-support-tehran',
+         'services/network-tehran', 'about', 'contact', 'technical-methodology',
+-        'network-support-contract-guide', 'network-project-proposal-checklist',
++        'network-support-contract-guide', 'network-project-proposal-checklist', 'interbranch-link-decision',
+     ];
+ 
+     /** Only supported infrastructure intents may prefill the existing ticket intake. */
+@@ -105,6 +107,9 @@ final class TehNet_Store_Tickets {
+ 
+     public function enqueue_service_attribution(): void {
+         $landing = is_front_page() ? 'home' : (is_page() ? get_page_uri(get_queried_object_id()) : '');
++        if (is_singular('post') && get_post_field('post_name', get_queried_object_id()) === 'interbranch-link-decision') {
++            $landing = 'interbranch-link-decision';
++        }
+         if (!in_array($landing, self::SERVICE_LANDINGS, true)) {
+             return;
+         }
