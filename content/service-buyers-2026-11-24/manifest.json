@@ -1,0 +1,88 @@
+{
+  "bodies": {
+    "services": {
+      "post_type": "page",
+      "before": "d42bbd0faa6a2b66d4255adc758571795da6658316148a925160b74f9e1368b0",
+      "after": "9153eacc3c63537a976863f7744d7fc077fb8a34354d892c209bfbe7357e6d06",
+      "before_block": "id=\"service-catalog\"",
+      "fragment": "blocks/services.html"
+    },
+    "services/network-tehran": {
+      "post_type": "page",
+      "before": "16b9789a148a48da56b3353ab982c7030105f3b0cadc1d9fd4d025860d4ebe26",
+      "after": "1c04db71b67fbec73c4c686b14cbab4c11b4f2c61cf5b4e3ac7de104b730d391",
+      "before_block": "فرایند بررسی درخواست</h2>",
+      "fragment": "blocks/network-tehran.html"
+    },
+    "services/network-setup-tehran": {
+      "post_type": "page",
+      "before": "752356176f93fae98789448b9dcd2664b5b816b526f43fa9cf49adf3f65f56e6",
+      "after": "b7f9863f77efbe43b6ba0768b1fb3ef1f3c21011888dffd3ee546c9d16625cf9",
+      "before_block": "برای یک برآورد قابل بررسی چه اطلاعاتی لازم است؟</h3>",
+      "fragment": "blocks/network-setup-tehran.html"
+    },
+    "services/network-support-tehran": {
+      "post_type": "page",
+      "before": "e4d2a8958889b76c612d2c9ea9bafb3ebe3fa25342ea71aaee000e7c9ea9909c",
+      "after": "d52cfabbce31ce6f0dc45239f0a27e63c329256ec473a95fad577ce0fb19fb15",
+      "before_block": "id=\"support-agreement\"",
+      "fragment": "blocks/network-support-tehran.html"
+    },
+    "services/mikrotik-tehran": {
+      "post_type": "page",
+      "before": "ebf8bd3cc08f851011484da6a19964e5952b5c3f858a6120d31ba1bae25b9fcf",
+      "after": "a276f39836e75b7f1f8eac4f6510671a109dcf682306ebbf94e022dde0591c45",
+      "before_block": "id=\"change-acceptance\"",
+      "fragment": "blocks/mikrotik-tehran.html"
+    },
+    "interbranch-link-decision": {
+      "post_type": "post",
+      "before": "e30834c1df19dfee41d2e0dfd5db9045c7b0e8aa9da569df96f6b443923d7918",
+      "after": "d8f35d555a09a51d30a4952cc537494496b7778741dbf875dd2d7308e2ae375f",
+      "before_block": "چطور بفهمیم درست کار می‌کند؟</h2>",
+      "fragment": "blocks/interbranch-link-decision.html"
+    },
+    "services/remote-support": {
+      "post_type": "page",
+      "before": "2f5210b20f6d51559aee901c5a9d56120ff16b150b8c28e95516f646fe0d866c",
+      "after": "361fcb63cac1a92ddea33c2f95ca5d9dd7c7201473918b0af3fba7458ec80d9a",
+      "before_block": "id=\"before-connection\"",
+      "fragment": "blocks/remote-support.html"
+    },
+    "services/voice-network-readiness": {
+      "post_type": "page",
+      "before": "7f384153b9140fe60db47dca2690ebd1e6e85ff8a16637745d12e7f23844a915",
+      "after": "622781a47ce0ec948db3aa34dd58e2470fa3216ac7433ce8d2178b38a62b5152",
+      "before_block": "خروجی بررسی و بازگشت تغییر</h2>",
+      "fragment": "blocks/voice-network-readiness.html"
+    },
+    "network-support-contract-guide": {
+      "post_type": "page",
+      "before": "4cedcebfc56f6af5adff7afc9e6b3b3b7dbd070d37d5305950c74520d1972650",
+      "after": "c1b15aaf6205c07384638bf659fccd3ea10237dab0ff66ccb5f8a463fe440c64",
+      "before_block": "چه چیزهایی را قبل از مقایسهٔ قیمت بپرسیم؟</h2>",
+      "fragment": "blocks/network-support-contract-guide.html"
+    },
+    "fileserver-network-vs-storage-performance": {
+      "post_type": "post",
+      "before": "7bc960f7bafa542835936873031060df176948e278b5028a91473846af0007d8",
+      "after": "9e7a339d09084dc963c68d2a1b0e84e7bb2e83041c1c7cf9feae96dab866a96f",
+      "before_block": "چطور نتیجه را ببینیم؟</h2>",
+      "fragment": "blocks/fileserver-network-vs-storage-performance.html"
+    },
+    "learn/mikrotik/dhcp-dns-troubleshooting": {
+      "post_type": "page",
+      "before": "557d536f03a45bcdcdba1493aecd9102fbd5c16be04fb6d864d1099704d0c2e8",
+      "after": "93d3bc9cb7661715a20a1e246d45da88826aa23285bbc97bd749b71247038a9a",
+      "before_block": "[tn_editorial_note]",
+      "fragment": "blocks/dhcp-dns-troubleshooting.html"
+    },
+    "cabling-proposal-apples-to-apples": {
+      "post_type": "post",
+      "before": "1f5ffe24893fdb26a892a3dbd6de22f1c544bd0b24acc407a9fe1d6bc0387e0e",
+      "after": "5b20ad98e201bb44de4d68bd93b7427ea34a06bb3ee83dc8c80f25b0d6d2f3ec",
+      "before_block": "چطور نتیجه را ببینیم؟</h2>",
+      "fragment": "blocks/cabling-proposal-apples-to-apples.html"
+    }
+  }
+}

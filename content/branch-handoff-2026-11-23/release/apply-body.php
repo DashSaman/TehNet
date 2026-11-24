@@ -4,7 +4,7 @@ if (PHP_SAPI !== 'cli' || $argc !== 5) {
     fwrite(STDERR, "Usage: php apply-body.php manifest.json private-body-directory path apply|revert\n");
     exit(2);
 }
-require '/var/www/html/wp-load.php';
+require (defined('ABSPATH') ? ABSPATH : '/var/www/html/') . 'wp-load.php';
 [, $manifestFile, $directory, $path, $action] = $argv;
 if (!in_array($action, ['apply', 'revert'], true)) {
     throw new RuntimeException('Unknown action');
@@ -23,7 +23,11 @@ $fixture = wp_get_environment_type() === 'local' && DB_NAME === 'tn_training';
 if (!$fixture && wp_parse_url(home_url(), PHP_URL_HOST) !== 'tehnet.ir') {
     throw new RuntimeException('Unexpected WordPress site');
 }
-$id = get_page_by_path($path, OBJECT, str_contains($path, '/') ? 'page' : 'post')->ID ?? 0;
+$type = $spec['post_type'] ?? (str_contains($path, '/') ? 'page' : 'post');
+if (!in_array($type, ['page', 'post'], true)) {
+    throw new RuntimeException('Invalid body type');
+}
+$id = get_page_by_path($path, OBJECT, $type)->ID ?? 0;
 if (!$id) {
     throw new RuntimeException('Missing page');
 }
